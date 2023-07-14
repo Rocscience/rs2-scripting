@@ -1,6 +1,6 @@
-from ProxyObject import ProxyObject
+from rs2.ProxyObject import ProxyObject
 from enum import Enum
-import Client
+from rs2 import Client
 class PropertyProxy(ProxyObject):
 	def __init__(self, server : Client.Client, ID, documentProxyID) :
 		self.documentProxyID = documentProxyID
@@ -29,10 +29,10 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEBoltModelsProperty", [propertyName])
 	def _validateAndSetEnumEBoltModelsProperty(self, propertyName: str, value):
 		return self._callFunction("validateAndSetEnumEBoltModelsProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
-	def _getEnumEBulgeTypeProperty(self, propertyName: str):
-		return self._callFunction("getEnumEBulgeTypeProperty", [propertyName])
-	def _validateAndSetEnumEBulgeTypeProperty(self, propertyName: str, value):
-		return self._callFunction("validateAndSetEnumEBulgeTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEBulgeTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumEBulgeTypesProperty", [propertyName])
+	def _validateAndSetEnumEBulgeTypesProperty(self, propertyName: str, value):
+		return self._callFunction("validateAndSetEnumEBulgeTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getIntProperty(self, propertyName: str):
 		return self._callFunction("getIntProperty", [propertyName])
 	def _validateAndSetIntProperty(self, propertyName: str, value):

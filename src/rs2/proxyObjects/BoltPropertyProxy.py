@@ -1,4 +1,4 @@
-from proxyObjects.propertyProxy import PropertyProxy
+from rs2.proxyObjects.propertyProxy import PropertyProxy
 from enum import Enum, auto
 from typing import List
 class BoltProperty(PropertyProxy):
@@ -129,9 +129,9 @@ class BoltProperty(PropertyProxy):
 	def setAddBulges(self, value: bool):
 		return self._validateAndSetBoolProperty("BP_ADD_BULGES", value)
 	def getBulgeType(self) -> BulgeTypes:
-		return self.BulgeTypes(self._getEnumEBulgeTypeProperty("BP_BULGE_TYPE"))
+		return self.BulgeTypes(self._getEnumEBulgeTypesProperty("BP_BULGE_TYPE"))
 	def setBulgeType(self, value: BulgeTypes):
-		return self._validateAndSetEnumEBulgeTypeProperty("BP_BULGE_TYPE", value)
+		return self._validateAndSetEnumEBulgeTypesProperty("BP_BULGE_TYPE", value)
 	def getUseBondPercentageLength(self) -> bool:
 		return self._getBoolProperty("BP_USE_BOND_PERCENTAGE_LENGTH")
 	def setUseBondPercentageLength(self, value: bool):
@@ -176,3 +176,9 @@ class BoltProperty(PropertyProxy):
 		return self._getDoubleProperty("BP_BOND_SHEAR_STIFF_COEFFICIENT")
 	def setBondShearStiffnessCoefficient(self, value: float):
 		return self._validateAndSetDoubleProperty("BP_BOND_SHEAR_STIFF_COEFFICIENT", value)
+	
+	def setBulgeLocations(self, value: List[float]):
+		return self._callFunction("set_bulge_locations", [value])
+
+	def getBulgeLocations(self):
+		return self._callFunction("get_bulge_locations_ref")

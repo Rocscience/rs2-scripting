@@ -1,4 +1,4 @@
-from RS2Modeler import RS2Modeler
+from rs2.RS2Modeler import RS2Modeler
 
 modeler = RS2Modeler()
 

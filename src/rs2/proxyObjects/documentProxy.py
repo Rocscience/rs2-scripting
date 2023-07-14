@@ -1,4 +1,4 @@
-from ProxyObject import ProxyObject
+from rs2.ProxyObject import ProxyObject
 
 class DocumentProxy(ProxyObject):
-    pass
+	pass
