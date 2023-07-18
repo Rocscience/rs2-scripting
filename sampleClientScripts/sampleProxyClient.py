@@ -12,28 +12,28 @@ print(bolt.getBoltType())
 bolt.setBoltName("test1")
 print(bolt.getBoltName())
 
-bolt.setBoltDiameter(24)
+bolt.setBoltDiameter(23)
 print(bolt.getBoltDiameter())
 
-bolt.setBoltModulusE(202000)
+bolt.setBoltModulusE(201000)
 print(bolt.getBoltModulusE())
 
-bolt.setTensileCapacity(0.3)
+bolt.setTensileCapacity(0.2)
 print(bolt.getTensileCapacity())
 
-bolt.setResidualTensileCapacity(0.0332)
+bolt.setResidualTensileCapacity(0.0232)
 print(bolt.getResidualTensileCapacity())
 
-bolt.setOutofPlaneSpacing(9)
+bolt.setOutofPlaneSpacing(8)
 print(bolt.getOutofPlaneSpacing())
 
-bolt.setPreTensioningForce(2)
+bolt.setPreTensioningForce(1)
 print(bolt.getPreTensioningForce())
 
-bolt.setConstantPretensioningForceInInstallStage(True)
+bolt.setConstantPretensioningForceInInstallStage(False)
 print(bolt.getConstantPretensioningForceInInstallStage())
 
-bolt.setJointShear(True)
+bolt.setJointShear(False)
 print(bolt.getJointShear())
 
 liner.setPoissonsRatio(0.49)
