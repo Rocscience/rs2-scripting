@@ -61,3 +61,4 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEStaticWaterModesProperty", [propertyName])
 	def _validateAndSetEnumEStaticWaterModesProperty(self, propertyName: str, value):
 		return self._callFunction("validateAndSetEnumEStaticWaterModesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	
