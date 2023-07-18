@@ -41,3 +41,23 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumESecondaryBondLengthTypeProperty", [propertyName])
 	def _validateAndSetEnumESecondaryBondLengthTypeProperty(self, propertyName: str, value):
 		return self._callFunction("validateAndSetEnumESecondaryBondLengthTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumELinerTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumELinerTypesProperty", [propertyName])
+	def _validateAndSetEnumELinerTypesProperty(self, propertyName: str, value):
+		return self._callFunction("validateAndSetEnumELinerTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEMaterialAnalysisTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumEMaterialAnalysisTypesProperty", [propertyName])
+	def _validateAndSetEnumEMaterialAnalysisTypesProperty(self, propertyName: str, value):
+		return self._callFunction("validateAndSetEnumEMaterialAnalysisTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEGeometryChoiceProperty(self, propertyName: str):
+		return self._callFunction("getEnumEGeometryChoiceProperty", [propertyName])
+	def _validateAndSetEnumEGeometryChoiceProperty(self, propertyName: str, value):
+		return self._callFunction("validateAndSetEnumEGeometryChoiceProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumELinerFormulationProperty(self, propertyName: str):
+		return self._callFunction("getEnumELinerFormulationProperty", [propertyName])
+	def _validateAndSetEnumELinerFormulationProperty(self, propertyName: str, value):
+		return self._callFunction("validateAndSetEnumELinerFormulationProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEStaticWaterModesProperty(self, propertyName: str):
+		return self._callFunction("getEnumEStaticWaterModesProperty", [propertyName])
+	def _validateAndSetEnumEStaticWaterModesProperty(self, propertyName: str, value):
+		return self._callFunction("validateAndSetEnumEStaticWaterModesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])

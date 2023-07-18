@@ -1,6 +1,7 @@
 from rs2.ProxyObject import ProxyObject
 from rs2.proxyObjects.documentProxy import DocumentProxy
 from rs2.proxyObjects.BoltPropertyProxy import BoltProperty
+from rs2.proxyObjects.LinerPropertyProxy import LinerProperty
 
 class ModelProxy(ProxyObject):
 
@@ -15,6 +16,10 @@ class ModelProxy(ProxyObject):
 	def getFirstBolt(self) -> BoltProperty:
 		boltObjectID = self._callFunction('getFirstBolt', [], keepReturnValueReference=True)
 		return BoltProperty(self._client, boltObjectID, self._documentProxy._ID)
+	
+	def getLinerByName(self, linerName : str) -> LinerProperty:
+		linerObjectID = self._callFunction('getLinerByName', [linerName], keepReturnValueReference=True)
+		return LinerProperty(self._client, linerObjectID, self._documentProxy._ID)
 	
 	def saveAndCompute(self, ignoreBernoulliLinerWarning = False, ignoreDynamicBCWarning = False):
 		'''

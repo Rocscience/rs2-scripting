@@ -15,11 +15,9 @@ class BoltProperty(PropertyProxy):
 		P2_BOLT_TIEBACK_SECONDARY_PERCENT = "P2_BOLT_TIEBACK_SECONDARY_PERCENT"
 		P2_BOLT_TIEBACK_SECONDARY_PHYSICAL = "P2_BOLT_TIEBACK_SECONDARY_PHYSICAL"
 		P2_BOLT_TIEBACK_SECONDARY_FULLY = "P2_BOLT_TIEBACK_SECONDARY_FULLY"
-		NUM_TIEBACK_SECONDARY_TYPE = "NUM_TIEBACK_SECONDARY_TYPE"
 	class BoltModels(Enum):
 		P2_BOLT_PLASTIC = "P2_BOLT_PLASTIC"
 		P2_BOLT_ELASTIC = "P2_BOLT_ELASTIC"
-		NUM_BOLT_MODELS = "NUM_BOLT_MODELS"
 	def getBoltName(self) -> str:
 		return self._getCStringProperty("BP_NAME")
 	def setBoltName(self, value: str):
@@ -176,9 +174,10 @@ class BoltProperty(PropertyProxy):
 		return self._getDoubleProperty("BP_BOND_SHEAR_STIFF_COEFFICIENT")
 	def setBondShearStiffnessCoefficient(self, value: float):
 		return self._validateAndSetDoubleProperty("BP_BOND_SHEAR_STIFF_COEFFICIENT", value)
-	
+
 	def setBulgeLocations(self, value: List[float]):
 		return self._callFunction("set_bulge_locations", [value])
 
 	def getBulgeLocations(self):
 		return self._callFunction("get_bulge_locations_ref")
+	
