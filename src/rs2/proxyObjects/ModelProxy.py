@@ -13,6 +13,11 @@ class ModelProxy(ProxyObject):
 		return DocumentProxy(self._client, documentObjectID)
     
 	def getBoltByName(self, boltName : str) -> BoltProperty:
+
+		'''
+		Returns a Bolt object based on its name.
+		'''
+
 		boltObjectID = self._callFunction('getBoltByName', [boltName], keepReturnValueReference=True)
 		return BoltProperty(self._client, boltObjectID, self._documentProxy._ID)
     
