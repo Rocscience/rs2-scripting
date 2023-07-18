@@ -11,10 +11,6 @@ class ModelProxy(ProxyObject):
 	def _getDocument(self):
 		documentObjectID = self._callFunction('getDocument', [], keepReturnValueReference=True)
 		return DocumentProxy(self._client, documentObjectID)
-
-	def getFirstBolt(self) -> BoltProperty:
-		boltObjectID = self._callFunction('getFirstBolt', [], keepReturnValueReference=True)
-		return BoltProperty(self._client, boltObjectID, self._documentProxy._ID)
     
 	def getBoltByName(self, boltName : str) -> BoltProperty:
 		boltObjectID = self._callFunction('getBoltByName', [boltName], keepReturnValueReference=True)
