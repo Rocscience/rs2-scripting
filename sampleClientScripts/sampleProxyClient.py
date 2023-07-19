@@ -3,13 +3,13 @@ from rs2.RS2Modeler import RS2Modeler
 modeler = RS2Modeler()
 
 model = modeler.openFile(r"C:\Intel\simple_3_stage.fez")
-bolt = model.getFirstBolt()
+bolt = model.getBoltByName("Bolt 2")
 liner = model.getLinerByName("Liner 3")
 
 bolt.setBoltType(bolt.BoltTypes.FULLY_BONDED)
 print(bolt.getBoltType())
 
-bolt.setBoltName("test1")
+bolt.setBoltName("test2")
 print(bolt.getBoltName())
 
 bolt.setBoltDiameter(23)
