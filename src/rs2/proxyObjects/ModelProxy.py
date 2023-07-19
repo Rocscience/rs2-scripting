@@ -11,11 +11,16 @@ class ModelProxy(ProxyObject):
 	def _getDocument(self):
 		documentObjectID = self._callFunction('getDocument', [], keepReturnValueReference=True)
 		return DocumentProxy(self._client, documentObjectID)
+    
+	def getBoltByName(self, boltName : str) -> BoltProperty:
 
-	def getFirstBolt(self) -> BoltProperty:
-		boltObjectID = self._callFunction('getFirstBolt', [], keepReturnValueReference=True)
+		'''
+		Returns a Bolt object based on its name.
+		'''
+
+		boltObjectID = self._callFunction('getBoltByName', [boltName], keepReturnValueReference=True)
 		return BoltProperty(self._client, boltObjectID, self._documentProxy._ID)
-	
+    
 	def saveAndCompute(self, ignoreBernoulliLinerWarning = False, ignoreDynamicBCWarning = False):
 		'''
 		Saves the file and then Runs compute.
