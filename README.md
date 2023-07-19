@@ -11,7 +11,7 @@ Following the steps to this guide: https://packaging.python.org/en/latest/tutori
 ```pip install keyring artifacts-keyring```
 - A 'dist' folder should be generated with a .whl file. You can then run the command below to install the project and its dependencies  
 ```pip install -r requirements.txt```  
- - If the client library has been altered or updated, run the command below to force reinstallation of the packages so that your environment is up to date. 
+ - If the client library has been altered or updated, run the command below to force reinstallation of the packages so that your environment is up to date.   
 ```pip install -r requirements.txt --force-reinstall```
 
 # Contribute
