@@ -9,9 +9,10 @@ Following the steps to this guide: https://packaging.python.org/en/latest/tutori
 ```python -m build```
 - Run the command below. After installing, a code will be displayed in the terminal. Using a web browser, go to www.microsoft.com/devicelogin, where you will be prompted to enter the code.
 ```pip install keyring artifacts-keyring```
-- A 'dist' folder should be generated with a .whl file. You can then run  
+- A 'dist' folder should be generated with a .whl file. You can then run the command below to install the project and its dependencies
 ```pip install -r requirements.txt```  
- to install the project and its dependencies   
+ - If the client library has been altered or updated, run the command below to force reinstallation of the packages so that your environment is up to date. 
+```pip install -r requirements.txt --force-reinstall```
 
 # Contribute
 - Make change to .py file  
