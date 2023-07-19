@@ -23,7 +23,7 @@ class ModelProxy(ProxyObject):
     
 	def saveAndCompute(self, ignoreBernoulliLinerWarning = False, ignoreDynamicBCWarning = False):
 		'''
-        Saves the file and then Runs compute.
+		Saves the file and then Runs compute.
 
 		ignoreBernoulliLinerWarning and ignoreDynamicBCWarning are optional flags to bypass warnings. Only use them if you know what you are doing!
 		'''
