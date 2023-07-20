@@ -4,6 +4,7 @@ modeler = RS2Modeler()
 
 model = modeler.openFile(r"C:\Intel\simple_3_stage.fez")
 bolt = model.getBoltByName("Bolt 2")
+liner = model.getLinerByName("Liner 3")
 
 bolt.setBoltType(bolt.BoltTypes.FULLY_BONDED)
 print(bolt.getBoltType())
@@ -35,7 +36,43 @@ print(bolt.getConstantPretensioningForceInInstallStage())
 bolt.setJointShear(False)
 print(bolt.getJointShear())
 
-#model.saveAndCompute()
+liner.setPoissonsRatio(0.49)
+print(liner.getPoissonsRatio())
+
+liner.setLinerType(liner.LinerTypes.P2_LINER_STANDARD_BEAM)
+print(liner.getLinerType())
+
+liner.setMethod(liner.GeometryChoice.LNP_USE_AREA)
+print(liner.getMethod())
+
+liner.setMethod(liner.GeometryChoice.LNP_USE_THICKNESS)
+print(liner.getMethod())
+
+liner.setThickness(20)
+print(liner.getThickness())
+
+#Thermal needs to be set to steady state for the following
+#-------------------------------------------------------
+
+liner.setActivateThermal(True)
+print(liner.getActivateThermal())
+
+liner.setStaticTemperatureMode(liner.StaticWaterModes.SWM_GRID)
+print(liner.getStaticTemperatureMode())
+
+liner.setStaticTemperatureGridToUse("Default Grid")
+print(liner.getStaticTemperatureGridToUse())
+
+liner.setThermalExpansion(True)
+print(liner.getThermalExpansion())
+
+liner.setExpansionCoefficient(2)
+print(liner.getExpansionCoefficient())
+
+
+#-------------------------------------------------------
+
+# model.saveAndCompute()
 
 # The following functions show the save and compute functionality.
 
