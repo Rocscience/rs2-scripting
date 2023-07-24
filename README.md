@@ -14,8 +14,19 @@ Following the steps to this guide: https://packaging.python.org/en/latest/tutori
  - If the client library has been altered or updated, run the command below to force reinstallation of the packages so that your environment is up to date.   
 ```pip install -r requirements.txt --force-reinstall```
 
+# Documentation
+The following steps can be taken to regenerate the RS2 Scripting Documentation
+-Create python a virtual environment. Navigate to the root directory of your workspace and run the commands below:
+```python -m venv venv```
+```venv/Scripts/activate```
+- Install Sphinx:
+```python -m pip install sphinx```
+-Finally, to generate the documentation, run the following:
+```python generateAndBuildDocumentation.py```
+
+
 # Contribute
 - Make change to .py file  
 - Build and install using requirements.txt, probably in a virtual environment.   
 - Select the python interpreter you used to install the package  
-- Run a <sampleScript>.py which imports and tests rs2.  
+- Run a <sampleScript>.py which imports and tests rs2.
