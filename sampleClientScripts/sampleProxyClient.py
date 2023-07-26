@@ -3,6 +3,8 @@ from rs2.RS2Modeler import RS2Modeler
 modeler = RS2Modeler()
 
 model = modeler.openFile(r"C:\Intel\simple_3_stage.fez")
+boltList = model.getAllBoltProperties()
+print(boltList)
 bolt = model.getBoltByName("Bolt 2")
 liner = model.getLinerByName("Liner 3")
 
