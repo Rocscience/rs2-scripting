@@ -2,82 +2,76 @@ from rs2.RS2Modeler import RS2Modeler
 
 modeler = RS2Modeler()
 
-model = modeler.openFile(r"C:\Users\CarterComish\OneDrive - Rocscience Inc\Documents\bolt_and_materials.fez")
-boltList = model.getAllBoltProperties()
-linerList = model.getAllLinerProperties()
+model = modeler.openFile(r"C:\Intel\simple_3_stage.fez")
+bolt = model.getBoltByName("Bolt 2")
+liner = model.getLinerByName("Liner 3")
 
-i = 0
-newBoltNames = ["thisBolt1", "thisBolt2", "thisBolt3", "thisBolt4"]
-for bolt in boltList:
-	print(bolt.getBoltName())
-	bolt.setBoltName(newBoltNames[i])
-	print(bolt.getBoltName())
-	i+=1
+bolt.setBoltType(bolt.BoltTypes.FULLY_BONDED)
+print(bolt.getBoltType())
 
-	bolt.setBoltDiameter(23)
-	print(bolt.getBoltDiameter())
+bolt.setBoltName("test2")
+print(bolt.getBoltName())
 
-	bolt.setBoltModulusE(201001)
-	print(bolt.getBoltModulusE())
-
-	bolt.setTensileCapacity(0.2)
-	print(bolt.getTensileCapacity())
-
-	bolt.setResidualTensileCapacity(0.0232)
-	print(bolt.getResidualTensileCapacity())
-
-bolt1 = model.getBoltByName("thisBolt1")
-
-bolt1.setBoltDiameter(30)
+bolt.setBoltDiameter(23)
 print(bolt.getBoltDiameter())
 
-i = 0
-newLinerNames = ["thisLiner1", "thisLiner2", "thisLiner3", "thisLiner4"]
-for liner in linerList:
-	print(liner.getLinerName())
-	liner.setLinerName(newLinerNames[i])
-	print(liner.getLinerName())
-	i+=1
+bolt.setBoltModulusE(201000)
+print(bolt.getBoltModulusE())
 
-	liner.setPoissonsRatio(0.49)
-	print(liner.getPoissonsRatio())
+bolt.setTensileCapacity(0.2)
+print(bolt.getTensileCapacity())
 
-	liner.setLinerType(liner.LinerTypes.P2_LINER_STANDARD_BEAM)
-	print(liner.getLinerType())
+bolt.setResidualTensileCapacity(0.0232)
+print(bolt.getResidualTensileCapacity())
 
-	liner.setMethod(liner.GeometryChoice.LNP_USE_AREA)
-	print(liner.getMethod())
+bolt.setOutofPlaneSpacing(8)
+print(bolt.getOutofPlaneSpacing())
 
-	liner.setMethod(liner.GeometryChoice.LNP_USE_THICKNESS)
-	print(liner.getMethod())
+bolt.setPreTensioningForce(1)
+print(bolt.getPreTensioningForce())
 
-	liner.setThickness(20)
-	print(liner.getThickness())
+bolt.setConstantPretensioningForceInInstallStage(False)
+print(bolt.getConstantPretensioningForceInInstallStage())
+
+bolt.setJointShear(False)
+print(bolt.getJointShear())
+
+liner.setPoissonsRatio(0.49)
+print(liner.getPoissonsRatio())
+
+liner.setLinerType(liner.LinerTypes.P2_LINER_STANDARD_BEAM)
+print(liner.getLinerType())
+
+liner.setMethod(liner.GeometryChoice.LNP_USE_AREA)
+print(liner.getMethod())
+
+liner.setMethod(liner.GeometryChoice.LNP_USE_THICKNESS)
+print(liner.getMethod())
+
+liner.setThickness(20)
+print(liner.getThickness())
 
 #Thermal needs to be set to steady state for the following
 #-------------------------------------------------------
 
-	liner.setActivateThermal(True)
-	print(liner.getActivateThermal())
+liner.setActivateThermal(True)
+print(liner.getActivateThermal())
 
-	liner.setStaticTemperatureMode(liner.StaticWaterModes.SWM_GRID)
-	print(liner.getStaticTemperatureMode())
+liner.setStaticTemperatureMode(liner.StaticWaterModes.SWM_GRID)
+print(liner.getStaticTemperatureMode())
 
-	liner.setStaticTemperatureGridToUse("Default Grid")
-	print(liner.getStaticTemperatureGridToUse())
+liner.setStaticTemperatureGridToUse("Default Grid")
+print(liner.getStaticTemperatureGridToUse())
 
-	liner.setThermalExpansion(True)
-	print(liner.getThermalExpansion())
+liner.setThermalExpansion(True)
+print(liner.getThermalExpansion())
 
-	liner.setExpansionCoefficient(2)
-	print(liner.getExpansionCoefficient())
+liner.setExpansionCoefficient(2)
+print(liner.getExpansionCoefficient())
 
 
 #-------------------------------------------------------
 
-liner1 = model.getLinerByName("thisLiner2")
-liner1.setActivateThermal(False)
-print(liner1.getActivateThermal())
 # model.saveAndCompute()
 
 # The following functions show the save and compute functionality.
