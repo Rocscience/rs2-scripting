@@ -13,20 +13,20 @@ class ModelProxy(ProxyObject):
 		documentObjectID = self._callFunction('getDocument', [], keepReturnValueReference=True)
 		return DocumentProxy(self._client, documentObjectID)
     
-	def getBoltByName(self, boltName : str) -> BoltProperty:
+	def getBoltPropertyByName(self, boltName : str) -> BoltProperty:
 
 		'''
 		Returns a Bolt object based on its name.
 		'''
 
-		boltObjectID = self._callFunction('getBoltByName', [boltName], keepReturnValueReference=True)
+		boltObjectID = self._callFunction('getBoltPropertyByName', [boltName], keepReturnValueReference=True)
 		return BoltProperty(self._client, boltObjectID, self._documentProxy._ID)
     
-	def getLinerByName(self, linerName : str) -> LinerProperty:
+	def getLinerPropertyByName(self, linerName : str) -> LinerProperty:
 		'''
 		Returns a Liner object based on its name.
 		'''
-		linerObjectID = self._callFunction('getLinerByName', [linerName], keepReturnValueReference=True)
+		linerObjectID = self._callFunction('getLinerPropertyByName', [linerName], keepReturnValueReference=True)
 		return LinerProperty(self._client, linerObjectID, self._documentProxy._ID)
 	
 	def getAllBoltProperties(self) -> list[BoltProperty]:
