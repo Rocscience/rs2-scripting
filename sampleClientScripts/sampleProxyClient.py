@@ -2,7 +2,7 @@ from rs2.RS2Modeler import RS2Modeler
 
 modeler = RS2Modeler()
 
-model = modeler.openFile(r"C:\Users\CarterComish\OneDrive - Rocscience Inc\Documents\bolt_and_materials.fez")
+model = modeler.openFile(r"C:\Intel\simple_3_stage.fez")
 boltList = model.getAllBoltProperties()
 linerList = model.getAllLinerProperties()
 
