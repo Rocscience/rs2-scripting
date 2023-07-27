@@ -35,7 +35,7 @@ class ModelProxy(ProxyObject):
 		Returns all active Bolt property objects.
 		'''
 		activeBoltProperties = []
-		boltObjectIDList = self._callFunction('getAllBoltProperties', [])
+		boltObjectIDList = self._callFunction('getAllBoltProperties', [], keepReturnValueReference=True)
 		for boltObjectID in boltObjectIDList:
 			activeBoltProperties.append(BoltProperty(self._client, boltObjectID, self._documentProxy._ID))
 		return activeBoltProperties
@@ -45,7 +45,7 @@ class ModelProxy(ProxyObject):
 		Returns all active liner property objects.
 		'''
 		activeLinerProperties = []
-		linerObjectIDList = self._callFunction('getAllLinerProperties', [])
+		linerObjectIDList = self._callFunction('getAllLinerProperties', [], keepReturnValueReference=True)
 		for linerObjectID in linerObjectIDList:
 			activeLinerProperties.append(LinerProperty(self._client, linerObjectID, self._documentProxy._ID))
 		return activeLinerProperties
