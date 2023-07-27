@@ -26,7 +26,7 @@ for bolt in boltList:
 	bolt.setResidualTensileCapacity(0.0232)
 	print(bolt.getResidualTensileCapacity())
 
-bolt1 = model.getBoltByName("thisBolt1")
+bolt1 = model.getBoltPropertyByName("thisBolt1")
 
 bolt1.setBoltDiameter(30)
 print(bolt.getBoltDiameter())
@@ -75,6 +75,6 @@ for liner in linerList:
 
 #-------------------------------------------------------
 
-liner1 = model.getLinerByName("thisLiner2")
+liner1 = model.getLinerPropertyByName("thisLiner2")
 liner1.setActivateThermal(False)
 print(liner1.getActivateThermal())
