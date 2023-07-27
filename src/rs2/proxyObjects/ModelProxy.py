@@ -32,7 +32,7 @@ class ModelProxy(ProxyObject):
 	def getAllBoltProperties(self) -> list[BoltProperty]:
 
 		'''
-		Returns a list of all bolt property objects
+		Returns a list of all Bolt Property objects
 		'''
 		activeBoltProperties = []
 		boltObjectIDList = self._callFunction('getAllBoltProperties', [], keepReturnValueReference=True)
@@ -42,7 +42,7 @@ class ModelProxy(ProxyObject):
 
 	def getAllLinerProperties(self) -> list[LinerProperty]:
 		'''
-		Returns a list of all liner property objects
+		Returns a list of all Liner Property objects
 		'''
 		activeLinerProperties = []
 		linerObjectIDList = self._callFunction('getAllLinerProperties', [], keepReturnValueReference=True)
