@@ -38,15 +38,17 @@ class ModelProxy(ProxyObject):
 		boltObjectIDList = self._callFunction('getAllBoltProperties', [])
 		for boltObjectID in boltObjectIDList:
 			activeBoltProperties.append(BoltProperty(self._client, boltObjectID, self._documentProxy._ID))
+		return activeBoltProperties
 
 	def getAllLinerProperties(self) -> list[LinerProperty]:
 		'''
 		Returns all active liner property objects.
 		'''
 		activeLinerProperties = []
-		linerObjectIDList = self._callFunction('getAllLinerProperties', [], keepReturnValueReference=True)
+		linerObjectIDList = self._callFunction('getAllLinerProperties', [])
 		for linerObjectID in linerObjectIDList:
 			activeLinerProperties.append(LinerProperty(self._client, linerObjectID, self._documentProxy._ID))
+		return activeLinerProperties
 	
 	def saveAndCompute(self, ignoreBernoulliLinerWarning = False, ignoreDynamicBCWarning = False):
 		'''

@@ -4,92 +4,97 @@ modeler = RS2Modeler()
 
 model = modeler.openFile(r"C:\Intel\simple_3_stage.fez")
 boltList = model.getAllBoltProperties()
+linerList = model.getAllLinerProperties()
+
 print(boltList)
-bolt = model.getBoltByName("Bolt 2")
-liner = model.getLinerByName("Liner 3")
+i = 0
+newBoltNames = ["thisBolt1", "thisBolt2", "thisBolt3", "thisBolt4"]
+for bolt in boltList:
+	print(bolt.getBoltName())
+	bolt.setBoltName(newBoltNames[i])
+	print(bolt.getBoltName())
+	i+=1
 
-bolt.setBoltType(bolt.BoltTypes.FULLY_BONDED)
-print(bolt.getBoltType())
+	bolt.setBoltDiameter(23)
+	print(bolt.getBoltDiameter())
 
-bolt.setBoltName("test2")
-print(bolt.getBoltName())
+	bolt.setBoltModulusE(201001)
+	print(bolt.getBoltModulusE())
 
-bolt.setBoltDiameter(23)
+	bolt.setTensileCapacity(0.2)
+	print(bolt.getTensileCapacity())
+
+	bolt.setResidualTensileCapacity(0.0232)
+	print(bolt.getResidualTensileCapacity())
+
+bolt1 = model.getBoltByName("thisBolt1")
+
+bolt1.setBoltDiameter(30)
 print(bolt.getBoltDiameter())
 
-bolt.setBoltModulusE(201000)
-print(bolt.getBoltModulusE())
+i = 0
+newLinerNames = ["thisLiner1", "thisLiner2", "thisLiner3", "thisLiner4"]
+for liner in linerList:
+	print(liner.getLinerName())
+	liner.setLinerName(newLinerNames[i])
+	print(liner.getLinerName())
+	i+=1
 
-bolt.setTensileCapacity(0.2)
-print(bolt.getTensileCapacity())
+	liner.setPoissonsRatio(0.49)
+	print(liner.getPoissonsRatio())
 
-bolt.setResidualTensileCapacity(0.0232)
-print(bolt.getResidualTensileCapacity())
+	liner.setLinerType(liner.LinerTypes.P2_LINER_STANDARD_BEAM)
+	print(liner.getLinerType())
 
-bolt.setOutofPlaneSpacing(8)
-print(bolt.getOutofPlaneSpacing())
+	liner.setMethod(liner.GeometryChoice.LNP_USE_AREA)
+	print(liner.getMethod())
 
-bolt.setPreTensioningForce(1)
-print(bolt.getPreTensioningForce())
+	liner.setMethod(liner.GeometryChoice.LNP_USE_THICKNESS)
+	print(liner.getMethod())
 
-bolt.setConstantPretensioningForceInInstallStage(False)
-print(bolt.getConstantPretensioningForceInInstallStage())
+	liner.setThickness(20)
+	print(liner.getThickness())
 
-bolt.setJointShear(False)
-print(bolt.getJointShear())
+# #Thermal needs to be set to steady state for the following
+# #-------------------------------------------------------
 
-liner.setPoissonsRatio(0.49)
-print(liner.getPoissonsRatio())
+	liner.setActivateThermal(True)
+	print(liner.getActivateThermal())
 
-liner.setLinerType(liner.LinerTypes.P2_LINER_STANDARD_BEAM)
-print(liner.getLinerType())
+	liner.setStaticTemperatureMode(liner.StaticWaterModes.SWM_GRID)
+	print(liner.getStaticTemperatureMode())
 
-liner.setMethod(liner.GeometryChoice.LNP_USE_AREA)
-print(liner.getMethod())
+	liner.setStaticTemperatureGridToUse("Default Grid")
+	print(liner.getStaticTemperatureGridToUse())
 
-liner.setMethod(liner.GeometryChoice.LNP_USE_THICKNESS)
-print(liner.getMethod())
+	liner.setThermalExpansion(True)
+	print(liner.getThermalExpansion())
 
-liner.setThickness(20)
-print(liner.getThickness())
-
-#Thermal needs to be set to steady state for the following
-#-------------------------------------------------------
-
-liner.setActivateThermal(True)
-print(liner.getActivateThermal())
-
-liner.setStaticTemperatureMode(liner.StaticWaterModes.SWM_GRID)
-print(liner.getStaticTemperatureMode())
-
-liner.setStaticTemperatureGridToUse("Default Grid")
-print(liner.getStaticTemperatureGridToUse())
-
-liner.setThermalExpansion(True)
-print(liner.getThermalExpansion())
-
-liner.setExpansionCoefficient(2)
-print(liner.getExpansionCoefficient())
+	liner.setExpansionCoefficient(2)
+	print(liner.getExpansionCoefficient())
 
 
-#-------------------------------------------------------
+# #-------------------------------------------------------
 
-# model.saveAndCompute()
+liner1 = model.getLinerByName("thisLiner2")
+liner1.setActivateThermal(False)
+print(liner1.getActivateThermal())
+# # model.saveAndCompute()
 
-# The following functions show the save and compute functionality.
+# # The following functions show the save and compute functionality.
 
-# modeler.saveAndComputeGroundwaterOnly()
-# modeler.saveFile()
-# modeler.saveAndComputeFile(ignoreBernoulliLinerWarning=True)
-# modeler.saveFileAs(r'C:\RS2ScriptingExample.fez')
-# modeler.closeFile()
+# # modeler.saveAndComputeGroundwaterOnly()
+# # modeler.saveFile()
+# # modeler.saveAndComputeFile(ignoreBernoulliLinerWarning=True)
+# # modeler.saveFileAs(r'C:\RS2ScriptingExample.fez')
+# # modeler.closeFile()
 
 
-# def RGB(r,g,b):
-#     return int(r + (g << 8) + (b << 16))
+# # def RGB(r,g,b):
+# #     return int(r + (g << 8) + (b << 16))
 
-# color = RGB(255,255,0)
-# print(color)
-# bolt.setBoltColor(color)
-# print(bolt.getBoltColor())
-# bolt.setAddBulges(True)
+# # color = RGB(255,255,0)
+# # print(color)
+# # bolt.setBoltColor(color)
+# # print(bolt.getBoltColor())
+# # bolt.setAddBulges(True)
