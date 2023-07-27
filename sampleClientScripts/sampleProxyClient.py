@@ -2,7 +2,7 @@ from rs2.RS2Modeler import RS2Modeler
 
 modeler = RS2Modeler()
 
-model = modeler.openFile(r"C:\Intel\simple_3_stage.fez")
+model = modeler.openFile(r"C:\Users\CarterComish\OneDrive - Rocscience Inc\Documents\bolt_and_materials.fez")
 boltList = model.getAllBoltProperties()
 linerList = model.getAllLinerProperties()
 
@@ -54,8 +54,8 @@ for liner in linerList:
 	liner.setThickness(20)
 	print(liner.getThickness())
 
-# #Thermal needs to be set to steady state for the following
-# #-------------------------------------------------------
+#Thermal needs to be set to steady state for the following
+#-------------------------------------------------------
 
 	liner.setActivateThermal(True)
 	print(liner.getActivateThermal())
@@ -73,27 +73,27 @@ for liner in linerList:
 	print(liner.getExpansionCoefficient())
 
 
-# #-------------------------------------------------------
+#-------------------------------------------------------
 
 liner1 = model.getLinerByName("thisLiner2")
 liner1.setActivateThermal(False)
 print(liner1.getActivateThermal())
-# # model.saveAndCompute()
+# model.saveAndCompute()
 
-# # The following functions show the save and compute functionality.
+# The following functions show the save and compute functionality.
 
-# # modeler.saveAndComputeGroundwaterOnly()
-# # modeler.saveFile()
-# # modeler.saveAndComputeFile(ignoreBernoulliLinerWarning=True)
-# # modeler.saveFileAs(r'C:\RS2ScriptingExample.fez')
-# # modeler.closeFile()
+# modeler.saveAndComputeGroundwaterOnly()
+# modeler.saveFile()
+# modeler.saveAndComputeFile(ignoreBernoulliLinerWarning=True)
+# modeler.saveFileAs(r'C:\RS2ScriptingExample.fez')
+# modeler.closeFile()
 
 
-# # def RGB(r,g,b):
-# #     return int(r + (g << 8) + (b << 16))
+# def RGB(r,g,b):
+#     return int(r + (g << 8) + (b << 16))
 
-# # color = RGB(255,255,0)
-# # print(color)
-# # bolt.setBoltColor(color)
-# # print(bolt.getBoltColor())
-# # bolt.setAddBulges(True)
+# color = RGB(255,255,0)
+# print(color)
+# bolt.setBoltColor(color)
+# print(bolt.getBoltColor())
+# bolt.setAddBulges(True)
