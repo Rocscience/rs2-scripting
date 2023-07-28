@@ -10,14 +10,4 @@ Welcome to RS2 Scripting Client Library's documentation!
    :maxdepth: 2
    :caption: Contents:
 
-Objects 
-========================================================
-   rs2.proxyObjects.BoltPropertyProxy
-
-
-Indices and tables
-==================
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`
+   modules

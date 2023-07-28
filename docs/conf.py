@@ -30,7 +30,7 @@ release = '0.0'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autodoc']
+extensions = ['sphinx.ext.autodoc', 'rinoh.frontend.sphinx']
 # autodoc_mock_imports = ['rs2']
 
 templates_path = ['_templates']
@@ -54,3 +54,10 @@ rinoh_documents = [
      'Rocscience Inc.'  # Author
      ),
 ]
+
+latex_elements = {
+    'papersize': 'letterpaper',
+    'pointsize': '10pt',
+    'preamble' : '',
+    'figure_align' : 'htbp'
+}

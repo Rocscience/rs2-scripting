@@ -24,6 +24,10 @@ def run_sphinx_apidoc():
     ]
     subprocess.run(cmd, check=True)
 
+def add_sphinx_example_modules():
+    file = open("docs\modules.rst", "a")
+    file.write("   examples" + '\n')
+
 def run_sphinx_build():
     # Command to run sphinx-build
     # sphinx-build [options] <sourcedir> <outputdir> [filenames …]
@@ -31,12 +35,13 @@ def run_sphinx_build():
     cmd = [
         "sphinx-build", 
         "-b", 
-        "html", 
+        "latex", 
         "docs", 
-        "docs/_build/html"
+        "docs/_build/pdf"
         ]
     subprocess.run(cmd, check=True)
 
 if __name__ == "__main__":
     run_sphinx_apidoc()
+    add_sphinx_example_modules()
     run_sphinx_build()
