@@ -29,6 +29,27 @@ class ModelProxy(ProxyObject):
 		linerObjectID = self._callFunction('getLinerPropertyByName', [linerName], keepReturnValueReference=True)
 		return LinerProperty(self._client, linerObjectID, self._documentProxy._ID)
 	
+	def getAllBoltProperties(self) -> list[BoltProperty]:
+
+		'''
+		Returns a list of all Bolt Property objects
+		'''
+		activeBoltProperties = []
+		boltObjectIDList = self._callFunction('getAllBoltProperties', [], keepReturnValueReference=True)
+		for boltObjectID in boltObjectIDList:
+			activeBoltProperties.append(BoltProperty(self._client, boltObjectID, self._documentProxy._ID))
+		return activeBoltProperties
+
+	def getAllLinerProperties(self) -> list[LinerProperty]:
+		'''
+		Returns a list of all Liner Property objects
+		'''
+		activeLinerProperties = []
+		linerObjectIDList = self._callFunction('getAllLinerProperties', [], keepReturnValueReference=True)
+		for linerObjectID in linerObjectIDList:
+			activeLinerProperties.append(LinerProperty(self._client, linerObjectID, self._documentProxy._ID))
+		return activeLinerProperties
+	
 	def saveAndCompute(self, ignoreBernoulliLinerWarning = False, ignoreDynamicBCWarning = False):
 		'''
 		Saves the file and then Runs compute.
