@@ -16,7 +16,7 @@ class ModelProxy(ProxyObject):
 	def getBoltPropertyByName(self, boltName : str) -> BoltProperty:
 
 		'''
-		Returns a Bolt object based on its name.
+		Returns a Bolt Property object based on its name.
 		'''
 
 		boltObjectID = self._callFunction('getBoltPropertyByName', [boltName], keepReturnValueReference=True)
@@ -24,7 +24,7 @@ class ModelProxy(ProxyObject):
     
 	def getLinerPropertyByName(self, linerName : str) -> LinerProperty:
 		'''
-		Returns a Liner object based on its name.
+		Returns a Liner Property object based on its name.
 		'''
 		linerObjectID = self._callFunction('getLinerPropertyByName', [linerName], keepReturnValueReference=True)
 		return LinerProperty(self._client, linerObjectID, self._documentProxy._ID)
