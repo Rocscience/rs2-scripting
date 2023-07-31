@@ -28,6 +28,33 @@ def add_sphinx_example_modules():
     file = open("docs\modules.rst", "a")
     file.write("   examples" + '\n')
 
+def add_example_module_links():
+    exampleFiles = ["- :ref:`Bolt Example`.\n", "- :ref:`Liner Example`.\n", "- :ref:`Model Example`.\n"]
+    file = open("docs/rs2.proxyObjects.rst", "r")
+    lines = file.readlines()
+
+    file = open("docs/rs2.proxyObjects.rst", "w")
+    i = 0
+    for line in lines:
+        file.write(line)
+        if "----------------------------------" in line:
+            file.write(exampleFiles[i])
+            i+=1
+
+def add_example_modeller_interpreter_links():
+    exampleFiles = ["- :ref:`Modeler Example`.\n", "- :ref:`Interpreter Example`.\n"]
+    file = open("docs/rs2.rst", "r")
+    lines = file.readlines()
+
+    file = open("docs/rs2.rst", "w")
+    i = 0
+    for line in lines:
+        file.write(line)
+        if "---------------------" in line:
+            file.write(exampleFiles[i])
+            i+=1
+
+
 def run_sphinx_build():
     # Command to run sphinx-build
     # sphinx-build [options] <sourcedir> <outputdir> [filenames …]
@@ -44,4 +71,6 @@ def run_sphinx_build():
 if __name__ == "__main__":
     run_sphinx_apidoc()
     add_sphinx_example_modules()
+    add_example_module_links()
+    add_example_modeller_interpreter_links()
     run_sphinx_build()

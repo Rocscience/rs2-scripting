@@ -4,31 +4,32 @@ modeler = RS2Modeler()
 
 model = modeler.openFile(r"C:\example_rs2_file.fez")
 
-bolt = model.getBoltPropertyByName("Bolt 1")
+boltList = model.getAllBoltProperties()
+bolt1 = boltList[0]
 
-bolt.setBoltType(bolt.BoltTypes.FULLY_BONDED)
-print(bolt.getBoltType())
+bolt1.setBoltType(bolt1.BoltTypes.FULLY_BONDED)
+print(bolt1.getBoltType())
 
-bolt.setBoltDiameter(23)
-print(bolt.getBoltDiameter())
+bolt1.setBoltDiameter(23)
+print(bolt1.getBoltDiameter())
 
-bolt.setBoltModulusE(201000)
-print(bolt.getBoltModulusE())
+bolt1.setBoltModulusE(201000)
+print(bolt1.getBoltModulusE())
 
-bolt.setTensileCapacity(0.2)
-print(bolt.getTensileCapacity())
+bolt1.setTensileCapacity(0.2)
+print(bolt1.getTensileCapacity())
 
-bolt.setResidualTensileCapacity(0.1)
-print(bolt.getResidualTensileCapacity())
+bolt1.setResidualTensileCapacity(0.1)
+print(bolt1.getResidualTensileCapacity())
 
-bolt.setOutofPlaneSpacing(1.5)
-print(bolt.getOutofPlaneSpacing())
+bolt1.setOutofPlaneSpacing(1.5)
+print(bolt1.getOutofPlaneSpacing())
 
-bolt.setPreTensioningForce(1)
-print(bolt.getPreTensioningForce())
+bolt1.setPreTensioningForce(1)
+print(bolt1.getPreTensioningForce())
 
-bolt.setConstantPretensioningForceInInstallStage(False)
-print(bolt.getConstantPretensioningForceInInstallStage())
+bolt1.setConstantPretensioningForceInInstallStage(False)
+print(bolt1.getConstantPretensioningForceInInstallStage())
 
-bolt.setJointShear(True)
-print(bolt.setJointShear())
+bolt1.setJointShear(True)
+print(bolt1.getJointShear())

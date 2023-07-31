@@ -6,6 +6,7 @@ Submodules
 
 rs2.proxyObjects.BoltPropertyProxy module
 -----------------------------------------
+- :ref:`Bolt Example`.
 
 .. automodule:: rs2.proxyObjects.BoltPropertyProxy
    :members:
@@ -14,6 +15,7 @@ rs2.proxyObjects.BoltPropertyProxy module
 
 rs2.proxyObjects.LinerPropertyProxy module
 ------------------------------------------
+- :ref:`Liner Example`.
 
 .. automodule:: rs2.proxyObjects.LinerPropertyProxy
    :members:
@@ -22,6 +24,7 @@ rs2.proxyObjects.LinerPropertyProxy module
 
 rs2.proxyObjects.ModelProxy module
 ----------------------------------
+- :ref:`Model Example`.
 
 .. automodule:: rs2.proxyObjects.ModelProxy
    :members:

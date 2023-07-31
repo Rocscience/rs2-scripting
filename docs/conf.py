@@ -30,34 +30,18 @@ release = '0.0'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autodoc', 'rinoh.frontend.sphinx']
+extensions = ['sphinx.ext.autodoc']
 # autodoc_mock_imports = ['rs2']
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'rs2.Client']
 
-
-
-# -- Options for HTML output -------------------------------------------------
-# https://www.sphinx-doc.org/en/master/usage/configuration.html#options-for-html-output
-
-html_theme = 'alabaster'
-html_static_path = ['_static']
-
-# -- Options for Rinoh output ------------------------------------------------
-
-# Output format for Rinoh
-rinoh_documents = [
-    ('index',  # Master document
-     'output',  # Output file base name
-     'RS2 Scripting Documentation',  # Document title
-     'Rocscience Inc.'  # Author
-     ),
-]
-
+# -- Options for LaTeX output -------------------------------------------------
 latex_elements = {
     'papersize': 'letterpaper',
     'pointsize': '10pt',
     'preamble' : '',
     'figure_align' : 'htbp'
 }
+
+latex_logo = '_static/logo.png'
