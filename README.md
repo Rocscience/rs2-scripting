@@ -31,7 +31,7 @@ To run all the tests, navigate to the root directory of the project and execute 
 ## Contribution Guidelines
 Contributions are welcomed to improve RS2's Scripting Feature. To make a contribution, follow the guidelines below:
 1. **Make Changes:** Start by making the necessary changes to the relevant `.py` file(s) to address the task or implement new features.
-2. **Install Dependencies:** Install the required dependencies specified in the `requirements.txt` file, as explained in the [Build](#build) section. It is reccomended that these dependancies be installed within a virtual environment.
+2. **Install Dependencies:** Install the required dependencies specified in the `requirements.txt` file, as explained in the [Build](#build) section. It is recommended that these dependencies be installed within a virtual environment.
 3. **Python Interpreter:** Select the same Python interpreter used to install the package. You can specify the interpreter in your virtual environment or project settings.
 4. **Testing:** Thoroughly test your changes to ensure they meet the project's requirements and do not introduce regressions. Consult the [Unit Testing](#unit-testing) section for more information. Include additional test cases to cover modifications to the project.
 5. **Pull Request:** After thorough testing and review, submit a pull request. Describe the purpose of your changes and reference any related issues. After review and approval, merge your changes into the main branch.
