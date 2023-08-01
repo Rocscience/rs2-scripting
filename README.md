@@ -21,6 +21,14 @@ Following the steps to this guide: https://packaging.python.org/en/latest/tutori
 To ensure the project's functionality and maintain code quality, a test suite using the `unittest` framework has been implemented. The documentation for `unittest` can be found at the following link: https://docs.python.org/3/library/unittest.html  
 Before running the tests, make sure you have installed the RS2 library as explained in the [Build](#build) section.
 
+### Creating Unit Tests
+**Directory Structure:**   
+- Place new .py files for unit testing in the tests directory.
+- Save any RS2 files required for testing in the tests/resources directory.
+
+**Handling Test Resources:**  
+Instead of directly modifying the base files in tests/resources, create copies of these files in each test file's setup and delete them in the teardown phase. This ensures that the original resources remain intact and unmodified after running the tests.
+
 ### Running Unit Test Cases
 
 To run all the tests, navigate to the root directory of the project and execute the following command:  
