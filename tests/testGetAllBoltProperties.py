@@ -24,7 +24,7 @@ class TestGetAllBoltProperties(unittest.TestCase):
         boltList = self.boltList
         self.assertEqual(len(boltList), 5)
 
-    def testBoltListContents(self):
+    def testBoltListOrder(self):
         boltList = self.boltList
         for boltID, bolt in enumerate(boltList, start=1):
             self.assertEqual(bolt.getBoltName(), f"Bolt {boltID}") 

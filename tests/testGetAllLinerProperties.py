@@ -24,7 +24,7 @@ class TestGetAllBoltProperties(unittest.TestCase):
         linerList = self.linerList
         self.assertEqual(len(linerList), 5)
 
-    def testLinerListContents(self):
+    def testLinerListOrder(self):
         linerList = self.linerList
         for linerID, liner in enumerate(linerList, start=1):
             self.assertEqual(liner.getLinerName(), f"Liner {linerID}") 
