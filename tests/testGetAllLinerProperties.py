@@ -28,6 +28,3 @@ class TestGetAllBoltProperties(unittest.TestCase):
         linerList = self.linerList
         for linerID, liner in enumerate(linerList, start=1):
             self.assertEqual(liner.getLinerName(), f"Liner {linerID}") 
-
-if __name__ == '__main__':
-    unittest.main()

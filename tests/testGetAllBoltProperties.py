@@ -28,6 +28,3 @@ class TestGetAllBoltProperties(unittest.TestCase):
         boltList = self.boltList
         for boltID, bolt in enumerate(boltList, start=1):
             self.assertEqual(bolt.getBoltName(), f"Bolt {boltID}") 
-
-if __name__ == '__main__':
-    unittest.main()

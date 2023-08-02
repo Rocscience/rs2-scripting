@@ -19,7 +19,6 @@ Following the steps to this guide: https://packaging.python.org/en/latest/tutori
 ## Unit Testing
 
 To ensure the project's functionality and maintain code quality, a test suite using the `unittest` framework has been implemented. The documentation for `unittest` can be found at the following link: https://docs.python.org/3/library/unittest.html  
-Before running the tests, make sure you have installed the RS2 library as explained in the [Build](#build) section.
 
 ### Creating Unit Tests
 **Directory Structure:**   
@@ -30,10 +29,17 @@ Before running the tests, make sure you have installed the RS2 library as explai
 Instead of directly modifying the base files in tests/resources, create copies of these files in each test file's setup and delete them in the teardown phase. This ensures that the original resources remain intact and unmodified after running the tests.
 
 ### Running Unit Test Cases
+Before running the tests, make sure you have:
+1. Built the RS2 library as explained in the [Build](#build) section.
+2. Started the RS2 Modeler. 
 
 To run all the tests, navigate to the root directory of the project and execute the following command:  
 ```python -m unittest discover -s tests```  
-*Note:* To display additional information on the results of the unit tests, pass the `-v` option into the testing command:  
+
+To run an individual test file, navigate to the root directory of the project and execute the following command with the correct filename:  
+```python -m unittest discover -s tests -p "<sampleTestFile>.py"```
+
+**_NOTE:_** To display additional information on the results of the unit tests, pass the `-v` option into the testing command:  
 ```python -m unittest discover -v -s tests```
 
 ## Contribution Guidelines
