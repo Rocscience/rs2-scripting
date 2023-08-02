@@ -57,6 +57,14 @@ class ModelProxy(ProxyObject):
 		ignoreBernoulliLinerWarning and ignoreDynamicBCWarning are optional flags to bypass warnings. Only use them if you know what you are doing!
 		'''
 		return self._callFunction('saveAndCompute', [False, ignoreBernoulliLinerWarning, ignoreDynamicBCWarning])
+	
+	def saveAndComputeGroundWater(self, ignoreBernoulliLinerWarning = False, ignoreDynamicBCWarning = False):
+		'''
+		Saves the file and then Runs groundwater compute.
+
+		ignoreBernoulliLinerWarning and ignoreDynamicBCWarning are optional flags to bypass warnings. Only use them if you know what you are doing!
+		'''
+		return self._callFunction('saveAndCompute', [True, ignoreBernoulliLinerWarning, ignoreDynamicBCWarning])
 
 	def close(self):
 		'''
