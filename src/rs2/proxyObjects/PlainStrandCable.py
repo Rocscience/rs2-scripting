@@ -64,3 +64,34 @@ class PlainStrandCable(PropertyProxy):
 		return self._callFunction("get_bulge_locations_ref", [])
 	def setBulgeLocations(self, locations: List[float]):
 		return self._callFunction("set_bulge_locations", [locations ])
+	def setPlainStrandCableProperties(self, BoreholeDiameter : float = None, CableDiameter : float = None, OutofPlaneSpacing : float = None, CableModulusE : float = None, FacePlates : bool = None, CablePeak : float = None, WaterCementRatio : float = None, JointShear : bool = None, AddPullOutForce : bool = None, PullOutForce : float = None, ConstantShearStiffness : bool = None, Stiffness : float = None, AddBulges : bool = None, BulgeType : BulgeTypes = None, locations : List[float] = None):
+		if(BoreholeDiameter):
+			self._validateAndSetDoubleProperty("BP_BOREHOLE_DIAMETER_CABLE", BoreholeDiameter)
+		if(CableDiameter):
+			self._validateAndSetDoubleProperty("BP_CABLE_DIAMETER", CableDiameter)
+		if(OutofPlaneSpacing):
+			self._validateAndSetDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT", OutofPlaneSpacing)
+		if(CableModulusE):
+			self._validateAndSetDoubleProperty("BP_CABLE_MODULUS", CableModulusE)
+		if(FacePlates):
+			self._validateAndSetBoolProperty("BP_FACE_PLATES", FacePlates)
+		if(CablePeak):
+			self._validateAndSetDoubleProperty("BP_CABLE_PEAK", CablePeak)
+		if(WaterCementRatio):
+			self._validateAndSetDoubleProperty("BP_WATER_CEMENT_RATIO", WaterCementRatio)
+		if(JointShear):
+			self._validateAndSetBoolProperty("BP_USE_JOINT_SHEAR", JointShear)
+		if(AddPullOutForce):
+			self._validateAndSetBoolProperty("BP_ADD_PULL_OUT_FORCE", AddPullOutForce)
+		if(PullOutForce):
+			self._validateAndSetDoubleProperty("BP_PULL_OUT_FORCE", PullOutForce)
+		if(ConstantShearStiffness):
+			self._validateAndSetBoolProperty("BP_ADD_CONSTANT_SHEAR_STIFFNESS", ConstantShearStiffness)
+		if(Stiffness):
+			self._validateAndSetDoubleProperty("BP_CONSTANT_SHEAR_STIFFNESS", Stiffness)
+		if(AddBulges):
+			self._validateAndSetBoolProperty("BP_ADD_BULGES", AddBulges)
+		if(BulgeType):
+			self._validateAndSetEnumEBulgeTypesProperty("BP_BULGE_TYPE", BulgeType)
+		if(locations):
+			self.setBulgeLocations(locations)

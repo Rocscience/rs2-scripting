@@ -1,0 +1,30 @@
+import unittest
+import os, sys, inspect
+import shutil
+import parentDirectoryHelper
+from src.rs2.RS2Modeler import RS2Modeler
+from rs2.PropertyEnums import*
+
+parentDirectoryHelper.addParentDirectoryToPath()
+
+class TestBaseBolt(unittest.TestCase):
+    def setUp(self):
+        parentDirectory = parentDirectoryHelper.getParentDirectory()
+        blankModelPath = f"{parentDirectory}/resources/blankProject.fez"
+        self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
+        shutil.copy(blankModelPath, self.copiedModelPath)
+        self.modeler = RS2Modeler()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        blankModelPath = f"{parentDirectory}/resources/blankProject.fez"
+        self.bolt = self.model.getAllBoltProperties()[0]
+    def tearDown(self):
+        self.model.close()
+        os.remove(self.copiedModelPath)
+    def testBaseBoltProperty(self):
+        bolt = self.bolt
+        bolt.setBoltName("test1")
+        self.assertEqual(bolt.getBoltName(), "test1")
+        bolt.setBoltColor(16073461)
+        self.assertEqual(bolt.getBoltColor(), 16073461)
+        bolt.setBoltType(BoltTypes.FULLY_BONDED)
+        self.assertEqual(bolt.getBoltType(), BoltTypes.FULLY_BONDED)
