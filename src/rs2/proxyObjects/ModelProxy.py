@@ -50,6 +50,18 @@ class ModelProxy(ProxyObject):
 			activeLinerProperties.append(LinerProperty(self._client, linerObjectID, self._documentProxy._ID))
 		return activeLinerProperties
 	
+	def compute(self):
+		'''
+		Saves the file and then Runs compute. Replaces any existing results
+		'''
+		return self._callFunction('compute', [False])
+
+	def computeGroundWater(self):
+		'''
+		Saves the file and then Runs compute. Replaces any existing results
+		'''
+		return self._callFunction('compute', [True])
+	
 	def saveAndCompute(self):
 		'''
 		Saves the file and then Runs compute. Replaces any existing results
