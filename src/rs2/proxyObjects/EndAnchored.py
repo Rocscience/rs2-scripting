@@ -32,3 +32,18 @@ class EndAnchored(PropertyProxy):
 		return self._getDoubleProperty("BP_RES_TENSILE_END")
 	def setResidualTensileCapacity(self, value: float):
 		return self._validateAndSetDoubleProperty("BP_RES_TENSILE_END", value)
+	def setEndAnchoredProperties(self, BoltDiameter : float = None, OutofPlaneSpacing : float = None, BoltModulusE : float = None, TensileCapacity : float = None, PreTensioningForce : float = None, ResidualTensileCapacity : float = None, ConstantPretensioningForceInInstallStage : bool = None):
+		if(BoltDiameter):
+			self._validateAndSetDoubleProperty("BP_BOLT_DIAMETER", BoltDiameter)
+		if(OutofPlaneSpacing):
+			self._validateAndSetDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT", OutofPlaneSpacing)
+		if(BoltModulusE):
+			self._validateAndSetDoubleProperty("BP_BOLT_MODULUS", BoltModulusE)
+		if(TensileCapacity):
+			self._validateAndSetDoubleProperty("BP_TENSILE_END", TensileCapacity)
+		if(PreTensioningForce):
+			self._validateAndSetDoubleProperty("BP_PRETENSIONING", PreTensioningForce)
+		if(ResidualTensileCapacity):
+			self._validateAndSetDoubleProperty("BP_RES_TENSILE_END", ResidualTensileCapacity)
+		if(ConstantPretensioningForceInInstallStage):
+			self._validateAndSetBoolProperty("BP_USE_CONSTANT_FORCE", ConstantPretensioningForceInInstallStage)

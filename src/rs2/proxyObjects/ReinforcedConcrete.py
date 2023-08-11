@@ -24,9 +24,9 @@ class ReinforcedConcrete(PropertyProxy):
 		return self._getDoubleProperty("LNP_SECTION_DEPTH")
 	def setSectionDepth(self, value: float):
 		return self._validateAndSetDoubleProperty("LNP_SECTION_DEPTH", value)
-	def getYoungsModulus(self) -> float:
+	def getConcreteYoungsModulus(self) -> float:
 		return self._getDoubleProperty("LNP_YOUNGS_MODULUS_REIN")
-	def setYoungsModulus(self, value: float):
+	def setConcreteYoungsModulus(self, value: float):
 		return self._validateAndSetDoubleProperty("LNP_YOUNGS_MODULUS_REIN", value)
 	def getArea(self) -> float:
 		return self._getDoubleProperty("LNP_AREA")
@@ -36,13 +36,13 @@ class ReinforcedConcrete(PropertyProxy):
 		return self._getDoubleProperty("LNP_MOMENT_OF_INERTIA")
 	def setMomentOfInertia(self, value: float):
 		return self._validateAndSetDoubleProperty("LNP_MOMENT_OF_INERTIA", value)
-	def getCompressiveStrength(self) -> float:
+	def getConcreteCompressiveStrength(self) -> float:
 		return self._getDoubleProperty("LNP_COMPRESSIVE_STRENGTH_REIN")
-	def setCompressiveStrength(self, value: float):
+	def setConcreteCompressiveStrength(self, value: float):
 		return self._validateAndSetDoubleProperty("LNP_COMPRESSIVE_STRENGTH_REIN", value)
-	def getTensileStrength(self) -> float:
+	def getConcreteTensileStrength(self) -> float:
 		return self._getDoubleProperty("LNP_TENSILE_STRENGTH_REIN")
-	def setTensileStrength(self, value: float):
+	def setConcreteTensileStrength(self, value: float):
 		return self._validateAndSetDoubleProperty("LNP_TENSILE_STRENGTH_REIN", value)
 	def getWeight(self) -> float:
 		return self._getDoubleProperty("LNP_WEIGHT_REIN")
@@ -127,3 +127,64 @@ class ReinforcedConcrete(PropertyProxy):
 		return self._callFunction("getStaticTemperatureGridToUse", [])
 	def setStaticTemperatureGridToUse(self, gridName: str):
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName ])
+	def setReinforcedConcreteProperties(self, Reinforcement : bool = None, IncludeWeightInAnalysis : bool = None, ConcreteUnitWeight : float = None, Spacing : float = None, SectionDepth : float = None, ConcreteYoungsModulus : float = None, Area : float = None, MomentOfInertia : float = None, ConcreteCompressiveStrength : float = None, ConcreteTensileStrength : float = None, Weight : float = None, Concrete : bool = None, Thickness : float = None, YoungsModulus : float = None, PoissonRatio : float = None, CompressiveStrength : float = None, TensileStrength : float = None, MaterialType : MaterialType = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageConcreteProperties : bool = None, gridName : str = None):
+		if(Reinforcement):
+			self._validateAndSetBoolProperty("LNP_USE_REINFORCEMENT", Reinforcement)
+		if(IncludeWeightInAnalysis):
+			self._validateAndSetBoolProperty("LNP_USE_WEIGHT", IncludeWeightInAnalysis)
+		if(ConcreteUnitWeight):
+			self._validateAndSetDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE", ConcreteUnitWeight)
+		if(Spacing):
+			self._validateAndSetDoubleProperty("LNP_SPACING", Spacing)
+		if(SectionDepth):
+			self._validateAndSetDoubleProperty("LNP_SECTION_DEPTH", SectionDepth)
+		if(ConcreteYoungsModulus):
+			self._validateAndSetDoubleProperty("LNP_YOUNGS_MODULUS_REIN", ConcreteYoungsModulus)
+		if(Area):
+			self._validateAndSetDoubleProperty("LNP_AREA", Area)
+		if(MomentOfInertia):
+			self._validateAndSetDoubleProperty("LNP_MOMENT_OF_INERTIA", MomentOfInertia)
+		if(ConcreteCompressiveStrength):
+			self._validateAndSetDoubleProperty("LNP_COMPRESSIVE_STRENGTH_REIN", ConcreteCompressiveStrength)
+		if(ConcreteTensileStrength):
+			self._validateAndSetDoubleProperty("LNP_TENSILE_STRENGTH_REIN", ConcreteTensileStrength)
+		if(Weight):
+			self._validateAndSetDoubleProperty("LNP_WEIGHT_REIN", Weight)
+		if(Concrete):
+			self._validateAndSetBoolProperty("LNP_USE_CONCRETE", Concrete)
+		if(Thickness):
+			self._validateAndSetDoubleProperty("LNP_THICKNESS_CONCRETE", Thickness)
+		if(YoungsModulus):
+			self._validateAndSetDoubleProperty("LNP_YOUNGS_MODULUS_CONCRETE", YoungsModulus)
+		if(PoissonRatio):
+			self._validateAndSetDoubleProperty("LNP_POISSONS_RATIO_CONCRETE", PoissonRatio)
+		if(CompressiveStrength):
+			self._validateAndSetDoubleProperty("LNP_COMPRESSIVE_STRENGTH_CONCRETE", CompressiveStrength)
+		if(TensileStrength):
+			self._validateAndSetDoubleProperty("LNP_TENSILE_STRENGTH_CONCRETE", TensileStrength)
+		if(MaterialType):
+			self._validateAndSetEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE", MaterialType)
+		if(SlidingGap):
+			self._validateAndSetBoolProperty("LNP_USE_SLIDING_GAP", SlidingGap)
+		if(StrainAtLocking):
+			self._validateAndSetDoubleProperty("LNP_STRAIN_AT_LOCKING", StrainAtLocking)
+		if(BeamElementFormulation):
+			self._validateAndSetEnumELinerFormulationProperty("LNP_BEAM_ELEMENT_FORMULATION", BeamElementFormulation)
+		if(ActivateThermal):
+			self._validateAndSetBoolProperty("LNP_THERAMAL_ACTIVATE", ActivateThermal)
+		if(StaticTemperatureMode):
+			self._validateAndSetEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD", StaticTemperatureMode)
+		if(StaticTemperature):
+			self._validateAndSetDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", StaticTemperature)
+		if(Conductivity):
+			self._validateAndSetDoubleProperty("LNP_THERAMAL_CONDUCTIVITY", Conductivity)
+		if(SpecificHeatCapacity):
+			self._validateAndSetDoubleProperty("LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", SpecificHeatCapacity)
+		if(ThermalExpansion):
+			self._validateAndSetBoolProperty("LNP_THERAMAL_EXPANSION_IS_ON", ThermalExpansion)
+		if(ExpansionCoefficient):
+			self._validateAndSetDoubleProperty("LNP_THERAMAL_EXPANSION_ALPHA", ExpansionCoefficient)
+		if(StageConcreteProperties):
+			self._validateAndSetBoolProperty("LNP_USE_STAGE_CONCRETE", StageConcreteProperties)
+		if(gridName):
+			self.setStaticTemperatureGridToUse(gridName)
