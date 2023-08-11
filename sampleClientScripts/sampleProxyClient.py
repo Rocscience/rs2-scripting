@@ -50,7 +50,7 @@ liner.StandardBeam.setThickness(20)
 print(liner.StandardBeam.getThickness())
 
 #Thermal needs to be set to static for the following
-#-------------------------------------------------------
+#------------------------------------------------------
 
 liner.StandardBeam.setActivateThermal(True)
 print(liner.StandardBeam.getActivateThermal())
