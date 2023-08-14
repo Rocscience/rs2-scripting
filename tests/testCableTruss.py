@@ -15,6 +15,7 @@ class TestCableTruss(unittest.TestCase):
         shutil.copy(blankModelPath, self.copiedModelPath)
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
+        blankModelPath = f"{parentDirectory}/resources/blankProject.fez"
         self.liner = self.model.getAllLinerProperties()[0]
     def tearDown(self):
         self.model.close()

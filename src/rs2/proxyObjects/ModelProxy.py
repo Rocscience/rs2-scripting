@@ -2,6 +2,7 @@ from rs2.ProxyObject import ProxyObject
 from rs2.proxyObjects.documentProxy import DocumentProxy
 from rs2.proxyObjects.BoltPropertyProxy import BoltProperty
 from rs2.proxyObjects.LinerPropertyProxy import LinerProperty
+from rs2.proxyObjects.JointPropertyProxy import JointProperty
 
 class ModelProxy(ProxyObject):
 
@@ -48,6 +49,16 @@ class ModelProxy(ProxyObject):
 		linerObjectIDList = self._callFunction('getAllLinerProperties', [], keepReturnValueReference=True)
 		for linerObjectID in linerObjectIDList:
 			activeLinerProperties.append(LinerProperty(self._client, linerObjectID, self._documentProxy._ID))
+		return activeLinerProperties
+	
+	def getAllJointProperties(self) -> list[JointProperty]:
+		'''
+		Returns a list of all Liner Property objects
+		'''
+		activeLinerProperties = []
+		jointObjectIDList = self._callFunction('getAllJointProperties', [], keepReturnValueReference=True)
+		for jointObjectID in jointObjectIDList:
+			activeLinerProperties.append(JointProperty(self._client, jointObjectID, self._documentProxy._ID))
 		return activeLinerProperties
 	
 	def saveAndCompute(self):

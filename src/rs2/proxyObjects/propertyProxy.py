@@ -61,3 +61,15 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumELinerTypesProperty", [propertyName])
 	def _setEnumELinerTypesProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumELinerTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEJointWaterPressureTypeProperty(self, propertyName: str):
+		return self._callFunction("getEnumEJointWaterPressureTypeProperty", [propertyName])
+	def _setEnumEJointWaterPressureTypeProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEJointWaterPressureTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEJointStiffnessDefineProperty(self, propertyName: str):
+		return self._callFunction("getEnumEJointStiffnessDefineProperty", [propertyName])
+	def _setEnumEJointStiffnessDefineProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEJointStiffnessDefineProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEJointTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumEJointTypesProperty", [propertyName])
+	def _setEnumEJointTypesProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEJointTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
