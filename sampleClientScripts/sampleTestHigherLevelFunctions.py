@@ -7,6 +7,9 @@ model = modeler.openFile(r"C:\scriptingModels\simple_3_stage.fez")
 bolt = model.getBoltPropertyByName("Bolt 2")
 liner = model.getLinerPropertyByName("Liner 3")
 
+bolt.setBoltType(BoltTypes.FULLY_BONDED)
+liner.setLinerType(LinerTypes.P2_LINER_REINFORCED_CONCRETE)
+
 bolt.FullyBonded.setFullyBondedProperties(BoltDiameter=25.2, OutofPlaneSpacing=1.1, BoltModulusE=50000)
 print(str(bolt.FullyBonded.getBoltDiameter()) + ", " + str(bolt.FullyBonded.getOutofPlaneSpacing()) + ", " + str(bolt.FullyBonded.getBoltModulusE()))
 
