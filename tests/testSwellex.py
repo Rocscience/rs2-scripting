@@ -15,7 +15,6 @@ class TestSwellex(unittest.TestCase):
         shutil.copy(blankModelPath, self.copiedModelPath)
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
-        blankModelPath = f"{parentDirectory}/resources/blankProject.fez"
         self.bolt = self.model.getAllBoltProperties()[0]
     def tearDown(self):
         self.model.close()
