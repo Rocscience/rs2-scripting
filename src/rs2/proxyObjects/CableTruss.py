@@ -75,38 +75,38 @@ class CableTruss(PropertyProxy):
 		Grids "None" and "Default Grid" available by default.
 		"""
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName ])
-	def setCableTrussProperties(self, CableDiameter : float = None, TensileStrengthPeak : float = None, OutofplaneSpacing : float = None, PreTensioningForce : float = None, YoungsModulus : float = None, MaterialType : MaterialType = None, PreTensioning : bool = None, TensileStrengthResidual : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageCableProperties : bool = None, gridName : str = None):
-		if(CableDiameter):
+	def setProperties(self, CableDiameter : float = None, TensileStrengthPeak : float = None, OutofplaneSpacing : float = None, PreTensioningForce : float = None, YoungsModulus : float = None, MaterialType : MaterialType = None, PreTensioning : bool = None, TensileStrengthResidual : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageCableProperties : bool = None, gridName : str = None):
+		if CableDiameter:
 			self._validateAndSetDoubleProperty("LNP_CABLE_DIAMETER", CableDiameter)
-		if(TensileStrengthPeak):
+		if TensileStrengthPeak:
 			self._validateAndSetDoubleProperty("LNP_TENSILE_STRENGTH", TensileStrengthPeak)
-		if(OutofplaneSpacing):
+		if OutofplaneSpacing:
 			self._validateAndSetDoubleProperty("LNP_CABLE_OUT_OF_PLANE_SPACING", OutofplaneSpacing)
-		if(PreTensioningForce):
+		if PreTensioningForce:
 			self._validateAndSetDoubleProperty("LNP_PRE_TENSIONING", PreTensioningForce)
-		if(YoungsModulus):
+		if YoungsModulus:
 			self._validateAndSetDoubleProperty("LNP_YOUNGS_MODULUS", YoungsModulus)
-		if(MaterialType):
+		if MaterialType:
 			self._validateAndSetEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE", MaterialType)
-		if(PreTensioning):
+		if PreTensioning:
 			self._validateAndSetBoolProperty("LNP_USE_PRE_TENSIONING", PreTensioning)
-		if(TensileStrengthResidual):
+		if TensileStrengthResidual:
 			self._validateAndSetDoubleProperty("LNP_TENSILE_STRENGTH_RES", TensileStrengthResidual)
-		if(ActivateThermal):
+		if ActivateThermal:
 			self._validateAndSetBoolProperty("LNP_THERAMAL_ACTIVATE", ActivateThermal)
-		if(StaticTemperatureMode):
+		if StaticTemperatureMode:
 			self._validateAndSetEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD", StaticTemperatureMode)
-		if(StaticTemperature):
+		if StaticTemperature:
 			self._validateAndSetDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", StaticTemperature)
-		if(Conductivity):
+		if Conductivity:
 			self._validateAndSetDoubleProperty("LNP_THERAMAL_CONDUCTIVITY", Conductivity)
-		if(SpecificHeatCapacity):
+		if SpecificHeatCapacity:
 			self._validateAndSetDoubleProperty("LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", SpecificHeatCapacity)
-		if(ThermalExpansion):
+		if ThermalExpansion:
 			self._validateAndSetBoolProperty("LNP_THERAMAL_EXPANSION_IS_ON", ThermalExpansion)
-		if(ExpansionCoefficient):
+		if ExpansionCoefficient:
 			self._validateAndSetDoubleProperty("LNP_THERAMAL_EXPANSION_ALPHA", ExpansionCoefficient)
-		if(StageCableProperties):
+		if StageCableProperties:
 			self._validateAndSetBoolProperty("LNP_USE_STAGE_CABLE", StageCableProperties)
-		if(gridName):
+		if gridName:
 			self.setStaticTemperatureGridToUse(gridName)
