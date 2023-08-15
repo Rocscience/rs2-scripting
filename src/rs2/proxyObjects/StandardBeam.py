@@ -107,54 +107,52 @@ class StandardBeam(PropertyProxy):
 		Grids "None" and "Default Grid" available by default.
 		"""
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName ])
-	def setProperties(self, UnitWeight : float = None, IncludeWeightInAnalysis : bool = None, YoungsModulus : float = None, Method : GeometryChoice = None, Thickness : float = None, PoissonsRatio : float = None, Area : float = None, MomentOfInertia : float = None, MaterialType : MaterialType = None, CompressiveStrengthPeak : float = None, CompressiveStrengthResidual : float = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageLinerProperties : bool = None, gridName : str = None):
-		if UnitWeight:
+	def setProperties(self, UnitWeight : float = None, IncludeWeightInAnalysis : bool = None, YoungsModulus : float = None, Method : GeometryChoice = None, Thickness : float = None, PoissonsRatio : float = None, Area : float = None, MomentOfInertia : float = None, MaterialType : MaterialType = None, CompressiveStrengthPeak : float = None, CompressiveStrengthResidual : float = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageLinerProperties : bool = None):
+		if UnitWeight is not None:
 			self._validateAndSetDoubleProperty("LNP_UNIT_WEIGHT", UnitWeight)
-		if IncludeWeightInAnalysis:
+		if IncludeWeightInAnalysis is not None:
 			self._validateAndSetBoolProperty("LNP_USE_WEIGHT", IncludeWeightInAnalysis)
-		if YoungsModulus:
+		if YoungsModulus is not None:
 			self._validateAndSetDoubleProperty("LNP_YOUNGS_MODULUS", YoungsModulus)
-		if Method:
+		if Method is not None:
 			self._validateAndSetEnumEGeometryChoiceProperty("LNP_GEOMETRY_CHOICE", Method)
-		if Thickness:
+		if Thickness is not None:
 			self._validateAndSetDoubleProperty("LNP_THICKNESS", Thickness)
-		if PoissonsRatio:
+		if PoissonsRatio is not None:
 			self._validateAndSetDoubleProperty("LNP_POISSONS_RATIO", PoissonsRatio)
-		if Area:
+		if Area is not None:
 			self._validateAndSetDoubleProperty("LNP_AREA", Area)
-		if MomentOfInertia:
+		if MomentOfInertia is not None:
 			self._validateAndSetDoubleProperty("LNP_MOMENT_OF_INERTIA", MomentOfInertia)
-		if MaterialType:
+		if MaterialType is not None:
 			self._validateAndSetEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE", MaterialType)
-		if CompressiveStrengthPeak:
+		if CompressiveStrengthPeak is not None:
 			self._validateAndSetDoubleProperty("LNP_COMPRESSIVE_STRENGTH", CompressiveStrengthPeak)
-		if CompressiveStrengthResidual:
+		if CompressiveStrengthResidual is not None:
 			self._validateAndSetDoubleProperty("LNP_COMPRESSIVE_STRENGTH_RES", CompressiveStrengthResidual)
-		if TensileStrengthPeak:
+		if TensileStrengthPeak is not None:
 			self._validateAndSetDoubleProperty("LNP_TENSILE_STRENGTH", TensileStrengthPeak)
-		if TensileStrengthResidual:
+		if TensileStrengthResidual is not None:
 			self._validateAndSetDoubleProperty("LNP_TENSILE_STRENGTH_RES", TensileStrengthResidual)
-		if SlidingGap:
+		if SlidingGap is not None:
 			self._validateAndSetBoolProperty("LNP_USE_SLIDING_GAP", SlidingGap)
-		if StrainAtLocking:
+		if StrainAtLocking is not None:
 			self._validateAndSetDoubleProperty("LNP_STRAIN_AT_LOCKING", StrainAtLocking)
-		if BeamElementFormulation:
+		if BeamElementFormulation is not None:
 			self._validateAndSetEnumELinerFormulationProperty("LNP_BEAM_ELEMENT_FORMULATION", BeamElementFormulation)
-		if ActivateThermal:
+		if ActivateThermal is not None:
 			self._validateAndSetBoolProperty("LNP_THERAMAL_ACTIVATE", ActivateThermal)
-		if StaticTemperatureMode:
+		if StaticTemperatureMode is not None:
 			self._validateAndSetEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD", StaticTemperatureMode)
-		if StaticTemperature:
+		if StaticTemperature is not None:
 			self._validateAndSetDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", StaticTemperature)
-		if Conductivity:
+		if Conductivity is not None:
 			self._validateAndSetDoubleProperty("LNP_THERAMAL_CONDUCTIVITY", Conductivity)
-		if SpecificHeatCapacity:
+		if SpecificHeatCapacity is not None:
 			self._validateAndSetDoubleProperty("LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", SpecificHeatCapacity)
-		if ThermalExpansion:
+		if ThermalExpansion is not None:
 			self._validateAndSetBoolProperty("LNP_THERAMAL_EXPANSION_IS_ON", ThermalExpansion)
-		if ExpansionCoefficient:
+		if ExpansionCoefficient is not None:
 			self._validateAndSetDoubleProperty("LNP_THERAMAL_EXPANSION_ALPHA", ExpansionCoefficient)
-		if StageLinerProperties:
+		if StageLinerProperties is not None:
 			self._validateAndSetBoolProperty("LNP_USE_STAGE_LINER", StageLinerProperties)
-		if gridName:
-			self.setStaticTemperatureGridToUse(gridName)

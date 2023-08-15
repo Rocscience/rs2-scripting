@@ -109,55 +109,55 @@ class Tieback(PropertyProxy):
 	def setDelayInstallAfterBolt(self, value: int):
 		return self._validateAndSetIntProperty("BP_SECONDARY_BOND_DELAY", value)
 	def setProperties(self, OutofPlaneSpacing : float = None, BoltDiameter : float = None, BoltModulusE : float = None, MaterialDependent : bool = None, BoltModel : BoltModels = None, TensileCapacity : float = None, ResidualTensileCapacity : float = None, BondStrengthCoefficient : float = None, BondShearStiffnessCoefficient : float = None, BondShearStiffness : float = None, BondStrength : float = None, JointShear : bool = None, BoreholeDiameter : float = None, PreTensioningForce : float = None, ConstantPretensioningForceInInstallStage : bool = None, FacePlates : bool = None, AddPullOutForce : bool = None, PullOutForce : float = None, UseBondPercentageLength : bool = None, PercentageBondLength : int = None, BondLength : float = None, UseSecondaryBondLength : bool = None, SecondaryBondLengthType : SecondaryBondLengthType = None, PercentOfSecondaryBondLength : int = None, SecondaryBondLength : float = None, DelayInstallAfterBolt : int = None):
-		if OutofPlaneSpacing:
+		if OutofPlaneSpacing is not None:
 			self._validateAndSetDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT", OutofPlaneSpacing)
-		if BoltDiameter:
+		if BoltDiameter is not None:
 			self._validateAndSetDoubleProperty("BP_BOLT_DIAMETER", BoltDiameter)
-		if BoltModulusE:
+		if BoltModulusE is not None:
 			self._validateAndSetDoubleProperty("BP_BOLT_MODULUS", BoltModulusE)
-		if MaterialDependent:
+		if MaterialDependent is not None:
 			self._validateAndSetBoolProperty("BP_MATERIAL_DEPENDENT", MaterialDependent)
-		if BoltModel:
+		if BoltModel is not None:
 			self._validateAndSetEnumEBoltModelsProperty("BP_BOLT_MODEL", BoltModel)
-		if TensileCapacity:
+		if TensileCapacity is not None:
 			self._validateAndSetDoubleProperty("BP_TENSILE_END", TensileCapacity)
-		if ResidualTensileCapacity:
+		if ResidualTensileCapacity is not None:
 			self._validateAndSetDoubleProperty("BP_RES_TENSILE_END", ResidualTensileCapacity)
-		if BondStrengthCoefficient:
+		if BondStrengthCoefficient is not None:
 			self._validateAndSetDoubleProperty("BP_BOND_STRENGTH_COEFFICIENT", BondStrengthCoefficient)
-		if BondShearStiffnessCoefficient:
+		if BondShearStiffnessCoefficient is not None:
 			self._validateAndSetDoubleProperty("BP_BOND_SHEAR_STIFF_COEFFICIENT", BondShearStiffnessCoefficient)
-		if BondShearStiffness:
+		if BondShearStiffness is not None:
 			self._validateAndSetDoubleProperty("BP_BOND_SHEAR_STIFFNESS", BondShearStiffness)
-		if BondStrength:
+		if BondStrength is not None:
 			self._validateAndSetDoubleProperty("BP_BOND_STRENGTH", BondStrength)
-		if JointShear:
+		if JointShear is not None:
 			self._validateAndSetBoolProperty("BP_USE_JOINT_SHEAR", JointShear)
-		if BoreholeDiameter:
+		if BoreholeDiameter is not None:
 			self._validateAndSetDoubleProperty("BP_BOREHOLE_DIAMETER_TIEBACK", BoreholeDiameter)
-		if PreTensioningForce:
+		if PreTensioningForce is not None:
 			self._validateAndSetDoubleProperty("BP_PRETENSIONING", PreTensioningForce)
-		if ConstantPretensioningForceInInstallStage:
+		if ConstantPretensioningForceInInstallStage is not None:
 			self._validateAndSetBoolProperty("BP_USE_CONSTANT_FORCE", ConstantPretensioningForceInInstallStage)
-		if FacePlates:
+		if FacePlates is not None:
 			self._validateAndSetBoolProperty("BP_FACE_PLATES", FacePlates)
-		if AddPullOutForce:
+		if AddPullOutForce is not None:
 			self._validateAndSetBoolProperty("BP_ADD_PULL_OUT_FORCE", AddPullOutForce)
-		if PullOutForce:
+		if PullOutForce is not None:
 			self._validateAndSetDoubleProperty("BP_PULL_OUT_FORCE", PullOutForce)
-		if UseBondPercentageLength:
+		if UseBondPercentageLength is not None:
 			self._validateAndSetBoolProperty("BP_USE_BOND_PERCENTAGE_LENGTH", UseBondPercentageLength)
-		if PercentageBondLength:
+		if PercentageBondLength is not None:
 			self._validateAndSetIntProperty("BP_BOND_PERCENTAGE_LENGTH", PercentageBondLength)
-		if BondLength:
+		if BondLength is not None:
 			self._validateAndSetDoubleProperty("BP_BOND_PHYSICAL_LENGTH", BondLength)
-		if UseSecondaryBondLength:
+		if UseSecondaryBondLength is not None:
 			self._validateAndSetBoolProperty("BP_ADD_SECONDARY_BOND_LENGTH", UseSecondaryBondLength)
-		if SecondaryBondLengthType:
+		if SecondaryBondLengthType is not None:
 			self._validateAndSetEnumESecondaryBondLengthTypeProperty("BP_SECONDARY_BOND_LENGTH_TYPE", SecondaryBondLengthType)
-		if PercentOfSecondaryBondLength:
+		if PercentOfSecondaryBondLength is not None:
 			self._validateAndSetIntProperty("BP_SECONDARY_BOND_LENGTH_PERCENT", PercentOfSecondaryBondLength)
-		if SecondaryBondLength:
+		if SecondaryBondLength is not None:
 			self._validateAndSetDoubleProperty("BP_SECONDARY_BOND_LENGTH_PHYSICAL", SecondaryBondLength)
-		if DelayInstallAfterBolt:
+		if DelayInstallAfterBolt is not None:
 			self._validateAndSetIntProperty("BP_SECONDARY_BOND_DELAY", DelayInstallAfterBolt)
