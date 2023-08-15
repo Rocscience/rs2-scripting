@@ -57,11 +57,11 @@ class Geosynthetic(PropertyProxy):
 	def setStageGeosyntheticProperties(self, value: bool):
 		return self._validateAndSetBoolProperty("LNP_USE_STAGE_GEOSYN", value)
 	def getStaticTemperatureGridToUse(self) -> str:
+		return self._callFunction("getStaticTemperatureGridToUse", [])
+	def setStaticTemperatureGridToUse(self, gridName: str):
 		"""
 		Grids "None" and "Default Grid" available by default.
 		"""
-		return self._callFunction("getStaticTemperatureGridToUse", [])
-	def setStaticTemperatureGridToUse(self, gridName: str):
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName ])
 	def setGeosyntheticProperties(self, InitialTemperature : float = None, TensileModulus : float = None, StaticTemperature : float = None, ActivateThermal : bool = None, MaterialType : MaterialType = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, StaticTemperatureMode : StaticWaterModes = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageGeosyntheticProperties : bool = None, gridName : str = None):
 		if(InitialTemperature):

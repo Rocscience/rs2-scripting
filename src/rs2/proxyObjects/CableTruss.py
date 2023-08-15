@@ -69,11 +69,11 @@ class CableTruss(PropertyProxy):
 	def setStageCableProperties(self, value: bool):
 		return self._validateAndSetBoolProperty("LNP_USE_STAGE_CABLE", value)
 	def getStaticTemperatureGridToUse(self) -> str:
+		return self._callFunction("getStaticTemperatureGridToUse", [])
+	def setStaticTemperatureGridToUse(self, gridName: str):
 		"""
 		Grids "None" and "Default Grid" available by default.
 		"""
-		return self._callFunction("getStaticTemperatureGridToUse", [])
-	def setStaticTemperatureGridToUse(self, gridName: str):
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName ])
 	def setCableTrussProperties(self, CableDiameter : float = None, TensileStrengthPeak : float = None, OutofplaneSpacing : float = None, PreTensioningForce : float = None, YoungsModulus : float = None, MaterialType : MaterialType = None, PreTensioning : bool = None, TensileStrengthResidual : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageCableProperties : bool = None, gridName : str = None):
 		if(CableDiameter):

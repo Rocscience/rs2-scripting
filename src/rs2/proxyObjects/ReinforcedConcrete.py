@@ -121,11 +121,11 @@ class ReinforcedConcrete(PropertyProxy):
 	def setStageConcreteProperties(self, value: bool):
 		return self._validateAndSetBoolProperty("LNP_USE_STAGE_CONCRETE", value)
 	def getStaticTemperatureGridToUse(self) -> str:
+		return self._callFunction("getStaticTemperatureGridToUse", [])
+	def setStaticTemperatureGridToUse(self, gridName: str):
 		"""
 		Grids "None" and "Default Grid" available by default.
 		"""
-		return self._callFunction("getStaticTemperatureGridToUse", [])
-	def setStaticTemperatureGridToUse(self, gridName: str):
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName ])
 	def setReinforcedConcreteProperties(self, Reinforcement : bool = None, IncludeWeightInAnalysis : bool = None, ConcreteUnitWeight : float = None, Spacing : float = None, SectionDepth : float = None, ConcreteYoungsModulus : float = None, Area : float = None, MomentOfInertia : float = None, ConcreteCompressiveStrength : float = None, ConcreteTensileStrength : float = None, Weight : float = None, Concrete : bool = None, Thickness : float = None, YoungsModulus : float = None, PoissonRatio : float = None, CompressiveStrength : float = None, TensileStrength : float = None, MaterialType : MaterialType = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageConcreteProperties : bool = None, gridName : str = None):
 		if(Reinforcement):
