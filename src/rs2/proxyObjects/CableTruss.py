@@ -4,10 +4,6 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 class CableTruss(PropertyProxy):
-	def getCableDiameter(self) -> float:
-		return self._getDoubleProperty("LNP_CABLE_DIAMETER")
-	def setCableDiameter(self, value: float):
-		return self._setDoubleProperty("LNP_CABLE_DIAMETER", value)
 	def getTensileStrengthPeak(self) -> float:
 		return self._getDoubleProperty("LNP_TENSILE_STRENGTH")
 	def setTensileStrengthPeak(self, value: float):

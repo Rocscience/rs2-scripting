@@ -4,10 +4,6 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 class FullyBonded(PropertyProxy):
-	def getBoltDiameter(self) -> float:
-		return self._getDoubleProperty("BP_BOLT_DIAMETER")
-	def setBoltDiameter(self, value: float):
-		return self._setDoubleProperty("BP_BOLT_DIAMETER", value)
 	def getOutofPlaneSpacing(self) -> float:
 		return self._getDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT")
 	def setOutofPlaneSpacing(self, value: float):
