@@ -17,12 +17,12 @@ class LinerProperty(PropertyProxy):
 	def getLinerName(self) -> str:
 		return self._getCStringProperty("LNP_NAME")
 	def setLinerName(self, value: str):
-		return self._setCStringProperty("LNP_NAME", value)
+		return self._validateAndSetCStringProperty("LNP_NAME", value)
 	def getLinerColor(self) -> int:
 		return self._getUnsignedLongProperty("LNP_COLOR")
 	def setLinerColor(self, value: int):
-		return self._setUnsignedLongProperty("LNP_COLOR", value)
+		return self._validateAndSetUnsignedLongProperty("LNP_COLOR", value)
 	def getLinerType(self) -> LinerTypes:
 		return LinerTypes(self._getEnumELinerTypesProperty("LNP_LINER_TYPE"))
 	def setLinerType(self, value: LinerTypes):
-		return self._setEnumELinerTypesProperty("LNP_LINER_TYPE", value)
+		return self._validateAndSetEnumELinerTypesProperty("LNP_LINER_TYPE", value)
