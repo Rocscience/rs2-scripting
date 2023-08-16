@@ -15,3 +15,6 @@ print(str(bolt.FullyBonded.getBoltDiameter()) + ", " + str(bolt.FullyBonded.getO
 
 liner.ReinforcedConcrete.setProperties(IncludeWeightInAnalysis=True, MaterialType=MaterialType.PLASTIC)
 print(str(liner.ReinforcedConcrete.getIncludeWeightInAnalysis()) + ", " + str(liner.ReinforcedConcrete.getMaterialType()))
+
+print(bolt.FullyBonded.getProperties())
+print(liner.ReinforcedConcrete.getProperties())

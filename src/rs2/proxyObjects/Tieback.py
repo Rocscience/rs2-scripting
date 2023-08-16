@@ -4,10 +4,6 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 class Tieback(PropertyProxy):
-	def getOutofPlaneSpacing(self) -> float:
-		return self._getDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT")
-	def setOutofPlaneSpacing(self, value: float):
-		return self._setDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT", value)
 	def getBoltDiameter(self) -> float:
 		return self._getDoubleProperty("BP_BOLT_DIAMETER")
 	def setBoltDiameter(self, value: float):
@@ -16,10 +12,6 @@ class Tieback(PropertyProxy):
 		return self._getDoubleProperty("BP_BOLT_MODULUS")
 	def setBoltModulusE(self, value: float):
 		return self._setDoubleProperty("BP_BOLT_MODULUS", value)
-	def getMaterialDependent(self) -> bool:
-		return self._getBoolProperty("BP_MATERIAL_DEPENDENT")
-	def setMaterialDependent(self, value: bool):
-		return self._setBoolProperty("BP_MATERIAL_DEPENDENT", value)
 	def getBoltModel(self) -> BoltModels:
 		return BoltModels(self._getEnumEBoltModelsProperty("BP_BOLT_MODEL"))
 	def setBoltModel(self, value: BoltModels):
@@ -32,6 +24,14 @@ class Tieback(PropertyProxy):
 		return self._getDoubleProperty("BP_RES_TENSILE_END")
 	def setResidualTensileCapacity(self, value: float):
 		return self._setDoubleProperty("BP_RES_TENSILE_END", value)
+	def getOutofPlaneSpacing(self) -> float:
+		return self._getDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT")
+	def setOutofPlaneSpacing(self, value: float):
+		return self._setDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT", value)
+	def getMaterialDependent(self) -> bool:
+		return self._getBoolProperty("BP_MATERIAL_DEPENDENT")
+	def setMaterialDependent(self, value: bool):
+		return self._setBoolProperty("BP_MATERIAL_DEPENDENT", value)
 	def getBondStrengthCoefficient(self) -> float:
 		return self._getDoubleProperty("BP_BOND_STRENGTH_COEFFICIENT")
 	def setBondStrengthCoefficient(self, value: float):
@@ -88,9 +88,9 @@ class Tieback(PropertyProxy):
 		return self._getDoubleProperty("BP_BOND_PHYSICAL_LENGTH")
 	def setBondLength(self, value: float):
 		return self._setDoubleProperty("BP_BOND_PHYSICAL_LENGTH", value)
-	def getSecondaryBondLength(self) -> bool:
+	def getUseSecondaryBondLength(self) -> bool:
 		return self._getBoolProperty("BP_ADD_SECONDARY_BOND_LENGTH")
-	def setSecondaryBondLength(self, value: bool):
+	def setUseSecondaryBondLength(self, value: bool):
 		return self._setBoolProperty("BP_ADD_SECONDARY_BOND_LENGTH", value)
 	def getSecondaryBondLengthType(self) -> SecondaryBondLengthType:
 		return SecondaryBondLengthType(self._getEnumESecondaryBondLengthTypeProperty("BP_SECONDARY_BOND_LENGTH_TYPE"))
@@ -108,21 +108,21 @@ class Tieback(PropertyProxy):
 		return self._getIntProperty("BP_SECONDARY_BOND_DELAY")
 	def setDelayInstallAfterBolt(self, value: int):
 		return self._setIntProperty("BP_SECONDARY_BOND_DELAY", value)
-	def setProperties(self, OutofPlaneSpacing : float = None, BoltDiameter : float = None, BoltModulusE : float = None, MaterialDependent : bool = None, BoltModel : BoltModels = None, TensileCapacity : float = None, ResidualTensileCapacity : float = None, BondStrengthCoefficient : float = None, BondShearStiffnessCoefficient : float = None, BondShearStiffness : float = None, BondStrength : float = None, JointShear : bool = None, BoreholeDiameter : float = None, PreTensioningForce : float = None, ConstantPretensioningForceInInstallStage : bool = None, FacePlates : bool = None, AddPullOutForce : bool = None, PullOutForce : float = None, UseBondPercentageLength : bool = None, PercentageBondLength : int = None, BondLength : float = None, UseSecondaryBondLength : bool = None, SecondaryBondLengthType : SecondaryBondLengthType = None, PercentOfSecondaryBondLength : int = None, SecondaryBondLength : float = None, DelayInstallAfterBolt : int = None):
-		if OutofPlaneSpacing is not None:
-			self._setDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT", OutofPlaneSpacing)
+	def setProperties(self, BoltDiameter : float = None, BoltModulusE : float = None, BoltModel : BoltModels = None, TensileCapacity : float = None, ResidualTensileCapacity : float = None, OutofPlaneSpacing : float = None, MaterialDependent : bool = None, BondStrengthCoefficient : float = None, BondShearStiffnessCoefficient : float = None, BondShearStiffness : float = None, BondStrength : float = None, JointShear : bool = None, BoreholeDiameter : float = None, PreTensioningForce : float = None, ConstantPretensioningForceInInstallStage : bool = None, FacePlates : bool = None, AddPullOutForce : bool = None, PullOutForce : float = None, UseBondPercentageLength : bool = None, PercentageBondLength : int = None, BondLength : float = None, UseSecondaryBondLength : bool = None, SecondaryBondLengthType : SecondaryBondLengthType = None, PercentOfSecondaryBondLength : int = None, SecondaryBondLength : float = None, DelayInstallAfterBolt : int = None):
 		if BoltDiameter is not None:
 			self._setDoubleProperty("BP_BOLT_DIAMETER", BoltDiameter)
 		if BoltModulusE is not None:
 			self._setDoubleProperty("BP_BOLT_MODULUS", BoltModulusE)
-		if MaterialDependent is not None:
-			self._setBoolProperty("BP_MATERIAL_DEPENDENT", MaterialDependent)
 		if BoltModel is not None:
 			self._setEnumEBoltModelsProperty("BP_BOLT_MODEL", BoltModel)
 		if TensileCapacity is not None:
 			self._setDoubleProperty("BP_TENSILE_END", TensileCapacity)
 		if ResidualTensileCapacity is not None:
 			self._setDoubleProperty("BP_RES_TENSILE_END", ResidualTensileCapacity)
+		if OutofPlaneSpacing is not None:
+			self._setDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT", OutofPlaneSpacing)
+		if MaterialDependent is not None:
+			self._setBoolProperty("BP_MATERIAL_DEPENDENT", MaterialDependent)
 		if BondStrengthCoefficient is not None:
 			self._setDoubleProperty("BP_BOND_STRENGTH_COEFFICIENT", BondStrengthCoefficient)
 		if BondShearStiffnessCoefficient is not None:
@@ -161,3 +161,32 @@ class Tieback(PropertyProxy):
 			self._setDoubleProperty("BP_SECONDARY_BOND_LENGTH_PHYSICAL", SecondaryBondLength)
 		if DelayInstallAfterBolt is not None:
 			self._setIntProperty("BP_SECONDARY_BOND_DELAY", DelayInstallAfterBolt)
+	def getProperties(self):
+		return {
+		"BoltDiameter" : self.getBoltDiameter(), 
+		"BoltModulusE" : self.getBoltModulusE(), 
+		"BoltModel" : self.getBoltModel(), 
+		"TensileCapacity" : self.getTensileCapacity(), 
+		"ResidualTensileCapacity" : self.getResidualTensileCapacity(), 
+		"OutofPlaneSpacing" : self.getOutofPlaneSpacing(), 
+		"MaterialDependent" : self.getMaterialDependent(), 
+		"BondStrengthCoefficient" : self.getBondStrengthCoefficient(), 
+		"BondShearStiffnessCoefficient" : self.getBondShearStiffnessCoefficient(), 
+		"BondShearStiffness" : self.getBondShearStiffness(), 
+		"BondStrength" : self.getBondStrength(), 
+		"JointShear" : self.getJointShear(), 
+		"BoreholeDiameter" : self.getBoreholeDiameter(), 
+		"PreTensioningForce" : self.getPreTensioningForce(), 
+		"ConstantPretensioningForceInInstallStage" : self.getConstantPretensioningForceInInstallStage(), 
+		"FacePlates" : self.getFacePlates(), 
+		"AddPullOutForce" : self.getAddPullOutForce(), 
+		"PullOutForce" : self.getPullOutForce(), 
+		"UseBondPercentageLength" : self.getUseBondPercentageLength(), 
+		"PercentageBondLength" : self.getPercentageBondLength(), 
+		"BondLength" : self.getBondLength(), 
+		"UseSecondaryBondLength" : self.getUseSecondaryBondLength(), 
+		"SecondaryBondLengthType" : self.getSecondaryBondLengthType(), 
+		"PercentOfSecondaryBondLength" : self.getPercentOfSecondaryBondLength(), 
+		"SecondaryBondLength" : self.getSecondaryBondLength(), 
+		"DelayInstallAfterBolt" : self.getDelayInstallAfterBolt(), 
+		}
