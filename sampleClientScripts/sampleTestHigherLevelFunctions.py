@@ -17,3 +17,4 @@ liner.ReinforcedConcrete.setProperties(IncludeWeightInAnalysis=True, MaterialTyp
 print(str(liner.ReinforcedConcrete.getIncludeWeightInAnalysis()) + ", " + str(liner.ReinforcedConcrete.getMaterialType()))
 
 print(bolt.FullyBonded.getProperties())
+print(liner.ReinforcedConcrete.getProperties())
