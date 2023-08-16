@@ -65,9 +65,36 @@ class Geosynthetic(PropertyProxy):
 	def setStageGeosyntheticProperties(self, value: bool):
 		return self._setBoolProperty("LNP_USE_STAGE_GEOSYN", value)
 	def getStaticTemperatureGridToUse(self) -> str:
+		return self._callFunction("getStaticTemperatureGridToUse", [])
+	def setStaticTemperatureGridToUse(self, gridName: str):
 		"""
 		Grids "None" and "Default Grid" available by default.
 		"""
-		return self._callFunction("getStaticTemperatureGridToUse", [])
-	def setStaticTemperatureGridToUse(self, gridName: str):
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName ])
+	def setProperties(self, InitialTemperature : float = None, TensileModulus : float = None, StaticTemperature : float = None, ActivateThermal : bool = None, MaterialType : MaterialType = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, StaticTemperatureMode : StaticWaterModes = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageGeosyntheticProperties : bool = None):
+		if InitialTemperature is not None:
+			self._setDoubleProperty("LNP_THERAMAL_INITIAL_TEMPERATURE", InitialTemperature)
+		if TensileModulus is not None:
+			self._setDoubleProperty("LNP_TENSILE_MODULUS", TensileModulus)
+		if StaticTemperature is not None:
+			self._setDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", StaticTemperature)
+		if ActivateThermal is not None:
+			self._setBoolProperty("LNP_THERAMAL_ACTIVATE", ActivateThermal)
+		if MaterialType is not None:
+			self._setEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE", MaterialType)
+		if TensileStrengthPeak is not None:
+			self._setDoubleProperty("LNP_TENSILE_STRENGTH", TensileStrengthPeak)
+		if TensileStrengthResidual is not None:
+			self._setDoubleProperty("LNP_TENSILE_STRENGTH_RES", TensileStrengthResidual)
+		if StaticTemperatureMode is not None:
+			self._setEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD", StaticTemperatureMode)
+		if Conductivity is not None:
+			self._setDoubleProperty("LNP_THERAMAL_CONDUCTIVITY", Conductivity)
+		if SpecificHeatCapacity is not None:
+			self._setDoubleProperty("LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", SpecificHeatCapacity)
+		if ThermalExpansion is not None:
+			self._setBoolProperty("LNP_THERAMAL_EXPANSION_IS_ON", ThermalExpansion)
+		if ExpansionCoefficient is not None:
+			self._setDoubleProperty("LNP_THERAMAL_EXPANSION_ALPHA", ExpansionCoefficient)
+		if StageGeosyntheticProperties is not None:
+			self._setBoolProperty("LNP_USE_STAGE_GEOSYN", StageGeosyntheticProperties)

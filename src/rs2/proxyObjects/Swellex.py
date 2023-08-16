@@ -76,3 +76,40 @@ class Swellex(PropertyProxy):
 		return self._getDoubleProperty("BP_PULL_OUT_FORCE")
 	def setPullOutForce(self, value: float):
 		return self._setDoubleProperty("BP_PULL_OUT_FORCE", value)
+	def setProperties(self, TensileCapacity : float = None, ResidualTensileCapacity : float = None, MaterialDependent : bool = None, TributaryArea : float = None, BoltModulusE : float = None, OutofPlaneSpacing : float = None, BondStrengthCoefficient : float = None, BondShearStiffnessCoefficient : float = None, BondShearStiffness : float = None, BondStrength : float = None, ResidualBondStrength : float = None, BoltModel : BoltModels = None, JointShear : bool = None, PreTensioningForce : float = None, ConstantPretensioningForceInInstallStage : bool = None, FacePlates : bool = None, AddPullOutForce : bool = None, PullOutForce : float = None):
+		if TensileCapacity is not None:
+			self._setDoubleProperty("BP_TENSILE_END", TensileCapacity)
+		if ResidualTensileCapacity is not None:
+			self._setDoubleProperty("BP_RES_TENSILE_END", ResidualTensileCapacity)
+		if MaterialDependent is not None:
+			self._setBoolProperty("BP_MATERIAL_DEPENDENT", MaterialDependent)
+		if TributaryArea is not None:
+			self._setDoubleProperty("BP_TRIBUTARY_AREA", TributaryArea)
+		if BoltModulusE is not None:
+			self._setDoubleProperty("BP_BOLT_MODULUS", BoltModulusE)
+		if OutofPlaneSpacing is not None:
+			self._setDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT", OutofPlaneSpacing)
+		if BondStrengthCoefficient is not None:
+			self._setDoubleProperty("BP_BOND_STRENGTH_COEFFICIENT", BondStrengthCoefficient)
+		if BondShearStiffnessCoefficient is not None:
+			self._setDoubleProperty("BP_BOND_SHEAR_STIFF_COEFFICIENT", BondShearStiffnessCoefficient)
+		if BondShearStiffness is not None:
+			self._setDoubleProperty("BP_BOND_SHEAR_STIFFNESS", BondShearStiffness)
+		if BondStrength is not None:
+			self._setDoubleProperty("BP_BOND_STRENGTH", BondStrength)
+		if ResidualBondStrength is not None:
+			self._setDoubleProperty("BP_RES_BOND_STRENGTH", ResidualBondStrength)
+		if BoltModel is not None:
+			self._setEnumEBoltModelsProperty("BP_BOLT_MODEL", BoltModel)
+		if JointShear is not None:
+			self._setBoolProperty("BP_USE_JOINT_SHEAR", JointShear)
+		if PreTensioningForce is not None:
+			self._setDoubleProperty("BP_PRETENSIONING", PreTensioningForce)
+		if ConstantPretensioningForceInInstallStage is not None:
+			self._setBoolProperty("BP_USE_CONSTANT_FORCE", ConstantPretensioningForceInInstallStage)
+		if FacePlates is not None:
+			self._setBoolProperty("BP_FACE_PLATES", FacePlates)
+		if AddPullOutForce is not None:
+			self._setBoolProperty("BP_ADD_PULL_OUT_FORCE", AddPullOutForce)
+		if PullOutForce is not None:
+			self._setDoubleProperty("BP_PULL_OUT_FORCE", PullOutForce)

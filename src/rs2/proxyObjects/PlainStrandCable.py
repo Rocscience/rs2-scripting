@@ -64,3 +64,32 @@ class PlainStrandCable(PropertyProxy):
 		return self._callFunction("get_bulge_locations_ref", [])
 	def setBulgeLocations(self, locations: List[float]):
 		return self._callFunction("set_bulge_locations", [locations ])
+	def setProperties(self, BoreholeDiameter : float = None, CableDiameter : float = None, OutofPlaneSpacing : float = None, CableModulusE : float = None, FacePlates : bool = None, CablePeak : float = None, WaterCementRatio : float = None, JointShear : bool = None, AddPullOutForce : bool = None, PullOutForce : float = None, ConstantShearStiffness : bool = None, Stiffness : float = None, AddBulges : bool = None, BulgeType : BulgeTypes = None):
+		if BoreholeDiameter is not None:
+			self._setDoubleProperty("BP_BOREHOLE_DIAMETER_CABLE", BoreholeDiameter)
+		if CableDiameter is not None:
+			self._setDoubleProperty("BP_CABLE_DIAMETER", CableDiameter)
+		if OutofPlaneSpacing is not None:
+			self._setDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT", OutofPlaneSpacing)
+		if CableModulusE is not None:
+			self._setDoubleProperty("BP_CABLE_MODULUS", CableModulusE)
+		if FacePlates is not None:
+			self._setBoolProperty("BP_FACE_PLATES", FacePlates)
+		if CablePeak is not None:
+			self._setDoubleProperty("BP_CABLE_PEAK", CablePeak)
+		if WaterCementRatio is not None:
+			self._setDoubleProperty("BP_WATER_CEMENT_RATIO", WaterCementRatio)
+		if JointShear is not None:
+			self._setBoolProperty("BP_USE_JOINT_SHEAR", JointShear)
+		if AddPullOutForce is not None:
+			self._setBoolProperty("BP_ADD_PULL_OUT_FORCE", AddPullOutForce)
+		if PullOutForce is not None:
+			self._setDoubleProperty("BP_PULL_OUT_FORCE", PullOutForce)
+		if ConstantShearStiffness is not None:
+			self._setBoolProperty("BP_ADD_CONSTANT_SHEAR_STIFFNESS", ConstantShearStiffness)
+		if Stiffness is not None:
+			self._setDoubleProperty("BP_CONSTANT_SHEAR_STIFFNESS", Stiffness)
+		if AddBulges is not None:
+			self._setBoolProperty("BP_ADD_BULGES", AddBulges)
+		if BulgeType is not None:
+			self._setEnumEBulgeTypesProperty("BP_BULGE_TYPE", BulgeType)

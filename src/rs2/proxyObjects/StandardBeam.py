@@ -101,9 +101,58 @@ class StandardBeam(PropertyProxy):
 	def setStageLinerProperties(self, value: bool):
 		return self._setBoolProperty("LNP_USE_STAGE_LINER", value)
 	def getStaticTemperatureGridToUse(self) -> str:
+		return self._callFunction("getStaticTemperatureGridToUse", [])
+	def setStaticTemperatureGridToUse(self, gridName: str):
 		"""
 		Grids "None" and "Default Grid" available by default.
 		"""
-		return self._callFunction("getStaticTemperatureGridToUse", [])
-	def setStaticTemperatureGridToUse(self, gridName: str):
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName ])
+	def setProperties(self, UnitWeight : float = None, IncludeWeightInAnalysis : bool = None, YoungsModulus : float = None, Method : GeometryChoice = None, Thickness : float = None, PoissonsRatio : float = None, Area : float = None, MomentOfInertia : float = None, MaterialType : MaterialType = None, CompressiveStrengthPeak : float = None, CompressiveStrengthResidual : float = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageLinerProperties : bool = None):
+		if UnitWeight is not None:
+			self._setDoubleProperty("LNP_UNIT_WEIGHT", UnitWeight)
+		if IncludeWeightInAnalysis is not None:
+			self._setBoolProperty("LNP_USE_WEIGHT", IncludeWeightInAnalysis)
+		if YoungsModulus is not None:
+			self._setDoubleProperty("LNP_YOUNGS_MODULUS", YoungsModulus)
+		if Method is not None:
+			self._setEnumEGeometryChoiceProperty("LNP_GEOMETRY_CHOICE", Method)
+		if Thickness is not None:
+			self._setDoubleProperty("LNP_THICKNESS", Thickness)
+		if PoissonsRatio is not None:
+			self._setDoubleProperty("LNP_POISSONS_RATIO", PoissonsRatio)
+		if Area is not None:
+			self._setDoubleProperty("LNP_AREA", Area)
+		if MomentOfInertia is not None:
+			self._setDoubleProperty("LNP_MOMENT_OF_INERTIA", MomentOfInertia)
+		if MaterialType is not None:
+			self._setEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE", MaterialType)
+		if CompressiveStrengthPeak is not None:
+			self._setDoubleProperty("LNP_COMPRESSIVE_STRENGTH", CompressiveStrengthPeak)
+		if CompressiveStrengthResidual is not None:
+			self._setDoubleProperty("LNP_COMPRESSIVE_STRENGTH_RES", CompressiveStrengthResidual)
+		if TensileStrengthPeak is not None:
+			self._setDoubleProperty("LNP_TENSILE_STRENGTH", TensileStrengthPeak)
+		if TensileStrengthResidual is not None:
+			self._setDoubleProperty("LNP_TENSILE_STRENGTH_RES", TensileStrengthResidual)
+		if SlidingGap is not None:
+			self._setBoolProperty("LNP_USE_SLIDING_GAP", SlidingGap)
+		if StrainAtLocking is not None:
+			self._setDoubleProperty("LNP_STRAIN_AT_LOCKING", StrainAtLocking)
+		if BeamElementFormulation is not None:
+			self._setEnumELinerFormulationProperty("LNP_BEAM_ELEMENT_FORMULATION", BeamElementFormulation)
+		if ActivateThermal is not None:
+			self._setBoolProperty("LNP_THERAMAL_ACTIVATE", ActivateThermal)
+		if StaticTemperatureMode is not None:
+			self._setEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD", StaticTemperatureMode)
+		if StaticTemperature is not None:
+			self._setDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", StaticTemperature)
+		if Conductivity is not None:
+			self._setDoubleProperty("LNP_THERAMAL_CONDUCTIVITY", Conductivity)
+		if SpecificHeatCapacity is not None:
+			self._setDoubleProperty("LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", SpecificHeatCapacity)
+		if ThermalExpansion is not None:
+			self._setBoolProperty("LNP_THERAMAL_EXPANSION_IS_ON", ThermalExpansion)
+		if ExpansionCoefficient is not None:
+			self._setDoubleProperty("LNP_THERAMAL_EXPANSION_ALPHA", ExpansionCoefficient)
+		if StageLinerProperties is not None:
+			self._setBoolProperty("LNP_USE_STAGE_LINER", StageLinerProperties)

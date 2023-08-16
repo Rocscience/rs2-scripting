@@ -77,9 +77,42 @@ class CableTruss(PropertyProxy):
 	def setStageCableProperties(self, value: bool):
 		return self._setBoolProperty("LNP_USE_STAGE_CABLE", value)
 	def getStaticTemperatureGridToUse(self) -> str:
+		return self._callFunction("getStaticTemperatureGridToUse", [])
+	def setStaticTemperatureGridToUse(self, gridName: str):
 		"""
 		Grids "None" and "Default Grid" available by default.
 		"""
-		return self._callFunction("getStaticTemperatureGridToUse", [])
-	def setStaticTemperatureGridToUse(self, gridName: str):
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName ])
+	def setProperties(self, CableDiameter : float = None, TensileStrengthPeak : float = None, OutofplaneSpacing : float = None, PreTensioningForce : float = None, YoungsModulus : float = None, MaterialType : MaterialType = None, PreTensioning : bool = None, TensileStrengthResidual : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageCableProperties : bool = None):
+		if CableDiameter is not None:
+			self._setDoubleProperty("LNP_CABLE_DIAMETER", CableDiameter)
+		if TensileStrengthPeak is not None:
+			self._setDoubleProperty("LNP_TENSILE_STRENGTH", TensileStrengthPeak)
+		if OutofplaneSpacing is not None:
+			self._setDoubleProperty("LNP_CABLE_OUT_OF_PLANE_SPACING", OutofplaneSpacing)
+		if PreTensioningForce is not None:
+			self._setDoubleProperty("LNP_PRE_TENSIONING", PreTensioningForce)
+		if YoungsModulus is not None:
+			self._setDoubleProperty("LNP_YOUNGS_MODULUS", YoungsModulus)
+		if MaterialType is not None:
+			self._setEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE", MaterialType)
+		if PreTensioning is not None:
+			self._setBoolProperty("LNP_USE_PRE_TENSIONING", PreTensioning)
+		if TensileStrengthResidual is not None:
+			self._setDoubleProperty("LNP_TENSILE_STRENGTH_RES", TensileStrengthResidual)
+		if ActivateThermal is not None:
+			self._setBoolProperty("LNP_THERAMAL_ACTIVATE", ActivateThermal)
+		if StaticTemperatureMode is not None:
+			self._setEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD", StaticTemperatureMode)
+		if StaticTemperature is not None:
+			self._setDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", StaticTemperature)
+		if Conductivity is not None:
+			self._setDoubleProperty("LNP_THERAMAL_CONDUCTIVITY", Conductivity)
+		if SpecificHeatCapacity is not None:
+			self._setDoubleProperty("LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", SpecificHeatCapacity)
+		if ThermalExpansion is not None:
+			self._setBoolProperty("LNP_THERAMAL_EXPANSION_IS_ON", ThermalExpansion)
+		if ExpansionCoefficient is not None:
+			self._setDoubleProperty("LNP_THERAMAL_EXPANSION_ALPHA", ExpansionCoefficient)
+		if StageCableProperties is not None:
+			self._setBoolProperty("LNP_USE_STAGE_CABLE", StageCableProperties)
