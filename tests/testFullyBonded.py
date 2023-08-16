@@ -23,11 +23,11 @@ class TestFullyBonded(unittest.TestCase):
         bolt = self.bolt
         self.bolt.setBoltType(BoltTypes.FULLY_BONDED)
         bolt.FullyBonded.setBoltDiameter(10.1)
-        bolt.FullyBonded.setOutofPlaneSpacing(10.1)
         bolt.FullyBonded.setBoltModulusE(10.1)
         bolt.FullyBonded.setTensileCapacity(10.1)
-        bolt.FullyBonded.setPreTensioningForce(10.1)
         bolt.FullyBonded.setResidualTensileCapacity(10.1)
+        bolt.FullyBonded.setOutofPlaneSpacing(10.1)
+        bolt.FullyBonded.setPreTensioningForce(10.1)
         bolt.FullyBonded.setConstantPretensioningForceInInstallStage(True)
         bolt.FullyBonded.setJointShear(True)
         self.model.save()
@@ -36,10 +36,10 @@ class TestFullyBonded(unittest.TestCase):
         self.bolt = self.model.getAllBoltProperties()[0]
         bolt = self.bolt
         self.assertEqual(bolt.FullyBonded.getBoltDiameter(), 10.1)
-        self.assertEqual(bolt.FullyBonded.getOutofPlaneSpacing(), 10.1)
         self.assertEqual(bolt.FullyBonded.getBoltModulusE(), 10.1)
         self.assertEqual(bolt.FullyBonded.getTensileCapacity(), 10.1)
-        self.assertEqual(bolt.FullyBonded.getPreTensioningForce(), 10.1)
         self.assertEqual(bolt.FullyBonded.getResidualTensileCapacity(), 10.1)
+        self.assertEqual(bolt.FullyBonded.getOutofPlaneSpacing(), 10.1)
+        self.assertEqual(bolt.FullyBonded.getPreTensioningForce(), 10.1)
         self.assertEqual(bolt.FullyBonded.getConstantPretensioningForceInInstallStage(), True)
         self.assertEqual(bolt.FullyBonded.getJointShear(), True)

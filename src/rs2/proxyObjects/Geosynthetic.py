@@ -12,14 +12,6 @@ class Geosynthetic(PropertyProxy):
 		return self._getDoubleProperty("LNP_TENSILE_MODULUS")
 	def setTensileModulus(self, value: float):
 		return self._setDoubleProperty("LNP_TENSILE_MODULUS", value)
-	def getStaticTemperature(self) -> float:
-		return self._getDoubleProperty("LNP_STATIC_TEMPERATURE_CONST")
-	def setStaticTemperature(self, value: float):
-		return self._setDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", value)
-	def getActivateThermal(self) -> bool:
-		return self._getBoolProperty("LNP_THERAMAL_ACTIVATE")
-	def setActivateThermal(self, value: bool):
-		return self._setBoolProperty("LNP_THERAMAL_ACTIVATE", value)
 	def getMaterialType(self) -> MaterialType:
 		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE"))
 	def setMaterialType(self, value: MaterialType):
@@ -32,10 +24,18 @@ class Geosynthetic(PropertyProxy):
 		return self._getDoubleProperty("LNP_TENSILE_STRENGTH_RES")
 	def setTensileStrengthResidual(self, value: float):
 		return self._setDoubleProperty("LNP_TENSILE_STRENGTH_RES", value)
+	def getActivateThermal(self) -> bool:
+		return self._getBoolProperty("LNP_THERAMAL_ACTIVATE")
+	def setActivateThermal(self, value: bool):
+		return self._setBoolProperty("LNP_THERAMAL_ACTIVATE", value)
 	def getStaticTemperatureMode(self) -> StaticWaterModes:
 		return StaticWaterModes(self._getEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD"))
 	def setStaticTemperatureMode(self, value: StaticWaterModes):
 		return self._setEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD", value)
+	def getStaticTemperature(self) -> float:
+		return self._getDoubleProperty("LNP_STATIC_TEMPERATURE_CONST")
+	def setStaticTemperature(self, value: float):
+		return self._setDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", value)
 	def getConductivity(self) -> float:
 		return self._getDoubleProperty("LNP_THERAMAL_CONDUCTIVITY")
 	def setConductivity(self, value: float):
@@ -63,32 +63,46 @@ class Geosynthetic(PropertyProxy):
 		return self._callFunction("getStaticTemperatureGridToUse", [])
 	def setStaticTemperatureGridToUse(self, gridName: str):
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName ])
-	def setGeosyntheticProperties(self, InitialTemperature : float = None, TensileModulus : float = None, StaticTemperature : float = None, ActivateThermal : bool = None, MaterialType : MaterialType = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, StaticTemperatureMode : StaticWaterModes = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageGeosyntheticProperties : bool = None, gridName : str = None):
-		if(InitialTemperature):
+	def setProperties(self, InitialTemperature : float = None, TensileModulus : float = None, MaterialType : MaterialType = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageGeosyntheticProperties : bool = None):
+		if InitialTemperature is not None:
 			self._setDoubleProperty("LNP_THERAMAL_INITIAL_TEMPERATURE", InitialTemperature)
-		if(TensileModulus):
+		if TensileModulus is not None:
 			self._setDoubleProperty("LNP_TENSILE_MODULUS", TensileModulus)
-		if(StaticTemperature):
-			self._setDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", StaticTemperature)
-		if(ActivateThermal):
-			self._setBoolProperty("LNP_THERAMAL_ACTIVATE", ActivateThermal)
-		if(MaterialType):
+		if MaterialType is not None:
 			self._setEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE", MaterialType)
-		if(TensileStrengthPeak):
+		if TensileStrengthPeak is not None:
 			self._setDoubleProperty("LNP_TENSILE_STRENGTH", TensileStrengthPeak)
-		if(TensileStrengthResidual):
+		if TensileStrengthResidual is not None:
 			self._setDoubleProperty("LNP_TENSILE_STRENGTH_RES", TensileStrengthResidual)
-		if(StaticTemperatureMode):
+		if ActivateThermal is not None:
+			self._setBoolProperty("LNP_THERAMAL_ACTIVATE", ActivateThermal)
+		if StaticTemperatureMode is not None:
 			self._setEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD", StaticTemperatureMode)
-		if(Conductivity):
+		if StaticTemperature is not None:
+			self._setDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", StaticTemperature)
+		if Conductivity is not None:
 			self._setDoubleProperty("LNP_THERAMAL_CONDUCTIVITY", Conductivity)
-		if(SpecificHeatCapacity):
+		if SpecificHeatCapacity is not None:
 			self._setDoubleProperty("LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", SpecificHeatCapacity)
-		if(ThermalExpansion):
+		if ThermalExpansion is not None:
 			self._setBoolProperty("LNP_THERAMAL_EXPANSION_IS_ON", ThermalExpansion)
-		if(ExpansionCoefficient):
+		if ExpansionCoefficient is not None:
 			self._setDoubleProperty("LNP_THERAMAL_EXPANSION_ALPHA", ExpansionCoefficient)
-		if(StageGeosyntheticProperties):
+		if StageGeosyntheticProperties is not None:
 			self._setBoolProperty("LNP_USE_STAGE_GEOSYN", StageGeosyntheticProperties)
-		if(gridName):
-			self.setStaticTemperatureGridToUse(gridName)
+	def getProperties(self):
+		return {
+		"InitialTemperature" : self.getInitialTemperature(), 
+		"TensileModulus" : self.getTensileModulus(), 
+		"MaterialType" : self.getMaterialType(), 
+		"TensileStrengthPeak" : self.getTensileStrengthPeak(), 
+		"TensileStrengthResidual" : self.getTensileStrengthResidual(), 
+		"ActivateThermal" : self.getActivateThermal(), 
+		"StaticTemperatureMode" : self.getStaticTemperatureMode(), 
+		"StaticTemperature" : self.getStaticTemperature(), 
+		"Conductivity" : self.getConductivity(), 
+		"SpecificHeatCapacity" : self.getSpecificHeatCapacity(), 
+		"ThermalExpansion" : self.getThermalExpansion(), 
+		"ExpansionCoefficient" : self.getExpansionCoefficient(), 
+		"StageGeosyntheticProperties" : self.getStageGeosyntheticProperties(), 
+		}

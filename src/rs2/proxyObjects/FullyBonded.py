@@ -4,10 +4,6 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 class FullyBonded(PropertyProxy):
-	def getOutofPlaneSpacing(self) -> float:
-		return self._getDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT")
-	def setOutofPlaneSpacing(self, value: float):
-		return self._setDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT", value)
 	def getBoltDiameter(self) -> float:
 		return self._getDoubleProperty("BP_BOLT_DIAMETER")
 	def setBoltDiameter(self, value: float):
@@ -16,40 +12,55 @@ class FullyBonded(PropertyProxy):
 		return self._getDoubleProperty("BP_BOLT_MODULUS")
 	def setBoltModulusE(self, value: float):
 		return self._setDoubleProperty("BP_BOLT_MODULUS", value)
-	def getPreTensioningForce(self) -> float:
-		return self._getDoubleProperty("BP_PRETENSIONING")
-	def setPreTensioningForce(self, value: float):
-		return self._setDoubleProperty("BP_PRETENSIONING", value)
 	def getTensileCapacity(self) -> float:
 		return self._getDoubleProperty("BP_TENSILE_END")
 	def setTensileCapacity(self, value: float):
 		return self._setDoubleProperty("BP_TENSILE_END", value)
-	def getConstantPretensioningForceInInstallStage(self) -> bool:
-		return self._getBoolProperty("BP_USE_CONSTANT_FORCE")
-	def setConstantPretensioningForceInInstallStage(self, value: bool):
-		return self._setBoolProperty("BP_USE_CONSTANT_FORCE", value)
 	def getResidualTensileCapacity(self) -> float:
 		return self._getDoubleProperty("BP_RES_TENSILE_END")
 	def setResidualTensileCapacity(self, value: float):
 		return self._setDoubleProperty("BP_RES_TENSILE_END", value)
+	def getOutofPlaneSpacing(self) -> float:
+		return self._getDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT")
+	def setOutofPlaneSpacing(self, value: float):
+		return self._setDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT", value)
+	def getPreTensioningForce(self) -> float:
+		return self._getDoubleProperty("BP_PRETENSIONING")
+	def setPreTensioningForce(self, value: float):
+		return self._setDoubleProperty("BP_PRETENSIONING", value)
+	def getConstantPretensioningForceInInstallStage(self) -> bool:
+		return self._getBoolProperty("BP_USE_CONSTANT_FORCE")
+	def setConstantPretensioningForceInInstallStage(self, value: bool):
+		return self._setBoolProperty("BP_USE_CONSTANT_FORCE", value)
 	def getJointShear(self) -> bool:
 		return self._getBoolProperty("BP_USE_JOINT_SHEAR")
 	def setJointShear(self, value: bool):
 		return self._setBoolProperty("BP_USE_JOINT_SHEAR", value)
-	def setFullyBondedProperties(self, BoltDiameter : float = None, OutofPlaneSpacing : float = None, BoltModulusE : float = None, TensileCapacity : float = None, PreTensioningForce : float = None, ResidualTensileCapacity : float = None, ConstantPretensioningForceInInstallStage : bool = None, JointShear : bool = None):
-		if(BoltDiameter):
+	def setProperties(self, BoltDiameter : float = None, BoltModulusE : float = None, TensileCapacity : float = None, ResidualTensileCapacity : float = None, OutofPlaneSpacing : float = None, PreTensioningForce : float = None, ConstantPretensioningForceInInstallStage : bool = None, JointShear : bool = None):
+		if BoltDiameter is not None:
 			self._setDoubleProperty("BP_BOLT_DIAMETER", BoltDiameter)
-		if(OutofPlaneSpacing):
-			self._setDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT", OutofPlaneSpacing)
-		if(BoltModulusE):
+		if BoltModulusE is not None:
 			self._setDoubleProperty("BP_BOLT_MODULUS", BoltModulusE)
-		if(TensileCapacity):
+		if TensileCapacity is not None:
 			self._setDoubleProperty("BP_TENSILE_END", TensileCapacity)
-		if(PreTensioningForce):
-			self._setDoubleProperty("BP_PRETENSIONING", PreTensioningForce)
-		if(ResidualTensileCapacity):
+		if ResidualTensileCapacity is not None:
 			self._setDoubleProperty("BP_RES_TENSILE_END", ResidualTensileCapacity)
-		if(ConstantPretensioningForceInInstallStage):
+		if OutofPlaneSpacing is not None:
+			self._setDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT", OutofPlaneSpacing)
+		if PreTensioningForce is not None:
+			self._setDoubleProperty("BP_PRETENSIONING", PreTensioningForce)
+		if ConstantPretensioningForceInInstallStage is not None:
 			self._setBoolProperty("BP_USE_CONSTANT_FORCE", ConstantPretensioningForceInInstallStage)
-		if(JointShear):
+		if JointShear is not None:
 			self._setBoolProperty("BP_USE_JOINT_SHEAR", JointShear)
+	def getProperties(self):
+		return {
+		"BoltDiameter" : self.getBoltDiameter(), 
+		"BoltModulusE" : self.getBoltModulusE(), 
+		"TensileCapacity" : self.getTensileCapacity(), 
+		"ResidualTensileCapacity" : self.getResidualTensileCapacity(), 
+		"OutofPlaneSpacing" : self.getOutofPlaneSpacing(), 
+		"PreTensioningForce" : self.getPreTensioningForce(), 
+		"ConstantPretensioningForceInInstallStage" : self.getConstantPretensioningForceInInstallStage(), 
+		"JointShear" : self.getJointShear(), 
+		}

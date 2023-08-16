@@ -23,11 +23,11 @@ class TestEndAnchored(unittest.TestCase):
         bolt = self.bolt
         self.bolt.setBoltType(BoltTypes.END_ANCHORED)
         bolt.EndAnchored.setBoltDiameter(10.1)
-        bolt.EndAnchored.setOutofPlaneSpacing(10.1)
         bolt.EndAnchored.setBoltModulusE(10.1)
         bolt.EndAnchored.setTensileCapacity(10.1)
-        bolt.EndAnchored.setPreTensioningForce(10.1)
         bolt.EndAnchored.setResidualTensileCapacity(10.1)
+        bolt.EndAnchored.setOutofPlaneSpacing(10.1)
+        bolt.EndAnchored.setPreTensioningForce(10.1)
         bolt.EndAnchored.setConstantPretensioningForceInInstallStage(True)
         self.model.save()
         self.model.close()
@@ -35,9 +35,9 @@ class TestEndAnchored(unittest.TestCase):
         self.bolt = self.model.getAllBoltProperties()[0]
         bolt = self.bolt
         self.assertEqual(bolt.EndAnchored.getBoltDiameter(), 10.1)
-        self.assertEqual(bolt.EndAnchored.getOutofPlaneSpacing(), 10.1)
         self.assertEqual(bolt.EndAnchored.getBoltModulusE(), 10.1)
         self.assertEqual(bolt.EndAnchored.getTensileCapacity(), 10.1)
-        self.assertEqual(bolt.EndAnchored.getPreTensioningForce(), 10.1)
         self.assertEqual(bolt.EndAnchored.getResidualTensileCapacity(), 10.1)
+        self.assertEqual(bolt.EndAnchored.getOutofPlaneSpacing(), 10.1)
+        self.assertEqual(bolt.EndAnchored.getPreTensioningForce(), 10.1)
         self.assertEqual(bolt.EndAnchored.getConstantPretensioningForceInInstallStage(), True)

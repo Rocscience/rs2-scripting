@@ -22,13 +22,13 @@ class TestTieback(unittest.TestCase):
     def testTiebackProperty(self):
         bolt = self.bolt
         self.bolt.setBoltType(BoltTypes.TIEBACK_BOLT)
-        bolt.Tieback.setOutofPlaneSpacing(10.1)
         bolt.Tieback.setBoltDiameter(10.1)
         bolt.Tieback.setBoltModulusE(10.1)
-        bolt.Tieback.setMaterialDependent(True)
         bolt.Tieback.setBoltModel(BoltModels.P2_BOLT_ELASTIC)
         bolt.Tieback.setTensileCapacity(10.1)
         bolt.Tieback.setResidualTensileCapacity(10.1)
+        bolt.Tieback.setOutofPlaneSpacing(10.1)
+        bolt.Tieback.setMaterialDependent(True)
         bolt.Tieback.setBondStrengthCoefficient(10.1)
         bolt.Tieback.setBondShearStiffnessCoefficient(10.1)
         bolt.Tieback.setBondShearStiffness(10.1)
@@ -53,13 +53,13 @@ class TestTieback(unittest.TestCase):
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.bolt = self.model.getAllBoltProperties()[0]
         bolt = self.bolt
-        self.assertEqual(bolt.Tieback.getOutofPlaneSpacing(), 10.1)
         self.assertEqual(bolt.Tieback.getBoltDiameter(), 10.1)
         self.assertEqual(bolt.Tieback.getBoltModulusE(), 10.1)
-        self.assertEqual(bolt.Tieback.getMaterialDependent(), True)
         self.assertEqual(bolt.Tieback.getBoltModel(), BoltModels.P2_BOLT_ELASTIC)
         self.assertEqual(bolt.Tieback.getTensileCapacity(), 10.1)
         self.assertEqual(bolt.Tieback.getResidualTensileCapacity(), 10.1)
+        self.assertEqual(bolt.Tieback.getOutofPlaneSpacing(), 10.1)
+        self.assertEqual(bolt.Tieback.getMaterialDependent(), True)
         self.assertEqual(bolt.Tieback.getBondStrengthCoefficient(), 10.1)
         self.assertEqual(bolt.Tieback.getBondShearStiffnessCoefficient(), 10.1)
         self.assertEqual(bolt.Tieback.getBondShearStiffness(), 10.1)
