@@ -19,12 +19,12 @@ class BoltProperty(PropertyProxy):
 	def getBoltName(self) -> str:
 		return self._getCStringProperty("BP_NAME")
 	def setBoltName(self, value: str):
-		return self._validateAndSetCStringProperty("BP_NAME", value)
-	def getBoltType(self) -> BoltTypes:
-		return BoltTypes(self._getEnumEBoltTypesProperty("BP_TYPE"))
-	def setBoltType(self, value: BoltTypes):
-		return self._validateAndSetEnumEBoltTypesProperty("BP_TYPE", value)
+		return self._setCStringProperty("BP_NAME", value)
 	def getBoltColor(self) -> int:
 		return self._getUnsignedLongProperty("BP_COLOR")
 	def setBoltColor(self, value: int):
-		return self._validateAndSetUnsignedLongProperty("BP_COLOR", value)
+		return self._setUnsignedLongProperty("BP_COLOR", value)
+	def getBoltType(self) -> BoltTypes:
+		return BoltTypes(self._getEnumEBoltTypesProperty("BP_TYPE"))
+	def setBoltType(self, value: BoltTypes):
+		return self._setEnumEBoltTypesProperty("BP_TYPE", value)
