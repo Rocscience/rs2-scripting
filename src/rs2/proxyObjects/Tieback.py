@@ -88,9 +88,9 @@ class Tieback(PropertyProxy):
 		return self._getDoubleProperty("BP_BOND_PHYSICAL_LENGTH")
 	def setBondLength(self, value: float):
 		return self._setDoubleProperty("BP_BOND_PHYSICAL_LENGTH", value)
-	def getUseSecondaryBondLength(self) -> bool:
+	def getSecondaryBondLength(self) -> bool:
 		return self._getBoolProperty("BP_ADD_SECONDARY_BOND_LENGTH")
-	def setUseSecondaryBondLength(self, value: bool):
+	def setSecondaryBondLength(self, value: bool):
 		return self._setBoolProperty("BP_ADD_SECONDARY_BOND_LENGTH", value)
 	def getSecondaryBondLengthType(self) -> SecondaryBondLengthType:
 		return SecondaryBondLengthType(self._getEnumESecondaryBondLengthTypeProperty("BP_SECONDARY_BOND_LENGTH_TYPE"))

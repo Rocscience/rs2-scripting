@@ -24,9 +24,9 @@ class ReinforcedConcrete(PropertyProxy):
 		return self._getDoubleProperty("LNP_SECTION_DEPTH")
 	def setSectionDepth(self, value: float):
 		return self._setDoubleProperty("LNP_SECTION_DEPTH", value)
-	def getConcreteYoungsModulus(self) -> float:
+	def getYoungsModulus(self) -> float:
 		return self._getDoubleProperty("LNP_YOUNGS_MODULUS_REIN")
-	def setConcreteYoungsModulus(self, value: float):
+	def setYoungsModulus(self, value: float):
 		return self._setDoubleProperty("LNP_YOUNGS_MODULUS_REIN", value)
 	def getArea(self) -> float:
 		return self._getDoubleProperty("LNP_AREA")
@@ -36,13 +36,13 @@ class ReinforcedConcrete(PropertyProxy):
 		return self._getDoubleProperty("LNP_MOMENT_OF_INERTIA")
 	def setMomentOfInertia(self, value: float):
 		return self._setDoubleProperty("LNP_MOMENT_OF_INERTIA", value)
-	def getConcreteCompressiveStrength(self) -> float:
+	def getCompressiveStrength(self) -> float:
 		return self._getDoubleProperty("LNP_COMPRESSIVE_STRENGTH_REIN")
-	def setConcreteCompressiveStrength(self, value: float):
+	def setCompressiveStrength(self, value: float):
 		return self._setDoubleProperty("LNP_COMPRESSIVE_STRENGTH_REIN", value)
-	def getConcreteTensileStrength(self) -> float:
+	def getTensileStrength(self) -> float:
 		return self._getDoubleProperty("LNP_TENSILE_STRENGTH_REIN")
-	def setConcreteTensileStrength(self, value: float):
+	def setTensileStrength(self, value: float):
 		return self._setDoubleProperty("LNP_TENSILE_STRENGTH_REIN", value)
 	def getWeight(self) -> float:
 		return self._getDoubleProperty("LNP_WEIGHT_REIN")

@@ -12,26 +12,30 @@ class FullyBonded(PropertyProxy):
 		return self._getDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT")
 	def setOutofPlaneSpacing(self, value: float):
 		return self._setDoubleProperty("BP_OUT_OF_PLANE_SPACING_BOLT", value)
+	def getBoltDiameter(self) -> float:
+		return self._getDoubleProperty("BP_BOLT_DIAMETER")
+	def setBoltDiameter(self, value: float):
+		return self._setDoubleProperty("BP_BOLT_DIAMETER", value)
 	def getBoltModulusE(self) -> float:
 		return self._getDoubleProperty("BP_BOLT_MODULUS")
 	def setBoltModulusE(self, value: float):
 		return self._setDoubleProperty("BP_BOLT_MODULUS", value)
-	def getTensileCapacity(self) -> float:
-		return self._getDoubleProperty("BP_TENSILE_END")
-	def setTensileCapacity(self, value: float):
-		return self._setDoubleProperty("BP_TENSILE_END", value)
 	def getPreTensioningForce(self) -> float:
 		return self._getDoubleProperty("BP_PRETENSIONING")
 	def setPreTensioningForce(self, value: float):
 		return self._setDoubleProperty("BP_PRETENSIONING", value)
-	def getResidualTensileCapacity(self) -> float:
-		return self._getDoubleProperty("BP_RES_TENSILE_END")
-	def setResidualTensileCapacity(self, value: float):
-		return self._setDoubleProperty("BP_RES_TENSILE_END", value)
+	def getTensileCapacity(self) -> float:
+		return self._getDoubleProperty("BP_TENSILE_END")
+	def setTensileCapacity(self, value: float):
+		return self._setDoubleProperty("BP_TENSILE_END", value)
 	def getConstantPretensioningForceInInstallStage(self) -> bool:
 		return self._getBoolProperty("BP_USE_CONSTANT_FORCE")
 	def setConstantPretensioningForceInInstallStage(self, value: bool):
 		return self._setBoolProperty("BP_USE_CONSTANT_FORCE", value)
+	def getResidualTensileCapacity(self) -> float:
+		return self._getDoubleProperty("BP_RES_TENSILE_END")
+	def setResidualTensileCapacity(self, value: float):
+		return self._setDoubleProperty("BP_RES_TENSILE_END", value)
 	def getJointShear(self) -> bool:
 		return self._getBoolProperty("BP_USE_JOINT_SHEAR")
 	def setJointShear(self, value: bool):

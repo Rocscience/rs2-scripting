@@ -4,18 +4,22 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 class Geosynthetic(PropertyProxy):
-	def getInitialTemperature(self) -> float:
-		return self._getDoubleProperty("LNP_THERAMAL_INITIAL_TEMPERATURE")
-	def setInitialTemperature(self, value: float):
-		return self._setDoubleProperty("LNP_THERAMAL_INITIAL_TEMPERATURE", value)
 	def getTensileModulus(self) -> float:
 		return self._getDoubleProperty("LNP_TENSILE_MODULUS")
 	def setTensileModulus(self, value: float):
 		return self._setDoubleProperty("LNP_TENSILE_MODULUS", value)
-	def getStaticTemperature(self) -> float:
-		return self._getDoubleProperty("LNP_STATIC_TEMPERATURE_CONST")
-	def setStaticTemperature(self, value: float):
-		return self._setDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", value)
+	def getGeosyntheticUnitWeight(self) -> float:
+		return self._getDoubleProperty("LNP_UNIT_WEIGTH_GEOSYNTHETIC")
+	def setGeosyntheticUnitWeight(self, value: float):
+		return self._setDoubleProperty("LNP_UNIT_WEIGTH_GEOSYNTHETIC", value)
+	def getIncludeWeightInAnalysis(self) -> bool:
+		return self._getBoolProperty("LNP_DISABLED_USE_WEIGHT")
+	def setIncludeWeightInAnalysis(self, value: bool):
+		return self._setBoolProperty("LNP_DISABLED_USE_WEIGHT", value)
+	def getInitialTemperature(self) -> float:
+		return self._getDoubleProperty("LNP_THERAMAL_INITIAL_TEMPERATURE")
+	def setInitialTemperature(self, value: float):
+		return self._setDoubleProperty("LNP_THERAMAL_INITIAL_TEMPERATURE", value)
 	def getActivateThermal(self) -> bool:
 		return self._getBoolProperty("LNP_THERAMAL_ACTIVATE")
 	def setActivateThermal(self, value: bool):
@@ -36,6 +40,10 @@ class Geosynthetic(PropertyProxy):
 		return StaticWaterModes(self._getEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD"))
 	def setStaticTemperatureMode(self, value: StaticWaterModes):
 		return self._setEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD", value)
+	def getStaticTemperature(self) -> float:
+		return self._getDoubleProperty("LNP_STATIC_TEMPERATURE_CONST")
+	def setStaticTemperature(self, value: float):
+		return self._setDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", value)
 	def getConductivity(self) -> float:
 		return self._getDoubleProperty("LNP_THERAMAL_CONDUCTIVITY")
 	def setConductivity(self, value: float):
