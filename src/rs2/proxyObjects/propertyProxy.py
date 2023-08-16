@@ -33,22 +33,22 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getCStringProperty", [propertyName])
 	def _validateAndSetCStringProperty(self, propertyName: str, value):
 		return self._callFunction("validateAndSetCStringProperty", [propertyName, value, self.documentProxyID], proxyArgumentIndices=[2])
-	def _getUnsignedLongProperty(self, propertyName: str):
-		return self._callFunction("getUnsignedLongProperty", [propertyName])
-	def _validateAndSetUnsignedLongProperty(self, propertyName: str, value):
-		return self._callFunction("validateAndSetUnsignedLongProperty", [propertyName, value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumEBoltTypesProperty(self, propertyName: str):
 		return self._callFunction("getEnumEBoltTypesProperty", [propertyName])
 	def _validateAndSetEnumEBoltTypesProperty(self, propertyName: str, value):
 		return self._callFunction("validateAndSetEnumEBoltTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
-	def _getEnumEGeometryChoiceProperty(self, propertyName: str):
-		return self._callFunction("getEnumEGeometryChoiceProperty", [propertyName])
-	def _validateAndSetEnumEGeometryChoiceProperty(self, propertyName: str, value):
-		return self._callFunction("validateAndSetEnumEGeometryChoiceProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getUnsignedLongProperty(self, propertyName: str):
+		return self._callFunction("getUnsignedLongProperty", [propertyName])
+	def _validateAndSetUnsignedLongProperty(self, propertyName: str, value):
+		return self._callFunction("validateAndSetUnsignedLongProperty", [propertyName, value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumEMaterialAnalysisTypesProperty(self, propertyName: str):
 		return self._callFunction("getEnumEMaterialAnalysisTypesProperty", [propertyName])
 	def _validateAndSetEnumEMaterialAnalysisTypesProperty(self, propertyName: str, value):
 		return self._callFunction("validateAndSetEnumEMaterialAnalysisTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEGeometryChoiceProperty(self, propertyName: str):
+		return self._callFunction("getEnumEGeometryChoiceProperty", [propertyName])
+	def _validateAndSetEnumEGeometryChoiceProperty(self, propertyName: str, value):
+		return self._callFunction("validateAndSetEnumEGeometryChoiceProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumELinerFormulationProperty(self, propertyName: str):
 		return self._callFunction("getEnumELinerFormulationProperty", [propertyName])
 	def _validateAndSetEnumELinerFormulationProperty(self, propertyName: str, value):

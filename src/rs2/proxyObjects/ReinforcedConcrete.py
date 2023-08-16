@@ -4,18 +4,42 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 class ReinforcedConcrete(PropertyProxy):
-	def getReinforcement(self) -> bool:
-		return self._getBoolProperty("LNP_USE_REINFORCEMENT")
-	def setReinforcement(self, value: bool):
-		return self._validateAndSetBoolProperty("LNP_USE_REINFORCEMENT", value)
+	def getMaterialType(self) -> MaterialType:
+		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE"))
+	def setMaterialType(self, value: MaterialType):
+		return self._validateAndSetEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE", value)
+	def getArea(self) -> float:
+		return self._getDoubleProperty("LNP_AREA")
+	def setArea(self, value: float):
+		return self._validateAndSetDoubleProperty("LNP_AREA", value)
+	def getMomentOfInertia(self) -> float:
+		return self._getDoubleProperty("LNP_MOMENT_OF_INERTIA")
+	def setMomentOfInertia(self, value: float):
+		return self._validateAndSetDoubleProperty("LNP_MOMENT_OF_INERTIA", value)
 	def getIncludeWeightInAnalysis(self) -> bool:
 		return self._getBoolProperty("LNP_USE_WEIGHT")
 	def setIncludeWeightInAnalysis(self, value: bool):
 		return self._validateAndSetBoolProperty("LNP_USE_WEIGHT", value)
-	def getConcreteUnitWeight(self) -> float:
-		return self._getDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE")
-	def setConcreteUnitWeight(self, value: float):
-		return self._validateAndSetDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE", value)
+	def getSlidingGap(self) -> bool:
+		return self._getBoolProperty("LNP_USE_SLIDING_GAP")
+	def setSlidingGap(self, value: bool):
+		return self._validateAndSetBoolProperty("LNP_USE_SLIDING_GAP", value)
+	def getStrainAtLocking(self) -> float:
+		return self._getDoubleProperty("LNP_STRAIN_AT_LOCKING")
+	def setStrainAtLocking(self, value: float):
+		return self._validateAndSetDoubleProperty("LNP_STRAIN_AT_LOCKING", value)
+	def getBeamElementFormulation(self) -> LinerFormulation:
+		return LinerFormulation(self._getEnumELinerFormulationProperty("LNP_BEAM_ELEMENT_FORMULATION"))
+	def setBeamElementFormulation(self, value: LinerFormulation):
+		return self._validateAndSetEnumELinerFormulationProperty("LNP_BEAM_ELEMENT_FORMULATION", value)
+	def getReinforcement(self) -> bool:
+		return self._getBoolProperty("LNP_USE_REINFORCEMENT")
+	def setReinforcement(self, value: bool):
+		return self._validateAndSetBoolProperty("LNP_USE_REINFORCEMENT", value)
+	def getConcrete(self) -> bool:
+		return self._getBoolProperty("LNP_USE_CONCRETE")
+	def setConcrete(self, value: bool):
+		return self._validateAndSetBoolProperty("LNP_USE_CONCRETE", value)
 	def getSpacing(self) -> float:
 		return self._getDoubleProperty("LNP_SPACING")
 	def setSpacing(self, value: float):
@@ -28,14 +52,6 @@ class ReinforcedConcrete(PropertyProxy):
 		return self._getDoubleProperty("LNP_YOUNGS_MODULUS_REIN")
 	def setConcreteYoungsModulus(self, value: float):
 		return self._validateAndSetDoubleProperty("LNP_YOUNGS_MODULUS_REIN", value)
-	def getArea(self) -> float:
-		return self._getDoubleProperty("LNP_AREA")
-	def setArea(self, value: float):
-		return self._validateAndSetDoubleProperty("LNP_AREA", value)
-	def getMomentOfInertia(self) -> float:
-		return self._getDoubleProperty("LNP_MOMENT_OF_INERTIA")
-	def setMomentOfInertia(self, value: float):
-		return self._validateAndSetDoubleProperty("LNP_MOMENT_OF_INERTIA", value)
 	def getConcreteCompressiveStrength(self) -> float:
 		return self._getDoubleProperty("LNP_COMPRESSIVE_STRENGTH_REIN")
 	def setConcreteCompressiveStrength(self, value: float):
@@ -48,10 +64,6 @@ class ReinforcedConcrete(PropertyProxy):
 		return self._getDoubleProperty("LNP_WEIGHT_REIN")
 	def setWeight(self, value: float):
 		return self._validateAndSetDoubleProperty("LNP_WEIGHT_REIN", value)
-	def getConcrete(self) -> bool:
-		return self._getBoolProperty("LNP_USE_CONCRETE")
-	def setConcrete(self, value: bool):
-		return self._validateAndSetBoolProperty("LNP_USE_CONCRETE", value)
 	def getThickness(self) -> float:
 		return self._getDoubleProperty("LNP_THICKNESS_CONCRETE")
 	def setThickness(self, value: float):
@@ -72,34 +84,18 @@ class ReinforcedConcrete(PropertyProxy):
 		return self._getDoubleProperty("LNP_TENSILE_STRENGTH_CONCRETE")
 	def setTensileStrength(self, value: float):
 		return self._validateAndSetDoubleProperty("LNP_TENSILE_STRENGTH_CONCRETE", value)
-	def getMaterialType(self) -> MaterialType:
-		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE"))
-	def setMaterialType(self, value: MaterialType):
-		return self._validateAndSetEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE", value)
-	def getSlidingGap(self) -> bool:
-		return self._getBoolProperty("LNP_USE_SLIDING_GAP")
-	def setSlidingGap(self, value: bool):
-		return self._validateAndSetBoolProperty("LNP_USE_SLIDING_GAP", value)
-	def getStrainAtLocking(self) -> float:
-		return self._getDoubleProperty("LNP_STRAIN_AT_LOCKING")
-	def setStrainAtLocking(self, value: float):
-		return self._validateAndSetDoubleProperty("LNP_STRAIN_AT_LOCKING", value)
-	def getBeamElementFormulation(self) -> LinerFormulation:
-		return LinerFormulation(self._getEnumELinerFormulationProperty("LNP_BEAM_ELEMENT_FORMULATION"))
-	def setBeamElementFormulation(self, value: LinerFormulation):
-		return self._validateAndSetEnumELinerFormulationProperty("LNP_BEAM_ELEMENT_FORMULATION", value)
+	def getConcreteUnitWeight(self) -> float:
+		return self._getDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE")
+	def setConcreteUnitWeight(self, value: float):
+		return self._validateAndSetDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE", value)
+	def getStageConcreteProperties(self) -> bool:
+		return self._getBoolProperty("LNP_USE_STAGE_CONCRETE")
+	def setStageConcreteProperties(self, value: bool):
+		return self._validateAndSetBoolProperty("LNP_USE_STAGE_CONCRETE", value)
 	def getActivateThermal(self) -> bool:
 		return self._getBoolProperty("LNP_THERAMAL_ACTIVATE")
 	def setActivateThermal(self, value: bool):
 		return self._validateAndSetBoolProperty("LNP_THERAMAL_ACTIVATE", value)
-	def getStaticTemperatureMode(self) -> StaticWaterModes:
-		return StaticWaterModes(self._getEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD"))
-	def setStaticTemperatureMode(self, value: StaticWaterModes):
-		return self._validateAndSetEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD", value)
-	def getStaticTemperature(self) -> float:
-		return self._getDoubleProperty("LNP_STATIC_TEMPERATURE_CONST")
-	def setStaticTemperature(self, value: float):
-		return self._validateAndSetDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", value)
 	def getConductivity(self) -> float:
 		return self._getDoubleProperty("LNP_THERAMAL_CONDUCTIVITY")
 	def setConductivity(self, value: float):
@@ -116,10 +112,14 @@ class ReinforcedConcrete(PropertyProxy):
 		return self._getDoubleProperty("LNP_THERAMAL_EXPANSION_ALPHA")
 	def setExpansionCoefficient(self, value: float):
 		return self._validateAndSetDoubleProperty("LNP_THERAMAL_EXPANSION_ALPHA", value)
-	def getStageConcreteProperties(self) -> bool:
-		return self._getBoolProperty("LNP_USE_STAGE_CONCRETE")
-	def setStageConcreteProperties(self, value: bool):
-		return self._validateAndSetBoolProperty("LNP_USE_STAGE_CONCRETE", value)
+	def getStaticTemperatureMode(self) -> StaticWaterModes:
+		return StaticWaterModes(self._getEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD"))
+	def setStaticTemperatureMode(self, value: StaticWaterModes):
+		return self._validateAndSetEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD", value)
+	def getStaticTemperature(self) -> float:
+		return self._getDoubleProperty("LNP_STATIC_TEMPERATURE_CONST")
+	def setStaticTemperature(self, value: float):
+		return self._validateAndSetDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", value)
 	def getStaticTemperatureGridToUse(self) -> str:
 		return self._callFunction("getStaticTemperatureGridToUse", [])
 	def setStaticTemperatureGridToUse(self, gridName: str):
@@ -127,31 +127,37 @@ class ReinforcedConcrete(PropertyProxy):
 		Grids "None" and "Default Grid" available by default.
 		"""
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName ])
-	def setProperties(self, Reinforcement : bool = None, IncludeWeightInAnalysis : bool = None, ConcreteUnitWeight : float = None, Spacing : float = None, SectionDepth : float = None, ConcreteYoungsModulus : float = None, Area : float = None, MomentOfInertia : float = None, ConcreteCompressiveStrength : float = None, ConcreteTensileStrength : float = None, Weight : float = None, Concrete : bool = None, Thickness : float = None, YoungsModulus : float = None, PoissonRatio : float = None, CompressiveStrength : float = None, TensileStrength : float = None, MaterialType : MaterialType = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageConcreteProperties : bool = None):
-		if Reinforcement is not None:
-			self._validateAndSetBoolProperty("LNP_USE_REINFORCEMENT", Reinforcement)
+	def setProperties(self, MaterialType : MaterialType = None, Area : float = None, MomentOfInertia : float = None, IncludeWeightInAnalysis : bool = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, Reinforcement : bool = None, Concrete : bool = None, Spacing : float = None, SectionDepth : float = None, ConcreteYoungsModulus : float = None, ConcreteCompressiveStrength : float = None, ConcreteTensileStrength : float = None, Weight : float = None, Thickness : float = None, YoungsModulus : float = None, PoissonRatio : float = None, CompressiveStrength : float = None, TensileStrength : float = None, ConcreteUnitWeight : float = None, StageConcreteProperties : bool = None, ActivateThermal : bool = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None):
+		if MaterialType is not None:
+			self._validateAndSetEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE", MaterialType)
+		if Area is not None:
+			self._validateAndSetDoubleProperty("LNP_AREA", Area)
+		if MomentOfInertia is not None:
+			self._validateAndSetDoubleProperty("LNP_MOMENT_OF_INERTIA", MomentOfInertia)
 		if IncludeWeightInAnalysis is not None:
 			self._validateAndSetBoolProperty("LNP_USE_WEIGHT", IncludeWeightInAnalysis)
-		if ConcreteUnitWeight is not None:
-			self._validateAndSetDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE", ConcreteUnitWeight)
+		if SlidingGap is not None:
+			self._validateAndSetBoolProperty("LNP_USE_SLIDING_GAP", SlidingGap)
+		if StrainAtLocking is not None:
+			self._validateAndSetDoubleProperty("LNP_STRAIN_AT_LOCKING", StrainAtLocking)
+		if BeamElementFormulation is not None:
+			self._validateAndSetEnumELinerFormulationProperty("LNP_BEAM_ELEMENT_FORMULATION", BeamElementFormulation)
+		if Reinforcement is not None:
+			self._validateAndSetBoolProperty("LNP_USE_REINFORCEMENT", Reinforcement)
+		if Concrete is not None:
+			self._validateAndSetBoolProperty("LNP_USE_CONCRETE", Concrete)
 		if Spacing is not None:
 			self._validateAndSetDoubleProperty("LNP_SPACING", Spacing)
 		if SectionDepth is not None:
 			self._validateAndSetDoubleProperty("LNP_SECTION_DEPTH", SectionDepth)
 		if ConcreteYoungsModulus is not None:
 			self._validateAndSetDoubleProperty("LNP_YOUNGS_MODULUS_REIN", ConcreteYoungsModulus)
-		if Area is not None:
-			self._validateAndSetDoubleProperty("LNP_AREA", Area)
-		if MomentOfInertia is not None:
-			self._validateAndSetDoubleProperty("LNP_MOMENT_OF_INERTIA", MomentOfInertia)
 		if ConcreteCompressiveStrength is not None:
 			self._validateAndSetDoubleProperty("LNP_COMPRESSIVE_STRENGTH_REIN", ConcreteCompressiveStrength)
 		if ConcreteTensileStrength is not None:
 			self._validateAndSetDoubleProperty("LNP_TENSILE_STRENGTH_REIN", ConcreteTensileStrength)
 		if Weight is not None:
 			self._validateAndSetDoubleProperty("LNP_WEIGHT_REIN", Weight)
-		if Concrete is not None:
-			self._validateAndSetBoolProperty("LNP_USE_CONCRETE", Concrete)
 		if Thickness is not None:
 			self._validateAndSetDoubleProperty("LNP_THICKNESS_CONCRETE", Thickness)
 		if YoungsModulus is not None:
@@ -162,20 +168,12 @@ class ReinforcedConcrete(PropertyProxy):
 			self._validateAndSetDoubleProperty("LNP_COMPRESSIVE_STRENGTH_CONCRETE", CompressiveStrength)
 		if TensileStrength is not None:
 			self._validateAndSetDoubleProperty("LNP_TENSILE_STRENGTH_CONCRETE", TensileStrength)
-		if MaterialType is not None:
-			self._validateAndSetEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE", MaterialType)
-		if SlidingGap is not None:
-			self._validateAndSetBoolProperty("LNP_USE_SLIDING_GAP", SlidingGap)
-		if StrainAtLocking is not None:
-			self._validateAndSetDoubleProperty("LNP_STRAIN_AT_LOCKING", StrainAtLocking)
-		if BeamElementFormulation is not None:
-			self._validateAndSetEnumELinerFormulationProperty("LNP_BEAM_ELEMENT_FORMULATION", BeamElementFormulation)
+		if ConcreteUnitWeight is not None:
+			self._validateAndSetDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE", ConcreteUnitWeight)
+		if StageConcreteProperties is not None:
+			self._validateAndSetBoolProperty("LNP_USE_STAGE_CONCRETE", StageConcreteProperties)
 		if ActivateThermal is not None:
 			self._validateAndSetBoolProperty("LNP_THERAMAL_ACTIVATE", ActivateThermal)
-		if StaticTemperatureMode is not None:
-			self._validateAndSetEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD", StaticTemperatureMode)
-		if StaticTemperature is not None:
-			self._validateAndSetDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", StaticTemperature)
 		if Conductivity is not None:
 			self._validateAndSetDoubleProperty("LNP_THERAMAL_CONDUCTIVITY", Conductivity)
 		if SpecificHeatCapacity is not None:
@@ -184,5 +182,39 @@ class ReinforcedConcrete(PropertyProxy):
 			self._validateAndSetBoolProperty("LNP_THERAMAL_EXPANSION_IS_ON", ThermalExpansion)
 		if ExpansionCoefficient is not None:
 			self._validateAndSetDoubleProperty("LNP_THERAMAL_EXPANSION_ALPHA", ExpansionCoefficient)
-		if StageConcreteProperties is not None:
-			self._validateAndSetBoolProperty("LNP_USE_STAGE_CONCRETE", StageConcreteProperties)
+		if StaticTemperatureMode is not None:
+			self._validateAndSetEnumEStaticWaterModesProperty("LNP_STATIC_TEMPERATURE_METHOD", StaticTemperatureMode)
+		if StaticTemperature is not None:
+			self._validateAndSetDoubleProperty("LNP_STATIC_TEMPERATURE_CONST", StaticTemperature)
+	def getProperties(self):
+		return {
+		"MaterialType" : self.getMaterialType(), 
+		"Area" : self.getArea(), 
+		"MomentOfInertia" : self.getMomentOfInertia(), 
+		"IncludeWeightInAnalysis" : self.getIncludeWeightInAnalysis(), 
+		"SlidingGap" : self.getSlidingGap(), 
+		"StrainAtLocking" : self.getStrainAtLocking(), 
+		"BeamElementFormulation" : self.getBeamElementFormulation(), 
+		"Reinforcement" : self.getReinforcement(), 
+		"Concrete" : self.getConcrete(), 
+		"Spacing" : self.getSpacing(), 
+		"SectionDepth" : self.getSectionDepth(), 
+		"ConcreteYoungsModulus" : self.getConcreteYoungsModulus(), 
+		"ConcreteCompressiveStrength" : self.getConcreteCompressiveStrength(), 
+		"ConcreteTensileStrength" : self.getConcreteTensileStrength(), 
+		"Weight" : self.getWeight(), 
+		"Thickness" : self.getThickness(), 
+		"YoungsModulus" : self.getYoungsModulus(), 
+		"PoissonRatio" : self.getPoissonRatio(), 
+		"CompressiveStrength" : self.getCompressiveStrength(), 
+		"TensileStrength" : self.getTensileStrength(), 
+		"ConcreteUnitWeight" : self.getConcreteUnitWeight(), 
+		"StageConcreteProperties" : self.getStageConcreteProperties(), 
+		"ActivateThermal" : self.getActivateThermal(), 
+		"Conductivity" : self.getConductivity(), 
+		"SpecificHeatCapacity" : self.getSpecificHeatCapacity(), 
+		"ThermalExpansion" : self.getThermalExpansion(), 
+		"ExpansionCoefficient" : self.getExpansionCoefficient(), 
+		"StaticTemperatureMode" : self.getStaticTemperatureMode(), 
+		"StaticTemperature" : self.getStaticTemperature(), 
+		}
