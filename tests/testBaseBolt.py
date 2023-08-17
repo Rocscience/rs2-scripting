@@ -22,8 +22,13 @@ class TestBaseBolt(unittest.TestCase):
     def testBaseBoltProperty(self):
         bolt = self.bolt
         bolt.setBoltName("test1")
-        self.assertEqual(bolt.getBoltName(), "test1")
         bolt.setBoltColor(16073461)
-        self.assertEqual(bolt.getBoltColor(), 16073461)
         bolt.setBoltType(BoltTypes.FULLY_BONDED)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.bolt = self.model.getAllBoltProperties()[0]
+        bolt = self.bolt
+        self.assertEqual(bolt.getBoltName(), "test1")
+        self.assertEqual(bolt.getBoltColor(), 16073461)
         self.assertEqual(bolt.getBoltType(), BoltTypes.FULLY_BONDED)
