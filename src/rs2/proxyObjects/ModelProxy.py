@@ -52,13 +52,13 @@ class ModelProxy(ProxyObject):
 	
 	def compute(self):
 		'''
-		Saves the file and then Runs compute. Replaces any existing results
+		Saves the file and then Runs compute. Replaces any existing results.
 		'''
 		return self._callFunction('compute', [False])
 
 	def computeGroundWater(self):
 		'''
-		Saves the file and then Runs compute. Replaces any existing results
+		Saves the file and then Runs groundwater compute. Replaces any existing results.
 		'''
 		return self._callFunction('compute', [True])
 
