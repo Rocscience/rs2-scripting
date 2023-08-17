@@ -61,19 +61,6 @@ class ModelProxy(ProxyObject):
 		Saves the file and then Runs compute. Replaces any existing results
 		'''
 		return self._callFunction('compute', [True])
-	
-	def saveAndCompute(self):
-		'''
-		Saves the file and then Runs compute. Replaces any existing results
-		'''
-		return self._callFunction('saveAndCompute', [False])
-
-	
-	def saveAndComputeGroundWater(self):
-		'''
-		Saves the file and then Runs groundwater compute. Replaces any existing results
-		'''
-		return self._callFunction('saveAndCompute', [True])
 
 	def close(self):
 		'''
