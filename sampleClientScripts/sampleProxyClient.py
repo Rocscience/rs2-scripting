@@ -3,15 +3,12 @@ from rs2.PropertyEnums import *
 
 modeler = RS2Modeler()
 
-model = modeler.openFile(r"C:\scriptingModels\simple_3_stage_with_thermal_static.fez")
+model = modeler.openFile(r"C:\scriptingModels\simple_3_stage.fez")
 bolt = model.getBoltPropertyByName("Bolt 2")
 liner = model.getLinerPropertyByName("Liner 3")
 
 bolt.setBoltType(BoltTypes.FULLY_BONDED)
 print(bolt.getBoltType())
-
-bolt.setBoltName("test2")
-print(bolt.getBoltName())
 
 bolt.FullyBonded.setBoltDiameter(23)
 print(bolt.FullyBonded.getBoltDiameter())
@@ -51,9 +48,6 @@ print(liner.StandardBeam.getMethod())
 
 liner.StandardBeam.setThickness(20)
 print(liner.StandardBeam.getThickness())
-
-#Thermal needs to be set to static for the following
-#-------------------------------------------------------
 
 liner.StandardBeam.setActivateThermal(True)
 print(liner.StandardBeam.getActivateThermal())
