@@ -22,7 +22,8 @@ The following steps can be taken to regenerate the RS2 Scripting Documentation
 - Run the command below to install Sphinx:
 ```python -m pip install sphinx```
 - Install a LaTeX distribution: https://www.latex-project.org/. MiKTeX Reccomended. 
--To generate the documentation, run the following:
+-To generate the documentation, build the python library and then 
+run the following:
 ```python generateAndBuildDocumentation.py```
 - Open MiKTex and open the .tex file for the documentation
 - Set Output to pdfLaTeX. Originally did pdfLaTex + MakeIndex + BibTex 
