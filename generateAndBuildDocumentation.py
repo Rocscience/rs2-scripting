@@ -1,4 +1,5 @@
 import subprocess
+import re
 
 """
 sphinx-apidoc Documentation: https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html
@@ -29,30 +30,63 @@ def add_sphinx_example_modules():
     file.write("   examples" + '\n')
 
 def add_example_module_links():
-    exampleFiles = ["- :ref:`Bolt Example`.\n", "- :ref:`Liner Example`.\n", "- :ref:`Model Example`.\n"]
-    file = open("docs/rs2.proxyObjects.rst", "r")
-    lines = file.readlines()
+    exampleDict = {
+        "Bolt": "- :ref:`Bolt Example`.\n",
+        "Liner": "- :ref:`Liner Example`.\n",
+        "Model": "- :ref:`Model Example`.\n"
+    }
 
-    file = open("docs/rs2.proxyObjects.rst", "w")
-    i = 0
-    for line in lines:
-        file.write(line)
-        if "----------------------------------" in line:
-            file.write(exampleFiles[i])
-            i+=1
+    file_path = 'docs/rs2.proxyObjects.rst'
+
+    foundBasePropModule = False
+    linesAfterBasePropModule = 0
+    exampleFileToInsert = None
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+        output = open(file_path, 'w')
+        for line in lines:
+            output.write(line)
+            if " module" in line:
+                for baseProp, exampleFile in exampleDict.items():
+                    if baseProp in line:
+                        foundBasePropModule = True
+                        exampleFileToInsert = exampleFile
+            if foundBasePropModule and linesAfterBasePropModule == 1:
+                output.write(exampleFileToInsert)
+                foundBasePropModule = False
+                linesAfterBasePropModule = 0
+            
+            if foundBasePropModule:
+                linesAfterBasePropModule += 1
 
 def add_example_modeller_interpreter_links():
-    exampleFiles = ["- :ref:`Modeler Example`.\n", "- :ref:`Interpreter Example`.\n"]
-    file = open("docs/rs2.rst", "r")
-    lines = file.readlines()
+    exampleDict = {
+        "Modeler": "- :ref:`Modeler Example`.\n",
+        "Interpreter": "- :ref:`Interpreter Example`.\n",
+    }
 
-    file = open("docs/rs2.rst", "w")
-    i = 0
-    for line in lines:
-        file.write(line)
-        if "---------------------" in line:
-            file.write(exampleFiles[i])
-            i+=1
+    file_path = 'docs/rs2.rst'
+
+    foundBasePropModule = False
+    linesAfterBasePropModule = 0
+    exampleFileToInsert = None
+    with open(file_path, 'r') as file:
+        lines = file.readlines()
+        output = open(file_path, 'w')
+        for line in lines:
+            output.write(line)
+            if " module" in line:
+                for baseProp, exampleFile in exampleDict.items():
+                    if baseProp in line:
+                        foundBasePropModule = True
+                        exampleFileToInsert = exampleFile
+            if foundBasePropModule and linesAfterBasePropModule == 1:
+                output.write(exampleFileToInsert)
+                foundBasePropModule = False
+                linesAfterBasePropModule = 0
+            
+            if foundBasePropModule:
+                linesAfterBasePropModule += 1
 
 
 def run_sphinx_build():

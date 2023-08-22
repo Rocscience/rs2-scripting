@@ -12,9 +12,17 @@ Subpackages
 Submodules
 ----------
 
+rs2.PropertyEnums module
+------------------------
+
+.. automodule:: rs2.PropertyEnums
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.RS2Interpreter module
 -------------------------
-- :ref:`Modeler Example`.
+- :ref:`Interpreter Example`.
 
 .. automodule:: rs2.RS2Interpreter
    :members:
@@ -23,7 +31,7 @@ rs2.RS2Interpreter module
 
 rs2.RS2Modeler module
 ---------------------
-- :ref:`Interpreter Example`.
+- :ref:`Modeler Example`.
 
 .. automodule:: rs2.RS2Modeler
    :members:
