@@ -21,35 +21,9 @@ def run_sphinx_apidoc():
         "src/rs2/Client.py",
         "src/rs2/proxyObjects/documentProxy.py",
         "src/rs2/proxyObjects/propertyProxy.py",
-        "src/rs2/ProxyObject.py",
+        "src/rs2/ProxyObject.py"
     ]
     subprocess.run(cmd, check=True)
-
-def add_sphinx_example_modules():
-    file = open("docs\modules.rst", "a")
-    file.write("   examples" + '\n')
-
-def add_example_module_links(filePath, exampleDict):
-    foundBasePropModule = False
-    linesAfterBasePropModule = 0
-    exampleFileToInsert = None
-    with open(filePath, 'r') as file:
-        lines = file.readlines()
-        output = open(filePath, 'w')
-        for line in lines:
-            output.write(line)
-            if " module" in line:
-                for baseProp, exampleFile in exampleDict.items():
-                    if baseProp in line:
-                        foundBasePropModule = True
-                        exampleFileToInsert = exampleFile
-            if foundBasePropModule and linesAfterBasePropModule == 1:
-                output.write(exampleFileToInsert)
-                foundBasePropModule = False
-                linesAfterBasePropModule = 0
-            
-            if foundBasePropModule:
-                linesAfterBasePropModule += 1
 
 def run_sphinx_build():
     # Command to run sphinx-build
@@ -66,18 +40,4 @@ def run_sphinx_build():
 
 if __name__ == "__main__":
     run_sphinx_apidoc()
-    add_sphinx_example_modules()
-    proxyObjectsFilePath = 'docs/rs2.proxyObjects.rst'
-    proxyObjectsExamplesDict = {
-        "Bolt": "- :ref:`Bolt Example`.\n",
-        "Liner": "- :ref:`Liner Example`.\n",
-        "Model": "- :ref:`Model Example`.\n"
-    }
-    add_example_module_links(proxyObjectsFilePath, proxyObjectsExamplesDict)
-    modelerInterpreterFilePath = 'docs/rs2.rst'
-    modelerInterpreterExamplesDict = {
-        "Modeler": "- :ref:`Modeler Example`.\n",
-        "Interpreter": "- :ref:`Interpreter Example`.\n",
-    }
-    add_example_module_links(modelerInterpreterFilePath, modelerInterpreterExamplesDict)
     run_sphinx_build()

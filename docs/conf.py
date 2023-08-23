@@ -31,7 +31,12 @@ release = '0.0'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ['sphinx.ext.autodoc']
-# autodoc_mock_imports = ['rs2']
+
+autosummary_generate = True
+
+autodoc_default_options = {
+    'member-order': 'bysource',
+}
 
 templates_path = ['_templates']
 exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'rs2.Client']

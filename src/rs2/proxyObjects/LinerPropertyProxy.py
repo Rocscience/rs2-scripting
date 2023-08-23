@@ -8,6 +8,9 @@ from .Geosynthetic import Geosynthetic
 from .ReinforcedConcrete import ReinforcedConcrete
 from .CableTruss import CableTruss
 class LinerProperty(PropertyProxy):
+	"""
+	:ref:`Liner Example`
+	"""
 	def __init__(self, server : Client, ID, documentProxyID):
 		self.StandardBeam = StandardBeam(server, ID, documentProxyID)
 		self.Geosynthetic = Geosynthetic(server, ID, documentProxyID)

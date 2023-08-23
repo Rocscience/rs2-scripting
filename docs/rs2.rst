@@ -22,7 +22,6 @@ rs2.PropertyEnums module
 
 rs2.RS2Interpreter module
 -------------------------
-- :ref:`Interpreter Example`.
 
 .. automodule:: rs2.RS2Interpreter
    :members:
@@ -31,7 +30,6 @@ rs2.RS2Interpreter module
 
 rs2.RS2Modeler module
 ---------------------
-- :ref:`Modeler Example`.
 
 .. automodule:: rs2.RS2Modeler
    :members:

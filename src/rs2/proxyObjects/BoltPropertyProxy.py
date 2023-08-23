@@ -9,6 +9,9 @@ from .PlainStrandCable import PlainStrandCable
 from .Swellex import Swellex
 from .Tieback import Tieback
 class BoltProperty(PropertyProxy):
+	"""
+	:ref:`Bolt Example`
+	"""
 	def __init__(self, server : Client, ID, documentProxyID):
 		self.EndAnchored = EndAnchored(server, ID, documentProxyID)
 		self.FullyBonded = FullyBonded(server, ID, documentProxyID)

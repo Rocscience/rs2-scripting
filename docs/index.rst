@@ -11,3 +11,4 @@ Welcome to RS2 Scripting Client Library's documentation!
    :caption: Contents:
 
    modules
+   examples
