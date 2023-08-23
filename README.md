@@ -50,15 +50,16 @@ The following steps can be taken to regenerate the RS2 Scripting Documentation:
 2. Rebuild the RS2 library in your virtual environment by following the [Build](#build) section.
 3. Run the command below to install Sphinx:  
 ```python -m pip install sphinx```
-4. Install a LaTeX distribution: https://www.latex-project.org/. MiKTeX Reccomended. 
+4. Install a LaTeX distribution. MiKTeX Reccomended: https://miktex.org/download   
 5. To generate the documentation run the following:  
-```python generateAndBuildDocumentation.py```
+```python generateAndBuildDocumentation.py```  
 Note: you may have to downgrade your ssl to an earlier version to successfuly generate the documentation ```.tex``` file. If you get an ssl error, run the following command:  
 ```pip install urllib3==1.26.5```
 6. Open TeXworks (via MiKTeX) and open the documentation file:  
-	```RS2 Python Client Library\docs\_build\pdf\rs2scriptingclientlibrary.pdf```
+	```RS2 Python Client Library\docs\_build\pdf\rs2scriptingclientlibrary.tex```
 7. In the dropdown menu, set the output to pdfLaTeX.
-8. Click the play button to generate the documentation file.
+8. Click the play button to generate the documentation file.  
+Note: The first time you generate documentation using TeXworks, a package installation window will appear indicating that numerous packages could not be found. Deselect the "Always show this dialog" checkbox and click the install button. 
 
 
 ## Contribution Guidelines
