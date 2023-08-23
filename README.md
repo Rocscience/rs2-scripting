@@ -15,18 +15,22 @@ Following the steps to this guide: https://packaging.python.org/en/latest/tutori
 ```pip install -r requirements.txt --force-reinstall```
 
 # Documentation
-The following steps can be taken to regenerate the RS2 Scripting Documentation
--Create python a virtual environment. Navigate to the root directory of your workspace and run the commands below:
+The following steps can be taken to regenerate the RS2 Scripting Documentation:
+1. Create python a virtual environment. Navigate to the root directory of your workspace and run the commands below:  
 ```python -m venv venv```
 ```venv/Scripts/activate```
-- Run the command below to install Sphinx:
+2. Rebuild the RS2 library in your virtual environment by following the [Build And Test](#build-and-test) section.
+3. Run the command below to install Sphinx:  
 ```python -m pip install sphinx```
-- Install a LaTeX distribution: https://www.latex-project.org/. MiKTeX Reccomended. 
--To generate the documentation, build the python library and then 
-run the following:
+4. Install a LaTeX distribution: https://www.latex-project.org/. MiKTeX Reccomended. 
+5. To generate the documentation run the following:  
 ```python generateAndBuildDocumentation.py```
-- Open MiKTex and open the .tex file for the documentation
-- Set Output to pdfLaTeX. Originally did pdfLaTex + MakeIndex + BibTex 
+Note: you may have to downgrade your ssl to an earlier version to successfuly generate the documentation ```.tex``` file. If you get an ssl error, run the following command:  
+```pip install urllib3==1.26.5```
+6. Open TeXworks (via MiKTeX) and open the documentation file:  
+	```RS2 Python Client Library\docs\_build\pdf\rs2scriptingclientlibrary.pdf```
+7. In the dropdown menu, set the output to pdfLaTeX.
+8. Click the play button to generate the documentation file.
 
 
 # Contribute
