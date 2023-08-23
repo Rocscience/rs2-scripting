@@ -36,14 +36,14 @@ def add_example_module_links():
         "Model": "- :ref:`Model Example`.\n"
     }
 
-    file_path = 'docs/rs2.proxyObjects.rst'
+    filePath = 'docs/rs2.proxyObjects.rst'
 
     foundBasePropModule = False
     linesAfterBasePropModule = 0
     exampleFileToInsert = None
-    with open(file_path, 'r') as file:
+    with open(filePath, 'r') as file:
         lines = file.readlines()
-        output = open(file_path, 'w')
+        output = open(filePath, 'w')
         for line in lines:
             output.write(line)
             if " module" in line:
@@ -65,14 +65,14 @@ def add_example_modeller_interpreter_links():
         "Interpreter": "- :ref:`Interpreter Example`.\n",
     }
 
-    file_path = 'docs/rs2.rst'
+    filePath = 'docs/rs2.rst'
 
     foundBasePropModule = False
     linesAfterBasePropModule = 0
     exampleFileToInsert = None
-    with open(file_path, 'r') as file:
+    with open(filePath, 'r') as file:
         lines = file.readlines()
-        output = open(file_path, 'w')
+        output = open(filePath, 'w')
         for line in lines:
             output.write(line)
             if " module" in line:
