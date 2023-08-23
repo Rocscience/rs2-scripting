@@ -63,7 +63,7 @@ class PlainStrandCable(PropertyProxy):
 	def getBulgeLocations(self) -> List[float]:
 		return self._callFunction("get_bulge_locations_ref", [])
 	def setBulgeLocations(self, locations: List[float]):
-		return self._callFunction("set_bulge_locations", [locations])
+		return self._callFunction("set_bulge_locations", [locations ])
 	def setProperties(self, BoreholeDiameter : float = None, CableDiameter : float = None, CableModulusE : float = None, CablePeak : float = None, OutofPlaneSpacing : float = None, WaterCementRatio : float = None, JointShear : bool = None, FacePlates : bool = None, AddPullOutForce : bool = None, PullOutForce : float = None, ConstantShearStiffness : bool = None, Stiffness : float = None, AddBulges : bool = None, BulgeType : BulgeTypes = None):
 		if BoreholeDiameter is not None:
 			self._setDoubleProperty("BP_BOREHOLE_DIAMETER_CABLE", BoreholeDiameter)

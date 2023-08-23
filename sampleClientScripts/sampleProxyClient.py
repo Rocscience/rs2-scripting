@@ -1,93 +1,65 @@
 from rs2.RS2Modeler import RS2Modeler
+from rs2.PropertyEnums import *
 
 modeler = RS2Modeler()
 
-model = modeler.openFile(r"C:\Intel\simple_3_stage.fez")
+model = modeler.openFile(r"C:\scriptingModels\simple_3_stage.fez")
 bolt = model.getBoltPropertyByName("Bolt 2")
 liner = model.getLinerPropertyByName("Liner 3")
 
-bolt.setBoltType(bolt.BoltTypes.FULLY_BONDED)
+bolt.setBoltType(BoltTypes.FULLY_BONDED)
 print(bolt.getBoltType())
 
-bolt.setBoltName("test2")
-print(bolt.getBoltName())
+bolt.FullyBonded.setBoltDiameter(23)
+print(bolt.FullyBonded.getBoltDiameter())
 
-bolt.setBoltDiameter(23)
-print(bolt.getBoltDiameter())
+bolt.FullyBonded.setBoltModulusE(201000)
+print(bolt.FullyBonded.getBoltModulusE())
 
-bolt.setBoltModulusE(201000)
-print(bolt.getBoltModulusE())
+bolt.FullyBonded.setTensileCapacity(0.2)
+print(bolt.FullyBonded.getTensileCapacity())
 
-bolt.setTensileCapacity(0.2)
-print(bolt.getTensileCapacity())
+bolt.FullyBonded.setResidualTensileCapacity(0.0232)
+print(bolt.FullyBonded.getResidualTensileCapacity())
 
-bolt.setResidualTensileCapacity(0.0232)
-print(bolt.getResidualTensileCapacity())
+bolt.FullyBonded.setOutofPlaneSpacing(8)
+print(bolt.FullyBonded.getOutofPlaneSpacing())
 
-bolt.setOutofPlaneSpacing(8)
-print(bolt.getOutofPlaneSpacing())
+bolt.FullyBonded.setPreTensioningForce(1)
+print(bolt.FullyBonded.getPreTensioningForce())
 
-bolt.setPreTensioningForce(1)
-print(bolt.getPreTensioningForce())
+bolt.FullyBonded.setConstantPretensioningForceInInstallStage(False)
+print(bolt.FullyBonded.getConstantPretensioningForceInInstallStage())
 
-bolt.setConstantPretensioningForceInInstallStage(False)
-print(bolt.getConstantPretensioningForceInInstallStage())
+bolt.FullyBonded.setJointShear(False)
+print(bolt.FullyBonded.getJointShear())
 
-bolt.setJointShear(False)
-print(bolt.getJointShear())
+liner.StandardBeam.setPoissonsRatio(0.49)
+print(liner.StandardBeam.getPoissonsRatio())
 
-liner.setPoissonsRatio(0.49)
-print(liner.getPoissonsRatio())
-
-liner.setLinerType(liner.LinerTypes.P2_LINER_STANDARD_BEAM)
+liner.setLinerType(LinerTypes.P2_LINER_STANDARD_BEAM)
 print(liner.getLinerType())
 
-liner.setMethod(liner.GeometryChoice.LNP_USE_AREA)
-print(liner.getMethod())
+liner.StandardBeam.setMethod(GeometryChoice.LNP_USE_AREA)
+print(liner.StandardBeam.getMethod())
 
-liner.setMethod(liner.GeometryChoice.LNP_USE_THICKNESS)
-print(liner.getMethod())
+liner.StandardBeam.setMethod(GeometryChoice.LNP_USE_THICKNESS)
+print(liner.StandardBeam.getMethod())
 
-liner.setThickness(20)
-print(liner.getThickness())
+liner.StandardBeam.setThickness(20)
+print(liner.StandardBeam.getThickness())
 
-#Thermal needs to be set to steady state for the following
-#-------------------------------------------------------
+liner.StandardBeam.setActivateThermal(True)
+print(liner.StandardBeam.getActivateThermal())
 
-liner.setActivateThermal(True)
-print(liner.getActivateThermal())
+liner.StandardBeam.setStaticTemperatureMode(StaticWaterModes.SWM_GRID)
+print(liner.StandardBeam.getStaticTemperatureMode())
 
-liner.setStaticTemperatureMode(liner.StaticWaterModes.SWM_GRID)
-print(liner.getStaticTemperatureMode())
+liner.StandardBeam.setStaticTemperatureGridToUse("Default Grid")
+print(liner.StandardBeam.getStaticTemperatureGridToUse())
 
-liner.setStaticTemperatureGridToUse("Default Grid")
-print(liner.getStaticTemperatureGridToUse())
+liner.StandardBeam.setThermalExpansion(True)
+print(liner.StandardBeam.getThermalExpansion())
 
-liner.setThermalExpansion(True)
-print(liner.getThermalExpansion())
-
-liner.setExpansionCoefficient(2)
-print(liner.getExpansionCoefficient())
-
-
-#-------------------------------------------------------
-
-# model.saveAndCompute()
-
-# The following functions show the save and compute functionality.
-
-# modeler.saveAndComputeGroundwaterOnly()
-# modeler.saveFile()
-# modeler.saveAndComputeFile(ignoreBernoulliLinerWarning=True)
-# modeler.saveFileAs(r'C:\RS2ScriptingExample.fez')
-# modeler.closeFile()
-
-
-# def RGB(r,g,b):
-#     return int(r + (g << 8) + (b << 16))
-
-# color = RGB(255,255,0)
-# print(color)
-# bolt.setBoltColor(color)
-# print(bolt.getBoltColor())
-# bolt.setAddBulges(True)
+liner.StandardBeam.setExpansionCoefficient(2)
+print(liner.StandardBeam.getExpansionCoefficient())

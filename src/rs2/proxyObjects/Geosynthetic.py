@@ -62,7 +62,7 @@ class Geosynthetic(PropertyProxy):
 		"""
 		Grids "None" and "Default Grid" available by default.
 		"""
-		return self._callFunction("setStaticTemperatureGridToUse", [gridName])
+		return self._callFunction("setStaticTemperatureGridToUse", [gridName ])
 	def setProperties(self, InitialTemperature : float = None, TensileModulus : float = None, MaterialType : MaterialType = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageGeosyntheticProperties : bool = None):
 		if InitialTemperature is not None:
 			self._setDoubleProperty("LNP_THERAMAL_INITIAL_TEMPERATURE", InitialTemperature)

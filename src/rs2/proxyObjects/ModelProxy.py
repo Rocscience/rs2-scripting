@@ -50,13 +50,17 @@ class ModelProxy(ProxyObject):
 			activeLinerProperties.append(LinerProperty(self._client, linerObjectID, self._documentProxy._ID))
 		return activeLinerProperties
 	
-	def saveAndCompute(self, ignoreBernoulliLinerWarning = False, ignoreDynamicBCWarning = False):
+	def compute(self):
 		'''
-		Saves the file and then Runs compute.
+		Saves the file if modified and then runs compute. Replaces any existing results.
+		'''
+		return self._callFunction('compute', [False])
 
-		ignoreBernoulliLinerWarning and ignoreDynamicBCWarning are optional flags to bypass warnings. Only use them if you know what you are doing!
+	def computeGroundWater(self):
 		'''
-		return self._callFunction('saveAndCompute', [False, ignoreBernoulliLinerWarning, ignoreDynamicBCWarning])
+		Saves the file if modified and then runs groundwater compute. Replaces any existing results.
+		'''
+		return self._callFunction('compute', [True])
 
 	def close(self):
 		'''
