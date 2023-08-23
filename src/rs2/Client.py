@@ -10,12 +10,13 @@ logger.level = logging.INFO
 
 
 class Client:
-	def __init__(self, pipeName):
-		self.connection = self.establishConnection(pipeName)
-
-	def establishConnection(self, pipeName):
+	def __init__(self, host, port):
+		self.connection = self.establishConnection(host, port)
+		if self.connection == None:
+			raise RuntimeError("Could not establish connection with the server. Make sure the server is started on the application.")
+	def establishConnection(self, host, port):
 		try:
-			connection = multiProcessingClient(Rf'\\.\pipe\{pipeName}','AF_PIPE')
+			connection = multiProcessingClient((host, port) ,'AF_INET')
 		except Exception as e:
 			logger.error(f"Unable to create client. Full error: {e}")
 			return

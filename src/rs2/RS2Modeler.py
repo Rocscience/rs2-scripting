@@ -3,8 +3,8 @@ from .Client import Client
 from rs2.proxyObjects.ModelProxy import ModelProxy
 
 class RS2Modeler:
-	def __init__(self):
-		self.client = Client("RS2Modeler")
+	def __init__(self, host='localhost', port=60054):
+		self.client = Client(host, port)
 
 	def openFile(self, fileName : str) -> ModelProxy:
 		'''
