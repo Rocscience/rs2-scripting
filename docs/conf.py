@@ -32,8 +32,6 @@ release = '0.0'
 
 extensions = ['sphinx.ext.autodoc']
 
-autosummary_generate = True
-
 autodoc_default_options = {
     'member-order': 'bysource',
 }

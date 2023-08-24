@@ -7,7 +7,8 @@ Welcome to RS2 Scripting Client Library's documentation!
 ========================================================
 
 .. toctree::
-   :maxdepth: 2
+   :titlesonly:
+   :maxdepth: 6
    :caption: Contents:
 
    modules

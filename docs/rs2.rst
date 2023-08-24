@@ -1,6 +1,11 @@
 rs2 package
 ===========
 
+.. automodule:: rs2
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Subpackages
 -----------
 
@@ -32,14 +37,6 @@ rs2.RS2Modeler module
 ---------------------
 
 .. automodule:: rs2.RS2Modeler
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-Module contents
----------------
-
-.. automodule:: rs2
    :members:
    :undoc-members:
    :show-inheritance:

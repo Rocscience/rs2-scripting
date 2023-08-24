@@ -6,6 +6,13 @@ sphinx-apidoc Documentation: https://www.sphinx-doc.org/en/master/man/sphinx-api
 sphinx-build Documentation: https://www.sphinx-doc.org/en/master/man/sphinx-build.html
 """
 
+def set_sphinx_apidoc_settings():
+    # Command to set SPHINX_APIDOC_OPTIONS environment variable
+    export_cmd = "export SPHINX_APIDOC_OPTIONS=members"
+    
+    # Use shell=True to execute the command with the shell
+    subprocess.run(export_cmd, shell=True, check=True)
+
 def run_sphinx_apidoc():
     # Command to run sphinx-apidoc
     # sphinx-apidoc [OPTIONS] -o <OUTPUT_PATH> <MODULE_PATH> [EXCLUDE_PATTERN …]
@@ -15,6 +22,7 @@ def run_sphinx_apidoc():
     cmd = [
         "sphinx-apidoc",
         "--force",
+        "--module-first",
         "-o",
         "docs",
         "src",
@@ -39,5 +47,6 @@ def run_sphinx_build():
     subprocess.run(cmd, check=True)
 
 if __name__ == "__main__":
+    # set_sphinx_apidoc_settings()
     run_sphinx_apidoc()
     run_sphinx_build()
