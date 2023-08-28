@@ -11,5 +11,5 @@ bolt1 = model.getBoltPropertyByName("Bolt 1")
 liner1 = model.getLinerPropertyByName("Liner 1")
 
 model.save(r"C:\scriptingModels\simple_3_stage.fez")
-model.saveAndCompute()
+model.compute()
 model.close()
