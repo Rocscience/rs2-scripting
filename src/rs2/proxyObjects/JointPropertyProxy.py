@@ -3,13 +3,16 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-from .MohrCoulomb import MohrCoulomb
-from .BartonBandis import BartonBandis
-from .GeosyntheticHyperbolic import GeosyntheticHyperbolic
-from .HyperbolicSoftening import HyperbolicSoftening
-from .MaterialDependent import MaterialDependent
-from .DisplacementDependent import DisplacementDependent
+from rs2.proxyObjects.JointSubproxyObjects.MohrCoulomb import MohrCoulomb
+from rs2.proxyObjects.JointSubproxyObjects.BartonBandis import BartonBandis
+from rs2.proxyObjects.JointSubproxyObjects.GeosyntheticHyperbolic import GeosyntheticHyperbolic
+from rs2.proxyObjects.JointSubproxyObjects.HyperbolicSoftening import HyperbolicSoftening
+from rs2.proxyObjects.JointSubproxyObjects.MaterialDependent import MaterialDependent
+from rs2.proxyObjects.JointSubproxyObjects.DisplacementDependent import DisplacementDependent
 class JointProperty(PropertyProxy):
+	"""
+	:ref:`Joint Example`
+	"""
 	def __init__(self, server : Client, ID, documentProxyID):
 		self.MohrCoulomb = MohrCoulomb(server, ID, documentProxyID)
 		self.BartonBandis = BartonBandis(server, ID, documentProxyID)
@@ -22,10 +25,6 @@ class JointProperty(PropertyProxy):
 		return self._getCStringProperty("JP_NAME")
 	def setJointName(self, value: str):
 		return self._setCStringProperty("JP_NAME", value)
-	def getInitialDeformation(self) -> bool:
-		return self._getBoolProperty("JP_INITIAL_DEFORMATION")
-	def setInitialDeformation(self, value: bool):
-		return self._setBoolProperty("JP_INITIAL_DEFORMATION", value)
 	def getJointColor(self) -> int:
 		return self._getUnsignedLongProperty("JP_COLOR")
 	def setJointColor(self, value: int):
@@ -34,3 +33,7 @@ class JointProperty(PropertyProxy):
 		return JointTypes(self._getEnumEJointTypesProperty("JP_SLIP_CRITIRION"))
 	def setSlipCriterion(self, value: JointTypes):
 		return self._setEnumEJointTypesProperty("JP_SLIP_CRITIRION", value)
+	def getInitialDeformation(self) -> bool:
+		return self._getBoolProperty("JP_INITIAL_DEFORMATION")
+	def setInitialDeformation(self, value: bool):
+		return self._setBoolProperty("JP_INITIAL_DEFORMATION", value)
