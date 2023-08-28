@@ -3,11 +3,14 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-from .StandardBeam import StandardBeam
-from .Geosynthetic import Geosynthetic
-from .ReinforcedConcrete import ReinforcedConcrete
-from .CableTruss import CableTruss
+from rs2.proxyObjects.LinerSubproxyObjects.StandardBeam import StandardBeam
+from rs2.proxyObjects.LinerSubproxyObjects.Geosynthetic import Geosynthetic
+from rs2.proxyObjects.LinerSubproxyObjects.ReinforcedConcrete import ReinforcedConcrete
+from rs2.proxyObjects.LinerSubproxyObjects.CableTruss import CableTruss
 class LinerProperty(PropertyProxy):
+	"""
+	:ref:`Liner Example`
+	"""
 	def __init__(self, server : Client, ID, documentProxyID):
 		self.StandardBeam = StandardBeam(server, ID, documentProxyID)
 		self.Geosynthetic = Geosynthetic(server, ID, documentProxyID)

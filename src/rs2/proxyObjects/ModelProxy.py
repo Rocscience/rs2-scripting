@@ -5,7 +5,9 @@ from rs2.proxyObjects.LinerPropertyProxy import LinerProperty
 from rs2.proxyObjects.JointPropertyProxy import JointProperty
 
 class ModelProxy(ProxyObject):
-
+	"""
+	:ref:`Model Example`
+	"""
 	def __init__(self, client, ID):
 		super().__init__(client, ID)
 		self._documentProxy = self._getDocument()
@@ -61,18 +63,17 @@ class ModelProxy(ProxyObject):
 			activeLinerProperties.append(JointProperty(self._client, jointObjectID, self._documentProxy._ID))
 		return activeLinerProperties
 	
-	def saveAndCompute(self):
+	def compute(self):
 		'''
-		Saves the file and then Runs compute. Replaces any existing results
+		Saves the file if modified and then runs compute. Replaces any existing results.
 		'''
-		return self._callFunction('saveAndCompute', [False])
+		return self._callFunction('compute', [False])
 
-	
-	def saveAndComputeGroundWater(self):
+	def computeGroundWater(self):
 		'''
-		Saves the file and then Runs groundwater compute. Replaces any existing results
+		Saves the file if modified and then runs groundwater compute. Replaces any existing results.
 		'''
-		return self._callFunction('saveAndCompute', [True])
+		return self._callFunction('compute', [True])
 
 	def close(self):
 		'''
