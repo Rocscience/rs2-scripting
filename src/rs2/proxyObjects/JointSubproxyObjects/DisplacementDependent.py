@@ -29,7 +29,7 @@ class DisplacementDependent(PropertyProxy):
 	def setAdditionalPressureInsideJoint(self, value: float):
 		return self._setDoubleProperty("JP_ADDITIONAL_PRESSURE", value)
 	def getPiezoID(self) -> int:
-		return self._getIntProperty("JP_ADDITIONAL_PIEZO_ID")
+		return int(self._getIntProperty("JP_ADDITIONAL_PIEZO_ID"))
 	def setPiezoID(self, value: int):
 		return self._setIntProperty("JP_ADDITIONAL_PIEZO_ID", value)
 	def getApplyPressureToLinerSideOnly(self) -> bool:
