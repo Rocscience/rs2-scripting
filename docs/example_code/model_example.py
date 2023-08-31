@@ -7,9 +7,9 @@ model = modeler.openFile(r"C:\scriptingModels\simple_3_stage.fez")
 boltList = model.getAllBoltProperties()
 linerList = model.getAllLinerProperties()
 
-bolt1 = model.getBoltPropertyByName("Bolt 1")
-liner1 = model.getLinerPropertyByName("Liner 1")
+bolt1 = model.getBoltPropertyByName("Test Bolt 1")
+liner1 = model.getLinerPropertyByName("Test Liner 1")
 
-model.save(r"C:\scriptingModels\simple_3_stage.fez")
+model.save()
 model.compute()
 model.close()
