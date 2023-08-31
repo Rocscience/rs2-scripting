@@ -6,8 +6,6 @@ rs2.proxyObjects package
    :undoc-members:
    :show-inheritance:
 
-Subpackages
------------
 
 .. toctree::
    :maxdepth: 4
@@ -15,8 +13,6 @@ Subpackages
    rs2.proxyObjects.BoltSubproxyObjects
    rs2.proxyObjects.LinerSubproxyObjects
 
-Submodules
-----------
 
 rs2.proxyObjects.BoltPropertyProxy module
 -----------------------------------------

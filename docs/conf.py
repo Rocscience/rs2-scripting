@@ -8,16 +8,10 @@ import sys
 
 # Specify the directory path
 directory_path = os.path.abspath('..')
-directory_path2 = os.path.abspath('../rs2')
-directory_path3 = os.path.abspath('../rs2/proxyObjects')
 
 
 # Add the directory path to sys.path
 sys.path.insert(0, directory_path)
-sys.path.insert(0, directory_path2)
-sys.path.insert(0, directory_path3)
-
-print(sys.path)
 
 # -- Project information -----------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
@@ -36,8 +30,7 @@ autodoc_default_options = {
     'member-order': 'bysource',
 }
 
-templates_path = ['_templates']
-exclude_patterns = ['_build', 'Thumbs.db', '.DS_Store', 'rs2.Client']
+exclude_patterns = ['generatedAPIDocFiles/modules.rst']
 
 # -- Options for LaTeX output -------------------------------------------------
 latex_elements = {

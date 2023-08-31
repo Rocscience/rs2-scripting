@@ -11,5 +11,5 @@ Welcome to RS2 Scripting Client Library's documentation!
    :maxdepth: 6
    :caption: Contents:
 
-   modules
+   generatedAPIDocFiles/rs2
    examples
