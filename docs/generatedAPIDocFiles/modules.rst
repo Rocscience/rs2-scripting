@@ -1,4 +1,4 @@
-src
+rs2
 ===
 
 .. toctree::
