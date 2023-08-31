@@ -4,7 +4,9 @@ from rs2.proxyObjects.BoltPropertyProxy import BoltProperty
 from rs2.proxyObjects.LinerPropertyProxy import LinerProperty
 
 class ModelProxy(ProxyObject):
-
+	"""
+	:ref:`Model Example`
+	"""
 	def __init__(self, client, ID):
 		super().__init__(client, ID)
 		self._documentProxy = self._getDocument()

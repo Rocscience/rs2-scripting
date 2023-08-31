@@ -3,6 +3,9 @@ from .Client import Client
 from rs2.proxyObjects.ModelProxy import ModelProxy
 
 class RS2Modeler:
+	"""
+	:ref:`Modeler Example`
+	"""
 	def __init__(self, host='localhost', port=60054):
 		self.client = Client(host, port)
 

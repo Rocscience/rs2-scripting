@@ -3,12 +3,15 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-from .EndAnchored import EndAnchored
-from .FullyBonded import FullyBonded
-from .PlainStrandCable import PlainStrandCable
-from .Swellex import Swellex
-from .Tieback import Tieback
+from rs2.proxyObjects.BoltSubproxyObjects.EndAnchored import EndAnchored
+from rs2.proxyObjects.BoltSubproxyObjects.FullyBonded import FullyBonded
+from rs2.proxyObjects.BoltSubproxyObjects.PlainStrandCable import PlainStrandCable
+from rs2.proxyObjects.BoltSubproxyObjects.Swellex import Swellex
+from rs2.proxyObjects.BoltSubproxyObjects.Tieback import Tieback
 class BoltProperty(PropertyProxy):
+	"""
+	:ref:`Bolt Example`
+	"""
 	def __init__(self, server : Client, ID, documentProxyID):
 		self.EndAnchored = EndAnchored(server, ID, documentProxyID)
 		self.FullyBonded = FullyBonded(server, ID, documentProxyID)
