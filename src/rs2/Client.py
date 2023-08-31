@@ -1,4 +1,5 @@
 import logging
+import warnings
 from rsmessages.requestFormat import functionRequest
 from rsmessages.responseFormat import functionResponse, functionStatus
 from multiprocessing.connection import Client as multiProcessingClient
@@ -43,6 +44,12 @@ class Client:
 		self.send(functionRequest)
 		response = self.receive()
 
+		if response.warnings:
+			for warning in response.warnings:
+				minimumUserStackDepth = 3 #assumes user will not call the client directly.
+				warnings.warn(warning, UserWarning, stacklevel=minimumUserStackDepth)
+
 		if response.status is not functionStatus.success:
 			raise response.exception
+		
 		return response.value
