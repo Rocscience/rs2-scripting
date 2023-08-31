@@ -6,8 +6,6 @@ rs2.proxyObjects.BoltSubproxyObjects package
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
 
 rs2.proxyObjects.BoltSubproxyObjects.EndAnchored module
 -------------------------------------------------------

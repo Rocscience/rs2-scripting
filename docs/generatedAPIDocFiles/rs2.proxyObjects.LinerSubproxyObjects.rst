@@ -6,8 +6,6 @@ rs2.proxyObjects.LinerSubproxyObjects package
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
 
 rs2.proxyObjects.LinerSubproxyObjects.CableTruss module
 -------------------------------------------------------

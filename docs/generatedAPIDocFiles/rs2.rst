@@ -6,16 +6,12 @@ rs2 package
    :undoc-members:
    :show-inheritance:
 
-Subpackages
------------
 
 .. toctree::
    :maxdepth: 4
 
    rs2.proxyObjects
 
-Submodules
-----------
 
 rs2.PropertyEnums module
 ------------------------
