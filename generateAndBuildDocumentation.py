@@ -47,6 +47,5 @@ def run_sphinx_build():
     subprocess.run(cmd, check=True)
 
 if __name__ == "__main__":
-    # set_sphinx_apidoc_settings()
     run_sphinx_apidoc()
     run_sphinx_build()
