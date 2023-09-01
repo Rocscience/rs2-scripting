@@ -1,5 +1,5 @@
 import subprocess
-import re
+import os
 
 """
 sphinx-apidoc Documentation: https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html
@@ -24,14 +24,27 @@ def run_sphinx_apidoc():
         "--force",
         "--module-first",
         "-o",
-        "docs",
-        "src",
+        "docs/generatedAPIDocFiles",
+        "src/rs2",
         "src/rs2/Client.py",
         "src/rs2/proxyObjects/documentProxy.py",
         "src/rs2/proxyObjects/propertyProxy.py",
         "src/rs2/ProxyObject.py"
     ]
     subprocess.run(cmd, check=True)
+
+def remove_subpackage_submodule_headers():
+    rstFilesFolder = "docs/generatedAPIDocFiles"
+    linesToRemove = ["Submodules\n", "----------\n", "Subpackages\n", "-----------\n"]
+    for listedFile in os.listdir(rstFilesFolder):
+        filepath = os.path.join(rstFilesFolder, listedFile)
+        with open(filepath, "r") as file:
+            lines = file.readlines()
+        with open(filepath, "w") as file:
+            for line in lines:
+                if line not in linesToRemove:
+                    file.write(line)
+    
 
 def run_sphinx_build():
     # Command to run sphinx-build
@@ -47,6 +60,6 @@ def run_sphinx_build():
     subprocess.run(cmd, check=True)
 
 if __name__ == "__main__":
-    # set_sphinx_apidoc_settings()
     run_sphinx_apidoc()
+    remove_subpackage_submodule_headers()
     run_sphinx_build()
