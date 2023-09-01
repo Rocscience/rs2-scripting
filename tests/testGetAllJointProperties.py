@@ -6,7 +6,7 @@ import parentDirectoryHelper
 parentDirectoryHelper.addParentDirectoryToPath()
 
 from src.rs2.RS2Modeler import RS2Modeler
-class TestGetAllLinerProperties(unittest.TestCase):
+class TestGetAllJointProperties(unittest.TestCase):
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
         blankModelPath = f"{parentDirectory}/resources/blankProject.fez"
@@ -14,17 +14,17 @@ class TestGetAllLinerProperties(unittest.TestCase):
         shutil.copy(blankModelPath, self.copiedModelPath)
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
-        self.linerList = self.model.getAllLinerProperties()
+        self.jointList = self.model.getAllJointProperties()
 
     def tearDown(self):
         self.model.close()
         os.remove(self.copiedModelPath)
     
-    def testLinerListSize(self):
-        linerList = self.linerList
-        self.assertEqual(len(linerList), 5)
+    def testJointListSize(self):
+        jointList = self.jointList
+        self.assertEqual(len(jointList), 5)
 
-    def testLinerListOrder(self):
-        linerList = self.linerList
-        for linerID, liner in enumerate(linerList, start=1):
-            self.assertEqual(liner.getLinerName(), f"Liner {linerID}") 
+    def testJointListOrder(self):
+        jointList = self.jointList
+        for jointID, joint in enumerate(jointList, start=1):
+            self.assertEqual(joint.getJointName(), f"Joint {jointID}") 
