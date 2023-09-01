@@ -31,7 +31,8 @@ Instead of directly modifying the base files in tests/resources, create copies o
 ### Running Unit Test Cases
 Before running the tests, make sure you have:
 1. Built the RS2 library as explained in the [Build](#build) section.
-2. Started the RS2 Modeler. 
+2. Started the RS2 Modeler.
+3. Started the RS2 Interpreter.
 
 To run all the tests, navigate to the root directory of the project and execute the following command:  
 ```python -m unittest discover -s tests```  
