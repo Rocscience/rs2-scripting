@@ -10,6 +10,11 @@ Python Script Examples
    :language: python
    :caption: Code Snippet: Manipulation of Liner Properties
 
+.. _Joint Example:
+.. literalinclude:: example_code/joint_prop_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Joint Properties
+
 .. _Model Example:
 .. literalinclude:: example_code/model_example.py
    :language: python
