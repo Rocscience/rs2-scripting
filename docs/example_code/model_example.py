@@ -8,9 +8,9 @@ boltList = model.getAllBoltProperties()
 linerList = model.getAllLinerProperties()
 jointList = model.getAllJointProperties()
 
-bolt1 = model.getBoltPropertyByName("Bolt 1")
-liner1 = model.getLinerPropertyByName("Liner 1")
-joint1 = model.getJointPropertyByName("Joint 1")
+bolt1 = model.getBoltPropertyByName("Test Bolt 1")
+liner1 = model.getLinerPropertyByName("Test Liner 1")
+joint1 = model.getJointPropertyByName("Test Joint 1")
 
 model.save()
 model.compute()
