@@ -21,8 +21,8 @@ class TestBaseJoint(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testBaseJointProperty(self):
         joint = self.joint
-        joint.setJointName("Tx60l")
-        joint.setJointColor(31270)
+        joint.setJointName("3Kmuv")
+        joint.setJointColor(28211)
         joint.setSlipCriterion(JointTypes.JOINT_HYPERBOLIC_SIMPLE)
         joint.setInitialDeformation(1)
         self.model.save()
@@ -30,7 +30,7 @@ class TestBaseJoint(unittest.TestCase):
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.joint = self.model.getAllJointProperties()[0]
         joint = self.joint
-        self.assertEqual(joint.getJointName(), "Tx60l")
-        self.assertEqual(joint.getJointColor(), 31270)
+        self.assertEqual(joint.getJointName(), "3Kmuv")
+        self.assertEqual(joint.getJointColor(), 28211)
         self.assertEqual(joint.getSlipCriterion(), JointTypes.JOINT_HYPERBOLIC_SIMPLE)
         self.assertEqual(joint.getInitialDeformation(), 1)

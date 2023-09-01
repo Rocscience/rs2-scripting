@@ -40,9 +40,9 @@ class DisplacementDependent(PropertyProxy):
 		return self._getBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES")
 	def setApplyStageFactors(self, value: bool):
 		return self._setBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES", value)
-	def getDisplacementDependentTable(self) -> List[List[int]]:
+	def getDisplacementDependentTable(self) -> List[List[float]]:
 		return self._callFunction("getDisplacementDependentTable", [])
-	def setDisplacementDependentTable(self, displacementGrid: List[List[int]]):
+	def setDisplacementDependentTable(self, displacementGrid: List[List[float]]):
 		return self._callFunction("setDisplacementDependentTable", [displacementGrid])
 	def setProperties(self, NormalStiffness : float = None, ShearStiffness : float = None, ApplyPorePressure : bool = None, ApplyAdditionalPressureInsideJoint : bool = None, AdditionalPressureType : AdditionalPressureType = None, AdditionalPressureInsideJoint : float = None, PiezoID : int = None, ApplyPressureToLinerSideOnly : bool = None, ApplyStageFactors : bool = None):
 		if NormalStiffness is not None:

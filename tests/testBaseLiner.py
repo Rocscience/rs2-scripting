@@ -21,14 +21,14 @@ class TestBaseLiner(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testBaseLinerProperty(self):
         liner = self.liner
-        liner.setLinerName("EQOmi")
-        liner.setLinerColor(16806)
+        liner.setLinerName("wsA1A")
+        liner.setLinerColor(11243)
         liner.setLinerType(LinerTypes.P2_LINER_REINFORCED_CONCRETE)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.liner = self.model.getAllLinerProperties()[0]
         liner = self.liner
-        self.assertEqual(liner.getLinerName(), "EQOmi")
-        self.assertEqual(liner.getLinerColor(), 16806)
+        self.assertEqual(liner.getLinerName(), "wsA1A")
+        self.assertEqual(liner.getLinerColor(), 11243)
         self.assertEqual(liner.getLinerType(), LinerTypes.P2_LINER_REINFORCED_CONCRETE)
