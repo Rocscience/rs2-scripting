@@ -32,12 +32,12 @@ class ModelProxy(ProxyObject):
 		linerObjectID = self._callFunction('getLinerPropertyByName', [linerName], keepReturnValueReference=True)
 		return LinerProperty(self._client, linerObjectID, self._documentProxy._ID)
 	
-	def getJointPropertyByName(self, jointName : str) -> LinerProperty:
+	def getJointPropertyByName(self, jointName : str) -> JointProperty:
 		'''
 		Returns a Joint Property object based on its name.
 		'''
 		jointObjectID = self._callFunction('getJointPropertyByName', [jointName], keepReturnValueReference=True)
-		return LinerProperty(self._client, jointObjectID, self._documentProxy._ID)
+		return JointProperty(self._client, jointObjectID, self._documentProxy._ID)
 	
 	def getAllBoltProperties(self) -> list[BoltProperty]:
 
