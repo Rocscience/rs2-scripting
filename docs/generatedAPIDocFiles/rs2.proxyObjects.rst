@@ -11,6 +11,7 @@ rs2.proxyObjects package
    :maxdepth: 4
 
    rs2.proxyObjects.BoltSubproxyObjects
+   rs2.proxyObjects.JointSubproxyObjects
    rs2.proxyObjects.LinerSubproxyObjects
 
 
@@ -18,6 +19,14 @@ rs2.proxyObjects.BoltPropertyProxy module
 -----------------------------------------
 
 .. automodule:: rs2.proxyObjects.BoltPropertyProxy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.proxyObjects.JointPropertyProxy module
+------------------------------------------
+
+.. automodule:: rs2.proxyObjects.JointPropertyProxy
    :members:
    :undoc-members:
    :show-inheritance:

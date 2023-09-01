@@ -2,6 +2,7 @@ from rs2.ProxyObject import ProxyObject
 from rs2.proxyObjects.documentProxy import DocumentProxy
 from rs2.proxyObjects.BoltPropertyProxy import BoltProperty
 from rs2.proxyObjects.LinerPropertyProxy import LinerProperty
+from rs2.proxyObjects.JointPropertyProxy import JointProperty
 
 class ModelProxy(ProxyObject):
 	"""
@@ -31,6 +32,13 @@ class ModelProxy(ProxyObject):
 		linerObjectID = self._callFunction('getLinerPropertyByName', [linerName], keepReturnValueReference=True)
 		return LinerProperty(self._client, linerObjectID, self._documentProxy._ID)
 	
+	def getJointPropertyByName(self, jointName : str) -> JointProperty:
+		'''
+		Returns a Joint Property object based on its name.
+		'''
+		jointObjectID = self._callFunction('getJointPropertyByName', [jointName], keepReturnValueReference=True)
+		return JointProperty(self._client, jointObjectID, self._documentProxy._ID)
+	
 	def getAllBoltProperties(self) -> list[BoltProperty]:
 
 		'''
@@ -51,6 +59,16 @@ class ModelProxy(ProxyObject):
 		for linerObjectID in linerObjectIDList:
 			activeLinerProperties.append(LinerProperty(self._client, linerObjectID, self._documentProxy._ID))
 		return activeLinerProperties
+	
+	def getAllJointProperties(self) -> list[JointProperty]:
+		'''
+		Returns a list of all Joint Property objects
+		'''
+		activeJointProperties = []
+		jointObjectIDList = self._callFunction('getAllJointProperties', [], keepReturnValueReference=True)
+		for jointObjectID in jointObjectIDList:
+			activeJointProperties.append(JointProperty(self._client, jointObjectID, self._documentProxy._ID))
+		return activeJointProperties
 	
 	def compute(self):
 		'''
