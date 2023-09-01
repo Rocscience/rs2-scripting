@@ -62,7 +62,7 @@ class ModelProxy(ProxyObject):
 	
 	def getAllJointProperties(self) -> list[JointProperty]:
 		'''
-		Returns a list of all Liner Property objects
+		Returns a list of all Joint Property objects
 		'''
 		activeLinerProperties = []
 		jointObjectIDList = self._callFunction('getAllJointProperties', [], keepReturnValueReference=True)
