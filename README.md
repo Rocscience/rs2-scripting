@@ -33,6 +33,7 @@ Before running the tests, make sure you have:
 1. Built the RS2 library as explained in the [Build](#build) section.
 2. Started the RS2 Modeler.
 3. Started the RS2 Interpreter.
+4. Started the Server on both the RS2 Modeler and RS2 Interpreter. Select ```DeveloperApp > Start Server``` in each program.
 
 To run all the tests, navigate to the root directory of the project and execute the following command:  
 ```python -m unittest discover -s tests```  
