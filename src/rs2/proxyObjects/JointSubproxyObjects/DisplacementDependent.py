@@ -46,8 +46,8 @@ class DisplacementDependent(PropertyProxy):
 		"""
 		displacementGrid is a 2D Array representing a Displacement Dependent Grid.
 		Rows of the 2D Array must be of length 4. A minimum of two rows is required.
-		Column 1 represents Shear Displacement, Column 2 represents Cohesion, 
-		Column 3 represents Friction Angle, Column 4 represents Tensile Strength.
+		The first column represents Shear Displacement, the second column represents Cohesion, 
+		the third column represents Friction Angle, and the fourth column represents Tensile Strength.
 		"""
 		return self._callFunction("setDisplacementDependentTable", [displacementGrid])
 	def setProperties(self, NormalStiffness : float = None, ShearStiffness : float = None, ApplyPorePressure : bool = None, ApplyAdditionalPressureInsideJoint : bool = None, AdditionalPressureType : AdditionalPressureType = None, AdditionalPressureInsideJoint : float = None, PiezoID : int = None, ApplyPressureToLinerSideOnly : bool = None, ApplyStageFactors : bool = None):
