@@ -41,6 +41,11 @@ class DisplacementDependent(PropertyProxy):
 	def setApplyStageFactors(self, value: bool):
 		return self._setBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES", value)
 	def getDisplacementDependentTable(self) -> List[List[float]]:
+		"""
+		displacementGrid is a 2D Array representing a Displacement Dependent Grid.
+		The first column represents Shear Displacement, the second column represents Cohesion, 
+		the third column represents Friction Angle, and the fourth column represents Tensile Strength.
+		"""
 		return self._callFunction("getDisplacementDependentTable", [])
 	def setDisplacementDependentTable(self, displacementGrid: List[List[float]]):
 		"""
