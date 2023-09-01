@@ -64,11 +64,11 @@ class ModelProxy(ProxyObject):
 		'''
 		Returns a list of all Joint Property objects
 		'''
-		activeLinerProperties = []
+		activeJointProperties = []
 		jointObjectIDList = self._callFunction('getAllJointProperties', [], keepReturnValueReference=True)
 		for jointObjectID in jointObjectIDList:
-			activeLinerProperties.append(JointProperty(self._client, jointObjectID, self._documentProxy._ID))
-		return activeLinerProperties
+			activeJointProperties.append(JointProperty(self._client, jointObjectID, self._documentProxy._ID))
+		return activeJointProperties
 	
 	def compute(self):
 		'''
