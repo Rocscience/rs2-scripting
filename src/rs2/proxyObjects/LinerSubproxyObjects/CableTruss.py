@@ -1,8 +1,20 @@
 from rs2.proxyObjects.propertyProxy import PropertyProxy
+from rs2.ProxyObject import ProxyObject
 from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
+
+class CableTrussStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, liner : PropertyProxy):
+		super().__init__(client,ID)
+		self.liner = liner
+
+	def getYoungsModulusFactor(self) -> float:
+		return self._callFunction("getDoubleProperty", ["LNP_YOUNGS_MODULUS", self.liner._ID], proxyArgumentIndices=[1])
+	def setYoungsModulusFactor(self, value : float) -> float:
+		return self._callFunction("setDoubleProperty", ["LNP_YOUNGS_MODULUS", value, self.liner._ID], proxyArgumentIndices=[2])
+	
 class CableTruss(PropertyProxy):
 	def getCableDiameter(self) -> float:
 		return self._getDoubleProperty("LNP_CABLE_DIAMETER")
@@ -127,3 +139,10 @@ class CableTruss(PropertyProxy):
 		"ExpansionCoefficient" : self.getExpansionCoefficient(), 
 		"StageCableProperties" : self.getStageCableProperties(), 
 		}
+	
+	def getStageFactors(self) -> List[CableTrussStageFactor]:
+		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
+		stageFactors = []
+		for stageFactorID in stageFactorReferenceIds:
+			stageFactors.append(CableTrussStageFactor(self._client, stageFactorID, self))
+		return stageFactors
