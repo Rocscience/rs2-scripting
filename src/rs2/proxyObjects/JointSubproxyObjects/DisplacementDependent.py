@@ -1,4 +1,5 @@
 from rs2.proxyObjects.propertyProxy import PropertyProxy
+from rs2.ProxyObject import ProxyObject
 from rs2.Client import Client
 from enum import Enum, auto
 from typing import List

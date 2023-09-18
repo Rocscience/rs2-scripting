@@ -4,17 +4,26 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-
 class CableTrussStageFactor(ProxyObject):
-	def __init__(self, client : Client, ID, liner : PropertyProxy):
-		super().__init__(client,ID)
-		self.liner = liner
-
+	def __init__(self, client : Client, ID, property : PropertyProxy):
+		super().__init__(client, ID)
+		self.property = property
 	def getYoungsModulusFactor(self) -> float:
-		return self._callFunction("getDoubleProperty", ["LNP_YOUNGS_MODULUS", self.liner._ID], proxyArgumentIndices=[1])
-	def setYoungsModulusFactor(self, value : float) -> float:
-		return self._callFunction("setDoubleProperty", ["LNP_YOUNGS_MODULUS", value, self.liner._ID], proxyArgumentIndices=[2])
-	
+		return self._callFunction("getDoubleFactor", ["LNP_YOUNGS_MODULUS", self.property._ID], proxyArgumentIndices=[1])
+	def setYoungsModulusFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_YOUNGS_MODULUS", value, self.property._ID], proxyArgumentIndices=[2])
+	def getAxialStrainExpansionFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_AXIAL_STRAIN", self.property._ID], proxyArgumentIndices=[1])
+	def setAxialStrainExpansionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_AXIAL_STRAIN", value, self.property._ID], proxyArgumentIndices=[2])
+	def getTensileStrengthPeakFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_TENSILE_STRENGTH", self.property._ID], proxyArgumentIndices=[1])
+	def setTensileStrengthPeakFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_TENSILE_STRENGTH", value, self.property._ID], proxyArgumentIndices=[2])
+	def getTensileStrengthResidualFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_TENSILE_STRENGTH_RES", self.property._ID], proxyArgumentIndices=[1])
+	def setTensileStrengthResidualFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_TENSILE_STRENGTH_RES", value, self.property._ID], proxyArgumentIndices=[2])
 class CableTruss(PropertyProxy):
 	def getCableDiameter(self) -> float:
 		return self._getDoubleProperty("LNP_CABLE_DIAMETER")
@@ -87,6 +96,15 @@ class CableTruss(PropertyProxy):
 		Grids "None" and "Default Grid" available by default.
 		"""
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName])
+	def getStageFactors(self) -> List[CableTrussStageFactor]:
+		"""
+		Returns the defined stage factors in a list, in order from stage 1 to n.
+		"""
+		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
+		stageFactors = []
+		for stageFactorID in stageFactorReferenceIds :
+			stageFactors.append(CableTrussStageFactor(self._client, stageFactorID, self))
+		return stageFactors
 	def setProperties(self, CableDiameter : float = None, OutofplaneSpacing : float = None, YoungsModulus : float = None, MaterialType : MaterialType = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, PreTensioning : bool = None, PreTensioningForce : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageCableProperties : bool = None):
 		if CableDiameter is not None:
 			self._setDoubleProperty("LNP_CABLE_DIAMETER", CableDiameter)
@@ -139,10 +157,3 @@ class CableTruss(PropertyProxy):
 		"ExpansionCoefficient" : self.getExpansionCoefficient(), 
 		"StageCableProperties" : self.getStageCableProperties(), 
 		}
-	
-	def getStageFactors(self) -> List[CableTrussStageFactor]:
-		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
-		stageFactors = []
-		for stageFactorID in stageFactorReferenceIds:
-			stageFactors.append(CableTrussStageFactor(self._client, stageFactorID, self))
-		return stageFactors
