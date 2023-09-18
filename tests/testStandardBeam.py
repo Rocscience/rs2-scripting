@@ -2,7 +2,7 @@ import unittest
 import os, sys, inspect
 import shutil
 import parentDirectoryHelper
-from src.rs2.RS2Modeler import RS2Modeler
+from rs2.RS2Modeler import RS2Modeler
 from rs2.PropertyEnums import*
 
 parentDirectoryHelper.addParentDirectoryToPath()
@@ -10,7 +10,7 @@ parentDirectoryHelper.addParentDirectoryToPath()
 class TestStandardBeam(unittest.TestCase):
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
-        blankModelPath = f"{parentDirectory}/resources/blankProject.fez"
+        blankModelPath = f"{parentDirectory}/resources/BlankModelWithStageFactors.fez"
         self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
         shutil.copy(blankModelPath, self.copiedModelPath)
         self.modeler = RS2Modeler()
@@ -77,3 +77,31 @@ class TestStandardBeam(unittest.TestCase):
         self.assertEqual(liner.StandardBeam.getExpansionCoefficient(), 2136.3)
         self.assertEqual(liner.StandardBeam.getStageLinerProperties(), 1)
         self.assertEqual(liner.StandardBeam.getStaticTemperatureGridToUse(), "None")
+    def testStandardBeamStageFactors(self):
+        self.liner.setLinerType(LinerTypes.P2_LINER_STANDARD_BEAM)
+        stageFactor = self.liner.StandardBeam.getStageFactors()[0]
+        stageFactor.setThicknessFactor(3008.0)
+        stageFactor.setAreaFactor(751.6)
+        stageFactor.setMomentOfInertiaFactor(606.4)
+        stageFactor.setYoungsModulusFactor(480.6)
+        stageFactor.setPoissonsRatioFactor(2680.9)
+        stageFactor.setAxialStrainExpansionFactor(749.1)
+        stageFactor.setCompressiveStrengthPeakFactor(747.9)
+        stageFactor.setCompressiveStrengthResidualFactor(1215.8)
+        stageFactor.setTensileStrengthPeakFactor(2783.0)
+        stageFactor.setTensileStrengthResidualFactor(876.2)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.liner = self.model.getAllLinerProperties()[0]
+        stageFactor = self.liner.StandardBeam.getStageFactors()[0]
+        self.assertEqual(stageFactor.getThicknessFactor(), 3008.0)
+        self.assertEqual(stageFactor.getAreaFactor(), 751.6)
+        self.assertEqual(stageFactor.getMomentOfInertiaFactor(), 606.4)
+        self.assertEqual(stageFactor.getYoungsModulusFactor(), 480.6)
+        self.assertEqual(stageFactor.getPoissonsRatioFactor(), 2680.9)
+        self.assertEqual(stageFactor.getAxialStrainExpansionFactor(), 749.1)
+        self.assertEqual(stageFactor.getCompressiveStrengthPeakFactor(), 747.9)
+        self.assertEqual(stageFactor.getCompressiveStrengthResidualFactor(), 1215.8)
+        self.assertEqual(stageFactor.getTensileStrengthPeakFactor(), 2783.0)
+        self.assertEqual(stageFactor.getTensileStrengthResidualFactor(), 876.2)
