@@ -37,3 +37,15 @@ class JointProperty(PropertyProxy):
 		return self._getBoolProperty("JP_INITIAL_DEFORMATION")
 	def setInitialDeformation(self, value: bool):
 		return self._setBoolProperty("JP_INITIAL_DEFORMATION", value)
+	def SetApplySSR(self, applySSR: bool):
+		return self._callFunction("SetApplySSR", [applySSR])
+	def GetApplySSR(self) -> bool:
+		return self._callFunction("GetApplySSR", [])
+	def SetPermeable(self, permeable: bool):
+		return self._callFunction("SetPermeable", [permeable])
+	def GetPermeable(self) -> bool:
+		return self._callFunction("GetPermeable", [])
+	def SetMeshConforming(self, meshConforming: bool):
+		return self._callFunction("SetApplySSR", [meshConforming])
+	def GetMeshConforming(self) -> bool:
+		return self._callFunction("GetApplySSR", [])
