@@ -10,7 +10,7 @@ parentDirectoryHelper.addParentDirectoryToPath()
 class TestGeosyntheticHyperbolic(unittest.TestCase):
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
-        blankModelPath = f"{parentDirectory}/resources/BlankModelWithStageFactors.fez"
+        blankModelPath = f"{parentDirectory}/resources/starterProject.fez"
         self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
         shutil.copy(blankModelPath, self.copiedModelPath)
         self.modeler = RS2Modeler()
