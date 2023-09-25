@@ -58,16 +58,16 @@ class TestGeosynthetic(unittest.TestCase):
     def testGeosyntheticStageFactors(self):
         self.liner.setLinerType(LinerTypes.P2_LINER_GEOSYNTHETIC)
         stageFactor = self.liner.Geosynthetic.getStageFactors()[0]
-        stageFactor.setTensileModulusFactor(697.2)
-        stageFactor.setAxialStrainExpansionFactor(75.4)
-        stageFactor.setTensileStrengthPeakFactor(190.8)
-        stageFactor.setTensileStrengthResidualFactor(1870.0)
+        stageFactor.setTensileModulusFactor(3213.4)
+        stageFactor.setAxialStrainExpansionFactor(176.8)
+        stageFactor.setTensileStrengthPeakFactor(1508.0)
+        stageFactor.setTensileStrengthResidualFactor(857.2)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.liner = self.model.getAllLinerProperties()[0]
         stageFactor = self.liner.Geosynthetic.getStageFactors()[0]
-        self.assertEqual(stageFactor.getTensileModulusFactor(), 697.2)
-        self.assertEqual(stageFactor.getAxialStrainExpansionFactor(), 75.4)
-        self.assertEqual(stageFactor.getTensileStrengthPeakFactor(), 190.8)
-        self.assertEqual(stageFactor.getTensileStrengthResidualFactor(), 1870.0)
+        self.assertEqual(stageFactor.getTensileModulusFactor(), 3213.4)
+        self.assertEqual(stageFactor.getAxialStrainExpansionFactor(), 176.8)
+        self.assertEqual(stageFactor.getTensileStrengthPeakFactor(), 1508.0)
+        self.assertEqual(stageFactor.getTensileStrengthResidualFactor(), 857.2)
