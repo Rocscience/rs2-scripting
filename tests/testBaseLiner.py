@@ -2,7 +2,7 @@ import unittest
 import os, sys, inspect
 import shutil
 import parentDirectoryHelper
-from src.rs2.RS2Modeler import RS2Modeler
+from rs2.RS2Modeler import RS2Modeler
 from rs2.PropertyEnums import*
 
 parentDirectoryHelper.addParentDirectoryToPath()
@@ -10,7 +10,7 @@ parentDirectoryHelper.addParentDirectoryToPath()
 class TestBaseLiner(unittest.TestCase):
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
-        blankModelPath = f"{parentDirectory}/resources/blankProject.fez"
+        blankModelPath = f"{parentDirectory}/resources/starterProject.fez"
         self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
         shutil.copy(blankModelPath, self.copiedModelPath)
         self.modeler = RS2Modeler()
