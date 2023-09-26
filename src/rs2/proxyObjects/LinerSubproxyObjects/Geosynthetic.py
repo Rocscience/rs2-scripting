@@ -24,6 +24,10 @@ class GeosyntheticStageFactor(ProxyObject):
 		return self._callFunction("getDoubleFactor", ["LNP_TENSILE_STRENGTH_RES", self.property._ID], proxyArgumentIndices=[1])
 	def setTensileStrengthResidualFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["LNP_TENSILE_STRENGTH_RES", value, self.property._ID], proxyArgumentIndices=[2])
+	def getStagesAfterInstallation(self) -> int:
+		return self._callFunction("getIntFactor", ["LNP_RELATIVE_STAGE_FACTOR", self.property._ID], proxyArgumentIndices=[1])
+	def setStagesAfterInstallation(self, relativeStage: int):
+		return self._callFunction("setIntFactor", ["LNP_RELATIVE_STAGE_FACTOR", relativeStage, self.property._ID], proxyArgumentIndices = [2])
 class Geosynthetic(PropertyProxy):
 	def getInitialTemperature(self) -> float:
 		return self._getDoubleProperty("LNP_THERAMAL_INITIAL_TEMPERATURE")

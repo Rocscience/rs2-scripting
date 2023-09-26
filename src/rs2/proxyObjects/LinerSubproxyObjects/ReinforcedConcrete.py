@@ -28,6 +28,10 @@ class ReinforcedConcreteStageFactor(ProxyObject):
 		return self._callFunction("getDoubleFactor", ["LNP_AXIAL_STRAIN", self.property._ID], proxyArgumentIndices=[1])
 	def setAxialStrainExpansionFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["LNP_AXIAL_STRAIN", value, self.property._ID], proxyArgumentIndices=[2])
+	def getStagesAfterInstallation(self) -> int:
+		return self._callFunction("getIntFactor", ["LNP_RELATIVE_STAGE_FACTOR", self.property._ID], proxyArgumentIndices=[1])
+	def setStagesAfterInstallation(self, relativeStage: int):
+		return self._callFunction("setIntFactor", ["LNP_RELATIVE_STAGE_FACTOR", relativeStage, self.property._ID], proxyArgumentIndices = [2])
 class ReinforcedConcrete(PropertyProxy):
 	def getConcreteUnitWeight(self) -> float:
 		return self._getDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE")
