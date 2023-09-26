@@ -47,6 +47,7 @@ class TestStandardBeam(unittest.TestCase):
         liner.StandardBeam.setExpansionCoefficient(3008.6)
         liner.StandardBeam.setStageLinerProperties(0)
         liner.StandardBeam.setStaticTemperatureGridToUse("None")
+        liner.StandardBeam.setDefineRelativeStageFactors(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -77,6 +78,7 @@ class TestStandardBeam(unittest.TestCase):
         self.assertEqual(liner.StandardBeam.getExpansionCoefficient(), 3008.6)
         self.assertEqual(liner.StandardBeam.getStageLinerProperties(), 0)
         self.assertEqual(liner.StandardBeam.getStaticTemperatureGridToUse(), "None")
+        self.assertEqual(liner.StandardBeam.getDefineRelativeStageFactors(), True)
     def testStandardBeamStageFactors(self):
         self.liner.setLinerType(LinerTypes.P2_LINER_STANDARD_BEAM)
         stageFactor = self.liner.StandardBeam.getStageFactors()[0]

@@ -52,6 +52,7 @@ class TestReinforcedConcrete(unittest.TestCase):
         liner.ReinforcedConcrete.setExpansionCoefficient(1702.5)
         liner.ReinforcedConcrete.setStageConcreteProperties(0)
         liner.ReinforcedConcrete.setStaticTemperatureGridToUse("None")
+        liner.ReinforcedConcrete.setDefineRelativeStageFactors(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -87,6 +88,7 @@ class TestReinforcedConcrete(unittest.TestCase):
         self.assertEqual(liner.ReinforcedConcrete.getExpansionCoefficient(), 1702.5)
         self.assertEqual(liner.ReinforcedConcrete.getStageConcreteProperties(), 0)
         self.assertEqual(liner.ReinforcedConcrete.getStaticTemperatureGridToUse(), "None")
+        self.assertEqual(liner.ReinforcedConcrete.getDefineRelativeStageFactors(), True)
     def testReinforcedConcreteStageFactors(self):
         self.liner.setLinerType(LinerTypes.P2_LINER_REINFORCED_CONCRETE)
         stageFactor = self.liner.ReinforcedConcrete.getStageFactors()[0]

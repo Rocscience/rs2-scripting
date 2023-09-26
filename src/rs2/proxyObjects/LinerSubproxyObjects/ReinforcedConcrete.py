@@ -156,6 +156,15 @@ class ReinforcedConcrete(PropertyProxy):
 		Grids "None" and "Default Grid" available by default.
 		"""
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName])
+	def getDefineRelativeStageFactors(self) -> bool:
+		return self._callFunction("getUseRelativeStageFactors", [])
+	def setDefineRelativeStageFactors(self, useStagesAfterInstallation: bool):
+		"""
+		Choose to define relative stage factors based on the installation stage.
+		If true, set the relative stage of each stage factor using setStagesAfterInstallation.
+		If false, each stage factor is returned in order from 1 to n from getStageFactors().
+		"""
+		return self._callFunction("setUseRelativeStageFactors", [useStagesAfterInstallation])
 	def getStageFactors(self) -> List[ReinforcedConcreteStageFactor]:
 		"""
 		Returns the defined stage factors in a list, in order from stage 1 to n.
