@@ -3,6 +3,35 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
+from rs2.ProxyObject import ProxyObject
+class ReinforcedConcreteStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, property : PropertyProxy):
+		super().__init__(client, ID)
+		self.property = property
+	def getThicknessFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_THICKNESS_CONCRETE", self.property._ID], proxyArgumentIndices=[1])
+	def setThicknessFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_THICKNESS_CONCRETE", value, self.property._ID], proxyArgumentIndices=[2])
+	def getYoungsModulusFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_YOUNGS_MODULUS_CONCRETE", self.property._ID], proxyArgumentIndices=[1])
+	def setYoungsModulusFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_YOUNGS_MODULUS_CONCRETE", value, self.property._ID], proxyArgumentIndices=[2])
+	def getCompressiveStrengthFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_COMPRESSIVE_STRENGTH_CONCRETE", self.property._ID], proxyArgumentIndices=[1])
+	def setCompressiveStrengthFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_COMPRESSIVE_STRENGTH_CONCRETE", value, self.property._ID], proxyArgumentIndices=[2])
+	def getTensileStrengthFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_TENSILE_STRENGTH_CONCRETE", self.property._ID], proxyArgumentIndices=[1])
+	def setTensileStrengthFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_TENSILE_STRENGTH_CONCRETE", value, self.property._ID], proxyArgumentIndices=[2])
+	def getAxialStrainExpansionFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_AXIAL_STRAIN", self.property._ID], proxyArgumentIndices=[1])
+	def setAxialStrainExpansionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_AXIAL_STRAIN", value, self.property._ID], proxyArgumentIndices=[2])
+	def getStagesAfterInstallation(self) -> int:
+		return self._callFunction("getIntFactor", ["LNP_RELATIVE_STAGE_FACTOR", self.property._ID], proxyArgumentIndices=[1])
+	def setStagesAfterInstallation(self, relativeStage: int):
+		return self._callFunction("setIntFactor", ["LNP_RELATIVE_STAGE_FACTOR", relativeStage, self.property._ID], proxyArgumentIndices = [2])
 class ReinforcedConcrete(PropertyProxy):
 	def getConcreteUnitWeight(self) -> float:
 		return self._getDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE")
@@ -127,6 +156,24 @@ class ReinforcedConcrete(PropertyProxy):
 		Grids "None" and "Default Grid" available by default.
 		"""
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName])
+	def getDefineRelativeStageFactors(self) -> bool:
+		return self._callFunction("getUseRelativeStageFactors", [])
+	def setDefineRelativeStageFactors(self, useStagesAfterInstallation: bool):
+		"""
+		Choose to define relative stage factors based on the installation stage.
+		If true, set the relative stage of each stage factor using setStagesAfterInstallation.
+		If false, each stage factor is returned in order from 1 to n from getStageFactors().
+		"""
+		return self._callFunction("setUseRelativeStageFactors", [useStagesAfterInstallation])
+	def getStageFactors(self) -> List[ReinforcedConcreteStageFactor]:
+		"""
+		Returns the defined stage factors in a list, in order from stage 1 to n.
+		"""
+		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
+		stageFactors = []
+		for stageFactorID in stageFactorReferenceIds :
+			stageFactors.append(ReinforcedConcreteStageFactor(self._client, stageFactorID, self))
+		return stageFactors
 	def setProperties(self, ConcreteUnitWeight : float = None, IncludeWeightInAnalysis : bool = None, Reinforcement : bool = None, Spacing : float = None, SectionDepth : float = None, Area : float = None, MomentOfInertia : float = None, ConcreteYoungsModulus : float = None, ConcreteCompressiveStrength : float = None, ConcreteTensileStrength : float = None, Weight : float = None, Concrete : bool = None, Thickness : float = None, YoungsModulus : float = None, PoissonRatio : float = None, CompressiveStrength : float = None, TensileStrength : float = None, MaterialType : MaterialType = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageConcreteProperties : bool = None):
 		if ConcreteUnitWeight is not None:
 			self._setDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE", ConcreteUnitWeight)
