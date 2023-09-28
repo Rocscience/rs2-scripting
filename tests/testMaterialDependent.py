@@ -34,9 +34,6 @@ class TestMaterialDependent(unittest.TestCase):
         joint.MaterialDependent.setPiezoID(27375)
         joint.MaterialDependent.setApplyPressureToLinerSideOnly(1)
         joint.MaterialDependent.setApplyStageFactors(0)
-        joint.MaterialDependent.SetApplySSR(True)
-        joint.MaterialDependent.SetPermeable(True)
-        joint.MaterialDependent.SetMeshConforming(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -54,9 +51,6 @@ class TestMaterialDependent(unittest.TestCase):
         self.assertEqual(joint.MaterialDependent.getPiezoID(), 27375)
         self.assertEqual(joint.MaterialDependent.getApplyPressureToLinerSideOnly(), 1)
         self.assertEqual(joint.MaterialDependent.getApplyStageFactors(), 0)
-        self.assertEqual(joint.MaterialDependent.GetApplySSR(), True)
-        self.assertEqual(joint.MaterialDependent.GetPermeable(), True)
-        self.assertEqual(joint.MaterialDependent.GetMeshConforming(), True)
     def testMaterialDependentStageFactors(self):
         self.joint.setSlipCriterion(JointTypes.JOINT_MATERIAL_DEPENDENT)
         stageFactor = self.joint.MaterialDependent.getStageFactors()[0]

@@ -35,9 +35,6 @@ class TestBartonBandis(unittest.TestCase):
         joint.BartonBandis.setPiezoID(12830)
         joint.BartonBandis.setApplyPressureToLinerSideOnly(0)
         joint.BartonBandis.setApplyStageFactors(1)
-        joint.BartonBandis.SetApplySSR(True)
-        joint.BartonBandis.SetPermeable(True)
-        joint.BartonBandis.SetMeshConforming(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -56,9 +53,6 @@ class TestBartonBandis(unittest.TestCase):
         self.assertEqual(joint.BartonBandis.getPiezoID(), 12830)
         self.assertEqual(joint.BartonBandis.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.BartonBandis.getApplyStageFactors(), 1)
-        self.assertEqual(joint.BartonBandis.GetApplySSR(), True)
-        self.assertEqual(joint.BartonBandis.GetPermeable(), True)
-        self.assertEqual(joint.BartonBandis.GetMeshConforming(), True)
     def testBartonBandisStageFactors(self):
         self.joint.setSlipCriterion(JointTypes.JOINT_BARTON_BANDIS)
         stageFactor = self.joint.BartonBandis.getStageFactors()[0]

@@ -42,9 +42,6 @@ class TestMohrCoulomb(unittest.TestCase):
         joint.MohrCoulomb.setPiezoID(6388)
         joint.MohrCoulomb.setApplyPressureToLinerSideOnly(0)
         joint.MohrCoulomb.setApplyStageFactors(1)
-        joint.MohrCoulomb.SetApplySSR(True)
-        joint.MohrCoulomb.SetPermeable(True)
-        joint.MohrCoulomb.SetMeshConforming(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -70,9 +67,6 @@ class TestMohrCoulomb(unittest.TestCase):
         self.assertEqual(joint.MohrCoulomb.getPiezoID(), 6388)
         self.assertEqual(joint.MohrCoulomb.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.MohrCoulomb.getApplyStageFactors(), 1)
-        self.assertEqual(joint.MohrCoulomb.GetApplySSR(), True)
-        self.assertEqual(joint.MohrCoulomb.GetPermeable(), True)
-        self.assertEqual(joint.MohrCoulomb.GetMeshConforming(), True)
     def testMohrCoulombStageFactors(self):
         self.joint.setSlipCriterion(JointTypes.JOINT_MOHR_COULOMB)
         stageFactor = self.joint.MohrCoulomb.getStageFactors()[0]

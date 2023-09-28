@@ -40,9 +40,6 @@ class TestHyperbolicSoftening(unittest.TestCase):
         joint.HyperbolicSoftening.setPiezoID(16759)
         joint.HyperbolicSoftening.setApplyPressureToLinerSideOnly(0)
         joint.HyperbolicSoftening.setApplyStageFactors(1)
-        joint.HyperbolicSoftening.SetApplySSR(True)
-        joint.HyperbolicSoftening.SetPermeable(True)
-        joint.HyperbolicSoftening.SetMeshConforming(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -66,9 +63,6 @@ class TestHyperbolicSoftening(unittest.TestCase):
         self.assertEqual(joint.HyperbolicSoftening.getPiezoID(), 16759)
         self.assertEqual(joint.HyperbolicSoftening.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.HyperbolicSoftening.getApplyStageFactors(), 1)
-        self.assertEqual(joint.HyperbolicSoftening.GetApplySSR(), True)
-        self.assertEqual(joint.HyperbolicSoftening.GetPermeable(), True)
-        self.assertEqual(joint.HyperbolicSoftening.GetMeshConforming(), True)
     def testHyperbolicSofteningStageFactors(self):
         self.joint.setSlipCriterion(JointTypes.JOINT_HYPERBOLIC_SOFTENING)
         stageFactor = self.joint.HyperbolicSoftening.getStageFactors()[0]

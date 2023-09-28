@@ -93,18 +93,6 @@ class GeosyntheticHyperbolic(PropertyProxy):
 		return self._getBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES")
 	def setApplyStageFactors(self, value: bool):
 		return self._setBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES", value)
-	def SetApplySSR(self, applySSR: bool):
-		return self._callFunction("SetApplySSR", [applySSR])
-	def GetApplySSR(self) -> bool:
-		return self._callFunction("GetApplySSR", [])
-	def SetPermeable(self, permeable: bool):
-		return self._callFunction("SetPermeable", [permeable])
-	def GetPermeable(self) -> bool:
-		return self._callFunction("GetPermeable", [])
-	def SetMeshConforming(self, meshConforming: bool):
-		return self._callFunction("SetApplySSR", [meshConforming])
-	def GetMeshConforming(self) -> bool:
-		return self._callFunction("GetApplySSR", [])
 	def getStageFactors(self) -> List[GeosyntheticHyperbolicStageFactor]:
 		"""
 		Returns the defined stage factors in a list, in order from stage 1 to n.

@@ -35,9 +35,6 @@ class TestGeosyntheticHyperbolic(unittest.TestCase):
         joint.GeosyntheticHyperbolic.setPiezoID(12830)
         joint.GeosyntheticHyperbolic.setApplyPressureToLinerSideOnly(0)
         joint.GeosyntheticHyperbolic.setApplyStageFactors(1)
-        joint.GeosyntheticHyperbolic.SetApplySSR(True)
-        joint.GeosyntheticHyperbolic.SetPermeable(True)
-        joint.GeosyntheticHyperbolic.SetMeshConforming(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -56,9 +53,6 @@ class TestGeosyntheticHyperbolic(unittest.TestCase):
         self.assertEqual(joint.GeosyntheticHyperbolic.getPiezoID(), 12830)
         self.assertEqual(joint.GeosyntheticHyperbolic.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.GeosyntheticHyperbolic.getApplyStageFactors(), 1)
-        self.assertEqual(joint.GeosyntheticHyperbolic.GetApplySSR(), True)
-        self.assertEqual(joint.GeosyntheticHyperbolic.GetPermeable(), True)
-        self.assertEqual(joint.GeosyntheticHyperbolic.GetMeshConforming(), True)
     def testGeosyntheticHyperbolicStageFactors(self):
         self.joint.setSlipCriterion(JointTypes.JOINT_HYPERBOLIC_SIMPLE)
         stageFactor = self.joint.GeosyntheticHyperbolic.getStageFactors()[0]
