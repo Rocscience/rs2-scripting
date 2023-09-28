@@ -28,6 +28,10 @@ class MultiLinear(PropertyProxy):
 		return self._getDoubleProperty("PFP_BASE_FORCE_RESISTANCE")
 	def setBaseForceResistance(self, value: float):
 		return self._setDoubleProperty("PFP_BASE_FORCE_RESISTANCE", value)
+	def getCoordinates(self) -> tuple[list[float], list[float]]:
+		return self._callFunction("getCoordinates", [])
+	def setCoordinates(self, Length: tuple[list[float], list[float]]):
+		return self._callFunction("setCoordinates", [Length])
 	def setProperties(self, ShearStiffness : float = None, NormalStiffness : float = None, DefinitionMethod : PileDefinitionMethod = None, UseBaseResistance : bool = None, BaseNormalStiffness : float = None, BaseForceResistance : float = None):
 		if ShearStiffness is not None:
 			self._setDoubleProperty("PFP_SHEAR_STIFFNESS", ShearStiffness)

@@ -39,3 +39,15 @@ class PileProperty(PropertyProxy):
 		return PileSkinResistanceType(self._getEnumEPileSkinResistanceTypeProperty("PFP_SKIN_RESISTANCE_METHOD"))
 	def setSkinResistance(self, value: PileSkinResistanceType):
 		return self._setEnumEPileSkinResistanceTypeProperty("PFP_SKIN_RESISTANCE_METHOD", value)
+	def getMMax(self) -> float:
+		return self._callFunction("getMMax", [])
+	def setMMax(self, MMax: float):
+		return self._callFunction("setMMax", [MMax])
+	def getOutOfPlaneSpacing(self) -> float:
+		return self._callFunction("getOutOfPlaneSpacing", [])
+	def setOutOfPlaneSpacing(self, outOfPlaneSpacing: float):
+		return self._callFunction("setOutOfPlaneSpacing", [outOfPlaneSpacing])
+	def getLength(self) -> float:
+		return self._callFunction("getLength", [])
+	def setLength(self, Length: float):
+		return self._callFunction("setLength", [Length])

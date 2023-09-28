@@ -28,6 +28,7 @@ class TestMultiLinear(unittest.TestCase):
         pile.MultiLinear.setUseBaseResistance(0)
         pile.MultiLinear.setBaseNormalStiffness(86.7)
         pile.MultiLinear.setBaseForceResistance(762.9)
+        pile.MultiLinear.setCoordinates(([1,2,3],[4,5,6]))
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -39,3 +40,4 @@ class TestMultiLinear(unittest.TestCase):
         self.assertEqual(pile.MultiLinear.getUseBaseResistance(), 0)
         self.assertEqual(pile.MultiLinear.getBaseNormalStiffness(), 86.7)
         self.assertEqual(pile.MultiLinear.getBaseForceResistance(), 762.9)
+        self.assertEqual(pile.MultiLinear.getCoordinates(), ([1,2,3],[4,5,6]))
