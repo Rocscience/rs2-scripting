@@ -8,17 +8,14 @@ class Beam(PropertyProxy):
 		return PileApplicationType(self._getEnumEPileApplicationTypeProperty("PFP_BEAM_APPLICATION"))
 	def setApplication(self, value: PileApplicationType):
 		return self._setEnumEPileApplicationTypeProperty("PFP_BEAM_APPLICATION", value)
-	def getLinerProperties(self) -> int:
-		return int(self._getIntProperty("PFP_CONSTANT_LINER_PROPERTIES"))
-	def setLinerProperties(self, value: int):
-		return self._setIntProperty("PFP_CONSTANT_LINER_PROPERTIES", value)
-	def setProperties(self, Application : PileApplicationType = None, LinerProperties : int = None):
+	def getLinerProperty(self) -> str:
+		return self._callFunction("getBeamLinerProperty", [])
+	def setLinerProperty(self, linerName: str):
+		return self._callFunction("setBeamLinerProperty", [linerName])
+	def setProperties(self, Application : PileApplicationType = None):
 		if Application is not None:
 			self._setEnumEPileApplicationTypeProperty("PFP_BEAM_APPLICATION", Application)
-		if LinerProperties is not None:
-			self._setIntProperty("PFP_CONSTANT_LINER_PROPERTIES", LinerProperties)
 	def getProperties(self):
 		return {
 		"Application" : self.getApplication(), 
-		"LinerProperties" : self.getLinerProperties(), 
 		}
