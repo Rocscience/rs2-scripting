@@ -12,6 +12,10 @@ class Beam(PropertyProxy):
 		return self._callFunction("getBeamLinerProperty", [])
 	def setLinerProperty(self, linerName: str):
 		return self._callFunction("setBeamLinerProperty", [linerName])
+	def getBeamSegment(self) -> tuple[list[float], list[str]]:
+		return self._callFunction("getBeamSegment", [])
+	def defineBeamSegment(self, Locations: list[float], Liners: list[str]):
+		return self._callFunction("defineBeamSegment", [Locations, Liners])
 	def setProperties(self, Application : PileApplicationType = None):
 		if Application is not None:
 			self._setEnumEPileApplicationTypeProperty("PFP_BEAM_APPLICATION", Application)

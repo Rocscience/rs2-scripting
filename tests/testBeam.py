@@ -24,6 +24,7 @@ class TestBeam(unittest.TestCase):
         self.pile.setSkinResistance(PileSkinResistanceType.SKIN_RESISTANCE_ELASTIC)
         pile.Beam.setApplication(PileApplicationType.APPLICATION_BY_LENGTH)
         pile.Beam.setLinerProperty("Liner 1")
+        pile.Beam.defineBeamSegment([1,2], ["Liner 1","Liner 2"])
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -31,3 +32,4 @@ class TestBeam(unittest.TestCase):
         pile = self.pile
         self.assertEqual(pile.Beam.getApplication(), PileApplicationType.APPLICATION_BY_LENGTH)
         self.assertEqual(pile.Beam.getLinerProperty(), "Liner 1")
+        self.assertEqual(pile.Beam.getBeamSegment(), ([1,2],["Liner 1","Liner 2"]))
