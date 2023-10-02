@@ -51,3 +51,7 @@ class PileProperty(PropertyProxy):
 		return self._callFunction("getLength", [])
 	def setLength(self, Length: float):
 		return self._callFunction("setLength", [Length])
+	def getStageForceDisplacement(self) -> bool:
+		return self._callFunction("getApplyStageFactors", [])
+	def setStageForceDisplacement(self, stageForceDisplacement: bool):
+		return self._callFunction("setApplyStageFactors", [stageForceDisplacement])

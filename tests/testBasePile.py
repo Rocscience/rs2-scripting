@@ -28,6 +28,7 @@ class TestBasePile(unittest.TestCase):
         pile.setMMax(2.2)
         pile.setOutOfPlaneSpacing(2.3)
         pile.setLength(2.2)
+        pile.setStageForceDisplacement(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -40,3 +41,4 @@ class TestBasePile(unittest.TestCase):
         self.assertEqual(pile.getMMax(), 2.2)
         self.assertEqual(pile.getOutOfPlaneSpacing(), 2.3)
         self.assertEqual(pile.getLength(), 2.2)
+        self.assertEqual(pile.getStageForceDisplacement(), True)
