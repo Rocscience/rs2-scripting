@@ -13,7 +13,7 @@ class RS2Interpreter:
 		return self.client.callFunction(request)
 	
 	@classmethod
-	def startApplication(cls, port : int, overridePathToExecutable : str = None, timeout : int = None) -> None:
+	def startApplication(cls, port : int, overridePathToExecutable : str = None, timeout : int = 30) -> None:
 		"""Opens the most recently installed RS2 application. Starts the python server and binds it to the given port.
 
 		Args:
