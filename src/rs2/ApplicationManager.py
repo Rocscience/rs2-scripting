@@ -1,6 +1,7 @@
 import subprocess
 import time
 from rs2.Client import Client
+from multiprocessing.connection import Listener
 
 class ApplicationManager:
     minimumPort = 49152
@@ -20,11 +21,33 @@ class ApplicationManager:
         	ValueError: Port range must be between 49152 and 65535, otherwise ValueError is raised
 		    TimeoutError: if timeout is provided, raises TimeoutError if not able to connect to the server within that time.
         """
-        if port < self.minimumPort | port > self.maximumPort:
+        if port < self.minimumPort or port > self.maximumPort:
             raise ValueError(f"port must be in the range {self.minimumPort} to {self.maximumPort}")
         
-        p = subprocess.Popen([f"{pathToExecutable}", "-startpythonserver", f"{port}"], start_new_session = True, creationflags=subprocess.DETACHED_PROCESS)
-        #continuously try to connect to the server and send a message. If it takes longer than timeout, throw a timeout exception
+        if not self._isPortAvailable(port):
+            raise RuntimeError(f"port number {port} is occupied. Please choose another port.")
+
+        subprocess.Popen([f"{pathToExecutable}", "-startpythonserver", f"{port}"], start_new_session = True, creationflags=subprocess.DETACHED_PROCESS)
+
+        self._tryToConnectToServer(port, timeout)
+       
+
+    def _isPortAvailable(self, port):
+        portAvailable = False
+        listener = None
+        try:
+            listener = Listener(('localhost', port), 'AF_INET')
+            portAvailable = True
+        except Exception:
+            portAvailable = False
+        
+        if listener:
+            listener.close()
+
+        return portAvailable
+
+    def _tryToConnectToServer(self, port, timeout):
+
         startTime = time.time()
         serverIsRunning = False
 
