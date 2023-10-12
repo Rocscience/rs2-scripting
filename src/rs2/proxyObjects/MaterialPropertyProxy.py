@@ -1,0 +1,33 @@
+from rs2.proxyObjects.propertyProxy import PropertyProxy
+from rs2.Client import Client
+from enum import Enum, auto
+from typing import List
+from rs2.PropertyEnums import *
+from rs2.proxyObjects.MaterialSubproxyObjects.InitialConditions import InitialConditions
+class MaterialProperty(PropertyProxy):
+	"""
+	:ref:`Material Example`
+	"""
+	def __init__(self, server : Client, ID, documentProxyID):
+		self.InitialConditions = InitialConditions(server, ID, documentProxyID)
+		super().__init__(server, ID, documentProxyID)
+	def getMaterialName(self) -> str:
+		return self._getCStringProperty("MP_NAME")
+	def setMaterialName(self, value: str):
+		return self._setCStringProperty("MP_NAME", value)
+	def getMaterialColor(self) -> int:
+		return self._getUnsignedLongProperty("MP_COLOUR")
+	def setMaterialColor(self, value: int):
+		return self._setUnsignedLongProperty("MP_COLOUR", value)
+	def getHatch(self) -> bool:
+		return self._getBoolProperty("")
+	def setHatch(self, value: bool):
+		return self._setBoolProperty("", value)
+	def getHatchStyle(self) -> HatchStyle:
+		return HatchStyle(self._getEnumGdiplusHatchStyleProperty(""))
+	def setHatchStyle(self, value: HatchStyle):
+		return self._setEnumGdiplusHatchStyleProperty("", value)
+	def getHatchColour(self) -> int:
+		return self._getUnsignedLongProperty("")
+	def setHatchColour(self, value: int):
+		return self._setUnsignedLongProperty("", value)

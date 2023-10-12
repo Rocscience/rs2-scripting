@@ -97,3 +97,15 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEPileSkinResistanceTypeProperty", [propertyName])
 	def _setEnumEPileSkinResistanceTypeProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEPileSkinResistanceTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEInitialElementLoadingTypeProperty(self, propertyName: str):
+		return self._callFunction("getEnumEInitialElementLoadingTypeProperty", [propertyName])
+	def _setEnumEInitialElementLoadingTypeProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEInitialElementLoadingTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEHuTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumEHuTypesProperty", [propertyName])
+	def _setEnumEHuTypesProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEHuTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumGdiplusHatchStyleProperty(self, propertyName: str):
+		return self._callFunction("getEnumGdiplusHatchStyleProperty", [propertyName])
+	def _setEnumGdiplusHatchStyleProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumGdiplusHatchStyleProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
