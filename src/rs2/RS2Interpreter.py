@@ -13,13 +13,13 @@ class RS2Interpreter:
 		return self.client.callFunction(request)
 	
 	@classmethod
-	def startApplication(cls, port : int, overridePathToExecutable : str = None, timeout : int = 30) -> None:
+	def startApplication(cls, port : int, overridePathToExecutable : str = None, timeout : float = 30) -> None:
 		"""Opens the most recently installed RS2 application. Starts the python server and binds it to the given port.
 
 		Args:
 			port (int): the port to bind the python server to. Use this same port when initializing RS2Modeler
 			overridePathToExecutable (str, optional): full path to the desired executable to be opened. If not provided, the latest installation of rs2 is used
-			timeout (int, optional): the maximum amount of time to wait for the application and server to start.
+			timeout (float, optional): the maximum amount of time to wait for the application and server to start.
 		
 		Raises:
 			ValueError: Port range must be between 49152 and 65535, otherwise ValueError is raised
