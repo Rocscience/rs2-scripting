@@ -1,6 +1,6 @@
-"""
-Modify the following paths appropriately for your computer.
-"""
-modelerDebugPath = ""
-interpreterDebugPath = ""
+try:
+    from LocalPaths import *
+except Exception:
+    from DefaultPaths import *
+
 
