@@ -141,4 +141,4 @@ dmypy.json
 # Cython debug symbols
 cython_debug/
 
-/sampleClientScripts/LocalPaths.py
+/sampleClientScripts/LocalConstants.py
