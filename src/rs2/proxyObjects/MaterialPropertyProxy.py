@@ -4,12 +4,14 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 from rs2.proxyObjects.MaterialSubproxyObjects.InitialConditions import InitialConditions
+from rs2.proxyObjects.MaterialSubproxyObjects.Stiffness import Stiffness
 class MaterialProperty(PropertyProxy):
 	"""
 	:ref:`Material Example`
 	"""
 	def __init__(self, server : Client, ID, documentProxyID):
 		self.InitialConditions = InitialConditions(server, ID, documentProxyID)
+		self.Stiffness = Stiffness(server, ID, documentProxyID)
 		super().__init__(server, ID, documentProxyID)
 	def getMaterialName(self) -> str:
 		return self._getCStringProperty("MP_NAME")

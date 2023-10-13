@@ -97,6 +97,14 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEPileSkinResistanceTypeProperty", [propertyName])
 	def _setEnumEPileSkinResistanceTypeProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEPileSkinResistanceTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumGdiplusHatchStyleProperty(self, propertyName: str):
+		return self._callFunction("getEnumGdiplusHatchStyleProperty", [propertyName])
+	def _setEnumGdiplusHatchStyleProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumGdiplusHatchStyleProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEMaterialElasticityTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumEMaterialElasticityTypesProperty", [propertyName])
+	def _setEnumEMaterialElasticityTypesProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEMaterialElasticityTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumEInitialElementLoadingTypeProperty(self, propertyName: str):
 		return self._callFunction("getEnumEInitialElementLoadingTypeProperty", [propertyName])
 	def _setEnumEInitialElementLoadingTypeProperty(self, propertyName: str, value):
@@ -105,7 +113,27 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEHuTypesProperty", [propertyName])
 	def _setEnumEHuTypesProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEHuTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
-	def _getEnumGdiplusHatchStyleProperty(self, propertyName: str):
-		return self._callFunction("getEnumGdiplusHatchStyleProperty", [propertyName])
-	def _setEnumGdiplusHatchStyleProperty(self, propertyName: str, value):
-		return self._callFunction("setEnumGdiplusHatchStyleProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEUnloadingConditionsProperty(self, propertyName: str):
+		return self._callFunction("getEnumEUnloadingConditionsProperty", [propertyName])
+	def _setEnumEUnloadingConditionsProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEUnloadingConditionsProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEElasticParametersProperty(self, propertyName: str):
+		return self._callFunction("getEnumEElasticParametersProperty", [propertyName])
+	def _setEnumEElasticParametersProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEElasticParametersProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEPoissonRatioTypeProperty(self, propertyName: str):
+		return self._callFunction("getEnumEPoissonRatioTypeProperty", [propertyName])
+	def _setEnumEPoissonRatioTypeProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEPoissonRatioTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumENLIFormulaTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumENLIFormulaTypesProperty", [propertyName])
+	def _setEnumENLIFormulaTypesProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumENLIFormulaTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEViscoElasticTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumEViscoElasticTypesProperty", [propertyName])
+	def _setEnumEViscoElasticTypesProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEViscoElasticTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumECustomModeProperty(self, propertyName: str):
+		return self._callFunction("getEnumECustomModeProperty", [propertyName])
+	def _setEnumECustomModeProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumECustomModeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
