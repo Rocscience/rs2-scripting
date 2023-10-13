@@ -33,45 +33,45 @@ class InitialConditions(PropertyProxy):
 	def setPorosityValue(self, value: float):
 		return self._setDoubleProperty("MP_POROSITY_VALUE", value)
 	def getInitialWaterCondition(self) -> StaticWaterModes:
-		return StaticWaterModes(self._getEnumEStaticWaterModesProperty(""))
+		return StaticWaterModes(self._getEnumEStaticWaterModesProperty("MP_INITIAL_WATER_CONDITIONS"))
 	def setInitialWaterCondition(self, value: StaticWaterModes):
-		return self._setEnumEStaticWaterModesProperty("", value)
+		return self._setEnumEStaticWaterModesProperty("MP_INITIAL_WATER_CONDITIONS", value)
 	def getInitialPoreWaterPressure(self) -> float:
-		return self._getDoubleProperty("")
+		return self._getDoubleProperty("MP_INITIAL_PWP")
 	def setInitialPoreWaterPressure(self, value: float):
-		return self._setDoubleProperty("", value)
+		return self._setDoubleProperty("MP_INITIAL_PWP", value)
 	def getInitialRu(self) -> float:
-		return self._getDoubleProperty("")
+		return self._getDoubleProperty("MP_INITIAL_RU")
 	def setInitialRu(self, value: float):
-		return self._setDoubleProperty("", value)
+		return self._setDoubleProperty("MP_INITIAL_RU", value)
 	def getInitialPiezoToUse(self) -> int:
-		return int(self._getIntProperty(""))
+		return int(self._getIntProperty("MP_INITIAL_PIEZO"))
 	def setInitialPiezoToUse(self, value: int):
-		return self._setIntProperty("", value)
+		return self._setIntProperty("MP_INITIAL_PIEZO", value)
 	def getInitialHuType(self) -> HuTypes:
-		return HuTypes(self._getEnumEHuTypesProperty(""))
+		return HuTypes(self._getEnumEHuTypesProperty("MP_INITIAL_HU_TYPE"))
 	def setInitialHuType(self, value: HuTypes):
-		return self._setEnumEHuTypesProperty("", value)
+		return self._setEnumEHuTypesProperty("MP_INITIAL_HU_TYPE", value)
 	def getInitialHu(self) -> float:
-		return self._getDoubleProperty("")
+		return self._getDoubleProperty("MP_INITIAL_HU")
 	def setInitialHu(self, value: float):
-		return self._setDoubleProperty("", value)
+		return self._setDoubleProperty("MP_INITIAL_HU", value)
 	def getIntiialGridToUse(self) -> int:
-		return int(self._getIntProperty(""))
+		return int(self._getIntProperty("MP_INITIAL_GRID"))
 	def setIntiialGridToUse(self, value: int):
-		return self._setIntProperty("", value)
+		return self._setIntProperty("MP_INITIAL_GRID", value)
 	def getInitialTemperatureCondition(self) -> StaticWaterModes:
-		return StaticWaterModes(self._getEnumEStaticWaterModesProperty(""))
+		return StaticWaterModes(self._getEnumEStaticWaterModesProperty("MP_INITIAL_TEMPERATURE_METHOD"))
 	def setInitialTemperatureCondition(self, value: StaticWaterModes):
-		return self._setEnumEStaticWaterModesProperty("", value)
+		return self._setEnumEStaticWaterModesProperty("MP_INITIAL_TEMPERATURE_METHOD", value)
 	def getInitialTemperature(self) -> float:
-		return self._getDoubleProperty("")
+		return self._getDoubleProperty("MP_INITIAL_TEMPERATURE_CONST")
 	def setInitialTemperature(self, value: float):
-		return self._setDoubleProperty("", value)
+		return self._setDoubleProperty("MP_INITIAL_TEMPERATURE_CONST", value)
 	def getInitialTemperatureGridToUse(self) -> int:
-		return int(self._getIntProperty(""))
+		return int(self._getIntProperty("MP_INITIAL_TEMPERATURE_GRID"))
 	def setInitialTemperatureGridToUse(self, value: int):
-		return self._setIntProperty("", value)
+		return self._setIntProperty("MP_INITIAL_TEMPERATURE_GRID", value)
 	def setProperties(self, InitialElementLoading : InitialElementLoadingType = None, AccountForMoistureContentInUnitWeight : bool = None, DryUnitWeight : float = None, MoistUnitWeight : float = None, SaturatedUnitWeight : float = None, UnitWeight : float = None, PorosityValue : float = None, InitialWaterCondition : StaticWaterModes = None, InitialPoreWaterPressure : float = None, InitialRu : float = None, InitialPiezoToUse : int = None, InitialHuType : HuTypes = None, InitialHu : float = None, IntiialGridToUse : int = None, InitialTemperatureCondition : StaticWaterModes = None, InitialTemperature : float = None, InitialTemperatureGridToUse : int = None):
 		if InitialElementLoading is not None:
 			self._setEnumEInitialElementLoadingTypeProperty("MP_INITIAL_ELEMENT_LOADING", InitialElementLoading)
@@ -88,25 +88,25 @@ class InitialConditions(PropertyProxy):
 		if PorosityValue is not None:
 			self._setDoubleProperty("MP_POROSITY_VALUE", PorosityValue)
 		if InitialWaterCondition is not None:
-			self._setEnumEStaticWaterModesProperty("", InitialWaterCondition)
+			self._setEnumEStaticWaterModesProperty("MP_INITIAL_WATER_CONDITIONS", InitialWaterCondition)
 		if InitialPoreWaterPressure is not None:
-			self._setDoubleProperty("", InitialPoreWaterPressure)
+			self._setDoubleProperty("MP_INITIAL_PWP", InitialPoreWaterPressure)
 		if InitialRu is not None:
-			self._setDoubleProperty("", InitialRu)
+			self._setDoubleProperty("MP_INITIAL_RU", InitialRu)
 		if InitialPiezoToUse is not None:
-			self._setIntProperty("", InitialPiezoToUse)
+			self._setIntProperty("MP_INITIAL_PIEZO", InitialPiezoToUse)
 		if InitialHuType is not None:
-			self._setEnumEHuTypesProperty("", InitialHuType)
+			self._setEnumEHuTypesProperty("MP_INITIAL_HU_TYPE", InitialHuType)
 		if InitialHu is not None:
-			self._setDoubleProperty("", InitialHu)
+			self._setDoubleProperty("MP_INITIAL_HU", InitialHu)
 		if IntiialGridToUse is not None:
-			self._setIntProperty("", IntiialGridToUse)
+			self._setIntProperty("MP_INITIAL_GRID", IntiialGridToUse)
 		if InitialTemperatureCondition is not None:
-			self._setEnumEStaticWaterModesProperty("", InitialTemperatureCondition)
+			self._setEnumEStaticWaterModesProperty("MP_INITIAL_TEMPERATURE_METHOD", InitialTemperatureCondition)
 		if InitialTemperature is not None:
-			self._setDoubleProperty("", InitialTemperature)
+			self._setDoubleProperty("MP_INITIAL_TEMPERATURE_CONST", InitialTemperature)
 		if InitialTemperatureGridToUse is not None:
-			self._setIntProperty("", InitialTemperatureGridToUse)
+			self._setIntProperty("MP_INITIAL_TEMPERATURE_GRID", InitialTemperatureGridToUse)
 	def getProperties(self):
 		return {
 		"InitialElementLoading" : self.getInitialElementLoading(), 

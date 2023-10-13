@@ -20,14 +20,14 @@ class MaterialProperty(PropertyProxy):
 	def setMaterialColor(self, value: int):
 		return self._setUnsignedLongProperty("MP_COLOUR", value)
 	def getHatch(self) -> bool:
-		return self._getBoolProperty("")
+		return self._getBoolProperty("MP_USE_HATCH")
 	def setHatch(self, value: bool):
-		return self._setBoolProperty("", value)
+		return self._setBoolProperty("MP_USE_HATCH", value)
 	def getHatchStyle(self) -> HatchStyle:
-		return HatchStyle(self._getEnumGdiplusHatchStyleProperty(""))
+		return HatchStyle(self._getEnumGdiplusHatchStyleProperty("MP_HATCH_STYLE"))
 	def setHatchStyle(self, value: HatchStyle):
-		return self._setEnumGdiplusHatchStyleProperty("", value)
+		return self._setEnumGdiplusHatchStyleProperty("MP_HATCH_STYLE", value)
 	def getHatchColour(self) -> int:
-		return self._getUnsignedLongProperty("")
+		return self._getUnsignedLongProperty("MP_HATCH_COLOR")
 	def setHatchColour(self, value: int):
-		return self._setUnsignedLongProperty("", value)
+		return self._setUnsignedLongProperty("MP_HATCH_COLOR", value)
