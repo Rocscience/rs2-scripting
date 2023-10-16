@@ -105,6 +105,26 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEMaterialElasticityTypesProperty", [propertyName])
 	def _setEnumEMaterialElasticityTypesProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEMaterialElasticityTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEStrengthCriteriaTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumEStrengthCriteriaTypesProperty", [propertyName])
+	def _setEnumEStrengthCriteriaTypesProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEStrengthCriteriaTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEUnsaturatedParameterTypeProperty(self, propertyName: str):
+		return self._callFunction("getEnumEUnsaturatedParameterTypeProperty", [propertyName])
+	def _setEnumEUnsaturatedParameterTypeProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEUnsaturatedParameterTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEUnsaturatedShearStrengthTypeProperty(self, propertyName: str):
+		return self._callFunction("getEnumEUnsaturatedShearStrengthTypeProperty", [propertyName])
+	def _setEnumEUnsaturatedShearStrengthTypeProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEUnsaturatedShearStrengthTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEUnsaturatedSingleEffectiveStressMethodProperty(self, propertyName: str):
+		return self._callFunction("getEnumEUnsaturatedSingleEffectiveStressMethodProperty", [propertyName])
+	def _setEnumEUnsaturatedSingleEffectiveStressMethodProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEUnsaturatedSingleEffectiveStressMethodProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEUnsaturatedTabularValueMethodProperty(self, propertyName: str):
+		return self._callFunction("getEnumEUnsaturatedTabularValueMethodProperty", [propertyName])
+	def _setEnumEUnsaturatedTabularValueMethodProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEUnsaturatedTabularValueMethodProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumEInitialElementLoadingTypeProperty(self, propertyName: str):
 		return self._callFunction("getEnumEInitialElementLoadingTypeProperty", [propertyName])
 	def _setEnumEInitialElementLoadingTypeProperty(self, propertyName: str, value):
@@ -137,3 +157,83 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumECustomModeProperty", [propertyName])
 	def _setEnumECustomModeProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumECustomModeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumETensileCutoffOptionsProperty(self, propertyName: str):
+		return self._callFunction("getEnumETensileCutoffOptionsProperty", [propertyName])
+	def _setEnumETensileCutoffOptionsProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumETensileCutoffOptionsProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumESpecificVolumeAtUnitPressureProperty(self, propertyName: str):
+		return self._callFunction("getEnumESpecificVolumeAtUnitPressureProperty", [propertyName])
+	def _setEnumESpecificVolumeAtUnitPressureProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumESpecificVolumeAtUnitPressureProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEInitialStateOfConsolidationProperty(self, propertyName: str):
+		return self._callFunction("getEnumEInitialStateOfConsolidationProperty", [propertyName])
+	def _setEnumEInitialStateOfConsolidationProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEInitialStateOfConsolidationProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEMCCapTypeProperty(self, propertyName: str):
+		return self._callFunction("getEnumEMCCapTypeProperty", [propertyName])
+	def _setEnumEMCCapTypeProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEMCCapTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumECapHardeningTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumECapHardeningTypesProperty", [propertyName])
+	def _setEnumECapHardeningTypesProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumECapHardeningTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEConeHardeningTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumEConeHardeningTypesProperty", [propertyName])
+	def _setEnumEConeHardeningTypesProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEConeHardeningTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEDilationTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumEDilationTypesProperty", [propertyName])
+	def _setEnumEDilationTypesProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEDilationTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumECapTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumECapTypesProperty", [propertyName])
+	def _setEnumECapTypesProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumECapTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumENorSandInitialConsolidationConditionProperty(self, propertyName: str):
+		return self._callFunction("getEnumENorSandInitialConsolidationConditionProperty", [propertyName])
+	def _setEnumENorSandInitialConsolidationConditionProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumENorSandInitialConsolidationConditionProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEFinnFormulaProperty(self, propertyName: str):
+		return self._callFunction("getEnumEFinnFormulaProperty", [propertyName])
+	def _setEnumEFinnFormulaProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEFinnFormulaProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEFinnByrneDefinitionProperty(self, propertyName: str):
+		return self._callFunction("getEnumEFinnByrneDefinitionProperty", [propertyName])
+	def _setEnumEFinnByrneDefinitionProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEFinnByrneDefinitionProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEStressHistoryTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumEStressHistoryTypesProperty", [propertyName])
+	def _setEnumEStressHistoryTypesProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEStressHistoryTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEStressHistoryDefinitionMethodsProperty(self, propertyName: str):
+		return self._callFunction("getEnumEStressHistoryDefinitionMethodsProperty", [propertyName])
+	def _setEnumEStressHistoryDefinitionMethodsProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEStressHistoryDefinitionMethodsProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEAnisotropyDefinitionsProperty(self, propertyName: str):
+		return self._callFunction("getEnumEAnisotropyDefinitionsProperty", [propertyName])
+	def _setEnumEAnisotropyDefinitionsProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEAnisotropyDefinitionsProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEDilationOptionProperty(self, propertyName: str):
+		return self._callFunction("getEnumEDilationOptionProperty", [propertyName])
+	def _setEnumEDilationOptionProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEDilationOptionProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumECySoilCapOptionProperty(self, propertyName: str):
+		return self._callFunction("getEnumECySoilCapOptionProperty", [propertyName])
+	def _setEnumECySoilCapOptionProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumECySoilCapOptionProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEDilatancyProperty(self, propertyName: str):
+		return self._callFunction("getEnumEDilatancyProperty", [propertyName])
+	def _setEnumEDilatancyProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEDilatancyProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEInitialConsolidationProperty(self, propertyName: str):
+		return self._callFunction("getEnumEInitialConsolidationProperty", [propertyName])
+	def _setEnumEInitialConsolidationProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEInitialConsolidationProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumESwellingFormProperty(self, propertyName: str):
+		return self._callFunction("getEnumESwellingFormProperty", [propertyName])
+	def _setEnumESwellingFormProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumESwellingFormProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEWaterConditionProperty(self, propertyName: str):
+		return self._callFunction("getEnumEWaterConditionProperty", [propertyName])
+	def _setEnumEWaterConditionProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEWaterConditionProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])

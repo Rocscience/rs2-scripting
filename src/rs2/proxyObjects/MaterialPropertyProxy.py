@@ -5,6 +5,7 @@ from typing import List
 from rs2.PropertyEnums import *
 from rs2.proxyObjects.MaterialSubproxyObjects.InitialConditions import InitialConditions
 from rs2.proxyObjects.MaterialSubproxyObjects.Stiffness import Stiffness
+from rs2.proxyObjects.MaterialSubproxyObjects.Strength import Strength
 class MaterialProperty(PropertyProxy):
 	"""
 	:ref:`Material Example`
@@ -12,6 +13,7 @@ class MaterialProperty(PropertyProxy):
 	def __init__(self, server : Client, ID, documentProxyID):
 		self.InitialConditions = InitialConditions(server, ID, documentProxyID)
 		self.Stiffness = Stiffness(server, ID, documentProxyID)
+		self.Strength = Strength(server, ID, documentProxyID)
 		super().__init__(server, ID, documentProxyID)
 	def getMaterialName(self) -> str:
 		return self._getCStringProperty("MP_NAME")

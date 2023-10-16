@@ -25,3 +25,22 @@ print(material.Stiffness.getElasticType())
 print(material.Stiffness.Orthotropic.getUseUnloadingCondition())
 print(material.Stiffness.Orthotropic.getPoissonsRatioV12())
 print(material.Stiffness.Orthotropic.getAngleCounterclockwiseFromHorizontalToE1())
+
+material.Strength.setFailureCriterion(StrengthCriteriaTypes.HOEK_BROWN)
+
+material.Strength.setUnsaturatedBehavior(UnsaturatedParameterType.UNSATURATED_SINGLE_EFFECTIVE_STRESS)
+material.Strength.setSingleEffectiveStressMethod(UnsaturatedSingleEffectiveStressMethod.UNSATURATED_BISHOP)
+material.Strength.setUseCutoff(True)
+material.Strength.setCutoffValue(-0.2)
+
+print(material.Strength.getUnsaturatedBehavior())
+print(material.Strength.getSingleEffectiveStressMethod())
+print(material.Strength.getUseCutoff())
+print(material.Strength.getCutoffValue())
+
+materialH = material.Strength.HoekBrown
+materialH.setMaterialType(MaterialType.PLASTIC)
+materialH.setCompressiveStrength(101.1)
+
+print(materialH.getMaterialType())
+print(materialH.getCompressiveStrength())
