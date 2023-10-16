@@ -1,10 +1,11 @@
 from rs2.ApplicationManager import ApplicationManager
 from rs2.RS2Modeler import RS2Modeler
 from rs2.PropertyEnums import *
-import Constants as constants
+
+portToUse = 60054
 
 appManager = ApplicationManager()
-appManager.startApplication(constants.modelerDebugPath, constants.modelerPort)
+appManager.startApplication(portToUse)
 
-modeler = RS2Modeler(port=constants.modelerPort)
+modeler = RS2Modeler(port=portToUse)
 model = modeler.openFile(r"C:\scriptingModels\simple_3_stage.fez")
