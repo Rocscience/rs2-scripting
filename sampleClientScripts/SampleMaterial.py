@@ -44,3 +44,26 @@ materialH.setCompressiveStrength(101.1)
 
 print(materialH.getMaterialType())
 print(materialH.getCompressiveStrength())
+
+
+material.Hydraulic.setMaterialBehaviour(MaterialBehaviours.UNDRAINED)
+material.Hydraulic.setFluidBulkModulus(2201)
+
+print(material.Hydraulic.getMaterialBehaviour())
+print(material.Hydraulic.getFluidBulkModulus())
+
+materialGroundwater = material.Hydraulic.FEAGroundwater
+materialGroundwater.setModel(GroundWaterModes.SL_WATER_MODE_FREDLUND)
+materialGroundwater.setK1Angle(20)
+materialGroundwater.setMvModel(MVModel.MV_1D_ELASTIC)
+
+print(materialGroundwater.getModel())
+print(materialGroundwater.getK1Angle())
+print(materialGroundwater.getMvModel())
+
+materialFredlung = material.Hydraulic.FEAGroundwater.Fredlung
+materialFredlung.setA(2.2)
+materialFredlung.setWCSat(0.3)
+
+print(materialFredlung.getA())
+print(materialFredlung.getWCSat())

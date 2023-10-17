@@ -125,6 +125,22 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEUnsaturatedTabularValueMethodProperty", [propertyName])
 	def _setEnumEUnsaturatedTabularValueMethodProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEUnsaturatedTabularValueMethodProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEMaterialBehavioursProperty(self, propertyName: str):
+		return self._callFunction("getEnumEMaterialBehavioursProperty", [propertyName])
+	def _setEnumEMaterialBehavioursProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEMaterialBehavioursProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEGroundWaterModesProperty(self, propertyName: str):
+		return self._callFunction("getEnumEGroundWaterModesProperty", [propertyName])
+	def _setEnumEGroundWaterModesProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEGroundWaterModesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEAnisotropyDefinitionsProperty(self, propertyName: str):
+		return self._callFunction("getEnumEAnisotropyDefinitionsProperty", [propertyName])
+	def _setEnumEAnisotropyDefinitionsProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEAnisotropyDefinitionsProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEMVModelProperty(self, propertyName: str):
+		return self._callFunction("getEnumEMVModelProperty", [propertyName])
+	def _setEnumEMVModelProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEMVModelProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumEInitialElementLoadingTypeProperty(self, propertyName: str):
 		return self._callFunction("getEnumEInitialElementLoadingTypeProperty", [propertyName])
 	def _setEnumEInitialElementLoadingTypeProperty(self, propertyName: str, value):
@@ -209,10 +225,6 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEStressHistoryDefinitionMethodsProperty", [propertyName])
 	def _setEnumEStressHistoryDefinitionMethodsProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEStressHistoryDefinitionMethodsProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
-	def _getEnumEAnisotropyDefinitionsProperty(self, propertyName: str):
-		return self._callFunction("getEnumEAnisotropyDefinitionsProperty", [propertyName])
-	def _setEnumEAnisotropyDefinitionsProperty(self, propertyName: str, value):
-		return self._callFunction("setEnumEAnisotropyDefinitionsProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumEDilationOptionProperty(self, propertyName: str):
 		return self._callFunction("getEnumEDilationOptionProperty", [propertyName])
 	def _setEnumEDilationOptionProperty(self, propertyName: str, value):
@@ -237,3 +249,11 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEWaterConditionProperty", [propertyName])
 	def _setEnumEWaterConditionProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEWaterConditionProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEEnhancedSimpleSoilTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumEEnhancedSimpleSoilTypesProperty", [propertyName])
+	def _setEnumEEnhancedSimpleSoilTypesProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEEnhancedSimpleSoilTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEWCInputTypeProperty(self, propertyName: str):
+		return self._callFunction("getEnumEWCInputTypeProperty", [propertyName])
+	def _setEnumEWCInputTypeProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEWCInputTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
