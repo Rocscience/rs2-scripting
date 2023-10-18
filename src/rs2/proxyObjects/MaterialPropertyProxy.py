@@ -7,6 +7,7 @@ from rs2.proxyObjects.MaterialSubproxyObjects.InitialConditions import InitialCo
 from rs2.proxyObjects.MaterialSubproxyObjects.Stiffness import Stiffness
 from rs2.proxyObjects.MaterialSubproxyObjects.Strength import Strength
 from rs2.proxyObjects.MaterialSubproxyObjects.Hydraulic import Hydraulic
+from rs2.proxyObjects.MaterialSubproxyObjects.Thermal import Thermal
 class MaterialProperty(PropertyProxy):
 	"""
 	:ref:`Material Example`
@@ -16,6 +17,7 @@ class MaterialProperty(PropertyProxy):
 		self.Stiffness = Stiffness(server, ID, documentProxyID)
 		self.Strength = Strength(server, ID, documentProxyID)
 		self.Hydraulic = Hydraulic(server, ID, documentProxyID)
+		self.Thermal = Thermal(server, ID, documentProxyID)
 		super().__init__(server, ID, documentProxyID)
 	def getMaterialName(self) -> str:
 		return self._getCStringProperty("MP_NAME")
