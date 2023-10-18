@@ -71,8 +71,33 @@ print(materialFredlung.getWCSat())
 
 material.Thermal.setWaterContent(ThermalWaterContentMethodType.THERMAL_WATER_CONTENT_DEFINE)
 material.Thermal.setWaterContentValue(0.1)
+material.Thermal.setThermalExpansion(True)
+material.Thermal.setExpansionCoefficient(0.00002)
+material.Thermal.setDispersivity(True)
+material.Thermal.setLongitudinalDispersivity(1.1)
+
+print(material.Thermal.getWaterContent())
+print(material.Thermal.getWaterContentValue())
+print(material.Thermal.getThermalExpansion())
+print(material.Thermal.getExpansionCoefficient())
+print(material.Thermal.getDispersivity())
+print(material.Thermal.getLongitudinalDispersivity())
+
 
 material.Thermal.Conductivity.setMethod(ThermalType.THERMAL_COTE_AND_KONRAD)
 material.Thermal.Conductivity.CoteAndKonrad.setEta(1.8)
+print(material.Thermal.Conductivity.getMethod())
+print(material.Thermal.Conductivity.CoteAndKonrad.getEta())
 
-material.Thermal.SoilUnfrozenWaterContent.setType(ThermalWaterContentType.THERMAL_WATER_CONTENT_HYDRO_MODEL)
+waterContent = material.Thermal.SoilUnfrozenWaterContent
+waterContent.setType(ThermalWaterContentType.THERMAL_WATER_CONTENT_HYDRO_MODEL)
+waterContent.HydraulicModel.setFrozenTemperature(-0.04)
+waterContent.HydraulicModel.setWCSat(0.5)
+waterContent.HydraulicModel.setSelectHydraulicModel(GroundWaterModes.SL_WATER_MODE_GARDNER)
+waterContent.HydraulicModel.Gardner.setA(0.2)
+
+print(waterContent.getType())
+print(waterContent.HydraulicModel.getFrozenTemperature())
+print(waterContent.HydraulicModel.getWCSat())
+print(waterContent.HydraulicModel.getSelectHydraulicModel())
+print(waterContent.HydraulicModel.Gardner.getA())
