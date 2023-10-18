@@ -153,18 +153,6 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEThermalHeatCapacityTypeProperty", [propertyName])
 	def _setEnumEThermalHeatCapacityTypeProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEThermalHeatCapacityTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
-	def _getEnumEThermalSoilTypeProperty(self, propertyName: str):
-		return self._callFunction("getEnumEThermalSoilTypeProperty", [propertyName])
-	def _setEnumEThermalSoilTypeProperty(self, propertyName: str, value):
-		return self._callFunction("setEnumEThermalSoilTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
-	def _getEnumEThermalVolumetricDepencenceTypeProperty(self, propertyName: str):
-		return self._callFunction("getEnumEThermalVolumetricDepencenceTypeProperty", [propertyName])
-	def _setEnumEThermalVolumetricDepencenceTypeProperty(self, propertyName: str, value):
-		return self._callFunction("setEnumEThermalVolumetricDepencenceTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
-	def _getEnumEEnhancedSimpleSoilTypesProperty(self, propertyName: str):
-		return self._callFunction("getEnumEEnhancedSimpleSoilTypesProperty", [propertyName])
-	def _setEnumEEnhancedSimpleSoilTypesProperty(self, propertyName: str, value):
-		return self._callFunction("setEnumEEnhancedSimpleSoilTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumEInitialElementLoadingTypeProperty(self, propertyName: str):
 		return self._callFunction("getEnumEInitialElementLoadingTypeProperty", [propertyName])
 	def _setEnumEInitialElementLoadingTypeProperty(self, propertyName: str, value):
@@ -273,7 +261,19 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEWaterConditionProperty", [propertyName])
 	def _setEnumEWaterConditionProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEWaterConditionProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEEnhancedSimpleSoilTypesProperty(self, propertyName: str):
+		return self._callFunction("getEnumEEnhancedSimpleSoilTypesProperty", [propertyName])
+	def _setEnumEEnhancedSimpleSoilTypesProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEEnhancedSimpleSoilTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumEWCInputTypeProperty(self, propertyName: str):
 		return self._callFunction("getEnumEWCInputTypeProperty", [propertyName])
 	def _setEnumEWCInputTypeProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEWCInputTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEThermalSoilTypeProperty(self, propertyName: str):
+		return self._callFunction("getEnumEThermalSoilTypeProperty", [propertyName])
+	def _setEnumEThermalSoilTypeProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEThermalSoilTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEThermalVolumetricDepencenceTypeProperty(self, propertyName: str):
+		return self._callFunction("getEnumEThermalVolumetricDepencenceTypeProperty", [propertyName])
+	def _setEnumEThermalVolumetricDepencenceTypeProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEThermalVolumetricDepencenceTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
