@@ -51,7 +51,7 @@ class ColorPicker():
             Params:
                 color (int) : int representing the color
 
-            Returns: tuple containing red, green and blue values of the color
+            Returns: tuple containing red, green and blue values of the color. Each of red, green and blue are between 0 and 255 inclusive
         """
         # Internally MSFT COLORREF stores the byte ordering of RGB Color as BGR: 0x00bbggrr
         blue = (color >> 16) & 0xFF
@@ -65,9 +65,9 @@ class ColorPicker():
         Returns the int representation of a color from its R, G, B values
         
             Params:
-                red (int) : int representing red value of the color
-                green (int) : int representing green value of the color
-                blue (int) : int representing blue value of the color
+                red (int) : int representing red value of the color. Must be between 0 and 255 inclusive
+                green (int) : int representing green value of the color. Must be between 0 and 255 inclusive
+                blue (int) : int representing blue value of the color. Must be between 0 and 255 inclusive
 
             Returns: int representation of color formed combining rgb values
         """
