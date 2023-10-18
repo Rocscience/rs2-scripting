@@ -67,3 +67,12 @@ materialFredlung.setWCSat(0.3)
 
 print(materialFredlung.getA())
 print(materialFredlung.getWCSat())
+
+
+material.Thermal.setWaterContent(ThermalWaterContentMethodType.THERMAL_WATER_CONTENT_DEFINE)
+material.Thermal.setWaterContentValue(0.1)
+
+material.Thermal.Conductivity.setMethod(ThermalType.THERMAL_COTE_AND_KONRAD)
+material.Thermal.Conductivity.CoteAndKonrad.setEta(1.8)
+
+material.Thermal.SoilUnfrozenWaterContent.setType(ThermalWaterContentType.THERMAL_WATER_CONTENT_HYDRO_MODEL)

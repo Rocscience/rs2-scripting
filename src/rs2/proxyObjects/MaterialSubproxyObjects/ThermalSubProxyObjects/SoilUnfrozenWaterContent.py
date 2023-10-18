@@ -15,7 +15,7 @@ class SoilUnfrozenWaterContent(PropertyProxy):
 		self.TiceAnderson = TiceAnderson(server, ID, documentProxyID)
 		self.HydraulicModel = HydraulicModel(server, ID, documentProxyID)
 		super().__init__(server, ID, documentProxyID)
-	def getType(self) -> ThermalType:
-		return ThermalType(self._getEnumEThermalTypeProperty("MP_THERMAL_WATER_CONTENT_TYPE"))
-	def setType(self, value: ThermalType):
-		return self._setEnumEThermalTypeProperty("MP_THERMAL_WATER_CONTENT_TYPE", value)
+	def getType(self) -> ThermalWaterContentType:
+		return ThermalWaterContentType(self._getEnumEThermalWaterContentTypeProperty("MP_THERMAL_WATER_CONTENT_TYPE"))
+	def setType(self, value: ThermalWaterContentType):
+		return self._setEnumEThermalWaterContentTypeProperty("MP_THERMAL_WATER_CONTENT_TYPE", value)

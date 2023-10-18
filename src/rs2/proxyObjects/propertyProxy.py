@@ -153,6 +153,10 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEThermalHeatCapacityTypeProperty", [propertyName])
 	def _setEnumEThermalHeatCapacityTypeProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEThermalHeatCapacityTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEThermalWaterContentTypeProperty(self, propertyName: str):
+		return self._callFunction("getEnumEThermalWaterContentTypeProperty", [propertyName])
+	def _setEnumEThermalWaterContentTypeProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEThermalWaterContentTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumEInitialElementLoadingTypeProperty(self, propertyName: str):
 		return self._callFunction("getEnumEInitialElementLoadingTypeProperty", [propertyName])
 	def _setEnumEInitialElementLoadingTypeProperty(self, propertyName: str, value):
