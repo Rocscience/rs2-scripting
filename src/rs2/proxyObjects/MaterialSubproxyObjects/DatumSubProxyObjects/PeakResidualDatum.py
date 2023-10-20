@@ -3,30 +3,30 @@ from rs2.PropertyEnums import *
 
 from rs2.proxyObjects.MaterialSubproxyObjects.DatumSubProxyObjects.BaseDatum import BaseDatum
 
-class PeakResidualDatum(PropertyProxy):
+class PeakResidualDatum(BaseDatum):
     def setPeakChange(self, peakChange: float):
-        self._callFunction("setPeakChange", [peakChange])
+        self._callFunction("setChange1", [peakChange])
     def getPeakChange(self) -> float:
-        return self._callFunction("getPeakChange")
+        return self._callFunction("getChange1")
     def setUsePeakCutoff(self, usePeakCutoff : bool):
-        self._callFunction("setUsePeakCutoff", [usePeakCutoff])
+        self._callFunction("setUsingCutoff1", [usePeakCutoff])
     def getUsePeakCutoff(self) -> bool:
-        return self._callFunction("getUsePeakCutoff")
+        return bool(self._callFunction("getUsingCutoff1"))
     def setPeakCutoffValue(self, peakCutoffValue: float):
-        self._callFunction("setPeakCutoffValue", [peakCutoffValue])
+        self._callFunction("setCutoff1", [peakCutoffValue])
     def getPeakCutoffValue(self) -> float:
-        return self._callFunction("getPeakCutoffValue")
+        return self._callFunction("getCutoff1")
     def setResidualChange(self, residualChange: float):
-        self._callFunction("setResidualChange", [residualChange])
+        self._callFunction("setChange2", [residualChange])
     def getResidualChange(self) -> float:
-        return self._callFunction("getResidualChange")
+        return self._callFunction("getChange2")
     def setUseResidualCutoff(self, useResidualCutoff):
-        self._callFunction("setUseResidualCutoff", [useResidualCutoff])
+        self._callFunction("setUsingCutoff2", [useResidualCutoff])
     def getUseResidualCutoff(self) -> bool:
-        return self._callFunction("getUseResidualCutoff")
+        return bool(self._callFunction("getUsingCutoff2"))
     def setResidualCutoffValue(self, residualCutoffValue: float):
-        self._callFunction("setResidualCutoffValue", [residualCutoffValue])
+        self._callFunction("setCutoff2", [residualCutoffValue])
     def getResidualCutoffValue(self) -> float:
-        return self._callFunction("getResidualCutoffValue")
+        return self._callFunction("getCutoff2")
     
     
