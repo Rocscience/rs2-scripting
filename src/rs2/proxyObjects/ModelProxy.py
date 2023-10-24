@@ -5,6 +5,7 @@ from rs2.proxyObjects.LinerPropertyProxy import LinerProperty
 from rs2.proxyObjects.JointPropertyProxy import JointProperty
 from rs2.proxyObjects.PilePropertyProxy import PileProperty
 from rs2.proxyObjects.MaterialPropertyProxy import MaterialProperty
+from rs2.proxyObjects.DiscreteFunctionProxy import DiscreteFunction
 class ModelProxy(ProxyObject):
 	"""
 	:ref:`Model Example`
@@ -138,3 +139,13 @@ class ModelProxy(ProxyObject):
 		'''
 		return self._callFunction('save', [])
 
+	def getDiscreteFunctions(self) -> list[DiscreteFunction]:
+		'''
+		Returns a list of all discrete functions
+		'''
+		activeDiscreteFunctionProperties = []
+		discreteFunctionIDList = self._callFunction('getDiscreteFunctions', [], keepReturnValueReference=True)
+		for discreteFunctionObjectID in discreteFunctionIDList:
+			activeDiscreteFunctionProperties.append(DiscreteFunction(self._client, discreteFunctionObjectID))
+		return activeDiscreteFunctionProperties
+	
