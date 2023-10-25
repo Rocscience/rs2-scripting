@@ -20,3 +20,13 @@ class RS2Modeler:
 		modelObjectId = self.client.callFunction(request)
 		modelProxy = ModelProxy(self.client, modelObjectId)
 		return modelProxy
+	
+	def closeProgram(self, saveModel = True):
+		'''
+		Closes the modeler program
+
+		Typical Usage example:
+		modeler.closeProgram()
+		'''
+		request = functionRequest('closeProgram', [saveModel])
+		self.client.callFunction(request)

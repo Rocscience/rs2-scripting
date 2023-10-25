@@ -10,3 +10,13 @@ class RS2Interpreter:
 	def doNothing(self):
 		request = functionRequest('doNothing', [])
 		return self.client.callFunction(request)
+	
+	def closeProgram(self, saveModel = True):
+		'''
+		Closes the interpreter program
+
+		Typical Usage example:
+		interpreter.closeProgram()
+		'''
+		request = functionRequest('closeProgram', [saveModel])
+		self.client.callFunction(request)
