@@ -36,3 +36,9 @@ print(df1.getPointsModulus())
 df1.setPointsModulusResidual([0.1, 0.2, 0.3])
 print(df1.getPointsModulusResidual())
 
+
+mat1 = model.getAllMaterialProperties()[0]
+
+print(mat1.Strength.DiscreteFunction.getSelectedDiscreteFunctionName())
+mat1.Strength.DiscreteFunction.setSelectedDiscreteFunctionByName("F1")
+print(mat1.Strength.DiscreteFunction.getSelectedDiscreteFunctionName())
