@@ -5,6 +5,19 @@ modeler = RS2Modeler()
 
 model = modeler.openFile(r"C:\Users\WilliamSati\Downloads\discretefunctions.fez")
 
+try:
+    model.deleteDiscreteFunction("User Defined 2")#currently being used in the model. Should not work.
+except Exception as e:
+    print(e)
+
+try:
+    model.deleteDiscreteFunction("non existing name")#function with name that does not exist cannot be deleted
+except Exception as e:
+    print(e)
+
+
+model.deleteDiscreteFunction("User Defined 1")#should work since no material is using it.
+
 model.createNewDiscreteFunction("F3")
 df3 = model.getDiscreteFunctionByName("F3")
 
@@ -40,3 +53,6 @@ mat1 = model.getAllMaterialProperties()[0]
 print(mat1.Strength.DiscreteFunction.getSelectedDiscreteFunctionName())
 mat1.Strength.DiscreteFunction.setSelectedDiscreteFunctionByName("F3")
 print(mat1.Strength.DiscreteFunction.getSelectedDiscreteFunctionName())
+
+#deleting User Defined 2 should work now since no one is using it
+model.deleteDiscreteFunction("User Defined 2")
