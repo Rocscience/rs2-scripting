@@ -149,3 +149,15 @@ class ModelProxy(ProxyObject):
 			activeDiscreteFunctionProperties.append(DiscreteFunction(self._client, discreteFunctionObjectID))
 		return activeDiscreteFunctionProperties
 	
+	def getDiscreteFunctionByName(self, discreteFunctionName : str) -> DiscreteFunction:
+		'''
+		Returns a discrete function object based on its name.
+		'''
+		discreteFunctionObjectID = self._callFunction('getDiscreteFunctionByName', [discreteFunctionName], keepReturnValueReference=True)
+		return DiscreteFunction(self._client, discreteFunctionObjectID)
+	
+	def createNewDiscreteFunction(self, functionName):
+		'''
+		Creates a new discrete function with the given name
+		'''
+		return self._callFunction('createNewDiscreteFunction', [functionName])
