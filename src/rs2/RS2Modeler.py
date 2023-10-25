@@ -51,12 +51,12 @@ class RS2Modeler:
 
 		return rs2ModelerInstallLocation
 	
-	def closeProgram(self, saveModel = True):
+	def closeProgram(self, saveModels = True):
 		'''
 		Closes the modeler program
 
 		Typical Usage example:
 		modeler.closeProgram()
 		'''
-		request = functionRequest('closeProgram', [saveModel])
+		request = functionRequest('closeProgram', [saveModels])
 		self.client.callFunction(request)

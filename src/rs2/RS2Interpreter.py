@@ -40,12 +40,12 @@ class RS2Interpreter:
 
 		return rs2ModelerInstallLocation
 	
-	def closeProgram(self, saveModel = True):
+	def closeProgram(self, saveModels = True):
 		'''
 		Closes the interpreter program
 
 		Typical Usage example:
 		interpreter.closeProgram()
 		'''
-		request = functionRequest('closeProgram', [saveModel])
+		request = functionRequest('closeProgram', [saveModels])
 		self.client.callFunction(request)
