@@ -55,6 +55,10 @@ class ReinforcedConcreteStageFactor(ProxyObject):
 	def getStagesAfterInstallation(self) -> int:
 		return self._callFunction("getStagesAfterInstallation", [])
 	def setStagesAfterInstallation(self, relativeStage: int):
+		"""
+		Sets the stage factor installation stage as a relative stage based on it's installation stage.
+		The order of the stage factor objects must be preserved and be in increasing order.
+		"""
 		return self._callFunction("setStagesAfterInstallation", [relativeStage])
 class ReinforcedConcrete(PropertyProxy):
 	def getConcreteUnitWeight(self) -> float:
@@ -192,9 +196,8 @@ class ReinforcedConcrete(PropertyProxy):
 		return self._callFunction("getUseRelativeStageFactors", [])
 	def setDefineRelativeStageFactors(self, useStagesAfterInstallation: bool):
 		"""
-		Choose to define relative stage factors based on the installation stage.
-		If true, set the relative stage of each stage factor using setStagesAfterInstallation.
-		If false, each stage factor is returned in order from 1 to n from getStageFactors().
+		Choose to define stage factors using absolute stages or relative stages based on the installation stage.
+		If true, you can set the relative stage of each stage factor using setStagesAfterInstallation.
 		"""
 		return self._callFunction("setUseRelativeStageFactors", [useStagesAfterInstallation])
 	def getStageFactors(self) -> dict[int, ReinforcedConcreteStageFactor]:
