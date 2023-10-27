@@ -121,7 +121,7 @@ class Geosynthetic(PropertyProxy):
 	def setDefineRelativeStageFactors(self, useStagesAfterInstallation: bool):
 		"""
 		Choose to define stage factors using absolute stages or relative stages based on the installation stage.
-		If true, you can set the relative stage of each stage factor using setStagesAfterInstallation.
+		A change invalidates existing stage factor objects.
 		"""
 		return self._callFunction("setUseRelativeStageFactors", [useStagesAfterInstallation])
 	def getStageFactors(self) -> dict[int, GeosyntheticStageFactor]:
