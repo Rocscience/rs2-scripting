@@ -165,14 +165,14 @@ class ReinforcedConcrete(PropertyProxy):
 		If false, each stage factor is returned in order from 1 to n from getStageFactors().
 		"""
 		return self._callFunction("setUseRelativeStageFactors", [useStagesAfterInstallation])
-	def getStageFactors(self) -> List[ReinforcedConcreteStageFactor]:
+	def getStageFactors(self) -> dict[int, ReinforcedConcreteStageFactor]:
 		"""
-		Returns the defined stage factors in a list, in order from stage 1 to n.
+		Returns a map of stage factors. The key is the absolute or relative stage at which the stage factor is applied. The value is the stage factor object
 		"""
 		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
-		stageFactors = []
-		for stageFactorID in stageFactorReferenceIds :
-			stageFactors.append(ReinforcedConcreteStageFactor(self._client, stageFactorID, self))
+		stageFactors = {}
+		for stageKey in stageFactorReferenceIds :
+			stageFactors[stageKey] = ReinforcedConcreteStageFactor(self._client, stageFactorReferenceIds[stageKey], self)
 		return stageFactors
 	def setProperties(self, ConcreteUnitWeight : float = None, IncludeWeightInAnalysis : bool = None, Reinforcement : bool = None, Spacing : float = None, SectionDepth : float = None, Area : float = None, MomentOfInertia : float = None, ConcreteYoungsModulus : float = None, ConcreteCompressiveStrength : float = None, ConcreteTensileStrength : float = None, Weight : float = None, Concrete : bool = None, Thickness : float = None, YoungsModulus : float = None, PoissonRatio : float = None, CompressiveStrength : float = None, TensileStrength : float = None, MaterialType : MaterialType = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageConcreteProperties : bool = None):
 		if ConcreteUnitWeight is not None:

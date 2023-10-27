@@ -109,14 +109,14 @@ class CableTruss(PropertyProxy):
 		If false, each stage factor is returned in order from 1 to n from getStageFactors().
 		"""
 		return self._callFunction("setUseRelativeStageFactors", [useStagesAfterInstallation])
-	def getStageFactors(self) -> List[CableTrussStageFactor]:
+	def getStageFactors(self) -> dict[int, CableTrussStageFactor]:
 		"""
-		Returns the defined stage factors in a list, in order from stage 1 to n.
+		Returns a map of stage factors. The key is the absolute or relative stage at which the stage factor is applied. The value is the stage factor object
 		"""
 		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
-		stageFactors = []
-		for stageFactorID in stageFactorReferenceIds :
-			stageFactors.append(CableTrussStageFactor(self._client, stageFactorID, self))
+		stageFactors = {}
+		for stageKey in stageFactorReferenceIds :
+			stageFactors[stageKey] = CableTrussStageFactor(self._client, stageFactorReferenceIds[stageKey], self)
 		return stageFactors
 	def setProperties(self, CableDiameter : float = None, OutofplaneSpacing : float = None, YoungsModulus : float = None, MaterialType : MaterialType = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, PreTensioning : bool = None, PreTensioningForce : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageCableProperties : bool = None):
 		if CableDiameter is not None:
