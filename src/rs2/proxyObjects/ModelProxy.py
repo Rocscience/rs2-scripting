@@ -3,6 +3,7 @@ from rs2.proxyObjects.documentProxy import DocumentProxy
 from rs2.proxyObjects.BoltPropertyProxy import BoltProperty
 from rs2.proxyObjects.LinerPropertyProxy import LinerProperty
 from rs2.proxyObjects.JointPropertyProxy import JointProperty
+from rs2.proxyObjects.CompositeLinerPropertyProxy import CompositeLinerProperty
 
 class ModelProxy(ProxyObject):
 	"""
@@ -39,6 +40,14 @@ class ModelProxy(ProxyObject):
 		jointObjectID = self._callFunction('getJointPropertyByName', [jointName], keepReturnValueReference=True)
 		return JointProperty(self._client, jointObjectID, self._documentProxy._ID)
 	
+	def getCompositeLinerPropertyByName(self, compositeName : str) -> CompositeLinerProperty:
+		'''
+		Returns a Composite Liner Property object based on its name.
+		'''
+		compositeLinerObjectID = self._callFunction('getCompositeLinerPropertyByName', [compositeName], keepReturnValueReference=True)
+		return CompositeLinerProperty(self._client, compositeLinerObjectID, self._documentProxy._ID)
+
+	
 	def getAllBoltProperties(self) -> list[BoltProperty]:
 
 		'''
@@ -69,6 +78,16 @@ class ModelProxy(ProxyObject):
 		for jointObjectID in jointObjectIDList:
 			activeJointProperties.append(JointProperty(self._client, jointObjectID, self._documentProxy._ID))
 		return activeJointProperties
+	
+	def getAllCompositeLinerProperties(self) -> list[CompositeLinerProperty]:
+		'''
+		Returns a list of all Composite Liner Property objects
+		'''
+		activeCompositeProperties = []
+		compositeObjectIDList = self._callFunction('getAllCompositeLinerProperties', [], keepReturnValueReference=True)
+		for compositeObjectID in compositeObjectIDList:
+			activeCompositeProperties.append(CompositeLinerProperty(self._client, compositeObjectID, self._documentProxy._ID))
+		return activeCompositeProperties
 	
 	def compute(self):
 		'''

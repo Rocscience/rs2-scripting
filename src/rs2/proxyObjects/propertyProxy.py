@@ -73,3 +73,7 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEJointTypesProperty", [propertyName])
 	def _setEnumEJointTypesProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEJointTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumECompositeJointPlacementProperty(self, propertyName: str):
+		return self._callFunction("getEnumECompositeJointPlacementProperty", [propertyName])
+	def _setEnumECompositeJointPlacementProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumECompositeJointPlacementProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
