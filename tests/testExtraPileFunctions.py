@@ -20,7 +20,7 @@ class TestPileExtras(unittest.TestCase):
         self.pile = self.model.getAllPileProperties()[0]
     def tearDown(self):
         self.model.close()
-        self.modeler.client.connection
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
 
     def testSetCoordinatesFailure(self):
@@ -60,6 +60,6 @@ class TestPileExtras(unittest.TestCase):
             pass
 
     def testDefineBeamSegmentSuccess(self):
-        self.pile.Beam.defineBeamSegment([1,2,3],["Liner 1"],["Liner 2"],["Liner 3"])
-        self.assertEqual(self.pile.Beam.getBeamSegment(), ([1,2,3],["Liner 1"],["Liner 2"],["Liner 3"]))
+        self.pile.Beam.defineBeamSegment([1,2,3], ["Liner 1","Liner 2","Liner 3"])
+        self.assertEqual(self.pile.Beam.getBeamSegment(), ([1,2,3], ["Liner 1","Liner 2","Liner 3"]))
 
