@@ -10,7 +10,8 @@ from rs2.PropertyEnums import*
 parentDirectoryHelper.addParentDirectoryToPath()
 
 class TestPileExtras(unittest.TestCase):
-    def setUp(self):
+    @classmethod
+    def setUpClass(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
         blankModelPath = f"{parentDirectory}/resources/starterProject.fez"
         self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
@@ -18,7 +19,9 @@ class TestPileExtras(unittest.TestCase):
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.pile = self.model.getAllPileProperties()[0]
-    def tearDown(self):
+
+    @classmethod
+    def tearDownClass(self):
         self.model.close()
         self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
