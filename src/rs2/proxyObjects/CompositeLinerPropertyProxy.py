@@ -66,7 +66,7 @@ class CompositeLinerProperty(PropertyProxy):
 		return self._callFunction("getInstallDelay", [layerNumber])
 	def setInstallDelay(self, layerNumber: int, stagesBelow: int):
 		"""
-		Set install delay for specified layer number
+		Set install delay for specified layer number. Please note that install delay cannot be set for first layer.
 		"""
 		return self._callFunction("setInstallDelay", [layerNumber, stagesBelow])
 	def getRemovedStage(self, layerNumber: int) -> int:
@@ -76,6 +76,6 @@ class CompositeLinerProperty(PropertyProxy):
 		return self._callFunction("getRemovedStage", [layerNumber])
 	def setRemovedStage(self, layerNumber: int, stagesBelow: int):
 		"""
-		Set removed stages for specified layer number
+		Set removed stages for specified layer number. To set the removed stages to "Never", please set stagesBelow to -1
 		"""
 		return self._callFunction("setRemovedStage", [layerNumber, stagesBelow])
