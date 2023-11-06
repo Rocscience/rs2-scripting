@@ -8,7 +8,8 @@ from rs2.PropertyEnums import*
 parentDirectoryHelper.addParentDirectoryToPath()
 
 class TestCompositeLiner(unittest.TestCase):
-    def setUp(self):
+    @classmethod
+    def setUpClass(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
         blankModelPath = f"{parentDirectory}/resources/starterProject.fez"
         self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
@@ -16,8 +17,8 @@ class TestCompositeLiner(unittest.TestCase):
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.compositeliner = self.model.getAllCompositeLinerProperties()[0]
-
-    def tearDown(self):
+    @classmethod
+    def tearDownClass(self):
         self.model.close()
         self.model._client.closeConnection()
         os.remove(self.copiedModelPath)
