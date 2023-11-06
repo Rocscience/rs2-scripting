@@ -14,6 +14,7 @@ class TestModelerWithChangesSaved(unittest.TestCase):
         blankModelPath = f"{parentDirectory}/resources/starterProject.fez"
         self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
         shutil.copy(blankModelPath, self.copiedModelPath)
+        RS2Modeler.startApplication(60054, overridePathToExecutable=r"C:\RS2_dev\Build\Debug_x64\RS2.exe")
         self.modeler = RS2Modeler(port=60054)
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.bolt = self.model.getAllBoltProperties()[0]
@@ -27,13 +28,9 @@ class TestModelerWithChangesSaved(unittest.TestCase):
         bolt.setBoltColor(31891)
         bolt.setBoltType(BoltTypes.FULLY_BONDED)
         self.modeler.closeProgram(True)
-        print(1)
         self.model._client.closeConnection()
-        print(2)
-        RS2Modeler.startApplication(60050)
+        RS2Modeler.startApplication(60050, overridePathToExecutable=r"C:\RS2_dev\Build\Debug_x64\RS2.exe")
         self.modeler = RS2Modeler(port=60050)
-        print(3)
-        print("COPIED PATH = ", self.copiedModelPath)
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.bolt = self.model.getAllBoltProperties()[0]
         bolt = self.bolt
