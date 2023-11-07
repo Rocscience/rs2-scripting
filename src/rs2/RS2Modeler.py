@@ -55,8 +55,11 @@ class RS2Modeler:
 		'''
 		Closes the modeler program. All unsaved models are saved by default.
 
-		Typical Usage example:
-		modeler.closeProgram()
+		Typical Usage example to save all models:
+		modeler.closeProgram(True)
+
+		Typical Usage example to not save all models:
+		modeler.closeProgram(False)
 		'''
 		request = functionRequest('closeProgram', [saveModels])
 		self.client.callFunction(request)

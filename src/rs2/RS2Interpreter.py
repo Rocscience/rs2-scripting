@@ -44,8 +44,11 @@ class RS2Interpreter:
 		'''
 		Closes the interpreter program. All unsaved models are saved by default.
 
-		Typical Usage example:
-		interpreter.closeProgram()
+		Typical Usage example to save all models:
+		interpreter.closeProgram(True)
+
+		Typical Usage example to not save all models:
+		interpreter.closeProgram(False)
 		'''
 		request = functionRequest('closeProgram', [saveModels])
 		self.client.callFunction(request)
