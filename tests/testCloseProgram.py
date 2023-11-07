@@ -5,6 +5,7 @@ import parentDirectoryHelper
 from rs2.RS2Modeler import RS2Modeler
 from rs2.RS2Interpreter import RS2Interpreter
 from rs2.PropertyEnums import*
+import time
 
 parentDirectoryHelper.addParentDirectoryToPath()
 
@@ -14,13 +15,15 @@ class TestModelerWithChangesSaved(unittest.TestCase):
         blankModelPath = f"{parentDirectory}/resources/starterProject.fez"
         self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
         shutil.copy(blankModelPath, self.copiedModelPath)
-        RS2Modeler.startApplication(60054, overridePathToExecutable=r"C:\RS2_dev\Build\Debug_x64\RS2.exe")
-        self.modeler = RS2Modeler(port=60054)
+        RS2Modeler.startApplication(60040, overridePathToExecutable=r"C:\RS2_dev\Build\Debug_x64\RS2.exe")
+        self.modeler = RS2Modeler(port=60040)
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.bolt = self.model.getAllBoltProperties()[0]
     def tearDown(self):
         self.model.close()
+        self.modeler.closeProgram(False)
         self.model._client.closeConnection()
+        time.sleep(5)
         os.remove(self.copiedModelPath)
     def testModelerWithChangesSaved(self):
         bolt = self.bolt
@@ -29,38 +32,54 @@ class TestModelerWithChangesSaved(unittest.TestCase):
         bolt.setBoltType(BoltTypes.FULLY_BONDED)
         self.modeler.closeProgram(True)
         self.model._client.closeConnection()
-        RS2Modeler.startApplication(60055, overridePathToExecutable=r"C:\RS2_dev\Build\Debug_x64\RS2.exe")
-        self.modeler = RS2Modeler(port=60055)
+        time.sleep(5)
+        RS2Modeler.startApplication(60040, overridePathToExecutable=r"C:\RS2_dev\Build\Debug_x64\RS2.exe")
+        self.modeler = RS2Modeler(port=60040)
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.bolt = self.model.getAllBoltProperties()[0]
         bolt = self.bolt
         self.assertEqual(bolt.getBoltName(), "VYJpH")
         self.assertEqual(bolt.getBoltColor(), 31891)
         self.assertEqual(bolt.getBoltType(), BoltTypes.FULLY_BONDED)
-
-class TestModelerWithChangesNotSaved(unittest.TestCase):
-    def setUp(self):
-        parentDirectory = parentDirectoryHelper.getParentDirectory()
-        blankModelPath = f"{parentDirectory}/resources/starterProject.fez"
-        self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
-        shutil.copy(blankModelPath, self.copiedModelPath)
-        RS2Modeler.startApplication(60054, overridePathToExecutable=r"C:\RS2_dev\Build\Debug_x64\RS2.exe")
-        self.modeler = RS2Modeler(port=60054)
-        self.model = self.modeler.openFile(self.copiedModelPath)
-        self.bolt = self.model.getAllBoltProperties()[0]
-    def tearDown(self):
-        self.model.close()
-        self.model._client.closeConnection()
-        os.remove(self.copiedModelPath)
     def testModelerWithChangesNotSaved(self):
         bolt = self.bolt
         bolt.setBoltType(BoltTypes.FULLY_BONDED)
         self.modeler.closeProgram(False)
         self.model._client.closeConnection()
-        RS2Modeler.startApplication(60050, overridePathToExecutable=r"C:\RS2_dev\Build\Debug_x64\RS2.exe")
-        self.modeler = RS2Modeler(port=60050)
+        time.sleep(5)
+        RS2Modeler.startApplication(60040, overridePathToExecutable=r"C:\RS2_dev\Build\Debug_x64\RS2.exe")
+        self.modeler = RS2Modeler(port=60040)
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.bolt = self.model.getAllBoltProperties()[0]
         bolt = self.bolt
         self.assertNotEqual(bolt.getBoltType(), BoltTypes.FULLY_BONDED)
+
+# class TestModelerWithChangesNotSaved(unittest.TestCase):
+#     def setUp(self):
+#         parentDirectory = parentDirectoryHelper.getParentDirectory()
+#         blankModelPath = f"{parentDirectory}/resources/starterProject.fez"
+#         self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
+#         shutil.copy(blankModelPath, self.copiedModelPath)
+#         RS2Modeler.startApplication(60040, overridePathToExecutable=r"C:\RS2_dev\Build\Debug_x64\RS2.exe")
+#         self.modeler = RS2Modeler(port=60040)
+#         self.model = self.modeler.openFile(self.copiedModelPath)
+#         self.bolt = self.model.getAllBoltProperties()[0]
+#     def tearDown(self):
+#         self.model.close()
+#         self.modeler.closeProgram(False)
+#         self.model._client.closeConnection()
+#         time.sleep(5)
+#         os.remove(self.copiedModelPath)
+#     def testModelerWithChangesNotSaved(self):
+#         bolt = self.bolt
+#         bolt.setBoltType(BoltTypes.FULLY_BONDED)
+#         self.modeler.closeProgram(False)
+#         self.model._client.closeConnection()
+#         time.sleep(5)
+#         RS2Modeler.startApplication(60040, overridePathToExecutable=r"C:\RS2_dev\Build\Debug_x64\RS2.exe")
+#         self.modeler = RS2Modeler(port=60040)
+#         self.model = self.modeler.openFile(self.copiedModelPath)
+#         self.bolt = self.model.getAllBoltProperties()[0]
+#         bolt = self.bolt
+#         self.assertNotEqual(bolt.getBoltType(), BoltTypes.FULLY_BONDED)
 
