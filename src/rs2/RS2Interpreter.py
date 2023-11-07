@@ -42,7 +42,7 @@ class RS2Interpreter:
 	
 	def closeProgram(self, saveModels = True):
 		'''
-		Closes the interpreter program
+		Closes the interpreter program. All unsaved models are saved by default.
 
 		Typical Usage example:
 		interpreter.closeProgram()

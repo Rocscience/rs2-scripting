@@ -53,7 +53,7 @@ class RS2Modeler:
 	
 	def closeProgram(self, saveModels = True):
 		'''
-		Closes the modeler program
+		Closes the modeler program. All unsaved models are saved by default.
 
 		Typical Usage example:
 		modeler.closeProgram()
