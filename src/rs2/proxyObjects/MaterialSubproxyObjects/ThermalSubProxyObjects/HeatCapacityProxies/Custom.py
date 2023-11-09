@@ -17,6 +17,12 @@ class Custom(PropertyProxy):
 		Depending on the type of thermal tabular dependence selected, the second argument is interpreted as temperature or water content.
 		"""
 		return self._callFunction("setVolumetricHeatCapacityTable", [volumetricHeatCapacity, temperatureOrWaterContent])
+	def getVolumetricHeatCapacityTable(self) -> list[tuple(float,float)]:
+		"""
+		The first element in each tuple is the volumetric heat capacity.
+		Depending on the type of thermal tabular dependence selected, the second element is interpreted as temperature or water content.
+		"""
+		return self._callFunction("getVolumetricHeatCapacityTable", [])
 	def setProperties(self, IncludeLatentHeat : bool = None, Dependence : ThermalVolumetricDepencenceType = None):
 		if IncludeLatentHeat is not None:
 			self._setBoolProperty("MP_THERMAL_LATENT_HEAT", IncludeLatentHeat)

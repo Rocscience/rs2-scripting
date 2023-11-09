@@ -13,6 +13,12 @@ class Tabular(PropertyProxy):
 		Depending on the type of thermal tabular dependence selected, the values are interpreted as temperature or water content.
 		"""
 		return self._callFunction("setThermalConductivityTable", [temperatureOrWaterContent, conductivity])
+	def getThermalConductivityTable(self) -> list[tuple(float,float)]:
+		"""
+		The second element in each tuple is the thermal conductivity.
+		Depending on the type of thermal tabular dependence selected, the first element is interpreted as temperature or water content.
+		"""
+		return self._callFunction("getThermalConductivityTable", [])
 	def setProperties(self, Dependence : ThermalVolumetricDepencenceType = None):
 		if Dependence is not None:
 			self._setEnumEThermalVolumetricDepencenceTypeProperty("MP_THERMAL_TABULAR_DEPENDENCE", Dependence)
