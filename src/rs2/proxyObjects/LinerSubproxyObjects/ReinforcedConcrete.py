@@ -37,9 +37,9 @@ class ReinforcedConcrete(PropertyProxy):
 		return self._getDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE")
 	def setConcreteUnitWeight(self, value: float):
 		return self._setDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE", value)
-	def getIncludeWeightInAnalysis(self) -> bool:
+	def getIncludeWeightInStressAnalysis(self) -> bool:
 		return self._getBoolProperty("LNP_USE_WEIGHT")
-	def setIncludeWeightInAnalysis(self, value: bool):
+	def setIncludeWeightInStressAnalysis(self, value: bool):
 		return self._setBoolProperty("LNP_USE_WEIGHT", value)
 	def getReinforcement(self) -> bool:
 		return self._getBoolProperty("LNP_USE_REINFORCEMENT")
@@ -174,11 +174,11 @@ class ReinforcedConcrete(PropertyProxy):
 		for stageFactorID in stageFactorReferenceIds :
 			stageFactors.append(ReinforcedConcreteStageFactor(self._client, stageFactorID, self))
 		return stageFactors
-	def setProperties(self, ConcreteUnitWeight : float = None, IncludeWeightInAnalysis : bool = None, Reinforcement : bool = None, Spacing : float = None, SectionDepth : float = None, Area : float = None, MomentOfInertia : float = None, ConcreteYoungsModulus : float = None, ConcreteCompressiveStrength : float = None, ConcreteTensileStrength : float = None, Weight : float = None, Concrete : bool = None, Thickness : float = None, YoungsModulus : float = None, PoissonRatio : float = None, CompressiveStrength : float = None, TensileStrength : float = None, MaterialType : MaterialType = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageConcreteProperties : bool = None):
+	def setProperties(self, ConcreteUnitWeight : float = None, IncludeWeightInStressAnalysis : bool = None, Reinforcement : bool = None, Spacing : float = None, SectionDepth : float = None, Area : float = None, MomentOfInertia : float = None, ConcreteYoungsModulus : float = None, ConcreteCompressiveStrength : float = None, ConcreteTensileStrength : float = None, Weight : float = None, Concrete : bool = None, Thickness : float = None, YoungsModulus : float = None, PoissonRatio : float = None, CompressiveStrength : float = None, TensileStrength : float = None, MaterialType : MaterialType = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageConcreteProperties : bool = None):
 		if ConcreteUnitWeight is not None:
 			self._setDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE", ConcreteUnitWeight)
-		if IncludeWeightInAnalysis is not None:
-			self._setBoolProperty("LNP_USE_WEIGHT", IncludeWeightInAnalysis)
+		if IncludeWeightInStressAnalysis is not None:
+			self._setBoolProperty("LNP_USE_WEIGHT", IncludeWeightInStressAnalysis)
 		if Reinforcement is not None:
 			self._setBoolProperty("LNP_USE_REINFORCEMENT", Reinforcement)
 		if Spacing is not None:
@@ -236,7 +236,7 @@ class ReinforcedConcrete(PropertyProxy):
 	def getProperties(self):
 		return {
 		"ConcreteUnitWeight" : self.getConcreteUnitWeight(), 
-		"IncludeWeightInAnalysis" : self.getIncludeWeightInAnalysis(), 
+		"IncludeWeightInStressAnalysis" : self.getIncludeWeightInStressAnalysis(), 
 		"Reinforcement" : self.getReinforcement(), 
 		"Spacing" : self.getSpacing(), 
 		"SectionDepth" : self.getSectionDepth(), 
