@@ -80,11 +80,14 @@ class AnisotropicLinear(PropertyProxy):
 		return self._getDoubleProperty("MP_ANISOTROPY_ANGLE")
 	def setAngleCcwTo1(self, value: float):
 		return self._setDoubleProperty("MP_ANISOTROPY_ANGLE", value)
-	def getAnisotropicSurface(self) -> int:
-		return int(self._getIntProperty("MP_ANISOTROPY_SURFACE"))
-	def setAnisotropicSurface(self, value: int):
-		return self._setIntProperty("MP_ANISOTROPY_SURFACE", value)
-	def setProperties(self, MaterialType : MaterialType = None, A1Parameter : float = None, B1Parameter : float = None, UseTensileStrength : bool = None, Cohesion1 : float = None, Cohesion2 : float = None, FrictionAngle1 : float = None, FrictionAngle2 : float = None, PeakTensileStrength : float = None, ResidualCohesion1 : float = None, ResidualCohesion2 : float = None, ResidualFrictionAngle1 : float = None, ResidualFrictionAngle2 : float = None, DilationAngle1 : float = None, DilationAngle2 : float = None, ResidualTensileStrength : float = None, ApplySSRShearStrengthReduction : bool = None, AnisotropyDefinition : AnisotropyDefinitions = None, AngleCcwTo1 : float = None, AnisotropicSurface : int = None):
+	def setAnisotropicSurfaceByName(self, surfaceName: str):
+		"""
+		Sets the anisotropic surface by name. The surface must be defined in the model.
+		"""
+		return self._callFunction("setAnisotropicSurfaceByName", [surfaceName])
+	def getAnisotropicSurfaceName(self) -> str:
+		return self._callFunction("getAnisotropicSurfaceName", [])
+	def setProperties(self, MaterialType : MaterialType = None, A1Parameter : float = None, B1Parameter : float = None, UseTensileStrength : bool = None, Cohesion1 : float = None, Cohesion2 : float = None, FrictionAngle1 : float = None, FrictionAngle2 : float = None, PeakTensileStrength : float = None, ResidualCohesion1 : float = None, ResidualCohesion2 : float = None, ResidualFrictionAngle1 : float = None, ResidualFrictionAngle2 : float = None, DilationAngle1 : float = None, DilationAngle2 : float = None, ResidualTensileStrength : float = None, ApplySSRShearStrengthReduction : bool = None, AnisotropyDefinition : AnisotropyDefinitions = None, AngleCcwTo1 : float = None):
 		if MaterialType is not None:
 			self._setEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE", MaterialType)
 		if A1Parameter is not None:
@@ -123,8 +126,6 @@ class AnisotropicLinear(PropertyProxy):
 			self._setEnumEAnisotropyDefinitionsProperty("MP_ANISOTROPY_DEFINITION", AnisotropyDefinition)
 		if AngleCcwTo1 is not None:
 			self._setDoubleProperty("MP_ANISOTROPY_ANGLE", AngleCcwTo1)
-		if AnisotropicSurface is not None:
-			self._setIntProperty("MP_ANISOTROPY_SURFACE", AnisotropicSurface)
 	def getProperties(self):
 		return {
 		"MaterialType" : self.getMaterialType(), 
@@ -146,5 +147,4 @@ class AnisotropicLinear(PropertyProxy):
 		"ApplySSRShearStrengthReduction" : self.getApplySSRShearStrengthReduction(), 
 		"AnisotropyDefinition" : self.getAnisotropyDefinition(), 
 		"AngleCcwTo1" : self.getAngleCcwTo1(), 
-		"AnisotropicSurface" : self.getAnisotropicSurface(), 
 		}

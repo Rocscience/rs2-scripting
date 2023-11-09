@@ -12,6 +12,11 @@ class Custom(PropertyProxy):
 		return ThermalVolumetricDepencenceType(self._getEnumEThermalVolumetricDepencenceTypeProperty("MP_THERMAL_DEPENDENCE"))
 	def setDependence(self, value: ThermalVolumetricDepencenceType):
 		return self._setEnumEThermalVolumetricDepencenceTypeProperty("MP_THERMAL_DEPENDENCE", value)
+	def setVolumetricHeatCapacityTable(self, volumetricHeatCapacity: list[float], temperatureOrWaterContent: list[float]):
+		"""
+		Depending on the type of thermal tabular dependence selected, the second argument is interpreted as temperature or water content.
+		"""
+		return self._callFunction("setVolumetricHeatCapacityTable", [volumetricHeatCapacity, temperatureOrWaterContent])
 	def setProperties(self, IncludeLatentHeat : bool = None, Dependence : ThermalVolumetricDepencenceType = None):
 		if IncludeLatentHeat is not None:
 			self._setBoolProperty("MP_THERMAL_LATENT_HEAT", IncludeLatentHeat)

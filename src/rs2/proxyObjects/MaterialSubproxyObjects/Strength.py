@@ -131,3 +131,8 @@ class Strength(PropertyProxy):
 		return UnsaturatedTabularValueMethod(self._getEnumEUnsaturatedTabularValueMethodProperty("MP_UNSATURATED_TABULAR_VALUE_METHOD"))
 	def setTabularValues(self, value: UnsaturatedTabularValueMethod):
 		return self._setEnumEUnsaturatedTabularValueMethodProperty("MP_UNSATURATED_TABULAR_VALUE_METHOD", value)
+	def setUnsaturatedZoneTable(self, coefficients: list[float], values: list[float]):
+		"""
+		Depending on the type of tabular values selected, specify the coefficient and values with respect to suction, degree of saturation or effective degree of saturation.
+		"""
+		return self._callFunction("setUnsaturatedZoneTable", [coefficients, values])

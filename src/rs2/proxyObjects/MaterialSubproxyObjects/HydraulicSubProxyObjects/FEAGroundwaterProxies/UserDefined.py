@@ -8,17 +8,14 @@ class UserDefined(PropertyProxy):
 		return WCInputType(self._getEnumEWCInputTypeProperty("MP_WC_INPUT_TYPE"))
 	def setWCInputType(self, value: WCInputType):
 		return self._setEnumEWCInputTypeProperty("MP_WC_INPUT_TYPE", value)
-	def getUserDefinedPermeabilityAndWaterContent(self) -> int:
-		return int(self._getIntProperty("MP_USER_DEFINED_SELECTION"))
-	def setUserDefinedPermeabilityAndWaterContent(self, value: int):
-		return self._setIntProperty("MP_USER_DEFINED_SELECTION", value)
-	def setProperties(self, WCInputType : WCInputType = None, UserDefinedPermeabilityAndWaterContent : int = None):
+	def setUserDefinedPermeabilityAndWaterContentFunction(self, functionName: str):
+		return self._callFunction("setUserDefinedPermeabilityAndWaterContentFunction", [functionName])
+	def getUserDefinedPermeabilityAndWaterContentFunction(self) -> str:
+		return self._callFunction("getUserDefinedPermeabilityAndWaterContentFunction", [])
+	def setProperties(self, WCInputType : WCInputType = None):
 		if WCInputType is not None:
 			self._setEnumEWCInputTypeProperty("MP_WC_INPUT_TYPE", WCInputType)
-		if UserDefinedPermeabilityAndWaterContent is not None:
-			self._setIntProperty("MP_USER_DEFINED_SELECTION", UserDefinedPermeabilityAndWaterContent)
 	def getProperties(self):
 		return {
 		"WCInputType" : self.getWCInputType(), 
-		"UserDefinedPermeabilityAndWaterContent" : self.getUserDefinedPermeabilityAndWaterContent(), 
 		}

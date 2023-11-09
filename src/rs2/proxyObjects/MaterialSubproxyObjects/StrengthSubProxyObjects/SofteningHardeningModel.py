@@ -48,6 +48,29 @@ class SofteningHardeningModel(PropertyProxy):
 		return self._getDoubleProperty("MP_LAMBDA_KAPPA")
 	def setLambdaKappa(self, value: float):
 		return self._setDoubleProperty("MP_LAMBDA_KAPPA", value)
+	def setSHConeHardening(self, plasticStrainVsFrictionAngle: list[tuple[float,float]], plasticStrainVsCohesion: list[tuple[float,float]]):
+		"""
+		plasticStrainVsFrictionAngle: list of tuples, (plainStrain, frictionAngle)
+		plasticStrainVsCohesion: list of tuples, (plasticStrain, Cohesion)
+		"""
+		return self._callFunction("setSHConeHardening", [plasticStrainVsFrictionAngle, plasticStrainVsCohesion])
+	def getSHConeHardening(self) -> tuple(list[tuple[float,float]],list[tuple[float,float]]):
+		"""
+		returns a tuple of (plasticStrainVsFrictionAngle, plasticStrainVsCohesion), where
+		plasticStrainVsFrictionAngle: list of tuples, (plainStrain, frictionAngle)
+		plasticStrainVsCohesion: list of tuples, (plasticStrain, Cohesion)
+		"""
+		return self._callFunction("getSHConeHardening", [])
+	def setSHCapMeanStress(self, meanStress: list[tuple[float,float]]):
+		"""
+		meanStress is a list of (x,y) tuples.
+		"""
+		return self._callFunction("setSHCapMeanStress", [meanStress])
+	def getSHCapMeanStress(self) -> list[tuple[float,float]]:
+		"""
+		returns a list of (x,y) tuples.
+		"""
+		return self._callFunction("getSHCapMeanStress", [])
 	def setProperties(self, PeakTensileStrength : float = None, PeakFrictionAngle : float = None, PeakCohesion : float = None, ConeHardeningType : ConeHardeningTypes = None, HardeningProperty : float = None, DilationAngle : float = None, ConeDilationType : DilationTypes = None, CapType : CapTypes = None, CapHardeningType : CapHardeningTypes = None, InitialMeanStress : float = None, LambdaKappa : float = None):
 		if PeakTensileStrength is not None:
 			self._setDoubleProperty("MP_PEAK_TENSILE_STRENGTH", PeakTensileStrength)
