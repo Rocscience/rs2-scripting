@@ -61,7 +61,7 @@ class RS2Modeler:
 		Typical Usage example to not save all models:
 		modeler.closeProgram(False)
 		'''
-		request = functionRequest('closeModalDialogs', [])
+		request = functionRequest('closeOpenDialogs', [])
 		self.client.callFunction(request)
 		request = functionRequest('closeProgram', [saveModels])
 		self.client.callFunction(request)
