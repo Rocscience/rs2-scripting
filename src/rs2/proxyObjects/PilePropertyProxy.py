@@ -3,6 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
+from rs2.proxyObjects.documentProxy import DocumentProxy
 from rs2.proxyObjects.PileSubproxyObjects.Elastic import Elastic
 from rs2.proxyObjects.PileSubproxyObjects.MohrCoulombPile import MohrCoulombPile
 from rs2.proxyObjects.PileSubproxyObjects.Linear import Linear
@@ -50,7 +51,12 @@ class PileProperty(PropertyProxy):
 	def getLength(self) -> float:
 		return self._callFunction("__getattribute__", ["m_length"])
 	def setLength(self, Length: float):
-		return self._callFunction("setLength", [Length, self.documentProxyID], proxyArgumentIndices=[1])
+		"""
+		Resets the mesh if it exists.
+		"""
+		response = self._callFunction("setLength", [Length])
+		DocumentProxy(self._client, self.documentProxyID).rebuildAndPostProcessPiles()
+		return response
 	def getStageForceDisplacement(self) -> bool:
 		return self._callFunction("__getattribute__", ["apply_stage_factors"])
 	def setStageForceDisplacement(self, stageForceDisplacement: bool):
