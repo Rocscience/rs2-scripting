@@ -66,3 +66,13 @@ class TestPileExtras(unittest.TestCase):
         self.pile.Beam.defineBeamSegment([1,2,3], ["Liner 1","Liner 2","Liner 3"])
         self.assertEqual(self.pile.Beam.getBeamSegment(), ([1,2,3], ["Liner 1","Liner 2","Liner 3"]))
 
+    def testSetBeamLengthSuccess(self):
+        self.pile.setLength(200)
+        self.assertEqual(self.pile.getLength(), 200)
+    
+    def testSetBeamLengthFailure(self):
+        try:
+            self.pile.setLength(0)
+            self.fail("Expected an exception")
+        except:
+            pass
