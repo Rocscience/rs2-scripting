@@ -62,3 +62,55 @@ class TestShearNormalFunction(unittest.TestCase):
 
         self.model.deleteShearNormalFunction("newName")
         self.assertEqual(len(self.model.getShearNormalFunctions()), 0)
+
+    def testPropertiesFailure(self):
+        #should start with no functions
+        self.assertEqual(len(self.model.getShearNormalFunctions()), 0)
+
+        #create a new function
+        self.model.createNewShearNormalFunction("testFunction")
+        self.assertEqual(len(self.model.getShearNormalFunctions()), 1)
+
+        #get the function by name
+        function = self.model.getShearNormalFunctionByName("testFunction")
+        self.assertEqual(function.getName(), "testFunction")
+
+        function.setMaterialTypeByName(MaterialType.PLASTIC)
+        self.assertEqual(function.getMaterialType(), MaterialType.PLASTIC)
+        
+        function.setUseCalculatedTensileStrength(False)
+        self.assertEqual(function.getUseCalculatedTensileStrength(), False)
+
+        #residual tensile strength cannot be greater than peak tensile strength. Residual violator
+        with self.assertRaises(Exception):
+            function.setPeakTensileStrength(1.0)
+            function.setResidualTensileStrength(1.1)
+        
+        #residual tensile strength cannot be greater than peak tensile strength. Peak violator
+        with self.assertRaises(Exception):
+            function.setResidualTensileStrength(0.2)
+            function.setPeakTensileStrength(0.1)
+
+        #cannot set residual tensile strength for elastic material
+        with self.assertRaises(Exception):
+            function.setMaterialTypeByName(MaterialType.ELASTIC)
+            function.setResidualTensileStrength(0.2)
+        
+        #cannot set dilation ratio for elastic material
+        with self.assertRaises(Exception):
+            function.setMaterialTypeByName(MaterialType.ELASTIC)
+            function.setDilationRatio(0.2)
+        
+        function.setMaterialTypeByName(MaterialType.PLASTIC)
+
+        #dilation ratio must be between 0 and 1
+        with self.assertRaises(Exception):
+            function.setDilationRatio(-0.1)
+        
+        #cannot have less than 2 function points
+        with self.assertRaises(Exception):
+            function.setFunctionPoints([(1,2,1)])
+
+        #cannot input points with normal not in ascending order
+        with self.assertRaises(Exception):
+            function.setFunctionPoints([(4,5,2),(1,2,1)])
