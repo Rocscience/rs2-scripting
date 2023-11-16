@@ -44,7 +44,7 @@ class ModelProxy(ProxyObject):
 		'''
 		Returns a Composite Liner Property object based on its name.
 		'''
-		compositeLinerObjectID = self._callFunction('getCompositeLinerPropertyByName', [compositeName], keepReturnValueReference=True)
+		compositeLinerObjectID = self._callFunction('getCompositePropertyByName', [compositeName], keepReturnValueReference=True)
 		return CompositeLinerProperty(self._client, compositeLinerObjectID, self._documentProxy._ID)
 
 	
@@ -84,7 +84,7 @@ class ModelProxy(ProxyObject):
 		Returns a list of all Composite Liner Property objects
 		'''
 		activeCompositeProperties = []
-		compositeObjectIDList = self._callFunction('getAllCompositeLinerProperties', [], keepReturnValueReference=True)
+		compositeObjectIDList = self._callFunction('getAllCompositeProperties', [], keepReturnValueReference=True)
 		for compositeObjectID in compositeObjectIDList:
 			activeCompositeProperties.append(CompositeLinerProperty(self._client, compositeObjectID, self._documentProxy._ID))
 		return activeCompositeProperties
