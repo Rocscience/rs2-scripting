@@ -44,7 +44,7 @@ class ModelProxy(ProxyObject):
 		'''
 		Returns a Structural Interface Property object based on its name.
 		'''
-		structuralInterfaceObjectID = self._callFunction('getStructuralInterfacePropertyByName', [structuralName], keepReturnValueReference=True)
+		structuralInterfaceObjectID = self._callFunction('getStructuralPropertyByName', [structuralName], keepReturnValueReference=True)
 		return StructuralInterfaceProperty(self._client, structuralInterfaceObjectID, self._documentProxy._ID)
 	
 	def getAllBoltProperties(self) -> list[BoltProperty]:
@@ -83,7 +83,7 @@ class ModelProxy(ProxyObject):
 		Returns a list of all Structural Interface Property objects
 		'''
 		activeStructuralProperties = []
-		structuralObjectIDList = self._callFunction('getAllStructuralInterfaceProperties', [], keepReturnValueReference=True)
+		structuralObjectIDList = self._callFunction('getAllStructuralProperties', [], keepReturnValueReference=True)
 		for structuralObjectID in structuralObjectIDList:
 			activeStructuralProperties.append(StructuralInterfaceProperty(self._client, structuralObjectID, self._documentProxy._ID))
 		return activeStructuralProperties
