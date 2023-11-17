@@ -1,11 +1,11 @@
 from rs2.ProxyObject import ProxyObject
-from PropertyEnums import *
+from rs2.PropertyEnums import *
 
 class SnowdenAnisotropicFunction(ProxyObject):
     def setFunctionType(self, functionType : SnowdenAnisotropicFunctionType):
         return self._callFunction("setFunctionType", [functionType.value])
     def getFunctionType(self) -> SnowdenAnisotropicFunctionType:
-        return SnowdenAnisotropicFunctionType(self._callFunction("__getattribute__", ["iFunctionType"]))
+        return SnowdenAnisotropicFunctionType(self._callFunction("getFunctionType"))
     
     def setPeakTensileStrength(self, peakTensileStrength : float):
         return self._callFunction("setPeakTensileStrength", [peakTensileStrength])
