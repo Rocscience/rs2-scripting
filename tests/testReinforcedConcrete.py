@@ -23,7 +23,7 @@ class TestReinforcedConcrete(unittest.TestCase):
         liner = self.liner
         self.liner.setLinerType(LinerTypes.P2_LINER_REINFORCED_CONCRETE)
         liner.ReinforcedConcrete.setConcreteUnitWeight(836.5)
-        liner.ReinforcedConcrete.setIncludeWeightInAnalysis(0)
+        liner.ReinforcedConcrete.setIncludeWeightInStressAnalysis(0)
         liner.ReinforcedConcrete.setReinforcement(0)
         liner.ReinforcedConcrete.setSpacing(86.7)
         liner.ReinforcedConcrete.setSectionDepth(762.9)
@@ -58,7 +58,7 @@ class TestReinforcedConcrete(unittest.TestCase):
         self.liner = self.model.getAllLinerProperties()[0]
         liner = self.liner
         self.assertEqual(liner.ReinforcedConcrete.getConcreteUnitWeight(), 836.5)
-        self.assertEqual(liner.ReinforcedConcrete.getIncludeWeightInAnalysis(), 0)
+        self.assertEqual(liner.ReinforcedConcrete.getIncludeWeightInStressAnalysis(), 0)
         self.assertEqual(liner.ReinforcedConcrete.getReinforcement(), 0)
         self.assertEqual(liner.ReinforcedConcrete.getSpacing(), 86.7)
         self.assertEqual(liner.ReinforcedConcrete.getSectionDepth(), 762.9)

@@ -8,9 +8,9 @@ class StandardBeam(PropertyProxy):
 		return self._getDoubleProperty("LNP_UNIT_WEIGHT")
 	def setUnitWeight(self, value: float):
 		return self._setDoubleProperty("LNP_UNIT_WEIGHT", value)
-	def getIncludeWeightInAnalysis(self) -> bool:
+	def getIncludeWeightInStressAnalysis(self) -> bool:
 		return self._getBoolProperty("LNP_USE_WEIGHT")
-	def setIncludeWeightInAnalysis(self, value: bool):
+	def setIncludeWeightInStressAnalysis(self, value: bool):
 		return self._setBoolProperty("LNP_USE_WEIGHT", value)
 	def getMethod(self) -> GeometryChoice:
 		return GeometryChoice(self._getEnumEGeometryChoiceProperty("LNP_GEOMETRY_CHOICE"))
@@ -107,11 +107,11 @@ class StandardBeam(PropertyProxy):
 		Grids "None" and "Default Grid" available by default.
 		"""
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName])
-	def setProperties(self, UnitWeight : float = None, IncludeWeightInAnalysis : bool = None, Method : GeometryChoice = None, Thickness : float = None, Area : float = None, MomentOfInertia : float = None, YoungsModulus : float = None, PoissonsRatio : float = None, MaterialType : MaterialType = None, CompressiveStrengthPeak : float = None, CompressiveStrengthResidual : float = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageLinerProperties : bool = None):
+	def setProperties(self, UnitWeight : float = None, IncludeWeightInStressAnalysis : bool = None, Method : GeometryChoice = None, Thickness : float = None, Area : float = None, MomentOfInertia : float = None, YoungsModulus : float = None, PoissonsRatio : float = None, MaterialType : MaterialType = None, CompressiveStrengthPeak : float = None, CompressiveStrengthResidual : float = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageLinerProperties : bool = None):
 		if UnitWeight is not None:
 			self._setDoubleProperty("LNP_UNIT_WEIGHT", UnitWeight)
-		if IncludeWeightInAnalysis is not None:
-			self._setBoolProperty("LNP_USE_WEIGHT", IncludeWeightInAnalysis)
+		if IncludeWeightInStressAnalysis is not None:
+			self._setBoolProperty("LNP_USE_WEIGHT", IncludeWeightInStressAnalysis)
 		if Method is not None:
 			self._setEnumEGeometryChoiceProperty("LNP_GEOMETRY_CHOICE", Method)
 		if Thickness is not None:
@@ -159,7 +159,7 @@ class StandardBeam(PropertyProxy):
 	def getProperties(self):
 		return {
 		"UnitWeight" : self.getUnitWeight(), 
-		"IncludeWeightInAnalysis" : self.getIncludeWeightInAnalysis(), 
+		"IncludeWeightInStressAnalysis" : self.getIncludeWeightInStressAnalysis(), 
 		"Method" : self.getMethod(), 
 		"Thickness" : self.getThickness(), 
 		"Area" : self.getArea(), 
