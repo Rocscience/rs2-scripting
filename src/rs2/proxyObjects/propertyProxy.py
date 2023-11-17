@@ -77,10 +77,6 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEPFPApplicationProperty", [propertyName])
 	def _setEnumEPFPApplicationProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEPFPApplicationProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
-	def _getEnumEPileApplicationTypeProperty(self, propertyName: str):
-		return self._callFunction("getEnumEPileApplicationTypeProperty", [propertyName])
-	def _setEnumEPileApplicationTypeProperty(self, propertyName: str, value):
-		return self._callFunction("setEnumEPileApplicationTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumEPileEndConditionProperty(self, propertyName: str):
 		return self._callFunction("getEnumEPileEndConditionProperty", [propertyName])
 	def _setEnumEPileEndConditionProperty(self, propertyName: str, value):
