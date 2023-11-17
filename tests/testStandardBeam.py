@@ -23,7 +23,7 @@ class TestStandardBeam(unittest.TestCase):
         liner = self.liner
         self.liner.setLinerType(LinerTypes.P2_LINER_STANDARD_BEAM)
         liner.StandardBeam.setUnitWeight(836.5)
-        liner.StandardBeam.setIncludeWeightInAnalysis(0)
+        liner.StandardBeam.setIncludeWeightInStressAnalysis(0)
         liner.StandardBeam.setMethod(GeometryChoice.LNP_USE_THICKNESS)
         liner.StandardBeam.setThickness(972.5)
         liner.StandardBeam.setArea(86.7)
@@ -54,7 +54,7 @@ class TestStandardBeam(unittest.TestCase):
         self.liner = self.model.getAllLinerProperties()[0]
         liner = self.liner
         self.assertEqual(liner.StandardBeam.getUnitWeight(), 836.5)
-        self.assertEqual(liner.StandardBeam.getIncludeWeightInAnalysis(), 0)
+        self.assertEqual(liner.StandardBeam.getIncludeWeightInStressAnalysis(), 0)
         self.assertEqual(liner.StandardBeam.getMethod(), GeometryChoice.LNP_USE_THICKNESS)
         self.assertEqual(liner.StandardBeam.getThickness(), 972.5)
         self.assertEqual(liner.StandardBeam.getArea(), 86.7)

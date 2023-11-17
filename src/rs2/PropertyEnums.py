@@ -340,6 +340,3 @@ class FinnFormula(Enum):
 class FinnByrneDefinition(Enum):
 	FINN_BYRNE_C1_C2 = "FINN_BYRNE_C1_C2"
 	FINN_BYRNE_N1 = "FINN_BYRNE_N1"
-class DatumType(Enum):
-	DATUM_TYPE_DEPTH = "DATUM_TYPE_DEPTH"
-	DATUM_TYPE_RADIAL = "DATUM_TYPE_RADIAL"
