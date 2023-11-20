@@ -1,6 +1,6 @@
 from rs2.ProxyObject import ProxyObject
 from rs2.PropertyEnums import *
-from rs2.proxyObjects.JointPropertyProxy import JointProperty
+from rs2.proxyObjects.MaterialJoint import MaterialJoint
 class MaterialJointOptions(ProxyObject):
     def __init__(self, client, ID, documentProxyID):
         self.documentProxyID = documentProxyID
@@ -24,5 +24,5 @@ class MaterialJointOptions(ProxyObject):
         return self._callFunction("setInclination", [jointIndex, value])
     def getInclination(self, jointIndex: int) -> float:
         return self._callFunction("getInclination", [jointIndex])
-    def getJoint(self, jointIndex: int) -> JointProperty:
-        return JointProperty(self._client, self._callFunction("getJoint", [jointIndex], keepReturnValueReference=True), self.documentProxyID)
+    def getJoint(self, jointIndex: int) -> MaterialJoint:
+        return MaterialJoint(self._client, self._callFunction("getJoint", [jointIndex], keepReturnValueReference=True), self.documentProxyID)

@@ -55,7 +55,7 @@ class TestMaterialJointOptions(unittest.TestCase):
         self.matJointOptions.setTracePlaneProperties(0, 0.1, 0.2, 0.3)
         self.assertEqual(self.matJointOptions.getTracePlaneProperties(0), (0.1, 0.2, 0.3))
 
-    def testJointBartonBandis(self):
+    def testJointBartonBandisMaterial(self):
         self.matJointOptions.setNumberOfJoints(1)
         self.assertEqual(self.matJointOptions.getNumberOfJoints(), 1)
 
@@ -64,22 +64,22 @@ class TestMaterialJointOptions(unittest.TestCase):
         self.assertEqual(joint.getSlipCriterion(), JointTypes.JOINT_BARTON_BANDIS)
 
         #missing dilation angle?
-        joint.BartonBandis.setJCS(0.1)
-        self.assertEqual(joint.BartonBandis.getJCS(), 0.1)
+        joint.BartonBandisMaterial.setJCS(0.1)
+        self.assertEqual(joint.BartonBandisMaterial.getJCS(), 0.1)
 
-        joint.BartonBandis.setJRC(0.2)
-        self.assertEqual(joint.BartonBandis.getJRC(), 0.2)
+        joint.BartonBandisMaterial.setJRC(0.2)
+        self.assertEqual(joint.BartonBandisMaterial.getJRC(), 0.2)
 
-        joint.BartonBandis.setResidualFrictionAngle(0.3)
-        self.assertEqual(joint.BartonBandis.getResidualFrictionAngle(), 0.3)
+        joint.BartonBandisMaterial.setResidualFrictionAngle(0.3)
+        self.assertEqual(joint.BartonBandisMaterial.getResidualFrictionAngle(), 0.3)
 
-        joint.BartonBandis.setResidualStrength(True)
-        self.assertEqual(joint.BartonBandis.getResidualStrength(), True)
+        joint.BartonBandisMaterial.setResidualStrength(True)
+        self.assertEqual(joint.BartonBandisMaterial.getResidualStrength(), True)
 
-        joint.BartonBandis.setApplyStageFactors(True)
-        self.assertEqual(joint.BartonBandis.getApplyStageFactors(), True)
+        joint.BartonBandisMaterial.setApplyStageFactors(True)
+        self.assertEqual(joint.BartonBandisMaterial.getApplyStageFactors(), True)
 
-    def testGeosyntheticHyperbolic(self):
+    def testGeosyntheticHyperbolicMaterial(self):
         self.matJointOptions.setNumberOfJoints(1)
         self.assertEqual(self.matJointOptions.getNumberOfJoints(), 1)
 
@@ -88,17 +88,17 @@ class TestMaterialJointOptions(unittest.TestCase):
         self.assertEqual(joint.getSlipCriterion(), JointTypes.JOINT_HYPERBOLIC_SIMPLE)
 
         #missing dilation ratio?
-        joint.GeosyntheticHyperbolic.setPeakAdhesionAtSigninf(0.1)
-        joint.GeosyntheticHyperbolic.setPeakFrictionAngleAtSign0(0.2)
-        joint.GeosyntheticHyperbolic.setResAdhesionAtSigninf(0.3)
-        joint.GeosyntheticHyperbolic.setResFrictionAngleAtSign0(0.4)
+        joint.GeosyntheticHyperbolicMaterial.setPeakAdhesionAtSigninf(0.1)
+        joint.GeosyntheticHyperbolicMaterial.setPeakFrictionAngleAtSign0(0.2)
+        joint.GeosyntheticHyperbolicMaterial.setResAdhesionAtSigninf(0.3)
+        joint.GeosyntheticHyperbolicMaterial.setResFrictionAngleAtSign0(0.4)
 
-        self.assertEqual(joint.GeosyntheticHyperbolic.getPeakAdhesionAtSigninf(), 0.1)
-        self.assertEqual(joint.GeosyntheticHyperbolic.getPeakFrictionAngleAtSign0(), 0.2)
-        self.assertEqual(joint.GeosyntheticHyperbolic.getResAdhesionAtSigninf(), 0.3)
-        self.assertEqual(joint.GeosyntheticHyperbolic.getResFrictionAngleAtSign0(), 0.4)
+        self.assertEqual(joint.GeosyntheticHyperbolicMaterial.getPeakAdhesionAtSigninf(), 0.1)
+        self.assertEqual(joint.GeosyntheticHyperbolicMaterial.getPeakFrictionAngleAtSign0(), 0.2)
+        self.assertEqual(joint.GeosyntheticHyperbolicMaterial.getResAdhesionAtSigninf(), 0.3)
+        self.assertEqual(joint.GeosyntheticHyperbolicMaterial.getResFrictionAngleAtSign0(), 0.4)
 
-    def testJointMohrCoulomb(self):
+    def testJointMohrCoulombMaterial(self):
         self.matJointOptions.setNumberOfJoints(1)
         self.assertEqual(self.matJointOptions.getNumberOfJoints(), 1)
 
@@ -106,26 +106,26 @@ class TestMaterialJointOptions(unittest.TestCase):
         joint.setSlipCriterion(JointTypes.JOINT_MOHR_COULOMB)
         self.assertEqual(joint.getSlipCriterion(), JointTypes.JOINT_MOHR_COULOMB)
         
-        joint.MohrCoulomb.setDilationAngle(0.1)
-        self.assertEqual(joint.MohrCoulomb.getDilationAngle(), 0.1)
+        joint.MohrCoulombMaterial.setDilationAngle(0.1)
+        self.assertEqual(joint.MohrCoulombMaterial.getDilationAngle(), 0.1)
 
-        joint.MohrCoulomb.setTensileStrength(0.2)
-        self.assertEqual(joint.MohrCoulomb.getTensileStrength(), 0.2)
+        joint.MohrCoulombMaterial.setTensileStrength(0.2)
+        self.assertEqual(joint.MohrCoulombMaterial.getTensileStrength(), 0.2)
 
-        joint.MohrCoulomb.setPeakFrictionAngle(0.3)
-        self.assertEqual(joint.MohrCoulomb.getPeakFrictionAngle(), 0.3)
+        joint.MohrCoulombMaterial.setPeakFrictionAngle(0.3)
+        self.assertEqual(joint.MohrCoulombMaterial.getPeakFrictionAngle(), 0.3)
 
-        joint.MohrCoulomb.setPeakCohesion(0.4)
-        self.assertEqual(joint.MohrCoulomb.getPeakCohesion(), 0.4)
+        joint.MohrCoulombMaterial.setPeakCohesion(0.4)
+        self.assertEqual(joint.MohrCoulombMaterial.getPeakCohesion(), 0.4)
         
-        joint.MohrCoulomb.setResidualStrength(True)
-        self.assertEqual(joint.MohrCoulomb.getResidualStrength(), True)
+        joint.MohrCoulombMaterial.setResidualStrength(True)
+        self.assertEqual(joint.MohrCoulombMaterial.getResidualStrength(), True)
 
-        joint.MohrCoulomb.setResCohesion(0.1)
-        self.assertEqual(joint.MohrCoulomb.getResCohesion(), 0.1)
+        joint.MohrCoulombMaterial.setResCohesion(0.1)
+        self.assertEqual(joint.MohrCoulombMaterial.getResCohesion(), 0.1)
 
-        joint.MohrCoulomb.setResFrictionAngle(0.2)
-        self.assertEqual(joint.MohrCoulomb.getResFrictionAngle(), 0.2)
+        joint.MohrCoulombMaterial.setResFrictionAngle(0.2)
+        self.assertEqual(joint.MohrCoulombMaterial.getResFrictionAngle(), 0.2)
 
-        joint.MohrCoulomb.setResTensileStrength(0.3)
-        self.assertEqual(joint.MohrCoulomb.getResTensileStrength(), 0.3)
+        joint.MohrCoulombMaterial.setResTensileStrength(0.3)
+        self.assertEqual(joint.MohrCoulombMaterial.getResTensileStrength(), 0.3)
