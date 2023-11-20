@@ -27,7 +27,7 @@ class GeosyntheticHyperbolicMaterial(PropertyProxy):
 	def setDilationRatio(self, dilationRatio: float):
 		return self._callFunction("setDilationRatio", [dilationRatio])
 	def getDilationRatio(self) -> float:
-		return self._callFunction("getDilationRatio", [])
+		return self._callFunction("__getattribute__", ["dilation_ratio"])
 	def setProperties(self, PeakAdhesionAtSigninf : float = None, PeakFrictionAngleAtSign0 : float = None, ResAdhesionAtSigninf : float = None, ResFrictionAngleAtSign0 : float = None, ApplyStageFactors : bool = None):
 		if PeakAdhesionAtSigninf is not None:
 			self._setDoubleProperty("JP_PEAK_ADHESION", PeakAdhesionAtSigninf)

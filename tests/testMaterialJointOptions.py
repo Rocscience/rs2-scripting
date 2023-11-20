@@ -8,7 +8,8 @@ from rs2.PropertyEnums import*
 parentDirectoryHelper.addParentDirectoryToPath()
 
 class TestMaterialJointOptions(unittest.TestCase):
-    def setUp(self):
+    @classmethod
+    def setUpClass(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
         blankModelPath = f"{parentDirectory}/resources/starterProject.fez"
         self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
@@ -17,7 +18,8 @@ class TestMaterialJointOptions(unittest.TestCase):
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.mat = self.model.getAllMaterialProperties()[0]
         self.matJointOptions = self.mat.Strength.JointedMohrCoulomb.getJointOptions()
-    def tearDown(self):
+    @classmethod
+    def tearDownClass(self):
         self.model.close()
         os.remove(self.copiedModelPath)
 
@@ -63,7 +65,9 @@ class TestMaterialJointOptions(unittest.TestCase):
         joint.setSlipCriterion(JointTypes.JOINT_BARTON_BANDIS)
         self.assertEqual(joint.getSlipCriterion(), JointTypes.JOINT_BARTON_BANDIS)
 
-        #missing dilation angle?
+        joint.BartonBandisMaterial.setDilationAngle(0.05)
+        self.assertEqual(joint.BartonBandisMaterial.getDilationAngle(), 0.05)
+        
         joint.BartonBandisMaterial.setJCS(0.1)
         self.assertEqual(joint.BartonBandisMaterial.getJCS(), 0.1)
 
@@ -87,7 +91,8 @@ class TestMaterialJointOptions(unittest.TestCase):
         joint.setSlipCriterion(JointTypes.JOINT_HYPERBOLIC_SIMPLE)
         self.assertEqual(joint.getSlipCriterion(), JointTypes.JOINT_HYPERBOLIC_SIMPLE)
 
-        #missing dilation ratio?
+        joint.GeosyntheticHyperbolicMaterial.setDilationRatio(0.05)
+        self.assertEqual(joint.GeosyntheticHyperbolicMaterial.getDilationRatio(), 0.05)
         joint.GeosyntheticHyperbolicMaterial.setPeakAdhesionAtSigninf(0.1)
         joint.GeosyntheticHyperbolicMaterial.setPeakFrictionAngleAtSign0(0.2)
         joint.GeosyntheticHyperbolicMaterial.setResAdhesionAtSigninf(0.3)
