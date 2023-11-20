@@ -25,4 +25,4 @@ class MaterialJointOptions(ProxyObject):
     def getInclination(self, jointIndex: int) -> float:
         return self._callFunction("getInclination", [jointIndex])
     def getJoint(self, jointIndex: int) -> JointProperty:
-        return JointProperty(self._client, self._callFunction("getJoint", [jointIndex]), self.documentProxyID)
+        return JointProperty(self._client, self._callFunction("getJoint", [jointIndex], keepReturnValueReference=True), self.documentProxyID)
