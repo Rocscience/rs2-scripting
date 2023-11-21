@@ -5,6 +5,7 @@ from rs2.proxyObjects.LinerPropertyProxy import LinerProperty
 from rs2.proxyObjects.JointPropertyProxy import JointProperty
 from rs2.proxyObjects.PilePropertyProxy import PileProperty
 from rs2.proxyObjects.MaterialPropertyProxy import MaterialProperty
+from rs2.proxyObjects.UserDefinedWaterMode import UserDefinedWaterMode
 class ModelProxy(ProxyObject):
 	"""
 	:ref:`Model Example`
@@ -104,6 +105,26 @@ class ModelProxy(ProxyObject):
 		for materialObjectID in materialObjectIDList:
 			activeMaterialProperties.append(MaterialProperty(self._client, materialObjectID, self._documentProxy._ID))
 		return activeMaterialProperties
+	
+	def getUserDefinedWaterMode(self, name : str) -> UserDefinedWaterMode:
+		'''
+		Returns a User Defined Water Mode object based on its name.
+		'''
+		userDefinedWaterModeObjectID = self._callFunction('getUserDefinedWaterMode', [name], keepReturnValueReference=True)
+		return UserDefinedWaterMode(self._client, userDefinedWaterModeObjectID)
+	
+	def createUserDefinedWaterMode(self, name : str) -> UserDefinedWaterMode:
+		'''
+		Creates a User Defined Water Mode object with the given name.
+		'''
+		userDefinedWaterModeObjectID = self._callFunction('createUserDefinedWaterMode', [name], keepReturnValueReference=True)
+		return UserDefinedWaterMode(self._client, userDefinedWaterModeObjectID)
+
+	def deleteUserDefinedWaterMode(self, name : str):
+		'''
+		Deletes a User Defined Water Mode object with the given name.
+		'''
+		return self._callFunction('deleteUserDefinedWaterMode', [name])
 	
 	def compute(self):
 		'''
