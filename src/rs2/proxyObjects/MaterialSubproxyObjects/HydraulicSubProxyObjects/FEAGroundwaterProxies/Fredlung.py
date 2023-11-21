@@ -20,6 +20,10 @@ class Fredlung(PropertyProxy):
 		return self._getDoubleProperty("MP_KS")
 	def setKs(self, value: float):
 		return self._setDoubleProperty("MP_KS", value)
+	def getWCInputType(self) -> WCInputType:
+		return WCInputType(self._getEnumEWCInputTypeProperty("MP_WC_INPUT_TYPE"))
+	def setWCInputType(self, value: WCInputType):
+		return self._setEnumEWCInputTypeProperty("MP_WC_INPUT_TYPE", value)
 	def getWCSat(self) -> float:
 		return self._getDoubleProperty("MP_WC_SAT")
 	def setWCSat(self, value: float):
@@ -36,7 +40,7 @@ class Fredlung(PropertyProxy):
 		return self._getDoubleProperty("MP_DOS_RES")
 	def setDoSRes(self, value: float):
 		return self._setDoubleProperty("MP_DOS_RES", value)
-	def setProperties(self, A : float = None, B : float = None, C : float = None, Ks : float = None, WCSat : float = None, WCRes : float = None, DoSSat : float = None, DoSRes : float = None):
+	def setProperties(self, A : float = None, B : float = None, C : float = None, Ks : float = None, WCInputType : WCInputType = None, WCSat : float = None, WCRes : float = None, DoSSat : float = None, DoSRes : float = None):
 		if A is not None:
 			self._setDoubleProperty("MP_FREDLUND_XING_A", A)
 		if B is not None:
@@ -45,6 +49,8 @@ class Fredlung(PropertyProxy):
 			self._setDoubleProperty("MP_FREDLUND_XING_C", C)
 		if Ks is not None:
 			self._setDoubleProperty("MP_KS", Ks)
+		if WCInputType is not None:
+			self._setEnumEWCInputTypeProperty("MP_WC_INPUT_TYPE", WCInputType)
 		if WCSat is not None:
 			self._setDoubleProperty("MP_WC_SAT", WCSat)
 		if WCRes is not None:
@@ -59,6 +65,7 @@ class Fredlung(PropertyProxy):
 		"B" : self.getB(), 
 		"C" : self.getC(), 
 		"Ks" : self.getKs(), 
+		"WCInputType" : self.getWCInputType(), 
 		"WCSat" : self.getWCSat(), 
 		"WCRes" : self.getWCRes(), 
 		"DoSSat" : self.getDoSSat(), 
