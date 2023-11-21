@@ -73,8 +73,7 @@ class TestUserDefinedWaterMode(unittest.TestCase):
     def testGetSetDegreeOfSaturationFunction(self):
         model = self.model
 
-        model.createUserDefinedWaterMode("testUserDefinedWaterMode")
-        userDefinedWaterMode = model.getUserDefinedWaterMode("testUserDefinedWaterMode")
+        userDefinedWaterMode = model.createUserDefinedWaterMode("testUserDefinedWaterMode")
 
         userDefinedWaterMode.setDegreeOfSaturationFunction([(1, 0.1), (2, 0.2)])
         self.assertEqual(userDefinedWaterMode.getDegreeOfSaturationFunction(), [(1, 0.1), (2, 0.2)])
