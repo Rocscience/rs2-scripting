@@ -1,4 +1,5 @@
 from rs2.ProxyObject import ProxyObject
 
 class DocumentProxy(ProxyObject):
-	pass
+	def rebuildAndPostProcessPiles(self):
+		self._callFunction("rebuildAndPostProcessPiles", [])
