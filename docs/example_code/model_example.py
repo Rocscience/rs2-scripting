@@ -1,28 +1,17 @@
 from rs2.RS2Modeler import RS2Modeler
+from rs2.PropertyEnums import *
 
 modeler = RS2Modeler()
 
-model = modeler.openFile(r"C:\scriptingModels\simple_3_stage.fez")
+model = modeler.openFile(r"C:\scriptingModels\Model_example.fez")
 
-boltList = model.getAllBoltProperties()
-linerList = model.getAllLinerProperties()
-jointList = model.getAllJointProperties()
+bolt = model.getAllBoltProperties()[0]
+liner = model.getAllLinerProperties()[0]
+joint = model.getAllJointProperties()[0]
 
-bolt1 = model.getBoltPropertyByName("Test Bolt 1")
-liner1 = model.getLinerPropertyByName("Test Liner 1")
-joint1 = model.getJointPropertyByName("Test Joint 1")
-
-for bolt in range(3):
-	boltName = "Bolt " + str(bolt + 1)
-	boltList[bolt].setBoltName(boltName)
-
-for liner in range(3):
-	linerName = "Liner " + str(liner + 1)
-	linerList[liner].setLinerName(linerName)
-
-for joint in range(3):
-	jointName = "Joint " + str(joint + 1)
-	jointList[joint].setJointName(jointName)
+bolt.setBoltType(BoltTypes.SHEAR_BOLT)
+liner.setLinerType(LinerTypes.P2_LINER_REINFORCED_CONCRETE)
+joint.setSlipCriterion(JointTypes.JOINT_MATERIAL_DEPENDENT)
 
 model.save()
 model.compute()
