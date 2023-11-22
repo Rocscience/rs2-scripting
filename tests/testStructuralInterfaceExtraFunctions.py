@@ -79,7 +79,7 @@ class TestStructuralInterface(unittest.TestCase):
         interface = self.model.getStructuralInterfacePropertyByName("Structural 2")
         self.assertEqual(interface.getPositiveJointPropertyName(), "Joint 1")
 
-    def testGetPositiveNegativeJointPropertyNameFailure(self):
+    def testGetPositiveJointPropertyNameFailure(self):
         try:
             self.model.getJointPropertyByName("NonExistantJointName")
             self.fail("Expected exception")
@@ -91,7 +91,7 @@ class TestStructuralInterface(unittest.TestCase):
         interface.setPositiveJointPropertyByName("Joint 2")
         self.assertEqual(interface.getPositiveJointPropertyName(), "Joint 2")
 
-    def testSetPositiveNegativeJointPropertyNameFailure(self):
+    def testSetPositiveJointPropertyNameFailure(self):
         try:
             interface = self.model.getStructuralInterfacePropertyByName("Structural 2")
             interface.setPositiveJointPropertyByName("NonExistantJoint")
@@ -104,7 +104,22 @@ class TestStructuralInterface(unittest.TestCase):
         interface = self.model.getStructuralInterfacePropertyByName("Structural 2")
         self.assertEqual(interface.getNegativeJointPropertyName(), "Joint 1")
 
+    def testGetNegativeJointPropertyNameFailure(self):
+        try:
+            self.model.getJointPropertyByName("NonExistantJointName")
+            self.fail("Expected exception")
+        except:
+            pass
+
     def testSetNegativeJointPropertyNameSuccess(self):
         interface = self.model.getStructuralInterfacePropertyByName("Structural 2")
         interface.setNegativeJointPropertyByName("Joint 2")
         self.assertEqual(interface.getNegativeJointPropertyName(), "Joint 2")
+
+    def testSetNegativeJointPropertyNameFailure(self):
+        try:
+            interface = self.model.getStructuralInterfacePropertyByName("Structural 2")
+            interface.setNegativeJointPropertyByName("NonExistantJoint")
+            self.fail("Expected exception")
+        except:
+            pass
