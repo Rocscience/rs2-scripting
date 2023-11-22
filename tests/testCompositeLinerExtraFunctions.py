@@ -26,7 +26,7 @@ class TestCompositeLiner(unittest.TestCase):
     # Joint reference tests
     def testGetJointPropertyNameSuccess(self):
         compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
-        self.assertEqual(compositeliner.getJointPropertyName(), "Joint 1")
+        self.assertEqual(compositeliner.getCompositeJointPropertyName(), "Joint 1")
 
     def testGetJointPropertyNameFailure(self):
         try:
@@ -37,13 +37,13 @@ class TestCompositeLiner(unittest.TestCase):
 
     def testSetJointPropertyNameSuccess(self):
         compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
-        compositeliner.setJointPropertyByName("Joint 2")
-        self.assertEqual(compositeliner.getJointPropertyName(), "Joint 2")
+        compositeliner.setCompositeJointPropertyByName("Joint 2")
+        self.assertEqual(compositeliner.getCompositeJointPropertyName(), "Joint 2")
 
     def testSetJointPropertyNameFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
-            compositeliner.setJointPropertyByName("NonExistantJoint")
+            compositeliner.setCompositeJointPropertyByName("NonExistantJoint")
             self.fail("Expected exception")
         except:
             pass
@@ -51,7 +51,7 @@ class TestCompositeLiner(unittest.TestCase):
     # Liner reference tests
     def testGetLinerPropertyNameSuccess(self):
         compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
-        self.assertEqual(compositeliner.getLinerPropertyName(1), "Liner 1")
+        self.assertEqual(compositeliner.getCompositeLinerPropertyName(1), "Liner 1")
 
     def testGetLinerPropertyNameFailure(self):
         try:
@@ -63,7 +63,7 @@ class TestCompositeLiner(unittest.TestCase):
     def testGetLinerPropertyNameBeyondMaxLayerLimitFailure(self):
         try:
             compositeLiner = self.model.getCompositeLinerPropertyByName("Composite 1")
-            compositeLiner.getLinerPropertyName(5)
+            compositeLiner.getCompositeLinerPropertyName(5)
             self.fail("Expected exception")
         except:
             pass
@@ -71,20 +71,20 @@ class TestCompositeLiner(unittest.TestCase):
     def testGetLinerPropertyNameBelowMinLayerLimitFailure(self):
         try:
             compositeLiner = self.model.getCompositeLinerPropertyByName("Composite 1")
-            compositeLiner.getLinerPropertyName(0)
+            compositeLiner.getCompositeLinerPropertyName(0)
             self.fail("Expected exception")
         except:
             pass
 
     def testSetLinerPropertyNameSuccess(self):
         compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
-        compositeliner.setLinerPropertyByName(1, "Liner 2")
-        self.assertEqual(compositeliner.getLinerPropertyName(1), "Liner 2")
+        compositeliner.setCompositeLinerPropertyByName(1, "Liner 2")
+        self.assertEqual(compositeliner.getCompositeLinerPropertyName(1), "Liner 2")
 
     def testSetLinerPropertyNameFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
-            compositeliner.setLinerPropertyByName("NonExistantLiner")
+            compositeliner.setCompositeLinerPropertyByName("NonExistantLiner")
             self.fail("Expected exception")
         except:
             pass
@@ -92,7 +92,7 @@ class TestCompositeLiner(unittest.TestCase):
     def testSetLinerPropertyNameBeyondMaxLayerLimitFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
-            compositeliner.setLinerPropertyByName(5, "Liner 1")
+            compositeliner.setCompositeLinerPropertyByName(5, "Liner 1")
             self.fail("Expected exception")
         except:
             pass
@@ -100,7 +100,7 @@ class TestCompositeLiner(unittest.TestCase):
     def testSetLinerPropertyNameBeyondMinLayerLimitFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
-            compositeliner.setLinerPropertyByName(0, "Liner 1")
+            compositeliner.setCompositeLinerPropertyByName(0, "Liner 1")
             self.fail("Expected exception")
         except:
             pass

@@ -19,26 +19,26 @@ class CompositeLinerProperty(PropertyProxy):
 		return CompositeJointPlacementTypes(self._getEnumECompositeJointPlacementProperty("CLP_JOINT_PLACEMENT"))
 	def setJointPlacement(self, value: CompositeJointPlacementTypes):
 		return self._setEnumECompositeJointPlacementProperty("CLP_JOINT_PLACEMENT", value)
-	def getJointPropertyName(self) -> str:
+	def getCompositeJointPropertyName(self) -> str:
 		"""
 		Returns the applied joint name
 		"""
-		return self._callFunction("getJointPropertyName", [])
-	def setJointPropertyByName(self, jointName: str):
+		return self._callFunction("getCompositeJointPropertyName", [])
+	def setCompositeJointPropertyByName(self, jointName: str):
 		"""
 		Set joint by name
 		"""
-		return self._callFunction("setJointPropertyByName", [jointName])
-	def getLinerPropertyName(self, layerNumber: int) -> str:
+		return self._callFunction("setCompositeJointPropertyByName", [jointName])
+	def getCompositeLinerPropertyName(self, layerNumber: int) -> str:
 		"""
 		Returns the liner name for specified layer number
 		"""
-		return self._callFunction("getLinerPropertyName", [layerNumber])
-	def setLinerPropertyByName(self, layerNumber: int, linerName: str):
+		return self._callFunction("getCompositeLinerPropertyName", [layerNumber])
+	def setCompositeLinerPropertyByName(self, layerNumber: int, linerName: str):
 		"""
 		Set liner by name for specified layer number
 		"""
-		return self._callFunction("setLinerPropertyByName", [layerNumber, linerName])
+		return self._callFunction("setCompositeLinerPropertyByName", [layerNumber, linerName])
 	def getNumberOfLayers(self) -> int:
 		"""
 		Returns number of layers
