@@ -63,3 +63,11 @@ rs2.proxyObjects.PilePropertyProxy module
    :members:
    :undoc-members:
    :show-inheritance:
+
+rs2.proxyObjects.StructuralInterfacePropertyProxy module
+--------------------------------------------------------
+
+.. automodule:: rs2.proxyObjects.StructuralInterfacePropertyProxy
+   :members:
+   :undoc-members:
+   :show-inheritance:
