@@ -23,7 +23,7 @@ class TestCompositeLiner(unittest.TestCase):
         compositeliner = self.compositeliner
         compositeliner.setCompositeName("VYJpH")
         compositeliner.setCompositeColor(31891)
-        compositeliner.setJointPlacement(CompositeJointPlacementTypes.BETWEEN_SOIL_ROCK__AND_FIRST_LINER)
+        compositeliner.setJointPlacement(CompositeJointPlacementTypes.BETWEEN_SOIL_ROCK_AND_FIRST_LINER)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -31,4 +31,4 @@ class TestCompositeLiner(unittest.TestCase):
         compositeliner = self.compositeliner
         self.assertEqual(compositeliner.getCompositeName(), "VYJpH")
         self.assertEqual(compositeliner.getCompositeColor(), 31891)
-        self.assertEqual(compositeliner.getJointPlacement(), CompositeJointPlacementTypes.BETWEEN_SOIL_ROCK__AND_FIRST_LINER)
+        self.assertEqual(compositeliner.getJointPlacement(), CompositeJointPlacementTypes.BETWEEN_SOIL_ROCK_AND_FIRST_LINER)

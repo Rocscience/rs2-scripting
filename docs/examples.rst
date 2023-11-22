@@ -20,6 +20,11 @@ Python Script Examples
    :language: python
    :caption: Code Snippet: Manipulation of Pile Properties
 
+.. _Composite Liner Example:
+.. literalinclude:: example_code/composite_prop_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Composite Liner Properties
+
 .. _Model Example:
 .. literalinclude:: example_code/model_example.py
    :language: python
