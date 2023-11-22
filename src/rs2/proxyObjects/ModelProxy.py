@@ -4,6 +4,7 @@ from rs2.proxyObjects.BoltPropertyProxy import BoltProperty
 from rs2.proxyObjects.LinerPropertyProxy import LinerProperty
 from rs2.proxyObjects.JointPropertyProxy import JointProperty
 from rs2.proxyObjects.PilePropertyProxy import PileProperty
+from rs2.proxyObjects.StructuralInterfacePropertyProxy import StructuralInterfaceProperty
 
 class ModelProxy(ProxyObject):
 	"""
@@ -47,6 +48,13 @@ class ModelProxy(ProxyObject):
 		pileObjectID = self._callFunction('getPilePropertyByName', [pileName], keepReturnValueReference=True)
 		return PileProperty(self._client, pileObjectID, self._documentProxy._ID)
 
+	def getStructuralInterfacePropertyByName(self, structuralName : str) -> StructuralInterfaceProperty:
+		'''
+		Returns a Structural Interface Property object based on its name.
+		'''
+		structuralInterfaceObjectID = self._callFunction('getStructuralPropertyByName', [structuralName], keepReturnValueReference=True)
+		return StructuralInterfaceProperty(self._client, structuralInterfaceObjectID, self._documentProxy._ID)
+	
 	def getAllBoltProperties(self) -> list[BoltProperty]:
 
 		'''
@@ -87,6 +95,16 @@ class ModelProxy(ProxyObject):
 		for pileObjectID in pileObjectIDList:
 			activePileProperties.append(PileProperty(self._client, pileObjectID, self._documentProxy._ID))
 		return activePileProperties
+	
+	def getAllStructuralInterfaceProperties(self) -> list[StructuralInterfaceProperty]:
+		'''
+		Returns a list of all Structural Interface Property objects
+		'''
+		activeStructuralProperties = []
+		structuralObjectIDList = self._callFunction('getAllStructuralProperties', [], keepReturnValueReference=True)
+		for structuralObjectID in structuralObjectIDList:
+			activeStructuralProperties.append(StructuralInterfaceProperty(self._client, structuralObjectID, self._documentProxy._ID))
+		return activeStructuralProperties
 	
 	def compute(self):
 		'''
