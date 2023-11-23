@@ -8,6 +8,10 @@ class GeosyntheticStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, property : PropertyProxy):
 		super().__init__(client, ID)
 		self.property = property
+	def getGeosyntheticUnitWeightFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_UNIT_WEIGTH_GEOSYNTHETIC", self.property._ID], proxyArgumentIndices=[1])
+	def setGeosyntheticUnitWeightFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_UNIT_WEIGTH_GEOSYNTHETIC", value, self.property._ID], proxyArgumentIndices=[2])
 	def getTensileModulusFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_TENSILE_MODULUS", self.property._ID], proxyArgumentIndices=[1])
 	def setTensileModulusFactor(self, value: float):
@@ -24,11 +28,31 @@ class GeosyntheticStageFactor(ProxyObject):
 		return self._callFunction("getDoubleFactor", ["LNP_TENSILE_STRENGTH_RES", self.property._ID], proxyArgumentIndices=[1])
 	def setTensileStrengthResidualFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["LNP_TENSILE_STRENGTH_RES", value, self.property._ID], proxyArgumentIndices=[2])
+	def getConductivityFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_THERAMAL_CONDUCTIVITY", self.property._ID], proxyArgumentIndices=[1])
+	def setConductivityFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_CONDUCTIVITY", value, self.property._ID], proxyArgumentIndices=[2])
+	def getSpecificHeatCapacityFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", self.property._ID], proxyArgumentIndices=[1])
+	def setSpecificHeatCapacityFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", value, self.property._ID], proxyArgumentIndices=[2])
+	def getExpansionCoefficientFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_THERAMAL_EXPANSION_ALPHA", self.property._ID], proxyArgumentIndices=[1])
+	def setExpansionCoefficientFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_EXPANSION_ALPHA", value, self.property._ID], proxyArgumentIndices=[2])
 	def getStagesAfterInstallation(self) -> int:
-		return self._callFunction("getIntFactor", ["LNP_RELATIVE_STAGE_FACTOR", self.property._ID], proxyArgumentIndices=[1])
+		return self._callFunction("getStagesAfterInstallation", [])
 	def setStagesAfterInstallation(self, relativeStage: int):
-		return self._callFunction("setIntFactor", ["LNP_RELATIVE_STAGE_FACTOR", relativeStage, self.property._ID], proxyArgumentIndices = [2])
+		"""
+		Sets the stage factor installation stage as a relative stage based on it's installation stage.
+		The order of the stage factor objects must be preserved and be in increasing order.
+		"""
+		return self._callFunction("setStagesAfterInstallation", [relativeStage])
 class Geosynthetic(PropertyProxy):
+	def getGeosyntheticUnitWeight(self) -> float:
+		return self._getDoubleProperty("LNP_UNIT_WEIGTH_GEOSYNTHETIC")
+	def setGeosyntheticUnitWeight(self, value: float):
+		return self._setDoubleProperty("LNP_UNIT_WEIGTH_GEOSYNTHETIC", value)
 	def getInitialTemperature(self) -> float:
 		return self._getDoubleProperty("LNP_THERAMAL_INITIAL_TEMPERATURE")
 	def setInitialTemperature(self, value: float):
@@ -77,6 +101,10 @@ class Geosynthetic(PropertyProxy):
 		return self._getDoubleProperty("LNP_THERAMAL_EXPANSION_ALPHA")
 	def setExpansionCoefficient(self, value: float):
 		return self._setDoubleProperty("LNP_THERAMAL_EXPANSION_ALPHA", value)
+	def getAxialStrainExpansion(self) -> float:
+		return self._getDoubleProperty("LNP_AXIAL_STRAIN")
+	def setAxialStrainExpansion(self, value: float):
+		return self._setDoubleProperty("LNP_AXIAL_STRAIN", value)
 	def getStageGeosyntheticProperties(self) -> bool:
 		return self._getBoolProperty("LNP_USE_STAGE_GEOSYN")
 	def setStageGeosyntheticProperties(self, value: bool):
@@ -92,21 +120,22 @@ class Geosynthetic(PropertyProxy):
 		return self._callFunction("getUseRelativeStageFactors", [])
 	def setDefineRelativeStageFactors(self, useStagesAfterInstallation: bool):
 		"""
-		Choose to define relative stage factors based on the installation stage.
-		If true, set the relative stage of each stage factor using setStagesAfterInstallation.
-		If false, each stage factor is returned in order from 1 to n from getStageFactors().
+		Choose to define stage factors using absolute stages or relative stages based on the installation stage.
+		A change invalidates existing stage factor objects.
 		"""
 		return self._callFunction("setUseRelativeStageFactors", [useStagesAfterInstallation])
-	def getStageFactors(self) -> List[GeosyntheticStageFactor]:
+	def getStageFactors(self) -> dict[int, GeosyntheticStageFactor]:
 		"""
-		Returns the defined stage factors in a list, in order from stage 1 to n.
+		Returns a map of stage factors. The key is the absolute or relative stage at which the stage factor is applied. The value is the stage factor object
 		"""
 		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
-		stageFactors = []
-		for stageFactorID in stageFactorReferenceIds :
-			stageFactors.append(GeosyntheticStageFactor(self._client, stageFactorID, self))
+		stageFactors = {}
+		for stageKey in stageFactorReferenceIds :
+			stageFactors[stageKey] = GeosyntheticStageFactor(self._client, stageFactorReferenceIds[stageKey], self)
 		return stageFactors
-	def setProperties(self, InitialTemperature : float = None, TensileModulus : float = None, MaterialType : MaterialType = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageGeosyntheticProperties : bool = None):
+	def setProperties(self, GeosyntheticUnitWeight : float = None, InitialTemperature : float = None, TensileModulus : float = None, MaterialType : MaterialType = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, AxialStrainExpansion : float = None, StageGeosyntheticProperties : bool = None):
+		if GeosyntheticUnitWeight is not None:
+			self._setDoubleProperty("LNP_UNIT_WEIGTH_GEOSYNTHETIC", GeosyntheticUnitWeight)
 		if InitialTemperature is not None:
 			self._setDoubleProperty("LNP_THERAMAL_INITIAL_TEMPERATURE", InitialTemperature)
 		if TensileModulus is not None:
@@ -131,10 +160,13 @@ class Geosynthetic(PropertyProxy):
 			self._setBoolProperty("LNP_THERAMAL_EXPANSION_IS_ON", ThermalExpansion)
 		if ExpansionCoefficient is not None:
 			self._setDoubleProperty("LNP_THERAMAL_EXPANSION_ALPHA", ExpansionCoefficient)
+		if AxialStrainExpansion is not None:
+			self._setDoubleProperty("LNP_AXIAL_STRAIN", AxialStrainExpansion)
 		if StageGeosyntheticProperties is not None:
 			self._setBoolProperty("LNP_USE_STAGE_GEOSYN", StageGeosyntheticProperties)
 	def getProperties(self):
 		return {
+		"GeosyntheticUnitWeight" : self.getGeosyntheticUnitWeight(), 
 		"InitialTemperature" : self.getInitialTemperature(), 
 		"TensileModulus" : self.getTensileModulus(), 
 		"MaterialType" : self.getMaterialType(), 
@@ -147,5 +179,6 @@ class Geosynthetic(PropertyProxy):
 		"SpecificHeatCapacity" : self.getSpecificHeatCapacity(), 
 		"ThermalExpansion" : self.getThermalExpansion(), 
 		"ExpansionCoefficient" : self.getExpansionCoefficient(), 
+		"AxialStrainExpansion" : self.getAxialStrainExpansion(), 
 		"StageGeosyntheticProperties" : self.getStageGeosyntheticProperties(), 
 		}
