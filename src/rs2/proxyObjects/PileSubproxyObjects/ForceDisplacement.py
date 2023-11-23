@@ -33,14 +33,14 @@ class ForceDisplacement(PropertyProxy):
 		return self._getDoubleProperty("PFP_FORCE_DISPLACEMENT_Y")
 	def setY(self, value: float):
 		return self._setDoubleProperty("PFP_FORCE_DISPLACEMENT_Y", value)
-	def getStageFactors(self) -> List[ForceDisplacementStageFactor]:
+	def getStageFactors(self) -> dict[int, ForceDisplacementStageFactor]:
 		"""
-		Returns the defined stage factors in a list, in order from stage 1 to n.
+		Returns a map of stage factors. The key is the absolute or relative stage at which the stage factor is applied. The value is the stage factor object
 		"""
 		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
-		stageFactors = []
-		for stageFactorID in stageFactorReferenceIds :
-			stageFactors.append(ForceDisplacementStageFactor(self._client, stageFactorID, self))
+		stageFactors = {}
+		for stageKey in stageFactorReferenceIds :
+			stageFactors[stageKey] = ForceDisplacementStageFactor(self._client, stageFactorReferenceIds[stageKey], self)
 		return stageFactors
 	def setProperties(self, Apply : PileEndCondition = None, ApplyOn : PileForceApplicationPoint = None, X : float = None, Y : float = None):
 		if Apply is not None:
