@@ -12,19 +12,19 @@ print("Composite Liner Name = ", compositeLiner.getCompositeName())
 
 # Get/Set number of layers
 print("Number of composite liner layers = ", compositeLiner.getNumberOfLayers())
-compositeLiner.setNumberOfLayers(2)
+compositeLiner.setNumberOfLayers(3)
 
 # Get/Set joint interface checkbox
 print("Allow Joint Interface ? = ", compositeLiner.getJointApplied())
 compositeLiner.setJointApplied(True)
 
 # Get/Set liner type reference
-print("Second Layer Liner Name = ", compositeLiner.getLinerPropertyName(2))
-compositeLiner.setLinerPropertyByName(2, "Liner 5")
+print("Second Layer Liner Name = ", compositeLiner.getCompositeLinerPropertyName(2))
+compositeLiner.setCompositeLinerPropertyByName(2, "Liner 5")
 
 # Get/Set joint reference name
-print("Joint Name = ", compositeLiner.getJointPropertyName())
-compositeLiner.setJointPropertyByName("Joint 2")
+print("Joint Name = ", compositeLiner.getCompositeJointPropertyName())
+compositeLiner.setCompositeJointPropertyByName("Joint 2")
 
 # Get/Set joint placement
 print("Joint Placement = ", compositeLiner.getJointPlacement())
