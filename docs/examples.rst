@@ -15,6 +15,16 @@ Python Script Examples
    :language: python
    :caption: Code Snippet: Manipulation of Joint Properties
 
+.. _Pile Example:
+.. literalinclude:: example_code/pile_prop_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Pile Properties
+
+.. _Structural Interface Example:
+.. literalinclude:: example_code/structural_prop_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Structural Interface Properties
+
 .. _Model Example:
 .. literalinclude:: example_code/model_example.py
    :language: python
