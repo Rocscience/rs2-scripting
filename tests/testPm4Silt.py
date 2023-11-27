@@ -17,7 +17,6 @@ class TestPm4Silt(unittest.TestCase):
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.PM4_SILT)
-
     def tearDown(self):
         self.model.close()
         os.remove(self.copiedModelPath)
