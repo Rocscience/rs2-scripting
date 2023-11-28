@@ -3,7 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-class PM4Sand(PropertyProxy):
+class PM4SandStrength(PropertyProxy):
 	def getDr(self) -> float:
 		return self._getDoubleProperty("MP_PM4_SAND_DR")
 	def setDr(self, value: float):

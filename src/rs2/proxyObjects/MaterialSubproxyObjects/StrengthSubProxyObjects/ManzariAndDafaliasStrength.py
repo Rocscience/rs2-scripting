@@ -3,7 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-class ManzariAndDafalias(PropertyProxy):
+class ManzariAndDafaliasStrength(PropertyProxy):
 	def getCriticalStateM(self) -> float:
 		return self._getDoubleProperty("MP_CRITICAL_STATE_M")
 	def setCriticalStateM(self, value: float):

@@ -3,7 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-class NorSand(PropertyProxy):
+class NorSandStrength(PropertyProxy):
 	def getMTCCriticalFrictionRatio(self) -> float:
 		return self._getDoubleProperty("MP_NS_MTC")
 	def setMTCCriticalFrictionRatio(self, value: float):

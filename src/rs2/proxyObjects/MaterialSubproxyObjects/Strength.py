@@ -13,11 +13,11 @@ from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.ModifiedCa
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.MohrCoulombWithCap import MohrCoulombWithCap
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.SofteningHardeningModel import SofteningHardeningModel
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.BarcelonaBasic import BarcelonaBasic
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.NorSand import NorSand
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.NorSandStrength import NorSandStrength
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.BoundingSurfacePlasticity import BoundingSurfacePlasticity
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.ManzariAndDafalias import ManzariAndDafalias
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.PM4Sand import PM4Sand
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.PM4Silt import PM4Silt
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.ManzariAndDafaliasStrength import ManzariAndDafaliasStrength
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.PM4SandStrength import PM4SandStrength
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.PM4SiltStrength import PM4SiltStrength
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.Finn import Finn
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.BartonBandisStrength import BartonBandisStrength
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.Hyperbolic import Hyperbolic
@@ -53,11 +53,11 @@ class Strength(PropertyProxy):
 		self.MohrCoulombWithCap = MohrCoulombWithCap(server, ID, documentProxyID)
 		self.SofteningHardeningModel = SofteningHardeningModel(server, ID, documentProxyID)
 		self.BarcelonaBasic = BarcelonaBasic(server, ID, documentProxyID)
-		self.NorSand = NorSand(server, ID, documentProxyID)
+		self.NorSandStrength = NorSandStrength(server, ID, documentProxyID)
 		self.BoundingSurfacePlasticity = BoundingSurfacePlasticity(server, ID, documentProxyID)
-		self.ManzariAndDafalias = ManzariAndDafalias(server, ID, documentProxyID)
-		self.PM4Sand = PM4Sand(server, ID, documentProxyID)
-		self.PM4Silt = PM4Silt(server, ID, documentProxyID)
+		self.ManzariAndDafaliasStrength = ManzariAndDafaliasStrength(server, ID, documentProxyID)
+		self.PM4SandStrength = PM4SandStrength(server, ID, documentProxyID)
+		self.PM4SiltStrength = PM4SiltStrength(server, ID, documentProxyID)
 		self.Finn = Finn(server, ID, documentProxyID)
 		self.BartonBandisStrength = BartonBandisStrength(server, ID, documentProxyID)
 		self.Hyperbolic = Hyperbolic(server, ID, documentProxyID)

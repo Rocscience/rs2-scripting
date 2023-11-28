@@ -3,7 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-class PM4Silt(PropertyProxy):
+class PM4SiltStrength(PropertyProxy):
 	def getAutoCalculateSuParameter(self) -> bool:
 		return self._getBoolProperty("MP_USE_AUTO_SU")
 	def setAutoCalculateSuParameter(self, value: bool):
