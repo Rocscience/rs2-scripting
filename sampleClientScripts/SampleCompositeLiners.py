@@ -31,7 +31,7 @@ print("Joint Placement = ", compositeLiner.getJointPlacement())
 compositeLiner.setJointPlacement(CompositeJointPlacementTypes.BETWEEN_SECOND_AND_THIRD_LINER)
 
 # Get/Set Install Delay
-print("Second Layer install delay = ", compositeLiner.getInstallDelay(2))
+print("First Layer install delay = ", compositeLiner.getInstallDelay(1))
 compositeLiner.setInstallDelay(2, 1)
 
 # Get/Set Removed Stages

@@ -37,13 +37,25 @@ class TestCompositeLiner(unittest.TestCase):
 
     def testSetJointPropertyNameSuccess(self):
         compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+        compositeliner.setJointApplied(True)
         compositeliner.setCompositeJointPropertyByName("Joint 2")
+        compositeliner.setJointApplied(False)
         self.assertEqual(compositeliner.getCompositeJointPropertyName(), "Joint 2")
 
     def testSetJointPropertyNameFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+            compositeliner.setJointApplied(True)
             compositeliner.setCompositeJointPropertyByName("NonExistantJoint")
+            compositeliner.setJointApplied(False)
+            self.fail("Expected exception")
+        except:
+            pass
+    
+    def testSetJointPropertyNameWithJointUnappliedFailure(self):
+        try:
+            compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+            compositeliner.setCompositeJointPropertyByName("Joint 2")
             self.fail("Expected exception")
         except:
             pass
@@ -84,7 +96,7 @@ class TestCompositeLiner(unittest.TestCase):
     def testSetLinerPropertyNameFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
-            compositeliner.setCompositeLinerPropertyByName("NonExistantLiner")
+            compositeliner.setCompositeLinerPropertyByName(1, "NonExistantLiner")
             self.fail("Expected exception")
         except:
             pass
@@ -142,9 +154,37 @@ class TestCompositeLiner(unittest.TestCase):
             pass
 
     # Install Delay tests
-    def testGetInstallDelaySecondLayerSuccess(self):
+    def testGetInstallDelaySuccess(self):
         compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+        if (compositeliner.getNumberOfLayers() < 2):
+            compositeliner.setNumberOfLayers(2)
         self.assertEqual(compositeliner.getInstallDelay(2), 0)
+
+    def testGetInstallDelayBelowMinLayerFailure(self):
+        try:
+            compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+            compositeliner.getInstallDelay(0)
+            self.fail("Expected exception")
+        except:
+            pass
+
+    def testGetInstallDelayBeyondMaxLayerFailure(self):
+        try:
+            compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+            compositeliner.getInstallDelay(6)
+            self.fail("Expected exception")
+        except:
+            pass 
+
+    def testGetInstallDelayOnlyOneLayerFailure(self):
+        try:
+            compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+            compositeliner.setNumberOfLayers(1)
+            compositeliner.getInstallDelay(1)
+            compositeliner.setNumberOfLayers(2)
+            self.fail("Expected exception")
+        except:
+            pass     
 
     def testGetInstallDelayFirstLayerFailure(self):
         try:
@@ -154,10 +194,20 @@ class TestCompositeLiner(unittest.TestCase):
         except:
             pass
 
+    def testSetInstallDelayOnlyOneLayerFailure(self):
+        try:
+            compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+            compositeliner.setNumberOfLayers(1)
+            compositeliner.setInstallDelay(1, 1)
+            compositeliner.setNumberOfLayers(2)
+            self.fail("Expected exception")
+        except:
+            pass 
+
     def testSetInstallDelayBeyondMaxLayerLimitFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
-            compositeliner.setInstallDelay(5, 0)
+            compositeliner.setInstallDelay(6, 0)
             self.fail("Expected exception")
         except:
             pass
@@ -181,7 +231,20 @@ class TestCompositeLiner(unittest.TestCase):
     def testSetInstallDelaySecondLayerBeyondModelStagesFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+            if (compositeliner.getNumberOfLayers() < 2):
+                compositeliner.setNumberOfLayers(2)
             compositeliner.setInstallDelay(2, 3)
+            self.fail("Expected exception")
+        except:
+            pass
+
+
+    def testSetInstallDelaySecondLayerBelowModelStagesFailure(self):
+        try:
+            compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+            if (compositeliner.getNumberOfLayers() < 2):
+                compositeliner.setNumberOfLayers(2)
+            compositeliner.setInstallDelay(2, -1)
             self.fail("Expected exception")
         except:
             pass
@@ -191,19 +254,33 @@ class TestCompositeLiner(unittest.TestCase):
         compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
         self.assertEqual(compositeliner.getRemovedStage(1), -1)
 
-    def testGetRemovedStagesSecondLayerSuccess(self):
-        compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
-        self.assertEqual(compositeliner.getRemovedStage(2), -1)
-
-    def testSetInstallDelayFirstLayerFailure(self):
+    def testGetRemovedStagesLayerFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
-            compositeliner.setRemovedStage(0, 0)
+            compositeliner.getRemovedStage(6)
             self.fail("Expected exception")
         except:
             pass
 
-    def testSetInstallDelayBeyondMaxLayerLimitFailure(self):
+    def testSetRemovedStagesOneStageBelowSuccess(self):
+        compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+        compositeliner.setRemovedStage(1, 1)
+        self.assertEqual(compositeliner.getRemovedStage(1), 1)
+
+    def testSetRemovedStagesOptionNeverSuccess(self):
+        compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+        compositeliner.setRemovedStage(1, -1)
+        self.assertEqual(compositeliner.getRemovedStage(1), -1)
+
+    def testSetRemovedStagesFailure(self):
+        try:
+            compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+            compositeliner.setRemovedStage(1, 0)
+            self.fail("Expected exception")
+        except:
+            pass
+
+    def testSetRemovedStagesBeyondMaxLayerLimitFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
             compositeliner.setRemovedStage(5, -1)
@@ -211,7 +288,7 @@ class TestCompositeLiner(unittest.TestCase):
         except:
             pass
 
-    def testSetInstallDelayBelowMinLayerLimitFailure(self):
+    def testSetRemovedStagesBelowMinLayerLimitFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
             compositeliner.setRemovedStage(0, -1)
@@ -219,18 +296,18 @@ class TestCompositeLiner(unittest.TestCase):
         except:
             pass
 
-    def testSetInstallDelayFirstLayerBeyondModelStagesFailure(self):
+    def testSetRemovedStagesFirstLayerBeyondModelStagesFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
-            compositeliner.setRemovedStage(1, 2)
+            compositeliner.setRemovedStage(1, 5)
             self.fail("Expected exception")
         except:
             pass
         
-    def testSetInstallDelaySecondLayerBeyondModelStagesFailure(self):
+    def testSetRemovedStagesFirstLayerBelowModelStagesFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
-            compositeliner.setRemovedStage(2, 2)
+            compositeliner.setRemovedStage(1, -2)
             self.fail("Expected exception")
         except:
             pass
