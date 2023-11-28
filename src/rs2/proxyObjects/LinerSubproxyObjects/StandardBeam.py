@@ -43,7 +43,6 @@ class StandardBeamStageFactor(ProxyObject):
 	def getTensileStrengthPeakFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_TENSILE_STRENGTH", self.property._ID], proxyArgumentIndices=[1])
 	def setTensileStrengthPeakFactor(self, value: float):
-		
 		return self._callFunction("setDoubleFactor", ["LNP_TENSILE_STRENGTH", value, self.property._ID], proxyArgumentIndices=[2])
 	def getTensileStrengthResidualFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_TENSILE_STRENGTH_RES", self.property._ID], proxyArgumentIndices=[1])
