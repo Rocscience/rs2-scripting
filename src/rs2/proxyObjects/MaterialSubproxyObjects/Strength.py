@@ -3,7 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.MohrCoulomb import MohrCoulomb
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.MohrCoulombStrength import MohrCoulombStrength
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.HoekBrown import HoekBrown
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.DruckerPrager import DruckerPrager
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.GeneralizedHoekBrown import GeneralizedHoekBrown
@@ -19,7 +19,7 @@ from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.ManzariAnd
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.PM4Sand import PM4Sand
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.PM4Silt import PM4Silt
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.Finn import Finn
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.BartonBandis import BartonBandis
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.BartonBandisStrength import BartonBandisStrength
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.Hyperbolic import Hyperbolic
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.PowerCurve import PowerCurve
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.ShearNormalFunction import ShearNormalFunction
@@ -43,7 +43,7 @@ class Strength(PropertyProxy):
 	:ref:`Material Property Strength Example`
 	"""
 	def __init__(self, server : Client, ID, documentProxyID):
-		self.MohrCoulomb = MohrCoulomb(server, ID, documentProxyID)
+		self.MohrCoulombStrength = MohrCoulombStrength(server, ID, documentProxyID)
 		self.HoekBrown = HoekBrown(server, ID, documentProxyID)
 		self.DruckerPrager = DruckerPrager(server, ID, documentProxyID)
 		self.GeneralizedHoekBrown = GeneralizedHoekBrown(server, ID, documentProxyID)
@@ -59,7 +59,7 @@ class Strength(PropertyProxy):
 		self.PM4Sand = PM4Sand(server, ID, documentProxyID)
 		self.PM4Silt = PM4Silt(server, ID, documentProxyID)
 		self.Finn = Finn(server, ID, documentProxyID)
-		self.BartonBandis = BartonBandis(server, ID, documentProxyID)
+		self.BartonBandisStrength = BartonBandisStrength(server, ID, documentProxyID)
 		self.Hyperbolic = Hyperbolic(server, ID, documentProxyID)
 		self.PowerCurve = PowerCurve(server, ID, documentProxyID)
 		self.ShearNormalFunction = ShearNormalFunction(server, ID, documentProxyID)
