@@ -187,14 +187,8 @@ class StandardBeam(PropertyProxy):
 		Grids "None" and "Default Grid" available by default.
 		"""
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName])
-	def getDefineRelativeStageFactors(self) -> bool:
-		return self._callFunction("getUseRelativeStageFactors", [])
-	def setDefineRelativeStageFactors(self, useStagesAfterInstallation: bool):
-		"""
-		Choose to define stage factors using absolute stages or relative stages based on the installation stage.
-		A change invalidates existing stage factor objects.
-		"""
-		return self._callFunction("setUseRelativeStageFactors", [useStagesAfterInstallation])
+	def getStageFactorMethod(self) -> StageFactorDefinitionMethod:
+		return StageFactorDefinitionMethod(self._callFunction("getStageFactorMethod"))
 	def getDefinedStageFactors(self) -> dict[int, StandardBeamDefinedStageFactor]:
 		"""
 		Returns a map of stage factors. The key is the absolute or relative stage at which the stage factor is applied. The value is the stage factor object
@@ -204,15 +198,23 @@ class StandardBeam(PropertyProxy):
 		for stageKey in stageFactorReferenceIds :
 			stageFactors[stageKey] = StandardBeamDefinedStageFactor(self._client, stageFactorReferenceIds[stageKey], self)
 		return stageFactors
-	def getStageFactors(self) -> list[StandardBeamStageFactor]:
+	def getStageFactor(self, stage: int) -> StandardBeamStageFactor:
 		"""
-		Returns a list of read-only stage factors. To modify a stage factor, get it using getDefinedStageFactors.
+		Returns the stage factor for the given stage.
 		"""
-		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
-		stageFactors = []
-		for factorReferenceID in stageFactorReferenceIds :
-			stageFactors.append(StandardBeamStageFactor(self._client, factorReferenceID, self))
-		return stageFactors
+		factorReferenceID = self._callFunction('getStageFactor', [stage], keepReturnValueReference=True)
+		return StandardBeamStageFactor(self._client, factorReferenceID, self)
+	def createStageFactor(self, stage: int) -> StandardBeamDefinedStageFactor:
+		"""
+		Creates a stage factor for the given stage.
+		"""
+		factorReferenceID = self._callFunction('createStageFactor', [stage], keepReturnValueReference=True)
+		return StandardBeamDefinedStageFactor(self._client, factorReferenceID, self)
+	def setDefinedStageFactors(self, method: StageFactorDefinitionMethod, stageFactors: dict[int, StandardBeamDefinedStageFactor]):
+		"""
+		Sets the defined stage factors to those given. The method indicates if the stages in the keys of the map are absolute or relative
+		"""
+		return self._callFunction("setDefinedStageFactors", [method.value, stageFactors], proxyArgumentIndices = [1])
 	def setProperties(self, UnitWeight : float = None, IncludeWeightInStressAnalysis : bool = None, InitialTemperature : float = None, Method : GeometryChoice = None, Thickness : float = None, Area : float = None, MomentOfInertia : float = None, YoungsModulus : float = None, PoissonsRatio : float = None, MaterialType : MaterialType = None, CompressiveStrengthPeak : float = None, CompressiveStrengthResidual : float = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, AxialStrainExpansion : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageLinerProperties : bool = None):
 		if UnitWeight is not None:
 			self._setDoubleProperty("LNP_UNIT_WEIGHT", UnitWeight)
