@@ -10,58 +10,61 @@ class StandardBeamStageFactor(ProxyObject):
 		self.property = property
 	def getUnitWeightFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_UNIT_WEIGHT", self.property._ID], proxyArgumentIndices=[1])
-	def setUnitWeightFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_UNIT_WEIGHT", value, self.property._ID], proxyArgumentIndices=[2])
 	def getThicknessFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_THICKNESS", self.property._ID], proxyArgumentIndices=[1])
-	def setThicknessFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_THICKNESS", value, self.property._ID], proxyArgumentIndices=[2])
 	def getAreaFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_AREA", self.property._ID], proxyArgumentIndices=[1])
-	def setAreaFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_AREA", value, self.property._ID], proxyArgumentIndices=[2])
 	def getMomentOfInertiaFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_MOMENT_OF_INERTIA", self.property._ID], proxyArgumentIndices=[1])
-	def setMomentOfInertiaFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_MOMENT_OF_INERTIA", value, self.property._ID], proxyArgumentIndices=[2])
 	def getYoungsModulusFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_YOUNGS_MODULUS", self.property._ID], proxyArgumentIndices=[1])
-	def setYoungsModulusFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_YOUNGS_MODULUS", value, self.property._ID], proxyArgumentIndices=[2])
 	def getPoissonsRatioFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_POISSONS_RATIO", self.property._ID], proxyArgumentIndices=[1])
-	def setPoissonsRatioFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_POISSONS_RATIO", value, self.property._ID], proxyArgumentIndices=[2])
 	def getAxialStrainExpansionFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_AXIAL_STRAIN", self.property._ID], proxyArgumentIndices=[1])
-	def setAxialStrainExpansionFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_AXIAL_STRAIN", value, self.property._ID], proxyArgumentIndices=[2])
 	def getCompressiveStrengthPeakFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_COMPRESSIVE_STRENGTH", self.property._ID], proxyArgumentIndices=[1])
-	def setCompressiveStrengthPeakFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_COMPRESSIVE_STRENGTH", value, self.property._ID], proxyArgumentIndices=[2])
 	def getCompressiveStrengthResidualFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_COMPRESSIVE_STRENGTH_RES", self.property._ID], proxyArgumentIndices=[1])
-	def setCompressiveStrengthResidualFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_COMPRESSIVE_STRENGTH_RES", value, self.property._ID], proxyArgumentIndices=[2])
 	def getTensileStrengthPeakFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_TENSILE_STRENGTH", self.property._ID], proxyArgumentIndices=[1])
-	def setTensileStrengthPeakFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_TENSILE_STRENGTH", value, self.property._ID], proxyArgumentIndices=[2])
 	def getTensileStrengthResidualFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_TENSILE_STRENGTH_RES", self.property._ID], proxyArgumentIndices=[1])
-	def setTensileStrengthResidualFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_TENSILE_STRENGTH_RES", value, self.property._ID], proxyArgumentIndices=[2])
 	def getConductivityFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_THERAMAL_CONDUCTIVITY", self.property._ID], proxyArgumentIndices=[1])
-	def setConductivityFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_CONDUCTIVITY", value, self.property._ID], proxyArgumentIndices=[2])
 	def getSpecificHeatCapacityFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", self.property._ID], proxyArgumentIndices=[1])
-	def setSpecificHeatCapacityFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", value, self.property._ID], proxyArgumentIndices=[2])
 	def getExpansionCoefficientFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_THERAMAL_EXPANSION_ALPHA", self.property._ID], proxyArgumentIndices=[1])
+class StandardBeamDefinedStageFactor(StandardBeamStageFactor):
+	def __init__(self, client : Client, ID, property : PropertyProxy):
+		super().__init__(client, ID, property)
+	def setUnitWeightFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_UNIT_WEIGHT", value, self.property._ID], proxyArgumentIndices=[2])
+	def setThicknessFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_THICKNESS", value, self.property._ID], proxyArgumentIndices=[2])
+	def setAreaFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_AREA", value, self.property._ID], proxyArgumentIndices=[2])
+	def setMomentOfInertiaFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_MOMENT_OF_INERTIA", value, self.property._ID], proxyArgumentIndices=[2])
+	def setYoungsModulusFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_YOUNGS_MODULUS", value, self.property._ID], proxyArgumentIndices=[2])
+	def setPoissonsRatioFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_POISSONS_RATIO", value, self.property._ID], proxyArgumentIndices=[2])
+	def setAxialStrainExpansionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_AXIAL_STRAIN", value, self.property._ID], proxyArgumentIndices=[2])
+	def setCompressiveStrengthPeakFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_COMPRESSIVE_STRENGTH", value, self.property._ID], proxyArgumentIndices=[2])
+	def setCompressiveStrengthResidualFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_COMPRESSIVE_STRENGTH_RES", value, self.property._ID], proxyArgumentIndices=[2])
+	def setTensileStrengthPeakFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_TENSILE_STRENGTH", value, self.property._ID], proxyArgumentIndices=[2])
+	def setTensileStrengthResidualFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_TENSILE_STRENGTH_RES", value, self.property._ID], proxyArgumentIndices=[2])
+	def setConductivityFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_CONDUCTIVITY", value, self.property._ID], proxyArgumentIndices=[2])
+	def setSpecificHeatCapacityFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", value, self.property._ID], proxyArgumentIndices=[2])
 	def setExpansionCoefficientFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_EXPANSION_ALPHA", value, self.property._ID], proxyArgumentIndices=[2])
 	def getStagesAfterInstallation(self) -> int:
@@ -192,14 +195,23 @@ class StandardBeam(PropertyProxy):
 		A change invalidates existing stage factor objects.
 		"""
 		return self._callFunction("setUseRelativeStageFactors", [useStagesAfterInstallation])
-	def getStageFactors(self) -> dict[int, StandardBeamStageFactor]:
+	def getDefinedStageFactors(self) -> dict[int, StandardBeamDefinedStageFactor]:
 		"""
 		Returns a map of stage factors. The key is the absolute or relative stage at which the stage factor is applied. The value is the stage factor object
 		"""
-		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
+		stageFactorReferenceIds = self._callFunction('getDefinedStageFactors', [], keepReturnValueReference=True)
 		stageFactors = {}
 		for stageKey in stageFactorReferenceIds :
-			stageFactors[stageKey] = StandardBeamStageFactor(self._client, stageFactorReferenceIds[stageKey], self)
+			stageFactors[stageKey] = StandardBeamDefinedStageFactor(self._client, stageFactorReferenceIds[stageKey], self)
+		return stageFactors
+	def getStageFactors(self) -> list[StandardBeamStageFactor]:
+		"""
+		Returns a list of read-only stage factors. To modify a stage factor, get it using getDefinedStageFactors.
+		"""
+		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
+		stageFactors = []
+		for factorReferenceID in stageFactorReferenceIds :
+			stageFactors.append(StandardBeamStageFactor(self._client, factorReferenceID, self))
 		return stageFactors
 	def setProperties(self, UnitWeight : float = None, IncludeWeightInStressAnalysis : bool = None, InitialTemperature : float = None, Method : GeometryChoice = None, Thickness : float = None, Area : float = None, MomentOfInertia : float = None, YoungsModulus : float = None, PoissonsRatio : float = None, MaterialType : MaterialType = None, CompressiveStrengthPeak : float = None, CompressiveStrengthResidual : float = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, AxialStrainExpansion : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageLinerProperties : bool = None):
 		if UnitWeight is not None:

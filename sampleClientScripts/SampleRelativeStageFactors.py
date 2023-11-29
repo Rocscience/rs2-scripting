@@ -7,7 +7,7 @@ model = modeler.openFile(r"C:\scriptingModels\simple_3_stage_with_liner_factors.
 
 liner = model.getLinerPropertyByName("Liner 1")
 liner.setLinerType(LinerTypes.P2_LINER_CABLE_TRUSS)
-cableTrussFactors = liner.CableTruss.getStageFactors()
+cableTrussFactors = liner.CableTruss.getDefinedStageFactors()
 
 
 print(f"Using relative stage? {liner.CableTruss.getDefineRelativeStageFactors()}")
@@ -16,7 +16,7 @@ for stage in cableTrussFactors:
     print(stage)
 
 liner.CableTruss.setDefineRelativeStageFactors(True) # resets the stages from absolute 1,3,6 to relative 1,2,3
-cableTrussFactors = liner.CableTruss.getStageFactors()
+cableTrussFactors = liner.CableTruss.getDefinedStageFactors()
 
 print(f"Using relative stage? {liner.CableTruss.getDefineRelativeStageFactors()}")
 

@@ -11,7 +11,7 @@ liner.setLinerType(LinerTypes.P2_LINER_CABLE_TRUSS)
 
 print(liner.CableTruss.getDefineRelativeStageFactors())
 
-cableTrussFactors = liner.CableTruss.getStageFactors()
+cableTrussFactors = liner.CableTruss.getDefinedStageFactors()
 for stage, factor in cableTrussFactors.items():
     print(stage)
     factor.setYoungsModulusFactor(stage)
