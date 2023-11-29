@@ -42,7 +42,6 @@ class TestCableTruss(unittest.TestCase):
         liner.CableTruss.setExpansionCoefficient(3215.6)
         liner.CableTruss.setStageCableProperties(1)
         liner.CableTruss.setStaticTemperatureGridToUse("None")
-        liner.CableTruss.setDefineRelativeStageFactors(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -68,7 +67,7 @@ class TestCableTruss(unittest.TestCase):
         self.assertEqual(liner.CableTruss.getExpansionCoefficient(), 3215.6)
         self.assertEqual(liner.CableTruss.getStageCableProperties(), 1)
         self.assertEqual(liner.CableTruss.getStaticTemperatureGridToUse(), "None")
-        self.assertEqual(liner.CableTruss.getDefineRelativeStageFactors(), True)
+        self.assertEqual(liner.CableTruss.getStageFactorMethod(), True)
     def testCableTrussStageFactors(self):
         self.liner.setLinerType(LinerTypes.P2_LINER_CABLE_TRUSS)
         stageFactor = self.liner.CableTruss.getDefinedStageFactors()[1]

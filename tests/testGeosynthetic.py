@@ -38,7 +38,6 @@ class TestGeosynthetic(unittest.TestCase):
         liner.Geosynthetic.setAxialStrainExpansion(3213.4)
         liner.Geosynthetic.setStageGeosyntheticProperties(1)
         liner.Geosynthetic.setStaticTemperatureGridToUse("None")
-        liner.Geosynthetic.setDefineRelativeStageFactors(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -60,7 +59,7 @@ class TestGeosynthetic(unittest.TestCase):
         self.assertEqual(liner.Geosynthetic.getAxialStrainExpansion(), 3213.4)
         self.assertEqual(liner.Geosynthetic.getStageGeosyntheticProperties(), 1)
         self.assertEqual(liner.Geosynthetic.getStaticTemperatureGridToUse(), "None")
-        self.assertEqual(liner.Geosynthetic.getDefineRelativeStageFactors(), True)
+        self.assertEqual(liner.Geosynthetic.getStageFactorMethod(), True)
     def testGeosyntheticStageFactors(self):
         self.liner.setLinerType(LinerTypes.P2_LINER_GEOSYNTHETIC)
         stageFactor = self.liner.Geosynthetic.getDefinedStageFactors()[1]
