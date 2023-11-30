@@ -274,3 +274,16 @@ class TestLinerStageFactor(unittest.TestCase):
         self.assertEqual(sfMap[2].getAxialStrainExpansionFactor(), 0.2)
         self.assertEqual(sfMap[4].getAxialStrainExpansionFactor(), 0.4)
         self.assertEqual(sfMap[6].getAxialStrainExpansionFactor(), 0.6)
+
+
+#### test getDefinedStageFactors ####
+    def testGetStageFactorMethod(self):
+        factorMap = self.liner.CableTruss.getDefinedStageFactors()
+        self.liner.CableTruss.setDefinedStageFactors(StageFactorDefinitionMethod.ABSOLUTE_STAGE_FACTOR, factorMap)
+
+        self.assertEqual(self.liner.CableTruss.getStageFactorMethod(), StageFactorDefinitionMethod.ABSOLUTE_STAGE_FACTOR)
+
+        factorMap = self.liner.CableTruss.getDefinedStageFactors()
+        self.liner.CableTruss.setDefinedStageFactors(StageFactorDefinitionMethod.RELATIVE_STAGE_FACTOR, factorMap)
+
+        self.assertEqual(self.liner.CableTruss.getStageFactorMethod(), StageFactorDefinitionMethod.RELATIVE_STAGE_FACTOR)
