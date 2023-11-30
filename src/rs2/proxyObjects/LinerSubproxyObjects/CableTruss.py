@@ -162,7 +162,7 @@ class CableTruss(PropertyProxy):
 		"""
 		factorReferenceID = self._callFunction('createStageFactor', [stage], keepReturnValueReference=True)
 		return CableTrussDefinedStageFactor(self._client, factorReferenceID, self)
-	def setDefinedStageFactors(self, method: StageFactorDefinitionMethod, stageFactors: dict[int, CableTrussDefinedStageFactor]):
+	def setDefinedStageFactors(self, method: StageFactorDefinitionMethod, stageFactors: dict[int, CableTrussStageFactor]):
 		"""
 		Sets the defined stage factors to those given. The method indicates if the stages in the keys of the map are absolute or relative
 		"""

@@ -218,7 +218,7 @@ class ReinforcedConcrete(PropertyProxy):
 		"""
 		factorReferenceID = self._callFunction('createStageFactor', [stage], keepReturnValueReference=True)
 		return ReinforcedConcreteDefinedStageFactor(self._client, factorReferenceID, self)
-	def setDefinedStageFactors(self, method: StageFactorDefinitionMethod, stageFactors: dict[int, ReinforcedConcreteDefinedStageFactor]):
+	def setDefinedStageFactors(self, method: StageFactorDefinitionMethod, stageFactors: dict[int, ReinforcedConcreteStageFactor]):
 		"""
 		Sets the defined stage factors to those given. The method indicates if the stages in the keys of the map are absolute or relative
 		"""

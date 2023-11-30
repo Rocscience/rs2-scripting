@@ -142,7 +142,7 @@ class Geosynthetic(PropertyProxy):
 		"""
 		factorReferenceID = self._callFunction('createStageFactor', [stage], keepReturnValueReference=True)
 		return GeosyntheticDefinedStageFactor(self._client, factorReferenceID, self)
-	def setDefinedStageFactors(self, method: StageFactorDefinitionMethod, stageFactors: dict[int, GeosyntheticDefinedStageFactor]):
+	def setDefinedStageFactors(self, method: StageFactorDefinitionMethod, stageFactors: dict[int, GeosyntheticStageFactor]):
 		"""
 		Sets the defined stage factors to those given. The method indicates if the stages in the keys of the map are absolute or relative
 		"""
