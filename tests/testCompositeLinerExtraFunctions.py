@@ -227,6 +227,13 @@ class TestCompositeLiner(unittest.TestCase):
             self.fail("Expected exception")
         except:
             pass
+    
+    def testSetInstallDelaySecondLayerSuccess(self):
+        compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+        if (compositeliner.getNumberOfLayers() < 2):
+            compositeliner.setNumberOfLayers(2)
+        compositeliner.setInstallDelay(2, 0)
+        self.assertEqual(compositeliner.getInstallDelay(2), 0)
 
     def testSetInstallDelaySecondLayerBeyondModelStagesFailure(self):
         try:
@@ -237,7 +244,6 @@ class TestCompositeLiner(unittest.TestCase):
             self.fail("Expected exception")
         except:
             pass
-
 
     def testSetInstallDelaySecondLayerBelowModelStagesFailure(self):
         try:
@@ -250,19 +256,27 @@ class TestCompositeLiner(unittest.TestCase):
             pass
 
     # Removed Stages tests
-    def testGetRemovedStagesFirstLayerSuccess(self):
+    def testGetRemovedStagesSuccess(self):
         compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
         self.assertEqual(compositeliner.getRemovedStage(1), -1)
 
-    def testGetRemovedStagesLayerFailure(self):
+    def testGetRemovedStagesBelowMinLayerFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
-            compositeliner.getRemovedStage(6)
+            compositeliner.getRemovedStage(0)
+            self.fail("Expected exception")
+        except:
+            pass
+    
+    def testGetRemovedStagesBeyondMaxLayerFailure(self):
+        try:
+            compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+            compositeliner.getRemovedStage(0)
             self.fail("Expected exception")
         except:
             pass
 
-    def testSetRemovedStagesOneStageBelowSuccess(self):
+    def testSetRemovedStagesSuccess(self):
         compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
         compositeliner.setRemovedStage(1, 1)
         self.assertEqual(compositeliner.getRemovedStage(1), 1)
@@ -280,7 +294,7 @@ class TestCompositeLiner(unittest.TestCase):
         except:
             pass
 
-    def testSetRemovedStagesBeyondMaxLayerLimitFailure(self):
+    def testSetRemovedStagesBeyondMaxLayerFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
             compositeliner.setRemovedStage(5, -1)
@@ -288,7 +302,7 @@ class TestCompositeLiner(unittest.TestCase):
         except:
             pass
 
-    def testSetRemovedStagesBelowMinLayerLimitFailure(self):
+    def testSetRemovedStagesBelowMinLayerFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
             compositeliner.setRemovedStage(0, -1)
@@ -296,7 +310,7 @@ class TestCompositeLiner(unittest.TestCase):
         except:
             pass
 
-    def testSetRemovedStagesFirstLayerBeyondModelStagesFailure(self):
+    def testSetRemovedStagesBeyondModelStagesFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
             compositeliner.setRemovedStage(1, 5)
@@ -304,7 +318,7 @@ class TestCompositeLiner(unittest.TestCase):
         except:
             pass
         
-    def testSetRemovedStagesFirstLayerBelowModelStagesFailure(self):
+    def testSetRemovedStagesBelowModelStagesFailure(self):
         try:
             compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
             compositeliner.setRemovedStage(1, -2)
