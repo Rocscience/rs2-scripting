@@ -199,12 +199,16 @@ class StandardBeam(PropertyProxy):
 	def createStageFactor(self, stage: int) -> StandardBeamDefinedStageFactor:
 		"""
 		Creates a stage factor for the given stage.
+
+		NOTE: Invalidates any existing stage factor proxies. Get them again using getDefinedStageFactors or getStageFactor.
 		"""
 		factorReferenceID = self._callFunction('createStageFactor', [stage], keepReturnValueReference=True)
 		return StandardBeamDefinedStageFactor(self._client, factorReferenceID, self)
 	def setDefinedStageFactors(self, method: StageFactorDefinitionMethod, stageFactors: dict[int, StandardBeamStageFactor]):
 		"""
-		Sets the defined stage factors to those given. The method indicates if the stages in the keys of the map are absolute or relative
+		Sets the defined stage factors to those given. The method indicates if the stages in the keys of the map are absolute or relative.
+
+		NOTE: Invalidates any existing stage factor proxies. Get them again using getDefinedStageFactors or getStageFactor.
 		"""
 		stageFactorIdMap = {}
 		for stage in stageFactors :
