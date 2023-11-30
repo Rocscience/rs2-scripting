@@ -55,14 +55,6 @@ class ReinforcedConcreteDefinedStageFactor(ReinforcedConcreteStageFactor):
 		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", value, self.property._ID], proxyArgumentIndices=[2])
 	def setExpansionCoefficientFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_EXPANSION_ALPHA", value, self.property._ID], proxyArgumentIndices=[2])
-	def getStagesAfterInstallation(self) -> int:
-		return self._callFunction("getStagesAfterInstallation", [])
-	def setStagesAfterInstallation(self, relativeStage: int):
-		"""
-		Sets the stage factor installation stage as a relative stage based on it's installation stage.
-		The order of the stage factor objects must be preserved and be in increasing order.
-		"""
-		return self._callFunction("setStagesAfterInstallation", [relativeStage])
 class ReinforcedConcrete(PropertyProxy):
 	def getConcreteUnitWeight(self) -> float:
 		return self._getDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE")
@@ -222,7 +214,10 @@ class ReinforcedConcrete(PropertyProxy):
 		"""
 		Sets the defined stage factors to those given. The method indicates if the stages in the keys of the map are absolute or relative
 		"""
-		return self._callFunction("setDefinedStageFactors", [method.value, stageFactors], proxyArgumentIndices = [1])
+		stageFactorIdMap = {}
+		for stage in stageFactors :
+			stageFactorIdMap[stage] = stageFactors[stage]._ID
+		return self._callFunction("setDefinedStageFactors", [method.value, stageFactorIdMap], proxyArgumentIndices = [1])
 	def setProperties(self, ConcreteUnitWeight : float = None, IncludeWeightInStressAnalysis : bool = None, InitialTemperature : float = None, Reinforcement : bool = None, Spacing : float = None, SectionDepth : float = None, Area : float = None, MomentOfInertia : float = None, ConcreteYoungsModulus : float = None, ConcreteCompressiveStrength : float = None, ConcreteTensileStrength : float = None, Weight : float = None, Concrete : bool = None, Thickness : float = None, YoungsModulus : float = None, PoissonRatio : float = None, CompressiveStrength : float = None, TensileStrength : float = None, MaterialType : MaterialType = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, AxialStrainExpansion : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageConcreteProperties : bool = None):
 		if ConcreteUnitWeight is not None:
 			self._setDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE", ConcreteUnitWeight)
