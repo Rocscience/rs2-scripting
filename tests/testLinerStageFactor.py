@@ -9,7 +9,7 @@ from rs2.proxyObjects.LinerSubproxyObjects.CableTruss import CableTrussStageFact
 parentDirectoryHelper.addParentDirectoryToPath()
 
 class TestLinerStageFactor(unittest.TestCase):
-    stageFactorDefinitionMethod = StageFactorDefinitionMethod.ABSOLUTE_STAGE_FACTOR
+    stageFactorDefinitionMethod = None
 
     def areCableStageFactorsEqual(self, sf1 : CableTrussStageFactor, sf2 : CableTrussStageFactor):
         return sf1.getUnitWeightFactor() == sf2.getUnitWeightFactor() and \
@@ -66,23 +66,23 @@ class TestLinerStageFactor(unittest.TestCase):
 
 
 ############# getStageFactor Tests #############
-    def testGetStageFactorSuccess(self):
+    def GetStageFactorSuccess(self):
         sf1 = self.liner.CableTruss.getStageFactor(1)
         self.assertTrue(self.areCableStageFactorsEqual(self.liner.CableTruss.getDefinedStageFactors()[1], sf1))
 
-    def testGetStageFactorNotEnabled(self):
+    def GetStageFactorNotEnabled(self):
         self.liner.CableTruss.setStageCableProperties(False)
     
         with self.assertRaises(Exception):
             self.liner.CableTruss.getStageFactor(1)
 
-    def testGetStageFactorInvalidStage(self):
+    def GetStageFactorInvalidStage(self):
         with self.assertRaises(Exception):
             self.liner.CableTruss.getStageFactor(0)
         with self.assertRaises(Exception):
             self.liner.CableTruss.getStageFactor(99)
 
-    def testGetStageFactorAfterLastDefined(self):
+    def GetStageFactorAfterLastDefined(self):
         sf1 = self.liner.CableTruss.getDefinedStageFactors()[1]
         sf1.setAxialStrainExpansionFactor(0.555)
 
@@ -90,7 +90,7 @@ class TestLinerStageFactor(unittest.TestCase):
 
         self.assertTrue(self.areCableStageFactorsEqual(sf1, sf2))
     
-    def testGetStageFactorBeforeFirstDefined(self):
+    def GetStageFactorBeforeFirstDefined(self):
         defaultConductivityFactor = 1
 
         sf1 = self.liner.CableTruss.getDefinedStageFactors()[1]
@@ -101,7 +101,7 @@ class TestLinerStageFactor(unittest.TestCase):
 
         self.assertEqual(sfDefault.getConductivityFactor(), defaultConductivityFactor)
 
-    def testGetStageFactorBetweenMultiple(self):
+    def GetStageFactorBetweenMultiple(self):
         sf1 = self.liner.CableTruss.getDefinedStageFactors()[1]
         sf1.setAxialStrainExpansionFactor(0.1)
 
@@ -124,22 +124,22 @@ class TestLinerStageFactor(unittest.TestCase):
         self.assertEqual(sf2.getAxialStrainExpansionFactor(), 0.1)
 ######## createStageFactor Tests ########
 
-    def testCreateStageFactorDisabled(self):
+    def CreateStageFactorDisabled(self):
         self.liner.CableTruss.setStageCableProperties(False)
         with self.assertRaises(Exception):
             self.liner.CableTruss.createStageFactor(2)
 
-    def testCreateStageFactorAlreadyExists(self):
+    def CreateStageFactorAlreadyExists(self):
         with self.assertRaises(Exception):
             self.liner.CableTruss.createStageFactor(1)
     
-    def testCreateStageFactorStageOutOfRange(self):
+    def CreateStageFactorStageOutOfRange(self):
         with self.assertRaises(Exception):
             self.liner.CableTruss.createStageFactor(0)
         with self.assertRaises(Exception):
             self.liner.CableTruss.createStageFactor(99)
 
-    def testCreateStageFactorSuccessCopyFromLastDefined(self):
+    def CreateStageFactorSuccessCopyFromLastDefined(self):
         sf1 = self.liner.CableTruss.getDefinedStageFactors()[1]
         sf1.setAxialStrainExpansionFactor(0.555)
 
@@ -148,7 +148,7 @@ class TestLinerStageFactor(unittest.TestCase):
 
         self.assertTrue(self.areCableStageFactorsEqual(sf2, sf1))
 
-    def testCreateDefaultStageFactorSuccess(self):
+    def CreateDefaultStageFactorSuccess(self):
         sf1 = self.liner.CableTruss.getDefinedStageFactors()[1]
         sf1.setAxialStrainExpansionFactor(0.555)
 
@@ -160,7 +160,7 @@ class TestLinerStageFactor(unittest.TestCase):
         self.assertEqual(sf1.getAxialStrainExpansionFactor(), 1)
         self.assertEqual(sf2.getAxialStrainExpansionFactor(), 0.555)
 
-    def testCreateStageFactorMultiple(self):
+    def CreateStageFactorMultiple(self):
         sf4 = self.liner.CableTruss.createStageFactor(4)
         sf4.setAxialStrainExpansionFactor(0.4)
 
@@ -179,18 +179,18 @@ class TestLinerStageFactor(unittest.TestCase):
     
 ####### setDefinedStageFactors Tests #######
 
-    def testSetDefinedEmptyMapFailure(self):
+    def SetDefinedEmptyMapFailure(self):
         with self.assertRaises(Exception):
             self.liner.CableTruss.setDefinedStageFactors(self.stageFactorDefinitionMethod, {})
     
-    def testSetDefinedStageFactorOutOfRange(self):
+    def SetDefinedStageFactorOutOfRange(self):
         sf1 = self.liner.CableTruss.getDefinedStageFactors()[1]
         with self.assertRaises(Exception):
             self.liner.CableTruss.setDefinedStageFactors(self.stageFactorDefinitionMethod, {0: sf1})
         with self.assertRaises(Exception):
             self.liner.CableTruss.setDefinedStageFactors(self.stageFactorDefinitionMethod, {99: sf1})
     
-    def testSetDefinedStageFactorSuccess(self):
+    def SetDefinedStageFactorSuccess(self):
         sf1 = self.liner.CableTruss.getDefinedStageFactors()[1]
         sf1.setAxialStrainExpansionFactor(0.1)
 
@@ -271,12 +271,12 @@ class TestLinerStageFactor(unittest.TestCase):
 
 ### Now test getDefinedStageFactors ####
 
-    def testGetDefinedStageFactorsNotEnabled(self):
+    def GetDefinedStageFactorsNotEnabled(self):
         self.liner.CableTruss.setStageCableProperties(False)
         with self.assertRaises(Exception):
             self.liner.CableTruss.getDefinedStageFactors()
     
-    def testGetDefinedStageFactorsSuccess(self):
+    def GetDefinedStageFactorsSuccess(self):
         sfMap = self.liner.CableTruss.getDefinedStageFactors()
         self.assertEqual(len(sfMap), 1)
 
@@ -302,7 +302,7 @@ class TestLinerStageFactor(unittest.TestCase):
 
 
 #### test getStageFactorMethod ####
-    def testGetStageFactorMethod(self):
+    def GetStageFactorMethod(self):
         factorMap = self.liner.CableTruss.getDefinedStageFactors()
         self.liner.CableTruss.setDefinedStageFactors(StageFactorDefinitionMethod.ABSOLUTE_STAGE_FACTOR, factorMap)
 
@@ -312,3 +312,81 @@ class TestLinerStageFactor(unittest.TestCase):
         self.liner.CableTruss.setDefinedStageFactors(StageFactorDefinitionMethod.RELATIVE_STAGE_FACTOR, factorMap)
 
         self.assertEqual(self.liner.CableTruss.getStageFactorMethod(), StageFactorDefinitionMethod.RELATIVE_STAGE_FACTOR)
+
+class TestLinerStageFactorRelative(TestLinerStageFactor):
+    stageFactorDefinitionMethod = StageFactorDefinitionMethod.RELATIVE_STAGE_FACTOR
+    def testGetStageFactorSuccess(self):
+        self.GetStageFactorSuccess()
+    def testGetStageFactorNotEnabled(self):
+        self.GetStageFactorNotEnabled()
+    def testGetStageFactorInvalidStage(self):
+        self.GetStageFactorInvalidStage()
+    def testGetStageFactorAfterLastDefined(self):
+        self.GetStageFactorAfterLastDefined()
+    def testGetStageFactorBeforeFirstDefined(self):
+        self.GetStageFactorBeforeFirstDefined()
+    def testGetStageFactorBetweenMultiple(self):
+        self.GetStageFactorBetweenMultiple()
+    def testCreateStageFactorDisabled(self):
+        self.CreateStageFactorDisabled()
+    def testCreateStageFactorAlreadyExists(self):
+        self.CreateStageFactorAlreadyExists()
+    def testCreateStageFactorStageOutOfRange(self):
+        self.CreateStageFactorStageOutOfRange()
+    def testCreateStageFactorSuccessCopyFromLastDefined(self):
+        self.CreateStageFactorSuccessCopyFromLastDefined()
+    def testCreateDefaultStageFactorSuccess(self):
+        self.CreateDefaultStageFactorSuccess()
+    def testCreateStageFactorMultiple(self):
+        self.CreateStageFactorMultiple()
+    def testSetDefinedEmptyMapFailure(self):
+        self.SetDefinedEmptyMapFailure()
+    def testSetDefinedStageFactorOutOfRange(self):
+        self.SetDefinedStageFactorOutOfRange()
+    def testSetDefinedStageFactorSuccess(self):
+        self.SetDefinedStageFactorSuccess()
+    def testGetDefinedStageFactorsNotEnabled(self):
+        self.GetDefinedStageFactorsNotEnabled()
+    def testGetDefinedStageFactorsSuccess(self):
+        self.GetDefinedStageFactorsSuccess()
+    def testGetStageFactorMethod(self):
+        self.GetStageFactorMethod()
+
+class TestLinerStageFactorAbsolute(TestLinerStageFactor):
+    stageFactorDefinitionMethod = StageFactorDefinitionMethod.ABSOLUTE_STAGE_FACTOR
+    def testGetStageFactorSuccess(self):
+        self.GetStageFactorSuccess()
+    def testGetStageFactorNotEnabled(self):
+        self.GetStageFactorNotEnabled()
+    def testGetStageFactorInvalidStage(self):
+        self.GetStageFactorInvalidStage()
+    def testGetStageFactorAfterLastDefined(self):
+        self.GetStageFactorAfterLastDefined()
+    def testGetStageFactorBeforeFirstDefined(self):
+        self.GetStageFactorBeforeFirstDefined()
+    def testGetStageFactorBetweenMultiple(self):
+        self.GetStageFactorBetweenMultiple()
+    def testCreateStageFactorDisabled(self):
+        self.CreateStageFactorDisabled()
+    def testCreateStageFactorAlreadyExists(self):
+        self.CreateStageFactorAlreadyExists()
+    def testCreateStageFactorStageOutOfRange(self):
+        self.CreateStageFactorStageOutOfRange()
+    def testCreateStageFactorSuccessCopyFromLastDefined(self):
+        self.CreateStageFactorSuccessCopyFromLastDefined()
+    def testCreateDefaultStageFactorSuccess(self):
+        self.CreateDefaultStageFactorSuccess()
+    def testCreateStageFactorMultiple(self):
+        self.CreateStageFactorMultiple()
+    def testSetDefinedEmptyMapFailure(self):
+        self.SetDefinedEmptyMapFailure()
+    def testSetDefinedStageFactorOutOfRange(self):
+        self.SetDefinedStageFactorOutOfRange()
+    def testSetDefinedStageFactorSuccess(self):
+        self.SetDefinedStageFactorSuccess()
+    def testGetDefinedStageFactorsNotEnabled(self):
+        self.GetDefinedStageFactorsNotEnabled()
+    def testGetDefinedStageFactorsSuccess(self):
+        self.GetDefinedStageFactorsSuccess()
+    def testGetStageFactorMethod(self):
+        self.GetStageFactorMethod()
