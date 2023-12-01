@@ -76,6 +76,12 @@ class TestLinerStageFactor(unittest.TestCase):
         with self.assertRaises(Exception):
             self.liner.CableTruss.getStageFactor(1)
 
+    def testGetStageFactorInvalidStage(self):
+        with self.assertRaises(Exception):
+            self.liner.CableTruss.getStageFactor(0)
+        with self.assertRaises(Exception):
+            self.liner.CableTruss.getStageFactor(99)
+
     def testGetStageFactorAfterLastDefined(self):
         sf1 = self.liner.CableTruss.getDefinedStageFactors()[1]
         sf1.setAxialStrainExpansionFactor(0.555)
@@ -95,6 +101,27 @@ class TestLinerStageFactor(unittest.TestCase):
 
         self.assertEqual(sfDefault.getConductivityFactor(), defaultConductivityFactor)
 
+    def testGetStageFactorBetweenMultiple(self):
+        sf1 = self.liner.CableTruss.getDefinedStageFactors()[1]
+        sf1.setAxialStrainExpansionFactor(0.1)
+
+        sf2 = self.liner.CableTruss.createStageFactor(2)
+        sf2.setAxialStrainExpansionFactor(0.2)
+
+        sf3 = self.liner.CableTruss.createStageFactor(3)
+        sf3.setAxialStrainExpansionFactor(0.3)
+
+        sf2 = self.liner.CableTruss.getStageFactor(2)
+        
+        self.assertEqual(sf2.getAxialStrainExpansionFactor(), 0.2)
+
+        sfMap = self.liner.CableTruss.getDefinedStageFactors()
+        del sfMap[2]
+        self.liner.CableTruss.setDefinedStageFactors(self.stageFactorDefinitionMethod, sfMap)
+
+        #with 2 deleted, getting 2 should return 1
+        sf2 = self.liner.CableTruss.getStageFactor(2)
+        self.assertEqual(sf2.getAxialStrainExpansionFactor(), 0.1)
 ######## createStageFactor Tests ########
 
     def testCreateStageFactorDisabled(self):
@@ -130,10 +157,8 @@ class TestLinerStageFactor(unittest.TestCase):
         sf1 = self.liner.CableTruss.createStageFactor(1)
         sf2 = self.liner.CableTruss.getDefinedStageFactors()[2]
         
-        self.assertFalse(self.areCableStageFactorsEqual(sf2, sf1))
-
-        self.resetCableStageFactor(sf2)
-        self.assertTrue(self.areCableStageFactorsEqual(sf2, sf1))
+        self.assertEqual(sf1.getAxialStrainExpansionFactor(), 1)
+        self.assertEqual(sf2.getAxialStrainExpansionFactor(), 0.555)
 
     def testCreateStageFactorMultiple(self):
         sf4 = self.liner.CableTruss.createStageFactor(4)
@@ -276,7 +301,7 @@ class TestLinerStageFactor(unittest.TestCase):
         self.assertEqual(sfMap[6].getAxialStrainExpansionFactor(), 0.6)
 
 
-#### test getDefinedStageFactors ####
+#### test getStageFactorMethod ####
     def testGetStageFactorMethod(self):
         factorMap = self.liner.CableTruss.getDefinedStageFactors()
         self.liner.CableTruss.setDefinedStageFactors(StageFactorDefinitionMethod.ABSOLUTE_STAGE_FACTOR, factorMap)
