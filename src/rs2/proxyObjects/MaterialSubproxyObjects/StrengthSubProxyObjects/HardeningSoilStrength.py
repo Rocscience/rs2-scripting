@@ -3,7 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-class HardeningSoil(PropertyProxy):
+class HardeningSoilStrength(PropertyProxy):
 	def getFrictionAngle(self) -> float:
 		return self._getDoubleProperty("MP_HS_FRIC_ANGLE")
 	def setFrictionAngle(self, value: float):

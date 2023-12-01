@@ -3,7 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-class DoubleYield(PropertyProxy):
+class CySoilStrength(PropertyProxy):
 	def getCap(self) -> CySoilCapOption:
 		return CySoilCapOption(self._getEnumECySoilCapOptionProperty("MP_CYS_CAP"))
 	def setCap(self, value: CySoilCapOption):

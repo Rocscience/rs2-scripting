@@ -3,7 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-class SwellingRock(PropertyProxy):
+class SwellingRockStrength(PropertyProxy):
 	def getFrictionAngle(self) -> float:
 		return self._getDoubleProperty("MP_SR_FRIC_ANGLE")
 	def setFrictionAngle(self, value: float):
