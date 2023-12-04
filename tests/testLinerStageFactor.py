@@ -62,6 +62,7 @@ class TestLinerStageFactor(unittest.TestCase):
     @classmethod
     def tearDownClass(cls):
         cls.model.close()
+        cls.modeler.client.closeConnection()
         os.remove(cls.copiedModelPath)
 
 
