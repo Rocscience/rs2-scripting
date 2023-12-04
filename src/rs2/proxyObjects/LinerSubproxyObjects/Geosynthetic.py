@@ -112,7 +112,7 @@ class Geosynthetic(PropertyProxy):
 		"""
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName])
 	def getStageFactorMethod(self) -> StageFactorDefinitionMethod:
-		return StageFactorDefinitionMethod(self._callFunction("getStageFactorMethod"))
+		return StageFactorDefinitionMethod(self._callFunction("__getattribute__", ["relative_stage_factors"]))
 	def getDefinedStageFactors(self) -> dict[int, GeosyntheticDefinedStageFactor]:
 		"""
 		Returns a map of stage factors. The key is the absolute or relative stage at which the stage factor is applied. The value is the stage factor object
@@ -136,7 +136,7 @@ class Geosynthetic(PropertyProxy):
 		"""
 		factorReferenceID = self._callFunction('createStageFactor', [stage], keepReturnValueReference=True)
 		return GeosyntheticDefinedStageFactor(self._client, factorReferenceID, self)
-	def setDefinedStageFactors(self, method: StageFactorDefinitionMethod, stageFactors: dict[int, GeosyntheticStageFactor]):
+	def setDefinedStageFactors(self, method: StageFactorDefinitionMethod, stageFactors: dict[int,GeosyntheticStageFactor]):
 		"""
 		Sets the defined stage factors to those given. The method indicates if the stages in the keys of the map are absolute or relative.
 
