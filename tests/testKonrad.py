@@ -22,13 +22,13 @@ class TestKonrad(unittest.TestCase):
     def testKonradProperty(self):
         soilunfrozenwatercontent = self.material.Thermal.SoilUnfrozenWaterContent
         soilunfrozenwatercontent.Konrad.setResidualWaterContent(0.1)
-        soilunfrozenwatercontent.Konrad.setFrozenTemperature(2628.5)
-        soilunfrozenwatercontent.Konrad.setSolidusTemperature(972.5)
+        soilunfrozenwatercontent.Konrad.setFrozenTemperature(836.5)
+        soilunfrozenwatercontent.Konrad.setSolidusTemperature(2628.5)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         soilunfrozenwatercontent = self.material.Thermal.SoilUnfrozenWaterContent
         self.assertEqual(soilunfrozenwatercontent.Konrad.getResidualWaterContent(), 0.1)
-        self.assertEqual(soilunfrozenwatercontent.Konrad.getFrozenTemperature(), 2628.5)
-        self.assertEqual(soilunfrozenwatercontent.Konrad.getSolidusTemperature(), 972.5)
+        self.assertEqual(soilunfrozenwatercontent.Konrad.getFrozenTemperature(), 836.5)
+        self.assertEqual(soilunfrozenwatercontent.Konrad.getSolidusTemperature(), 2628.5)
