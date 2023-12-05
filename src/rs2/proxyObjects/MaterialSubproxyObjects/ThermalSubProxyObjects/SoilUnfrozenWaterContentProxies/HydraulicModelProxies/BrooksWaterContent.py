@@ -3,7 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-class Brook(PropertyProxy):
+class BrooksWaterContent(PropertyProxy):
 	def getPoreSizeIndex(self) -> float:
 		return self._getDoubleProperty("MP_PORE_SIZE_INDEX_THERMAL")
 	def setPoreSizeIndex(self, value: float):

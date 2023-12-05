@@ -4,9 +4,9 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.SimpleWaterContent import SimpleWaterContent
-from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.Fredlund import Fredlund
+from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.FredlundWaterContent import FredlundWaterContent
 from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.GenuchtenWaterContent import GenuchtenWaterContent
-from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.Brook import Brook
+from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.BrooksWaterContent import BrooksWaterContent
 from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.GardnerWaterContent import GardnerWaterContent
 class HydraulicModel(PropertyProxy):
 	"""
@@ -14,9 +14,9 @@ class HydraulicModel(PropertyProxy):
 	"""
 	def __init__(self, server : Client, ID, documentProxyID):
 		self.SimpleWaterContent = SimpleWaterContent(server, ID, documentProxyID)
-		self.Fredlund = Fredlund(server, ID, documentProxyID)
+		self.FredlundWaterContent = FredlundWaterContent(server, ID, documentProxyID)
 		self.GenuchtenWaterContent = GenuchtenWaterContent(server, ID, documentProxyID)
-		self.Brook = Brook(server, ID, documentProxyID)
+		self.BrooksWaterContent = BrooksWaterContent(server, ID, documentProxyID)
 		self.GardnerWaterContent = GardnerWaterContent(server, ID, documentProxyID)
 		super().__init__(server, ID, documentProxyID)
 	def getFrozenTemperature(self) -> float:
