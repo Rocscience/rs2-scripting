@@ -93,6 +93,10 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEPileSkinResistanceTypeProperty", [propertyName])
 	def _setEnumEPileSkinResistanceTypeProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEPileSkinResistanceTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumECompositeJointPlacementProperty(self, propertyName: str):
+		return self._callFunction("getEnumECompositeJointPlacementProperty", [propertyName])
+	def _setEnumECompositeJointPlacementProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumECompositeJointPlacementProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumGdiplusHatchStyleProperty(self, propertyName: str):
 		return self._callFunction("getEnumGdiplusHatchStyleProperty", [propertyName])
 	def _setEnumGdiplusHatchStyleProperty(self, propertyName: str, value):
