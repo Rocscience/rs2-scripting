@@ -3,7 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-class Gardner(PropertyProxy):
+class GardnerWaterContent(PropertyProxy):
 	def getA(self) -> float:
 		return self._getDoubleProperty("MP_GARDNER_A_THERMAL")
 	def setA(self, value: float):

@@ -3,7 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-class Constant(PropertyProxy):
+class ConstantConductivity(PropertyProxy):
 	def getUnfrozenConductivity(self) -> float:
 		return self._getDoubleProperty("MP_THERMAL_UNFROZEN_CONDUCTIVITY")
 	def setUnfrozenConductivity(self, value: float):

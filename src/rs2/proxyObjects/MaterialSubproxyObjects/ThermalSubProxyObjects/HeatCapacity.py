@@ -5,7 +5,7 @@ from typing import List
 from rs2.PropertyEnums import *
 from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.HeatCapacityProxies.Constant import Constant
 from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.HeatCapacityProxies.JameNewman import JameNewman
-from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.HeatCapacityProxies.Custom import Custom
+from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.HeatCapacityProxies.CustomHeatCapacity import CustomHeatCapacity
 class HeatCapacity(PropertyProxy):
 	"""
 	:ref:`Material Property Thermal HeatCapacity Example`
@@ -13,7 +13,7 @@ class HeatCapacity(PropertyProxy):
 	def __init__(self, server : Client, ID, documentProxyID):
 		self.Constant = Constant(server, ID, documentProxyID)
 		self.JameNewman = JameNewman(server, ID, documentProxyID)
-		self.Custom = Custom(server, ID, documentProxyID)
+		self.CustomHeatCapacity = CustomHeatCapacity(server, ID, documentProxyID)
 		super().__init__(server, ID, documentProxyID)
 	def getType(self) -> ThermalHeatCapacityType:
 		return ThermalHeatCapacityType(self._getEnumEThermalHeatCapacityTypeProperty("MP_THERMAL_HEAT_CAPACITY_TYPE"))

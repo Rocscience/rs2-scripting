@@ -3,7 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-class Genuchten(PropertyProxy):
+class GenuchtenWaterContent(PropertyProxy):
 	def getAlpha(self) -> float:
 		return self._getDoubleProperty("MP_VAN_GENUCHTEN_ALPHA_THERMAL")
 	def setAlpha(self, value: float):

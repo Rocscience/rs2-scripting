@@ -3,7 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-class Custom(PropertyProxy):
+class CustomHeatCapacity(PropertyProxy):
 	def getIncludeLatentHeat(self) -> bool:
 		return self._getBoolProperty("MP_THERMAL_LATENT_HEAT")
 	def setIncludeLatentHeat(self, value: bool):
