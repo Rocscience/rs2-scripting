@@ -3,7 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.ConductivityProxies.Constant import Constant
+from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.ConductivityProxies.ConstantConductivity import ConstantConductivity
 from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.ConductivityProxies.Johansen import Johansen
 from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.ConductivityProxies.JohansenLu import JohansenLu
 from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.ConductivityProxies.Derives import Derives
@@ -14,7 +14,7 @@ class Conductivity(PropertyProxy):
 	:ref:`Material Property Thermal Conductivity Example`
 	"""
 	def __init__(self, server : Client, ID, documentProxyID):
-		self.Constant = Constant(server, ID, documentProxyID)
+		self.ConstantConductivity = ConstantConductivity(server, ID, documentProxyID)
 		self.Johansen = Johansen(server, ID, documentProxyID)
 		self.JohansenLu = JohansenLu(server, ID, documentProxyID)
 		self.Derives = Derives(server, ID, documentProxyID)

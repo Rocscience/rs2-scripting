@@ -3,7 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.MohrCoulomb import MohrCoulomb
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.MohrCoulombStrength import MohrCoulombStrength
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.HoekBrown import HoekBrown
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.DruckerPrager import DruckerPrager
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.GeneralizedHoekBrown import GeneralizedHoekBrown
@@ -13,13 +13,13 @@ from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.ModifiedCa
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.MohrCoulombWithCap import MohrCoulombWithCap
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.SofteningHardeningModel import SofteningHardeningModel
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.BarcelonaBasic import BarcelonaBasic
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.NorSand import NorSand
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.NorSandStrength import NorSandStrength
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.BoundingSurfacePlasticity import BoundingSurfacePlasticity
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.ManzariAndDafalias import ManzariAndDafalias
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.PM4Sand import PM4Sand
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.PM4Silt import PM4Silt
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.ManzariAndDafaliasStrength import ManzariAndDafaliasStrength
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.PM4SandStrength import PM4SandStrength
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.PM4SiltStrength import PM4SiltStrength
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.Finn import Finn
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.BartonBandis import BartonBandis
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.BartonBandisStrength import BartonBandisStrength
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.Hyperbolic import Hyperbolic
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.PowerCurve import PowerCurve
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.ShearNormalFunction import ShearNormalFunction
@@ -30,20 +30,20 @@ from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.Anisotropi
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.GeneralizedAnisotropic import GeneralizedAnisotropic
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.JointedMohrCoulomb import JointedMohrCoulomb
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.JointedGeneralizedHoekBrown import JointedGeneralizedHoekBrown
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.ChSoil import ChSoil
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.CySoil import CySoil
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.DoubleYield import DoubleYield
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.HardeningSoil import HardeningSoil
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.ChSoilStrength import ChSoilStrength
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.CySoilStrength import CySoilStrength
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.DoubleYieldStrength import DoubleYieldStrength
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.HardeningSoilStrength import HardeningSoilStrength
 from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.HardeningSoilWithSmallStrainStiffness import HardeningSoilWithSmallStrainStiffness
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.SoftSoil import SoftSoil
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.SoftSoilCreep import SoftSoilCreep
-from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.SwellingRock import SwellingRock
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.SoftSoilStrength import SoftSoilStrength
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.SoftSoilCreepStrength import SoftSoilCreepStrength
+from rs2.proxyObjects.MaterialSubproxyObjects.StrengthSubProxyObjects.SwellingRockStrength import SwellingRockStrength
 class Strength(PropertyProxy):
 	"""
 	:ref:`Material Property Strength Example`
 	"""
 	def __init__(self, server : Client, ID, documentProxyID):
-		self.MohrCoulomb = MohrCoulomb(server, ID, documentProxyID)
+		self.MohrCoulombStrength = MohrCoulombStrength(server, ID, documentProxyID)
 		self.HoekBrown = HoekBrown(server, ID, documentProxyID)
 		self.DruckerPrager = DruckerPrager(server, ID, documentProxyID)
 		self.GeneralizedHoekBrown = GeneralizedHoekBrown(server, ID, documentProxyID)
@@ -53,13 +53,13 @@ class Strength(PropertyProxy):
 		self.MohrCoulombWithCap = MohrCoulombWithCap(server, ID, documentProxyID)
 		self.SofteningHardeningModel = SofteningHardeningModel(server, ID, documentProxyID)
 		self.BarcelonaBasic = BarcelonaBasic(server, ID, documentProxyID)
-		self.NorSand = NorSand(server, ID, documentProxyID)
+		self.NorSandStrength = NorSandStrength(server, ID, documentProxyID)
 		self.BoundingSurfacePlasticity = BoundingSurfacePlasticity(server, ID, documentProxyID)
-		self.ManzariAndDafalias = ManzariAndDafalias(server, ID, documentProxyID)
-		self.PM4Sand = PM4Sand(server, ID, documentProxyID)
-		self.PM4Silt = PM4Silt(server, ID, documentProxyID)
+		self.ManzariAndDafaliasStrength = ManzariAndDafaliasStrength(server, ID, documentProxyID)
+		self.PM4SandStrength = PM4SandStrength(server, ID, documentProxyID)
+		self.PM4SiltStrength = PM4SiltStrength(server, ID, documentProxyID)
 		self.Finn = Finn(server, ID, documentProxyID)
-		self.BartonBandis = BartonBandis(server, ID, documentProxyID)
+		self.BartonBandisStrength = BartonBandisStrength(server, ID, documentProxyID)
 		self.Hyperbolic = Hyperbolic(server, ID, documentProxyID)
 		self.PowerCurve = PowerCurve(server, ID, documentProxyID)
 		self.ShearNormalFunction = ShearNormalFunction(server, ID, documentProxyID)
@@ -70,14 +70,14 @@ class Strength(PropertyProxy):
 		self.GeneralizedAnisotropic = GeneralizedAnisotropic(server, ID, documentProxyID)
 		self.JointedMohrCoulomb = JointedMohrCoulomb(server, ID, documentProxyID)
 		self.JointedGeneralizedHoekBrown = JointedGeneralizedHoekBrown(server, ID, documentProxyID)
-		self.ChSoil = ChSoil(server, ID, documentProxyID)
-		self.CySoil = CySoil(server, ID, documentProxyID)
-		self.DoubleYield = DoubleYield(server, ID, documentProxyID)
-		self.HardeningSoil = HardeningSoil(server, ID, documentProxyID)
+		self.ChSoilStrength = ChSoilStrength(server, ID, documentProxyID)
+		self.CySoilStrength = CySoilStrength(server, ID, documentProxyID)
+		self.DoubleYieldStrength = DoubleYieldStrength(server, ID, documentProxyID)
+		self.HardeningSoilStrength = HardeningSoilStrength(server, ID, documentProxyID)
 		self.HardeningSoilWithSmallStrainStiffness = HardeningSoilWithSmallStrainStiffness(server, ID, documentProxyID)
-		self.SoftSoil = SoftSoil(server, ID, documentProxyID)
-		self.SoftSoilCreep = SoftSoilCreep(server, ID, documentProxyID)
-		self.SwellingRock = SwellingRock(server, ID, documentProxyID)
+		self.SoftSoilStrength = SoftSoilStrength(server, ID, documentProxyID)
+		self.SoftSoilCreepStrength = SoftSoilCreepStrength(server, ID, documentProxyID)
+		self.SwellingRockStrength = SwellingRockStrength(server, ID, documentProxyID)
 		super().__init__(server, ID, documentProxyID)
 	def getFailureCriterion(self) -> StrengthCriteriaTypes:
 		return StrengthCriteriaTypes(self._getEnumEStrengthCriteriaTypesProperty("MP_FAILURE_CRITERION"))

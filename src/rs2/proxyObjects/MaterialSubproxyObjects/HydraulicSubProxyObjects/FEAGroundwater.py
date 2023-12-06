@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Simple import Simple
-from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Fredlung import Fredlung
+from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Fredlund import Fredlund
 from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Genuchten import Genuchten
 from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Brooks import Brooks
 from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Gardner import Gardner
@@ -16,7 +16,7 @@ class FEAGroundwater(PropertyProxy):
 	"""
 	def __init__(self, server : Client, ID, documentProxyID):
 		self.Simple = Simple(server, ID, documentProxyID)
-		self.Fredlung = Fredlung(server, ID, documentProxyID)
+		self.Fredlund = Fredlund(server, ID, documentProxyID)
 		self.Genuchten = Genuchten(server, ID, documentProxyID)
 		self.Brooks = Brooks(server, ID, documentProxyID)
 		self.Gardner = Gardner(server, ID, documentProxyID)
