@@ -81,7 +81,7 @@ class TestStandardBeam(unittest.TestCase):
         self.assertEqual(liner.StandardBeam.getExpansionCoefficient(), 1006.5)
         self.assertEqual(liner.StandardBeam.getStageLinerProperties(), 1)
         self.assertEqual(liner.StandardBeam.getStaticTemperatureGridToUse(), "None")
-        self.assertEqual(liner.StandardBeam.getStageFactorMethod(), True)
+        self.assertEqual(liner.StandardBeam.getStageFactorMethod(), StageFactorDefinitionMethod.ABSOLUTE_STAGE_FACTOR)
     def testStandardBeamStageFactors(self):
         self.liner.setLinerType(LinerTypes.P2_LINER_STANDARD_BEAM)
         stageFactor = self.liner.StandardBeam.getDefinedStageFactors()[1]

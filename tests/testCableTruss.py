@@ -67,7 +67,7 @@ class TestCableTruss(unittest.TestCase):
         self.assertEqual(liner.CableTruss.getExpansionCoefficient(), 3215.6)
         self.assertEqual(liner.CableTruss.getStageCableProperties(), 1)
         self.assertEqual(liner.CableTruss.getStaticTemperatureGridToUse(), "None")
-        self.assertEqual(liner.CableTruss.getStageFactorMethod(), True)
+        self.assertEqual(liner.CableTruss.getStageFactorMethod(), StageFactorDefinitionMethod.ABSOLUTE_STAGE_FACTOR)
     def testCableTrussStageFactors(self):
         self.liner.setLinerType(LinerTypes.P2_LINER_CABLE_TRUSS)
         stageFactor = self.liner.CableTruss.getDefinedStageFactors()[1]
