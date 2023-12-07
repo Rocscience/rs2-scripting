@@ -50,7 +50,5 @@ class RS2Interpreter:
 		Typical Usage example to not save all models:
 		interpreter.closeProgram(False)
 		'''
-		request = functionRequest('closeOpenDialogs', [])
-		self.client.callFunction(request)
 		request = functionRequest('closeProgram', [saveModels])
 		self.client.callFunction(request)
