@@ -32,6 +32,9 @@ class GeometryChoice(Enum):
 class StaticWaterModes(Enum):
 	SWM_PWP = "SWM_PWP"
 	SWM_GRID = "SWM_GRID"
+class StageFactorDefinitionMethod(Enum):
+	ABSOLUTE_STAGE_FACTOR = 0
+	RELATIVE_STAGE_FACTOR = 1
 class JointTypes(Enum):
 	JOINT_NONE = "JOINT_NONE"
 	JOINT_MOHR_COULOMB = "JOINT_MOHR_COULOMB"
