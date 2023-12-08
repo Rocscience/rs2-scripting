@@ -10,7 +10,7 @@ import time
 parentDirectoryHelper.addParentDirectoryToPath()
 
 class TestModelerWithChanges(unittest.TestCase):
-    pathToModelerExecutable = ""
+    pathToModelerExecutable = "C:\RS2_dev\Build\Debug_x64\RS2.exe"
 
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
