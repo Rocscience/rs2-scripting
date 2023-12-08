@@ -40,7 +40,6 @@ class TestAnisotropicLinear(unittest.TestCase):
         strength.AnisotropicLinear.setApplySSRShearStrengthReduction(0)
         strength.AnisotropicLinear.setAnisotropyDefinition(AnisotropyDefinitions.ANISOTROPY_DEFINITION_ANGLE)
         strength.AnisotropicLinear.setAngleCcwTo1(1475.5)
-        strength.AnisotropicLinear.setAnisotropicSurface(26556)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -65,4 +64,3 @@ class TestAnisotropicLinear(unittest.TestCase):
         self.assertEqual(strength.AnisotropicLinear.getApplySSRShearStrengthReduction(), 0)
         self.assertEqual(strength.AnisotropicLinear.getAnisotropyDefinition(), AnisotropyDefinitions.ANISOTROPY_DEFINITION_ANGLE)
         self.assertEqual(strength.AnisotropicLinear.getAngleCcwTo1(), 1475.5)
-        self.assertEqual(strength.AnisotropicLinear.getAnisotropicSurface(), 26556)

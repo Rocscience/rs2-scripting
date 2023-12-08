@@ -39,10 +39,6 @@ class FEAGroundwater(PropertyProxy):
 		return self._getDoubleProperty("MP_K1_ANGLE")
 	def setK1Angle(self, value: float):
 		return self._setDoubleProperty("MP_K1_ANGLE", value)
-	def getK1Surface(self) -> int:
-		return int(self._getIntProperty("MP_K1_SURFACE"))
-	def setK1Surface(self, value: int):
-		return self._setIntProperty("MP_K1_SURFACE", value)
 	def getMvModel(self) -> MVModel:
 		return MVModel(self._getEnumEMVModelProperty("MP_MV_MODEL"))
 	def setMvModel(self, value: MVModel):

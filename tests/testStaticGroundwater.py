@@ -26,7 +26,6 @@ class TestStaticGroundwater(unittest.TestCase):
         hydraulic.StaticGroundwater.setRuValue(2628.5)
         hydraulic.StaticGroundwater.setHuType(HuTypes.HT_AUTO)
         hydraulic.StaticGroundwater.setHuValue(972.5)
-        hydraulic.StaticGroundwater.setHydroGridToUse(18587)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -37,4 +36,3 @@ class TestStaticGroundwater(unittest.TestCase):
         self.assertEqual(hydraulic.StaticGroundwater.getRuValue(), 2628.5)
         self.assertEqual(hydraulic.StaticGroundwater.getHuType(), HuTypes.HT_AUTO)
         self.assertEqual(hydraulic.StaticGroundwater.getHuValue(), 972.5)
-        self.assertEqual(hydraulic.StaticGroundwater.getHydroGridToUse(), 18587)

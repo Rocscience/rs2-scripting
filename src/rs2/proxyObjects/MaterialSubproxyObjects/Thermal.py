@@ -23,10 +23,6 @@ class Thermal(PropertyProxy):
 		return self._getDoubleProperty("MP_STATIC_TEMPERATURE_CONST")
 	def setStaticTemperature(self, value: float):
 		return self._setDoubleProperty("MP_STATIC_TEMPERATURE_CONST", value)
-	def getStaticTemperatureGridToUse(self) -> int:
-		return int(self._getIntProperty("MP_STATIC_TEMPERATURE_GRID"))
-	def setStaticTemperatureGridToUse(self, value: int):
-		return self._setIntProperty("MP_STATIC_TEMPERATURE_GRID", value)
 	def getWaterContent(self) -> ThermalWaterContentMethodType:
 		return ThermalWaterContentMethodType(self._getEnumEThermalWaterContentMethodTypeProperty("MP_THERMAL_WATER_CONTENT_METHOD"))
 	def setWaterContent(self, value: ThermalWaterContentMethodType):

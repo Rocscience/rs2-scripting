@@ -28,7 +28,6 @@ class TestSnowdenModAnisotropicLinear(unittest.TestCase):
         strength.SnowdenModAnisotropicLinear.setB2Parameter(86.7)
         strength.SnowdenModAnisotropicLinear.setAnisotropyDefinition(AnisotropyDefinitions.ANISOTROPY_DEFINITION_ANGLE)
         strength.SnowdenModAnisotropicLinear.setAngleCcwTo1(762.9)
-        strength.SnowdenModAnisotropicLinear.setAnisotropicSurface(11649)
         strength.SnowdenModAnisotropicLinear.setApplySSRShearStrengthReduction(0)
         self.model.save()
         self.model.close()
@@ -42,5 +41,4 @@ class TestSnowdenModAnisotropicLinear(unittest.TestCase):
         self.assertEqual(strength.SnowdenModAnisotropicLinear.getB2Parameter(), 86.7)
         self.assertEqual(strength.SnowdenModAnisotropicLinear.getAnisotropyDefinition(), AnisotropyDefinitions.ANISOTROPY_DEFINITION_ANGLE)
         self.assertEqual(strength.SnowdenModAnisotropicLinear.getAngleCcwTo1(), 762.9)
-        self.assertEqual(strength.SnowdenModAnisotropicLinear.getAnisotropicSurface(), 11649)
         self.assertEqual(strength.SnowdenModAnisotropicLinear.getApplySSRShearStrengthReduction(), 0)

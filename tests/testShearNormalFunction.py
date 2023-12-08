@@ -21,12 +21,10 @@ class TestShearNormalFunction(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testShearNormalFunctionProperty(self):
         strength = self.material.Strength
-        strength.ShearNormalFunction.setShearNormalFunction(38)
         strength.ShearNormalFunction.setApplySSRShearStrengthReduction(0)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         strength = self.material.Strength
-        self.assertEqual(strength.ShearNormalFunction.getShearNormalFunction(), 38)
         self.assertEqual(strength.ShearNormalFunction.getApplySSRShearStrengthReduction(), 0)

@@ -24,11 +24,7 @@ class StaticGroundwater(PropertyProxy):
 		return self._getDoubleProperty("MP_HU_VALUE")
 	def setHuValue(self, value: float):
 		return self._setDoubleProperty("MP_HU_VALUE", value)
-	def getHydroGridToUse(self) -> int:
-		return int(self._getIntProperty("MP_GRID_TO_USE"))
-	def setHydroGridToUse(self, value: int):
-		return self._setIntProperty("MP_GRID_TO_USE", value)
-	def setProperties(self, StaticWaterMode : StaticWaterModes = None, StaticPoreWaterPressure : float = None, RuValue : float = None, HuType : HuTypes = None, HuValue : float = None, HydroGridToUse : int = None):
+	def setProperties(self, StaticWaterMode : StaticWaterModes = None, StaticPoreWaterPressure : float = None, RuValue : float = None, HuType : HuTypes = None, HuValue : float = None):
 		if StaticWaterMode is not None:
 			self._setEnumEStaticWaterModesProperty("MP_STATIC_WATER_MODE", StaticWaterMode)
 		if StaticPoreWaterPressure is not None:
@@ -39,8 +35,6 @@ class StaticGroundwater(PropertyProxy):
 			self._setEnumEHuTypesProperty("MP_HU_TYPE", HuType)
 		if HuValue is not None:
 			self._setDoubleProperty("MP_HU_VALUE", HuValue)
-		if HydroGridToUse is not None:
-			self._setIntProperty("MP_GRID_TO_USE", HydroGridToUse)
 	def getProperties(self):
 		return {
 		"StaticWaterMode" : self.getStaticWaterMode(), 
@@ -48,5 +42,4 @@ class StaticGroundwater(PropertyProxy):
 		"RuValue" : self.getRuValue(), 
 		"HuType" : self.getHuType(), 
 		"HuValue" : self.getHuValue(), 
-		"HydroGridToUse" : self.getHydroGridToUse(), 
 		}
