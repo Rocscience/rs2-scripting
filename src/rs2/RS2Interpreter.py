@@ -1,6 +1,7 @@
 from rsmessages.requestFormat import functionRequest
 from .Client import Client
 from rs2.ApplicationManager import ApplicationManager
+from rs2.generatedInterpreterClientScripts.PropertyEnums import *
 import winreg
 class RS2Interpreter:
 	"""
@@ -39,3 +40,7 @@ class RS2Interpreter:
 		rs2ModelerInstallLocation =  rf"{installationLocation}\Interpret"
 
 		return rs2ModelerInstallLocation
+	
+	def getMeshResults(self, resultType: ExportResultType):
+		request = functionRequest('getMeshResults', [resultType.value])
+		return self.client.callFunction(request)
