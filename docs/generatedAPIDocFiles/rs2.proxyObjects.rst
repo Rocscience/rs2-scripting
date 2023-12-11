@@ -24,6 +24,14 @@ rs2.proxyObjects.BoltPropertyProxy module
    :undoc-members:
    :show-inheritance:
 
+rs2.proxyObjects.CompositeLinerPropertyProxy module
+---------------------------------------------------
+
+.. automodule:: rs2.proxyObjects.CompositeLinerPropertyProxy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.proxyObjects.JointPropertyProxy module
 ------------------------------------------
 
