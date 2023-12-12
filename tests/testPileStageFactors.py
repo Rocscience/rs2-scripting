@@ -14,8 +14,8 @@ class TestPileStageFactor(unittest.TestCase):
         return sf1.getXFactor() == sf2.getXFactor() and sf1.getYFactor() == sf2.getYFactor()
 
     def resetCableStageFactor(self, sf: ForceDisplacementDefinedStageFactor):
-        sf.setXFactor(1)
-        sf.setYFactor(1)
+        sf.setXFactor(0)
+        sf.setYFactor(0)
 
     @classmethod
     def setUpClass(cls):
@@ -71,7 +71,7 @@ class TestPileStageFactor(unittest.TestCase):
         self.assertTrue(self.areCableStageFactorsEqual(sf1, sf2))
     
     def GetStageFactorBeforeFirstDefined(self):
-        defaultConductivityFactor = 1
+        defaultYFactor = 0
 
         sf1 = self.pile.ForceDisplacement.getDefinedStageFactors()[1]
         sf1.setYFactor(0.444)
@@ -79,7 +79,7 @@ class TestPileStageFactor(unittest.TestCase):
         self.pile.ForceDisplacement.setDefinedStageFactors({2: sf1})
         sfDefault = self.pile.ForceDisplacement.getStageFactor(1)
 
-        self.assertEqual(sfDefault.getYFactor(), defaultConductivityFactor)
+        self.assertEqual(sfDefault.getYFactor(), defaultYFactor)
 
     def GetStageFactorBetweenMultiple(self):
         sf1 = self.pile.ForceDisplacement.getDefinedStageFactors()[1]
@@ -137,7 +137,7 @@ class TestPileStageFactor(unittest.TestCase):
         sf1 = self.pile.ForceDisplacement.createStageFactor(1)
         sf2 = self.pile.ForceDisplacement.getDefinedStageFactors()[2]
         
-        self.assertEqual(sf1.getXFactor(), 1)
+        self.assertEqual(sf1.getXFactor(), 0)
         self.assertEqual(sf2.getXFactor(), 0.555)
 
     def CreateStageFactorMultiple(self):
