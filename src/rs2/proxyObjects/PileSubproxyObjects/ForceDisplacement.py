@@ -68,7 +68,7 @@ class ForceDisplacement(PropertyProxy):
 		stageFactorIdMap = {}
 		for stage in stageFactors :
 			stageFactorIdMap[stage] = stageFactors[stage]._ID
-		return self._callFunction("setDefinedStageFactors", [stageFactorIdMap], proxyArgumentIndices = [1])
+		return self._callFunction("setDefinedStageFactors", [stageFactorIdMap], proxyArgumentIndices = [0])
 	def setProperties(self, Apply : PileEndCondition = None, ApplyOn : PileForceApplicationPoint = None, X : float = None, Y : float = None):
 		if Apply is not None:
 			self._setEnumEPileEndConditionProperty("PFP_FORCE_DISPLACEMENT_TYPE", Apply)
