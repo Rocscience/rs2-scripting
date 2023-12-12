@@ -2,6 +2,7 @@ from rsmessages.requestFormat import functionRequest
 from .Client import Client
 from rs2.ApplicationManager import ApplicationManager
 from rs2.generatedInterpreterClientScripts.PropertyEnums import *
+from rs2.Interpreter_ModelProxy import ModelProxy
 import winreg
 class RS2Interpreter:
 	"""
@@ -9,6 +10,19 @@ class RS2Interpreter:
 	"""
 	def __init__(self, host = 'localhost', port=60055):
 		self.client = Client(host, port)
+
+	def openFile(self, fileName : str) -> ModelProxy:
+		'''
+		Takes in the absolute path to an rs2 file to be opened in the modeler.
+
+		Typical Usage example:
+		model = modeler.openFile('C:/simple_3_stage.fez')
+		'''
+		request = functionRequest('open_file', [fileName], keepReturnValueReference=True)
+		modelObjectId = self.client.callFunction(request)
+		modelProxy = ModelProxy(self.client, modelObjectId)
+		return modelProxy
+	
 	def doNothing(self):
 		request = functionRequest('doNothing', [])
 		return self.client.callFunction(request)
