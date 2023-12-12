@@ -10,7 +10,7 @@ import time
 parentDirectoryHelper.addParentDirectoryToPath()
 
 class TestGetMeshResults(unittest.TestCase):
-    pathToComputedModel = "C:\scriptingModels\Profiles_and_Boreholes.fez"
+    pathToComputedModel = ""
 
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
