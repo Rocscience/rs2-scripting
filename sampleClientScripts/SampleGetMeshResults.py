@@ -3,8 +3,8 @@ from rs2.generatedInterpreterClientScripts.PropertyEnums import *
 from rs2.PropertyEnums import *
 
 interpreter = RS2Interpreter()
-# model = interpreter.openFile("C:\scriptingModels\Profiles_and_Boreholes.fez")
-# model.close()
+model = interpreter.openFile("C:\scriptingModels\Profiles_and_Boreholes.fez")
 exportResult = interpreter.getMeshResults(ExportResultType.SOLID_EFF_STRESS_SIGMA_THREE_EFF)
 print("Total Data Points = ", len(exportResult))
+model.close()
 

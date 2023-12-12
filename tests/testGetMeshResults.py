@@ -18,15 +18,17 @@ class TestGetMeshResults(unittest.TestCase):
         self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
         shutil.copy(blankModelPath, self.copiedModelPath)
         self.interpreter = RS2Interpreter()
-        # self.model = self.interpreter.openFile(self.copiedModelPath)
+        self.model = self.interpreter.openFile(self.copiedModelPath)
     def tearDown(self):
-        time.sleep(2)
+        self.model.close()
+        self.model._client.closeConnection()
         os.remove(self.copiedModelPath)
     
     @unittest.skipIf(not pathToComputedModel, "requires path to computed model for RS2 Interpreter")  
     def testGetMeshResultsSuccess(self):
         interpreter = self.interpreter
-        interpreter.getMeshResults(ExportResultType.VOLUMETRIC_PLASTIC_STRAIN)
+        result = interpreter.getMeshResults(ExportResultType.SOLID_EFF_STRESS_SIGMA_ONE_EFF)
+        self.assertGreaterEqual(len(result), 0)
     
     @unittest.skipIf(not pathToComputedModel, "requires path to computed model for RS2 Interpreter")  
     def testGetMeshResultsFailure(self):
