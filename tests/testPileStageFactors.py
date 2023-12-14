@@ -26,17 +26,18 @@ class TestPileStageFactor(unittest.TestCase):
         cls.modeler = RS2Modeler()
         cls.model = cls.modeler.openFile(cls.copiedModelPath)
         cls.pile = cls.model.getAllPileProperties()[0]
+        cls.stageFactorInterface = cls.pile.ForceDisplacement.stageFactorInterface
 
     def setUp(self):
         #setup the model so that there is only 1 stage factor.
         self.pile.setStageForceDisplacement(True)
-        factorMap = self.pile.ForceDisplacement.getDefinedStageFactors()
+        factorMap = self.stageFactorInterface.getDefinedStageFactors()
 
         sf1 = factorMap[next(iter(factorMap))]#get the first defined stage factor
                         
         self.resetCableStageFactor(sf1)
 
-        self.pile.ForceDisplacement.setDefinedStageFactors({1: sf1})
+        self.stageFactorInterface.setDefinedStageFactors({1: sf1})
         
     @classmethod
     def tearDownClass(cls):
@@ -47,147 +48,147 @@ class TestPileStageFactor(unittest.TestCase):
 
 ############# getStageFactor Tests #############
     def GetStageFactorSuccess(self):
-        sf1 = self.pile.ForceDisplacement.getStageFactor(1)
-        self.assertTrue(self.areCableStageFactorsEqual(self.pile.ForceDisplacement.getDefinedStageFactors()[1], sf1))
+        sf1 = self.stageFactorInterface.getStageFactor(1)
+        self.assertTrue(self.areCableStageFactorsEqual(self.stageFactorInterface.getDefinedStageFactors()[1], sf1))
 
     def GetStageFactorNotEnabled(self):
         self.pile.setStageForceDisplacement(False)
     
         with self.assertRaises(Exception):
-            self.pile.ForceDisplacement.getStageFactor(1)
+            self.stageFactorInterface.getStageFactor(1)
 
     def GetStageFactorInvalidStage(self):
         with self.assertRaises(Exception):
-            self.pile.ForceDisplacement.getStageFactor(0)
+            self.stageFactorInterface.getStageFactor(0)
         with self.assertRaises(Exception):
-            self.pile.ForceDisplacement.getStageFactor(99)
+            self.stageFactorInterface.getStageFactor(99)
 
     def GetStageFactorAfterLastDefined(self):
-        sf1 = self.pile.ForceDisplacement.getDefinedStageFactors()[1]
+        sf1 = self.stageFactorInterface.getDefinedStageFactors()[1]
         sf1.setXFactor(0.555)
 
-        sf2 = self.pile.ForceDisplacement.getStageFactor(2)
+        sf2 = self.stageFactorInterface.getStageFactor(2)
 
         self.assertTrue(self.areCableStageFactorsEqual(sf1, sf2))
     
     def GetStageFactorBeforeFirstDefined(self):
         defaultYFactor = 0
 
-        sf1 = self.pile.ForceDisplacement.getDefinedStageFactors()[1]
+        sf1 = self.stageFactorInterface.getDefinedStageFactors()[1]
         sf1.setYFactor(0.444)
 
-        self.pile.ForceDisplacement.setDefinedStageFactors({2: sf1})
-        sfDefault = self.pile.ForceDisplacement.getStageFactor(1)
+        self.stageFactorInterface.setDefinedStageFactors({2: sf1})
+        sfDefault = self.stageFactorInterface.getStageFactor(1)
 
         self.assertEqual(sfDefault.getYFactor(), defaultYFactor)
 
     def GetStageFactorBetweenMultiple(self):
-        sf1 = self.pile.ForceDisplacement.getDefinedStageFactors()[1]
+        sf1 = self.stageFactorInterface.getDefinedStageFactors()[1]
         sf1.setXFactor(0.1)
 
-        sf2 = self.pile.ForceDisplacement.createStageFactor(2)
+        sf2 = self.stageFactorInterface.createStageFactor(2)
         sf2.setXFactor(0.2)
 
-        sf3 = self.pile.ForceDisplacement.createStageFactor(3)
+        sf3 = self.stageFactorInterface.createStageFactor(3)
         sf3.setXFactor(0.3)
 
-        sf2 = self.pile.ForceDisplacement.getStageFactor(2)
+        sf2 = self.stageFactorInterface.getStageFactor(2)
         
         self.assertEqual(sf2.getXFactor(), 0.2)
 
-        sfMap = self.pile.ForceDisplacement.getDefinedStageFactors()
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
         del sfMap[2]
-        self.pile.ForceDisplacement.setDefinedStageFactors(sfMap)
+        self.stageFactorInterface.setDefinedStageFactors(sfMap)
 
         #with 2 deleted, getting 2 should return 1
-        sf2 = self.pile.ForceDisplacement.getStageFactor(2)
+        sf2 = self.stageFactorInterface.getStageFactor(2)
         self.assertEqual(sf2.getXFactor(), 0.1)
 ######## createStageFactor Tests ########
 
     def CreateStageFactorDisabled(self):
         self.pile.setStageForceDisplacement(False)
         with self.assertRaises(Exception):
-            self.pile.ForceDisplacement.createStageFactor(2)
+            self.stageFactorInterface.createStageFactor(2)
 
     def CreateStageFactorAlreadyExists(self):
         with self.assertRaises(Exception):
-            self.pile.ForceDisplacement.createStageFactor(1)
+            self.stageFactorInterface.createStageFactor(1)
     
     def CreateStageFactorStageOutOfRange(self):
         with self.assertRaises(Exception):
-            self.pile.ForceDisplacement.createStageFactor(0)
+            self.stageFactorInterface.createStageFactor(0)
         with self.assertRaises(Exception):
-            self.pile.ForceDisplacement.createStageFactor(99)
+            self.stageFactorInterface.createStageFactor(99)
 
     def CreateStageFactorSuccessCopyFromLastDefined(self):
-        sf1 = self.pile.ForceDisplacement.getDefinedStageFactors()[1]
+        sf1 = self.stageFactorInterface.getDefinedStageFactors()[1]
         sf1.setXFactor(0.555)
 
-        sf2 = self.pile.ForceDisplacement.createStageFactor(2)
-        sf1 = self.pile.ForceDisplacement.getDefinedStageFactors()[1]
+        sf2 = self.stageFactorInterface.createStageFactor(2)
+        sf1 = self.stageFactorInterface.getDefinedStageFactors()[1]
 
         self.assertTrue(self.areCableStageFactorsEqual(sf2, sf1))
 
     def CreateDefaultStageFactorSuccess(self):
-        sf1 = self.pile.ForceDisplacement.getDefinedStageFactors()[1]
+        sf1 = self.stageFactorInterface.getDefinedStageFactors()[1]
         sf1.setXFactor(0.555)
 
-        self.pile.ForceDisplacement.setDefinedStageFactors({2: sf1})
+        self.stageFactorInterface.setDefinedStageFactors({2: sf1})
 
-        sf1 = self.pile.ForceDisplacement.createStageFactor(1)
-        sf2 = self.pile.ForceDisplacement.getDefinedStageFactors()[2]
+        sf1 = self.stageFactorInterface.createStageFactor(1)
+        sf2 = self.stageFactorInterface.getDefinedStageFactors()[2]
         
         self.assertEqual(sf1.getXFactor(), 0)
         self.assertEqual(sf2.getXFactor(), 0.555)
 
     def CreateStageFactorMultiple(self):
-        sf4 = self.pile.ForceDisplacement.createStageFactor(4)
+        sf4 = self.stageFactorInterface.createStageFactor(4)
         sf4.setXFactor(0.4)
 
-        sf2 = self.pile.ForceDisplacement.createStageFactor(2)
+        sf2 = self.stageFactorInterface.createStageFactor(2)
         sf2.setXFactor(0.2)
 
         #test 1: insert between 2 and 4. Should be the same as 2
-        self.pile.ForceDisplacement.createStageFactor(3)
-        sfMap = self.pile.ForceDisplacement.getDefinedStageFactors()
+        self.stageFactorInterface.createStageFactor(3)
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
         self.assertTrue(self.areCableStageFactorsEqual(sfMap[3], sfMap[2]))
 
         # test 2: insert after 4, should be the same as 4
-        self.pile.ForceDisplacement.createStageFactor(5)
-        sfMap = self.pile.ForceDisplacement.getDefinedStageFactors()
+        self.stageFactorInterface.createStageFactor(5)
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
         self.assertTrue(self.areCableStageFactorsEqual(sfMap[5], sfMap[4]))
     
 ####### setDefinedStageFactors Tests #######
 
     def SetDefinedEmptyMapFailure(self):
         with self.assertRaises(Exception):
-            self.pile.ForceDisplacement.setDefinedStageFactors({})
+            self.stageFactorInterface.setDefinedStageFactors({})
     
     def SetDefinedStageFactorOutOfRange(self):
-        sf1 = self.pile.ForceDisplacement.getDefinedStageFactors()[1]
+        sf1 = self.stageFactorInterface.getDefinedStageFactors()[1]
         with self.assertRaises(Exception):
-            self.pile.ForceDisplacement.setDefinedStageFactors({0: sf1})
+            self.stageFactorInterface.setDefinedStageFactors({0: sf1})
         with self.assertRaises(Exception):
-            self.pile.ForceDisplacement.setDefinedStageFactors({99: sf1})
+            self.stageFactorInterface.setDefinedStageFactors({99: sf1})
     
     def SetDefinedStageFactorSuccess(self):
-        sf1 = self.pile.ForceDisplacement.getDefinedStageFactors()[1]
+        sf1 = self.stageFactorInterface.getDefinedStageFactors()[1]
         sf1.setXFactor(0.1)
 
-        sf2 = self.pile.ForceDisplacement.createStageFactor(2)
+        sf2 = self.stageFactorInterface.createStageFactor(2)
         sf2.setXFactor(0.2)
 
-        sf4 = self.pile.ForceDisplacement.createStageFactor(4)
+        sf4 = self.stageFactorInterface.createStageFactor(4)
         sf4.setXFactor(0.4)
 
-        sf6 = self.pile.ForceDisplacement.createStageFactor(6)
+        sf6 = self.stageFactorInterface.createStageFactor(6)
         sf6.setXFactor(0.6)
 
-        sfMap = self.pile.ForceDisplacement.getDefinedStageFactors()
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
 
 
-        self.pile.ForceDisplacement.setDefinedStageFactors({1: sfMap[1], 2: sfMap[2], 4: sfMap[4], 6: sfMap[6]})
-        sfMap = self.pile.ForceDisplacement.getDefinedStageFactors()
+        self.stageFactorInterface.setDefinedStageFactors({1: sfMap[1], 2: sfMap[2], 4: sfMap[4], 6: sfMap[6]})
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
 
         self.assertEqual(sfMap[1].getXFactor(), 0.1)
         self.assertEqual(sfMap[2].getXFactor(), 0.2)
@@ -195,8 +196,8 @@ class TestPileStageFactor(unittest.TestCase):
         self.assertEqual(sfMap[6].getXFactor(), 0.6)
 
         #Now try removing 4
-        self.pile.ForceDisplacement.setDefinedStageFactors({1: sfMap[1], 2: sfMap[2], 6: sfMap[6]})
-        sfMap = self.pile.ForceDisplacement.getDefinedStageFactors()
+        self.stageFactorInterface.setDefinedStageFactors({1: sfMap[1], 2: sfMap[2], 6: sfMap[6]})
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
 
         self.assertEqual(len(sfMap), 3)
         self.assertEqual(sfMap[1].getXFactor(), 0.1)
@@ -204,36 +205,36 @@ class TestPileStageFactor(unittest.TestCase):
         self.assertEqual(sfMap[6].getXFactor(), 0.6)
 
         #now try removing the bottom end
-        self.pile.ForceDisplacement.setDefinedStageFactors({2: sfMap[2], 6: sfMap[6]})
-        sfMap = self.pile.ForceDisplacement.getDefinedStageFactors()
+        self.stageFactorInterface.setDefinedStageFactors({2: sfMap[2], 6: sfMap[6]})
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
 
         self.assertEqual(len(sfMap), 2)
         self.assertEqual(sfMap[2].getXFactor(), 0.2)
         self.assertEqual(sfMap[6].getXFactor(), 0.6)
 
         #now try removing the top end
-        self.pile.ForceDisplacement.setDefinedStageFactors({2: sfMap[2]})       
-        sfMap = self.pile.ForceDisplacement.getDefinedStageFactors()
+        self.stageFactorInterface.setDefinedStageFactors({2: sfMap[2]})       
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
 
         self.assertEqual(len(sfMap), 1)
         self.assertEqual(sfMap[2].getXFactor(), 0.2)
 
 
         #now try adding them all back again after deleting in different stages
-        sf1 = self.pile.ForceDisplacement.createStageFactor(1)
+        sf1 = self.stageFactorInterface.createStageFactor(1)
         sf1.setXFactor(0.1)
 
-        sf4 = self.pile.ForceDisplacement.createStageFactor(4)
+        sf4 = self.stageFactorInterface.createStageFactor(4)
         sf4.setXFactor(0.4)
 
-        sf6 = self.pile.ForceDisplacement.createStageFactor(6)
+        sf6 = self.stageFactorInterface.createStageFactor(6)
         sf6.setXFactor(0.6)
 
-        sfMap = self.pile.ForceDisplacement.getDefinedStageFactors()
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
 
 
-        self.pile.ForceDisplacement.setDefinedStageFactors({1: sfMap[1], 3: sfMap[2], 5: sfMap[4], 6: sfMap[6]})
-        sfMap = self.pile.ForceDisplacement.getDefinedStageFactors()
+        self.stageFactorInterface.setDefinedStageFactors({1: sfMap[1], 3: sfMap[2], 5: sfMap[4], 6: sfMap[6]})
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
 
         self.assertEqual(sfMap[1].getXFactor(), 0.1)
         self.assertEqual(sfMap[3].getXFactor(), 0.2)
@@ -241,8 +242,8 @@ class TestPileStageFactor(unittest.TestCase):
         self.assertEqual(sfMap[6].getXFactor(), 0.6)
 
         #now try and change the stage factor definition method
-        self.pile.ForceDisplacement.setDefinedStageFactors({1: sfMap[1], 3: sfMap[3], 5: sfMap[5], 6: sfMap[6]})
-        sfMap = self.pile.ForceDisplacement.getDefinedStageFactors()
+        self.stageFactorInterface.setDefinedStageFactors({1: sfMap[1], 3: sfMap[3], 5: sfMap[5], 6: sfMap[6]})
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
 
         self.assertEqual(sfMap[1].getXFactor(), 0.1)
         self.assertEqual(sfMap[3].getXFactor(), 0.2)
@@ -254,25 +255,25 @@ class TestPileStageFactor(unittest.TestCase):
     def GetDefinedStageFactorsNotEnabled(self):
         self.pile.setStageForceDisplacement(False)
         with self.assertRaises(Exception):
-            self.pile.ForceDisplacement.getDefinedStageFactors()
+            self.stageFactorInterface.getDefinedStageFactors()
     
     def GetDefinedStageFactorsSuccess(self):
-        sfMap = self.pile.ForceDisplacement.getDefinedStageFactors()
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
         self.assertEqual(len(sfMap), 1)
 
         sf1 = sfMap[1]
         sf1.setXFactor(0.1)
 
-        sf2 = self.pile.ForceDisplacement.createStageFactor(2)
+        sf2 = self.stageFactorInterface.createStageFactor(2)
         sf2.setXFactor(0.2)
 
-        sf4 = self.pile.ForceDisplacement.createStageFactor(4)
+        sf4 = self.stageFactorInterface.createStageFactor(4)
         sf4.setXFactor(0.4)
 
-        sf6 = self.pile.ForceDisplacement.createStageFactor(6)
+        sf6 = self.stageFactorInterface.createStageFactor(6)
         sf6.setXFactor(0.6)
 
-        sfMap = self.pile.ForceDisplacement.getDefinedStageFactors()
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
 
         self.assertEqual(len(sfMap), 4)
         self.assertEqual(sfMap[1].getXFactor(), 0.1)

@@ -21,14 +21,14 @@ class AbsoluteStageFactorInterface(ProxyObject, Generic[DefinedStageFactor, Stag
 		stageFactorReferenceIds = self._callFunction('getDefinedStageFactors', [], keepReturnValueReference=True)
 		stageFactors = {}
 		for stageKey in stageFactorReferenceIds :
-			stageFactors[stageKey] = self._definedStageFactorType(self._client, stageFactorReferenceIds[stageKey], self)
+			stageFactors[stageKey] = self._definedStageFactorType(self._client, stageFactorReferenceIds[stageKey], self.propertyID)
 		return stageFactors
 	def getStageFactor(self, stage: int) -> StageFactor:
 		"""
 		Returns the stage factor for the given stage.
 		"""
 		factorReferenceID = self._callFunction('getStageFactor', [stage], keepReturnValueReference=True)
-		return self._stageFactorType(self._client, factorReferenceID, self)
+		return self._stageFactorType(self._client, factorReferenceID,  self.propertyID)
 	def createStageFactor(self, stage: int) -> DefinedStageFactor:
 		"""
 		Creates a stage factor for the given stage.
@@ -36,7 +36,7 @@ class AbsoluteStageFactorInterface(ProxyObject, Generic[DefinedStageFactor, Stag
 		NOTE: Invalidates any existing stage factor proxies. Get them again using getDefinedStageFactors or getStageFactor.
 		"""
 		factorReferenceID = self._callFunction('createStageFactor', [stage], keepReturnValueReference=True)
-		return self._definedStageFactorType(self._client, factorReferenceID, self)
+		return self._definedStageFactorType(self._client, factorReferenceID,  self.propertyID)
 	def setDefinedStageFactors(self, stageFactors: dict[int, StageFactor]):
 		"""
 		Sets the defined stage factors to those given.
