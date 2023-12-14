@@ -4,6 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 from rs2.ProxyObject import ProxyObject
+from rs2.proxyObjects.RelativeStageFactorInterface import RelativeStageFactorInterface
 class CableTrussStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, property : PropertyProxy):
 		super().__init__(client, ID)
@@ -47,7 +48,14 @@ class CableTrussDefinedStageFactor(CableTrussStageFactor):
 		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", value, self.property._ID], proxyArgumentIndices=[2])
 	def setExpansionCoefficientFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_EXPANSION_ALPHA", value, self.property._ID], proxyArgumentIndices=[2])
+
 class CableTruss(PropertyProxy):
+
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = RelativeStageFactorInterface[CableTrussDefinedStageFactor, CableTrussStageFactor](self._client, stageFactorInterfaceID)
+		
 	def getUnitWeight(self) -> float:
 		return self._getDoubleProperty("LNP_UNIT_WEIGHT")
 	def setUnitWeight(self, value: float):
@@ -131,41 +139,6 @@ class CableTruss(PropertyProxy):
 		Grids "None" and "Default Grid" available by default.
 		"""
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName])
-	def getStageFactorMethod(self) -> StageFactorDefinitionMethod:
-		return StageFactorDefinitionMethod(self._callFunction("__getattribute__", ["relative_stage_factors"]))
-	def getDefinedStageFactors(self) -> dict[int, CableTrussDefinedStageFactor]:
-		"""
-		Returns a map of stage factors. The key is the absolute or relative stage at which the stage factor is applied. The value is the stage factor object
-		"""
-		stageFactorReferenceIds = self._callFunction('getDefinedStageFactors', [], keepReturnValueReference=True)
-		stageFactors = {}
-		for stageKey in stageFactorReferenceIds :
-			stageFactors[stageKey] = CableTrussDefinedStageFactor(self._client, stageFactorReferenceIds[stageKey], self)
-		return stageFactors
-	def getStageFactor(self, stage: int) -> CableTrussStageFactor:
-		"""
-		Returns the stage factor for the given stage.
-		"""
-		factorReferenceID = self._callFunction('getStageFactor', [stage], keepReturnValueReference=True)
-		return CableTrussStageFactor(self._client, factorReferenceID, self)
-	def createStageFactor(self, stage: int) -> CableTrussDefinedStageFactor:
-		"""
-		Creates a stage factor for the given stage.
-
-		NOTE: Invalidates any existing stage factor proxies. Get them again using getDefinedStageFactors or getStageFactor.
-		"""
-		factorReferenceID = self._callFunction('createStageFactor', [stage], keepReturnValueReference=True)
-		return CableTrussDefinedStageFactor(self._client, factorReferenceID, self)
-	def setDefinedStageFactors(self, method: StageFactorDefinitionMethod, stageFactors: dict[int,CableTrussStageFactor]):
-		"""
-		Sets the defined stage factors to those given. The method indicates if the stages in the keys of the map are absolute or relative.
-
-		NOTE: Invalidates any existing stage factor proxies. Get them again using getDefinedStageFactors or getStageFactor.
-		"""
-		stageFactorIdMap = {}
-		for stage in stageFactors :
-			stageFactorIdMap[stage] = stageFactors[stage]._ID
-		return self._callFunction("setDefinedStageFactors", [method.value, stageFactorIdMap], proxyArgumentIndices = [1])
 	def setProperties(self, UnitWeight : float = None, InitialTemperature : float = None, CableDiameter : float = None, OutofplaneSpacing : float = None, YoungsModulus : float = None, MaterialType : MaterialType = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, PreTensioning : bool = None, PreTensioningForce : float = None, AxialStrainExpansion : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageCableProperties : bool = None):
 		if UnitWeight is not None:
 			self._setDoubleProperty("LNP_UNIT_WEIGHT", UnitWeight)
