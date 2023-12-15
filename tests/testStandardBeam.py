@@ -81,10 +81,9 @@ class TestStandardBeam(unittest.TestCase):
         self.assertEqual(liner.StandardBeam.getExpansionCoefficient(), 1006.5)
         self.assertEqual(liner.StandardBeam.getStageLinerProperties(), 1)
         self.assertEqual(liner.StandardBeam.getStaticTemperatureGridToUse(), "None")
-        self.assertEqual(liner.StandardBeam.getStageFactorMethod(), StageFactorDefinitionMethod.ABSOLUTE_STAGE_FACTOR)
     def testStandardBeamStageFactors(self):
         self.liner.setLinerType(LinerTypes.P2_LINER_STANDARD_BEAM)
-        stageFactor = self.liner.StandardBeam.getDefinedStageFactors()[1]
+        stageFactor = self.liner.StandardBeam.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setUnitWeightFactor(1257.7)
         stageFactor.setThicknessFactor(1702.5)
         stageFactor.setAreaFactor(857.5)
@@ -103,7 +102,7 @@ class TestStandardBeam(unittest.TestCase):
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.liner = self.model.getAllLinerProperties()[0]
-        stageFactor = self.liner.StandardBeam.getDefinedStageFactors()[1]
+        stageFactor = self.liner.StandardBeam.stageFactorInterface.getDefinedStageFactors()[1]
         self.assertEqual(stageFactor.getUnitWeightFactor(), 1257.7)
         self.assertEqual(stageFactor.getThicknessFactor(), 1702.5)
         self.assertEqual(stageFactor.getAreaFactor(), 857.5)
