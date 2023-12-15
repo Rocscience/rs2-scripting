@@ -44,3 +44,8 @@ Python Script Examples
 .. literalinclude:: example_code/interpreter_example.py
    :language: python
    :caption: Code Snippet: Interpreter Scripting Funcitonality
+
+.. _Get Mesh Results Example:
+.. literalinclude:: example_code/get_mesh_results_example.py
+   :language: python
+   :caption: Code Snippet: Get Model Mesh Results
