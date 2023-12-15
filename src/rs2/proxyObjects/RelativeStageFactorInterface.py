@@ -47,4 +47,4 @@ class RelativeStageFactorInterface(ProxyObject, Generic[DefinedStageFactor, Stag
 			stageFactorIdMap[stage] = stageFactors[stage]._ID
 		return self._callFunction("setDefinedStageFactors", [method.value, stageFactorIdMap], proxyArgumentIndices = [1])
 	def getStageFactorMethod(self) -> StageFactorDefinitionMethod:
-		return StageFactorDefinitionMethod(self._callFunction("areRelativeStageFactorsSelected"))
+		return StageFactorDefinitionMethod(self._callFunction("__getattribute__", ["relative_stage_factors"]))
