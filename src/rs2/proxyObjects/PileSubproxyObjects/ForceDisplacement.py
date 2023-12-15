@@ -14,8 +14,8 @@ class ForceDisplacementStageFactor(ProxyObject):
 	def getYFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["PFP_FORCE_DISPLACEMENT_Y", self.propertyID], proxyArgumentIndices=[1])
 class ForceDisplacementDefinedStageFactor(ForceDisplacementStageFactor):
-	def __init__(self, client : Client, ID, property : PropertyProxy):
-		super().__init__(client, ID, property)
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
 	def setXFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["PFP_FORCE_DISPLACEMENT_X", value, self.propertyID], proxyArgumentIndices=[2])
 	def setYFactor(self, value: float):
@@ -25,7 +25,6 @@ class ForceDisplacement(PropertyProxy):
 		super().__init__(client, ID, documentProxyID)
 		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[ForceDisplacementDefinedStageFactor, ForceDisplacementStageFactor](self._client, stageFactorInterfaceID, ID, ForceDisplacementDefinedStageFactor, ForceDisplacementStageFactor)
-		
 	def getApply(self) -> PileEndCondition:
 		return PileEndCondition(self._getEnumEPileEndConditionProperty("PFP_FORCE_DISPLACEMENT_TYPE"))
 	def setApply(self, value: PileEndCondition):

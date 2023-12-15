@@ -48,13 +48,11 @@ class CableTrussDefinedStageFactor(CableTrussStageFactor):
 		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", value, self.propertyID], proxyArgumentIndices=[2])
 	def setExpansionCoefficientFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_EXPANSION_ALPHA", value, self.propertyID], proxyArgumentIndices=[2])
-
 class CableTruss(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)
 		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = RelativeStageFactorInterface[CableTrussDefinedStageFactor, CableTrussStageFactor](self._client, stageFactorInterfaceID, ID, CableTrussDefinedStageFactor, CableTrussStageFactor)
-		
 	def getUnitWeight(self) -> float:
 		return self._getDoubleProperty("LNP_UNIT_WEIGHT")
 	def setUnitWeight(self, value: float):
