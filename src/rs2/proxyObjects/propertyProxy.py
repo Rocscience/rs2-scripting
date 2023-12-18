@@ -73,3 +73,27 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEJointTypesProperty", [propertyName])
 	def _setEnumEJointTypesProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEJointTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEPFPApplicationProperty(self, propertyName: str):
+		return self._callFunction("getEnumEPFPApplicationProperty", [propertyName])
+	def _setEnumEPFPApplicationProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEPFPApplicationProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEPileEndConditionProperty(self, propertyName: str):
+		return self._callFunction("getEnumEPileEndConditionProperty", [propertyName])
+	def _setEnumEPileEndConditionProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEPileEndConditionProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEPileForceDisplacemtnApplicationPointProperty(self, propertyName: str):
+		return self._callFunction("getEnumEPileForceDisplacemtnApplicationPointProperty", [propertyName])
+	def _setEnumEPileForceDisplacemtnApplicationPointProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEPileForceDisplacemtnApplicationPointProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEPileConnectionTypeProperty(self, propertyName: str):
+		return self._callFunction("getEnumEPileConnectionTypeProperty", [propertyName])
+	def _setEnumEPileConnectionTypeProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEPileConnectionTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumEPileSkinResistanceTypeProperty(self, propertyName: str):
+		return self._callFunction("getEnumEPileSkinResistanceTypeProperty", [propertyName])
+	def _setEnumEPileSkinResistanceTypeProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumEPileSkinResistanceTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumECompositeJointPlacementProperty(self, propertyName: str):
+		return self._callFunction("getEnumECompositeJointPlacementProperty", [propertyName])
+	def _setEnumECompositeJointPlacementProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumECompositeJointPlacementProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])

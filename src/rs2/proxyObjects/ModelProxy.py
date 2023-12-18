@@ -3,6 +3,9 @@ from rs2.proxyObjects.documentProxy import DocumentProxy
 from rs2.proxyObjects.BoltPropertyProxy import BoltProperty
 from rs2.proxyObjects.LinerPropertyProxy import LinerProperty
 from rs2.proxyObjects.JointPropertyProxy import JointProperty
+from rs2.proxyObjects.PilePropertyProxy import PileProperty
+from rs2.proxyObjects.StructuralInterfacePropertyProxy import StructuralInterfaceProperty
+from rs2.proxyObjects.CompositeLinerPropertyProxy import CompositeLinerProperty
 
 class ModelProxy(ProxyObject):
 	"""
@@ -39,6 +42,28 @@ class ModelProxy(ProxyObject):
 		jointObjectID = self._callFunction('getJointPropertyByName', [jointName], keepReturnValueReference=True)
 		return JointProperty(self._client, jointObjectID, self._documentProxy._ID)
 	
+	def getPilePropertyByName(self, pileName : str) -> PileProperty:
+		'''
+		Returns a Pile Property object based on its name.
+		'''
+		pileObjectID = self._callFunction('getPilePropertyByName', [pileName], keepReturnValueReference=True)
+		return PileProperty(self._client, pileObjectID, self._documentProxy._ID)
+
+	def getStructuralInterfacePropertyByName(self, structuralName : str) -> StructuralInterfaceProperty:
+		'''
+		Returns a Structural Interface Property object based on its name.
+		'''
+		structuralInterfaceObjectID = self._callFunction('getStructuralPropertyByName', [structuralName], keepReturnValueReference=True)
+		return StructuralInterfaceProperty(self._client, structuralInterfaceObjectID, self._documentProxy._ID)
+	
+	def getCompositeLinerPropertyByName(self, compositeName : str) -> CompositeLinerProperty:
+		'''
+		Returns a Composite Liner Property object based on its name.
+		'''
+		compositeLinerObjectID = self._callFunction('getCompositePropertyByName', [compositeName], keepReturnValueReference=True)
+		return CompositeLinerProperty(self._client, compositeLinerObjectID, self._documentProxy._ID)
+
+	
 	def getAllBoltProperties(self) -> list[BoltProperty]:
 
 		'''
@@ -69,6 +94,36 @@ class ModelProxy(ProxyObject):
 		for jointObjectID in jointObjectIDList:
 			activeJointProperties.append(JointProperty(self._client, jointObjectID, self._documentProxy._ID))
 		return activeJointProperties
+	
+	def getAllPileProperties(self) -> list[PileProperty]:
+		'''
+		Returns a list of all Pile Property objects
+		'''
+		activePileProperties = []
+		pileObjectIDList = self._callFunction('getAllPileProperties', [], keepReturnValueReference=True)
+		for pileObjectID in pileObjectIDList:
+			activePileProperties.append(PileProperty(self._client, pileObjectID, self._documentProxy._ID))
+		return activePileProperties
+	
+	def getAllStructuralInterfaceProperties(self) -> list[StructuralInterfaceProperty]:
+		'''
+		Returns a list of all Structural Interface Property objects
+		'''
+		activeStructuralProperties = []
+		structuralObjectIDList = self._callFunction('getAllStructuralProperties', [], keepReturnValueReference=True)
+		for structuralObjectID in structuralObjectIDList:
+			activeStructuralProperties.append(StructuralInterfaceProperty(self._client, structuralObjectID, self._documentProxy._ID))
+		return activeStructuralProperties
+	
+	def getAllCompositeLinerProperties(self) -> list[CompositeLinerProperty]:
+		'''
+		Returns a list of all Composite Liner Property objects
+		'''
+		activeCompositeProperties = []
+		compositeObjectIDList = self._callFunction('getAllCompositeProperties', [], keepReturnValueReference=True)
+		for compositeObjectID in compositeObjectIDList:
+			activeCompositeProperties.append(CompositeLinerProperty(self._client, compositeObjectID, self._documentProxy._ID))
+		return activeCompositeProperties
 	
 	def compute(self):
 		'''

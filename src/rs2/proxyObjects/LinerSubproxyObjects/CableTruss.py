@@ -8,27 +8,54 @@ class CableTrussStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, property : PropertyProxy):
 		super().__init__(client, ID)
 		self.property = property
+	def getUnitWeightFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_UNIT_WEIGHT", self.property._ID], proxyArgumentIndices=[1])
+	def getCableDiameterFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_CABLE_DIAMETER", self.property._ID], proxyArgumentIndices=[1])
 	def getYoungsModulusFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_YOUNGS_MODULUS", self.property._ID], proxyArgumentIndices=[1])
-	def setYoungsModulusFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_YOUNGS_MODULUS", value, self.property._ID], proxyArgumentIndices=[2])
 	def getAxialStrainExpansionFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_AXIAL_STRAIN", self.property._ID], proxyArgumentIndices=[1])
-	def setAxialStrainExpansionFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_AXIAL_STRAIN", value, self.property._ID], proxyArgumentIndices=[2])
 	def getTensileStrengthPeakFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_TENSILE_STRENGTH", self.property._ID], proxyArgumentIndices=[1])
-	def setTensileStrengthPeakFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["LNP_TENSILE_STRENGTH", value, self.property._ID], proxyArgumentIndices=[2])
 	def getTensileStrengthResidualFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_TENSILE_STRENGTH_RES", self.property._ID], proxyArgumentIndices=[1])
+	def getConductivityFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_THERAMAL_CONDUCTIVITY", self.property._ID], proxyArgumentIndices=[1])
+	def getSpecificHeatCapacityFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", self.property._ID], proxyArgumentIndices=[1])
+	def getExpansionCoefficientFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["LNP_THERAMAL_EXPANSION_ALPHA", self.property._ID], proxyArgumentIndices=[1])
+class CableTrussDefinedStageFactor(CableTrussStageFactor):
+	def __init__(self, client : Client, ID, property : PropertyProxy):
+		super().__init__(client, ID, property)
+	def setUnitWeightFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_UNIT_WEIGHT", value, self.property._ID], proxyArgumentIndices=[2])
+	def setCableDiameterFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_CABLE_DIAMETER", value, self.property._ID], proxyArgumentIndices=[2])
+	def setYoungsModulusFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_YOUNGS_MODULUS", value, self.property._ID], proxyArgumentIndices=[2])
+	def setAxialStrainExpansionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_AXIAL_STRAIN", value, self.property._ID], proxyArgumentIndices=[2])
+	def setTensileStrengthPeakFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_TENSILE_STRENGTH", value, self.property._ID], proxyArgumentIndices=[2])
 	def setTensileStrengthResidualFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["LNP_TENSILE_STRENGTH_RES", value, self.property._ID], proxyArgumentIndices=[2])
-	def getStagesAfterInstallation(self) -> int:
-		return self._callFunction("getIntFactor", ["LNP_RELATIVE_STAGE_FACTOR", self.property._ID], proxyArgumentIndices=[1])
-	def setStagesAfterInstallation(self, relativeStage: int):
-		return self._callFunction("setIntFactor", ["LNP_RELATIVE_STAGE_FACTOR", relativeStage, self.property._ID], proxyArgumentIndices = [2])
+	def setConductivityFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_CONDUCTIVITY", value, self.property._ID], proxyArgumentIndices=[2])
+	def setSpecificHeatCapacityFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_SPECIFIC_HEAT_CAPACITY", value, self.property._ID], proxyArgumentIndices=[2])
+	def setExpansionCoefficientFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_EXPANSION_ALPHA", value, self.property._ID], proxyArgumentIndices=[2])
 class CableTruss(PropertyProxy):
+	def getUnitWeight(self) -> float:
+		return self._getDoubleProperty("LNP_UNIT_WEIGHT")
+	def setUnitWeight(self, value: float):
+		return self._setDoubleProperty("LNP_UNIT_WEIGHT", value)
+	def getInitialTemperature(self) -> float:
+		return self._getDoubleProperty("LNP_THERAMAL_INITIAL_TEMPERATURE")
+	def setInitialTemperature(self, value: float):
+		return self._setDoubleProperty("LNP_THERAMAL_INITIAL_TEMPERATURE", value)
 	def getCableDiameter(self) -> float:
 		return self._getDoubleProperty("LNP_CABLE_DIAMETER")
 	def setCableDiameter(self, value: float):
@@ -61,6 +88,10 @@ class CableTruss(PropertyProxy):
 		return self._getDoubleProperty("LNP_PRE_TENSIONING")
 	def setPreTensioningForce(self, value: float):
 		return self._setDoubleProperty("LNP_PRE_TENSIONING", value)
+	def getAxialStrainExpansion(self) -> float:
+		return self._getDoubleProperty("LNP_AXIAL_STRAIN")
+	def setAxialStrainExpansion(self, value: float):
+		return self._setDoubleProperty("LNP_AXIAL_STRAIN", value)
 	def getActivateThermal(self) -> bool:
 		return self._getBoolProperty("LNP_THERAMAL_ACTIVATE")
 	def setActivateThermal(self, value: bool):
@@ -100,25 +131,46 @@ class CableTruss(PropertyProxy):
 		Grids "None" and "Default Grid" available by default.
 		"""
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName])
-	def getDefineRelativeStageFactors(self) -> bool:
-		return self._callFunction("getUseRelativeStageFactors", [])
-	def setDefineRelativeStageFactors(self, useStagesAfterInstallation: bool):
+	def getStageFactorMethod(self) -> StageFactorDefinitionMethod:
+		return StageFactorDefinitionMethod(self._callFunction("__getattribute__", ["relative_stage_factors"]))
+	def getDefinedStageFactors(self) -> dict[int, CableTrussDefinedStageFactor]:
 		"""
-		Choose to define relative stage factors based on the installation stage.
-		If true, set the relative stage of each stage factor using setStagesAfterInstallation.
-		If false, each stage factor is returned in order from 1 to n from getStageFactors().
+		Returns a map of stage factors. The key is the absolute or relative stage at which the stage factor is applied. The value is the stage factor object
 		"""
-		return self._callFunction("setUseRelativeStageFactors", [useStagesAfterInstallation])
-	def getStageFactors(self) -> List[CableTrussStageFactor]:
-		"""
-		Returns the defined stage factors in a list, in order from stage 1 to n.
-		"""
-		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
-		stageFactors = []
-		for stageFactorID in stageFactorReferenceIds :
-			stageFactors.append(CableTrussStageFactor(self._client, stageFactorID, self))
+		stageFactorReferenceIds = self._callFunction('getDefinedStageFactors', [], keepReturnValueReference=True)
+		stageFactors = {}
+		for stageKey in stageFactorReferenceIds :
+			stageFactors[stageKey] = CableTrussDefinedStageFactor(self._client, stageFactorReferenceIds[stageKey], self)
 		return stageFactors
-	def setProperties(self, CableDiameter : float = None, OutofplaneSpacing : float = None, YoungsModulus : float = None, MaterialType : MaterialType = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, PreTensioning : bool = None, PreTensioningForce : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageCableProperties : bool = None):
+	def getStageFactor(self, stage: int) -> CableTrussStageFactor:
+		"""
+		Returns the stage factor for the given stage.
+		"""
+		factorReferenceID = self._callFunction('getStageFactor', [stage], keepReturnValueReference=True)
+		return CableTrussStageFactor(self._client, factorReferenceID, self)
+	def createStageFactor(self, stage: int) -> CableTrussDefinedStageFactor:
+		"""
+		Creates a stage factor for the given stage.
+
+		NOTE: Invalidates any existing stage factor proxies. Get them again using getDefinedStageFactors or getStageFactor.
+		"""
+		factorReferenceID = self._callFunction('createStageFactor', [stage], keepReturnValueReference=True)
+		return CableTrussDefinedStageFactor(self._client, factorReferenceID, self)
+	def setDefinedStageFactors(self, method: StageFactorDefinitionMethod, stageFactors: dict[int,CableTrussStageFactor]):
+		"""
+		Sets the defined stage factors to those given. The method indicates if the stages in the keys of the map are absolute or relative.
+
+		NOTE: Invalidates any existing stage factor proxies. Get them again using getDefinedStageFactors or getStageFactor.
+		"""
+		stageFactorIdMap = {}
+		for stage in stageFactors :
+			stageFactorIdMap[stage] = stageFactors[stage]._ID
+		return self._callFunction("setDefinedStageFactors", [method.value, stageFactorIdMap], proxyArgumentIndices = [1])
+	def setProperties(self, UnitWeight : float = None, InitialTemperature : float = None, CableDiameter : float = None, OutofplaneSpacing : float = None, YoungsModulus : float = None, MaterialType : MaterialType = None, TensileStrengthPeak : float = None, TensileStrengthResidual : float = None, PreTensioning : bool = None, PreTensioningForce : float = None, AxialStrainExpansion : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageCableProperties : bool = None):
+		if UnitWeight is not None:
+			self._setDoubleProperty("LNP_UNIT_WEIGHT", UnitWeight)
+		if InitialTemperature is not None:
+			self._setDoubleProperty("LNP_THERAMAL_INITIAL_TEMPERATURE", InitialTemperature)
 		if CableDiameter is not None:
 			self._setDoubleProperty("LNP_CABLE_DIAMETER", CableDiameter)
 		if OutofplaneSpacing is not None:
@@ -135,6 +187,8 @@ class CableTruss(PropertyProxy):
 			self._setBoolProperty("LNP_USE_PRE_TENSIONING", PreTensioning)
 		if PreTensioningForce is not None:
 			self._setDoubleProperty("LNP_PRE_TENSIONING", PreTensioningForce)
+		if AxialStrainExpansion is not None:
+			self._setDoubleProperty("LNP_AXIAL_STRAIN", AxialStrainExpansion)
 		if ActivateThermal is not None:
 			self._setBoolProperty("LNP_THERAMAL_ACTIVATE", ActivateThermal)
 		if StaticTemperatureMode is not None:
@@ -153,6 +207,8 @@ class CableTruss(PropertyProxy):
 			self._setBoolProperty("LNP_USE_STAGE_CABLE", StageCableProperties)
 	def getProperties(self):
 		return {
+		"UnitWeight" : self.getUnitWeight(), 
+		"InitialTemperature" : self.getInitialTemperature(), 
 		"CableDiameter" : self.getCableDiameter(), 
 		"OutofplaneSpacing" : self.getOutofplaneSpacing(), 
 		"YoungsModulus" : self.getYoungsModulus(), 
@@ -161,6 +217,7 @@ class CableTruss(PropertyProxy):
 		"TensileStrengthResidual" : self.getTensileStrengthResidual(), 
 		"PreTensioning" : self.getPreTensioning(), 
 		"PreTensioningForce" : self.getPreTensioningForce(), 
+		"AxialStrainExpansion" : self.getAxialStrainExpansion(), 
 		"ActivateThermal" : self.getActivateThermal(), 
 		"StaticTemperatureMode" : self.getStaticTemperatureMode(), 
 		"StaticTemperature" : self.getStaticTemperature(), 
