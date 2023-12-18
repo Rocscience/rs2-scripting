@@ -11,12 +11,12 @@ class LinerProperty(PropertyProxy):
 	"""
 	:ref:`Liner Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.StandardBeam = StandardBeam(server, ID, documentProxyID)
-		self.Geosynthetic = Geosynthetic(server, ID, documentProxyID)
-		self.ReinforcedConcrete = ReinforcedConcrete(server, ID, documentProxyID)
-		self.CableTruss = CableTruss(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.StandardBeam = StandardBeam(client, ID, documentProxyID)
+		self.Geosynthetic = Geosynthetic(client, ID, documentProxyID)
+		self.ReinforcedConcrete = ReinforcedConcrete(client, ID, documentProxyID)
+		self.CableTruss = CableTruss(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getLinerName(self) -> str:
 		return self._getCStringProperty("LNP_NAME")
 	def setLinerName(self, value: str):
