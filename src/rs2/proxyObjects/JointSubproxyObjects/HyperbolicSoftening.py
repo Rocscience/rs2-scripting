@@ -4,63 +4,71 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 from rs2.ProxyObject import ProxyObject
+from rs2.proxyObjects.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
 class HyperbolicSofteningStageFactor(ProxyObject):
-	def __init__(self, client : Client, ID, property : PropertyProxy):
+	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
-		self.property = property
+		self.propertyID = propertyID
 	def getNormalStiffnessFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_NORMAL_STIFFNESS", self.property._ID], proxyArgumentIndices=[1])
-	def setNormalStiffnessFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_NORMAL_STIFFNESS", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_NORMAL_STIFFNESS", self.propertyID], proxyArgumentIndices=[1])
 	def getShearStiffnessFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_SHEAR_STIFFNESS", self.property._ID], proxyArgumentIndices=[1])
-	def setShearStiffnessFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_SHEAR_STIFFNESS", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_SHEAR_STIFFNESS", self.propertyID], proxyArgumentIndices=[1])
 	def getPeakCohesionFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_COHESION", self.property._ID], proxyArgumentIndices=[1])
-	def setPeakCohesionFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_COHESION", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_COHESION", self.propertyID], proxyArgumentIndices=[1])
 	def getPeakFrictionFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_FRICTION", self.property._ID], proxyArgumentIndices=[1])
-	def setPeakFrictionFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_FRICTION", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_FRICTION", self.propertyID], proxyArgumentIndices=[1])
 	def getResCohesionFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_COHESION_RES", self.property._ID], proxyArgumentIndices=[1])
-	def setResCohesionFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_COHESION_RES", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_COHESION_RES", self.propertyID], proxyArgumentIndices=[1])
 	def getResFrictionFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_FRICTION_RES", self.property._ID], proxyArgumentIndices=[1])
-	def setResFrictionFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_FRICTION_RES", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_FRICTION_RES", self.propertyID], proxyArgumentIndices=[1])
 	def getTensileStrengthFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_TENSILE_STRENGTH", self.property._ID], proxyArgumentIndices=[1])
-	def setTensileStrengthFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_TENSILE_STRENGTH", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_TENSILE_STRENGTH", self.propertyID], proxyArgumentIndices=[1])
 	def getResTensileStrengthFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_TENSILE_STRENGTH_RES", self.property._ID], proxyArgumentIndices=[1])
-	def setResTensileStrengthFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_TENSILE_STRENGTH_RES", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_TENSILE_STRENGTH_RES", self.propertyID], proxyArgumentIndices=[1])
 	def getDeltaRFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_DELTAP_R", self.property._ID], proxyArgumentIndices=[1])
-	def setDeltaRFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_DELTAP_R", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_DELTAP_R", self.propertyID], proxyArgumentIndices=[1])
 	def getInitialSlopeFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_INITIAL_SLOPE", self.property._ID], proxyArgumentIndices=[1])
-	def setInitialSlopeFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_INITIAL_SLOPE", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_HYPERBOL_INITIAL_SLOPE", self.propertyID], proxyArgumentIndices=[1])
 	def getWorkSofteningFactor(self) -> bool:
-		return self._callFunction("getBoolFactor", ["JP_WORK_SOFTENING", self.property._ID], proxyArgumentIndices=[1])
-	def setWorkSofteningFactor(self, value: bool):
-		return self._callFunction("setBoolFactor", ["JP_WORK_SOFTENING", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getBoolFactor", ["JP_WORK_SOFTENING", self.propertyID], proxyArgumentIndices=[1])
 	def getAdditionalPressureInsideJointFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_ADDITIONAL_PRESSURE", self.property._ID], proxyArgumentIndices=[1])
-	def setAdditionalPressureInsideJointFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_ADDITIONAL_PRESSURE", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_ADDITIONAL_PRESSURE", self.propertyID], proxyArgumentIndices=[1])
 	def getGroundwaterPressureFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_GROUNDWATER_PRESSURE", self.property._ID], proxyArgumentIndices=[1])
+		return self._callFunction("getDoubleFactor", ["JP_GROUNDWATER_PRESSURE", self.propertyID], proxyArgumentIndices=[1])
+class HyperbolicSofteningDefinedStageFactor(HyperbolicSofteningStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setNormalStiffnessFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_NORMAL_STIFFNESS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setShearStiffnessFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_SHEAR_STIFFNESS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPeakCohesionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_COHESION", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPeakFrictionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_FRICTION", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResCohesionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_COHESION_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResFrictionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_FRICTION_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setTensileStrengthFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_TENSILE_STRENGTH", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResTensileStrengthFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_TENSILE_STRENGTH_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setDeltaRFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_DELTAP_R", value, self.propertyID], proxyArgumentIndices=[2])
+	def setInitialSlopeFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_HYPERBOL_INITIAL_SLOPE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setWorkSofteningFactor(self, value: bool):
+		return self._callFunction("setBoolFactor", ["JP_WORK_SOFTENING", value, self.propertyID], proxyArgumentIndices=[2])
+	def setAdditionalPressureInsideJointFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_ADDITIONAL_PRESSURE", value, self.propertyID], proxyArgumentIndices=[2])
 	def setGroundwaterPressureFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_GROUNDWATER_PRESSURE", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("setDoubleFactor", ["JP_GROUNDWATER_PRESSURE", value, self.propertyID], proxyArgumentIndices=[2])
 class HyperbolicSoftening(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[HyperbolicSofteningDefinedStageFactor, HyperbolicSofteningStageFactor](self._client, stageFactorInterfaceID, ID, HyperbolicSofteningDefinedStageFactor, HyperbolicSofteningStageFactor)
 	def getPeakCohesion(self) -> float:
 		return self._getDoubleProperty("JP_HYPERBOL_COHESION")
 	def setPeakCohesion(self, value: float):
@@ -133,15 +141,6 @@ class HyperbolicSoftening(PropertyProxy):
 		return self._getBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES")
 	def setApplyStageFactors(self, value: bool):
 		return self._setBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES", value)
-	def getStageFactors(self) -> List[HyperbolicSofteningStageFactor]:
-		"""
-		Returns the defined stage factors in a list, in order from stage 1 to n.
-		"""
-		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
-		stageFactors = []
-		for stageFactorID in stageFactorReferenceIds :
-			stageFactors.append(HyperbolicSofteningStageFactor(self._client, stageFactorID, self))
-		return stageFactors
 	def setProperties(self, PeakCohesion : float = None, PeakFriction : float = None, ResCohesion : float = None, ResFriction : float = None, TensileStrength : float = None, ResTensileStrength : float = None, DeltaR : float = None, InitialSlope : float = None, WorkSoftening : bool = None, NormalStiffness : float = None, ShearStiffness : float = None, ApplyPorePressure : bool = None, ApplyAdditionalPressureInsideJoint : bool = None, AdditionalPressureType : AdditionalPressureType = None, AdditionalPressureInsideJoint : float = None, PiezoID : int = None, ApplyPressureToLinerSideOnly : bool = None, ApplyStageFactors : bool = None):
 		if PeakCohesion is not None:
 			self._setDoubleProperty("JP_HYPERBOL_COHESION", PeakCohesion)

@@ -4,39 +4,47 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 from rs2.ProxyObject import ProxyObject
+from rs2.proxyObjects.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
 class BartonBandisStageFactor(ProxyObject):
-	def __init__(self, client : Client, ID, property : PropertyProxy):
+	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
-		self.property = property
+		self.propertyID = propertyID
 	def getNormalStiffnessFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_NORMAL_STIFFNESS", self.property._ID], proxyArgumentIndices=[1])
-	def setNormalStiffnessFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_NORMAL_STIFFNESS", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_NORMAL_STIFFNESS", self.propertyID], proxyArgumentIndices=[1])
 	def getShearStiffnessFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_SHEAR_STIFFNESS", self.property._ID], proxyArgumentIndices=[1])
-	def setShearStiffnessFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_SHEAR_STIFFNESS", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_SHEAR_STIFFNESS", self.propertyID], proxyArgumentIndices=[1])
 	def getJCSFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_JCS", self.property._ID], proxyArgumentIndices=[1])
-	def setJCSFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_JCS", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_JCS", self.propertyID], proxyArgumentIndices=[1])
 	def getJRCFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_JRC", self.property._ID], proxyArgumentIndices=[1])
-	def setJRCFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_JRC", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_JRC", self.propertyID], proxyArgumentIndices=[1])
 	def getResidualFrictionAngleFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_FRICTION_ANGLE_RES_BARTON", self.property._ID], proxyArgumentIndices=[1])
-	def setResidualFrictionAngleFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_FRICTION_ANGLE_RES_BARTON", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_FRICTION_ANGLE_RES_BARTON", self.propertyID], proxyArgumentIndices=[1])
 	def getAdditionalPressureInsideJointFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_ADDITIONAL_PRESSURE", self.property._ID], proxyArgumentIndices=[1])
-	def setAdditionalPressureInsideJointFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_ADDITIONAL_PRESSURE", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_ADDITIONAL_PRESSURE", self.propertyID], proxyArgumentIndices=[1])
 	def getGroundwaterPressureFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_GROUNDWATER_PRESSURE", self.property._ID], proxyArgumentIndices=[1])
+		return self._callFunction("getDoubleFactor", ["JP_GROUNDWATER_PRESSURE", self.propertyID], proxyArgumentIndices=[1])
+class BartonBandisDefinedStageFactor(BartonBandisStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setNormalStiffnessFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_NORMAL_STIFFNESS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setShearStiffnessFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_SHEAR_STIFFNESS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setJCSFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_JCS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setJRCFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_JRC", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResidualFrictionAngleFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_FRICTION_ANGLE_RES_BARTON", value, self.propertyID], proxyArgumentIndices=[2])
+	def setAdditionalPressureInsideJointFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_ADDITIONAL_PRESSURE", value, self.propertyID], proxyArgumentIndices=[2])
 	def setGroundwaterPressureFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_GROUNDWATER_PRESSURE", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("setDoubleFactor", ["JP_GROUNDWATER_PRESSURE", value, self.propertyID], proxyArgumentIndices=[2])
 class BartonBandis(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[BartonBandisDefinedStageFactor, BartonBandisStageFactor](self._client, stageFactorInterfaceID, ID, BartonBandisDefinedStageFactor, BartonBandisStageFactor)
 	def getJCS(self) -> float:
 		return self._getDoubleProperty("JP_JCS")
 	def setJCS(self, value: float):
@@ -89,15 +97,6 @@ class BartonBandis(PropertyProxy):
 		return self._getBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES")
 	def setApplyStageFactors(self, value: bool):
 		return self._setBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES", value)
-	def getStageFactors(self) -> List[BartonBandisStageFactor]:
-		"""
-		Returns the defined stage factors in a list, in order from stage 1 to n.
-		"""
-		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
-		stageFactors = []
-		for stageFactorID in stageFactorReferenceIds :
-			stageFactors.append(BartonBandisStageFactor(self._client, stageFactorID, self))
-		return stageFactors
 	def setProperties(self, JCS : float = None, JRC : float = None, ResidualFrictionAngle : float = None, ResidualStrength : bool = None, NormalStiffness : float = None, ShearStiffness : float = None, ApplyPorePressure : bool = None, ApplyAdditionalPressureInsideJoint : bool = None, AdditionalPressureType : AdditionalPressureType = None, AdditionalPressureInsideJoint : float = None, PiezoID : int = None, ApplyPressureToLinerSideOnly : bool = None, ApplyStageFactors : bool = None):
 		if JCS is not None:
 			self._setDoubleProperty("JP_JCS", JCS)

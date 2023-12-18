@@ -4,51 +4,59 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 from rs2.ProxyObject import ProxyObject
+from rs2.proxyObjects.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
 class MohrCoulombStageFactor(ProxyObject):
-	def __init__(self, client : Client, ID, property : PropertyProxy):
+	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
-		self.property = property
+		self.propertyID = propertyID
 	def getNormalStiffnessFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_NORMAL_STIFFNESS", self.property._ID], proxyArgumentIndices=[1])
-	def setNormalStiffnessFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_NORMAL_STIFFNESS", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_NORMAL_STIFFNESS", self.propertyID], proxyArgumentIndices=[1])
 	def getShearStiffnessFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_SHEAR_STIFFNESS", self.property._ID], proxyArgumentIndices=[1])
-	def setShearStiffnessFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_SHEAR_STIFFNESS", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_SHEAR_STIFFNESS", self.propertyID], proxyArgumentIndices=[1])
 	def getTensileStrengthFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_TENSILE_STRENGTH", self.property._ID], proxyArgumentIndices=[1])
-	def setTensileStrengthFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_TENSILE_STRENGTH", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_TENSILE_STRENGTH", self.propertyID], proxyArgumentIndices=[1])
 	def getPeakCohesionFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_PEAK_COHESION", self.property._ID], proxyArgumentIndices=[1])
-	def setPeakCohesionFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_PEAK_COHESION", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_PEAK_COHESION", self.propertyID], proxyArgumentIndices=[1])
 	def getPeakFrictionAngleFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_PEAK_FRICTION_ANGLE", self.property._ID], proxyArgumentIndices=[1])
-	def setPeakFrictionAngleFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_PEAK_FRICTION_ANGLE", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_PEAK_FRICTION_ANGLE", self.propertyID], proxyArgumentIndices=[1])
 	def getResCohesionFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_COHESION_RES", self.property._ID], proxyArgumentIndices=[1])
-	def setResCohesionFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_COHESION_RES", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_COHESION_RES", self.propertyID], proxyArgumentIndices=[1])
 	def getResFrictionAngleFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_FRICTION_ANGLE_RES", self.property._ID], proxyArgumentIndices=[1])
-	def setResFrictionAngleFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_FRICTION_ANGLE_RES", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_FRICTION_ANGLE_RES", self.propertyID], proxyArgumentIndices=[1])
 	def getResTensileStrengthFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_TENSILE_STRENGTH_RES", self.property._ID], proxyArgumentIndices=[1])
-	def setResTensileStrengthFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_TENSILE_STRENGTH_RES", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_TENSILE_STRENGTH_RES", self.propertyID], proxyArgumentIndices=[1])
 	def getAdditionalPressureInsideJointFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_ADDITIONAL_PRESSURE", self.property._ID], proxyArgumentIndices=[1])
-	def setAdditionalPressureInsideJointFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_ADDITIONAL_PRESSURE", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_ADDITIONAL_PRESSURE", self.propertyID], proxyArgumentIndices=[1])
 	def getGroundwaterPressureFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_GROUNDWATER_PRESSURE", self.property._ID], proxyArgumentIndices=[1])
+		return self._callFunction("getDoubleFactor", ["JP_GROUNDWATER_PRESSURE", self.propertyID], proxyArgumentIndices=[1])
+class MohrCoulombDefinedStageFactor(MohrCoulombStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setNormalStiffnessFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_NORMAL_STIFFNESS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setShearStiffnessFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_SHEAR_STIFFNESS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setTensileStrengthFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_TENSILE_STRENGTH", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPeakCohesionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_PEAK_COHESION", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPeakFrictionAngleFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_PEAK_FRICTION_ANGLE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResCohesionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_COHESION_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResFrictionAngleFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_FRICTION_ANGLE_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResTensileStrengthFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_TENSILE_STRENGTH_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setAdditionalPressureInsideJointFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_ADDITIONAL_PRESSURE", value, self.propertyID], proxyArgumentIndices=[2])
 	def setGroundwaterPressureFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_GROUNDWATER_PRESSURE", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("setDoubleFactor", ["JP_GROUNDWATER_PRESSURE", value, self.propertyID], proxyArgumentIndices=[2])
 class MohrCoulomb(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[MohrCoulombDefinedStageFactor, MohrCoulombStageFactor](self._client, stageFactorInterfaceID, ID, MohrCoulombDefinedStageFactor, MohrCoulombStageFactor)
 	def getTensileStrength(self) -> float:
 		return self._getDoubleProperty("JP_TENSILE_STRENGTH")
 	def setTensileStrength(self, value: float):
@@ -129,15 +137,6 @@ class MohrCoulomb(PropertyProxy):
 		return self._getBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES")
 	def setApplyStageFactors(self, value: bool):
 		return self._setBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES", value)
-	def getStageFactors(self) -> List[MohrCoulombStageFactor]:
-		"""
-		Returns the defined stage factors in a list, in order from stage 1 to n.
-		"""
-		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
-		stageFactors = []
-		for stageFactorID in stageFactorReferenceIds :
-			stageFactors.append(MohrCoulombStageFactor(self._client, stageFactorID, self))
-		return stageFactors
 	def setProperties(self, TensileStrength : float = None, PeakCohesion : float = None, PeakFrictionAngle : float = None, DilationAngle : float = None, DMin : float = None, DMax : float = None, Directional : bool = None, ResidualStrength : bool = None, ResTensileStrength : float = None, ResCohesion : float = None, ResFrictionAngle : float = None, NormalStiffness : float = None, ShearStiffness : float = None, ApplyPorePressure : bool = None, ApplyAdditionalPressureInsideJoint : bool = None, AdditionalPressureType : AdditionalPressureType = None, AdditionalPressureInsideJoint : float = None, PiezoID : int = None, ApplyPressureToLinerSideOnly : bool = None, ApplyStageFactors : bool = None):
 		if TensileStrength is not None:
 			self._setDoubleProperty("JP_TENSILE_STRENGTH", TensileStrength)

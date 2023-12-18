@@ -4,43 +4,51 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 from rs2.ProxyObject import ProxyObject
+from rs2.proxyObjects.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
 class GeosyntheticHyperbolicStageFactor(ProxyObject):
-	def __init__(self, client : Client, ID, property : PropertyProxy):
+	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
-		self.property = property
+		self.propertyID = propertyID
 	def getNormalStiffnessFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_NORMAL_STIFFNESS", self.property._ID], proxyArgumentIndices=[1])
-	def setNormalStiffnessFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_NORMAL_STIFFNESS", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_NORMAL_STIFFNESS", self.propertyID], proxyArgumentIndices=[1])
 	def getShearStiffnessFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_SHEAR_STIFFNESS", self.property._ID], proxyArgumentIndices=[1])
-	def setShearStiffnessFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_SHEAR_STIFFNESS", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_SHEAR_STIFFNESS", self.propertyID], proxyArgumentIndices=[1])
 	def getPeakAdhesionAtSigninfFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_PEAK_ADHESION", self.property._ID], proxyArgumentIndices=[1])
-	def setPeakAdhesionAtSigninfFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_PEAK_ADHESION", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_PEAK_ADHESION", self.propertyID], proxyArgumentIndices=[1])
 	def getPeakFrictionAngleAtSign0Factor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_PEAK_FRICTION_ANGLE_GEOSYN", self.property._ID], proxyArgumentIndices=[1])
-	def setPeakFrictionAngleAtSign0Factor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_PEAK_FRICTION_ANGLE_GEOSYN", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_PEAK_FRICTION_ANGLE_GEOSYN", self.propertyID], proxyArgumentIndices=[1])
 	def getResAdhesionAtSigninfFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_ADHESION_RES", self.property._ID], proxyArgumentIndices=[1])
-	def setResAdhesionAtSigninfFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_ADHESION_RES", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_ADHESION_RES", self.propertyID], proxyArgumentIndices=[1])
 	def getResFrictionAngleAtSign0Factor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_FRICTION_ANGLE_RES_GEOSYN", self.property._ID], proxyArgumentIndices=[1])
-	def setResFrictionAngleAtSign0Factor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_FRICTION_ANGLE_RES_GEOSYN", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_FRICTION_ANGLE_RES_GEOSYN", self.propertyID], proxyArgumentIndices=[1])
 	def getAdditionalPressureInsideJointFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_ADDITIONAL_PRESSURE", self.property._ID], proxyArgumentIndices=[1])
-	def setAdditionalPressureInsideJointFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_ADDITIONAL_PRESSURE", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("getDoubleFactor", ["JP_ADDITIONAL_PRESSURE", self.propertyID], proxyArgumentIndices=[1])
 	def getGroundwaterPressureFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["JP_GROUNDWATER_PRESSURE", self.property._ID], proxyArgumentIndices=[1])
+		return self._callFunction("getDoubleFactor", ["JP_GROUNDWATER_PRESSURE", self.propertyID], proxyArgumentIndices=[1])
+class GeosyntheticHyperbolicDefinedStageFactor(GeosyntheticHyperbolicStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setNormalStiffnessFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_NORMAL_STIFFNESS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setShearStiffnessFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_SHEAR_STIFFNESS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPeakAdhesionAtSigninfFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_PEAK_ADHESION", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPeakFrictionAngleAtSign0Factor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_PEAK_FRICTION_ANGLE_GEOSYN", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResAdhesionAtSigninfFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_ADHESION_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResFrictionAngleAtSign0Factor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_FRICTION_ANGLE_RES_GEOSYN", value, self.propertyID], proxyArgumentIndices=[2])
+	def setAdditionalPressureInsideJointFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_ADDITIONAL_PRESSURE", value, self.propertyID], proxyArgumentIndices=[2])
 	def setGroundwaterPressureFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["JP_GROUNDWATER_PRESSURE", value, self.property._ID], proxyArgumentIndices=[2])
+		return self._callFunction("setDoubleFactor", ["JP_GROUNDWATER_PRESSURE", value, self.propertyID], proxyArgumentIndices=[2])
 class GeosyntheticHyperbolic(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[GeosyntheticHyperbolicDefinedStageFactor, GeosyntheticHyperbolicStageFactor](self._client, stageFactorInterfaceID, ID, GeosyntheticHyperbolicDefinedStageFactor, GeosyntheticHyperbolicStageFactor)
 	def getPeakAdhesionAtSigninf(self) -> float:
 		return self._getDoubleProperty("JP_PEAK_ADHESION")
 	def setPeakAdhesionAtSigninf(self, value: float):
@@ -93,15 +101,6 @@ class GeosyntheticHyperbolic(PropertyProxy):
 		return self._getBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES")
 	def setApplyStageFactors(self, value: bool):
 		return self._setBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES", value)
-	def getStageFactors(self) -> List[GeosyntheticHyperbolicStageFactor]:
-		"""
-		Returns the defined stage factors in a list, in order from stage 1 to n.
-		"""
-		stageFactorReferenceIds = self._callFunction('getStageFactors', [], keepReturnValueReference=True)
-		stageFactors = []
-		for stageFactorID in stageFactorReferenceIds :
-			stageFactors.append(GeosyntheticHyperbolicStageFactor(self._client, stageFactorID, self))
-		return stageFactors
 	def setProperties(self, PeakAdhesionAtSigninf : float = None, PeakFrictionAngleAtSign0 : float = None, ResAdhesionAtSigninf : float = None, ResFrictionAngleAtSign0 : float = None, NormalStiffness : float = None, ShearStiffness : float = None, ApplyPorePressure : bool = None, ApplyAdditionalPressureInsideJoint : bool = None, AdditionalPressureType : AdditionalPressureType = None, AdditionalPressureInsideJoint : float = None, PiezoID : int = None, ApplyPressureToLinerSideOnly : bool = None, ApplyStageFactors : bool = None):
 		if PeakAdhesionAtSigninf is not None:
 			self._setDoubleProperty("JP_PEAK_ADHESION", PeakAdhesionAtSigninf)
