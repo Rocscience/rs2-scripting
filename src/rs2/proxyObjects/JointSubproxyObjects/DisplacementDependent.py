@@ -25,6 +25,8 @@ class DisplacementDependentStageFactor(ProxyObject):
 		return self._callFunction("getDoubleFactor", ["JP_ADDITIONAL_PRESSURE", self.propertyID], proxyArgumentIndices=[1])
 	def getGroundwaterPressureFactor(self) -> float:
 		return self._callFunction("__getattribute__", ["m_groundwater_pressure_factor"])
+	def getJointPermeableFactor(self) -> bool:
+		return self._callFunction("__getattribute__", ["m_joint_permeable_factor"])
 class DisplacementDependentDefinedStageFactor(DisplacementDependentStageFactor):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID, propertyID)
@@ -44,6 +46,8 @@ class DisplacementDependentDefinedStageFactor(DisplacementDependentStageFactor):
 		return self._callFunction("setDoubleFactor", ["JP_ADDITIONAL_PRESSURE", value, self.propertyID], proxyArgumentIndices=[2])
 	def setGroundwaterPressureFactor(self, GroundWaterPressure: float):
 		return self._callFunction("setGroundwaterPressureFactor", [GroundWaterPressure])
+	def setJointPermeableFactor(self, Permeable: bool):
+		return self._callFunction("setJointPermeableFactor", [Permeable])
 class DisplacementDependent(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

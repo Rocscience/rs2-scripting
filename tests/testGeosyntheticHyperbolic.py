@@ -64,6 +64,7 @@ class TestGeosyntheticHyperbolic(unittest.TestCase):
         stageFactor.setResFrictionAngleAtSign0Factor(2227.9)
         stageFactor.setAdditionalPressureInsideJointFactor(3008.6)
         stageFactor.setGroundwaterPressureFactor(2.2)
+        stageFactor.setJointPermeableFactor(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -77,3 +78,4 @@ class TestGeosyntheticHyperbolic(unittest.TestCase):
         self.assertEqual(stageFactor.getResFrictionAngleAtSign0Factor(), 2227.9)
         self.assertEqual(stageFactor.getAdditionalPressureInsideJointFactor(), 3008.6)
         self.assertEqual(stageFactor.getGroundwaterPressureFactor(), 2.2)
+        self.assertEqual(stageFactor.getJointPermeableFactor(), True)

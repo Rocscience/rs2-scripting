@@ -37,6 +37,10 @@ class JointProperty(PropertyProxy):
 		return self._getBoolProperty("JP_INITIAL_DEFORMATION")
 	def setInitialDeformation(self, value: bool):
 		return self._setBoolProperty("JP_INITIAL_DEFORMATION", value)
+	def getAllowSlipStartingFromStage(self) -> int:
+		return self._getIntProperty("JP_ALLOW_SLIP_START_FROM_STAGE")
+	def setAllowSlipStartingFromStage(self, value: int):
+		return self._setIntProperty("JP_ALLOW_SLIP_START_FROM_STAGE", value)
 	def SetApplySSR(self, applySSR: bool):
 		return self._callFunction("SetApplySSR", [applySSR])
 	def GetApplySSR(self) -> bool:

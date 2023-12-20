@@ -58,6 +58,7 @@ class TestDisplacementDependent(unittest.TestCase):
         stageFactor.setTensileStrengthFactor(1508.0)
         stageFactor.setAdditionalPressureInsideJointFactor(857.2)
         stageFactor.setGroundwaterPressureFactor(2.2)
+        stageFactor.setJointPermeableFactor(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -71,3 +72,4 @@ class TestDisplacementDependent(unittest.TestCase):
         self.assertEqual(stageFactor.getTensileStrengthFactor(), 1508.0)
         self.assertEqual(stageFactor.getAdditionalPressureInsideJointFactor(), 857.2)
         self.assertEqual(stageFactor.getGroundwaterPressureFactor(), 2.2)
+        self.assertEqual(stageFactor.getJointPermeableFactor(), True)

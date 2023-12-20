@@ -63,6 +63,7 @@ class TestBartonBandis(unittest.TestCase):
         stageFactor.setResidualFrictionAngleFactor(1475.5)
         stageFactor.setAdditionalPressureInsideJointFactor(2227.9)
         stageFactor.setGroundwaterPressureFactor(2.2)
+        stageFactor.setJointPermeableFactor(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -75,3 +76,4 @@ class TestBartonBandis(unittest.TestCase):
         self.assertEqual(stageFactor.getResidualFrictionAngleFactor(), 1475.5)
         self.assertEqual(stageFactor.getAdditionalPressureInsideJointFactor(), 2227.9)
         self.assertEqual(stageFactor.getGroundwaterPressureFactor(), 2.2)
+        self.assertEqual(stageFactor.getJointPermeableFactor(), True)

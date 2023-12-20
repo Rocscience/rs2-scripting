@@ -79,6 +79,7 @@ class TestHyperbolicSoftening(unittest.TestCase):
         stageFactor.setWorkSofteningFactor(1)
         stageFactor.setAdditionalPressureInsideJointFactor(812.6)
         stageFactor.setGroundwaterPressureFactor(2.2)
+        stageFactor.setJointPermeableFactor(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -97,3 +98,4 @@ class TestHyperbolicSoftening(unittest.TestCase):
         self.assertEqual(stageFactor.getWorkSofteningFactor(), 1)
         self.assertEqual(stageFactor.getAdditionalPressureInsideJointFactor(), 812.6)
         self.assertEqual(stageFactor.getGroundwaterPressureFactor(), 2.2)
+        self.assertEqual(stageFactor.getJointPermeableFactor(), True)

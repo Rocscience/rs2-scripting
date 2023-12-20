@@ -80,6 +80,7 @@ class TestMohrCoulomb(unittest.TestCase):
         stageFactor.setResTensileStrengthFactor(1772.3)
         stageFactor.setAdditionalPressureInsideJointFactor(2188.4)
         stageFactor.setGroundwaterPressureFactor(2.2)
+        stageFactor.setJointPermeableFactor(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -95,3 +96,4 @@ class TestMohrCoulomb(unittest.TestCase):
         self.assertEqual(stageFactor.getResTensileStrengthFactor(), 1772.3)
         self.assertEqual(stageFactor.getAdditionalPressureInsideJointFactor(), 2188.4)
         self.assertEqual(stageFactor.getGroundwaterPressureFactor(), 2.2)
+        self.assertEqual(stageFactor.getJointPermeableFactor(), True)

@@ -59,6 +59,7 @@ class TestMaterialDependent(unittest.TestCase):
         stageFactor.setInterfaceCoefficientFactor(176.8)
         stageFactor.setAdditionalPressureInsideJointFactor(1508.0)
         stageFactor.setGroundwaterPressureFactor(2.2)
+        stageFactor.setJointPermeableFactor(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -69,3 +70,4 @@ class TestMaterialDependent(unittest.TestCase):
         self.assertEqual(stageFactor.getInterfaceCoefficientFactor(), 176.8)
         self.assertEqual(stageFactor.getAdditionalPressureInsideJointFactor(), 1508.0)
         self.assertEqual(stageFactor.getGroundwaterPressureFactor(), 2.2)
+        self.assertEqual(stageFactor.getJointPermeableFactor(), True)
