@@ -51,3 +51,23 @@ class TestMaterialDependent(unittest.TestCase):
         self.assertEqual(joint.MaterialDependent.getPiezoID(), 27375)
         self.assertEqual(joint.MaterialDependent.getApplyPressureToLinerSideOnly(), 1)
         self.assertEqual(joint.MaterialDependent.getApplyStageFactors(), 0)
+    def testMaterialDependentStageFactors(self):
+        self.joint.setSlipCriterion(JointTypes.JOINT_MATERIAL_DEPENDENT)
+        stageFactor = self.joint.MaterialDependent.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setNormalStiffnessFactor(2605.0)
+        stageFactor.setShearStiffnessFactor(3213.4)
+        stageFactor.setInterfaceCoefficientFactor(176.8)
+        stageFactor.setAdditionalPressureInsideJointFactor(1508.0)
+        stageFactor.setGroundwaterPressureFactor(2.2)
+        stageFactor.setJointPermeableFactor(True)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.joint = self.model.getAllJointProperties()[0]
+        stageFactor = self.joint.MaterialDependent.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getNormalStiffnessFactor(), 2605.0)
+        self.assertEqual(stageFactor.getShearStiffnessFactor(), 3213.4)
+        self.assertEqual(stageFactor.getInterfaceCoefficientFactor(), 176.8)
+        self.assertEqual(stageFactor.getAdditionalPressureInsideJointFactor(), 1508.0)
+        self.assertEqual(stageFactor.getGroundwaterPressureFactor(), 2.2)
+        self.assertEqual(stageFactor.getJointPermeableFactor(), True)
