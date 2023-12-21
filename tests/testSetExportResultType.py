@@ -9,12 +9,12 @@ import time
 
 parentDirectoryHelper.addParentDirectoryToPath()
 
-class TestGetMeshResults(unittest.TestCase):
+class TestSetExportResultType(unittest.TestCase):
     pathToComputedModel = "C:\scriptingModels\Profiles_and_Boreholes.fez"
 
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
-        blankModelPath = TestGetMeshResults.pathToComputedModel
+        blankModelPath = TestSetExportResultType.pathToComputedModel
         self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
         shutil.copy(blankModelPath, self.copiedModelPath)
         self.interpreter = RS2Interpreter()
@@ -25,16 +25,29 @@ class TestGetMeshResults(unittest.TestCase):
         os.remove(self.copiedModelPath)
     
     @unittest.skipIf(not pathToComputedModel, "requires path to computed model for RS2 Interpreter")  
-    def testGetMeshResultsSuccess(self):
+    def testSetExportResultTypeSuccess(self):
         interpreter = self.interpreter
-        result = interpreter.GetMeshResults(ExportResultType.SOLID_EFF_STRESS_SIGMA_ONE_EFF)
-        self.assertGreaterEqual(len(result), 0)
+        interpreter.SetExportResultType(ExportResultType.SOLID_EFF_STRESS_SIGMA_ONE_EFF)
     
     @unittest.skipIf(not pathToComputedModel, "requires path to computed model for RS2 Interpreter")  
-    def testGetMeshResultsFailure(self):
+    def testSetExportResultTypeFailure(self):
         try:
             interpreter = self.interpreter
-            interpreter.GetMeshResults(CompositeJointPlacementTypes.BETWEEN_FIRST_AND_SECOND_LINER)
+            interpreter.SetExportResultType(CompositeJointPlacementTypes.BETWEEN_FIRST_AND_SECOND_LINER)
+            self.fail("Expected exception")
+        except:
+            pass
+    
+    @unittest.skipIf(not pathToComputedModel, "requires path to computed model for RS2 Interpreter")  
+    def testSetUserDefinedExportResultTypeSuccess(self):
+        interpreter = self.interpreter
+        interpreter.SetUserDefinedExportResultType("Random")
+    
+    @unittest.skipIf(not pathToComputedModel, "requires path to computed model for RS2 Interpreter")  
+    def testSetUserDefinedExportResultTypeFailure(self):
+        try:
+            interpreter = self.interpreter
+            interpreter.SetUserDefinedExportResultType("Invalid Result Type")
             self.fail("Expected exception")
         except:
             pass
