@@ -26,7 +26,9 @@ class TestCompositeLiner(unittest.TestCase):
     # Joint reference tests
     def testGetJointPropertyNameSuccess(self):
         compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
+        compositeliner.setJointApplied(True)
         self.assertEqual(compositeliner.getCompositeJointPropertyName(), "Joint 1")
+        compositeliner.setJointApplied(False)
 
     def testGetJointPropertyNameFailure(self):
         try:
@@ -39,8 +41,8 @@ class TestCompositeLiner(unittest.TestCase):
         compositeliner = self.model.getCompositeLinerPropertyByName("Composite 1")
         compositeliner.setJointApplied(True)
         compositeliner.setCompositeJointPropertyByName("Joint 2")
-        compositeliner.setJointApplied(False)
         self.assertEqual(compositeliner.getCompositeJointPropertyName(), "Joint 2")
+        compositeliner.setJointApplied(False)
 
     def testSetJointPropertyNameFailure(self):
         try:

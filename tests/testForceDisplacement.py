@@ -37,13 +37,13 @@ class TestForceDisplacement(unittest.TestCase):
         self.assertEqual(pile.ForceDisplacement.getY(), 2628.5)
     def testForceDisplacementStageFactors(self):
         self.pile.setSkinResistance(PileSkinResistanceType.SKIN_RESISTANCE_ELASTIC)
-        stageFactor = self.pile.ForceDisplacement.getStageFactors()[0]
+        stageFactor = self.pile.ForceDisplacement.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setXFactor(972.5)
         stageFactor.setYFactor(86.7)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.pile = self.model.getAllPileProperties()[0]
-        stageFactor = self.pile.ForceDisplacement.getStageFactors()[0]
+        stageFactor = self.pile.ForceDisplacement.stageFactorInterface.getDefinedStageFactors()[1]
         self.assertEqual(stageFactor.getXFactor(), 972.5)
         self.assertEqual(stageFactor.getYFactor(), 86.7)
