@@ -12,13 +12,13 @@ class HydraulicModel(PropertyProxy):
 	"""
 	:ref:`Material Property Thermal SoilUnfrozenWaterContent HydraulicModel Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.SimpleWaterContent = SimpleWaterContent(server, ID, documentProxyID)
-		self.FredlundWaterContent = FredlundWaterContent(server, ID, documentProxyID)
-		self.GenuchtenWaterContent = GenuchtenWaterContent(server, ID, documentProxyID)
-		self.BrooksWaterContent = BrooksWaterContent(server, ID, documentProxyID)
-		self.GardnerWaterContent = GardnerWaterContent(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.SimpleWaterContent = SimpleWaterContent(client, ID, documentProxyID)
+		self.FredlundWaterContent = FredlundWaterContent(client, ID, documentProxyID)
+		self.GenuchtenWaterContent = GenuchtenWaterContent(client, ID, documentProxyID)
+		self.BrooksWaterContent = BrooksWaterContent(client, ID, documentProxyID)
+		self.GardnerWaterContent = GardnerWaterContent(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getFrozenTemperature(self) -> float:
 		return self._getDoubleProperty("MP_THERMAL_WATER_CONTENT_FROZEN_TEMPERATURE")
 	def setFrozenTemperature(self, value: float):

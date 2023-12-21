@@ -12,13 +12,13 @@ class MaterialProperty(PropertyProxy):
 	"""
 	:ref:`Material Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.InitialConditions = InitialConditions(server, ID, documentProxyID)
-		self.Stiffness = Stiffness(server, ID, documentProxyID)
-		self.Strength = Strength(server, ID, documentProxyID)
-		self.Hydraulic = Hydraulic(server, ID, documentProxyID)
-		self.Thermal = Thermal(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.InitialConditions = InitialConditions(client, ID, documentProxyID)
+		self.Stiffness = Stiffness(client, ID, documentProxyID)
+		self.Strength = Strength(client, ID, documentProxyID)
+		self.Hydraulic = Hydraulic(client, ID, documentProxyID)
+		self.Thermal = Thermal(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getMaterialName(self) -> str:
 		return self._getCStringProperty("MP_NAME")
 	def setMaterialName(self, value: str):

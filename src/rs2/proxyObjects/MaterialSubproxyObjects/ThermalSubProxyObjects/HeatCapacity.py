@@ -10,11 +10,11 @@ class HeatCapacity(PropertyProxy):
 	"""
 	:ref:`Material Property Thermal HeatCapacity Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.ConstantHeatCapacity = ConstantHeatCapacity(server, ID, documentProxyID)
-		self.JameNewman = JameNewman(server, ID, documentProxyID)
-		self.CustomHeatCapacity = CustomHeatCapacity(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.ConstantHeatCapacity = ConstantHeatCapacity(client, ID, documentProxyID)
+		self.JameNewman = JameNewman(client, ID, documentProxyID)
+		self.CustomHeatCapacity = CustomHeatCapacity(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getType(self) -> ThermalHeatCapacityType:
 		return ThermalHeatCapacityType(self._getEnumEThermalHeatCapacityTypeProperty("MP_THERMAL_HEAT_CAPACITY_TYPE"))
 	def setType(self, value: ThermalHeatCapacityType):
