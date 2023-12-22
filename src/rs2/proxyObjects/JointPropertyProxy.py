@@ -13,14 +13,14 @@ class JointProperty(PropertyProxy):
 	"""
 	:ref:`Joint Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.MohrCoulomb = MohrCoulomb(server, ID, documentProxyID)
-		self.BartonBandis = BartonBandis(server, ID, documentProxyID)
-		self.GeosyntheticHyperbolic = GeosyntheticHyperbolic(server, ID, documentProxyID)
-		self.HyperbolicSoftening = HyperbolicSoftening(server, ID, documentProxyID)
-		self.MaterialDependent = MaterialDependent(server, ID, documentProxyID)
-		self.DisplacementDependent = DisplacementDependent(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.MohrCoulomb = MohrCoulomb(client, ID, documentProxyID)
+		self.BartonBandis = BartonBandis(client, ID, documentProxyID)
+		self.GeosyntheticHyperbolic = GeosyntheticHyperbolic(client, ID, documentProxyID)
+		self.HyperbolicSoftening = HyperbolicSoftening(client, ID, documentProxyID)
+		self.MaterialDependent = MaterialDependent(client, ID, documentProxyID)
+		self.DisplacementDependent = DisplacementDependent(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getJointName(self) -> str:
 		return self._getCStringProperty("JP_NAME")
 	def setJointName(self, value: str):
@@ -37,6 +37,10 @@ class JointProperty(PropertyProxy):
 		return self._getBoolProperty("JP_INITIAL_DEFORMATION")
 	def setInitialDeformation(self, value: bool):
 		return self._setBoolProperty("JP_INITIAL_DEFORMATION", value)
+	def getAllowSlipStartingFromStage(self) -> int:
+		return self._getIntProperty("JP_ALLOW_SLIP_START_FROM_STAGE")
+	def setAllowSlipStartingFromStage(self, value: int):
+		return self._setIntProperty("JP_ALLOW_SLIP_START_FROM_STAGE", value)
 	def SetApplySSR(self, applySSR: bool):
 		return self._callFunction("SetApplySSR", [applySSR])
 	def GetApplySSR(self) -> bool:

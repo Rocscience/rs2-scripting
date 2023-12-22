@@ -3,7 +3,28 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
+from rs2.ProxyObject import ProxyObject
+from rs2.proxyObjects.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+class ForceDisplacementStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getXFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["PFP_FORCE_DISPLACEMENT_X", self.propertyID], proxyArgumentIndices=[1])
+	def getYFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["PFP_FORCE_DISPLACEMENT_Y", self.propertyID], proxyArgumentIndices=[1])
+class ForceDisplacementDefinedStageFactor(ForceDisplacementStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setXFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["PFP_FORCE_DISPLACEMENT_X", value, self.propertyID], proxyArgumentIndices=[2])
+	def setYFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["PFP_FORCE_DISPLACEMENT_Y", value, self.propertyID], proxyArgumentIndices=[2])
 class ForceDisplacement(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[ForceDisplacementDefinedStageFactor, ForceDisplacementStageFactor](self._client, stageFactorInterfaceID, ID, ForceDisplacementDefinedStageFactor, ForceDisplacementStageFactor)
 	def getApply(self) -> PileEndCondition:
 		return PileEndCondition(self._getEnumEPileEndConditionProperty("PFP_FORCE_DISPLACEMENT_TYPE"))
 	def setApply(self, value: PileEndCondition):
