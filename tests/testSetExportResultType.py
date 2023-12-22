@@ -10,7 +10,7 @@ import time
 parentDirectoryHelper.addParentDirectoryToPath()
 
 class TestSetExportResultType(unittest.TestCase):
-    pathToComputedModel = "C:\scriptingModels\Profiles_and_Boreholes.fez"
+    pathToComputedModel = "S:\willSati\Scripting\TestModels\Profiles_and_Boreholes.fez"
 
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
@@ -41,7 +41,7 @@ class TestSetExportResultType(unittest.TestCase):
     @unittest.skipIf(not pathToComputedModel, "requires path to computed model for RS2 Interpreter")  
     def testSetUserDefinedExportResultTypeSuccess(self):
         interpreter = self.interpreter
-        interpreter.SetUserDefinedExportResultType("Random")
+        interpreter.SetUserDefinedExportResultType("Keff")
     
     @unittest.skipIf(not pathToComputedModel, "requires path to computed model for RS2 Interpreter")  
     def testSetUserDefinedExportResultTypeFailure(self):
