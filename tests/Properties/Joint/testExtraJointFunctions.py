@@ -52,4 +52,23 @@ class TestExtraJointFunctions(unittest.TestCase):
 
         with self.assertRaises(Exception):
             self.joint.DisplacementDependent.setDisplacementDependentTable([[1,2,3,4],[4,5,6,7],[2,6,7,8]])
+
+    def testSlipStageSuccess(self):
+        self.joint.SetAllowSlipStartFromStage(2)
+        self.assertEqual(self.joint.GetAllowSlipStartFromStage(), 2)
+
+        #test with 1 and 6 as well
+        self.joint.SetAllowSlipStartFromStage(1)
+        self.assertEqual(self.joint.GetAllowSlipStartFromStage(), 1)
+
+        self.joint.SetAllowSlipStartFromStage(6)
+        self.assertEqual(self.joint.GetAllowSlipStartFromStage(), 6)
+        
+    def testSlipStageFailureTooSmall(self):
+        with self.assertRaises(Exception):
+            self.joint.SetAllowSlipStartFromStage(0)
+    def testSlipStageFailureTooLarge(self):
+        with self.assertRaises(Exception):
+            self.joint.SetAllowSlipStartFromStage(7)
     
+
