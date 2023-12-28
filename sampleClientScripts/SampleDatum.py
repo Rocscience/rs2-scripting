@@ -5,7 +5,7 @@ modeler = RS2Modeler()
 
 model = modeler.openFile(r"C:\scriptingModels\simple_3_stage.fez")
 material = model.getMaterialPropertyByName("Material 1")
-material.Strength.MohrCoulomb.setMaterialType(MaterialType.PLASTIC)
+material.Strength.MohrCoulombStrength.setMaterialType(MaterialType.PLASTIC)
 
 material.Datum.setUsingDatum(True)
 
