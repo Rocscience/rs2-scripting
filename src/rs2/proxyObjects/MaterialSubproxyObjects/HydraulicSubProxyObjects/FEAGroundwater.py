@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Simple import Simple
-from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Fredlung import Fredlung
+from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Fredlund import Fredlund
 from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Genuchten import Genuchten
 from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Brooks import Brooks
 from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Gardner import Gardner
@@ -14,15 +14,15 @@ class FEAGroundwater(PropertyProxy):
 	"""
 	:ref:`Hydraulic Property FEAGroundwater Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.Simple = Simple(server, ID, documentProxyID)
-		self.Fredlung = Fredlung(server, ID, documentProxyID)
-		self.Genuchten = Genuchten(server, ID, documentProxyID)
-		self.Brooks = Brooks(server, ID, documentProxyID)
-		self.Gardner = Gardner(server, ID, documentProxyID)
-		self.Constant = Constant(server, ID, documentProxyID)
-		self.UserDefined = UserDefined(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.Simple = Simple(client, ID, documentProxyID)
+		self.Fredlund = Fredlund(client, ID, documentProxyID)
+		self.Genuchten = Genuchten(client, ID, documentProxyID)
+		self.Brooks = Brooks(client, ID, documentProxyID)
+		self.Gardner = Gardner(client, ID, documentProxyID)
+		self.Constant = Constant(client, ID, documentProxyID)
+		self.UserDefined = UserDefined(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getModel(self) -> GroundWaterModes:
 		return GroundWaterModes(self._getEnumEGroundWaterModesProperty("MP_HYDRAULIC_MODEL"))
 	def setModel(self, value: GroundWaterModes):

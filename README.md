@@ -41,6 +41,9 @@ To run all the tests, navigate to the root directory of the project and execute 
 To run an individual test file, navigate to the root directory of the project and execute the following command with the correct filename:  
 ```python -m unittest discover -s tests -p "<sampleTestFile>.py"```
 
+To run a sub-folder of tests, navigate to the 'tests' folder, and run:  
+```python -m unittest discover -v -s Path/To/Folder```  
+
 **_NOTE:_** To display additional information on the results of the unit tests, pass the `-v` option into the testing command:  
 ```python -m unittest discover -v -s tests```
 

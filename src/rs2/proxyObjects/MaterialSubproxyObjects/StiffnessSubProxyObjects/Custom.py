@@ -12,10 +12,6 @@ class Custom(PropertyProxy):
 		return UnloadingConditions(self._getEnumEUnloadingConditionsProperty("MP_UNLOADING_CONDITION"))
 	def setUnloadingCondition(self, value: UnloadingConditions):
 		return self._setEnumEUnloadingConditionsProperty("MP_UNLOADING_CONDITION", value)
-	def getCustomMode(self) -> CustomMode:
-		return CustomMode(self._getEnumECustomModeProperty("MP_CUSTOM_MODE"))
-	def setCustomMode(self, value: CustomMode):
-		return self._setEnumECustomModeProperty("MP_CUSTOM_MODE", value)
 	def getUseConstantPoissonsRatio(self) -> bool:
 		return self._getBoolProperty("MP_USE_CONSTANT_POISSONS_RATIO")
 	def setUseConstantPoissonsRatio(self, value: bool):
@@ -61,8 +57,6 @@ class Custom(PropertyProxy):
 			self._setBoolProperty("MP_USE_UNLOADING_CONDITION", UseUnloadingCondition)
 		if UnloadingCondition is not None:
 			self._setEnumEUnloadingConditionsProperty("MP_UNLOADING_CONDITION", UnloadingCondition)
-		if CustomMode is not None:
-			self._setEnumECustomModeProperty("MP_CUSTOM_MODE", CustomMode)
 		if UseConstantPoissonsRatio is not None:
 			self._setBoolProperty("MP_USE_CONSTANT_POISSONS_RATIO", UseConstantPoissonsRatio)
 		if ConstantPoissonsRatio is not None:
@@ -75,7 +69,6 @@ class Custom(PropertyProxy):
 		return {
 		"UseUnloadingCondition" : self.getUseUnloadingCondition(), 
 		"UnloadingCondition" : self.getUnloadingCondition(), 
-		"CustomMode" : self.getCustomMode(), 
 		"UseConstantPoissonsRatio" : self.getUseConstantPoissonsRatio(), 
 		"ConstantPoissonsRatio" : self.getConstantPoissonsRatio(), 
 		"UnloadingUseConstantPoissonsRatio" : self.getUnloadingUseConstantPoissonsRatio(), 
