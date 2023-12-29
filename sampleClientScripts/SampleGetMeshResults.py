@@ -4,8 +4,6 @@ from rs2.PropertyEnums import *
 
 interpreter = RS2Interpreter()
 model = interpreter.openFile("C:\scriptingModels\Profiles_and_Boreholes.fez")
-interpreter.SetExportResultType(ExportResultType.SOLID_EFF_STRESS_SIGMA_Z_EFF)
-exportResult1 = interpreter.GetMeshResults()
-interpreter.SetUserDefinedExportResultType("Random")
-exportResult2 = interpreter.GetMeshResults()
+model.SetExportResultType(ExportResultType.HORIZONTAL_DISPLACEMENT_ABS)
+exportResult1 = model.GetMeshResults()
 

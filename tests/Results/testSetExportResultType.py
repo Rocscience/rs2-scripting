@@ -26,28 +26,24 @@ class TestSetExportResultType(unittest.TestCase):
     
     @unittest.skipIf(not pathToComputedModel, "requires path to computed model for RS2 Interpreter")  
     def testSetExportResultTypeSuccess(self):
-        interpreter = self.interpreter
-        interpreter.SetExportResultType(ExportResultType.SOLID_EFF_STRESS_SIGMA_ONE_EFF)
+        self.model.SetExportResultType(ExportResultType.SOLID_EFF_STRESS_SIGMA_ONE_EFF)
     
     @unittest.skipIf(not pathToComputedModel, "requires path to computed model for RS2 Interpreter")  
     def testSetExportResultTypeFailure(self):
         try:
-            interpreter = self.interpreter
-            interpreter.SetExportResultType(CompositeJointPlacementTypes.BETWEEN_FIRST_AND_SECOND_LINER)
+            self.model.SetExportResultType(CompositeJointPlacementTypes.BETWEEN_FIRST_AND_SECOND_LINER)
             self.fail("Expected exception")
         except:
             pass
     
     @unittest.skipIf(not pathToComputedModel, "requires path to computed model for RS2 Interpreter")  
     def testSetUserDefinedExportResultTypeSuccess(self):
-        interpreter = self.interpreter
-        interpreter.SetUserDefinedExportResultType("Keff")
+        self.model.SetUserDefinedExportResultType("Keff")
     
     @unittest.skipIf(not pathToComputedModel, "requires path to computed model for RS2 Interpreter")  
     def testSetUserDefinedExportResultTypeFailure(self):
         try:
-            interpreter = self.interpreter
-            interpreter.SetUserDefinedExportResultType("Invalid Result Type")
+            self.model.SetUserDefinedExportResultType("Invalid Result Type")
             self.fail("Expected exception")
         except:
             pass

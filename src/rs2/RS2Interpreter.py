@@ -1,9 +1,9 @@
 from rsmessages.requestFormat import functionRequest
 from .Client import Client
 from rs2.ApplicationManager import ApplicationManager
-from rs2.InterpreterPropertyEnums import *
 from rs2.InterpreterModelProxy import ModelProxy
 import winreg
+
 class RS2Interpreter:
 	"""
 	:ref:`Interpreter Example`
@@ -54,40 +54,3 @@ class RS2Interpreter:
 		rs2ModelerInstallLocation =  rf"{installationLocation}\Interpret"
 
 		return rs2ModelerInstallLocation
-	
-	def SetExportResultType(self, resultType: ExportResultType) -> list[dict]:
-		"""
-		Sets the export result type for the model.
-
-		Args:
-			resultType (ExportResultType): Takes an enum of type ExportResultType representing the desired
-			export option for mesh results.
-		
-		Exceptions:
-			ValueError: resultType must be an enum of type ExportResultType. Any other value will raise an error
-		
-		"""
-		request = functionRequest('SetExportResultType', [resultType.value])
-		return self.client.callFunction(request)
-	
-	def SetUserDefinedExportResultType(self, resultName: str) -> list[dict]:
-		"""
-		Sets the export result type to the user defined result type name.
-
-		Args:
-			resultName (str): Takes the name of the user defined export option to generate mesh results for.
-		
-		"""
-		request = functionRequest('SetUserDefinedExportType', [resultName])
-		return self.client.callFunction(request)
-	
-	def GetMeshResults(self) -> list[dict]:
-		"""
-		Returns the mesh results at all nodes of the model.
-
-		Returns:
-			A list of dictionary where each node is a dict with 3 key-value pairs. 
-			The 3 keys are 'x_coord', 'y_coord' and 'value'.
-		"""
-		request = functionRequest('GetMeshResults', [])
-		return self.client.callFunction(request)
