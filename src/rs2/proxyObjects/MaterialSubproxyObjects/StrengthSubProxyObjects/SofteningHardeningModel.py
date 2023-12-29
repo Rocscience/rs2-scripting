@@ -16,6 +16,10 @@ class SofteningHardeningModel(PropertyProxy):
 		return self._getDoubleProperty("MP_PEAK_COHESION")
 	def setPeakCohesion(self, value: float):
 		return self._setDoubleProperty("MP_PEAK_COHESION", value)
+	def getConeHardeningType(self) -> ConeHardeningTypes:
+		return ConeHardeningTypes(self._getEnumEConeHardeningTypesProperty("MP_CONE_HARDENING_TYPE"))
+	def setConeHardeningType(self, value: ConeHardeningTypes):
+		return self._setEnumEConeHardeningTypesProperty("MP_CONE_HARDENING_TYPE", value)
 	def getHardeningProperty(self) -> float:
 		return self._getDoubleProperty("MP_HARDENING_PROPERTY")
 	def setHardeningProperty(self, value: float):
@@ -46,7 +50,7 @@ class SofteningHardeningModel(PropertyProxy):
 		plasticStrainVsCohesion: list of tuples, (plasticStrain, Cohesion)
 		"""
 		return self._callFunction("setSHConeHardening", [plasticStrainVsFrictionAngle, plasticStrainVsCohesion])
-	def getSHConeHardening(self) -> tuple(list[tuple[float,float]],list[tuple[float,float]]):
+	def getSHConeHardening(self) -> tuple[list[tuple[float,float]],list[tuple[float,float]]]:
 		"""
 		returns a tuple of (plasticStrainVsFrictionAngle, plasticStrainVsCohesion), where
 		plasticStrainVsFrictionAngle: list of tuples, (plainStrain, frictionAngle)
@@ -63,13 +67,15 @@ class SofteningHardeningModel(PropertyProxy):
 		returns a list of (x,y) tuples.
 		"""
 		return self._callFunction("getSHCapMeanStress", [])
-	def setProperties(self, PeakTensileStrength : float = None, PeakFrictionAngle : float = None, PeakCohesion : float = None, ConeHardeningType : ConeHardeningTypes = None, HardeningProperty : float = None, DilationAngle : float = None, ConeDilationType : DilationTypes = None, CapType : CapTypes = None, CapHardeningType : CapHardeningTypes = None, InitialMeanStress : float = None, LambdaKappa : float = None):
+	def setProperties(self, PeakTensileStrength : float = None, PeakFrictionAngle : float = None, PeakCohesion : float = None, ConeHardeningType : ConeHardeningTypes = None, HardeningProperty : float = None, DilationAngle : float = None, ConeDilationType : DilationTypes = None, CapType : CapTypes = None, InitialMeanStress : float = None, LambdaKappa : float = None):
 		if PeakTensileStrength is not None:
 			self._setDoubleProperty("MP_PEAK_TENSILE_STRENGTH", PeakTensileStrength)
 		if PeakFrictionAngle is not None:
 			self._setDoubleProperty("MP_PEAK_FRICTION_ANGLE", PeakFrictionAngle)
 		if PeakCohesion is not None:
 			self._setDoubleProperty("MP_PEAK_COHESION", PeakCohesion)
+		if ConeHardeningType is not None:
+			self._setEnumEConeHardeningTypesProperty("MP_CONE_HARDENING_TYPE", ConeHardeningType)
 		if HardeningProperty is not None:
 			self._setDoubleProperty("MP_HARDENING_PROPERTY", HardeningProperty)
 		if DilationAngle is not None:
@@ -87,6 +93,7 @@ class SofteningHardeningModel(PropertyProxy):
 		"PeakTensileStrength" : self.getPeakTensileStrength(), 
 		"PeakFrictionAngle" : self.getPeakFrictionAngle(), 
 		"PeakCohesion" : self.getPeakCohesion(), 
+		"ConeHardeningType" : self.getConeHardeningType(), 
 		"HardeningProperty" : self.getHardeningProperty(), 
 		"DilationAngle" : self.getDilationAngle(), 
 		"ConeDilationType" : self.getConeDilationType(), 
