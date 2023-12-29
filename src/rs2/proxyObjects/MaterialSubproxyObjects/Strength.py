@@ -136,7 +136,7 @@ class Strength(PropertyProxy):
 		Depending on the type of tabular values selected, specify the coefficient and values with respect to suction, degree of saturation or effective degree of saturation.
 		"""
 		return self._callFunction("setUnsaturatedZoneTable", [coefficients, values])
-	def getUnsaturatedZoneTable(self) -> list[tuple(float,float)]:
+	def getUnsaturatedZoneTable(self) -> list[tuple[float,float]]:
 		"""
 		Returns a list tuples where the first element is coefficients and the second is values with respect to suction, degree of saturation or effective degree of saturation.
 		"""
