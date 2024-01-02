@@ -1,0 +1,52 @@
+from rs2.proxyObjects.propertyProxy import PropertyProxy
+from rs2.Client import Client
+from enum import Enum, auto
+from typing import List
+from rs2.PropertyEnums import *
+class Custom(PropertyProxy):
+	def getUseUnloadingCondition(self) -> bool:
+		return self._getBoolProperty("MP_USE_UNLOADING_CONDITION")
+	def setUseUnloadingCondition(self, value: bool):
+		return self._setBoolProperty("MP_USE_UNLOADING_CONDITION", value)
+	def getUnloadingCondition(self) -> UnloadingConditions:
+		return UnloadingConditions(self._getEnumEUnloadingConditionsProperty("MP_UNLOADING_CONDITION"))
+	def setUnloadingCondition(self, value: UnloadingConditions):
+		return self._setEnumEUnloadingConditionsProperty("MP_UNLOADING_CONDITION", value)
+	def getUseConstantPoissonsRatio(self) -> bool:
+		return self._getBoolProperty("MP_USE_CONSTANT_POISSONS_RATIO")
+	def setUseConstantPoissonsRatio(self, value: bool):
+		return self._setBoolProperty("MP_USE_CONSTANT_POISSONS_RATIO", value)
+	def getConstantPoissonsRatio(self) -> float:
+		return self._getDoubleProperty("MP_CONSTANT_POISSONS_RATIO")
+	def setConstantPoissonsRatio(self, value: float):
+		return self._setDoubleProperty("MP_CONSTANT_POISSONS_RATIO", value)
+	def getUnloadingUseConstantPoissonsRatio(self) -> bool:
+		return self._getBoolProperty("MP_UNLOADING_USE_CONSTANT_POISSONS_RATIO")
+	def setUnloadingUseConstantPoissonsRatio(self, value: bool):
+		return self._setBoolProperty("MP_UNLOADING_USE_CONSTANT_POISSONS_RATIO", value)
+	def getUnloadingConstantPoissonsRatio(self) -> float:
+		return self._getDoubleProperty("MP_UNLOADING_CONSTANT_POISSONS_RATIO")
+	def setUnloadingConstantPoissonsRatio(self, value: float):
+		return self._setDoubleProperty("MP_UNLOADING_CONSTANT_POISSONS_RATIO", value)
+	def setProperties(self, UseUnloadingCondition : bool = None, UnloadingCondition : UnloadingConditions = None, UseConstantPoissonsRatio : bool = None, ConstantPoissonsRatio : float = None, UnloadingUseConstantPoissonsRatio : bool = None, UnloadingConstantPoissonsRatio : float = None):
+		if UseUnloadingCondition is not None:
+			self._setBoolProperty("MP_USE_UNLOADING_CONDITION", UseUnloadingCondition)
+		if UnloadingCondition is not None:
+			self._setEnumEUnloadingConditionsProperty("MP_UNLOADING_CONDITION", UnloadingCondition)
+		if UseConstantPoissonsRatio is not None:
+			self._setBoolProperty("MP_USE_CONSTANT_POISSONS_RATIO", UseConstantPoissonsRatio)
+		if ConstantPoissonsRatio is not None:
+			self._setDoubleProperty("MP_CONSTANT_POISSONS_RATIO", ConstantPoissonsRatio)
+		if UnloadingUseConstantPoissonsRatio is not None:
+			self._setBoolProperty("MP_UNLOADING_USE_CONSTANT_POISSONS_RATIO", UnloadingUseConstantPoissonsRatio)
+		if UnloadingConstantPoissonsRatio is not None:
+			self._setDoubleProperty("MP_UNLOADING_CONSTANT_POISSONS_RATIO", UnloadingConstantPoissonsRatio)
+	def getProperties(self):
+		return {
+		"UseUnloadingCondition" : self.getUseUnloadingCondition(), 
+		"UnloadingCondition" : self.getUnloadingCondition(), 
+		"UseConstantPoissonsRatio" : self.getUseConstantPoissonsRatio(), 
+		"ConstantPoissonsRatio" : self.getConstantPoissonsRatio(), 
+		"UnloadingUseConstantPoissonsRatio" : self.getUnloadingUseConstantPoissonsRatio(), 
+		"UnloadingConstantPoissonsRatio" : self.getUnloadingConstantPoissonsRatio(), 
+		}
