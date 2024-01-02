@@ -24,15 +24,3 @@ class Datum(PropertyProxy):
 		
 	def getDatumFriction(self) -> PeakResidualDatum:
 		return PeakResidualDatum(self._client, self._callFunction("getDatumFriction", [], keepReturnValueReference=True), self.documentProxyID)
-
-	def getDatumSigmaCi(self) -> PeakResidualDatum:
-		return PeakResidualDatum(self._client, self._callFunction("getDatumSigmaCi", [], keepReturnValueReference=True), self.documentProxyID)
-		
-	def getDatumGSI(self) -> PeakResidualDatum:
-		return PeakResidualDatum(self._client, self._callFunction("getDatumGSI", [], keepReturnValueReference=True), self.documentProxyID)
-
-	def getDatumD(self) -> PeakResidualDatum:
-		return PeakResidualDatum(self._client, self._callFunction("getDatumD", [], keepReturnValueReference=True), self.documentProxyID)
-		
-	def getDatumMi(self) -> PeakResidualDatum:
-		return PeakResidualDatum(self._client, self._callFunction("getDatumMi", [], keepReturnValueReference=True), self.documentProxyID)
