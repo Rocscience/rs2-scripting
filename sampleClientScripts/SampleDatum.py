@@ -12,7 +12,7 @@ material.Datum.setUsingDatum(True)
 youngDatum = material.Datum.getDatumYoungsModulus()
 youngDatum.setUsing(True)
 
-frictionDatum = material.Datum.getDatumFriction()
+frictionDatum = material.Datum.getDatumFrictionAngle()
 frictionDatum.setUsing(True)
 
 youngDatum.setType(DatumType.DATUM_TYPE_RADIAL)
