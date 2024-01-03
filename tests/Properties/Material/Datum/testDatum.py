@@ -25,6 +25,23 @@ class TestDatum(unittest.TestCase):
         self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
 
+    def testGetAllMaterialDatums(self):
+        d1 = self.material.Datum.getDatumUnloadingYoungsModulus()
+        d1.setChange(1.1)
+        self.assertEqual(d1.getChange(), 1.1)
+
+        d2 = self.material.Datum.getDatumYoungsModulus()
+        d2.setChange(2.1)
+        self.assertEqual(d2.getChange(), 2.1)
+
+        d3 = self.material.Datum.getDatumCohesion()
+        d3.setPeakChange(3.1)
+        self.assertEqual(d3.getPeakChange(), 3.1)
+
+        d4 = self.material.Datum.getDatumFrictionAngle()
+        d4.setPeakChange(4.1)
+        self.assertEqual(d4.getPeakChange(), 4.1)
+
     def testMaterialSetUsingDatum(self):
         self.material.Datum.setUsingDatum(False)
         self.assertEqual(self.material.Datum.getUsingDatum(), False)
