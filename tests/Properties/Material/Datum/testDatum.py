@@ -95,3 +95,55 @@ class TestDatum(unittest.TestCase):
         self.assertEqual(ym.getUseResidualCutoff(), False)
         ym.setResidualCutoffValue(32.1)
         self.assertEqual(ym.getResidualCutoffValue(), 32.1)
+
+class TestDatumFailures(unittest.TestCase):
+    @classmethod
+    def setUpClass(self):
+        parentDirectory = parentDirectoryHelper.getParentDirectory()
+        blankModelPath = f"{parentDirectory}/resources/testModelWithDiscreteModulusFunction.fez"
+        self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
+        shutil.copy(blankModelPath, self.copiedModelPath)
+        self.modeler = RS2Modeler()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+
+    @classmethod
+    def tearDownClass(self):
+        self.model.close()
+        self.modeler.client.closeConnection()
+        os.remove(self.copiedModelPath)
+
+    def testSetDatumFailure(self):
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.getUsingDatum()
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.setUsingDatum(True)
+
+        self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.CAM_CLAY)
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.getUsingDatum()        
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.setUsingDatum(True)
+
+        self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.MODIFIED_CAM_CLAY)
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.getUsingDatum()        
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.setUsingDatum(True)
+
+        self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.BARCELONA_BASIC)
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.getUsingDatum()        
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.setUsingDatum(True)
+
+        self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.MOHR_COULOMB)
+        self.material.Stiffness.setElasticType(MaterialElasticityTypes.ORTHOTROPIC)
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.getUsingDatum()        
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.setUsingDatum(True)
+
+        self.material.Stiffness.setElasticType(MaterialElasticityTypes.ISOTROPIC)
+        self.material.Datum.setUsingDatum(True)
+        self.assertEqual(self.material.Datum.getUsingDatum(), True)
