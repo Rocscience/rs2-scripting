@@ -1,6 +1,6 @@
 from rs2.ProxyObject import ProxyObject
 from rs2.proxyObjects.documentProxy import DocumentProxy
-from rs2.InterpreterPropertyEnums import *
+from rs2.InterpreterEnums import *
 
 class ModelProxy(ProxyObject):
 	"""
@@ -35,7 +35,7 @@ class ModelProxy(ProxyObject):
 		'''
 		return self._callFunction('save', [])
 	
-	def SetExportResultType(self, resultType: ExportResultType) -> list[dict]:
+	def SetResultType(self, resultType: ExportResultType) -> list[dict]:
 		"""
 		Sets the export result type for the model.
 
@@ -47,9 +47,9 @@ class ModelProxy(ProxyObject):
 			ValueError: resultType must be an enum of type ExportResultType. Any other value will raise an error
 		
 		"""
-		return self._callFunction('SetExportResultType', [resultType.value])
+		return self._callFunction('SetResultType', [resultType.value])
 	
-	def SetUserDefinedExportResultType(self, resultName: str) -> list[dict]:
+	def SetUserDefinedResultType(self, resultName: str) -> list[dict]:
 		"""
 		Sets the export result type to the user defined result type name.
 
@@ -57,7 +57,7 @@ class ModelProxy(ProxyObject):
 			resultName (str): Takes the name of the user defined export option to generate mesh results for.
 		
 		"""
-		return self._callFunction('SetUserDefinedExportType', [resultName])
+		return self._callFunction('SetUserDefinedResultType', [resultName])
 	
 	def GetMeshResults(self) -> list[dict]:
 		"""
