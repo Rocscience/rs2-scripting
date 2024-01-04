@@ -52,4 +52,56 @@ class TestExtraJointFunctions(unittest.TestCase):
 
         with self.assertRaises(Exception):
             self.joint.DisplacementDependent.setDisplacementDependentTable([[1,2,3,4],[4,5,6,7],[2,6,7,8]])
+
+    def testSlipStageSuccess(self):
+        self.joint.SetAllowSlipStartFromStage(2)
+        self.assertEqual(self.joint.GetAllowSlipStartFromStage(), 2)
+
+        #test with 1 and 6 as well
+        self.joint.SetAllowSlipStartFromStage(1)
+        self.assertEqual(self.joint.GetAllowSlipStartFromStage(), 1)
+
+        self.joint.SetAllowSlipStartFromStage(6)
+        self.assertEqual(self.joint.GetAllowSlipStartFromStage(), 6)
+        
+    def testSlipStageFailureTooSmall(self):
+        with self.assertRaises(Exception):
+            self.joint.SetAllowSlipStartFromStage(0)
+    def testSlipStageFailureTooLarge(self):
+        with self.assertRaises(Exception):
+            self.joint.SetAllowSlipStartFromStage(7)
     
+    def testSetApplySSR(self):
+        self.joint.SetApplySSR(True)
+        self.assertEqual(self.joint.GetApplySSR(), True)
+        self.joint.SetApplySSR(False)
+        self.assertEqual(self.joint.GetApplySSR(), False)
+
+    def testSetPermeable(self):
+        self.joint.SetPermeable(True)
+        self.assertEqual(self.joint.GetPermeable(), True)
+        self.joint.SetPermeable(False)
+        self.assertEqual(self.joint.GetPermeable(), False)
+
+    def testSetMeshConforming(self):
+        self.joint.SetMeshConforming(True)
+        self.assertEqual(self.joint.GetMeshConforming(), True)
+        self.joint.SetMeshConforming(False)
+        self.assertEqual(self.joint.GetMeshConforming(), False)
+
+    def testSetAllowSlipStartFromStageSuccess(self):
+        self.joint.BartonBandis.setApplyStageFactors(True)
+        self.joint.SetAllowSlipStartFromStage(2)
+        self.assertEqual(self.joint.GetAllowSlipStartFromStage(), 2)
+
+    def testSetAllowSlipStartFromStageFailureDisabled(self):
+        self.joint.BartonBandis.setApplyStageFactors(False)
+        with self.assertRaises(Exception):
+            self.joint.SetAllowSlipStartFromStage(2)
+
+    def testSetAllowSlipStartFromStageFailureInvalidStage(self):
+        self.joint.BartonBandis.setApplyStageFactors(True)
+        with self.assertRaises(Exception):
+            self.joint.SetAllowSlipStartFromStage(7)
+        with self.assertRaises(Exception):
+            self.joint.SetAllowSlipStartFromStage(0)

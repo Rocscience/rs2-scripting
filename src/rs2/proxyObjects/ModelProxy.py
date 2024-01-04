@@ -7,6 +7,7 @@ from rs2.proxyObjects.PilePropertyProxy import PileProperty
 from rs2.proxyObjects.StructuralInterfacePropertyProxy import StructuralInterfaceProperty
 from rs2.proxyObjects.CompositeLinerPropertyProxy import CompositeLinerProperty
 
+from rs2.proxyObjects.MaterialPropertyProxy import MaterialProperty
 class ModelProxy(ProxyObject):
 	"""
 	:ref:`Model Example`
@@ -64,6 +65,14 @@ class ModelProxy(ProxyObject):
 		return CompositeLinerProperty(self._client, compositeLinerObjectID, self._documentProxy._ID)
 
 	
+	
+	def getMaterialPropertyByName(self, materialName : str) -> MaterialProperty:
+		'''
+		Returns a Material Property object based on its name.
+		'''
+		materialObjectID = self._callFunction('getMaterialPropertyByName', [materialName], keepReturnValueReference=True)
+		return MaterialProperty(self._client, materialObjectID, self._documentProxy._ID)
+
 	def getAllBoltProperties(self) -> list[BoltProperty]:
 
 		'''
@@ -124,6 +133,16 @@ class ModelProxy(ProxyObject):
 		for compositeObjectID in compositeObjectIDList:
 			activeCompositeProperties.append(CompositeLinerProperty(self._client, compositeObjectID, self._documentProxy._ID))
 		return activeCompositeProperties
+	
+	def getAllMaterialProperties(self) -> list[MaterialProperty]:
+		'''
+		Returns a list of all Material Property objects
+		'''
+		activeMaterialProperties = []
+		materialObjectIDList = self._callFunction('getAllMaterialProperties', [], keepReturnValueReference=True)
+		for materialObjectID in materialObjectIDList:
+			activeMaterialProperties.append(MaterialProperty(self._client, materialObjectID, self._documentProxy._ID))
+		return activeMaterialProperties
 	
 	def compute(self):
 		'''
