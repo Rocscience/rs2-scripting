@@ -29,18 +29,10 @@ rs2.ColorPicker module
    :undoc-members:
    :show-inheritance:
 
-rs2.InterpreterModelProxy module
---------------------------------
+rs2.InterpreterEnums module
+---------------------------
 
-.. automodule:: rs2.InterpreterModelProxy
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.InterpreterPropertyEnums module
------------------------------------
-
-.. automodule:: rs2.InterpreterPropertyEnums
+.. automodule:: rs2.InterpreterEnums
    :members:
    :undoc-members:
    :show-inheritance:

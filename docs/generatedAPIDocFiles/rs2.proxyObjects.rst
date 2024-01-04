@@ -32,6 +32,14 @@ rs2.proxyObjects.CompositeLinerPropertyProxy module
    :undoc-members:
    :show-inheritance:
 
+rs2.proxyObjects.InterpreterModelProxy module
+---------------------------------------------
+
+.. automodule:: rs2.proxyObjects.InterpreterModelProxy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.proxyObjects.JointPropertyProxy module
 ------------------------------------------
 
