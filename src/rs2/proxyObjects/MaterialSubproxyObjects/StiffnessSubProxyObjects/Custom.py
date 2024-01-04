@@ -32,24 +32,24 @@ class Custom(PropertyProxy):
 		return self._getDoubleProperty("MP_UNLOADING_CONSTANT_POISSONS_RATIO")
 	def setUnloadingConstantPoissonsRatio(self, value: float):
 		return self._setDoubleProperty("MP_UNLOADING_CONSTANT_POISSONS_RATIO", value)
-	def setCustomStiffnessLoadingTable(self, table: list[tuple[float,float,float]]):
+	def setCustomStiffnessLoadingTable(self, mode: CustomMode, table: list[tuple[float,float,float]]):
 		"""
 		Tuple element order: (Custom Mode Parameter (p,q,S3...), Young's modulus, Poisson's Ratio).
 		Poisson's ratio set to zero if useContantPoissonsRatio is set to True.
 		"""
-		return self._callFunction("setCustomStiffnessLoadingTable", [table])
+		return self._callFunction("setCustomStiffnessLoadingTable", [mode.value, table])
 	def getCustomStiffnessLoadingTable(self) -> list[tuple[float,float,float]]:
 		"""
 		Tuple element order: (Custom Mode Parameter (p,q,S3...), Young's modulus, Poisson's Ratio).
 		Poisson's ratio set to zero if useContantPoissonsRatio is set to True.
 		"""
 		return self._callFunction("getCustomStiffnessLoadingTable", [])
-	def setCustomStiffnessUnloadingTable(self, table: list[tuple[float,float,float]]):
+	def setCustomStiffnessUnloadingTable(self, mode: CustomMode, table: list[tuple[float,float,float]]):
 		"""
 		Tuple element order: (Custom Mode Parameter (p,q,S3...), Young's modulus, Poisson's Ratio).
 		Poisson's ratio set to zero and ignored if useContantPoissonsRatio is set to True.
 		"""
-		return self._callFunction("setCustomStiffnessUnloadingTable", [table])
+		return self._callFunction("setCustomStiffnessUnloadingTable", [mode.value, table])
 	def getCustomStiffnessUnloadingTable(self) -> list[tuple[float,float,float]]:
 		"""
 		Tuple element order: (Custom Mode Parameter (p,q,S3...), Young's modulus, Poisson's Ratio).
