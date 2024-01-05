@@ -53,7 +53,7 @@ class TestSetExtraStrengthFunctions(unittest.TestCase):
         input = [(-89, self.materialNames[0]),(91, self.materialNames[1]),(90, self.materialNames[2])]
         with self.assertRaises(Exception):
             self.material.Strength.GeneralizedAnisotropic.setGeneralizedAnisotropicFunction(input)
-            
+
     def testFailLastAngleNot90(self):
         input = [(-89, self.materialNames[0]),(0, self.materialNames[1]),(89, self.materialNames[2])]
         with self.assertRaises(Exception):
@@ -63,4 +63,15 @@ class TestSetExtraStrengthFunctions(unittest.TestCase):
         with self.assertRaises(Exception):
             self.material.Strength.GeneralizedAnisotropic.setGeneralizedAnisotropicFunction(input)
 
-    
+    def testFailFirstAngleNotGreaterThan(self):
+        input = [(-90, self.materialNames[0]),(0, self.materialNames[1]),(90, self.materialNames[2])]
+        with self.assertRaises(Exception):
+            self.material.Strength.GeneralizedAnisotropic.setGeneralizedAnisotropicFunction(input)
+        input = [(-91, self.materialNames[0]),(0, self.materialNames[1]),(90, self.materialNames[2])]
+        with self.assertRaises(Exception):
+            self.material.Strength.GeneralizedAnisotropic.setGeneralizedAnisotropicFunction(input)
+
+    def testInvalidMaterialName(self):
+        input = [(-89, self.materialNames[0]),(0, "invalid"),(90, self.materialNames[2])]
+        with self.assertRaises(Exception):
+            self.material.Strength.GeneralizedAnisotropic.setGeneralizedAnisotropicFunction(input)
