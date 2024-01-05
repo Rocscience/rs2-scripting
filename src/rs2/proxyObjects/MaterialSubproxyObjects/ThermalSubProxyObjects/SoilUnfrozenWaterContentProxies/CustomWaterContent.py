@@ -6,9 +6,8 @@ from rs2.PropertyEnums import *
 class CustomWaterContent(PropertyProxy):
 	def setTemperatureVsUnfrozenWaterContentValues(self, temperature: list[float], unfrozenWaterContent: list[float]):
 		return self._callFunction("setTemperatureVsUnfrozenWaterContentValues", [temperature, unfrozenWaterContent])
-	def getTemperatureVsUnfrozenWaterContentValues(self) -> list[tuple[float,float]]:
+	def getTemperatureVsUnfrozenWaterContentValues(self) -> tuple[list[float],list[float]]:
 		"""
-		The first element in each tuple is the temperature.
-		The second element in each tuple is the unfrozen water content.
+		Returns a tuple of lists ([temperature],[unfrozenWaterContent])
 		"""
 		return self._callFunction("getTemperatureVsUnfrozenWaterContentValues", [])

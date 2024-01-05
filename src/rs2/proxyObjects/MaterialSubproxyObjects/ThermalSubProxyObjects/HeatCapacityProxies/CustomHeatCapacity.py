@@ -12,17 +12,20 @@ class CustomHeatCapacity(PropertyProxy):
 		return ThermalVolumetricDepencenceType(self._getEnumEThermalVolumetricDepencenceTypeProperty("MP_THERMAL_DEPENDENCE"))
 	def setDependence(self, value: ThermalVolumetricDepencenceType):
 		return self._setEnumEThermalVolumetricDepencenceTypeProperty("MP_THERMAL_DEPENDENCE", value)
-	def setVolumetricHeatCapacityTable(self, volumetricHeatCapacity: list[float], temperatureOrWaterContent: list[float]):
+	def setVolumetricHeatCapacityVsTemperatureTable(self, volumetricHeatCapacity: list[float], temperature: list[float]):
+		return self._callFunction("setVolumetricHeatCapacityVsTemperatureTable", [volumetricHeatCapacity, temperature])
+	def getVolumetricHeatCapacityVsTemperatureTable(self) -> tuple[list[float],list[float]]:
 		"""
-		Depending on the type of thermal tabular dependence selected, the second argument is interpreted as temperature or water content.
+		Returns a tuple of lists ([volumetricHeatCapacity],[temperature])
 		"""
-		return self._callFunction("setVolumetricHeatCapacityTable", [volumetricHeatCapacity, temperatureOrWaterContent])
-	def getVolumetricHeatCapacityTable(self) -> list[tuple[float,float]]:
+		return self._callFunction("getVolumetricHeatCapacityVsTemperatureTable", [])
+	def setVolumetricHeatCapacityVsWaterContentTable(self, volumetricHeatCapacity: list[float], waterContent: list[float]):
+		return self._callFunction("setVolumetricHeatCapacityVsWaterContentTable", [volumetricHeatCapacity, waterContent])
+	def getVolumetricHeatCapacityVsWaterContentTable(self) -> tuple[list[float],list[float]]:
 		"""
-		The first element in each tuple is the volumetric heat capacity.
-		Depending on the type of thermal tabular dependence selected, the second element is interpreted as temperature or water content.
+		Returns a tuple of lists ([volumetricHeatCapacity],[waterContent])
 		"""
-		return self._callFunction("getVolumetricHeatCapacityTable", [])
+		return self._callFunction("getVolumetricHeatCapacityVsWaterContentTable", [])
 	def setProperties(self, IncludeLatentHeat : bool = None, Dependence : ThermalVolumetricDepencenceType = None):
 		if IncludeLatentHeat is not None:
 			self._setBoolProperty("MP_THERMAL_LATENT_HEAT", IncludeLatentHeat)

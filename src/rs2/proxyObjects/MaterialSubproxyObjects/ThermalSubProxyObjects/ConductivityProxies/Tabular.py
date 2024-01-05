@@ -8,17 +8,20 @@ class Tabular(PropertyProxy):
 		return ThermalVolumetricDepencenceType(self._getEnumEThermalVolumetricDepencenceTypeProperty("MP_THERMAL_TABULAR_DEPENDENCE"))
 	def setDependence(self, value: ThermalVolumetricDepencenceType):
 		return self._setEnumEThermalVolumetricDepencenceTypeProperty("MP_THERMAL_TABULAR_DEPENDENCE", value)
-	def setThermalConductivityTable(self, temperatureOrWaterContent: list[float], conductivity: list[float]):
+	def setThermalConductivityTemperatureFunction(self, temperature: list[float], conductivity: list[float]):
+		return self._callFunction("setThermalConductivityTemperatureFunction", [temperature, conductivity])
+	def getThermalConductivityTemperatureFunction(self) -> tuple[list[float],list[float]]:
 		"""
-		Depending on the type of thermal tabular dependence selected, the values are interpreted as temperature or water content.
+		returns tuple (temperatureList, conductivityList).
 		"""
-		return self._callFunction("setThermalConductivityTable", [temperatureOrWaterContent, conductivity])
-	def getThermalConductivityTable(self) -> list[tuple[float,float]]:
+		return self._callFunction("getThermalConductivityTemperatureFunction", [])
+	def setThermalConductivityWaterContentFunction(self, waterContent: list[float], conductivity: list[float]):
+		return self._callFunction("setThermalConductivityWaterContentFunction", [waterContent, conductivity])
+	def getThermalConductivityWaterContentFunction(self) -> tuple[list[float],list[float]]:
 		"""
-		The second element in each tuple is the thermal conductivity.
-		Depending on the type of thermal tabular dependence selected, the first element is interpreted as temperature or water content.
+		returns tuple (waterContentList, conductivityList).
 		"""
-		return self._callFunction("getThermalConductivityTable", [])
+		return self._callFunction("getThermalConductivityWaterContentFunction", [])
 	def setProperties(self, Dependence : ThermalVolumetricDepencenceType = None):
 		if Dependence is not None:
 			self._setEnumEThermalVolumetricDepencenceTypeProperty("MP_THERMAL_TABULAR_DEPENDENCE", Dependence)

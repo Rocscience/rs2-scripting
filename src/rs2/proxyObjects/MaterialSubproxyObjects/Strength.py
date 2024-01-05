@@ -131,13 +131,33 @@ class Strength(PropertyProxy):
 		return UnsaturatedTabularValueMethod(self._getEnumEUnsaturatedTabularValueMethodProperty("MP_UNSATURATED_TABULAR_VALUE_METHOD"))
 	def setTabularValues(self, value: UnsaturatedTabularValueMethod):
 		return self._setEnumEUnsaturatedTabularValueMethodProperty("MP_UNSATURATED_TABULAR_VALUE_METHOD", value)
-	def setUnsaturatedZoneTable(self, coefficients: list[float], values: list[float]):
+	def setUnsaturatedZoneTableWithRespectToSuction(self, coefficients: list[float], values: list[float]):
 		"""
-		Depending on the type of tabular values selected, specify the coefficient and values with respect to suction, degree of saturation or effective degree of saturation.
+		Specify the coefficient and values with respect to suction.
 		"""
-		return self._callFunction("setUnsaturatedZoneTable", [coefficients, values])
-	def getUnsaturatedZoneTable(self) -> list[tuple[float,float]]:
+		return self._callFunction("setUnsaturatedZoneTableWithRespectToSuction", [coefficients, values])
+	def getUnsaturatedZoneTableWithRespectToSuction(self) -> tuple[list[float],list[float]]:
 		"""
-		Returns a list tuples where the first element is coefficients and the second is values with respect to suction, degree of saturation or effective degree of saturation.
+		Returns a tuple of lists where the first element is coefficients and the second is values with respect to suction.
 		"""
-		return self._callFunction("getUnsaturatedZoneTable", [])
+		return self._callFunction("getUnsaturatedZoneTableWithRespectToSuction", [])
+	def setUnsaturatedZoneTableWithRespectToDegreeOfSaturation(self, coefficients: list[float], values: list[float]):
+		"""
+		Specify the coefficient and values with respect to degree of saturation.
+		"""
+		return self._callFunction("setUnsaturatedZoneTableWithRespectToDegreeOfSaturation", [coefficients, values])
+	def getUnsaturatedZoneTableWithRespectToDegreeOfSaturation(self) -> list[tuple[float,float]]:
+		"""
+		Returns a tuple of lists where the first element is coefficients and the second is values with respect to degree of saturation.
+		"""
+		return self._callFunction("getUnsaturatedZoneTableWithRespectToDegreeOfSaturation", [])
+	def setUnsaturatedZoneTableWithRespectToEffectiveDegreeOfSaturation(self, coefficients: list[float], values: list[float]):
+		"""
+		Specify the coefficient and values with respect to effective degree of saturation.
+		"""
+		return self._callFunction("setUnsaturatedZoneTableWithRespectToEffectiveDegreeOfSaturation", [coefficients, values])
+	def getUnsaturatedZoneTableWithRespectToEffectiveDegreeOfSaturation(self) -> list[tuple[float,float]]:
+		"""
+		Returns a tuple of lists where the first element is coefficients and the second is values with respect to effective degree of saturation.
+		"""
+		return self._callFunction("getUnsaturatedZoneTableWithRespectToEffectiveDegreeOfSaturation", [])
