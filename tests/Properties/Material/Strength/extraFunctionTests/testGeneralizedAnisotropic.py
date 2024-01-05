@@ -7,7 +7,7 @@ from rs2.PropertyEnums import*
 
 parentDirectoryHelper.addParentDirectoryToPath()
 
-class TestSetExtraStrengthFunctions(unittest.TestCase):
+class TestGeneralizedAnisotropicFunction(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
