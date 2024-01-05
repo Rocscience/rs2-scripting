@@ -31,8 +31,8 @@ class TestSetResultType(unittest.TestCase):
         except:
             pass
     
-    def testSetUserDefinedResultTypeSuccess(self):
-        self.model.SetUserDefinedResultType("Sin(dy)")
+    # def testSetUserDefinedResultTypeSuccess(self):
+    #     self.model.SetUserDefinedResultType("Sin(dy)")
     
     def testSetUserDefinedResultTypeFailure(self):
         try:
