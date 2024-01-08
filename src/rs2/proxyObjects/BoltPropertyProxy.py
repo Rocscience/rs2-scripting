@@ -12,13 +12,13 @@ class BoltProperty(PropertyProxy):
 	"""
 	:ref:`Bolt Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.EndAnchored = EndAnchored(server, ID, documentProxyID)
-		self.FullyBonded = FullyBonded(server, ID, documentProxyID)
-		self.PlainStrandCable = PlainStrandCable(server, ID, documentProxyID)
-		self.Swellex = Swellex(server, ID, documentProxyID)
-		self.Tieback = Tieback(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.EndAnchored = EndAnchored(client, ID, documentProxyID)
+		self.FullyBonded = FullyBonded(client, ID, documentProxyID)
+		self.PlainStrandCable = PlainStrandCable(client, ID, documentProxyID)
+		self.Swellex = Swellex(client, ID, documentProxyID)
+		self.Tieback = Tieback(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getBoltName(self) -> str:
 		return self._getCStringProperty("BP_NAME")
 	def setBoltName(self, value: str):

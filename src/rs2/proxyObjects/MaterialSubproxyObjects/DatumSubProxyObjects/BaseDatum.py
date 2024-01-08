@@ -1,6 +1,5 @@
 from rs2.proxyObjects.propertyProxy import PropertyProxy
 from rs2.PropertyEnums import *
-
 class BaseDatum(PropertyProxy):
     def setUsing(self, use : bool):
         self._callFunction("setUsing", [use])

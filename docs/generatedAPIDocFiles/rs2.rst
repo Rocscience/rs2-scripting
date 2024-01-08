@@ -13,6 +13,22 @@ rs2 package
    rs2.proxyObjects
 
 
+rs2.ApplicationManager module
+-----------------------------
+
+.. automodule:: rs2.ApplicationManager
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.ColorPicker module
+----------------------
+
+.. automodule:: rs2.ColorPicker
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.PropertyEnums module
 ------------------------
 

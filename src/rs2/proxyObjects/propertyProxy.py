@@ -77,10 +77,6 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEPFPApplicationProperty", [propertyName])
 	def _setEnumEPFPApplicationProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEPFPApplicationProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
-	def _getEnumEPileApplicationTypeProperty(self, propertyName: str):
-		return self._callFunction("getEnumEPileApplicationTypeProperty", [propertyName])
-	def _setEnumEPileApplicationTypeProperty(self, propertyName: str, value):
-		return self._callFunction("setEnumEPileApplicationTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumEPileEndConditionProperty(self, propertyName: str):
 		return self._callFunction("getEnumEPileEndConditionProperty", [propertyName])
 	def _setEnumEPileEndConditionProperty(self, propertyName: str, value):
@@ -97,6 +93,10 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEPileSkinResistanceTypeProperty", [propertyName])
 	def _setEnumEPileSkinResistanceTypeProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEPileSkinResistanceTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
+	def _getEnumECompositeJointPlacementProperty(self, propertyName: str):
+		return self._callFunction("getEnumECompositeJointPlacementProperty", [propertyName])
+	def _setEnumECompositeJointPlacementProperty(self, propertyName: str, value):
+		return self._callFunction("setEnumECompositeJointPlacementProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumGdiplusHatchStyleProperty(self, propertyName: str):
 		return self._callFunction("getEnumGdiplusHatchStyleProperty", [propertyName])
 	def _setEnumGdiplusHatchStyleProperty(self, propertyName: str, value):
@@ -185,10 +185,6 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEViscoElasticTypesProperty", [propertyName])
 	def _setEnumEViscoElasticTypesProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEViscoElasticTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
-	def _getEnumECustomModeProperty(self, propertyName: str):
-		return self._callFunction("getEnumECustomModeProperty", [propertyName])
-	def _setEnumECustomModeProperty(self, propertyName: str, value):
-		return self._callFunction("setEnumECustomModeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumETensileCutoffOptionsProperty(self, propertyName: str):
 		return self._callFunction("getEnumETensileCutoffOptionsProperty", [propertyName])
 	def _setEnumETensileCutoffOptionsProperty(self, propertyName: str, value):
@@ -205,14 +201,6 @@ class PropertyProxy(ProxyObject):
 		return self._callFunction("getEnumEMCCapTypeProperty", [propertyName])
 	def _setEnumEMCCapTypeProperty(self, propertyName: str, value):
 		return self._callFunction("setEnumEMCCapTypeProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
-	def _getEnumECapHardeningTypesProperty(self, propertyName: str):
-		return self._callFunction("getEnumECapHardeningTypesProperty", [propertyName])
-	def _setEnumECapHardeningTypesProperty(self, propertyName: str, value):
-		return self._callFunction("setEnumECapHardeningTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
-	def _getEnumEConeHardeningTypesProperty(self, propertyName: str):
-		return self._callFunction("getEnumEConeHardeningTypesProperty", [propertyName])
-	def _setEnumEConeHardeningTypesProperty(self, propertyName: str, value):
-		return self._callFunction("setEnumEConeHardeningTypesProperty", [propertyName, value.value, self.documentProxyID], proxyArgumentIndices=[2])
 	def _getEnumEDilationTypesProperty(self, propertyName: str):
 		return self._callFunction("getEnumEDilationTypesProperty", [propertyName])
 	def _setEnumEDilationTypesProperty(self, propertyName: str, value):

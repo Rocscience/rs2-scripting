@@ -2,7 +2,6 @@ from rs2.proxyObjects.propertyProxy import PropertyProxy
 from rs2.PropertyEnums import *
 
 from rs2.proxyObjects.MaterialSubproxyObjects.DatumSubProxyObjects.BaseDatum import BaseDatum
-
 class SimpleDatum(BaseDatum):
     def setChange(self, change : float):
         self._callFunction("setChange1", [change])

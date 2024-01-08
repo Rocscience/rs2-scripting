@@ -53,3 +53,11 @@ class Client:
 			raise response.exception
 		
 		return response.value
+	
+	def closeConnection(self):
+		if self.connection:
+			self.connection.close()
+			self.connection = None
+
+	def __del__(self):
+		self.closeConnection()
