@@ -15,15 +15,15 @@ class PileProperty(PropertyProxy):
 	"""
 	:ref:`Pile Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.Elastic = Elastic(server, ID, documentProxyID)
-		self.MohrCoulombPile = MohrCoulombPile(server, ID, documentProxyID)
-		self.Linear = Linear(server, ID, documentProxyID)
-		self.MultiLinear = MultiLinear(server, ID, documentProxyID)
-		self.MaterialDependentPile = MaterialDependentPile(server, ID, documentProxyID)
-		self.Beam = Beam(server, ID, documentProxyID)
-		self.ForceDisplacement = ForceDisplacement(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.Elastic = Elastic(client, ID, documentProxyID)
+		self.MohrCoulombPile = MohrCoulombPile(client, ID, documentProxyID)
+		self.Linear = Linear(client, ID, documentProxyID)
+		self.MultiLinear = MultiLinear(client, ID, documentProxyID)
+		self.MaterialDependentPile = MaterialDependentPile(client, ID, documentProxyID)
+		self.Beam = Beam(client, ID, documentProxyID)
+		self.ForceDisplacement = ForceDisplacement(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getPileName(self) -> str:
 		return self._getCStringProperty("PFP_NAME")
 	def setPileName(self, value: str):
