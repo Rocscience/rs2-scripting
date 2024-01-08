@@ -13,19 +13,19 @@ class ShearNormalFunction(ProxyObject):
     def setPeakTensileStrength(self, peakTensileStrength: float):
         return self._callFunction("setPeakTensileStrength", [peakTensileStrength])
     def getPeakTensileStrength(self) -> float:
-        return self._callFunction("__getattribute__", ["dPeakTensileStrength"])
+        return self._callFunction("getPeakTensileStrength")
     def setResidualTensileStrength(self, residualTensileStrength: float):
         return self._callFunction("setResidualTensileStrength", [residualTensileStrength])
     def getResidualTensileStrength(self) -> float:
-        return self._callFunction("__getattribute__", ["dResidualTensileStrength"])
+        return self._callFunction("getResidualTensileStrength")
     def setDilationRatio(self, dilationRatio: float):
         return self._callFunction("setDilationRatio", [dilationRatio])
     def getDilationRatio(self) -> float:
-        return self._callFunction("__getattribute__", ["dDilationRatio"])
+        return self._callFunction("getDilationRatio")
     def setUseCalculatedTensileStrength(self, useCalculatedTensileStrength: bool):
         return self._callFunction("setUseCalculatedTensileStrength", [useCalculatedTensileStrength])
     def getUseCalculatedTensileStrength(self) -> bool:
-        return self._callFunction("__getattribute__", ["bUseCalculatedTensileStrength"])
+        return self._callFunction("getUseCalculatedTensileStrength")
     def setFunctionPoints(self, functionPoints: list[tuple[float,float,float]]):
         """set the function points. Each point has  (normal, shear, residual shear). Residual shear is ignored if the material type is not plastic.
         Function must not be concave. If a concave function is provided, it will transform the function into a convex function.

@@ -106,6 +106,8 @@ class TestShearNormalFunction(unittest.TestCase):
         #dilation ratio must be between 0 and 1
         with self.assertRaises(Exception):
             function.setDilationRatio(-0.1)
+        with self.assertRaises(Exception):
+            function.setDilationRatio(1.1)
         
         #cannot have less than 2 function points
         with self.assertRaises(Exception):
