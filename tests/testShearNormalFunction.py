@@ -116,3 +116,6 @@ class TestShearNormalFunction(unittest.TestCase):
         #cannot input points with normal not in ascending order
         with self.assertRaises(Exception):
             function.setFunctionPoints([(4,5,2),(1,2,1)])
+
+        self.model.deleteShearNormalFunction("testFunction")
+        self.assertEqual(len(self.model.getShearNormalFunctions()), 0)

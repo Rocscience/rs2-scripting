@@ -27,8 +27,7 @@ class TestShearNormalExtraFunctions(unittest.TestCase):
     def testSetShearNormalFunctionByName(self):
         strength = self.material.Strength
         self.model.createNewShearNormalFunction("f1")
-        self.model.getShearNormalFunctionByName("f1").setDilationRatio(0.676)
-
+        
         strength.setFailureCriterion(StrengthCriteriaTypes.SHEAR_NORMAL_FUNCTION)
         strength.ShearNormalFunction.setShearNormalFunctionByName("f1")
 
