@@ -25,6 +25,23 @@ class TestDatum(unittest.TestCase):
         self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
 
+    def testGetAllMaterialDatums(self):
+        d1 = self.material.Datum.getDatumUnloadingYoungsModulus()
+        d1.setChange(1.1)
+        self.assertEqual(d1.getChange(), 1.1)
+
+        d2 = self.material.Datum.getDatumYoungsModulus()
+        d2.setChange(2.1)
+        self.assertEqual(d2.getChange(), 2.1)
+
+        d3 = self.material.Datum.getDatumCohesion()
+        d3.setPeakChange(3.1)
+        self.assertEqual(d3.getPeakChange(), 3.1)
+
+        d4 = self.material.Datum.getDatumFrictionAngle()
+        d4.setPeakChange(4.1)
+        self.assertEqual(d4.getPeakChange(), 4.1)
+
     def testMaterialSetUsingDatum(self):
         self.material.Datum.setUsingDatum(False)
         self.assertEqual(self.material.Datum.getUsingDatum(), False)
@@ -78,3 +95,55 @@ class TestDatum(unittest.TestCase):
         self.assertEqual(ym.getUseResidualCutoff(), False)
         ym.setResidualCutoffValue(32.1)
         self.assertEqual(ym.getResidualCutoffValue(), 32.1)
+
+class TestDatumFailures(unittest.TestCase):
+    @classmethod
+    def setUpClass(self):
+        parentDirectory = parentDirectoryHelper.getParentDirectory()
+        blankModelPath = f"{parentDirectory}/resources/testModelWithDiscreteModulusFunction.fez"
+        self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
+        shutil.copy(blankModelPath, self.copiedModelPath)
+        self.modeler = RS2Modeler()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+
+    @classmethod
+    def tearDownClass(self):
+        self.model.close()
+        self.modeler.client.closeConnection()
+        os.remove(self.copiedModelPath)
+
+    def testSetDatumFailure(self):
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.getUsingDatum()
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.setUsingDatum(True)
+
+        self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.CAM_CLAY)
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.getUsingDatum()        
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.setUsingDatum(True)
+
+        self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.MODIFIED_CAM_CLAY)
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.getUsingDatum()        
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.setUsingDatum(True)
+
+        self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.BARCELONA_BASIC)
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.getUsingDatum()        
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.setUsingDatum(True)
+
+        self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.MOHR_COULOMB)
+        self.material.Stiffness.setElasticType(MaterialElasticityTypes.ORTHOTROPIC)
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.getUsingDatum()        
+        with self.assertRaises(Exception) as e:
+            self.material.Datum.setUsingDatum(True)
+
+        self.material.Stiffness.setElasticType(MaterialElasticityTypes.ISOTROPIC)
+        self.material.Datum.setUsingDatum(True)
+        self.assertEqual(self.material.Datum.getUsingDatum(), True)
