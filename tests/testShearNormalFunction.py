@@ -169,3 +169,11 @@ class TestShearNormalFunction(unittest.TestCase):
         self.model.deleteShearNormalFunction("f1")
 
         self.assertEqual(len(self.model.getShearNormalFunctions()), 0)
+
+    def testConcaveFunction(self):
+        self.model.createNewShearNormalFunction("f1")
+        function = self.model.getShearNormalFunctionByName("f1")
+
+        function.setFunctionPoints([(1,2,2),(3,4,4),(4,3,1)])
+        
+        #TODO: what should happen?
