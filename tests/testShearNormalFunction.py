@@ -20,6 +20,7 @@ class TestShearNormalFunction(unittest.TestCase):
     def tearDownClass(cls):
         cls.model.close()
         os.remove(cls.copiedModelPath)
+
     def testSetPropertiesSuccess(self):
         #should start with no functions
         self.assertEqual(len(self.model.getShearNormalFunctions()), 0)
@@ -118,4 +119,53 @@ class TestShearNormalFunction(unittest.TestCase):
             function.setFunctionPoints([(4,5,2),(1,2,1)])
 
         self.model.deleteShearNormalFunction("testFunction")
+        self.assertEqual(len(self.model.getShearNormalFunctions()), 0)
+
+    def testGetDoesNotExist(self):
+        self.model.createNewShearNormalFunction("f1")
+
+        with self.assertRaises(Exception):
+            self.model.getShearNormalFunctionByName("f2")
+        
+        self.model.deleteShearNormalFunction("f1")
+    
+    def testGetAllFunctions(self):
+        self.model.createNewShearNormalFunction("f1")
+        self.model.getShearNormalFunctionByName("f1").setPeakTensileStrength(1.1)
+
+        self.model.createNewShearNormalFunction("f2")
+        self.model.getShearNormalFunctionByName("f2").setPeakTensileStrength(1.2)
+
+        self.model.createNewShearNormalFunction("f3")
+        self.model.getShearNormalFunctionByName("f3").setPeakTensileStrength(1.3)
+
+        functions = self.model.getShearNormalFunctions()
+        self.assertEqual(functions[0].getPeakTensileStrength(), 1.1)
+        self.assertEqual(functions[1].getPeakTensileStrength(), 1.2)
+        self.assertEqual(functions[2].getPeakTensileStrength(), 1.3)
+
+        self.model.deleteShearNormalFunction("f1")
+        self.model.deleteShearNormalFunction("f2")
+        self.model.deleteShearNormalFunction("f3")
+
+    def testCreateAlreadyExists(self):
+        self.model.createNewShearNormalFunction("f1")
+
+        with self.assertRaises(Exception):
+            self.model.createNewShearNormalFunction("f1")
+        
+        self.model.deleteShearNormalFunction("f1")
+    
+    def testDeleteUsedProperty(self):
+        self.model.createNewShearNormalFunction("f1")
+        strength = self.model.getAllMaterialProperties()[0].Strength
+        strength.setFailureCriterion(StrengthCriteriaTypes.SHEAR_NORMAL_FUNCTION)
+        strength.ShearNormalFunction.setShearNormalFunctionByName("f1")
+
+        with self.assertRaises(Exception):
+            self.model.deleteShearNormalFunction("f1")
+        
+        strength.setFailureCriterion(StrengthCriteriaTypes.MOHR_COULOMB)
+        self.model.deleteShearNormalFunction("f1")
+
         self.assertEqual(len(self.model.getShearNormalFunctions()), 0)
