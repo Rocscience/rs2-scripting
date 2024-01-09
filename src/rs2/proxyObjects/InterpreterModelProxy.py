@@ -81,3 +81,21 @@ class ModelProxy(ProxyObject):
 		results = self._callFunction('GetMeshResults', [])
 		return MeshResults(results)
 
+	def GetHistoryQueryResults(self, hq_name: str, horizontal_axis: HistoryQueryGraphEnums.HorizontalAxisTypes, vertical_axis: HistoryQueryGraphEnums.VerticalAxisTypes, 
+							stages: list[int]) -> list[list[int]]:
+		"""
+		Returns the history query result for the provided query name with specified graph options and stages.
+
+		Args:
+			hq_name (str): Takes the name of the History Query Point.
+			horizontal_axis (HistoryQueryGraphEnums): Takes the horizontal axis to generate results for.
+			vertical_axis (HistoryQueryGraphEnums): Takes the vertical axis to generate results for.
+			stages (int): Takes the stages by their stage number for which results should be returned.
+
+		Returns:
+			A list of list where the inner list contains the x-coordinate and y-coordinate value.
+
+		Exceptions:
+			ValueError: horizontal_axis and vertical_axis must be an enum of type HistoryQueryGraphEnums. Any other value will raise an error
+		"""
+		return self._callFunction('GetHistoryQueryResults', [hq_name, horizontal_axis.value, vertical_axis.value, stages])
