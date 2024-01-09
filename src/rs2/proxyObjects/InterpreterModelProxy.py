@@ -1,6 +1,7 @@
 from rs2.ProxyObject import ProxyObject
 from rs2.proxyObjects.documentProxy import DocumentProxy
 from rs2.InterpreterEnums import *
+from rs2.MeshResults import MeshResults
 
 class ModelProxy(ProxyObject):
 	"""
@@ -59,7 +60,7 @@ class ModelProxy(ProxyObject):
 		"""
 		return self._callFunction('SetUserDefinedResultType', [resultName])
 	
-	def GetMeshResults(self) -> list[dict]:
+	def GetMeshResults(self) -> MeshResults:
 		"""
 		Returns the mesh results at all nodes of the model.
 
@@ -67,5 +68,6 @@ class ModelProxy(ProxyObject):
 			A list of dictionary where each node is a dict with 3 key-value pairs. 
 			The 3 keys are 'x_coord', 'y_coord' and 'value'.
 		"""
-		return self._callFunction('GetMeshResults', [])
+		results = self._callFunction('GetMeshResults', [])
+		return MeshResults(results)
 
