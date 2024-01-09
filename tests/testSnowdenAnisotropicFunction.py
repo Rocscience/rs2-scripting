@@ -19,6 +19,7 @@ class TestSnowdenAnisotropicFunction(unittest.TestCase):
         self.mat = self.model.getAllMaterialProperties()[0]
 
         self.BeddingStrengthFunction = self.mat.Strength.SnowdenModAnisotropicLinear.getBeddingStrengthFunction()
+        self.RocMassStrengthFunction = self.mat.Strength.SnowdenModAnisotropicLinear.getRockMassStrengthFunction()
     @classmethod
     def tearDownClass(self):
         self.model.close()
@@ -309,3 +310,12 @@ class TestSnowdenAnisotropicFunction(unittest.TestCase):
         residualFrictionAngle = [0, 1.1, 91]
         with self.assertRaises(Exception):
             self.BeddingStrengthFunction.setCohesionFrictionFunctionWithResidual(normalStress, cohesion, frictionAngle, residualCohesion, residualFrictionAngle)
+
+    def testRockMassFunction(self):
+        self.RocMassStrengthFunction.setDilationRatio(0.55)
+        self.RocMassStrengthFunction.setPeakTensileStrength(1.5)
+        self.RocMassStrengthFunction.setResidualTensileStrength(0.55)
+
+        self.assertEqual(self.RocMassStrengthFunction.getDilationRatio(), 0.55)
+        self.assertEqual(self.RocMassStrengthFunction.getPeakTensileStrength(), 1.5)
+        self.assertEqual(self.RocMassStrengthFunction.getResidualTensileStrength(), 0.55)
