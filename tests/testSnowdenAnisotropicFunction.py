@@ -17,7 +17,6 @@ class TestSnowdenAnisotropicFunction(unittest.TestCase):
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.mat = self.model.getAllMaterialProperties()[0]
-        #self.mat.Strength.setFailureCriterion(StrengthCriteriaTypes.SNOWDEN_MODIFIED_ANISOTROPIC_LINEAR)
 
         self.BeddingStrengthFunction = self.mat.Strength.SnowdenModAnisotropicLinear.getBeddingStrengthFunction()
     @classmethod
