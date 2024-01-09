@@ -144,6 +144,29 @@ class ModelProxy(ProxyObject):
 			activeMaterialProperties.append(MaterialProperty(self._client, materialObjectID, self._documentProxy._ID))
 		return activeMaterialProperties
 	
+	def AddHistoryQueryPoint(self, x: float, y: float, history_query_name: str):
+		'''
+		Add a new History Query point to your model with the specified coordinates and label name
+
+		Args:
+			x (float): The x-coordinate value for the query point.
+			y (float): The y-coordinate value for the query point.
+			history_query_name (str): The label name for your query point.
+
+		'''
+		return self._callFunction('AddHistoryQueryPoint', [x, y, history_query_name])
+	
+		
+	def RemoveHistoryQueryPoint(self, history_query_name: str):
+		'''
+		Remove a History Query point from your model by label name.
+
+		Args:
+			history_query_name (str): The label name for your query point.
+
+		'''
+		return self._callFunction('RemoveHistoryQueryPoint', [history_query_name])
+	
 	def compute(self):
 		'''
 		Saves the file if modified and then runs compute. Replaces any existing results.
