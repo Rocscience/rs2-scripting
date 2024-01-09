@@ -65,8 +65,18 @@ class ModelProxy(ProxyObject):
 		Returns the mesh results at all nodes of the model.
 
 		Returns:
-			A list of dictionary where each node is a dict with 3 key-value pairs. 
-			The 3 keys are 'x_coord', 'y_coord' and 'value'.
+			An object of type MeshResults. To extract the x-coordinate, y-coordinate or value from the returned data,
+			please call the supported functions from the class:
+				MeshResults.GetXCoordinate(index)
+				MeshResults.GetYCoordinate(index)
+				MeshResults.GetValue(index)
+				
+		Typical Usage:
+			results = model.GetMeshResults()
+			x_coordiante = results.GetXCoordinate(0)
+			y_coordinate = results.GetYCoordinate(0)
+			value = results.GetValue(0)
+		
 		"""
 		results = self._callFunction('GetMeshResults', [])
 		return MeshResults(results)
