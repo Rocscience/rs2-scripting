@@ -9,5 +9,3 @@ exportResult1 = model.GetMeshResults()
 model.SetUserDefinedResultType("Sin(dy)")
 exportResult2 = model.GetMeshResults()
 
-model.close()
-
