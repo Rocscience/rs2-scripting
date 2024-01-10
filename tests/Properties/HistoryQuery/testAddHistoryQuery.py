@@ -45,7 +45,7 @@ class TestAddHistoryQuery(unittest.TestCase):
     
     def testAddHistoryQueryDuplicateCoordinatesFailure(self):
         try:
-            self.invalidModel.AddHistoryQueryPoint(x=0, y=-0, history_query_name="Example Label")
+            self.invalidModel.AddHistoryQueryPoint(x=0, y=0, history_query_name="Example Label")
             self.fail("Expected exception")
         except:
             pass
