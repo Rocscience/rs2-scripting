@@ -3,7 +3,56 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
+from rs2.ProxyObject import ProxyObject
+from rs2.proxyObjects.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+class DisplacementDependentStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getNormalStiffnessFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_NORMAL_STIFFNESS", self.propertyID], proxyArgumentIndices=[1])
+	def getShearStiffnessFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_SHEAR_STIFFNESS", self.propertyID], proxyArgumentIndices=[1])
+	def getShearDisplacementFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_DISPLACEMENT_SHEAR", self.propertyID], proxyArgumentIndices=[1])
+	def getCohesionFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_DISPLACEMENT_COHESION", self.propertyID], proxyArgumentIndices=[1])
+	def getFrictionAngleFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_DISPLACEMENT_FRICTION", self.propertyID], proxyArgumentIndices=[1])
+	def getTensileStrengthFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_DISPLACEMENT_TENSILE", self.propertyID], proxyArgumentIndices=[1])
+	def getAdditionalPressureInsideJointFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_ADDITIONAL_PRESSURE", self.propertyID], proxyArgumentIndices=[1])
+	def getGroundwaterPressureFactor(self) -> float:
+		return self._callFunction("__getattribute__", ["m_groundwater_pressure_factor"])
+	def getJointPermeableFactor(self) -> bool:
+		return self._callFunction("__getattribute__", ["m_joint_permeable_factor"])
+class DisplacementDependentDefinedStageFactor(DisplacementDependentStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setNormalStiffnessFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_NORMAL_STIFFNESS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setShearStiffnessFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_SHEAR_STIFFNESS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setShearDisplacementFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_DISPLACEMENT_SHEAR", value, self.propertyID], proxyArgumentIndices=[2])
+	def setCohesionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_DISPLACEMENT_COHESION", value, self.propertyID], proxyArgumentIndices=[2])
+	def setFrictionAngleFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_DISPLACEMENT_FRICTION", value, self.propertyID], proxyArgumentIndices=[2])
+	def setTensileStrengthFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_DISPLACEMENT_TENSILE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setAdditionalPressureInsideJointFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_ADDITIONAL_PRESSURE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setGroundwaterPressureFactor(self, GroundWaterPressure: float):
+		return self._callFunction("setGroundwaterPressureFactor", [GroundWaterPressure])
+	def setJointPermeableFactor(self, Permeable: bool):
+		return self._callFunction("setJointPermeableFactor", [Permeable])
 class DisplacementDependent(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[DisplacementDependentDefinedStageFactor, DisplacementDependentStageFactor](self._client, stageFactorInterfaceID, ID, DisplacementDependentDefinedStageFactor, DisplacementDependentStageFactor)
 	def getNormalStiffness(self) -> float:
 		return self._getDoubleProperty("JP_NORMAL_STIFFNESS")
 	def setNormalStiffness(self, value: float):

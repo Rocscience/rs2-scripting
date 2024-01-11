@@ -44,10 +44,6 @@ class InitialConditions(PropertyProxy):
 		return self._getDoubleProperty("MP_INITIAL_RU")
 	def setInitialRu(self, value: float):
 		return self._setDoubleProperty("MP_INITIAL_RU", value)
-	def getInitialPiezoToUse(self) -> int:
-		return int(self._getIntProperty("MP_INITIAL_PIEZO"))
-	def setInitialPiezoToUse(self, value: int):
-		return self._setIntProperty("MP_INITIAL_PIEZO", value)
 	def getInitialHuType(self) -> HuTypes:
 		return HuTypes(self._getEnumEHuTypesProperty("MP_INITIAL_HU_TYPE"))
 	def setInitialHuType(self, value: HuTypes):
@@ -56,10 +52,6 @@ class InitialConditions(PropertyProxy):
 		return self._getDoubleProperty("MP_INITIAL_HU")
 	def setInitialHu(self, value: float):
 		return self._setDoubleProperty("MP_INITIAL_HU", value)
-	def getIntiialGridToUse(self) -> int:
-		return int(self._getIntProperty("MP_INITIAL_GRID"))
-	def setIntiialGridToUse(self, value: int):
-		return self._setIntProperty("MP_INITIAL_GRID", value)
 	def getInitialTemperatureCondition(self) -> StaticWaterModes:
 		return StaticWaterModes(self._getEnumEStaticWaterModesProperty("MP_INITIAL_TEMPERATURE_METHOD"))
 	def setInitialTemperatureCondition(self, value: StaticWaterModes):
@@ -68,11 +60,7 @@ class InitialConditions(PropertyProxy):
 		return self._getDoubleProperty("MP_INITIAL_TEMPERATURE_CONST")
 	def setInitialTemperature(self, value: float):
 		return self._setDoubleProperty("MP_INITIAL_TEMPERATURE_CONST", value)
-	def getInitialTemperatureGridToUse(self) -> int:
-		return int(self._getIntProperty("MP_INITIAL_TEMPERATURE_GRID"))
-	def setInitialTemperatureGridToUse(self, value: int):
-		return self._setIntProperty("MP_INITIAL_TEMPERATURE_GRID", value)
-	def setProperties(self, InitialElementLoading : InitialElementLoadingType = None, AccountForMoistureContentInUnitWeight : bool = None, DryUnitWeight : float = None, MoistUnitWeight : float = None, SaturatedUnitWeight : float = None, UnitWeight : float = None, PorosityValue : float = None, InitialWaterCondition : StaticWaterModes = None, InitialPoreWaterPressure : float = None, InitialRu : float = None, InitialPiezoToUse : int = None, InitialHuType : HuTypes = None, InitialHu : float = None, IntiialGridToUse : int = None, InitialTemperatureCondition : StaticWaterModes = None, InitialTemperature : float = None, InitialTemperatureGridToUse : int = None):
+	def setProperties(self, InitialElementLoading : InitialElementLoadingType = None, AccountForMoistureContentInUnitWeight : bool = None, DryUnitWeight : float = None, MoistUnitWeight : float = None, SaturatedUnitWeight : float = None, UnitWeight : float = None, PorosityValue : float = None, InitialWaterCondition : StaticWaterModes = None, InitialPoreWaterPressure : float = None, InitialRu : float = None, InitialHuType : HuTypes = None, InitialHu : float = None, InitialTemperatureCondition : StaticWaterModes = None, InitialTemperature : float = None):
 		if InitialElementLoading is not None:
 			self._setEnumEInitialElementLoadingTypeProperty("MP_INITIAL_ELEMENT_LOADING", InitialElementLoading)
 		if AccountForMoistureContentInUnitWeight is not None:
@@ -93,20 +81,14 @@ class InitialConditions(PropertyProxy):
 			self._setDoubleProperty("MP_INITIAL_PWP", InitialPoreWaterPressure)
 		if InitialRu is not None:
 			self._setDoubleProperty("MP_INITIAL_RU", InitialRu)
-		if InitialPiezoToUse is not None:
-			self._setIntProperty("MP_INITIAL_PIEZO", InitialPiezoToUse)
 		if InitialHuType is not None:
 			self._setEnumEHuTypesProperty("MP_INITIAL_HU_TYPE", InitialHuType)
 		if InitialHu is not None:
 			self._setDoubleProperty("MP_INITIAL_HU", InitialHu)
-		if IntiialGridToUse is not None:
-			self._setIntProperty("MP_INITIAL_GRID", IntiialGridToUse)
 		if InitialTemperatureCondition is not None:
 			self._setEnumEStaticWaterModesProperty("MP_INITIAL_TEMPERATURE_METHOD", InitialTemperatureCondition)
 		if InitialTemperature is not None:
 			self._setDoubleProperty("MP_INITIAL_TEMPERATURE_CONST", InitialTemperature)
-		if InitialTemperatureGridToUse is not None:
-			self._setIntProperty("MP_INITIAL_TEMPERATURE_GRID", InitialTemperatureGridToUse)
 	def getProperties(self):
 		return {
 		"InitialElementLoading" : self.getInitialElementLoading(), 
@@ -119,11 +101,8 @@ class InitialConditions(PropertyProxy):
 		"InitialWaterCondition" : self.getInitialWaterCondition(), 
 		"InitialPoreWaterPressure" : self.getInitialPoreWaterPressure(), 
 		"InitialRu" : self.getInitialRu(), 
-		"InitialPiezoToUse" : self.getInitialPiezoToUse(), 
 		"InitialHuType" : self.getInitialHuType(), 
 		"InitialHu" : self.getInitialHu(), 
-		"IntiialGridToUse" : self.getIntiialGridToUse(), 
 		"InitialTemperatureCondition" : self.getInitialTemperatureCondition(), 
 		"InitialTemperature" : self.getInitialTemperature(), 
-		"InitialTemperatureGridToUse" : self.getInitialTemperatureGridToUse(), 
 		}
