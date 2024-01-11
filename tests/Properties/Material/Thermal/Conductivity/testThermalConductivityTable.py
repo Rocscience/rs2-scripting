@@ -24,7 +24,7 @@ class TestThermalConductivityTables(unittest.TestCase):
         self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
 
-    def testUnsaturatedZoneTableSuccess(self):
+    def testThermalConductivitySuccess(self):
         newTableColA1 = [-1.11,0,1,2]
         newTableColA2 = [-1.22,0.2,1.3,2.4]
 
@@ -42,7 +42,7 @@ class TestThermalConductivityTables(unittest.TestCase):
         self.assertEqual(result2[0], newTableColB1)
         self.assertEqual(result2[1], newTableColB2)
     
-    def testUnsaturatedZoneTableFailureDifferentSize(self):
+    def testThermalConductivityFailureDifferentSize(self):
         validCol1 = [-1.11,0,1,2]
         validCol2 = [-1.22,0.2,1.3,2.4]
         self.material.Thermal.Conductivity.Tabular.setThermalConductivityTemperatureFunction(validCol1, validCol2)
@@ -63,7 +63,28 @@ class TestThermalConductivityTables(unittest.TestCase):
         self.assertEqual(result2[0], validCol1)
         self.assertEqual(result2[1], validCol2)
 
-    def testUnsaturatedZoneTableFailureNotEnoughRows(self):
+    def testThermalConductivityFilureNonIncreasingColumn1(self):
+        validCol1 = [-1.11,0,1,2]
+        validCol2 = [-1.22,0.2,1.3,2.4]
+        self.material.Thermal.Conductivity.Tabular.setThermalConductivityTemperatureFunction(validCol1, validCol2)
+        self.material.Thermal.Conductivity.Tabular.setThermalConductivityWaterContentFunction(validCol1, validCol2)
+
+        invalidCol1 = [-1.11,0,1,1]
+        invalidCol2 = [-1.22,0.2,1.3,2.4]
+
+        with self.assertRaises(Exception):
+            self.material.Thermal.Conductivity.Tabular.setThermalConductivityTemperatureFunction(invalidCol1, invalidCol2)
+        with self.assertRaises(Exception):
+            self.material.Thermal.Conductivity.Tabular.setThermalConductivityWaterContentFunction(invalidCol1, invalidCol2)
+
+        result1 = self.material.Thermal.Conductivity.Tabular.getThermalConductivityTemperatureFunction()
+        result2 = self.material.Thermal.Conductivity.Tabular.getThermalConductivityWaterContentFunction()
+        self.assertEqual(result1[0], validCol1)
+        self.assertEqual(result1[1], validCol2)
+        self.assertEqual(result2[0], validCol1)
+        self.assertEqual(result2[1], validCol2)
+
+    def testThermalConductivityFailureNotEnoughRows(self):
         validCol1 = [-1.11,0,1,2]
         validCol2 = [-1.22,0.2,1.3,2.4]
         self.material.Thermal.Conductivity.Tabular.setThermalConductivityTemperatureFunction(validCol1, validCol2)

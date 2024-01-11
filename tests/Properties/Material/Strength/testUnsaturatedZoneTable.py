@@ -27,14 +27,14 @@ class TestUnsaturatedZoneTable(unittest.TestCase):
         os.remove(self.copiedModelPath)
 
     def testUnsaturatedZoneTableSuccess(self):
-        newTableColA1 = [-1.11,0,1,2]
-        newTableColA2 = [-1.22,0.2,1.3,2.4]
+        newTableColA1 = [-1.16,0,1,2]
+        newTableColA2 = [-1.15,0.2,1.3,2.4]
 
-        newTableColB1 = [-1.13,0,1,2]
-        newTableColB2 = [-1.24,0.2,1.3,2.4]
+        newTableColB1 = [-1.14,0,1,2]
+        newTableColB2 = [-1.13,0.2,1.3,2.4]
 
-        newTableColC1 = [-1.15,0,1,2]
-        newTableColC2 = [-1.26,0.2,1.3,2.4]
+        newTableColC1 = [-1.12,0,1,2]
+        newTableColC2 = [-1.11,0.2,1.3,2.4]
 
         self.material.Strength.setUnsaturatedZoneTableWithRespectToSuction(newTableColA1, newTableColA2)
         self.material.Strength.setUnsaturatedZoneTableWithRespectToDegreeOfSaturation(newTableColB1, newTableColB2)
@@ -53,14 +53,41 @@ class TestUnsaturatedZoneTable(unittest.TestCase):
         self.assertEqual(result3[1], newTableColC2)
     
     def testUnsaturatedZoneTableFailureDifferentSize(self):
-        validCol1 = [-1.11,0,1,2]
-        validCol2 = [-1.22,0.2,1.3,2.4]
+        validCol1 = [-1.16,0,1,2]
+        validCol2 = [-1.15,0.2,1.3,2.4]
         self.material.Strength.setUnsaturatedZoneTableWithRespectToSuction(validCol1, validCol2)
         self.material.Strength.setUnsaturatedZoneTableWithRespectToDegreeOfSaturation(validCol1, validCol2)
         self.material.Strength.setUnsaturatedZoneTableWithRespectToEffectiveDegreeOfSaturation(validCol1, validCol2)
 
-        invalidCol1 = [-1.11,0,1]
-        invalidCol2 = [-1.22,0.2,1.3,2.4]
+        invalidCol1 = [-1.14,0,1]
+        invalidCol2 = [-1.13,0.2,1.3,2.4]
+
+        with self.assertRaises(Exception):
+            self.material.Strength.setUnsaturatedZoneTableWithRespectToSuction(invalidCol1, invalidCol2)
+        with self.assertRaises(Exception):
+            self.material.Strength.setUnsaturatedZoneTableWithRespectToDegreeOfSaturation(invalidCol1, invalidCol2)
+        with self.assertRaises(Exception):
+            self.material.Strength.setUnsaturatedZoneTableWithRespectToEffectiveDegreeOfSaturation(invalidCol1, invalidCol2)
+
+        result1 = self.material.Strength.getUnsaturatedZoneTableWithRespectToSuction()
+        result2 = self.material.Strength.getUnsaturatedZoneTableWithRespectToDegreeOfSaturation()
+        result3 = self.material.Strength.getUnsaturatedZoneTableWithRespectToEffectiveDegreeOfSaturation()
+        self.assertEqual(result1[0], validCol1)
+        self.assertEqual(result1[1], validCol2)
+        self.assertEqual(result2[0], validCol1)
+        self.assertEqual(result2[1], validCol2)
+        self.assertEqual(result3[0], validCol1)
+        self.assertEqual(result3[1], validCol2)
+
+    def testUnsaturatedZoneTableFailureNonIncreasing(self):
+        validCol1 = [-1.16,0,1,2]
+        validCol2 = [-1.15,0.2,1.3,2.4]
+        self.material.Strength.setUnsaturatedZoneTableWithRespectToSuction(validCol1, validCol2)
+        self.material.Strength.setUnsaturatedZoneTableWithRespectToDegreeOfSaturation(validCol1, validCol2)
+        self.material.Strength.setUnsaturatedZoneTableWithRespectToEffectiveDegreeOfSaturation(validCol1, validCol2)
+
+        invalidCol1 = [-1.14,-1.14,1,2]
+        invalidCol2 = [-1.15,0.2,1.3,2.4]
 
         with self.assertRaises(Exception):
             self.material.Strength.setUnsaturatedZoneTableWithRespectToSuction(invalidCol1, invalidCol2)
@@ -80,14 +107,14 @@ class TestUnsaturatedZoneTable(unittest.TestCase):
         self.assertEqual(result3[1], validCol2)
 
     def testUnsaturatedZoneTableFailureNotEnoughRows(self):
-        validCol1 = [-1.11,0,1,2]
-        validCol2 = [-1.22,0.2,1.3,2.4]
+        validCol1 = [-1.16,0,1,2]
+        validCol2 = [-1.15,0.2,1.3,2.4]
         self.material.Strength.setUnsaturatedZoneTableWithRespectToSuction(validCol1, validCol2)
         self.material.Strength.setUnsaturatedZoneTableWithRespectToDegreeOfSaturation(validCol1, validCol2)
         self.material.Strength.setUnsaturatedZoneTableWithRespectToEffectiveDegreeOfSaturation(validCol1, validCol2)
 
-        invalidCol1 = [-1.11]
-        invalidCol2 = [-1.22]
+        invalidCol1 = [-1.14]
+        invalidCol2 = [-1.13]
 
         with self.assertRaises(Exception):
             self.material.Strength.setUnsaturatedZoneTableWithRespectToSuction(invalidCol1, invalidCol2)
