@@ -13,8 +13,17 @@ rs2.proxyObjects package
    rs2.proxyObjects.BoltSubproxyObjects
    rs2.proxyObjects.JointSubproxyObjects
    rs2.proxyObjects.LinerSubproxyObjects
+   rs2.proxyObjects.MaterialSubproxyObjects
    rs2.proxyObjects.PileSubproxyObjects
 
+
+rs2.proxyObjects.AbsoluteStageFactorInterface module
+----------------------------------------------------
+
+.. automodule:: rs2.proxyObjects.AbsoluteStageFactorInterface
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 rs2.proxyObjects.BoltPropertyProxy module
 -----------------------------------------
@@ -56,6 +65,14 @@ rs2.proxyObjects.LinerPropertyProxy module
    :undoc-members:
    :show-inheritance:
 
+rs2.proxyObjects.MaterialPropertyProxy module
+---------------------------------------------
+
+.. automodule:: rs2.proxyObjects.MaterialPropertyProxy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.proxyObjects.ModelProxy module
 ----------------------------------
 
@@ -68,6 +85,14 @@ rs2.proxyObjects.PilePropertyProxy module
 -----------------------------------------
 
 .. automodule:: rs2.proxyObjects.PilePropertyProxy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.proxyObjects.RelativeStageFactorInterface module
+----------------------------------------------------
+
+.. automodule:: rs2.proxyObjects.RelativeStageFactorInterface
    :members:
    :undoc-members:
    :show-inheritance:
