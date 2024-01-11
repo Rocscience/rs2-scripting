@@ -23,6 +23,7 @@ class TestCustom(unittest.TestCase):
         stiffness = self.material.Stiffness
         stiffness.Custom.setUseUnloadingCondition(0)
         stiffness.Custom.setUnloadingCondition(UnloadingConditions.UC_DEVIATORIC_STRESS)
+        stiffness.Custom.setCustomMode(CustomMode.CUSTOM_P)
         stiffness.Custom.setUseConstantPoissonsRatio(0)
         stiffness.Custom.setConstantPoissonsRatio(972.5)
         stiffness.Custom.setUnloadingUseConstantPoissonsRatio(1)
@@ -34,6 +35,7 @@ class TestCustom(unittest.TestCase):
         stiffness = self.material.Stiffness
         self.assertEqual(stiffness.Custom.getUseUnloadingCondition(), 0)
         self.assertEqual(stiffness.Custom.getUnloadingCondition(), UnloadingConditions.UC_DEVIATORIC_STRESS)
+        self.assertEqual(stiffness.Custom.getCustomMode(), CustomMode.CUSTOM_P)
         self.assertEqual(stiffness.Custom.getUseConstantPoissonsRatio(), 0)
         self.assertEqual(stiffness.Custom.getConstantPoissonsRatio(), 972.5)
         self.assertEqual(stiffness.Custom.getUnloadingUseConstantPoissonsRatio(), 1)
