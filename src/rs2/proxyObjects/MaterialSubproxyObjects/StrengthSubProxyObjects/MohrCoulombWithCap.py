@@ -24,6 +24,10 @@ class MohrCoulombWithCap(PropertyProxy):
 		return MCCapType(self._getEnumEMCCapTypeProperty("MP_CAP_TYPE"))
 	def setCapType(self, value: MCCapType):
 		return self._setEnumEMCCapTypeProperty("MP_CAP_TYPE", value)
+	def getCapHardeningType(self) -> CapHardeningTypes:
+		return CapHardeningTypes(self._getEnumECapHardeningTypesProperty("MP_CAP_HARDENING_TYPE"))
+	def setCapHardeningType(self, value: CapHardeningTypes):
+		return self._setEnumECapHardeningTypesProperty("MP_CAP_HARDENING_TYPE", value)
 	def getInitialMeanStress(self) -> float:
 		return self._getDoubleProperty("MP_INITIAL_MEAN_STRESS")
 	def setInitialMeanStress(self, value: float):
@@ -32,7 +36,17 @@ class MohrCoulombWithCap(PropertyProxy):
 		return self._getDoubleProperty("MP_LAMBDA_KAPPA")
 	def setLambdaKappa(self, value: float):
 		return self._setDoubleProperty("MP_LAMBDA_KAPPA", value)
-	def setProperties(self, PeakTensileStrength : float = None, PeakFrictionAngle : float = None, PeakCohesion : float = None, DilationAngle : float = None, CapType : MCCapType = None, InitialMeanStress : float = None, LambdaKappa : float = None):
+	def setMohrCoulombCapMeanStress(self, meanStress: list[tuple[float,float]]):
+		"""
+		meanStress is a list of (x,y) tuples.
+		"""
+		return self._callFunction("setMohrCoulombCapMeanStress", [meanStress])
+	def getMohrCoulombCapMeanStress(self) -> list[tuple[float,float]]:
+		"""
+		returns a list of (x,y) tuples.
+		"""
+		return self._callFunction("getMohrCoulombCapMeanStress", [])
+	def setProperties(self, PeakTensileStrength : float = None, PeakFrictionAngle : float = None, PeakCohesion : float = None, DilationAngle : float = None, CapType : MCCapType = None, CapHardeningType : CapHardeningTypes = None, InitialMeanStress : float = None, LambdaKappa : float = None):
 		if PeakTensileStrength is not None:
 			self._setDoubleProperty("MP_PEAK_TENSILE_STRENGTH", PeakTensileStrength)
 		if PeakFrictionAngle is not None:
@@ -43,6 +57,8 @@ class MohrCoulombWithCap(PropertyProxy):
 			self._setDoubleProperty("MP_DILATION_ANGLE", DilationAngle)
 		if CapType is not None:
 			self._setEnumEMCCapTypeProperty("MP_CAP_TYPE", CapType)
+		if CapHardeningType is not None:
+			self._setEnumECapHardeningTypesProperty("MP_CAP_HARDENING_TYPE", CapHardeningType)
 		if InitialMeanStress is not None:
 			self._setDoubleProperty("MP_INITIAL_MEAN_STRESS", InitialMeanStress)
 		if LambdaKappa is not None:
@@ -54,6 +70,7 @@ class MohrCoulombWithCap(PropertyProxy):
 		"PeakCohesion" : self.getPeakCohesion(), 
 		"DilationAngle" : self.getDilationAngle(), 
 		"CapType" : self.getCapType(), 
+		"CapHardeningType" : self.getCapHardeningType(), 
 		"InitialMeanStress" : self.getInitialMeanStress(), 
 		"LambdaKappa" : self.getLambdaKappa(), 
 		}

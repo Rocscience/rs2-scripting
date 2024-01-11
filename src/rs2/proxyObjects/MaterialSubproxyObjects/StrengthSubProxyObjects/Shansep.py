@@ -84,6 +84,28 @@ class Shansep(PropertyProxy):
 		return self._getDoubleProperty("MP_PC_CONSTANT")
 	def setPc(self, value: float):
 		return self._setDoubleProperty("MP_PC_CONSTANT", value)
+	def setShansepMaterialDependentVerticalStress(self, materialDependentVerticalStress: list[tuple[str,float]]):
+		"""
+		materialDependentVerticalStress is a list of (materialName,verticalStressFactor) pairs.
+		 A factor of 1 means that the entire weight is used in the vertical stress computation.  A factor of 0 means no weight is used.  If a material is not listed below it automatically has a factor of 1.
+		"""
+		return self._callFunction("setShansepMaterialDependentVerticalStress", [materialDependentVerticalStress])
+	def getShansepMaterialDependentVerticalStress(self) -> list[tuple[str,float]]:
+		"""
+		returns a list of (materialName,verticalStressFactor) pairs.
+		 A factor of 1 means that the entire weight is used in the vertical stress computation.  A factor of 0 means no weight is used.  If a material is not listed below it automatically has a factor of 1.
+		"""
+		return self._callFunction("getShansepMaterialDependentVerticalStress", [])
+	def setShansepStressHistory(self, stressHistory: list[tuple[float,float]]):
+		"""
+		Depending on the stressHistory type and definition method, stressHistory is specified as (Depth or Elevation, OCR or Pc).
+		"""
+		return self._callFunction("setShansepStressHistory", [stressHistory])
+	def getShansepStressHistory(self) -> list[tuple[float,float]]:
+		"""
+		Returns the Stress History. Depending on the stressHistory type and definition method, stressHistory is specified as a list of tuples (Depth or Elevation, OCR or Pc).
+		"""
+		return self._callFunction("__getattribute__", ["arStressHistoryType"])
 	def setProperties(self, MaterialType : MaterialType = None, UseMaterialDependentStress : bool = None, UseMaximumShearStrength : bool = None, UseTensileStrength : bool = None, AParameter : float = None, SParameter : float = None, MParameter : float = None, MaximumShearStrength : float = None, PeakTensileStrength : float = None, ResidualAParameter : float = None, ResidualSParameter : float = None, ResidualMParameter : float = None, ResidualMaximumShearStrength : float = None, ResidualTensileStrength : float = None, ApplySSRShearStrengthReduction : bool = None, StressHistoryType : StressHistoryTypes = None, OCRDefinitionMethod : StressHistoryDefinitionMethods = None, OCR : float = None, PcDefinitionMethod : StressHistoryDefinitionMethods = None, Pc : float = None):
 		if MaterialType is not None:
 			self._setEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE", MaterialType)
