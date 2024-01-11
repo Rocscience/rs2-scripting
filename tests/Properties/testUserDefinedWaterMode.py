@@ -11,7 +11,7 @@ class TestUserDefinedWaterMode(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
-        blankModelPath = f"{parentDirectory}/resources/starterProject.fez"
+        blankModelPath = f"{parentDirectory}/resources/starterProjectTransientGroundwater.fez"
         self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
         shutil.copy(blankModelPath, self.copiedModelPath)
         self.modeler = RS2Modeler()
@@ -26,34 +26,34 @@ class TestUserDefinedWaterMode(unittest.TestCase):
         model = self.model
 
         with self.assertRaises(Exception):
-            model.getUserDefinedWaterMode("testUserDefinedWaterMode")
+            model.getUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
 
     def testCreateDeleteUserDefinedWaterMode(self):
         model = self.model
 
         with self.assertRaises(Exception):
-            model.getUserDefinedWaterMode("testUserDefinedWaterMode")
+            model.getUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
 
-        model.createUserDefinedWaterMode("testUserDefinedWaterMode")
-        model.getUserDefinedWaterMode("testUserDefinedWaterMode")
-        model.deleteUserDefinedWaterMode("testUserDefinedWaterMode")
+        model.createUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
+        model.getUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
+        model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
 
         with self.assertRaises(Exception):
-            model.getUserDefinedWaterMode("testUserDefinedWaterMode")
+            model.getUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
 
     def testCreateFailureDuplicate(self):
         model = self.model
 
-        model.createUserDefinedWaterMode("testUserDefinedWaterMode")
+        model.createUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
         with self.assertRaises(Exception):
-            model.createUserDefinedWaterMode("testUserDefinedWaterMode")
-        model.deleteUserDefinedWaterMode("testUserDefinedWaterMode")
+            model.createUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
+        model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
 
     def testDeleteFailureNonexistant(self):
         model = self.model
 
         with self.assertRaises(Exception):
-            model.deleteUserDefinedWaterMode("testUserDefinedWaterMode")
+            model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
 
     def testDeleteFailureUsedByMaterial(self):
         #TODO: once you are able to assign a user defined water content mode to a material, test that here
@@ -62,31 +62,31 @@ class TestUserDefinedWaterMode(unittest.TestCase):
     def testGetSetWaterContentFunction(self):
         model = self.model
 
-        model.createUserDefinedWaterMode("testUserDefinedWaterMode")
-        userDefinedWaterMode = model.getUserDefinedWaterMode("testUserDefinedWaterMode")
+        model.createUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
+        userDefinedWaterMode = model.getUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
 
         userDefinedWaterMode.setWaterContentFunction([(1, 0.1), (2, 0.2)])
         self.assertEqual(userDefinedWaterMode.getWaterContentFunction(), [(1, 0.1), (2, 0.2)])
 
-        model.deleteUserDefinedWaterMode("testUserDefinedWaterMode")
+        model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
 
     def testGetSetDegreeOfSaturationFunction(self):
         model = self.model
 
-        userDefinedWaterMode = model.createUserDefinedWaterMode("testUserDefinedWaterMode")
+        userDefinedWaterMode = model.createUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
 
         userDefinedWaterMode.setDegreeOfSaturationFunction([(1, 0.1), (2, 0.2)])
         self.assertEqual(userDefinedWaterMode.getDegreeOfSaturationFunction(), [(1, 0.1), (2, 0.2)])
 
-        model.deleteUserDefinedWaterMode("testUserDefinedWaterMode")
+        model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
 
     def testGetSetStrengthFunction(self):
         model = self.model
 
-        model.createUserDefinedWaterMode("testUserDefinedWaterMode")
-        userDefinedWaterMode = model.getUserDefinedWaterMode("testUserDefinedWaterMode")
+        model.createUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
+        userDefinedWaterMode = model.getUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
 
-        userDefinedWaterMode.setStrengthFunction([(1, 0.1), (2, 0.2)])
-        self.assertEqual(userDefinedWaterMode.getStrengthFunction(), [(1, 0.1), (2, 0.2)])
+        userDefinedWaterMode.setPermeabilityFunction([(1, 0.1), (2, 0.2)])
+        self.assertEqual(userDefinedWaterMode.getPermeabilityFunction(), [(1, 0.1), (2, 0.2)])
 
-        model.deleteUserDefinedWaterMode("testUserDefinedWaterMode")
+        model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")

@@ -145,21 +145,21 @@ class ModelProxy(ProxyObject):
 			activeMaterialProperties.append(MaterialProperty(self._client, materialObjectID, self._documentProxy._ID))
 		return activeMaterialProperties
 	
-	def getUserDefinedWaterMode(self, name : str) -> UserDefinedWaterMode:
+	def getUserDefinedPermeabilityAndWaterContentMode(self, name : str) -> UserDefinedWaterMode:
 		'''
 		Returns a User Defined Water Mode object based on its name.
 		'''
 		userDefinedWaterModeObjectID = self._callFunction('getUserDefinedWaterMode', [name], keepReturnValueReference=True)
 		return UserDefinedWaterMode(self._client, userDefinedWaterModeObjectID)
 	
-	def createUserDefinedWaterMode(self, name : str) -> UserDefinedWaterMode:
+	def createUserDefinedPermeabilityAndWaterContentMode(self, name : str) -> UserDefinedWaterMode:
 		'''
 		Creates a User Defined Water Mode object with the given name.
 		'''
 		userDefinedWaterModeObjectID = self._callFunction('createUserDefinedWaterMode', [name], keepReturnValueReference=True)
 		return UserDefinedWaterMode(self._client, userDefinedWaterModeObjectID)
 
-	def deleteUserDefinedWaterMode(self, name : str):
+	def deleteUserDefinedPermeabilityAndWaterContentMode(self, name : str):
 		'''
 		Deletes a User Defined Water Mode object with the given name.
 		'''

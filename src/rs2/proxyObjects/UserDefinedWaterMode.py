@@ -9,9 +9,9 @@ class UserDefinedWaterMode(ProxyObject):
         return self._callFunction('getDOSFunction')
     def setDegreeOfSaturationFunction(self, dosFunction : list[tuple[float, float]]):
         return self._callFunction('setDOSFunction', [dosFunction])
-    def getStrengthFunction(self) -> list[tuple[float, float]]:
+    def getPermeabilityFunction(self) -> list[tuple[float, float]]:
         return self._callFunction('getStrengthFunction')
-    def setStrengthFunction(self, strengthFunction : list[tuple[float, float]]):
+    def setPermeabilityFunction(self, strengthFunction : list[tuple[float, float]]):
         return self._callFunction('setStrengthFunction', [strengthFunction])
     
     
