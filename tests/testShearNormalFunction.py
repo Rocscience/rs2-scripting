@@ -38,7 +38,7 @@ class TestShearNormalFunction(unittest.TestCase):
         self.assertEqual(function.getName(), "newName")
 
         #set the material type
-        function.setMaterialTypeByName(MaterialType.PLASTIC)
+        function.setMaterialType(MaterialType.PLASTIC)
         self.assertEqual(function.getMaterialType(), MaterialType.PLASTIC)
 
         #set the use calculated tensile strength
@@ -76,7 +76,7 @@ class TestShearNormalFunction(unittest.TestCase):
         function = self.model.getShearNormalFunctionByName("testFunction")
         self.assertEqual(function.getName(), "testFunction")
 
-        function.setMaterialTypeByName(MaterialType.PLASTIC)
+        function.setMaterialType(MaterialType.PLASTIC)
         self.assertEqual(function.getMaterialType(), MaterialType.PLASTIC)
         
         function.setUseCalculatedTensileStrength(False)
@@ -92,17 +92,21 @@ class TestShearNormalFunction(unittest.TestCase):
             function.setResidualTensileStrength(0.2)
             function.setPeakTensileStrength(0.1)
 
+        #residual tensile strength must be graeter than 0
+        with self.assertRaises(Exception):
+            function.setResidualTensileStrength(-0.1)
+
         #cannot set residual tensile strength for elastic material
         with self.assertRaises(Exception):
-            function.setMaterialTypeByName(MaterialType.ELASTIC)
+            function.setMaterialType(MaterialType.ELASTIC)
             function.setResidualTensileStrength(0.2)
         
         #cannot set dilation ratio for elastic material
         with self.assertRaises(Exception):
-            function.setMaterialTypeByName(MaterialType.ELASTIC)
+            function.setMaterialType(MaterialType.ELASTIC)
             function.setDilationRatio(0.2)
         
-        function.setMaterialTypeByName(MaterialType.PLASTIC)
+        function.setMaterialType(MaterialType.PLASTIC)
 
         #dilation ratio must be between 0 and 1
         with self.assertRaises(Exception):
@@ -169,11 +173,3 @@ class TestShearNormalFunction(unittest.TestCase):
         self.model.deleteShearNormalFunction("f1")
 
         self.assertEqual(len(self.model.getShearNormalFunctions()), 0)
-
-    def testConcaveFunction(self):
-        self.model.createNewShearNormalFunction("f1")
-        function = self.model.getShearNormalFunctionByName("f1")
-
-        function.setFunctionPoints([(1,2,2),(3,4,4),(4,3,1)])
-        
-        #TODO: what should happen?
