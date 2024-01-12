@@ -24,6 +24,23 @@ class StaticGroundwater(PropertyProxy):
 		return self._getDoubleProperty("MP_HU_VALUE")
 	def setHuValue(self, value: float):
 		return self._setDoubleProperty("MP_HU_VALUE", value)
+	def setPiezoToUse(self, piezoName: str):
+		"""
+		piezoName is the id of the piezo line to be used or "None".
+		"""
+		return self._callFunction("setPiezoToUse", [piezoName])
+	def getPiezoToUse(self) -> str:
+		"""
+		Returns the id of the piezo line to be used or "None".
+		"""
+		return self._callFunction("getPiezoToUse", [])
+	def setGridToUse(self, gridName: str):
+		"""
+		gridName is the name of the grid to be used. "None" and "Default Grid" are available by default.
+		"""
+		return self._callFunction("setGridToUse", [gridName])
+	def getGridToUse(self) -> str:
+		return self._callFunction("getGridToUse", [])
 	def setProperties(self, StaticWaterMode : StaticWaterModes = None, StaticPoreWaterPressure : float = None, RuValue : float = None, HuType : HuTypes = None, HuValue : float = None):
 		if StaticWaterMode is not None:
 			self._setEnumEStaticWaterModesProperty("MP_STATIC_WATER_MODE", StaticWaterMode)
