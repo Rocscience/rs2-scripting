@@ -174,6 +174,12 @@ class ModelProxy(ProxyObject):
 		'''
 		return self._callFunction('deleteShearNormalFunction', [functionName])
 	
+	def renameShearNormalFunction(self, oldName, newName):
+		'''
+		Renames a shear normal function with the given name
+		'''
+		return self._callFunction('renameShearNormalFunction', [oldName, newName])
+	
 	def compute(self):
 		'''
 		Saves the file if modified and then runs compute. Replaces any existing results.

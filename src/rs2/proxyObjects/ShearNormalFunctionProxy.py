@@ -4,8 +4,6 @@ from rs2.PropertyEnums import *
 class ShearNormalFunction(ProxyObject):
     def getName(self) -> str:
         return self._callFunction("Get_Name")
-    def setName(self, name: str):
-        return self._callFunction("Set_Name", [name])
     def setMaterialType(self, materialType: MaterialType):
         return self._callFunction("setMaterialTypeByName", [materialType.value])
     def getMaterialType(self) -> str:

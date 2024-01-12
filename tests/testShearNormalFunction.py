@@ -33,10 +33,6 @@ class TestShearNormalFunction(unittest.TestCase):
         function = self.model.getShearNormalFunctionByName("testFunction")
         self.assertEqual(function.getName(), "testFunction")
 
-        #set the function name
-        function.setName("newName")
-        self.assertEqual(function.getName(), "newName")
-
         #set the material type
         function.setMaterialType(MaterialType.PLASTIC)
         self.assertEqual(function.getMaterialType(), MaterialType.PLASTIC)
@@ -45,7 +41,6 @@ class TestShearNormalFunction(unittest.TestCase):
         function.setUseCalculatedTensileStrength(False)
         self.assertEqual(function.getUseCalculatedTensileStrength(), False)
         
-
         #set the peak tensile strength
         function.setPeakTensileStrength(1.0)
         self.assertEqual(function.getPeakTensileStrength(), 1.0)
@@ -61,7 +56,7 @@ class TestShearNormalFunction(unittest.TestCase):
         function.setFunctionPoints([(1,2,1),(4,5,2)])
         self.assertEqual(function.getFunctionPoints(), [(1,2,1),(4,5,2)])
 
-        self.model.deleteShearNormalFunction("newName")
+        self.model.deleteShearNormalFunction("testFunction")
         self.assertEqual(len(self.model.getShearNormalFunctions()), 0)
 
     def testPropertiesFailure(self):
@@ -152,6 +147,26 @@ class TestShearNormalFunction(unittest.TestCase):
         self.model.deleteShearNormalFunction("f2")
         self.model.deleteShearNormalFunction("f3")
 
+    def testRename(self):
+        self.model.createNewShearNormalFunction("f1")
+        self.model.getShearNormalFunctionByName("f1").setPeakTensileStrength(1.11)
+
+        self.model.renameShearNormalFunction("f1", "f2")
+
+        self.assertEqual(self.model.getShearNormalFunctionByName("f2").getPeakTensileStrength(), 1.11)
+
+        self.model.deleteShearNormalFunction("f2")
+
+    def testRenameNameInUse(self):
+        self.model.createNewShearNormalFunction("f1")
+        self.model.createNewShearNormalFunction("f2")
+
+        with self.assertRaises(Exception):
+            self.model.renameShearNormalFunction("f1", "f2")
+        
+        self.model.deleteShearNormalFunction("f1")
+        self.model.deleteShearNormalFunction("f2")
+
     def testCreateAlreadyExists(self):
         self.model.createNewShearNormalFunction("f1")
 
@@ -173,3 +188,5 @@ class TestShearNormalFunction(unittest.TestCase):
         self.model.deleteShearNormalFunction("f1")
 
         self.assertEqual(len(self.model.getShearNormalFunctions()), 0)
+
+        self.model.getAllMaterialProperties()[0].setMaterialName
