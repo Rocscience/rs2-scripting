@@ -18,41 +18,42 @@ class TestAddHistoryQuery(unittest.TestCase):
         shutil.copy(invalidModelPath, self.invalidModelMeshPath)
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
-        self.invalidModel = self.modeler.openFile(self.invalidModelMeshPath)
+        self.modelWithoutMesh = self.modeler.openFile(self.invalidModelMeshPath)
     def tearDown(self):
         self.model.close()
-        self.invalidModel.close()
+        self.modelWithoutMesh.close()
         os.remove(self.copiedModelPath)
         os.remove(self.invalidModelMeshPath)
         self.model._client.closeConnection()
+        self.modelWithoutMesh._client.closeConnection()
     
     def testAddHistoryQuerySuccess(self):
         self.model.AddHistoryQueryPoint(x=4.4, y=-1.9, history_query_name="Example Label")
     
-    def testAddHistoryQueryInvalidMeshFailure(self):
+    def testAddHistoryQueryModelWithoutMeshFailure(self):
         try:
-            self.invalidModel.AddHistoryQueryPoint(x=4.4, y=-1.9, history_query_name="Example Label")
+            self.modelWithoutMesh.AddHistoryQueryPoint(x=4.4, y=-1.9, history_query_name="Example Label")
             self.fail("Expected exception")
         except:
             pass
     
     def testAddHistoryQueryOutOfMeshBoundsFailure(self):
         try:
-            self.invalidModel.AddHistoryQueryPoint(x=500.4, y=-190.9, history_query_name="Example Label")
+            self.model.AddHistoryQueryPoint(x=500.4, y=-190.9, history_query_name="Example Label")
             self.fail("Expected exception")
         except:
             pass
     
     def testAddHistoryQueryDuplicateCoordinatesFailure(self):
         try:
-            self.invalidModel.AddHistoryQueryPoint(x=0, y=0, history_query_name="Example Label")
+            self.model.AddHistoryQueryPoint(x=0, y=0, history_query_name="Example Label")
             self.fail("Expected exception")
         except:
             pass
 
     def testAddHistoryQueryDuplicateLabelNameFailure(self):
         try:
-            self.invalidModel.AddHistoryQueryPoint(x=4.4, y=-1.9, history_query_name="HQ 1")
+            self.model.AddHistoryQueryPoint(x=4.4, y=-1.9, history_query_name="HQ 1")
             self.fail("Expected exception")
         except:
             pass

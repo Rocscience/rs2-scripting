@@ -5,37 +5,36 @@ import parentDirectoryHelper
 from rs2.RS2Interpreter import RS2Interpreter
 from rs2.InterpreterGraphEnums import *
 from rs2.PropertyEnums import*
-import time
 
 parentDirectoryHelper.addParentDirectoryToPath()
 
-class TestAddHistoryQuery(unittest.TestCase):
+class TestGetHistoryQueryResults(unittest.TestCase):
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
         blankModelPath = f"{parentDirectory}/resources/example_computed_model.fez"
-        invalidModelPath = f"{parentDirectory}/resources/modelWithoutHistoryQuery.fez"
+        modelWithoutHQPath = f"{parentDirectory}/resources/modelWithoutHistoryQuery.fez"
         self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
-        self.invalidModelMeshPath = f"{parentDirectory}/resources/testInvalidMeshModel.fez"
+        self.modelWithoutHQPath = f"{parentDirectory}/resources/testInvalidMeshModel.fez"
         shutil.copy(blankModelPath, self.copiedModelPath)
-        shutil.copy(invalidModelPath, self.invalidModelMeshPath)
+        shutil.copy(modelWithoutHQPath, self.modelWithoutHQPath)
         self.interpreter = RS2Interpreter()
         self.model = self.interpreter.openFile(self.copiedModelPath)
-        self.invalidModel = self.interpreter.openFile(self.invalidModelMeshPath)
+        self.modelWithoutHQ = self.interpreter.openFile(self.modelWithoutHQPath)
     def tearDown(self):
         self.model.close()
-        self.invalidModel.close()
+        self.modelWithoutHQ.close()
         os.remove(self.copiedModelPath)
+        os.remove(self.modelWithoutHQPath)
         self.model._client.closeConnection()
-        os.remove(self.invalidModelMeshPath)
+        self.modelWithoutHQ._client.closeConnection()
 
-    
     def testGetHistoryQueryResultsSuccess(self):
         self.model.GetHistoryQueryResults(hq_name="HQ 1", horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
                                           vertical_axis=HistoryQueryGraphEnums.VerticalAxisTypes.HORIZONTAL_DISPLACEMENT, stages=[1, 2])
 
     def testGetHistoryQueryResultsWithoutQueriesFailure(self):
         try:
-            self.invalidModel.GetHistoryQueryResults(hq_name="HQ 1", horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
+            self.modelWithoutHQ.GetHistoryQueryResults(hq_name="HQ 1", horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
                                           vertical_axis=HistoryQueryGraphEnums.VerticalAxisTypes.HORIZONTAL_DISPLACEMENT, stages=[1, 2])
             self.fail("Expected exception")
         except:
@@ -59,7 +58,7 @@ class TestAddHistoryQuery(unittest.TestCase):
 
     def testGetHistoryQueryResultsEmptyStagesFailure(self):
         try:
-            self.model.GetHistoryQueryResults(hq_name="New Label 1", horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
+            self.model.GetHistoryQueryResults(hq_name="HQ 1", horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
                                           vertical_axis=HistoryQueryGraphEnums.VerticalAxisTypes.HORIZONTAL_DISPLACEMENT, stages=[])
             self.fail("Expected exception")
         except:
@@ -67,7 +66,7 @@ class TestAddHistoryQuery(unittest.TestCase):
     
     def testGetHistoryQueryResultsMinStagesFailure(self):
         try:
-            self.model.GetHistoryQueryResults(hq_name="New Label 1", horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
+            self.model.GetHistoryQueryResults(hq_name="HQ 1", horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
                                           vertical_axis=HistoryQueryGraphEnums.VerticalAxisTypes.HORIZONTAL_DISPLACEMENT, stages=[-1, 3])
             self.fail("Expected exception")
         except:
@@ -75,7 +74,7 @@ class TestAddHistoryQuery(unittest.TestCase):
 
     def testGetHistoryQueryResultsMaxStagesFailure(self):
         try:
-            self.model.GetHistoryQueryResults(hq_name="New Label 1", horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
+            self.model.GetHistoryQueryResults(hq_name="HQ 1", horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
                                           vertical_axis=HistoryQueryGraphEnums.VerticalAxisTypes.HORIZONTAL_DISPLACEMENT, stages=[1, 800])
             self.fail("Expected exception")
         except:
