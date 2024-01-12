@@ -93,7 +93,7 @@ class ModelProxy(ProxyObject):
 			stages (int): Takes the stages by their stage number for which results should be returned.
 
 		Returns:
-			A list of list where the inner list contains the x-coordinate and y-coordinate value.
+			Returns a list of (HorizontalAxisType, VerticalAxisType) points pairs for each stage in increasing stage order.
 
 		Exceptions:
 			ValueError: horizontal_axis and vertical_axis must be an enum of type HistoryQueryGraphEnums. Any other value will raise an error
