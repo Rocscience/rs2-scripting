@@ -37,7 +37,19 @@ class TestGetHistoryQueryResults(unittest.TestCase):
                                           vertical_axis=HistoryQueryGraphEnums.VerticalAxisTypes.HORIZONTAL_DISPLACEMENT, stages=[1, 2])
         result2 = self.model.GetHistoryQueryResults(hq_name="HQ 1", horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
                                           vertical_axis=HistoryQueryGraphEnums.VerticalAxisTypes.HORIZONTAL_DISPLACEMENT, stages=[2, 1])
-        self.assertEqual(result1, result2)
+        structured_result_1, structured_result_2 = [], []
+
+        for _, stage_data_lst in result1.items():
+            for data in stage_data_lst:
+                structured_result_1.append([data.GetXCoordinate(), data.GetYCoordinate(), data.GetHorizontalAxisResult(),
+                                           data.GetVerticalAxisResult()])
+        
+        for _, stage_data_lst in result2.items():
+            for data in stage_data_lst:
+                structured_result_2.append([data.GetXCoordinate(), data.GetYCoordinate(), data.GetHorizontalAxisResult(),
+                                           data.GetVerticalAxisResult()])
+        
+        self.assertEqual(structured_result_1, structured_result_2)
 
     def testGetHistoryQueryResultsWithoutQueriesFailure(self):
         try:

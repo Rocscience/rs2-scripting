@@ -2,6 +2,7 @@ from rs2.ProxyObject import ProxyObject
 from rs2.proxyObjects.documentProxy import DocumentProxy
 from rs2.InterpreterEnums import *
 from rs2.MeshResults import MeshResults
+from rs2.HistoryQueryResults import HistoryQueryResult
 from rs2.InterpreterGraphEnums import *
 class ModelProxy(ProxyObject):
 	"""
@@ -82,7 +83,7 @@ class ModelProxy(ProxyObject):
 		return MeshResults(results)
 
 	def GetHistoryQueryResults(self, hq_name: str, horizontal_axis: HistoryQueryGraphEnums.HorizontalAxisTypes, vertical_axis: HistoryQueryGraphEnums.VerticalAxisTypes, 
-							stages: list[int]) -> list[list[int]]:
+							stages: list[int]) -> dict[int, list[HistoryQueryResult]]:
 		"""
 		Returns the history query result for the provided query name with specified graph options and stages.
 
@@ -93,9 +94,34 @@ class ModelProxy(ProxyObject):
 			stages (int): Takes the stages by their stage number for which results should be returned.
 
 		Returns:
-			Returns a list of (HorizontalAxisType, VerticalAxisType) points pairs for each stage in increasing stage order.
+			Returns a dictionary with key as stage number and value a List of HistoryQueryResult object.
+			To extract the stage number, x-coordinate, y-coordinate, horizontal axis result and vertical axis result,
+			please call the supported functions from the class:
+				HistoryQueryResult.GetXCoordinate()
+				HistoryQueryResult.GetYCoordinate()
+				HistoryQueryResult.GetHorizontalAxisResult()
+				HistoryQueryResult.GetVerticalAxisResult()
+				
+		Typical Usage:
+			results = model.GetHistoryQueryResults(params)
+			results_for_stage_1 = results[1]
+			x_coordiante = results_for_stage_1[0].GetXCoordinate()
+			y_coordinate = results_for_stage_1[0].GetYCoordinate()
+			horizontal_result = results_for_stage_1[0].GetHorizontalResult()
+			vertical_result = results_for_stage_1[0].GetVerticalResult()
 
 		Exceptions:
-			ValueError: horizontal_axis and vertical_axis must be an enum of type HistoryQueryGraphEnums. Any other value will raise an error
+			ValueError: horizontal_axis and vertical_axis must be an enum of type HistoryQueryGraphEnums. 
+						Any other value will raise an error.
 		"""
-		return self._callFunction('GetHistoryQueryResults', [hq_name, horizontal_axis.value, vertical_axis.value, stages])
+		map_data = self._callFunction('GetHistoryQueryResults', [hq_name, horizontal_axis.value, vertical_axis.value, stages])
+		structured_data = {}
+		for stage_idx, stage_data in map_data.items():
+			list_stage_data_as_classObj = []
+			for result in stage_data:
+				list_stage_data_as_classObj.append(HistoryQueryResult(result[0], result[1], result[2], result[3]))
+			
+			structured_data[stage_idx] = list_stage_data_as_classObj
+		
+		return structured_data
+		

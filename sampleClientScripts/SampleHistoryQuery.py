@@ -23,4 +23,12 @@ stages = [1, 2]
 
 history_query_results = interpreter_model.GetHistoryQueryResults(hq_name=hq_name, horizontal_axis=horizontal_axis, vertical_axis=vertical_axis, stages=stages)
 
-pprint(history_query_results)
+# Extracting data
+stage_number = 1
+results_for_stage_1 = history_query_results[stage_number]
+
+for data in results_for_stage_1:
+    x_coord = data.GetXCoordinate()
+    y_coord = data.GetYCoordinate()
+    horizontal_result = data.GetHorizontalAxisResult()
+    vertical_result = data.GetVerticalAxisResult()
