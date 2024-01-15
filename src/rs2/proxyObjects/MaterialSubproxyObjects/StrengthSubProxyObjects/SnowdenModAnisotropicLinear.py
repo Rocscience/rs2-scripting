@@ -37,6 +37,13 @@ class SnowdenModAnisotropicLinear(PropertyProxy):
 		return self._getBoolProperty("MP_APPLY_SSR")
 	def setApplySSRShearStrengthReduction(self, value: bool):
 		return self._setBoolProperty("MP_APPLY_SSR", value)
+	def setAnisotropicSurfaceByName(self, surfaceName: str):
+		"""
+		Sets the anisotropic surface by name. The surface must be defined in the model.
+		"""
+		return self._callFunction("setAnisotropicSurfaceByName", [surfaceName])
+	def getAnisotropicSurfaceName(self) -> str:
+		return self._callFunction("getAnisotropicSurfaceName", [])
 	def getBeddingStrengthFunction(self) -> SnowdenAnisotropicFunction:
 		return SnowdenAnisotropicFunction(self._client, self._callFunction("getBeddingStrengthFunction", keepReturnValueReference=True))
 	def getRockMassStrengthFunction(self) -> SnowdenAnisotropicFunction:
