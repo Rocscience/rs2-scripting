@@ -97,6 +97,22 @@ rs2.proxyObjects.RelativeStageFactorInterface module
    :undoc-members:
    :show-inheritance:
 
+rs2.proxyObjects.ShearNormalFunctionProxy module
+------------------------------------------------
+
+.. automodule:: rs2.proxyObjects.ShearNormalFunctionProxy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.proxyObjects.SnowdenAnisotropicFunction module
+--------------------------------------------------
+
+.. automodule:: rs2.proxyObjects.SnowdenAnisotropicFunction
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.proxyObjects.StructuralInterfacePropertyProxy module
 --------------------------------------------------------
 

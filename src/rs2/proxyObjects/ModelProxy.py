@@ -8,6 +8,7 @@ from rs2.proxyObjects.StructuralInterfacePropertyProxy import StructuralInterfac
 from rs2.proxyObjects.CompositeLinerPropertyProxy import CompositeLinerProperty
 
 from rs2.proxyObjects.MaterialPropertyProxy import MaterialProperty
+from rs2.proxyObjects.ShearNormalFunctionProxy import ShearNormalFunction
 class ModelProxy(ProxyObject):
 	"""
 	:ref:`Model Example`
@@ -143,6 +144,41 @@ class ModelProxy(ProxyObject):
 		for materialObjectID in materialObjectIDList:
 			activeMaterialProperties.append(MaterialProperty(self._client, materialObjectID, self._documentProxy._ID))
 		return activeMaterialProperties
+	
+	def getShearNormalFunctions(self) -> list[ShearNormalFunction]:
+		'''
+		Returns a list of all shear normal functions
+		'''
+		activeShearNormalFunctionProperties = []
+		shearNormalFunctionIDList = self._callFunction('getShearNormalFunctions', [], keepReturnValueReference=True)
+		for shearNormalFunctionObjectID in shearNormalFunctionIDList:
+			activeShearNormalFunctionProperties.append(ShearNormalFunction(self._client, shearNormalFunctionObjectID))
+		return activeShearNormalFunctionProperties
+	
+	def getShearNormalFunctionByName(self, shearNormalFunctionName : str) -> ShearNormalFunction:
+		'''
+		Returns a shear normal function object based on its name.
+		'''
+		shearNormalFunctionObjectID = self._callFunction('getShearNormalFunctionByName', [shearNormalFunctionName], keepReturnValueReference=True)
+		return ShearNormalFunction(self._client, shearNormalFunctionObjectID)
+	
+	def createNewShearNormalFunction(self, functionName):
+		'''
+		Creates a new shear normal function with the given name
+		'''
+		return self._callFunction('createNewShearNormalFunction', [functionName])
+	
+	def deleteShearNormalFunction(self, functionName):
+		'''
+		Deletes a shear normal function with the given name
+		'''
+		return self._callFunction('deleteShearNormalFunction', [functionName])
+	
+	def renameShearNormalFunction(self, oldName, newName):
+		'''
+		Renames a shear normal function with the given name
+		'''
+		return self._callFunction('renameShearNormalFunction', [oldName, newName])
 	
 	def AddHistoryQueryPoint(self, x: float, y: float, history_query_name: str):
 		'''
