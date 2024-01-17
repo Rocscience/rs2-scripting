@@ -87,7 +87,7 @@ class Shansep(PropertyProxy):
 	def setShansepMaterialDependentVerticalStress(self, materialDependentVerticalStress: list[tuple[str,float]]):
 		"""
 		materialDependentVerticalStress is a list of (materialName,verticalStressFactor) pairs.
-		 A factor of 1 means that the entire weight is used in the vertical stress computation.  A factor of 0 means no weight is used.  If a material is not listed below it automatically has a factor of 1.
+		 A factor of 1 means that the entire weight is used in the vertical stress computation.  A factor of 0 means no weight is used.  If a material is not provided, it automatically has a factor of 1.
 		"""
 		return self._callFunction("setShansepMaterialDependentVerticalStress", [materialDependentVerticalStress])
 	def getShansepMaterialDependentVerticalStress(self) -> list[tuple[str,float]]:
