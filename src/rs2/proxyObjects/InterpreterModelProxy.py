@@ -65,11 +65,11 @@ class ModelProxy(ProxyObject):
 		Returns the mesh results at all nodes of the model.
 
 		Returns:
-			An object of type MeshResults. To extract the x-coordinate, y-coordinate or value from the returned data,
+			An object of type MeshResults. To extract the x-coordinate, y-coordinate or value from the returned data, 
 			please call the supported functions from the class:
-				MeshResults.GetXCoordinate(index)
-				MeshResults.GetYCoordinate(index)
-				MeshResults.GetValue(index)
+			MeshResults.GetXCoordinate(index)
+			MeshResults.GetYCoordinate(index)
+			MeshResults.GetValue(index)
 				
 		Typical Usage:
 			results = model.GetMeshResults()

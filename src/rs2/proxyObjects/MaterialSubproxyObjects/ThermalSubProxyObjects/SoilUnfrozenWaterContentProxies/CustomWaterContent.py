@@ -8,6 +8,6 @@ class CustomWaterContent(PropertyProxy):
 		return self._callFunction("setTemperatureVsUnfrozenWaterContentValues", [temperature, unfrozenWaterContent])
 	def getTemperatureVsUnfrozenWaterContentValues(self) -> tuple[list[float],list[float]]:
 		"""
-		Returns a tuple of lists ([temperature],[unfrozenWaterContent])
+		Returns a tuple of lists [[temperature],[unfrozenWaterContent]]
 		"""
 		return self._callFunction("getTemperatureVsUnfrozenWaterContentValues", [])
