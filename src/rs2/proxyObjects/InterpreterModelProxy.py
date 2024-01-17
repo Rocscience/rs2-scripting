@@ -81,3 +81,31 @@ class ModelProxy(ProxyObject):
 		results = self._callFunction('GetMeshResults', [])
 		return MeshResults(results)
 
+	def AddMaterialQueryPoint(self, x: float, y: float) -> str:
+		"""
+		Adds a material query point to your model at the specified coordinates.
+
+		Returns:
+			A unique identifier for the newly added material query point.
+		
+		"""
+		return self._callFunction('AddMaterialQueryPoint', [x, y])
+
+	def AddMaterialQueryLine(self, points: list[list[float]]) -> str:
+		"""
+		Adds a material query line to your model using the specified coordinates in order.
+
+		Returns:
+			A unique identifier for the newly added material query line.
+		
+		"""
+		return self._callFunction('AddMaterialQueryLine', [points])
+	
+	def RemoveMaterialQuery(self, guid: str) -> str:
+		"""
+		Removes a material query point or line from your model by ID.
+		
+		"""
+		return self._callFunction('RemoveMaterialQuery', [guid])
+	
+	
