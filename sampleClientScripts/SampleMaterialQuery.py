@@ -12,5 +12,5 @@ lineID = model.AddMaterialQueryLine(points=points_making_line)
 print("Unique Identifier for Point = ", pointID)
 print("Unique Identifier for Line = ", lineID)
 
-model.RemoveMaterialQueryPoint(lineID)
+model.RemoveMaterialQuery(lineID)
 
