@@ -29,6 +29,22 @@ rs2.ColorPicker module
    :undoc-members:
    :show-inheritance:
 
+rs2.InterpreterEnums module
+---------------------------
+
+.. automodule:: rs2.InterpreterEnums
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.MeshResults module
+----------------------
+
+.. automodule:: rs2.MeshResults
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.PropertyEnums module
 ------------------------
 

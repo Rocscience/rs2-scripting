@@ -60,6 +60,30 @@ class InitialConditions(PropertyProxy):
 		return self._getDoubleProperty("MP_INITIAL_TEMPERATURE_CONST")
 	def setInitialTemperature(self, value: float):
 		return self._setDoubleProperty("MP_INITIAL_TEMPERATURE_CONST", value)
+	def setInitialPiezoByName(self, piezoName: str):
+		"""
+		piezoName is the id of the piezo line to be used or "None".
+		"""
+		return self._callFunction("setInitialPiezoByName", [piezoName])
+	def getInitialPiezoName(self) -> str:
+		"""
+		Returns the id of the selected initial piezoLine or "None".
+		"""
+		return self._callFunction("getInitialPiezoName", [])
+	def setInitialGridByName(self, gridName: str):
+		"""
+		gridName is the name of the grid to be used. "None" and "Default Grid" are available by default.
+		"""
+		return self._callFunction("setInitialGridByName", [gridName])
+	def getInitialGridName(self) -> str:
+		return self._callFunction("getInitialGridName", [])
+	def setInitialTemperatureGridByName(self, gridName: str):
+		"""
+		gridName is the name of the grid to be used. "None" and "Default Grid" are available by default.
+		"""
+		return self._callFunction("setInitialTemperatureGridByName", [gridName])
+	def getInitialTemperatureGridName(self) -> str:
+		return self._callFunction("getInitialTemperatureGridName", [])
 	def setProperties(self, InitialElementLoading : InitialElementLoadingType = None, AccountForMoistureContentInUnitWeight : bool = None, DryUnitWeight : float = None, MoistUnitWeight : float = None, SaturatedUnitWeight : float = None, UnitWeight : float = None, PorosityValue : float = None, InitialWaterCondition : StaticWaterModes = None, InitialPoreWaterPressure : float = None, InitialRu : float = None, InitialHuType : HuTypes = None, InitialHu : float = None, InitialTemperatureCondition : StaticWaterModes = None, InitialTemperature : float = None):
 		if InitialElementLoading is not None:
 			self._setEnumEInitialElementLoadingTypeProperty("MP_INITIAL_ELEMENT_LOADING", InitialElementLoading)
