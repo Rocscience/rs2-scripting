@@ -56,8 +56,20 @@ class TestUserDefinedWaterMode(unittest.TestCase):
             model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
 
     def testDeleteFailureUsedByMaterial(self):
-        #TODO: once you are able to assign a user defined water content mode to a material, test that here
-        pass
+        self.model.createUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode1")
+        self.model.createUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode2")
+
+        material1 = self.model.getAllMaterialProperties()[0]
+        material1.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.SL_WATER_MODE_USER_DEFINED)
+        material1.Hydraulic.FEAGroundwater.UserDefined.setUserDefinedPermeabilityAndWaterContentFunction("testUserDefinedWaterMode1")
+        self.assertEqual(material1.Hydraulic.FEAGroundwater.UserDefined.getUserDefinedPermeabilityAndWaterContentFunction(), "testUserDefinedWaterMode1")
+        
+        with self.assertRaises(Exception):
+            self.model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode1")
+
+        material1.Hydraulic.FEAGroundwater.UserDefined.setUserDefinedPermeabilityAndWaterContentFunction("testUserDefinedWaterMode2")
+        
+        self.model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode1")
 
     def testGetSetWaterContentFunction(self):
         model = self.model
