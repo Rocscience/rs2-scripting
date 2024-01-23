@@ -4,4 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 class UserDefined(PropertyProxy):
-    pass #TODO: add extra functions to select user defined function
+	def setUserDefinedPermeabilityAndWaterContentFunction(self, functionName: str):
+		return self._callFunction("setUserDefinedPermeabilityAndWaterContentFunction", [functionName])
+	def getUserDefinedPermeabilityAndWaterContentFunction(self) -> str:
+		return self._callFunction("getUserDefinedPermeabilityAndWaterContentFunction", [])

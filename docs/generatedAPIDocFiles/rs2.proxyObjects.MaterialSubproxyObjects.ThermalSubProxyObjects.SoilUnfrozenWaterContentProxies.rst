@@ -13,6 +13,22 @@ rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWate
    rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies
 
 
+rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.Custom module
+-------------------------------------------------------------------------------------------------------------
+
+.. automodule:: rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.Custom
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.CustomWaterContent module
+-------------------------------------------------------------------------------------------------------------------------
+
+.. automodule:: rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.CustomWaterContent
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModel module
 ---------------------------------------------------------------------------------------------------------------------
 

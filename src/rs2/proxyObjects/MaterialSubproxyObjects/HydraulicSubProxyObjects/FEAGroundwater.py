@@ -47,3 +47,10 @@ class FEAGroundwater(PropertyProxy):
 		return self._getDoubleProperty("MP_MV")
 	def setMv(self, value: float):
 		return self._setDoubleProperty("MP_MV", value)
+	def setK1SurfaceToUseByName(self, surfaceName: str):
+		"""
+		surfaceName is the name of the surface to be used. Surface must be present in the model.
+		"""
+		return self._callFunction("setK1SurfaceToUseByName", [surfaceName])
+	def getK1SurfaceToUse(self) -> str:
+		return self._callFunction("getK1SurfaceToUse", [])

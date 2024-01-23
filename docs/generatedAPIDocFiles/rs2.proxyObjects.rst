@@ -41,6 +41,14 @@ rs2.proxyObjects.CompositeLinerPropertyProxy module
    :undoc-members:
    :show-inheritance:
 
+rs2.proxyObjects.InterpreterModelProxy module
+---------------------------------------------
+
+.. automodule:: rs2.proxyObjects.InterpreterModelProxy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.proxyObjects.JointPropertyProxy module
 ------------------------------------------
 
@@ -85,6 +93,22 @@ rs2.proxyObjects.RelativeStageFactorInterface module
 ----------------------------------------------------
 
 .. automodule:: rs2.proxyObjects.RelativeStageFactorInterface
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.proxyObjects.ShearNormalFunctionProxy module
+------------------------------------------------
+
+.. automodule:: rs2.proxyObjects.ShearNormalFunctionProxy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.proxyObjects.SnowdenAnisotropicFunction module
+--------------------------------------------------
+
+.. automodule:: rs2.proxyObjects.SnowdenAnisotropicFunction
    :members:
    :undoc-members:
    :show-inheritance:
