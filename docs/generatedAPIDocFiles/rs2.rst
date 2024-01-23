@@ -37,6 +37,14 @@ rs2.InterpreterEnums module
    :undoc-members:
    :show-inheritance:
 
+rs2.MaterialQueryResults module
+-------------------------------
+
+.. automodule:: rs2.MaterialQueryResults
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.MeshResults module
 ----------------------
 
