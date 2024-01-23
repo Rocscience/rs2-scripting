@@ -1,6 +1,10 @@
 from rs2.ProxyObject import ProxyObject
-
+from rs2.PropertyEnums import WCInputType
 class UserDefinedWaterMode(ProxyObject):
+    def setWaterContentInputType(self, inputType : WCInputType):
+        return self._callFunction('setWaterContentInputType', [inputType.value])
+    def getWaterContentInputType(self) -> WCInputType:
+        return WCInputType(self._callFunction('getWaterContentInputType'))
     def getWaterContentFunction(self) -> list[tuple[float, float]]:
         return self._callFunction('getWCFunction')
     def setWaterContentFunction(self, wcFunction : list[tuple[float, float]]):

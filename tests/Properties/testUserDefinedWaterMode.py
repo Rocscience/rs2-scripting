@@ -132,3 +132,17 @@ class TestUserDefinedWaterMode(unittest.TestCase):
 
         model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode1")
         model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode2")
+
+    def testSetWaterContentType(self):
+        model = self.model
+
+        model.createUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
+        userDefinedWaterMode = model.getUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
+
+        userDefinedWaterMode.setWaterContentInputType(WCInputType.WC_INPUT_DOS)
+        self.assertEqual(userDefinedWaterMode.getWaterContentInputType(), WCInputType.WC_INPUT_DOS)
+
+        userDefinedWaterMode.setWaterContentInputType(WCInputType.WC_INPUT_WC)
+        self.assertEqual(userDefinedWaterMode.getWaterContentInputType(), WCInputType.WC_INPUT_WC)
+
+        model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
