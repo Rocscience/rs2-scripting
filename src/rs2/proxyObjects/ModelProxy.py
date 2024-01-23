@@ -201,6 +201,12 @@ class ModelProxy(ProxyObject):
 		'''
 		return self._callFunction('deleteUserDefinedWaterMode', [name])
 	
+	def renameUserDefinedPermeabilityAndWaterContentMode(self, oldName : str, newName : str):
+		'''
+		Renames a User Defined Water Mode object with the given name.
+		'''
+		return self._callFunction('renameUserDefinedWaterMode', [oldName, newName])
+	
 	def compute(self):
 		'''
 		Saves the file if modified and then runs compute. Replaces any existing results.

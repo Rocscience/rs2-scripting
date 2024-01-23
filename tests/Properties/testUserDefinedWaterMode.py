@@ -71,6 +71,9 @@ class TestUserDefinedWaterMode(unittest.TestCase):
         
         self.model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode1")
 
+        material1.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.SL_WATER_MODE_VAN_GENUCHTEN)
+        self.model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode2")
+
     def testGetSetWaterContentFunction(self):
         model = self.model
 
@@ -102,3 +105,30 @@ class TestUserDefinedWaterMode(unittest.TestCase):
         self.assertEqual(userDefinedWaterMode.getPermeabilityFunction(), [(1, 0.1), (2, 0.2)])
 
         model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
+    
+    def testRenameSuccess(self):
+        model = self.model
+
+        model.createUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
+        model.renameUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode", "testUserDefinedWaterMode2")
+
+        with self.assertRaises(Exception):
+            model.getUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
+
+        model.getUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode2")
+        model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode2")
+
+        with self.assertRaises(Exception):
+            model.getUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode2")
+
+    def testRenameNameAlreadyTaken(self):
+        model = self.model
+
+        model.createUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode1")
+        model.createUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode2")
+
+        with self.assertRaises(Exception):
+            model.renameUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode1", "testUserDefinedWaterMode2")
+
+        model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode1")
+        model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode2")
