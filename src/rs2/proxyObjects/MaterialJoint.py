@@ -10,11 +10,11 @@ class MaterialJoint(PropertyProxy):
 	"""
 	:ref:`Material Joint Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.MohrCoulombMaterial = MohrCoulombMaterial(server, ID, documentProxyID)
-		self.BartonBandisMaterial = BartonBandisMaterial(server, ID, documentProxyID)
-		self.GeosyntheticHyperbolicMaterial = GeosyntheticHyperbolicMaterial(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.MohrCoulombMaterial = MohrCoulombMaterial(client, ID, documentProxyID)
+		self.BartonBandisMaterial = BartonBandisMaterial(client, ID, documentProxyID)
+		self.GeosyntheticHyperbolicMaterial = GeosyntheticHyperbolicMaterial(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getSlipCriterion(self) -> JointTypes:
 		return JointTypes(self._getEnumEJointTypesProperty("JP_SLIP_CRITIRION"))
 	def setSlipCriterion(self, value: JointTypes):
