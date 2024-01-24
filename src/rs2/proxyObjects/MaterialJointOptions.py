@@ -9,7 +9,7 @@ class MaterialJointOptions(ProxyObject):
     def setNumberOfJoints(self, value: int):
         return self._callFunction("setNumberOfJoints", [value])
     def getNumberOfJoints(self) -> int:
-        return self._callFunction("__getattribute__", ["numJoints"])
+        return self._callFunction("getNumberOfJoints")
     def setUseTracePlane(self, jointIndex: int, value: bool):
         return self._callFunction("setUseTracePlane", [jointIndex, value])
     def getUseTracePlane(self, jointIndex: int) -> bool:
