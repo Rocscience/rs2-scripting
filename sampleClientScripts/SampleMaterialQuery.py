@@ -17,28 +17,18 @@ print("Unique Identifier for Line = ", lineID)
 # Remove material query point from model
 model.RemoveMaterialQuery(pointID)
 
+# Set model stage to desired stage number
+model.ChangeModelStageReference(2)
 # Get results for all material queries from model
-results = model.GetMaterialQueryResults(stages=[1, 2])
+results = model.GetMaterialQueryResults()
 # Extracting data for all material queries from model
-stage_number = 1
-results_for_stage_1 = results[stage_number]
-
-for stage_data in results.values():
-    for mat_query_data in stage_data:
-        for node_value in mat_query_data:
-            print("----------------------")
-            material_id = node_value.GetMaterialID()
-            x_coord = node_value.GetXCoordinate()
-            y_coord = node_value.GetYCoordinate()
-            distance = node_value.GetDistance()
-            value = node_value.GetValue()
-            stats_base = node_value.GetBaseStats()
-            stats_mean = node_value.GetMeanStats()
-            stats_stddv = node_value.GetStandardDeviationStats()
-            stats_cov = node_value.GetCovarianceStats()
-            print(material_id, x_coord, y_coord, distance, value)
-        print("END OF MATERIAL DATA\n")
-    print("END OF STAGE DATA\n")
-
-    
-
+for mat_query_data in results:
+    for node_value in mat_query_data:
+        print("----------------------")
+        material_id = node_value.GetMaterialID()
+        x_coord = node_value.GetXCoordinate()
+        y_coord = node_value.GetYCoordinate()
+        distance = node_value.GetDistance()
+        value = node_value.GetValue()
+        print(material_id, x_coord, y_coord, distance, value)
+    print("\n\n")

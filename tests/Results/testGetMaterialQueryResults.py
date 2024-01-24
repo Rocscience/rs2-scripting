@@ -28,32 +28,11 @@ class TestGetHistoryQueryResults(unittest.TestCase):
         self.modelWithoutMQ._client.closeConnection()
 
     def testGetMaterialQueryResultsSuccess(self):
-        self.model.GetMaterialQueryResults(stages=[1, 2])
+        self.model.GetMaterialQueryResults()
 
     def testGetMaterialQueryResultsWithoutQueriesFailure(self):
         try:
-            self.modelWithoutMQ.GetMaterialQueryResults(stages=[1, 2])
-            self.fail("Expected exception")
-        except:
-            pass
-
-    def testGetMaterialQueryResultsEmptyStagesFailure(self):
-        try:
-            self.model.GetMaterialQueryResults(stages=[])
-            self.fail("Expected exception")
-        except:
-            pass
-    
-    def testGetMaterialQueryResultsMinStagesFailure(self):
-        try:
-            self.model.GetMaterialQueryResults(stages=[-1, 3])
-            self.fail("Expected exception")
-        except:
-            pass
-
-    def testGetHistoryQueryResultsMaxStagesFailure(self):
-        try:
-            self.model.GetMaterialQueryResults(stages=[1, 800])
+            self.modelWithoutMQ.GetMaterialQueryResults()
             self.fail("Expected exception")
         except:
             pass
