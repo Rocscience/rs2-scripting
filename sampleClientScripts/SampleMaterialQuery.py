@@ -18,7 +18,7 @@ print("Unique Identifier for Line = ", lineID)
 model.RemoveMaterialQuery(pointID)
 
 # Set model stage to desired stage number
-model.ChangeModelStageReference(2)
+model.SetActiveStage(2)
 # Get results for all material queries from model
 results = model.GetMaterialQueryResults()
 # Extracting data for all material queries from model

@@ -37,7 +37,7 @@ class ModelProxy(ProxyObject):
 		'''
 		return self._callFunction('save', [])
 	
-	def ChangeModelStageReference(self, stageNumber: int):
+	def SetActiveStage(self, stageNumber: int):
 		'''
 		Change Model's stage by its stage number
 		'''

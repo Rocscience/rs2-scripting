@@ -16,7 +16,7 @@ lineID = model.AddMaterialQueryLine(points=points_making_line)
 model.RemoveMaterialQuery(pointID)
 
 # Set model stage to desired stage number
-model.ChangeModelStageReference(2)
+model.SetActiveStage(2)
 
 # Get results for all material queries defined in your model
 results = model.GetMaterialQueryResults()
