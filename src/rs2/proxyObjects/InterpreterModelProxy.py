@@ -4,6 +4,8 @@ from rs2.InterpreterEnums import *
 from rs2.MeshResults import MeshResults
 from rs2.HistoryQueryResults import HistoryQueryResult
 from rs2.InterpreterGraphEnums import *
+from rs2.JointResult import *
+from rs2.BeamResult import *
 class ModelProxy(ProxyObject):
 	"""
 	:ref:`Model Example`
@@ -125,3 +127,50 @@ class ModelProxy(ProxyObject):
 		
 		return structured_data
 		
+		
+	
+	def GetJointResults(
+		self, 
+		stages: list[int]) -> dict[int, list[JointResult]]:
+		yeilded_indx = 10
+		map_data = self._callFunction('GetJointResults', [stages])
+		structured_data = {}
+		for stage_idx, stage_data in map_data.items():
+			list_stage_data_as_classObj = []
+			for result in stage_data:
+				result[yeilded_indx] = bool(result[yeilded_indx])
+				list_stage_data_as_classObj.append(JointResult(*result))
+			
+			structured_data[stage_idx] = list_stage_data_as_classObj
+		
+		return structured_data
+
+	def GetBeamResults(
+		self, 
+		stages: list[int]) -> dict[int, list[BeamResult]]:
+
+		node_id_start_indx = 0
+		node_id_end_indx = 1
+		liner_yeilded_indx = 15
+		composite_level = 16
+		composite_yeilded_indx = 21
+
+		map_data = self._callFunction('GetBeamResults', [stages])
+		structured_data = {}
+		for stage_idx, stage_data in map_data.items():
+			list_stage_data_as_classObj = []
+			for result in stage_data:
+
+				result[node_id_start_indx] = int(result[node_id_start_indx])
+				result[node_id_end_indx] = int(result[node_id_end_indx])
+				result[composite_level] = int(result[composite_level])
+
+				result[liner_yeilded_indx] = bool(result[liner_yeilded_indx])
+				result[composite_yeilded_indx] = bool(result[composite_yeilded_indx])
+
+
+				list_stage_data_as_classObj.append(BeamResult(*result))
+			
+			structured_data[stage_idx] = list_stage_data_as_classObj
+		
+		return structured_data
