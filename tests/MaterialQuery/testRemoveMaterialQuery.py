@@ -7,7 +7,7 @@ from rs2.PropertyEnums import*
 
 parentDirectoryHelper.addParentDirectoryToPath()
 
-class TestAddMaterialQuery(unittest.TestCase):
+class TestRemoveMaterialQuery(unittest.TestCase):
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
         blankModelPath = f"{parentDirectory}/resources/example_computed_model.fez"

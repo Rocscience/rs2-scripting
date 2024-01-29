@@ -117,7 +117,9 @@ class ModelProxy(ProxyObject):
 	
 	def GetMaterialQueryResults(self) -> list[list[MaterialQueryResults]]:
 		"""
-		Returns the results for all the material queries defined in the model.
+		Returns the results for all the material queries defined in the model for current model stage.
+
+		To get results for a different stage of your model, please call SetActiveStage(int stageNumber) first.
 
 		Returns:
 			An object of type MaterialQueryResults. To extract the material-ID, x-coordinate, y-coordinate, distance, or value from the result, 
