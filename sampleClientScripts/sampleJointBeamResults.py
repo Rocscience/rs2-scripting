@@ -16,7 +16,7 @@ def print_data_attributes(input_data):
         for attr, value in vars(data).items():
             print(f"{attr}: {value}")
 
-joint_results = interpreter_model.GetJointResults( stages=[1, 2])
+joint_results = interpreter_model.GetJointResults( stages=[1, 2,3])
 beam_results = interpreter_model.GetBeamResults( stages=[1, 2])
 
 stage_number = 1
