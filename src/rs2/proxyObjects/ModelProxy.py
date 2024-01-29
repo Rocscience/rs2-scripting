@@ -9,6 +9,7 @@ from rs2.proxyObjects.CompositeLinerPropertyProxy import CompositeLinerProperty
 
 from rs2.proxyObjects.MaterialPropertyProxy import MaterialProperty
 from rs2.proxyObjects.ShearNormalFunctionProxy import ShearNormalFunction
+from rs2.proxyObjects.UserDefinedWaterMode import UserDefinedWaterMode
 class ModelProxy(ProxyObject):
 	"""
 	:ref:`Model Example`
@@ -179,6 +180,32 @@ class ModelProxy(ProxyObject):
 		Renames a shear normal function with the given name
 		'''
 		return self._callFunction('renameShearNormalFunction', [oldName, newName])
+	
+	def getUserDefinedPermeabilityAndWaterContentMode(self, name : str) -> UserDefinedWaterMode:
+		'''
+		Returns a User Defined Water Mode object based on its name.
+		'''
+		userDefinedWaterModeObjectID = self._callFunction('getUserDefinedWaterMode', [name], keepReturnValueReference=True)
+		return UserDefinedWaterMode(self._client, userDefinedWaterModeObjectID)
+	
+	def createUserDefinedPermeabilityAndWaterContentMode(self, name : str) -> UserDefinedWaterMode:
+		'''
+		Creates a User Defined Water Mode object with the given name.
+		'''
+		userDefinedWaterModeObjectID = self._callFunction('createUserDefinedWaterMode', [name], keepReturnValueReference=True)
+		return UserDefinedWaterMode(self._client, userDefinedWaterModeObjectID)
+
+	def deleteUserDefinedPermeabilityAndWaterContentMode(self, name : str):
+		'''
+		Deletes a User Defined Water Mode object with the given name.
+		'''
+		return self._callFunction('deleteUserDefinedWaterMode', [name])
+	
+	def renameUserDefinedPermeabilityAndWaterContentMode(self, oldName : str, newName : str):
+		'''
+		Renames a User Defined Water Mode object with the given name.
+		'''
+		return self._callFunction('renameUserDefinedWaterMode', [oldName, newName])
 	
 	def AddHistoryQueryPoint(self, x: float, y: float, history_query_name: str):
 		'''
