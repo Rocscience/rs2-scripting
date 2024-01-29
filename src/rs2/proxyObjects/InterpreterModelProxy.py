@@ -136,9 +136,9 @@ class ModelProxy(ProxyObject):
 			# This list corresponds to the data at each vertex of material query in iteration
 			singleQueryValuesObject = []
 			for node_value_tuple in mat_query_data:
-				mat_id = node_value_tuple[0]
-				x, y, distance, value = node_value_tuple[1][0], node_value_tuple[1][1], node_value_tuple[1][2], node_value_tuple[1][3]
-				singleQueryValuesObject.append(MaterialQueryResults(mat_id, x, y, distance, value))
+				material_id, list_query_data = node_value_tuple
+				unpack_list_data = [material_id, *list_query_data]
+				singleQueryValuesObject.append(MaterialQueryResults(*unpack_list_data))
 			# Add the data for this material query in final list
 			all_mat_query_data_as_classObj.append(singleQueryValuesObject)
 		
