@@ -122,7 +122,9 @@ class ModelProxy(ProxyObject):
 		To get results for a different stage of your model, please call SetActiveStage(int stageNumber) first.
 
 		Returns:
-			An object of type MaterialQueryResults. To extract the material-ID, x-coordinate, y-coordinate, distance, or value from the result, 
+			A list[list[MaterialQueryResults]] of query results. The first inner list represents to results for all queries. 
+			The second inner list represents the data for points which make up a single material query.
+			To extract the material-ID, x-coordinate, y-coordinate, distance, or value from the specific material query node object, 
 			please call the any of the supported functions from the class:
 
 			MaterialQueryResults.GetMaterialID()
