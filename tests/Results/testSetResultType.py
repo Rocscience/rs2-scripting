@@ -44,6 +44,13 @@ class TestSetResultType(unittest.TestCase):
             self.fail("Expected exception")
         except:
             pass
+    
+    def testSetResultTypeGroundwaterFailure(self):
+        try:
+            self.model.SetResultType(ExportResultType.SEEPAGE_TOTAL_HYDRAULIC_GRADIENT)
+            self.fail("Expected exception")
+        except:
+            pass
 
     def testSetResultTypeFailure(self):
         try:
