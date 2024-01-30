@@ -35,4 +35,4 @@ for mat_query_data in results:
         distance = node_value.GetDistance()
         value = node_value.GetValue()
         print(material_id, x_coord, y_coord, distance, value)
-    print("\n\n")
+    print("\n")

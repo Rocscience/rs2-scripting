@@ -118,6 +118,8 @@ class ModelProxy(ProxyObject):
 	def GetMaterialQueryResults(self) -> list[list[MaterialQueryResults]]:
 		"""
 		Returns the results for all the material queries defined in the model for current model stage.
+		
+		Please note that results for points that fall outside the model mesh boundary is not returned.
 
 		To get results for a different stage of your model, please call SetActiveStage(int stageNumber) first.
 
