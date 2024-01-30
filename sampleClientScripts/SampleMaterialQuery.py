@@ -6,7 +6,11 @@ interpreter = RS2Interpreter()
 model = interpreter.openFile("C:\scriptingModels\Profiles_and_Boreholes.fez")
 
 # Add a material query point to model
-pointID = model.AddMaterialQueryPoint(5.5, 5.5)
+pointID = model.AddMaterialQueryPoint(3.5, 4.5)
+pointID2 = model.AddMaterialQueryPoint(3.5, 3.5)
+pointID3 = model.AddMaterialQueryPoint(3.5, 2.5)
+pointID4 = model.AddMaterialQueryPoint(3.5, 1.5)
+
 # Add a material query line to model
 points_making_line = [[4.5, 4.5], [-2.5, 4.5], [-2.5, 2.5], [-6, 2.5]]
 lineID = model.AddMaterialQueryLine(points=points_making_line)
