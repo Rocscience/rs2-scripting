@@ -30,6 +30,27 @@ class TestSetResultType(unittest.TestCase):
             self.fail("Expected exception")
         except:
             pass
+
+    def testSetResultTypeThermalFailure(self):
+        try:
+            self.model.SetResultType(ExportResultType.THERMAL_HORIZONTAL_CONDUCTIVITY)
+            self.fail("Expected exception")
+        except:
+            pass
+    
+    def testSetResultTypeDynamicFailure(self):
+        try:
+            self.model.SetResultType(ExportResultType.DYNAMIC_MAXIMUM_X_ACCELERATION)
+            self.fail("Expected exception")
+        except:
+            pass
+
+    def testSetResultTypeFailure(self):
+        try:
+            self.model.SetResultType(CompositeJointPlacementTypes.BETWEEN_FIRST_AND_SECOND_LINER)
+            self.fail("Expected exception")
+        except:
+            pass
     
     # def testSetUserDefinedResultTypeSuccess(self):
     #     self.model.SetUserDefinedResultType("Sin(dy)")
