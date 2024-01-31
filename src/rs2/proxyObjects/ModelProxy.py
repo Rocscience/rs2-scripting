@@ -207,6 +207,14 @@ class ModelProxy(ProxyObject):
 		'''
 		return self._callFunction('renameUserDefinedWaterMode', [oldName, newName])
 	
+	def AddTimeQueryLine(self, input_points: list[float], points_on_line: int) -> str:
+		'''
+		Adds a new Time Query Line to your model.
+
+		Returns the unique identifier for the newly added time query line.
+		'''
+		return self._callFunction('AddTimeQueryLine', [input_points, points_on_line])
+	
 	def compute(self):
 		'''
 		Saves the file if modified and then runs compute. Replaces any existing results.
