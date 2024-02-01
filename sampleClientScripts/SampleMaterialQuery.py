@@ -12,11 +12,13 @@ pointID3 = model.AddMaterialQueryPoint(3.5, 2.5)
 pointID4 = model.AddMaterialQueryPoint(3.5, 1.5)
 
 # Add a material query line to model
-points_making_line = [[4.5, 4.5], [-2.5, 4.5], [-2.5, 2.5], [-6, 2.5]]
+points_making_line = [[0, -1], [0, -4]]
+points_making_line2 = [[-2, -4], [-2, -1]]
 lineID = model.AddMaterialQueryLine(points=points_making_line)
+line2 = model.AddMaterialQueryLine(points_making_line2)
 
-print("Unique Identifier for Point = ", pointID)
-print("Unique Identifier for Line = ", lineID)
+# print("Unique Identifier for Point = ", pointID)
+# print("Unique Identifier for Line = ", lineID)
 
 # Remove material query point from model
 model.RemoveMaterialQuery(pointID)

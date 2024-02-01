@@ -41,7 +41,7 @@ class ModelProxy(ProxyObject):
 		'''
 		Change Model's stage by its stage number
 		'''
-		return self._callFunction('ChangeModelStageReference', [stageNumber])
+		return self._callFunction('SetActiveStage', [stageNumber])
 	
 	def SetResultType(self, resultType: ExportResultType) -> list[dict]:
 		"""
@@ -117,11 +117,13 @@ class ModelProxy(ProxyObject):
 	
 	def GetMaterialQueryResults(self) -> list[list[MaterialQueryResults]]:
 		"""
-		Returns the results for all the material queries defined in the model for current model stage.
+		Returns the results for all the material queries defined in the model for active model stage and result type.
+		To get results for a different stage of your model, please call SetActiveStage(int stageNumber) first.
+		To get results for a different result type, please call either of before getting results:
+			- SetResultType(InterpreterGraphEnums)
+			- SetUserDefinedResultType("Your custom resultType name")
 		
 		Please note that results for points that fall outside the model mesh boundary is not returned.
-
-		To get results for a different stage of your model, please call SetActiveStage(int stageNumber) first.
 
 		Returns:
 			A list[list[MaterialQueryResults]] of query results. The first inner list represents to results for all queries. 

@@ -43,7 +43,7 @@ class TestAddMaterialQuery(unittest.TestCase):
     
     def testAddMaterialQueryLineRepeatedPointsFailure(self):
         try:
-            repeated_points = [[0, 1], [4.5, 4.5], [4.5, 4.5], [4.5, 4.5], [4.5, 4.5]]
+            repeated_points = [[0.0000000000000001, -1], [0.0000000000000000000000000000001, -1]]
             self.model.AddMaterialQueryLine(points=repeated_points)
             self.fail("Expected exception")
         except:
