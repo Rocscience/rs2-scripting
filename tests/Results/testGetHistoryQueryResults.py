@@ -59,6 +59,22 @@ class TestGetHistoryQueryResults(unittest.TestCase):
         except:
             pass
 
+    def testGetHistoryQueryResultsInvalidHorizontalAxisFailure(self):
+        try:
+            self.modelWithoutHQ.GetHistoryQueryResults(hq_name="HQ 1", horizontal_axis=CompositeJointPlacementTypes.BETWEEN_FIRST_AND_SECOND_LINER,
+                                          vertical_axis=HistoryQueryGraphEnums.VerticalAxisTypes.HORIZONTAL_DISPLACEMENT, stages=[1, 2])
+            self.fail("Expected exception")
+        except:
+            pass
+
+    def testGetHistoryQueryResultsInvalidVerticalAxisFailure(self):
+        try:
+            self.modelWithoutHQ.GetHistoryQueryResults(hq_name="HQ 1", horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.STAGE_LOAD_PERCENTAGE,
+                                          vertical_axis=HistoryQueryGraphEnums.VerticalAxisTypes.HORIZONTAL_THERMAL_GRADIENT, stages=[1, 2])
+            self.fail("Expected exception")
+        except:
+            pass
+
     def testGetHistoryQueryResultsEmptyLabelNameFailure(self):
         try:
             self.model.GetHistoryQueryResults(hq_name="", horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
