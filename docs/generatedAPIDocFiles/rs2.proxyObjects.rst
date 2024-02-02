@@ -65,6 +65,22 @@ rs2.proxyObjects.LinerPropertyProxy module
    :undoc-members:
    :show-inheritance:
 
+rs2.proxyObjects.MaterialJoint module
+-------------------------------------
+
+.. automodule:: rs2.proxyObjects.MaterialJoint
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.proxyObjects.MaterialJointOptions module
+--------------------------------------------
+
+.. automodule:: rs2.proxyObjects.MaterialJointOptions
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.proxyObjects.MaterialPropertyProxy module
 ---------------------------------------------
 
@@ -117,6 +133,14 @@ rs2.proxyObjects.StructuralInterfacePropertyProxy module
 --------------------------------------------------------
 
 .. automodule:: rs2.proxyObjects.StructuralInterfacePropertyProxy
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.proxyObjects.UserDefinedWaterMode module
+--------------------------------------------
+
+.. automodule:: rs2.proxyObjects.UserDefinedWaterMode
    :members:
    :undoc-members:
    :show-inheritance:

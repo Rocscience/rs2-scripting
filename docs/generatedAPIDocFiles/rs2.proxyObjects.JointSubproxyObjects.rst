@@ -15,6 +15,14 @@ rs2.proxyObjects.JointSubproxyObjects.BartonBandis module
    :undoc-members:
    :show-inheritance:
 
+rs2.proxyObjects.JointSubproxyObjects.BartonBandisMaterial module
+-----------------------------------------------------------------
+
+.. automodule:: rs2.proxyObjects.JointSubproxyObjects.BartonBandisMaterial
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.proxyObjects.JointSubproxyObjects.DisplacementDependent module
 ------------------------------------------------------------------
 
@@ -27,6 +35,14 @@ rs2.proxyObjects.JointSubproxyObjects.GeosyntheticHyperbolic module
 -------------------------------------------------------------------
 
 .. automodule:: rs2.proxyObjects.JointSubproxyObjects.GeosyntheticHyperbolic
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.proxyObjects.JointSubproxyObjects.GeosyntheticHyperbolicMaterial module
+---------------------------------------------------------------------------
+
+.. automodule:: rs2.proxyObjects.JointSubproxyObjects.GeosyntheticHyperbolicMaterial
    :members:
    :undoc-members:
    :show-inheritance:
@@ -51,6 +67,14 @@ rs2.proxyObjects.JointSubproxyObjects.MohrCoulomb module
 --------------------------------------------------------
 
 .. automodule:: rs2.proxyObjects.JointSubproxyObjects.MohrCoulomb
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.proxyObjects.JointSubproxyObjects.MohrCoulombMaterial module
+----------------------------------------------------------------
+
+.. automodule:: rs2.proxyObjects.JointSubproxyObjects.MohrCoulombMaterial
    :members:
    :undoc-members:
    :show-inheritance:
