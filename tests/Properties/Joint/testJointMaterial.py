@@ -7,7 +7,7 @@ from rs2.PropertyEnums import*
 
 parentDirectoryHelper.addParentDirectoryToPath()
 
-class TestBartonBandisMaterial(unittest.TestCase):
+class TestJointMaterial(unittest.TestCase):
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
         blankModelPath = f"{parentDirectory}/resources/starterProject.fez"
@@ -22,14 +22,10 @@ class TestBartonBandisMaterial(unittest.TestCase):
     def tearDown(self):
         self.model.close()
         os.remove(self.copiedModelPath)
-    def testBartonBandisMaterialProperty(self):
+    def testJointMaterialProperty(self):
         jointmaterial = self.jointmaterial
-        jointmaterial.BartonBandisMaterial.setJCS(836.5)
-        jointmaterial.BartonBandisMaterial.setJRC(2628.5)
-        jointmaterial.BartonBandisMaterial.setResidualFrictionAngle(972.5)
-        jointmaterial.BartonBandisMaterial.setResidualStrength(1)
-        jointmaterial.BartonBandisMaterial.setApplyStageFactors(1)
-        jointmaterial.BartonBandisMaterial.setDilationAngle(2.3)
+        jointmaterial.setSlipCriterion(JointTypes.JOINT_HYPERBOLIC_SIMPLE)
+        jointmaterial.SetApplySSR(True)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -38,9 +34,5 @@ class TestBartonBandisMaterial(unittest.TestCase):
         self.matJointOptions = self.mat.Strength.JointedMohrCoulomb.getJointOptions()
         self.jointmaterial = self.matJointOptions.getJoint(0)
         jointmaterial = self.jointmaterial
-        self.assertEqual(jointmaterial.BartonBandisMaterial.getJCS(), 836.5)
-        self.assertEqual(jointmaterial.BartonBandisMaterial.getJRC(), 2628.5)
-        self.assertEqual(jointmaterial.BartonBandisMaterial.getResidualFrictionAngle(), 972.5)
-        self.assertEqual(jointmaterial.BartonBandisMaterial.getResidualStrength(), 1)
-        self.assertEqual(jointmaterial.BartonBandisMaterial.getApplyStageFactors(), 1)
-        self.assertEqual(jointmaterial.BartonBandisMaterial.getDilationAngle(), 2.3)
+        self.assertEqual(jointmaterial.getSlipCriterion(), JointTypes.JOINT_HYPERBOLIC_SIMPLE)
+        self.assertEqual(jointmaterial.GetApplySSR(), True)

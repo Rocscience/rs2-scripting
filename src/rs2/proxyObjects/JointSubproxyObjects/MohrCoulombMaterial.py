@@ -4,10 +4,6 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 class MohrCoulombMaterial(PropertyProxy):
-	def getDilationAngle(self) -> float:
-		return self._getDoubleProperty("JP_DILATION_ANGLE")
-	def setDilationAngle(self, value: float):
-		return self._setDoubleProperty("JP_DILATION_ANGLE", value)
 	def getTensileStrength(self) -> float:
 		return self._getDoubleProperty("JP_TENSILE_STRENGTH")
 	def setTensileStrength(self, value: float):
@@ -40,9 +36,11 @@ class MohrCoulombMaterial(PropertyProxy):
 		return self._getBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES")
 	def setApplyStageFactors(self, value: bool):
 		return self._setBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES", value)
-	def setProperties(self, DilationAngle : float = None, TensileStrength : float = None, PeakFrictionAngle : float = None, PeakCohesion : float = None, ResidualStrength : bool = None, ResTensileStrength : float = None, ResCohesion : float = None, ResFrictionAngle : float = None, ApplyStageFactors : bool = None):
-		if DilationAngle is not None:
-			self._setDoubleProperty("JP_DILATION_ANGLE", DilationAngle)
+	def setDilationAngle(self, dilationAngle: float):
+		return self._callFunction("setMohrDilationAngle", [dilationAngle])
+	def getDilationAngle(self) -> float:
+		return self._callFunction("__getattribute__", ["mohr_dilation_angle"])
+	def setProperties(self, TensileStrength : float = None, PeakFrictionAngle : float = None, PeakCohesion : float = None, ResidualStrength : bool = None, ResTensileStrength : float = None, ResCohesion : float = None, ResFrictionAngle : float = None, ApplyStageFactors : bool = None):
 		if TensileStrength is not None:
 			self._setDoubleProperty("JP_TENSILE_STRENGTH", TensileStrength)
 		if PeakFrictionAngle is not None:
@@ -61,7 +59,6 @@ class MohrCoulombMaterial(PropertyProxy):
 			self._setBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES", ApplyStageFactors)
 	def getProperties(self):
 		return {
-		"DilationAngle" : self.getDilationAngle(), 
 		"TensileStrength" : self.getTensileStrength(), 
 		"PeakFrictionAngle" : self.getPeakFrictionAngle(), 
 		"PeakCohesion" : self.getPeakCohesion(), 
