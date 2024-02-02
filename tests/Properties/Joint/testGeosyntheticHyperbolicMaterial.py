@@ -19,6 +19,10 @@ class TestGeosyntheticHyperbolicMaterial(unittest.TestCase):
         self.mat.Strength.setFailureCriterion(StrengthCriteriaTypes.JOINTED_MOHR_COULOMB)
         self.matJointOptions = self.mat.Strength.JointedMohrCoulomb.getJointOptions()
         self.jointmaterial = self.matJointOptions.getJoint(0)
+        self.jointmaterial.BartonBandisMaterial.setApplyStageFactors(True)
+        sf = self.jointmaterial.BartonBandisMaterial.stageFactorInterface.createStageFactor(1)
+        self.jointmaterial.BartonBandisMaterial.stageFactorInterface.setDefinedStageFactors({ 1: sf })
+
     def tearDown(self):
         self.model.close()
         os.remove(self.copiedModelPath)
@@ -46,3 +50,23 @@ class TestGeosyntheticHyperbolicMaterial(unittest.TestCase):
         self.assertEqual(jointmaterial.GeosyntheticHyperbolicMaterial.getApplyStageFactors(), 1)
         self.assertEqual(jointmaterial.GeosyntheticHyperbolicMaterial.getTensileStrength(), 1413.6)
         self.assertEqual(jointmaterial.GeosyntheticHyperbolicMaterial.getDilationRatio(), 2.2)
+    def testGeosyntheticHyperbolicMaterialStageFactors(self):
+        stageFactor = self.jointmaterial.GeosyntheticHyperbolicMaterial.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setPeakAdhesionAtSigninfFactor(468.3)
+        stageFactor.setPeakFrictionAngleAtSign0Factor(2350.4)
+        stageFactor.setResAdhesionAtSigninfFactor(2598.3)
+        stageFactor.setResFrictionAngleAtSign0Factor(2572.7)
+        stageFactor.setDilationRatioFactor(2.4)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.mat = self.model.getAllMaterialProperties()[0]
+        self.mat.Strength.setFailureCriterion(StrengthCriteriaTypes.JOINTED_MOHR_COULOMB)
+        self.matJointOptions = self.mat.Strength.JointedMohrCoulomb.getJointOptions()
+        self.jointmaterial = self.matJointOptions.getJoint(0)
+        stageFactor = self.jointmaterial.GeosyntheticHyperbolicMaterial.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getPeakAdhesionAtSigninfFactor(), 468.3)
+        self.assertEqual(stageFactor.getPeakFrictionAngleAtSign0Factor(), 2350.4)
+        self.assertEqual(stageFactor.getResAdhesionAtSigninfFactor(), 2598.3)
+        self.assertEqual(stageFactor.getResFrictionAngleAtSign0Factor(), 2572.7)
+        self.assertEqual(stageFactor.getDilationRatioFactor(), 2.4)

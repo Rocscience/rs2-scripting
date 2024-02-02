@@ -3,7 +3,40 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
+from rs2.ProxyObject import ProxyObject
+from rs2.proxyObjects.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+class GeosyntheticHyperbolicMaterialStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getPeakAdhesionAtSigninfFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_PEAK_ADHESION", self.propertyID], proxyArgumentIndices=[1])
+	def getPeakFrictionAngleAtSign0Factor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_PEAK_FRICTION_ANGLE_GEOSYN", self.propertyID], proxyArgumentIndices=[1])
+	def getResAdhesionAtSigninfFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_ADHESION_RES", self.propertyID], proxyArgumentIndices=[1])
+	def getResFrictionAngleAtSign0Factor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_FRICTION_ANGLE_RES_GEOSYN", self.propertyID], proxyArgumentIndices=[1])
+	def getDilationRatioFactor(self) -> float:
+		return self._callFunction("__getattribute__", ["m_dilation_ratio"])
+class GeosyntheticHyperbolicMaterialDefinedStageFactor(GeosyntheticHyperbolicMaterialStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setPeakAdhesionAtSigninfFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_PEAK_ADHESION", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPeakFrictionAngleAtSign0Factor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_PEAK_FRICTION_ANGLE_GEOSYN", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResAdhesionAtSigninfFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_ADHESION_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResFrictionAngleAtSign0Factor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_FRICTION_ANGLE_RES_GEOSYN", value, self.propertyID], proxyArgumentIndices=[2])
+	def setDilationRatioFactor(self, dilationRatioFactor: float):
+		return self._callFunction("setDilationRatio", [dilationRatioFactor])
 class GeosyntheticHyperbolicMaterial(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[GeosyntheticHyperbolicMaterialDefinedStageFactor, GeosyntheticHyperbolicMaterialStageFactor](self._client, stageFactorInterfaceID, ID, GeosyntheticHyperbolicMaterialDefinedStageFactor, GeosyntheticHyperbolicMaterialStageFactor)
 	def getPeakAdhesionAtSigninf(self) -> float:
 		return self._getDoubleProperty("JP_PEAK_ADHESION")
 	def setPeakAdhesionAtSigninf(self, value: float):
