@@ -45,6 +45,14 @@ rs2.MeshResults module
    :undoc-members:
    :show-inheritance:
 
+rs2.InterpreterGraphEnums module
+--------------------------------
+
+.. automodule:: rs2.InterpreterGraphEnums
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.PropertyEnums module
 ------------------------
 

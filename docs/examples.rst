@@ -105,6 +105,11 @@ Python Script Examples
    :language: python
    :caption: Code Snippet: Get Model Mesh Results
 
+.. _History Query Example:
+.. literalinclude:: example_code/history_query_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of History Query and its results
+
 .. _material joint example:
 .. literalinclude:: example_code/material_joint_example.py
    :language: python
