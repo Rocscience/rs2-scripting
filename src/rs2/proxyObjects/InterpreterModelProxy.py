@@ -149,11 +149,12 @@ class ModelProxy(ProxyObject):
 		self, 
 		stages: list[int]) -> dict[int, list[BeamResult]]:
 
-		node_id_start_indx = 0
-		node_id_end_indx = 1
-		liner_yeilded_indx = 15
-		composite_level = 16
-		composite_yeilded_indx = 21
+		composite_layer_indx = 0
+		node_id_start_indx = 1
+		node_id_end_indx = 2
+		liner_yeilded_indx = 18
+		composite_level = 19
+		composite_yeilded_indx = 24
 
 		map_data = self._callFunction('GetBeamResults', [stages])
 		structured_data = {}
@@ -161,6 +162,7 @@ class ModelProxy(ProxyObject):
 			list_stage_data_as_classObj = []
 			for result in stage_data:
 
+				result[composite_layer_indx] = int(result[composite_layer_indx])
 				result[node_id_start_indx] = int(result[node_id_start_indx])
 				result[node_id_end_indx] = int(result[node_id_end_indx])
 				result[composite_level] = int(result[composite_level])
