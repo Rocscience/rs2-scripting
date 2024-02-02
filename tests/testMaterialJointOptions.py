@@ -56,3 +56,32 @@ class TestMaterialJointOptions(unittest.TestCase):
 
         self.matJointOptions.setTracePlaneProperties(0, 0.1, 0.2, 0.3)
         self.assertEqual(self.matJointOptions.getTracePlaneProperties(0), (0.1, 0.2, 0.3))
+
+    def testSetSecondJointProperties(self):
+        self.matJointOptions.setNumberOfJoints(2)
+        self.assertEqual(self.matJointOptions.getNumberOfJoints(), 2)
+
+        joint2 = self.matJointOptions.getJoint(1)
+        joint2.setSlipCriterion(JointTypes.JOINT_BARTON_BANDIS)
+        joint2.BartonBandisMaterial.setDilationAngle(0.023)
+
+        joint1 = self.matJointOptions.getJoint(0)
+        joint1.setSlipCriterion(JointTypes.JOINT_MOHR_COULOMB)
+        joint1.MohrCoulombMaterial.setDilationAngle(0.024)
+
+        self.assertEqual(joint2.getSlipCriterion(), JointTypes.JOINT_BARTON_BANDIS)
+        self.assertEqual(joint2.BartonBandisMaterial.getDilationAngle(), 0.023)
+        self.assertEqual(joint1.getSlipCriterion(), JointTypes.JOINT_MOHR_COULOMB)
+        self.assertEqual(joint1.MohrCoulombMaterial.getDilationAngle(), 0.024)
+
+    def testDilationAngleFailureLessThanZero(self):
+        self.matJointOptions.setNumberOfJoints(1)
+        joint = self.matJointOptions.getJoint(0)
+        with self.assertRaises(Exception):
+            joint.MohrCoulombMaterial.setDilationAngle(-0.1)
+
+    def testDilationRatioFailureLessThanZero(self):
+        self.matJointOptions.setNumberOfJoints(1)
+        joint = self.matJointOptions.getJoint(0)
+        with self.assertRaises(Exception):
+            joint.GeosyntheticHyperbolicMaterial.setDilationRatio(-0.1)
