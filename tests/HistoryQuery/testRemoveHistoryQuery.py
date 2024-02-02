@@ -7,7 +7,7 @@ from rs2.PropertyEnums import*
 
 parentDirectoryHelper.addParentDirectoryToPath()
 
-class TestAddHistoryQuery(unittest.TestCase):
+class TestRemoveHistoryQuery(unittest.TestCase):
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
         blankModelPath = f"{parentDirectory}/resources/example_computed_model.fez"
@@ -21,7 +21,7 @@ class TestAddHistoryQuery(unittest.TestCase):
         self.model._client.closeConnection()
     
     def testRemoveHistoryQuerySuccess(self):
-        self.model.RemoveHistoryQueryPoint(history_query_name="Sample Label")
+        self.model.RemoveHistoryQueryPoint(history_query_name="HQ 1")
     
     def testRemoveHistoryQueryEmptyLabelNameFailure(self):
         try:
