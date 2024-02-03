@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
 from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Simple import Simple
-from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Fredlung import Fredlung
+from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Fredlund import Fredlund
 from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Genuchten import Genuchten
 from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Brooks import Brooks
 from rs2.proxyObjects.MaterialSubproxyObjects.HydraulicSubProxyObjects.FEAGroundwaterProxies.Gardner import Gardner
@@ -14,15 +14,15 @@ class FEAGroundwater(PropertyProxy):
 	"""
 	:ref:`Hydraulic Property FEAGroundwater Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.Simple = Simple(server, ID, documentProxyID)
-		self.Fredlung = Fredlung(server, ID, documentProxyID)
-		self.Genuchten = Genuchten(server, ID, documentProxyID)
-		self.Brooks = Brooks(server, ID, documentProxyID)
-		self.Gardner = Gardner(server, ID, documentProxyID)
-		self.Constant = Constant(server, ID, documentProxyID)
-		self.UserDefined = UserDefined(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.Simple = Simple(client, ID, documentProxyID)
+		self.Fredlund = Fredlund(client, ID, documentProxyID)
+		self.Genuchten = Genuchten(client, ID, documentProxyID)
+		self.Brooks = Brooks(client, ID, documentProxyID)
+		self.Gardner = Gardner(client, ID, documentProxyID)
+		self.Constant = Constant(client, ID, documentProxyID)
+		self.UserDefined = UserDefined(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getModel(self) -> GroundWaterModes:
 		return GroundWaterModes(self._getEnumEGroundWaterModesProperty("MP_HYDRAULIC_MODEL"))
 	def setModel(self, value: GroundWaterModes):
@@ -39,10 +39,6 @@ class FEAGroundwater(PropertyProxy):
 		return self._getDoubleProperty("MP_K1_ANGLE")
 	def setK1Angle(self, value: float):
 		return self._setDoubleProperty("MP_K1_ANGLE", value)
-	def getK1Surface(self) -> int:
-		return int(self._getIntProperty("MP_K1_SURFACE"))
-	def setK1Surface(self, value: int):
-		return self._setIntProperty("MP_K1_SURFACE", value)
 	def getMvModel(self) -> MVModel:
 		return MVModel(self._getEnumEMVModelProperty("MP_MV_MODEL"))
 	def setMvModel(self, value: MVModel):
@@ -51,3 +47,10 @@ class FEAGroundwater(PropertyProxy):
 		return self._getDoubleProperty("MP_MV")
 	def setMv(self, value: float):
 		return self._setDoubleProperty("MP_MV", value)
+	def setK1SurfaceToUseByName(self, surfaceName: str):
+		"""
+		surfaceName is the name of the surface to be used. Surface must be present in the model.
+		"""
+		return self._callFunction("setK1SurfaceToUseByName", [surfaceName])
+	def getK1SurfaceToUse(self) -> str:
+		return self._callFunction("getK1SurfaceToUse", [])

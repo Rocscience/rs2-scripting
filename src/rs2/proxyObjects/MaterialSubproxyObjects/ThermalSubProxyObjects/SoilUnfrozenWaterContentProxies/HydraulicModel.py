@@ -3,22 +3,22 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
-from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.Simple import Simple
-from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.Fredlund import Fredlund
-from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.Genuchten import Genuchten
-from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.Brook import Brook
-from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.Gardner import Gardner
+from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.SimpleWaterContent import SimpleWaterContent
+from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.FredlundWaterContent import FredlundWaterContent
+from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.GenuchtenWaterContent import GenuchtenWaterContent
+from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.BrooksWaterContent import BrooksWaterContent
+from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModelProxies.GardnerWaterContent import GardnerWaterContent
 class HydraulicModel(PropertyProxy):
 	"""
 	:ref:`Material Property Thermal SoilUnfrozenWaterContent HydraulicModel Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.Simple = Simple(server, ID, documentProxyID)
-		self.Fredlund = Fredlund(server, ID, documentProxyID)
-		self.Genuchten = Genuchten(server, ID, documentProxyID)
-		self.Brook = Brook(server, ID, documentProxyID)
-		self.Gardner = Gardner(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.SimpleWaterContent = SimpleWaterContent(client, ID, documentProxyID)
+		self.FredlundWaterContent = FredlundWaterContent(client, ID, documentProxyID)
+		self.GenuchtenWaterContent = GenuchtenWaterContent(client, ID, documentProxyID)
+		self.BrooksWaterContent = BrooksWaterContent(client, ID, documentProxyID)
+		self.GardnerWaterContent = GardnerWaterContent(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getFrozenTemperature(self) -> float:
 		return self._getDoubleProperty("MP_THERMAL_WATER_CONTENT_FROZEN_TEMPERATURE")
 	def setFrozenTemperature(self, value: float):

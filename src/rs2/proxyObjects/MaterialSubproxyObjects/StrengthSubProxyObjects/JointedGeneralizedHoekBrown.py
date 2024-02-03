@@ -3,6 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
+from rs2.proxyObjects.MaterialJointOptions import MaterialJointOptions
 class JointedGeneralizedHoekBrown(PropertyProxy):
 	def getMaterialType(self) -> MaterialType:
 		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE"))
@@ -80,6 +81,8 @@ class JointedGeneralizedHoekBrown(PropertyProxy):
 		return self._getBoolProperty("MP_APPLY_SSR")
 	def setApplySSRShearStrengthReduction(self, value: bool):
 		return self._setBoolProperty("MP_APPLY_SSR", value)
+	def getJointOptions(self) -> MaterialJointOptions:
+		return MaterialJointOptions(self._client, self._callFunction("getJointOptions", [], keepReturnValueReference = True), self.documentProxyID)
 	def setProperties(self, MaterialType : MaterialType = None, CompressiveStrength : float = None, MbParameter : float = None, SParameter : float = None, AParameter : float = None, GSIParameter : float = None, MiParameter : float = None, DParameter : float = None, TensileCutoffType : TensileCutoffOptions = None, TensileCutoff : float = None, HoekMartinMi : float = None, ResidualMbParameter : float = None, ResidualSParameter : float = None, ResidualAParameter : float = None, ResidualGSIParameter : float = None, ResidualMiParameter : float = None, ResidualDParameter : float = None, DilationParameter : float = None, ApplySSRShearStrengthReduction : bool = None):
 		if MaterialType is not None:
 			self._setEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE", MaterialType)

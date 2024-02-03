@@ -36,6 +36,16 @@ class MohrCoulombWithCap(PropertyProxy):
 		return self._getDoubleProperty("MP_LAMBDA_KAPPA")
 	def setLambdaKappa(self, value: float):
 		return self._setDoubleProperty("MP_LAMBDA_KAPPA", value)
+	def setMohrCoulombCapMeanStress(self, meanStress: list[tuple[float,float]]):
+		"""
+		meanStress is a list of (x,y) tuples.
+		"""
+		return self._callFunction("setMohrCoulombCapMeanStress", [meanStress])
+	def getMohrCoulombCapMeanStress(self) -> list[tuple[float,float]]:
+		"""
+		returns a list of (x,y) tuples.
+		"""
+		return self._callFunction("getMohrCoulombCapMeanStress", [])
 	def setProperties(self, PeakTensileStrength : float = None, PeakFrictionAngle : float = None, PeakCohesion : float = None, DilationAngle : float = None, CapType : MCCapType = None, CapHardeningType : CapHardeningTypes = None, InitialMeanStress : float = None, LambdaKappa : float = None):
 		if PeakTensileStrength is not None:
 			self._setDoubleProperty("MP_PEAK_TENSILE_STRENGTH", PeakTensileStrength)

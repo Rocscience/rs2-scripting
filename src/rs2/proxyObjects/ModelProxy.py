@@ -4,7 +4,12 @@ from rs2.proxyObjects.BoltPropertyProxy import BoltProperty
 from rs2.proxyObjects.LinerPropertyProxy import LinerProperty
 from rs2.proxyObjects.JointPropertyProxy import JointProperty
 from rs2.proxyObjects.PilePropertyProxy import PileProperty
+from rs2.proxyObjects.StructuralInterfacePropertyProxy import StructuralInterfaceProperty
+from rs2.proxyObjects.CompositeLinerPropertyProxy import CompositeLinerProperty
+
 from rs2.proxyObjects.MaterialPropertyProxy import MaterialProperty
+from rs2.proxyObjects.ShearNormalFunctionProxy import ShearNormalFunction
+from rs2.proxyObjects.UserDefinedWaterMode import UserDefinedWaterMode
 from rs2.proxyObjects.DiscreteFunctionProxy import DiscreteFunction
 class ModelProxy(ProxyObject):
 	"""
@@ -47,6 +52,22 @@ class ModelProxy(ProxyObject):
 		'''
 		pileObjectID = self._callFunction('getPilePropertyByName', [pileName], keepReturnValueReference=True)
 		return PileProperty(self._client, pileObjectID, self._documentProxy._ID)
+
+	def getStructuralInterfacePropertyByName(self, structuralName : str) -> StructuralInterfaceProperty:
+		'''
+		Returns a Structural Interface Property object based on its name.
+		'''
+		structuralInterfaceObjectID = self._callFunction('getStructuralPropertyByName', [structuralName], keepReturnValueReference=True)
+		return StructuralInterfaceProperty(self._client, structuralInterfaceObjectID, self._documentProxy._ID)
+	
+	def getCompositeLinerPropertyByName(self, compositeName : str) -> CompositeLinerProperty:
+		'''
+		Returns a Composite Liner Property object based on its name.
+		'''
+		compositeLinerObjectID = self._callFunction('getCompositePropertyByName', [compositeName], keepReturnValueReference=True)
+		return CompositeLinerProperty(self._client, compositeLinerObjectID, self._documentProxy._ID)
+
+	
 	
 	def getMaterialPropertyByName(self, materialName : str) -> MaterialProperty:
 		'''
@@ -96,6 +117,26 @@ class ModelProxy(ProxyObject):
 			activePileProperties.append(PileProperty(self._client, pileObjectID, self._documentProxy._ID))
 		return activePileProperties
 	
+	def getAllStructuralInterfaceProperties(self) -> list[StructuralInterfaceProperty]:
+		'''
+		Returns a list of all Structural Interface Property objects
+		'''
+		activeStructuralProperties = []
+		structuralObjectIDList = self._callFunction('getAllStructuralProperties', [], keepReturnValueReference=True)
+		for structuralObjectID in structuralObjectIDList:
+			activeStructuralProperties.append(StructuralInterfaceProperty(self._client, structuralObjectID, self._documentProxy._ID))
+		return activeStructuralProperties
+	
+	def getAllCompositeLinerProperties(self) -> list[CompositeLinerProperty]:
+		'''
+		Returns a list of all Composite Liner Property objects
+		'''
+		activeCompositeProperties = []
+		compositeObjectIDList = self._callFunction('getAllCompositeProperties', [], keepReturnValueReference=True)
+		for compositeObjectID in compositeObjectIDList:
+			activeCompositeProperties.append(CompositeLinerProperty(self._client, compositeObjectID, self._documentProxy._ID))
+		return activeCompositeProperties
+	
 	def getAllMaterialProperties(self) -> list[MaterialProperty]:
 		'''
 		Returns a list of all Material Property objects
@@ -105,6 +146,90 @@ class ModelProxy(ProxyObject):
 		for materialObjectID in materialObjectIDList:
 			activeMaterialProperties.append(MaterialProperty(self._client, materialObjectID, self._documentProxy._ID))
 		return activeMaterialProperties
+	
+	def getShearNormalFunctions(self) -> list[ShearNormalFunction]:
+		'''
+		Returns a list of all shear normal functions
+		'''
+		activeShearNormalFunctionProperties = []
+		shearNormalFunctionIDList = self._callFunction('getShearNormalFunctions', [], keepReturnValueReference=True)
+		for shearNormalFunctionObjectID in shearNormalFunctionIDList:
+			activeShearNormalFunctionProperties.append(ShearNormalFunction(self._client, shearNormalFunctionObjectID))
+		return activeShearNormalFunctionProperties
+	
+	def getShearNormalFunctionByName(self, shearNormalFunctionName : str) -> ShearNormalFunction:
+		'''
+		Returns a shear normal function object based on its name.
+		'''
+		shearNormalFunctionObjectID = self._callFunction('getShearNormalFunctionByName', [shearNormalFunctionName], keepReturnValueReference=True)
+		return ShearNormalFunction(self._client, shearNormalFunctionObjectID)
+	
+	def createNewShearNormalFunction(self, functionName):
+		'''
+		Creates a new shear normal function with the given name
+		'''
+		return self._callFunction('createNewShearNormalFunction', [functionName])
+	
+	def deleteShearNormalFunction(self, functionName):
+		'''
+		Deletes a shear normal function with the given name
+		'''
+		return self._callFunction('deleteShearNormalFunction', [functionName])
+	
+	def renameShearNormalFunction(self, oldName, newName):
+		'''
+		Renames a shear normal function with the given name
+		'''
+		return self._callFunction('renameShearNormalFunction', [oldName, newName])
+	
+	def getUserDefinedPermeabilityAndWaterContentMode(self, name : str) -> UserDefinedWaterMode:
+		'''
+		Returns a User Defined Water Mode object based on its name.
+		'''
+		userDefinedWaterModeObjectID = self._callFunction('getUserDefinedWaterMode', [name], keepReturnValueReference=True)
+		return UserDefinedWaterMode(self._client, userDefinedWaterModeObjectID)
+	
+	def createUserDefinedPermeabilityAndWaterContentMode(self, name : str) -> UserDefinedWaterMode:
+		'''
+		Creates a User Defined Water Mode object with the given name.
+		'''
+		userDefinedWaterModeObjectID = self._callFunction('createUserDefinedWaterMode', [name], keepReturnValueReference=True)
+		return UserDefinedWaterMode(self._client, userDefinedWaterModeObjectID)
+
+	def deleteUserDefinedPermeabilityAndWaterContentMode(self, name : str):
+		'''
+		Deletes a User Defined Water Mode object with the given name.
+		'''
+		return self._callFunction('deleteUserDefinedWaterMode', [name])
+	
+	def renameUserDefinedPermeabilityAndWaterContentMode(self, oldName : str, newName : str):
+		'''
+		Renames a User Defined Water Mode object with the given name.
+		'''
+		return self._callFunction('renameUserDefinedWaterMode', [oldName, newName])
+	
+	def AddHistoryQueryPoint(self, x: float, y: float, history_query_name: str):
+		'''
+		Add a new History Query point to your model with the specified coordinates and label name
+
+		Args:
+			x (float): The x-coordinate value for the query point.
+			y (float): The y-coordinate value for the query point.
+			history_query_name (str): The label name for your query point.
+
+		'''
+		return self._callFunction('AddHistoryQueryPoint', [x, y, history_query_name])
+	
+		
+	def RemoveHistoryQueryPoint(self, history_query_name: str):
+		'''
+		Remove a History Query point from your model by label name.
+
+		Args:
+			history_query_name (str): The label name for your query point.
+
+		'''
+		return self._callFunction('RemoveHistoryQueryPoint', [history_query_name])
 	
 	def compute(self):
 		'''

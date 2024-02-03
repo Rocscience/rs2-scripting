@@ -10,11 +10,11 @@ class Thermal(PropertyProxy):
 	"""
 	:ref:`Material Property Thermal Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.Conductivity = Conductivity(server, ID, documentProxyID)
-		self.HeatCapacity = HeatCapacity(server, ID, documentProxyID)
-		self.SoilUnfrozenWaterContent = SoilUnfrozenWaterContent(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.Conductivity = Conductivity(client, ID, documentProxyID)
+		self.HeatCapacity = HeatCapacity(client, ID, documentProxyID)
+		self.SoilUnfrozenWaterContent = SoilUnfrozenWaterContent(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getStaticTemperatureMode(self) -> StaticWaterModes:
 		return StaticWaterModes(self._getEnumEStaticWaterModesProperty("MP_STATIC_TEMPERATURE_METHOD"))
 	def setStaticTemperatureMode(self, value: StaticWaterModes):
@@ -23,10 +23,6 @@ class Thermal(PropertyProxy):
 		return self._getDoubleProperty("MP_STATIC_TEMPERATURE_CONST")
 	def setStaticTemperature(self, value: float):
 		return self._setDoubleProperty("MP_STATIC_TEMPERATURE_CONST", value)
-	def getStaticTemperatureGridToUse(self) -> int:
-		return int(self._getIntProperty("MP_STATIC_TEMPERATURE_GRID"))
-	def setStaticTemperatureGridToUse(self, value: int):
-		return self._setIntProperty("MP_STATIC_TEMPERATURE_GRID", value)
 	def getWaterContent(self) -> ThermalWaterContentMethodType:
 		return ThermalWaterContentMethodType(self._getEnumEThermalWaterContentMethodTypeProperty("MP_THERMAL_WATER_CONTENT_METHOD"))
 	def setWaterContent(self, value: ThermalWaterContentMethodType):
@@ -55,3 +51,10 @@ class Thermal(PropertyProxy):
 		return self._getDoubleProperty("MP_THERMAL_DISPERSIVITY_TRANSVERSE")
 	def setTransverseDispersivity(self, value: float):
 		return self._setDoubleProperty("MP_THERMAL_DISPERSIVITY_TRANSVERSE", value)
+	def setStaticTemperatureGridToUseByName(self, gridName: str):
+		"""
+		gridName is the name of the grid to be used. "None" and "Default Grid" are available by default.
+		"""
+		return self._callFunction("setStaticTemperatureGridToUseByName", [gridName])
+	def getStaticTemperatureGridToUse(self) -> str:
+		return self._callFunction("getStaticTemperatureGridToUse", [])

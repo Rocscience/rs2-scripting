@@ -9,10 +9,10 @@ class Hydraulic(PropertyProxy):
 	"""
 	:ref:`Hydraulic Property Stiffness Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.StaticGroundwater = StaticGroundwater(server, ID, documentProxyID)
-		self.FEAGroundwater = FEAGroundwater(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.StaticGroundwater = StaticGroundwater(client, ID, documentProxyID)
+		self.FEAGroundwater = FEAGroundwater(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getMaterialBehaviour(self) -> MaterialBehaviours:
 		return MaterialBehaviours(self._getEnumEMaterialBehavioursProperty("MP_MATERIAL_BEHAVIOUR"))
 	def setMaterialBehaviour(self, value: MaterialBehaviours):

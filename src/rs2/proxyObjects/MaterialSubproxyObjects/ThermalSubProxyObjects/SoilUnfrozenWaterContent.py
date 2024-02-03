@@ -6,15 +6,17 @@ from rs2.PropertyEnums import *
 from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.Konrad import Konrad
 from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.TiceAnderson import TiceAnderson
 from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.HydraulicModel import HydraulicModel
+from rs2.proxyObjects.MaterialSubproxyObjects.ThermalSubProxyObjects.SoilUnfrozenWaterContentProxies.CustomWaterContent import CustomWaterContent
 class SoilUnfrozenWaterContent(PropertyProxy):
 	"""
 	:ref:`Material Property Thermal SoilUnfrozenWaterContent Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.Konrad = Konrad(server, ID, documentProxyID)
-		self.TiceAnderson = TiceAnderson(server, ID, documentProxyID)
-		self.HydraulicModel = HydraulicModel(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.Konrad = Konrad(client, ID, documentProxyID)
+		self.TiceAnderson = TiceAnderson(client, ID, documentProxyID)
+		self.HydraulicModel = HydraulicModel(client, ID, documentProxyID)
+		self.CustomWaterContent = CustomWaterContent(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getType(self) -> ThermalWaterContentType:
 		return ThermalWaterContentType(self._getEnumEThermalWaterContentTypeProperty("MP_THERMAL_WATER_CONTENT_TYPE"))
 	def setType(self, value: ThermalWaterContentType):

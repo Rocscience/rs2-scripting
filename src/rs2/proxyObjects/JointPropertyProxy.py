@@ -13,14 +13,14 @@ class JointProperty(PropertyProxy):
 	"""
 	:ref:`Joint Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.MohrCoulomb = MohrCoulomb(server, ID, documentProxyID)
-		self.BartonBandis = BartonBandis(server, ID, documentProxyID)
-		self.GeosyntheticHyperbolic = GeosyntheticHyperbolic(server, ID, documentProxyID)
-		self.HyperbolicSoftening = HyperbolicSoftening(server, ID, documentProxyID)
-		self.MaterialDependent = MaterialDependent(server, ID, documentProxyID)
-		self.DisplacementDependent = DisplacementDependent(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.MohrCoulomb = MohrCoulomb(client, ID, documentProxyID)
+		self.BartonBandis = BartonBandis(client, ID, documentProxyID)
+		self.GeosyntheticHyperbolic = GeosyntheticHyperbolic(client, ID, documentProxyID)
+		self.HyperbolicSoftening = HyperbolicSoftening(client, ID, documentProxyID)
+		self.MaterialDependent = MaterialDependent(client, ID, documentProxyID)
+		self.DisplacementDependent = DisplacementDependent(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getJointName(self) -> str:
 		return self._getCStringProperty("JP_NAME")
 	def setJointName(self, value: str):
@@ -46,6 +46,10 @@ class JointProperty(PropertyProxy):
 	def GetPermeable(self) -> bool:
 		return self._callFunction("GetPermeable", [])
 	def SetMeshConforming(self, meshConforming: bool):
-		return self._callFunction("SetApplySSR", [meshConforming])
+		return self._callFunction("SetMeshConforming", [meshConforming])
 	def GetMeshConforming(self) -> bool:
-		return self._callFunction("GetApplySSR", [])
+		return self._callFunction("GetMeshConforming", [])
+	def SetAllowSlipStartFromStage(self, stage: int):
+		return self._callFunction("SetAllowSlipStartFromStage", [stage])
+	def GetAllowSlipStartFromStage(self) -> int:
+		return self._callFunction("GetAllowSlipStartFromStage", [])

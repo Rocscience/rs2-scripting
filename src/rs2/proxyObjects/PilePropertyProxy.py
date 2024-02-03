@@ -3,6 +3,7 @@ from rs2.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.PropertyEnums import *
+from rs2.proxyObjects.documentProxy import DocumentProxy
 from rs2.proxyObjects.PileSubproxyObjects.Elastic import Elastic
 from rs2.proxyObjects.PileSubproxyObjects.MohrCoulombPile import MohrCoulombPile
 from rs2.proxyObjects.PileSubproxyObjects.Linear import Linear
@@ -14,15 +15,15 @@ class PileProperty(PropertyProxy):
 	"""
 	:ref:`Pile Example`
 	"""
-	def __init__(self, server : Client, ID, documentProxyID):
-		self.Elastic = Elastic(server, ID, documentProxyID)
-		self.MohrCoulombPile = MohrCoulombPile(server, ID, documentProxyID)
-		self.Linear = Linear(server, ID, documentProxyID)
-		self.MultiLinear = MultiLinear(server, ID, documentProxyID)
-		self.MaterialDependentPile = MaterialDependentPile(server, ID, documentProxyID)
-		self.Beam = Beam(server, ID, documentProxyID)
-		self.ForceDisplacement = ForceDisplacement(server, ID, documentProxyID)
-		super().__init__(server, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID):
+		self.Elastic = Elastic(client, ID, documentProxyID)
+		self.MohrCoulombPile = MohrCoulombPile(client, ID, documentProxyID)
+		self.Linear = Linear(client, ID, documentProxyID)
+		self.MultiLinear = MultiLinear(client, ID, documentProxyID)
+		self.MaterialDependentPile = MaterialDependentPile(client, ID, documentProxyID)
+		self.Beam = Beam(client, ID, documentProxyID)
+		self.ForceDisplacement = ForceDisplacement(client, ID, documentProxyID)
+		super().__init__(client, ID, documentProxyID)
 	def getPileName(self) -> str:
 		return self._getCStringProperty("PFP_NAME")
 	def setPileName(self, value: str):
@@ -40,18 +41,23 @@ class PileProperty(PropertyProxy):
 	def setSkinResistance(self, value: PileSkinResistanceType):
 		return self._setEnumEPileSkinResistanceTypeProperty("PFP_SKIN_RESISTANCE_METHOD", value)
 	def getMMax(self) -> float:
-		return self._callFunction("getMMax", [])
+		return self._callFunction("__getattribute__", ["m_mmax"])
 	def setMMax(self, MMax: float):
 		return self._callFunction("setMMax", [MMax])
 	def getOutOfPlaneSpacing(self) -> float:
-		return self._callFunction("getOutOfPlaneSpacing", [])
+		return self._callFunction("__getattribute__", ["m_plane_spacing"])
 	def setOutOfPlaneSpacing(self, outOfPlaneSpacing: float):
 		return self._callFunction("setOutOfPlaneSpacing", [outOfPlaneSpacing])
 	def getLength(self) -> float:
-		return self._callFunction("getLength", [])
+		return self._callFunction("__getattribute__", ["m_length"])
 	def setLength(self, Length: float):
-		return self._callFunction("setLength", [Length])
+		"""
+		Resets the mesh if it exists.
+		"""
+		response = self._callFunction("setLength", [Length])
+		DocumentProxy(self._client, self.documentProxyID).rebuildAndPostProcessPiles()
+		return response
 	def getStageForceDisplacement(self) -> bool:
-		return self._callFunction("getApplyStageFactors", [])
+		return self._callFunction("__getattribute__", ["apply_stage_factors"])
 	def setStageForceDisplacement(self, stageForceDisplacement: bool):
 		return self._callFunction("setApplyStageFactors", [stageForceDisplacement])
