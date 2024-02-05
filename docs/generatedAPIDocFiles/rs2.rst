@@ -21,10 +21,26 @@ rs2.ApplicationManager module
    :undoc-members:
    :show-inheritance:
 
+rs2.BeamResult module
+---------------------
+
+.. automodule:: rs2.BeamResult
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.ColorPicker module
 ----------------------
 
 .. automodule:: rs2.ColorPicker
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.HistoryQueryResults module
+------------------------------
+
+.. automodule:: rs2.HistoryQueryResults
    :members:
    :undoc-members:
    :show-inheritance:
@@ -37,18 +53,26 @@ rs2.InterpreterEnums module
    :undoc-members:
    :show-inheritance:
 
-rs2.MeshResults module
-----------------------
-
-.. automodule:: rs2.MeshResults
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 rs2.InterpreterGraphEnums module
 --------------------------------
 
 .. automodule:: rs2.InterpreterGraphEnums
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.JointResult module
+----------------------
+
+.. automodule:: rs2.JointResult
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.MeshResults module
+----------------------
+
+.. automodule:: rs2.MeshResults
    :members:
    :undoc-members:
    :show-inheritance:

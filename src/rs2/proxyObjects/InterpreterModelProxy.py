@@ -94,16 +94,16 @@ class ModelProxy(ProxyObject):
 			horizontal_axis (HistoryQueryGraphEnums): Takes the horizontal axis to generate results for.
 			vertical_axis (HistoryQueryGraphEnums): Takes the vertical axis to generate results for.
 			stages (int): Takes the stages by their stage number for which results should be returned.
-
+		
 		Returns:
 			Returns a dictionary with key as stage number and value a List of HistoryQueryResult object.
 			To extract the stage number, x-coordinate, y-coordinate, horizontal axis result and vertical axis result,
 			please call the supported functions from the class:
-				HistoryQueryResult.GetXCoordinate()
-				HistoryQueryResult.GetYCoordinate()
-				HistoryQueryResult.GetHorizontalAxisResult()
-				HistoryQueryResult.GetVerticalAxisResult()
-				
+			- HistoryQueryResult.GetXCoordinate()
+			- HistoryQueryResult.GetYCoordinate()
+			- HistoryQueryResult.GetHorizontalAxisResult()
+			- HistoryQueryResult.GetVerticalAxisResult()
+		
 		Typical Usage:
 			results = model.GetHistoryQueryResults(params)
 			results_for_stage_1 = results[1]
@@ -111,9 +111,9 @@ class ModelProxy(ProxyObject):
 			y_coordinate = results_for_stage_1[0].GetYCoordinate()
 			horizontal_result = results_for_stage_1[0].GetHorizontalResult()
 			vertical_result = results_for_stage_1[0].GetVerticalResult()
-
+		
 		Exceptions:
-			ValueError: horizontal_axis and vertical_axis must be an enum of type HistoryQueryGraphEnums. 
+			ValueError: horizontal_axis and vertical_axis must be an enum of type HistoryQueryGraphEnums.
 						Any other value will raise an error.
 		"""
 		map_data = self._callFunction('GetHistoryQueryResults', [hq_name, horizontal_axis.value, vertical_axis.value, stages])
