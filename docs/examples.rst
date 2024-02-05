@@ -114,3 +114,8 @@ Python Script Examples
 .. literalinclude:: example_code/material_query_example.py
    :language: python
    :caption: Code Snippet: Manipulation of Material Queries
+
+.. _material joint example:
+.. literalinclude:: example_code/material_joint_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Material Joint Properties

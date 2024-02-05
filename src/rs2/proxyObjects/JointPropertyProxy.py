@@ -46,9 +46,9 @@ class JointProperty(PropertyProxy):
 	def GetPermeable(self) -> bool:
 		return self._callFunction("GetPermeable", [])
 	def SetMeshConforming(self, meshConforming: bool):
-		return self._callFunction("SetApplySSR", [meshConforming])
+		return self._callFunction("SetMeshConforming", [meshConforming])
 	def GetMeshConforming(self) -> bool:
-		return self._callFunction("GetApplySSR", [])
+		return self._callFunction("GetMeshConforming", [])
 	def SetAllowSlipStartFromStage(self, stage: int):
 		return self._callFunction("SetAllowSlipStartFromStage", [stage])
 	def GetAllowSlipStartFromStage(self) -> int:
