@@ -120,24 +120,26 @@ class ModelProxy(ProxyObject):
 	
 	def GetMaterialQueryResults(self) -> list[list[MaterialQueryResults]]:
 		"""
-		Returns the results for all the material queries defined in the model for active model stag and result type.
-		To get results for a different stage, please call SetActiveStage(int stageNumber) before calling this function.
-		To get results for a different result type, please call either before calling this function:
-		- SetResultType(InterpreterGraphEnums resultType)
-		- SetUserDefinedResultType("Your defined resultType name")
+		Returns the results for all the material queries defined in the model for active model stage and result type.
+		To get results for a different stage of your model, please call SetActiveStage(int stageNumber) first.
+		To get results for a different result type, please call either of before getting results:
+			- SetResultType(InterpreterGraphEnums)
+			- SetUserDefinedResultType("Your custom resultType name")
+		
+		Please note that results for points that fall outside the model mesh boundary is not returned.
 
-		Please note that results for points that fall outside the model mesh boundary are not returned.
-
-		Returns: 
-			A list[list[MaterialQueryResults]] of query results. The first inner list represents the results for all queries.
+		Returns:
+			A list[list[MaterialQueryResults]] of query results. The first inner list represents to results for all queries. 
 			The second inner list represents the data for points which make up a single material query.
-			To extract the material-ID, x-coordinate, y-coordinate, distance, or value from the specific material query node object,
-			please call any of the supported functions from the class:
-			- MaterialQueryResults.GetMaterialID()
-			- MaterialQueryResults.GetXCoordinate()
-			- MaterialQueryResults.GetYCoordinate()
-			- MaterialQueryResults.GetDistance()
-			- MaterialQueryResults.GetValue()
+			To extract the material-ID, x-coordinate, y-coordinate, distance, or value from the specific material query node object, 
+			please call the any of the supported functions from the class:
+
+			MaterialQueryResults.GetMaterialID()
+			MaterialQueryResults.GetXCoordinate()
+			MaterialQueryResults.GetYCoordinate()
+			MaterialQueryResults.GetDistance()
+			MaterialQueryResults.GetValue()
+		
 		"""
 		all_material_query_data = self._callFunction('GetMaterialQueryResults', [])
 		all_mat_query_data_as_classObj = []
@@ -148,10 +150,11 @@ class ModelProxy(ProxyObject):
 				material_id, list_query_data = node_value_tuple
 				unpack_list_data = [material_id, *list_query_data]
 				singleQueryValuesObject.append(MaterialQueryResults(*unpack_list_data))
-			# Add the data for this material query in the final list
+			# Add the data for this material query in final list
 			all_mat_query_data_as_classObj.append(singleQueryValuesObject)
 		
 		return all_mat_query_data_as_classObj
+
 	
 	def GetHistoryQueryResults(self, hq_name: str, horizontal_axis: HistoryQueryGraphEnums.HorizontalAxisTypes, vertical_axis: HistoryQueryGraphEnums.VerticalAxisTypes, 
 							stages: list[int]) -> dict[int, list[HistoryQueryResult]]:
@@ -163,16 +166,16 @@ class ModelProxy(ProxyObject):
 			horizontal_axis (HistoryQueryGraphEnums): Takes the horizontal axis to generate results for.
 			vertical_axis (HistoryQueryGraphEnums): Takes the vertical axis to generate results for.
 			stages (int): Takes the stages by their stage number for which results should be returned.
-		
+
 		Returns:
 			Returns a dictionary with key as stage number and value a List of HistoryQueryResult object.
 			To extract the stage number, x-coordinate, y-coordinate, horizontal axis result and vertical axis result,
 			please call the supported functions from the class:
-			- HistoryQueryResult.GetXCoordinate()
-			- HistoryQueryResult.GetYCoordinate()
-			- HistoryQueryResult.GetHorizontalAxisResult()
-			- HistoryQueryResult.GetVerticalAxisResult()
-		
+				HistoryQueryResult.GetXCoordinate()
+				HistoryQueryResult.GetYCoordinate()
+				HistoryQueryResult.GetHorizontalAxisResult()
+				HistoryQueryResult.GetVerticalAxisResult()
+				
 		Typical Usage:
 			results = model.GetHistoryQueryResults(params)
 			results_for_stage_1 = results[1]
@@ -180,9 +183,9 @@ class ModelProxy(ProxyObject):
 			y_coordinate = results_for_stage_1[0].GetYCoordinate()
 			horizontal_result = results_for_stage_1[0].GetHorizontalResult()
 			vertical_result = results_for_stage_1[0].GetVerticalResult()
-		
+
 		Exceptions:
-			ValueError: horizontal_axis and vertical_axis must be an enum of type HistoryQueryGraphEnums.
+			ValueError: horizontal_axis and vertical_axis must be an enum of type HistoryQueryGraphEnums. 
 						Any other value will raise an error.
 		"""
 		map_data = self._callFunction('GetHistoryQueryResults', [hq_name, horizontal_axis.value, vertical_axis.value, stages])
@@ -195,7 +198,8 @@ class ModelProxy(ProxyObject):
 			structured_data[stage_idx] = list_stage_data_as_classObj
 		
 		return structured_data
-
+		
+		
 	
 	def GetJointResults(
 		self, 
