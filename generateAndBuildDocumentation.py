@@ -26,10 +26,10 @@ def run_sphinx_apidoc():
         "-o",
         "docs/generatedAPIDocFiles",
         "src/rs2",
-        "src/rs2/Client.py",
-        "src/rs2/proxyObjects/documentProxy.py",
-        "src/rs2/proxyObjects/propertyProxy.py",
-        "src/rs2/ProxyObject.py"
+        "src/rs2/_common/Client.py",
+        "src/rs2/_common/documentProxy.py",
+        "src/rs2/modeler/properties/propertyProxy.py",
+        "src/rs2/_common/ProxyObject.py"
     ]
     subprocess.run(cmd, check=True)
 

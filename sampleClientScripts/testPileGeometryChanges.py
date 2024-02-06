@@ -1,5 +1,5 @@
-from rs2.RS2Modeler import RS2Modeler
-from rs2.PropertyEnums import *
+from rs2.modeler.RS2Modeler import RS2Modeler
+from rs2.modeler.properties.PropertyEnums import *
 modeler = RS2Modeler()
 
 model = modeler.openFile(r"C:\scriptingModels\pilesWithMesh.fez")
