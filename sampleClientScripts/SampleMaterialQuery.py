@@ -21,7 +21,7 @@ line2 = model.AddMaterialQuery(points_making_line2)
 # print("Unique Identifier for Line = ", lineID)
 
 # Remove material query point from model
-model.RemoveMaterialQuery("zeta")
+model.RemoveMaterialQuery(["zeta"])
 
 # # Set model stage to desired stage number
 # model.SetActiveStage(2)

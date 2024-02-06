@@ -101,12 +101,12 @@ class ModelProxy(ProxyObject):
 		"""
 		return self._callFunction('AddMaterialQuery', [points])
 	
-	def RemoveMaterialQuery(self, guid: str) -> str:
+	def RemoveMaterialQuery(self, IDs_toRemove: list[str]) -> str:
 		"""
-		Removes a material query point or line from your model by ID.
+		Removes material query points or lines for provided list of IDs.
 		
 		"""
-		return self._callFunction('RemoveMaterialQuery', [guid])
+		return self._callFunction('RemoveMaterialQuery', [IDs_toRemove])
 	
 	def GetMaterialQueryResults(self) -> list[list[MaterialQueryResults]]:
 		"""

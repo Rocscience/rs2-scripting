@@ -13,7 +13,7 @@ points_making_line = [[4.5, 4.5], [-2.5, 4.5], [-2.5, 2.5], [-6, 2.5]]
 lineID = model.AddMaterialQuery(points=points_making_line)
 
 # Remove Material Query Point in Modeler
-model.RemoveMaterialQuery(pointID)
+model.RemoveMaterialQuery([pointID])
 
 # Set model stage to desired stage number
 model.SetActiveStage(2)
