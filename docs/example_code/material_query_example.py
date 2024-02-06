@@ -1,5 +1,5 @@
-from rs2.RS2Interpreter import RS2Interpreter
-from rs2.InterpreterEnums import *
+from rs2.interpreter.RS2Interpreter import RS2Interpreter
+from rs2.interpreter.InterpreterEnums import *
 
 interpreter = RS2Interpreter()
 

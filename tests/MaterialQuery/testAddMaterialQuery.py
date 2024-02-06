@@ -2,9 +2,7 @@ import unittest
 import os, sys, inspect
 import shutil
 import parentDirectoryHelper
-from rs2.RS2Interpreter import RS2Interpreter
-from rs2.PropertyEnums import*
-
+from rs2.interpreter.RS2Interpreter import RS2Interpreter
 parentDirectoryHelper.addParentDirectoryToPath()
 
 class TestAddMaterialQuery(unittest.TestCase):

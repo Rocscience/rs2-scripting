@@ -57,6 +57,14 @@ rs2.interpreter.JointResult module
    :undoc-members:
    :show-inheritance:
 
+rs2.interpreter.MaterialQueryResults module
+-------------------------------------------
+
+.. automodule:: rs2.interpreter.MaterialQueryResults
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.interpreter.MeshResults module
 ----------------------------------
 
