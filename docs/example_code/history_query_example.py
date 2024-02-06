@@ -1,7 +1,7 @@
-from rs2.RS2Modeler import RS2Modeler
-from rs2.RS2Interpreter import RS2Interpreter
-from rs2.InterpreterEnums import *
-from rs2.InterpreterGraphEnums import *
+from rs2.modeler.RS2Modeler import RS2Modeler
+from rs2.interpreter.RS2Interpreter import RS2Interpreter
+from rs2.interpreter.InterpreterEnums import *
+from rs2.interpreter.InterpreterGraphEnums import *
 
 modeler = RS2Modeler()
 interpreter = RS2Interpreter()
