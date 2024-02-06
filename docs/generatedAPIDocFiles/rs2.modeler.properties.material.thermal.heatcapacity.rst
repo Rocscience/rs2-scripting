@@ -6,6 +6,8 @@ rs2.modeler.properties.material.thermal.heatcapacity package
    :undoc-members:
    :show-inheritance:
 
+Submodules
+----------
 
 rs2.modeler.properties.material.thermal.heatcapacity.ConstantHeatCapacity module
 --------------------------------------------------------------------------------

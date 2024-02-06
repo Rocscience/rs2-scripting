@@ -6,6 +6,8 @@ rs2.modeler.properties.material.hydraulic.FEAGroundwater package
    :undoc-members:
    :show-inheritance:
 
+Submodules
+----------
 
 rs2.modeler.properties.material.hydraulic.FEAGroundwater.Brooks module
 ----------------------------------------------------------------------

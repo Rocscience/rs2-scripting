@@ -6,12 +6,16 @@ rs2.modeler package
    :undoc-members:
    :show-inheritance:
 
+Subpackages
+-----------
 
 .. toctree::
    :maxdepth: 4
 
    rs2.modeler.properties
 
+Submodules
+----------
 
 rs2.modeler.ModelProxy module
 -----------------------------

@@ -6,12 +6,16 @@ rs2.modeler.properties.material.hydraulic package
    :undoc-members:
    :show-inheritance:
 
+Subpackages
+-----------
 
 .. toctree::
    :maxdepth: 4
 
    rs2.modeler.properties.material.hydraulic.FEAGroundwater
 
+Submodules
+----------
 
 rs2.modeler.properties.material.hydraulic.Hydraulic module
 ----------------------------------------------------------

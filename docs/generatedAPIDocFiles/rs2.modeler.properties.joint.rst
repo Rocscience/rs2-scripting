@@ -6,6 +6,8 @@ rs2.modeler.properties.joint package
    :undoc-members:
    :show-inheritance:
 
+Submodules
+----------
 
 rs2.modeler.properties.joint.BartonBandis module
 ------------------------------------------------

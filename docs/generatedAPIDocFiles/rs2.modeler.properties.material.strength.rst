@@ -6,6 +6,8 @@ rs2.modeler.properties.material.strength package
    :undoc-members:
    :show-inheritance:
 
+Submodules
+----------
 
 rs2.modeler.properties.material.strength.AnisotropicLinear module
 -----------------------------------------------------------------
