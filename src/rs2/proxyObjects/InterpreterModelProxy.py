@@ -91,25 +91,15 @@ class ModelProxy(ProxyObject):
 		results = self._callFunction('GetMeshResults', [])
 		return MeshResults(results)
 
-	def AddMaterialQueryPoint(self, x: float, y: float) -> str:
+	def AddMaterialQuery(self, points: list[list[float]]) -> str:
 		"""
-		Adds a material query point to your model at the specified coordinates.
+		Adds a material query point/line to your model using the specified coordinates in order.
 
 		Returns:
-			A unique identifier for the newly added material query point.
+			A unique identifier for the newly added material query point/line.
 		
 		"""
-		return self._callFunction('AddMaterialQueryPoint', [x, y])
-
-	def AddMaterialQueryLine(self, points: list[list[float]]) -> str:
-		"""
-		Adds a material query line to your model using the specified coordinates in order.
-
-		Returns:
-			A unique identifier for the newly added material query line.
-		
-		"""
-		return self._callFunction('AddMaterialQueryLine', [points])
+		return self._callFunction('AddMaterialQuery', [points])
 	
 	def RemoveMaterialQuery(self, guid: str) -> str:
 		"""
@@ -133,6 +123,7 @@ class ModelProxy(ProxyObject):
 			The second inner list represents the data for points which make up a single material query.
 			To extract the material-ID, x-coordinate, y-coordinate, distance, or value from the specific material query node object,
 			please call any of the supported functions from the class:
+			- MaterialQueryResults.GetUniqueIdentifier()
 			- MaterialQueryResults.GetMaterialID()
 			- MaterialQueryResults.GetXCoordinate()
 			- MaterialQueryResults.GetYCoordinate()
@@ -146,8 +137,8 @@ class ModelProxy(ProxyObject):
 			# This list corresponds to the data at each vertex of material query in iteration
 			singleQueryValuesObject = []
 			for node_value_tuple in mat_query_data:
-				material_id, list_query_data = node_value_tuple
-				unpack_list_data = [material_id, *list_query_data]
+				entity_id, material_id, list_query_data = node_value_tuple
+				unpack_list_data = [entity_id, material_id, *list_query_data]
 				singleQueryValuesObject.append(MaterialQueryResults(*unpack_list_data))
 			# Add the data for this material query in final list
 			all_mat_query_data_as_classObj.append(singleQueryValuesObject)

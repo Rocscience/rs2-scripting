@@ -21,22 +21,15 @@ class TestAddMaterialQuery(unittest.TestCase):
         self.model._client.closeConnection()
     
     def testAddMaterialQueryPointSuccess(self):
-        self.model.AddMaterialQueryPoint(x=3.3, y=-2.2)
+        self.model.AddMaterialQuery([[3.3, -2.2]])
     
     def testAddMaterialQueryLineSuccess(self):
         points_making_line = [[4.5, 4.5], [-2.5, 4.5], [-2.5, 2.5], [-6, 2.5]]
-        self.model.AddMaterialQueryLine(points=points_making_line)
+        self.model.AddMaterialQuery(points=points_making_line)
     
     def testAddMaterialQueryLineNoPointsFailure(self):
         try:
-            self.model.AddMaterialQueryLine(points=[])
-            self.fail("Expected exception")
-        except:
-            pass
-    
-    def testAddMaterialQueryLineSinglePointsFailure(self):
-        try:
-            self.model.AddMaterialQueryLine(points=[[4.5, 4.5]])
+            self.model.AddMaterialQuery(points=[])
             self.fail("Expected exception")
         except:
             pass
@@ -44,7 +37,7 @@ class TestAddMaterialQuery(unittest.TestCase):
     def testAddMaterialQueryLineRepeatedPointsFailure(self):
         try:
             repeated_points = [[0.0000000000000001, -1], [0.0000000000000000000000000000001, -1]]
-            self.model.AddMaterialQueryLine(points=repeated_points)
+            self.model.AddMaterialQuery(points=repeated_points)
             self.fail("Expected exception")
         except:
             pass

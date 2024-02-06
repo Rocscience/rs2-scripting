@@ -1,11 +1,18 @@
 class MaterialQueryResults:
     results = None
-    def __init__(self, material_id, x_location, y_location, distance, value):
+    def __init__(self, entity_ID, material_id, x_location, y_location, distance, value):
+        self.entity_ID = entity_ID
         self.material_id = material_id
         self.x_location = x_location
         self.y_location = y_location
         self.distance = distance
         self.value = value
+    
+    def GetUniqueIdentifier(self):
+        '''
+        Returns the unique identifier for the material query
+        '''
+        return self.entity_ID
     
     def GetMaterialID(self):
         '''

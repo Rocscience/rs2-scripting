@@ -21,12 +21,12 @@ class TestRemoveMaterialQuery(unittest.TestCase):
         self.model._client.closeConnection()
     
     def testRemoveMaterialQueryPointSuccess(self):
-        guid = self.model.AddMaterialQueryPoint(x=3.3, y=-2.2)
+        guid = self.model.AddMaterialQuery([[3.3, -2.2]])
         self.model.RemoveMaterialQuery(guid)
     
     def testRemoveMaterialQueryLineSuccess(self):
         points_making_line = [[4.5, 4.5], [-2.5, 4.5], [-2.5, 2.5], [-6, 2.5]]
-        guid = self.model.AddMaterialQueryLine(points=points_making_line)
+        guid = self.model.AddMaterialQuery(points=points_making_line)
         self.model.RemoveMaterialQuery(guid)
     
     def testRemoveMaterialQueryFailure(self):
