@@ -2,9 +2,9 @@ import unittest
 import os, sys, inspect
 import shutil
 import parentDirectoryHelper
-from rs2.RS2Modeler import RS2Modeler
-from rs2.PropertyEnums import*
-from rs2.proxyObjects.LinerSubproxyObjects.CableTruss import CableTrussStageFactor, CableTrussDefinedStageFactor
+from rs2.modeler.RS2Modeler import RS2Modeler
+from rs2.modeler.properties.PropertyEnums import*
+from rs2.modeler.properties.liner.CableTruss import CableTrussStageFactor, CableTrussDefinedStageFactor
 
 parentDirectoryHelper.addParentDirectoryToPath()
 
