@@ -10,7 +10,7 @@ authors = [
 ]
 description = "Client library for interacting with RS2 through python"
 readme = "README.md"
-requires-python = ">=3.7"
+requires-python = ">=3.6, <=3.12"
 classifiers = [
     "Programming Language :: Python :: 3",
 ]
