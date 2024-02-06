@@ -5,7 +5,7 @@ import parentDirectoryHelper
 
 parentDirectoryHelper.addParentDirectoryToPath()
 
-from src.rs2.RS2Modeler import RS2Modeler
+from rs2.modeler.RS2Modeler import RS2Modeler
 class TestGetAllJointProperties(unittest.TestCase):
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()

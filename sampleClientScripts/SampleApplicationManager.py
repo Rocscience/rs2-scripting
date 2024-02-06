@@ -1,6 +1,6 @@
-from rs2.ApplicationManager import ApplicationManager
-from rs2.RS2Modeler import RS2Modeler
-from rs2.PropertyEnums import *
+from rs2.utilities.ApplicationManager import ApplicationManager
+from rs2.modeler.RS2Modeler import RS2Modeler
+from rs2.modeler.properties.PropertyEnums import *
 
 portToUse = 60054
 

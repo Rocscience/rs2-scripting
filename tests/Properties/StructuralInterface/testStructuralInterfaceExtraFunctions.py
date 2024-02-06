@@ -2,9 +2,9 @@ import unittest
 import os, sys, inspect
 import shutil
 import parentDirectoryHelper
-from rs2.RS2Modeler import RS2Modeler
-from rs2.PropertyEnums import*
-from rs2.ColorPicker import ColorPicker
+from rs2.modeler.RS2Modeler import RS2Modeler
+from rs2.modeler.properties.PropertyEnums import*
+from rs2.utilities.ColorPicker import ColorPicker
 
 parentDirectoryHelper.addParentDirectoryToPath()
 
