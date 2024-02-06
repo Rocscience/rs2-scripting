@@ -3,8 +3,8 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
-from rs2.ProxyObject import ProxyObject
-from rs2.proxyObjects.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
 class GeosyntheticHyperbolicMaterialStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
