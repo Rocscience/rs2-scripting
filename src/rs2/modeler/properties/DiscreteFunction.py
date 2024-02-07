@@ -17,10 +17,14 @@ class DiscreteFunction(ProxyObject):
         return self._callFunction('setInterpolationMethod', [interpolationMethod.value])
     def getInterpolationMethod(self):
         return InterpolationMethod(self._callFunction('getInterpolationMethod', []))
-    def setSymbolDrawing(self, symbol : int, exteriorColor : int, fillInterior : bool, interiorColor : int = 0):
-        return self._callFunction('setSymbolDrawing', [symbol, exteriorColor, fillInterior, interiorColor])
+    def setSymbolDrawing(self, symbol : SymbolTypes, exteriorColor : int, fillInterior : bool, interiorColor : int = 0):
+        return self._callFunction('setSymbolDrawing', [symbol.value, exteriorColor, fillInterior, interiorColor])
     def getSymbolDrawing(self):
-        return self._callFunction('getSymbolDrawing', [])
+        """
+        Returns a tuple of (SymbolTypes, exteriorColor, fillInterior, interiorColor)
+        """
+        symbolDrawing = self._callFunction('getSymbolDrawing', [])
+        return (SymbolTypes(symbolDrawing[0]), symbolDrawing[1], symbolDrawing[2], symbolDrawing[3])
     def setPointLocations(self, locations : list[tuple[float, float]]):
         return self._callFunction('setPointLocations', [locations])
     def getPointLocations(self):

@@ -4,6 +4,7 @@ import shutil
 import parentDirectoryHelper
 from rs2.modeler.RS2Modeler import RS2Modeler
 from rs2.modeler.properties.PropertyEnums import*
+from rs2.utilities.ColorPicker import ColorPicker
 
 parentDirectoryHelper.addParentDirectoryToPath()
 
@@ -96,7 +97,26 @@ class TestDiscreteFunctionFunctions(unittest.TestCase):
         self.model.close()
         os.remove(self.copiedModelPath)
 
-    def testSetFunctionParameters(self):
-        self.df
+    def testFunctionParameters(self):
+        self.df.setFunctionParameters(MaterialBehaviours.DRAINED, True, 1.1, 2.2, 3.3, True)
+        self.assertEqual(self.df.getFunctionParameters(), (MaterialBehaviours.DRAINED, True, 1.1, 2.2, 3.3, True))
 
+        self.df.setFunctionParameters(MaterialBehaviours.UNDRAINED, False, 1.1, 2.2, 3.3, False)
+        self.assertEqual(self.df.getFunctionParameters(), (MaterialBehaviours.UNDRAINED, False, 1.1, 2.2, 3.3, False))
+
+    def testInterpolationMethod(self):
+        self.df.setInterpolationMethod(InterpolationMethod.BCINTERPOLATE_THINPLATESPLINE)
+        self.assertEqual(self.df.getInterpolationMethod(), InterpolationMethod.BCINTERPOLATE_THINPLATESPLINE)
+
+        self.df.setInterpolationMethod(InterpolationMethod.BCINTERPOLATE_ORIGINALCHUGH)
+        self.assertEqual(self.df.getInterpolationMethod(), InterpolationMethod.BCINTERPOLATE_ORIGINALCHUGH)
+
+    def testSetSymbolDrawing(self):
+        self.df.setSymbolDrawing(SymbolTypes.SL_SYMBOL_TYPE_SQUARE, ColorPicker.Green, True, ColorPicker.Blue)
+        self.assertEqual(self.df.getSymbolDrawing(), (SymbolTypes.SL_SYMBOL_TYPE_SQUARE, ColorPicker.Green, True, ColorPicker.Blue))
+
+        self.df.setSymbolDrawing(SymbolTypes.SL_SYMBOL_TYPE_DOT, ColorPicker.Red, False, ColorPicker.Yellow)
+        self.assertEqual(self.df.getSymbolDrawing(), (SymbolTypes.SL_SYMBOL_TYPE_DOT, ColorPicker.Red, False, ColorPicker.Yellow))
+
+        
         
