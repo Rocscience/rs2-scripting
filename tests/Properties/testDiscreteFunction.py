@@ -21,6 +21,7 @@ class TestDiscreteFunctionManager(unittest.TestCase):
     @classmethod
     def tearDownClass(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
 
     def testGetNonExistant(self):
@@ -92,6 +93,7 @@ class TestDiscreteFunctionFunctions(unittest.TestCase):
     @classmethod
     def tearDownClass(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
 
     def testFunctionParameters(self):
