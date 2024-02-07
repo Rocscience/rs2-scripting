@@ -6,6 +6,7 @@ from rs2.interpreter.HistoryQueryResults import HistoryQueryResult
 from rs2.interpreter.InterpreterGraphEnums import *
 from rs2.interpreter.JointResult import *
 from rs2.interpreter.BeamResult import *
+from rs2.interpreter.BoltResult import*
 class ModelProxy(ProxyObject):
 	"""
 	:ref:`Model Example`
@@ -176,3 +177,34 @@ class ModelProxy(ProxyObject):
 			structured_data[stage_idx] = list_stage_data_as_classObj
 		
 		return structured_data
+
+	
+	def GetBoltYieldingResults (
+		self, 
+		stages: list[int]) -> dict[int, list[JointResult]]:
+		yeilded_indx = 4
+		map_data = self._callFunction('GetBoltYieldingResults', [stages])
+		structured_data = {}
+		for stage_idx, stage_data in map_data.items():
+			list_stage_data_as_classObj = []
+			for result in stage_data:
+				result[yeilded_indx] = bool(result[yeilded_indx])
+				list_stage_data_as_classObj.append(BoltYieldingResult(*result))
+			
+			structured_data[stage_idx] = list_stage_data_as_classObj
+		
+		return structured_data
+		
+	def GetBoltForceDisplacementResults (
+		self, 
+		stages: list[int]) -> dict[int, list[JointResult]]:
+		map_data = self._callFunction('GetBoltForceDisplacementResults', [stages])
+		structured_data = {}
+		for stage_idx, stage_data in map_data.items():
+			list_stage_data_as_classObj = []
+			for result in stage_data:
+				list_stage_data_as_classObj.append(BoltForceDisplacementResult(*result))
+			
+			structured_data[stage_idx] = list_stage_data_as_classObj
+		
+		return structured_data		
