@@ -1,10 +1,6 @@
 from rs2._common.ProxyObject import ProxyObject
 from rs2.modeler.properties.PropertyEnums import *
 class DiscreteFunction(ProxyObject):
-    def getName(self):
-        return self._callFunction('getName', [])
-    def setName(self, name : str):
-        return self._callFunction('setName', [name])
     def setFunctionParameters(self, functionType : DiscreteDrainedMode, useModulus : bool, residualStrengthFactor : float, peakTensileStrength : float, residualTensileStrength : float, useModulusResidual : bool = False):
         return self._callFunction('setFunctionParameters', [functionType.value, useModulus, residualStrengthFactor, peakTensileStrength, residualTensileStrength, useModulusResidual])
     def getFunctionParameters(self):
