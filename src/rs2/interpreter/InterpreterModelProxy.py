@@ -188,7 +188,7 @@ class ModelProxy(ProxyObject):
 		for stage_idx, stage_data in map_data.items():
 			list_stage_data_as_classObj = []
 			for result in stage_data:
-				result[yeilded_indx] = bool(result[yeilded_indx])
+				result[yeilded_indx] = BoltElementYieldStatus(result[yeilded_indx])
 				list_stage_data_as_classObj.append(BoltYieldingResult(*result))
 			
 			structured_data[stage_idx] = list_stage_data_as_classObj
