@@ -72,8 +72,6 @@ class TestDiscreteFunctionManager(unittest.TestCase):
         mat1.Strength.setFailureCriterion(StrengthCriteriaTypes.MOHR_COULOMB)
         self.model.deleteDiscreteFunction("testDiscreteFunction1")
 
-    
-
 class TestDiscreteFunctionFunctions(unittest.TestCase):
     @classmethod
     def setUpClass(self):
@@ -97,11 +95,11 @@ class TestDiscreteFunctionFunctions(unittest.TestCase):
         os.remove(self.copiedModelPath)
 
     def testFunctionParameters(self):
-        self.df.setFunctionParameters(MaterialBehaviours.DRAINED, True, 1.1, 2.2, 3.3, True)
-        self.assertEqual(self.df.getFunctionParameters(), (MaterialBehaviours.DRAINED, True, 1.1, 2.2, 3.3, True))
+        self.df.setFunctionParameters(DiscreteDrainedMode.SL_DISCRETE_DRAINED, True, 1.1, 2.2, 3.3, True)
+        self.assertEqual(self.df.getFunctionParameters(), (DiscreteDrainedMode.SL_DISCRETE_DRAINED, True, 1.1, 2.2, 3.3, True))
 
-        self.df.setFunctionParameters(MaterialBehaviours.UNDRAINED, False, 1.1, 2.2, 3.3, False)
-        self.assertEqual(self.df.getFunctionParameters(), (MaterialBehaviours.UNDRAINED, False, 1.1, 2.2, 3.3, False))
+        self.df.setFunctionParameters(DiscreteDrainedMode.SL_DISCRETE_UNDRAINED, False, 1.1, 2.2, 3.3, False)
+        self.assertEqual(self.df.getFunctionParameters(), (DiscreteDrainedMode.SL_DISCRETE_UNDRAINED, False, 1.1, 2.2, 3.3, False))
 
     def testInterpolationMethod(self):
         self.df.setInterpolationMethod(InterpolationMethod.BCINTERPOLATE_THINPLATESPLINE)
