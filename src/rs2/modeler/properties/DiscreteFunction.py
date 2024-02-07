@@ -13,10 +13,10 @@ class DiscreteFunction(ProxyObject):
         """
         params = self._callFunction('getFunctionParameters', [])
         return (MaterialBehaviours(params[0]), params[1], params[2], params[3], params[4], params[5])
-    def setInterpolationMethod(self, interpolationMethod : int):
-        return self._callFunction('setInterpolationMethod', [interpolationMethod])
+    def setInterpolationMethod(self, interpolationMethod : InterpolationMethod):
+        return self._callFunction('setInterpolationMethod', [interpolationMethod.value])
     def getInterpolationMethod(self):
-        return self._callFunction('getInterpolationMethod', [])
+        return InterpolationMethod(self._callFunction('getInterpolationMethod', []))
     def setSymbolDrawing(self, symbol : int, exteriorColor : int, fillInterior : bool, interiorColor : int = 0):
         return self._callFunction('setSymbolDrawing', [symbol, exteriorColor, fillInterior, interiorColor])
     def getSymbolDrawing(self):
