@@ -91,7 +91,6 @@ class TestDiscreteFunctionFunctions(unittest.TestCase):
 
         self.df = self.model.getDiscreteFunctionByName("testDiscreteFunction1")
 
-        self.df.setFunctionParameters()
     @classmethod
     def tearDownClass(self):
         self.model.close()
@@ -118,5 +117,22 @@ class TestDiscreteFunctionFunctions(unittest.TestCase):
         self.df.setSymbolDrawing(SymbolTypes.SL_SYMBOL_TYPE_DOT, ColorPicker.Red, False, ColorPicker.Yellow)
         self.assertEqual(self.df.getSymbolDrawing(), (SymbolTypes.SL_SYMBOL_TYPE_DOT, ColorPicker.Red, False, ColorPicker.Yellow))
 
+    def testSetPointLocations(self):
+        self.df.setPointLocations([(0, 0), (1.1, 1.2), (2.1, 2.2)])
+        self.assertEqual(self.df.getPointLocations(), [(0, 0), (1.1, 1.2), (2.1, 2.2)])
         
-        
+    def testSetPointsC(self):
+        self.df.setPointsC([0, 1.1, 2.2])
+        self.assertEqual(self.df.getPointsC(), [0, 1.1, 2.2])
+
+    def testSetPointsPhi(self):
+        self.df.setPointsPhi([0, 1.1, 2.2])
+        self.assertEqual(self.df.getPointsPhi(), [0, 1.1, 2.2])
+
+    def testSetPointsModulus(self):
+        self.df.setPointsModulus([0, 1.1, 2.2])
+        self.assertEqual(self.df.getPointsModulus(), [0, 1.1, 2.2])
+
+    def testSetPointsModulusResidual(self):
+        self.df.setPointsModulusResidual([0, 1.1, 2.2])
+        self.assertEqual(self.df.getPointsModulusResidual(), [0, 1.1, 2.2])
