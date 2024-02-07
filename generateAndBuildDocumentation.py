@@ -1,10 +1,13 @@
 import subprocess
 import os
-
+import shutil
 """
 sphinx-apidoc Documentation: https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html
 sphinx-build Documentation: https://www.sphinx-doc.org/en/master/man/sphinx-build.html
 """
+
+#see https://www.sphinx-doc.org/en/master/man/sphinx-build.html#cmdoption-sphinx-build-b
+builder = 'singlehtml'
 
 def set_sphinx_apidoc_settings():
     # Command to set SPHINX_APIDOC_OPTIONS environment variable
@@ -26,10 +29,10 @@ def run_sphinx_apidoc():
         "-o",
         "docs/generatedAPIDocFiles",
         "src/rs2",
-        "src/rs2/Client.py",
-        "src/rs2/proxyObjects/documentProxy.py",
-        "src/rs2/proxyObjects/propertyProxy.py",
-        "src/rs2/ProxyObject.py"
+        "src/rs2/_common/Client.py",
+        "src/rs2/_common/documentProxy.py",
+        "src/rs2/modeler/properties/propertyProxy.py",
+        "src/rs2/_common/ProxyObject.py"
     ]
     subprocess.run(cmd, check=True)
 
@@ -53,13 +56,25 @@ def run_sphinx_build():
     cmd = [
         "sphinx-build", 
         "-b", 
-        "latex", 
+        builder, 
         "docs", 
-        "docs/_build/pdf"
+        f"docs/_build/{builder}"
         ]
     subprocess.run(cmd, check=True)
 
+def clear_generated_docs():
+    # Specify the path of the folder you want to delete
+    folder_path = 'docs/generatedAPIDocFiles'
+
+    # Check if the folder exists before attempting to delete it
+    if os.path.exists(folder_path):
+        # Use shutil.rmtree() to delete the folder and its contents recursively
+        shutil.rmtree(folder_path)
+        print(f"Folder '{folder_path}' and its contents deleted successfully.")
+    else:
+        print(f"Folder '{folder_path}' does not exist.")
 if __name__ == "__main__":
+    clear_generated_docs()
     run_sphinx_apidoc()
-    remove_subpackage_submodule_headers()
+    #remove_subpackage_submodule_headers()
     run_sphinx_build()

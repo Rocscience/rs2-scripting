@@ -2,9 +2,9 @@ import unittest
 import os, sys, inspect
 import shutil
 import parentDirectoryHelper
-from rs2.RS2Interpreter import RS2Interpreter
-from rs2.InterpreterEnums import *
-from rs2.PropertyEnums import *
+from rs2.interpreter.RS2Interpreter import RS2Interpreter
+from rs2.interpreter.InterpreterEnums import *
+from rs2.modeler.properties.PropertyEnums import *
 
 parentDirectoryHelper.addParentDirectoryToPath()
 

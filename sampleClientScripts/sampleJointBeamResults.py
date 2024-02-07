@@ -1,8 +1,8 @@
-from rs2.InterpreterEnums import *
-from rs2.InterpreterGraphEnums import *
-from rs2.proxyObjects import *
+from rs2.interpreter.InterpreterEnums import *
+from rs2.interpreter.InterpreterGraphEnums import *
+from rs2.modeler.properties import *
 
-from rs2.RS2Interpreter import RS2Interpreter
+from rs2.interpreter.RS2Interpreter import RS2Interpreter
 
 
 interpreter = RS2Interpreter()

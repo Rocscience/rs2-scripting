@@ -1,6 +1,6 @@
-from rs2.RS2Interpreter import RS2Interpreter
-from rs2.InterpreterEnums import *
-from rs2.PropertyEnums import *
+from rs2.interpreter.RS2Interpreter import RS2Interpreter
+from rs2.interpreter.InterpreterEnums import *
+from rs2.modeler.properties.PropertyEnums import *
 
 interpreter = RS2Interpreter()
 model = interpreter.openFile("S:\willSati\Scripting\TestModels\Profiles_and_Boreholes.fez")
