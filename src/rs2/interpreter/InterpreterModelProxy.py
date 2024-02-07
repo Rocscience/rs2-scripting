@@ -145,7 +145,7 @@ class ModelProxy(ProxyObject):
 			structured_data[stage_idx] = list_stage_data_as_classObj
 		
 		return structured_data
-
+	
 	def GetBeamResults(
 		self, 
 		stages: list[int]) -> dict[int, list[BeamResult]]:
@@ -181,7 +181,7 @@ class ModelProxy(ProxyObject):
 	
 	def GetBoltYieldingResults (
 		self, 
-		stages: list[int]) -> dict[int, list[JointResult]]:
+		stages: list[int]) -> dict[int, list[BoltElementYieldStatus]]:
 		yeilded_indx = 4
 		map_data = self._callFunction('GetBoltYieldingResults', [stages])
 		structured_data = {}
@@ -197,7 +197,7 @@ class ModelProxy(ProxyObject):
 		
 	def GetBoltForceDisplacementResults (
 		self, 
-		stages: list[int]) -> dict[int, list[JointResult]]:
+		stages: list[int]) -> dict[int, list[BoltForceDisplacementResult]]:
 		map_data = self._callFunction('GetBoltForceDisplacementResults', [stages])
 		structured_data = {}
 		for stage_idx, stage_data in map_data.items():
@@ -207,4 +207,4 @@ class ModelProxy(ProxyObject):
 			
 			structured_data[stage_idx] = list_stage_data_as_classObj
 		
-		return structured_data		
+		return structured_data	
