@@ -10,7 +10,7 @@ from rs2.modeler.properties.CompositeProperty import CompositeProperty
 from rs2.modeler.properties.material.MaterialPropertyProxy import MaterialProperty
 from rs2.modeler.properties.ShearNormalFunctionProxy import ShearNormalFunction
 from rs2.modeler.properties.UserDefinedWaterMode import UserDefinedWaterMode
-from rs2.modeler.properties.DiscreteFunctionProxy import DiscreteFunction
+from rs2.modeler.properties.DiscreteFunction import DiscreteFunction
 
 class ModelProxy(ProxyObject):
 	"""

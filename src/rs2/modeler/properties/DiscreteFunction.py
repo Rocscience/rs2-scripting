@@ -1,14 +1,18 @@
-from rs2.ProxyObject import ProxyObject
-
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.PropertyEnums import *
 class DiscreteFunction(ProxyObject):
     def getName(self):
         return self._callFunction('getName', [])
     def setName(self, name : str):
         return self._callFunction('setName', [name])
-    def setFunctionParameters(self, functionType : int, useModulus : bool, residualStrengthFactor : float, peakTensileStrength : float, residualTensileStrength : float, useModulusResidual : bool = False):
-        return self._callFunction('setFunctionParameters', [functionType, useModulus, residualStrengthFactor, peakTensileStrength, residualTensileStrength, useModulusResidual])
+    def setFunctionParameters(self, functionType : MaterialBehaviours, useModulus : bool, residualStrengthFactor : float, peakTensileStrength : float, residualTensileStrength : float, useModulusResidual : bool = False):
+        return self._callFunction('setFunctionParameters', [functionType.value, useModulus, residualStrengthFactor, peakTensileStrength, residualTensileStrength, useModulusResidual])
     def getFunctionParameters(self):
-        return self._callFunction('getFunctionParameters', [])
+        """
+        Returns a tuple of (MaterialBehaviours, useModulus, residualStrengthFactor, peakTensileStrength, residualTensileStrength, useModulusResidual)
+        """
+        params = self._callFunction('getFunctionParameters', [])
+        return (MaterialBehaviours(params[0]), params[1], params[2], params[3], params[4], params[5])
     def setInterpolationMethod(self, interpolationMethod : int):
         return self._callFunction('setInterpolationMethod', [interpolationMethod])
     def getInterpolationMethod(self):
