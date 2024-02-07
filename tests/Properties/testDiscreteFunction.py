@@ -73,6 +73,35 @@ class TestDiscreteFunctionManager(unittest.TestCase):
         mat1.Strength.setFailureCriterion(StrengthCriteriaTypes.MOHR_COULOMB)
         self.model.deleteDiscreteFunction("testDiscreteFunction1")
 
+    def testRenameSuccess(self):
+        model = self.model
+
+        model.createNewDiscreteFunction("testDiscreteFunction")
+        model.renameDiscreteFunction("testDiscreteFunction", "testDiscreteFunction2")
+
+        with self.assertRaises(Exception):
+            model.getDiscreteFunctionByName("testDiscreteFunction")
+
+        model.getDiscreteFunctionByName("testDiscreteFunction2")
+        model.deleteDiscreteFunction("testDiscreteFunction2")
+
+    def testRenameFailureNonexistant(self):
+        model = self.model
+
+        with self.assertRaises(Exception):
+            model.renameDiscreteFunction("testDiscreteFunction", "testDiscreteFunction2")
+
+    def testRenameFailureDuplicate(self):
+        model = self.model
+
+        model.createNewDiscreteFunction("testDiscreteFunction1")
+        model.createNewDiscreteFunction("testDiscreteFunction2")
+
+        with self.assertRaises(Exception):
+            model.renameDiscreteFunction("testDiscreteFunction1", "testDiscreteFunction2")
+
+        model.deleteDiscreteFunction("testDiscreteFunction1")
+        model.deleteDiscreteFunction("testDiscreteFunction2")
 class TestDiscreteFunctionFunctions(unittest.TestCase):
     @classmethod
     def setUpClass(self):

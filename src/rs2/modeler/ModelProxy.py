@@ -293,3 +293,9 @@ class ModelProxy(ProxyObject):
 		Deletes a discrete function with the given name
 		'''
 		return self._callFunction('deleteDiscreteFunction', [functionName])
+	
+	def renameDiscreteFunction(self, oldName, newName):
+		'''
+		Renames a discrete function with the given name
+		'''
+		return self._callFunction('renameDiscreteFunction', [oldName, newName])
