@@ -35,8 +35,9 @@ print_data_attributes(joint_results_stage_1)
 print_data_attributes(beam_results_stage_1)
 print_data_attributes(bolt_yielding_results_1)
 print_data_attributes(bolt_force_displacement_results_1)
-
 a = BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED
+
+
 if (a == bolt_yielding_results_1[0].yielding_flag):
     print('same')
 pass
