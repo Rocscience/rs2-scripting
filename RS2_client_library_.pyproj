@@ -84,6 +84,7 @@
     <Compile Include="sampleClientScripts\testPileGeometryChanges.py" />
     <Compile Include="sampleClientScripts\WriteMeshResultsToCSV.py" />
     <Compile Include="src\rs2\interpreter\BeamResult.py" />
+    <Compile Include="src\rs2\interpreter\BoltResult.py" />
     <Compile Include="src\rs2\interpreter\HistoryQueryResults.py" />
     <Compile Include="src\rs2\interpreter\InterpreterEnums.py" />
     <Compile Include="src\rs2\interpreter\InterpreterGraphEnums.py" />
