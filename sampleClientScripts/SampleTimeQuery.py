@@ -3,7 +3,7 @@ from rs2.modeler.properties.PropertyEnums import *
 
 modeler = RS2Modeler()
 
-model = modeler.openFile(r"C:\scriptingModels\Profiles_and_Boreholes.fez")
+model = modeler.openFile(r"C:\scriptingModels\Profiles_and_Boreholes_2.fez")
 
 points = [[2.2, 0], [2.2, -2]]
 points_on_line = 5
