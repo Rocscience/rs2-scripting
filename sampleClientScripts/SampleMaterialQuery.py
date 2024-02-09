@@ -16,24 +16,28 @@ points_making_line2 = [[-2, -4], [-2, -1]]
 lineID = model.AddMaterialQuery(points=points_making_line)
 line2 = model.AddMaterialQuery(points_making_line2)
 
-# print("Unique Identifier for Point = ", pointID)
-# print("Unique Identifier for Line = ", lineID)
+print("Unique Identifier for Point = ", pointID)
+print("Unique Identifier for Line = ", lineID)
 
 # Remove material query point from model
-model.RemoveMaterialQuery(["zeta"])
+model.RemoveMaterialQuery([pointID])
 
-# # Set model stage to desired stage number
-# model.SetActiveStage(2)
-# # Get results for all material queries from model
-# results = model.GetMaterialQueryResults()
-# # Extracting data for all material queries from model
-# for mat_query_data in results:
-#     for node_value in mat_query_data:
-#         print("----------------------")
-#         material_id = node_value.GetMaterialID()
-#         x_coord = node_value.GetXCoordinate()
-#         y_coord = node_value.GetYCoordinate()
-#         distance = node_value.GetDistance()
-#         value = node_value.GetValue()
-#         print(material_id, x_coord, y_coord, distance, value)
-#     print("\n")
+# Set model stage to desired stage number
+model.SetActiveStage(2)
+# Get results for all material queries from model
+results = model.GetMaterialQueryResults()
+print("LEN OF RESULTS", len(results))
+# Extracting data for all material queries from model
+for mat_query_data in results:
+    unique_ID = mat_query_data.GetUniqueIdentifier()
+    material_ID = mat_query_data.GetMaterialID()
+    print(unique_ID, material_ID)
+    print("----------------")
+    query_results = mat_query_data.GetAllValues()
+    for result in query_results:
+        x = result.GetXCoordinate()
+        y = result.GetYCoordinate()
+        distance = result.GetDistance()
+        value = result.GetValue()
+        print(x, y, distance, value)
+    print()

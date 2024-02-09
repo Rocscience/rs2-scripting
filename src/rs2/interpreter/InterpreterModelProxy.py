@@ -41,6 +41,12 @@ class ModelProxy(ProxyObject):
 		'''
 		return self._callFunction('save', [])
 	
+	def SetActiveStage(self, stageNumber: int):
+		'''
+		Change model's active stage by its stage number
+		'''
+		return self._callFunction('SetActiveStage', [stageNumber])
+	
 	def SetResultType(self, resultType: ExportResultType) -> list[dict]:
 		"""
 		Sets the export result type for the model.
@@ -146,7 +152,7 @@ class ModelProxy(ProxyObject):
 		"""
 		return self._callFunction('RemoveMaterialQuery', [IDs_toRemove])
 	
-	def GetMaterialQueryResults(self) -> list[list[MaterialQueryResults]]:
+	def GetMaterialQueryResults(self) -> list[MaterialQueryResults]:
 		"""
 		Returns the results for all the material queries defined in the model for active model stage and result type.
 		To get results for a different stage, please call SetActiveStage(int stageNumber) before calling this function.
@@ -157,30 +163,30 @@ class ModelProxy(ProxyObject):
 		Please note that results for points that fall outside the model mesh boundary are not returned.
 
 		Returns: 
-			A list[list[MaterialQueryResults]] of query results. The first inner list represents the results for all queries.
-			The second inner list represents the data for points which make up a single material query.
-			To extract the material-ID, x-coordinate, y-coordinate, distance, or value from the specific material query node object,
+			A list[MaterialQueryResults] of query results.
+			To extract the Unique Identifier, Material ID for a specific material query object,
 			please call any of the supported functions from the class:
 			- MaterialQueryResults.GetUniqueIdentifier()
 			- MaterialQueryResults.GetMaterialID()
-			- MaterialQueryResults.GetXCoordinate()
-			- MaterialQueryResults.GetYCoordinate()
-			- MaterialQueryResults.GetDistance()
-			- MaterialQueryResults.GetValue()
+			
+			To get all the results for this query, please call:
+			- MaterialQueryResults.GetAllValues()
+
+			The above method returns list[QueryResult] for each result. 
+			To get the x-coordiante, y-coordinate, distance or value, please call:
+			- QueryResult.GetXCoordinate()
+			- QueryResult.GetYCoordinate()
+			- QueryResult.GetDistance()
+			- QueryResult.GetValue()
 
 		"""
 		all_material_query_data = self._callFunction('GetMaterialQueryResults', [])
 		all_mat_query_data_as_classObj = []
 		for mat_query_data in all_material_query_data:
 			# This list corresponds to the data at each vertex of material query in iteration
-			singleQueryValuesObject = []
-			for node_value_tuple in mat_query_data:
-				entity_id, material_id, list_query_data = node_value_tuple
-				unpack_list_data = [entity_id, material_id, *list_query_data]
-				singleQueryValuesObject.append(MaterialQueryResults(*unpack_list_data))
-			# Add the data for this material query in final list
-			all_mat_query_data_as_classObj.append(singleQueryValuesObject)
-		
+			entity_id, material_id, list_query_data = mat_query_data
+			unpack_list_data = [entity_id, material_id, list_query_data]
+			all_mat_query_data_as_classObj.append(MaterialQueryResults(*unpack_list_data))
 		return all_mat_query_data_as_classObj
 
 	def GetJointResults(

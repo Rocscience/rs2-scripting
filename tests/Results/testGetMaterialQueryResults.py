@@ -27,13 +27,14 @@ class TestGetMaterialQueryResults(unittest.TestCase):
         self.modelWithoutMQ._client.closeConnection()
 
     def testGetMaterialQueryResultsSuccess(self):
-        self.model.GetMaterialQueryResults()
+        self.model.AddMaterialQuery([[3.5, 2.5]])
+        result = self.model.GetMaterialQueryResults()
+        self.assertEqual(len(result), 1)
     
     def testGetMaterialQueryResultsForAllQueriesSuccess(self):
-        self.model.AddMaterialQuery([[3.5, 4.5]])
         self.model.AddMaterialQuery([[3.5, 3.5]])
         self.model.AddMaterialQuery([[3.5, 2.5]])
-        # The model already has 1 material query so in total we expect length of results returned to be 4
+        self.model.AddMaterialQuery([[3.5, 1.5]])
         results = self.model.GetMaterialQueryResults()
         self.assertEqual(len(results), 3)
     
@@ -42,7 +43,8 @@ class TestGetMaterialQueryResults(unittest.TestCase):
         self.model.AddMaterialQuery([[23.5, 40.5]])
         self.model.AddMaterialQuery([[23.5, 30.5]])
         self.model.AddMaterialQuery([[23.5, 20.5]])
-        # Result isn't calculated for points outside model mesh so we expect result length to be 1 since model already has 1 valid query
+        # Point added inside mesh
+        self.model.AddMaterialQuery([[3.5, 2.5]])
         results = self.model.GetMaterialQueryResults()
         self.assertEqual(len(results), 1)
 
