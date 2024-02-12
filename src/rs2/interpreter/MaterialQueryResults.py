@@ -33,7 +33,11 @@ class MaterialQueryResults:
     def __init__(self, entity_ID, material_id, query_values):
         self.entity_ID = entity_ID
         self.material_id = material_id
-        self.query_values = query_values
+        # Construct QueryResult objects
+        query_values_obj = []
+        for value in query_values:
+            query_values_obj.append(QueryResult(*value))
+        self.query_values = query_values_obj
     
     def GetUniqueIdentifier(self):
         '''
@@ -56,7 +60,4 @@ class MaterialQueryResults:
         - QueryResult.GetDistance()
         - QueryResult.GetValue()
         '''
-        query_values = []
-        for value in self.query_values:
-            query_values.append(QueryResult(*value))
-        return query_values
+        return self.query_values
