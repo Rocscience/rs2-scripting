@@ -53,8 +53,9 @@ The following steps can be taken to regenerate the RS2 Scripting Documentation:
 ```python -m venv venv```
 ```venv/Scripts/activate```
 2. Rebuild the RS2 library in your virtual environment by following the [Build](#build) section.
-3. Run the command below to install Sphinx:  
+3. Run the commands below to install Sphinx and the copy button extension:  
 ```python -m pip install sphinx```
+```pip install sphinx-copybutton```
 4. Install a LaTeX distribution. MiKTeX Reccomended: https://miktex.org/download   
 5. To generate the documentation run the following:  
 ```python generateAndBuildDocumentation.py```  

@@ -3,7 +3,48 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+class MohrCoulombMaterialStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getTensileStrengthFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_TENSILE_STRENGTH", self.propertyID], proxyArgumentIndices=[1])
+	def getPeakFrictionAngleFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_PEAK_FRICTION_ANGLE", self.propertyID], proxyArgumentIndices=[1])
+	def getPeakCohesionFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_PEAK_COHESION", self.propertyID], proxyArgumentIndices=[1])
+	def getResTensileStrengthFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_TENSILE_STRENGTH_RES", self.propertyID], proxyArgumentIndices=[1])
+	def getResCohesionFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_COHESION_RES", self.propertyID], proxyArgumentIndices=[1])
+	def getResFrictionAngleFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["JP_FRICTION_ANGLE_RES", self.propertyID], proxyArgumentIndices=[1])
+	def getDilationAngleFactor(self) -> float:
+		return self._callFunction("__getattribute__", ["m_dilation_angle"])
+class MohrCoulombMaterialDefinedStageFactor(MohrCoulombMaterialStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setTensileStrengthFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_TENSILE_STRENGTH", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPeakFrictionAngleFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_PEAK_FRICTION_ANGLE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPeakCohesionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_PEAK_COHESION", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResTensileStrengthFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_TENSILE_STRENGTH_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResCohesionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_COHESION_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResFrictionAngleFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["JP_FRICTION_ANGLE_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setDilationAngleFactor(self, dilationAngleFactor: float):
+		return self._callFunction("setDilationAngle", [dilationAngleFactor])
 class MohrCoulombMaterial(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[MohrCoulombMaterialDefinedStageFactor, MohrCoulombMaterialStageFactor](self._client, stageFactorInterfaceID, ID, MohrCoulombMaterialDefinedStageFactor, MohrCoulombMaterialStageFactor)
 	def getTensileStrength(self) -> float:
 		return self._getDoubleProperty("JP_TENSILE_STRENGTH")
 	def setTensileStrength(self, value: float):

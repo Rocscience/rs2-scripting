@@ -19,6 +19,10 @@ class TestMohrCoulombMaterial(unittest.TestCase):
         self.mat.Strength.setFailureCriterion(StrengthCriteriaTypes.JOINTED_MOHR_COULOMB)
         self.matJointOptions = self.mat.Strength.JointedMohrCoulomb.getJointOptions()
         self.jointmaterial = self.matJointOptions.getJoint(0)
+        self.jointmaterial.BartonBandisMaterial.setApplyStageFactors(True)
+        sf = self.jointmaterial.BartonBandisMaterial.stageFactorInterface.createStageFactor(1)
+        self.jointmaterial.BartonBandisMaterial.stageFactorInterface.setDefinedStageFactors({ 1: sf })
+
     def tearDown(self):
         self.model.close()
         os.remove(self.copiedModelPath)
@@ -50,3 +54,27 @@ class TestMohrCoulombMaterial(unittest.TestCase):
         self.assertEqual(jointmaterial.MohrCoulombMaterial.getResFrictionAngle(), 468.3)
         self.assertEqual(jointmaterial.MohrCoulombMaterial.getApplyStageFactors(), 0)
         self.assertEqual(jointmaterial.MohrCoulombMaterial.getDilationAngle(), 2.3)
+    def testMohrCoulombMaterialStageFactors(self):
+        stageFactor = self.jointmaterial.MohrCoulombMaterial.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setTensileStrengthFactor(2598.3)
+        stageFactor.setPeakFrictionAngleFactor(2572.7)
+        stageFactor.setPeakCohesionFactor(2605.0)
+        stageFactor.setResTensileStrengthFactor(3213.4)
+        stageFactor.setResCohesionFactor(176.8)
+        stageFactor.setResFrictionAngleFactor(1508.0)
+        stageFactor.setDilationAngleFactor(2.3)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.mat = self.model.getAllMaterialProperties()[0]
+        self.mat.Strength.setFailureCriterion(StrengthCriteriaTypes.JOINTED_MOHR_COULOMB)
+        self.matJointOptions = self.mat.Strength.JointedMohrCoulomb.getJointOptions()
+        self.jointmaterial = self.matJointOptions.getJoint(0)
+        stageFactor = self.jointmaterial.MohrCoulombMaterial.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getTensileStrengthFactor(), 2598.3)
+        self.assertEqual(stageFactor.getPeakFrictionAngleFactor(), 2572.7)
+        self.assertEqual(stageFactor.getPeakCohesionFactor(), 2605.0)
+        self.assertEqual(stageFactor.getResTensileStrengthFactor(), 3213.4)
+        self.assertEqual(stageFactor.getResCohesionFactor(), 176.8)
+        self.assertEqual(stageFactor.getResFrictionAngleFactor(), 1508.0)
+        self.assertEqual(stageFactor.getDilationAngleFactor(), 2.3)

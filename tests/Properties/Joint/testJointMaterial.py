@@ -19,6 +19,10 @@ class TestJointMaterial(unittest.TestCase):
         self.mat.Strength.setFailureCriterion(StrengthCriteriaTypes.JOINTED_MOHR_COULOMB)
         self.matJointOptions = self.mat.Strength.JointedMohrCoulomb.getJointOptions()
         self.jointmaterial = self.matJointOptions.getJoint(0)
+        self.jointmaterial.BartonBandisMaterial.setApplyStageFactors(True)
+        sf = self.jointmaterial.BartonBandisMaterial.stageFactorInterface.createStageFactor(1)
+        self.jointmaterial.BartonBandisMaterial.stageFactorInterface.setDefinedStageFactors({ 1: sf })
+
     def tearDown(self):
         self.model.close()
         os.remove(self.copiedModelPath)
