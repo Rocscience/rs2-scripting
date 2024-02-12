@@ -160,8 +160,6 @@ class ModelProxy(ProxyObject):
 		- SetResultType(InterpreterGraphEnums resultType)
 		- SetUserDefinedResultType("Your defined resultType name")
 
-		Please note that results for points that fall outside the model mesh boundary are not returned.
-
 		Returns: 
 			A list[MaterialQueryResults] of query results.
 			To extract the Unique Identifier, Material ID for a specific material query object,

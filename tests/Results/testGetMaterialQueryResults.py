@@ -37,16 +37,6 @@ class TestGetMaterialQueryResults(unittest.TestCase):
         self.model.AddMaterialQuery([[3.5, 1.5]])
         results = self.model.GetMaterialQueryResults()
         self.assertEqual(len(results), 3)
-    
-    def testGetMaterialQueryResultsForPointsInsideMeshSuccess(self):
-        # Points added outside model mesh
-        self.model.AddMaterialQuery([[23.5, 40.5]])
-        self.model.AddMaterialQuery([[23.5, 30.5]])
-        self.model.AddMaterialQuery([[23.5, 20.5]])
-        # Point added inside mesh
-        self.model.AddMaterialQuery([[3.5, 2.5]])
-        results = self.model.GetMaterialQueryResults()
-        self.assertEqual(len(results), 1)
 
     def testGetMaterialQueryResultsWithoutQueriesFailure(self):
         try:
