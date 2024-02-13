@@ -54,3 +54,12 @@ class TestInitialConditions(unittest.TestCase):
         self.assertEqual(material.InitialConditions.getInitialHu(), 762.9)
         self.assertEqual(material.InitialConditions.getInitialTemperatureCondition(), StaticWaterModes.SWM_PWP)
         self.assertEqual(material.InitialConditions.getInitialTemperature(), 1413.6)
+    def testInitialConditionsStageFactors(self):
+        stageFactor = self.material.InitialConditions.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setUnitWeightFactor(468.3)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        stageFactor = self.material.InitialConditions.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getUnitWeightFactor(), 468.3)
