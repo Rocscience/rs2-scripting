@@ -241,6 +241,37 @@ class ModelProxy(ProxyObject):
 		'''
 		return self._callFunction('AddTimeQueryLine', [points, points_on_line])
 	
+	def RemoveTimeQueryLine(self, IDs_toRemove: list[str]):
+		'''
+		Removes Time Query Line(s) from your model using provided list of IDs.
+
+		Args:
+			IDs_toRemove (list[str]): List of unique identifier for time query line(s) to remove.
+
+		'''
+		return self._callFunction('RemoveTimeQueryLine', [IDs_toRemove])
+	
+	def AddTimeQueryPoint(self, x: float, y: float) -> str:
+		'''
+		Add a new Time Query Point to your model with the specified x and y coordinates
+
+		Args:
+			x (float) : x-coordinate of the time query line.
+			y (float) : y-coordinate of the time query line.
+
+		'''
+		return self._callFunction('AddTimeQueryPoint', [x, y])
+	
+	def RemoveTimeQueryPoint(self, IDs_toRemove: list[int]):
+		'''
+		Removes Time Query Point(s) from your model using provided list of IDs.
+
+		Args:
+			IDs_toRemove (list[int]): List of unique identifier for time query points(s) to remove.
+
+		'''
+		return self._callFunction('RemoveTimeQueryPoint', [IDs_toRemove])
+	
 	def compute(self):
 		'''
 		Saves the file if modified and then runs compute. Replaces any existing results.
