@@ -5,8 +5,9 @@ from rs2.interpreter.MeshResults import MeshResults
 from rs2.interpreter.HistoryQueryResults import HistoryQueryResult
 from rs2.interpreter.InterpreterGraphEnums import *
 from rs2.interpreter.JointResult import *
-from rs2.interpreter.BeamResult import *
+from rs2.interpreter.LinerResult import *
 from rs2.interpreter.BoltResult import*
+from rs2.interpreter.CompositeResult import*
 class ModelProxy(ProxyObject):
 	"""
 	:ref:`Model Example`
@@ -128,83 +129,114 @@ class ModelProxy(ProxyObject):
 		
 		return structured_data
 		
+
+	def GetBoltResults (
+		self, 
+		stages: list[int]) -> dict[int, list[BoltResult]]:
+		map_data = self._callFunction('GetBoltResults', [stages])
+		structured_data = {}
+		for stage_idx, stage_data in map_data.items():
+			structured_data[stage_idx] = []
+			for entity_name, entity_data in stage_data.items():
+				yielding_results = []
+				displacement_force_results = []
+				# location # [start = [x,y],end = [x,y]]
+				# yeilding
+				# displacement force
+				if len(entity_data) < 3 or len(entity_data[0]) <1 or len(entity_data[0][0]) < 4:
+					continue
+
+				for yeilding_vector in entity_data[1]:
+					yielding = BoltYieldingResult(*yeilding_vector)
+					yielding_results.append(yielding)
+
+				for displacement_force_vector in entity_data[2]:
+					displacement_force = BoltForceDisplacementResult(*displacement_force_vector)
+					displacement_force_results.append(displacement_force)
+				bolt_result = BoltResult(entity_name,entity_data,yielding_results, displacement_force_results)
+				structured_data[stage_idx].append(bolt_result)
+		return structured_data
 		
-	
+	def process_joint_data(self, entity_data, entity_name):
+
+		joint_element_results = []
+		for joint_vector in entity_data[1]:
+			#joint_vector[yeilded_indx] = bool(joint_vector[yeilded_indx])
+			joint_element = JointElementResult(*joint_vector)
+			joint_element_results.append(joint_element)
+		joint_result = JointResult(entity_name, joint_element_results)
+		return joint_result
+
+	def process_liner_data(self, entity_data, entity_name):
+		liner_element_results = []
+
+		for liner_vector in entity_data[0]:
+			liner_element = LinerElementResult(*liner_vector)
+			liner_element_results.append(liner_element)
+		liner_result = LinerResult(entity_name,liner_element_results)
+		return liner_result
+
 	def GetJointResults(
 		self, 
 		stages: list[int]) -> dict[int, list[JointResult]]:
-		yeilded_indx = 10
+
 		map_data = self._callFunction('GetJointResults', [stages])
 		structured_data = {}
 		for stage_idx, stage_data in map_data.items():
-			list_stage_data_as_classObj = []
-			for result in stage_data:
-				result[yeilded_indx] = bool(result[yeilded_indx])
-				list_stage_data_as_classObj.append(JointResult(*result))
-			
-			structured_data[stage_idx] = list_stage_data_as_classObj
+
+			structured_data[stage_idx] = []
+			for entity_name, entity_data in stage_data.items():
+				joint_result = self.process_joint_data(entity_data, entity_name)
+				structured_data[stage_idx].append(joint_result)
 		
 		return structured_data
 	
-	def GetBeamResults(
+	def GetLinerResults(
 		self, 
-		stages: list[int]) -> dict[int, list[BeamResult]]:
+		stages: list[int]) -> dict[int, list[LinerResult]]:
 
-		composite_layer_indx = 0
-		node_id_start_indx = 1
-		node_id_end_indx = 2
-		liner_yeilded_indx = 18
-		composite_level = 19
-		composite_yeilded_indx = 24
-
-		map_data = self._callFunction('GetBeamResults', [stages])
+		map_data = self._callFunction('GetLinerResults', [stages])
 		structured_data = {}
 		for stage_idx, stage_data in map_data.items():
-			list_stage_data_as_classObj = []
-			for result in stage_data:
 
-				result[composite_layer_indx] = int(result[composite_layer_indx])
-				result[node_id_start_indx] = int(result[node_id_start_indx])
-				result[node_id_end_indx] = int(result[node_id_end_indx])
-				result[composite_level] = int(result[composite_level])
-
-				result[liner_yeilded_indx] = bool(result[liner_yeilded_indx])
-				result[composite_yeilded_indx] = bool(result[composite_yeilded_indx])
-
-
-				list_stage_data_as_classObj.append(BeamResult(*result))
-			
-			structured_data[stage_idx] = list_stage_data_as_classObj
+			structured_data[stage_idx] = []
+			for entity_name, entity_data in stage_data.items():
+				liner_result = self.process_liner_data(entity_data, entity_name)
+				structured_data[stage_idx].append(liner_result)
 		
 		return structured_data
 
-	
-	def GetBoltYieldingResults (
+
+	def GetPileResults(	
 		self, 
-		stages: list[int]) -> dict[int, list[BoltElementYieldStatus]]:
-		yeilded_indx = 4
-		map_data = self._callFunction('GetBoltYieldingResults', [stages])
+		stages: list[int]) -> dict[int, list[PileResult]]:
+		return self._get_composition_result('GetPileResults',PileResult, stages)
+
+	def GetCompositeResults(	
+		self, 
+		stages: list[int]) -> dict[int, list[CompositeResult]]:
+		return self._get_composition_result('GetCompositeResults',CompositeResult, stages)
+
+	def GetStructuralResults(	
+		self, 
+		stages: list[int]) -> dict[int, list[PileResult]]:
+		return self._get_composition_result('GetStructuralResults',StructuralResult, stages)
+
+
+	def _get_composition_result(
+	self,
+	function_name: str,
+	ResultType,
+	stages: list[int]) -> dict[int, list[LinerResult]]:
+
+		map_data = self._callFunction(function_name, [stages])
 		structured_data = {}
 		for stage_idx, stage_data in map_data.items():
-			list_stage_data_as_classObj = []
-			for result in stage_data:
-				result[yeilded_indx] = BoltElementYieldStatus(result[yeilded_indx])
-				list_stage_data_as_classObj.append(BoltYieldingResult(*result))
-			
-			structured_data[stage_idx] = list_stage_data_as_classObj
-		
+			structured_data[stage_idx] = []
+			for entity_name, entity_data in stage_data.items():
+				liner_result = self.process_liner_data(entity_data, entity_name)
+				joint_result = self.process_joint_data(entity_data, entity_name)
+				composition_result = ResultType(entity_name,joint_result,liner_result)
+				structured_data[stage_idx].append(composition_result)
+
 		return structured_data
-		
-	def GetBoltForceDisplacementResults (
-		self, 
-		stages: list[int]) -> dict[int, list[BoltForceDisplacementResult]]:
-		map_data = self._callFunction('GetBoltForceDisplacementResults', [stages])
-		structured_data = {}
-		for stage_idx, stage_data in map_data.items():
-			list_stage_data_as_classObj = []
-			for result in stage_data:
-				list_stage_data_as_classObj.append(BoltForceDisplacementResult(*result))
-			
-			structured_data[stage_idx] = list_stage_data_as_classObj
-		
-		return structured_data	
