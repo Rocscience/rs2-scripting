@@ -1,6 +1,6 @@
 from rs2._common.ProxyObject import ProxyObject
 from rs2._common.documentProxy import DocumentProxy
-from rs2._common.units import Units
+from rs2._common.Units import Units
 from rs2.modeler.properties.bolt.Bolt import BoltProperty
 from rs2.modeler.properties.liner.Liner import LinerProperty
 from rs2.modeler.properties.joint.Joint import JointProperty
