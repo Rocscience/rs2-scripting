@@ -1,6 +1,6 @@
 from rs2._common.ProxyObject import ProxyObject
 from rs2._common.documentProxy import DocumentProxy
-from rs2._common.units import Units
+from rs2._common.Units import Units
 from rs2.interpreter.InterpreterEnums import *
 from rs2.interpreter.MeshResults import MeshResults
 from rs2.interpreter.HistoryQueryResults import HistoryQueryResult
