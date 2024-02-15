@@ -262,7 +262,7 @@ class ModelProxy(ProxyObject):
 		'''
 		return self._callFunction('AddTimeQueryPoint', [x, y])
 	
-	def RemoveTimeQueryPoint(self, IDs_toRemove: list[int]):
+	def RemoveTimeQueryPoint(self, IDs_toRemove: list[str]):
 		'''
 		Removes Time Query Point(s) from your model using provided list of IDs.
 
