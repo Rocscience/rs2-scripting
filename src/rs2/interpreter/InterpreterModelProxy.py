@@ -1,5 +1,6 @@
 from rs2._common.ProxyObject import ProxyObject
 from rs2._common.documentProxy import DocumentProxy
+from rs2._common.units import Units
 from rs2.interpreter.InterpreterEnums import *
 from rs2.interpreter.MeshResults import MeshResults
 from rs2.interpreter.HistoryQueryResults import HistoryQueryResult
@@ -8,6 +9,7 @@ from rs2.interpreter.JointResult import *
 from rs2.interpreter.LinerResult import *
 from rs2.interpreter.BoltResult import*
 from rs2.interpreter.CompositeResult import*
+
 class ModelProxy(ProxyObject):
 	"""
 	:ref:`Model Example`
@@ -240,3 +242,14 @@ class ModelProxy(ProxyObject):
 				structured_data[stage_idx].append(composition_result)
 
 		return structured_data
+
+	def getUnits(self):
+		'''
+		Get Units
+		'''
+		NUM_UNITS = 3
+		data = self._callFunction('getUnits', [])
+		if len(data) != NUM_UNITS:
+			assert False
+			return Units()
+		return Units(*data)
