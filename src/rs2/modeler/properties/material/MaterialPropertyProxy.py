@@ -14,6 +14,7 @@ class MaterialProperty(PropertyProxy):
 	:ref:`Material Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
 		strengthStiffnessStageFactorInterface = self._callFunction("getStrengthStiffnessStageFactorInterface", [], keepReturnValueReference=True)
 		datumStageFactorInterface = self._callFunction("getDatumStageFactorInterface", [], keepReturnValueReference=True)
 		hydroStageFactorInterface = self._callFunction("getHydroStageFactorInterface", [], keepReturnValueReference=True)
@@ -24,7 +25,6 @@ class MaterialProperty(PropertyProxy):
 		self.Hydraulic = Hydraulic(client, ID, documentProxyID, hydroStageFactorInterface)
 		self.Thermal = Thermal(client, ID, documentProxyID, thermalStageFactorInterface)
 		self.Datum = Datum(client, ID, documentProxyID, datumStageFactorInterface)
-		super().__init__(client, ID, documentProxyID)
 	def getMaterialName(self) -> str:
 		return self._getCStringProperty("MP_NAME")
 	def setMaterialName(self, value: str):

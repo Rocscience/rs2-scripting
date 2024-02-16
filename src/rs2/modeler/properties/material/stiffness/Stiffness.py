@@ -27,6 +27,7 @@ class Stiffness(PropertyProxy):
 	:ref:`Material Property Stiffness Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
+		super().__init__(client, ID, documentProxyID)
 		self.Isotropic = Isotropic(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.TransverselyIsotropic = TransverselyIsotropic(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.Orthotropic = Orthotropic(client, ID, documentProxyID, stageFactorInterfaceID)
@@ -46,7 +47,6 @@ class Stiffness(PropertyProxy):
 		self.Norsand = Norsand(client, ID, documentProxyID)
 		self.Pm4Sand = Pm4Sand(client, ID, documentProxyID)
 		self.Pm4Silt = Pm4Silt(client, ID, documentProxyID)
-		super().__init__(client, ID, documentProxyID)
 	def getElasticType(self) -> MaterialElasticityTypes:
 		return MaterialElasticityTypes(self._getEnumEMaterialElasticityTypesProperty("MP_ELASTIC_TYPE"))
 	def setElasticType(self, value: MaterialElasticityTypes):

@@ -48,6 +48,7 @@ class FEAGroundwater(PropertyProxy):
 	:ref:`Hydraulic Property FEAGroundwater Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
+		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[FEAGroundwaterDefinedStageFactor, FEAGroundwaterStageFactor](self._client, stageFactorInterfaceID, ID, FEAGroundwaterDefinedStageFactor, FEAGroundwaterStageFactor)
 		self.Simple = Simple(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.Fredlund = Fredlund(client, ID, documentProxyID, stageFactorInterfaceID)
@@ -56,7 +57,6 @@ class FEAGroundwater(PropertyProxy):
 		self.Gardner = Gardner(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.Constant = Constant(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.UserDefined = UserDefined(client, ID, documentProxyID)
-		super().__init__(client, ID, documentProxyID)
 	def getModel(self) -> GroundWaterModes:
 		return GroundWaterModes(self._getEnumEGroundWaterModesProperty("MP_HYDRAULIC_MODEL"))
 	def setModel(self, value: GroundWaterModes):

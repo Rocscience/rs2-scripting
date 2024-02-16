@@ -104,6 +104,7 @@ class Strength(PropertyProxy):
 	:ref:`Material Property Strength Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
+		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[StrengthDefinedStageFactor, StrengthStageFactor](self._client, stageFactorInterfaceID, ID, StrengthDefinedStageFactor, StrengthStageFactor)
 		self.MohrCoulombStrength = MohrCoulombStrength(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.HoekBrown = HoekBrown(client, ID, documentProxyID, stageFactorInterfaceID)
@@ -140,7 +141,6 @@ class Strength(PropertyProxy):
 		self.SoftSoilStrength = SoftSoilStrength(client, ID, documentProxyID)
 		self.SoftSoilCreepStrength = SoftSoilCreepStrength(client, ID, documentProxyID)
 		self.SwellingRockStrength = SwellingRockStrength(client, ID, documentProxyID)
-		super().__init__(client, ID, documentProxyID)
 	def getFailureCriterion(self) -> StrengthCriteriaTypes:
 		return StrengthCriteriaTypes(self._getEnumEStrengthCriteriaTypesProperty("MP_FAILURE_CRITERION"))
 	def setFailureCriterion(self, value: StrengthCriteriaTypes):
