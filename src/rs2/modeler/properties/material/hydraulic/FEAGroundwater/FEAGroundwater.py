@@ -10,10 +10,6 @@ from rs2.modeler.properties.material.hydraulic.FEAGroundwater.Brooks import Broo
 from rs2.modeler.properties.material.hydraulic.FEAGroundwater.Gardner import Gardner
 from rs2.modeler.properties.material.hydraulic.FEAGroundwater.Constant import Constant
 from rs2.modeler.properties.material.hydraulic.FEAGroundwater.UserDefined import UserDefined
-class FEAGroundwater(PropertyProxy):
-	"""
-	:ref:`Hydraulic Property FEAGroundwater Example`
-	"""
 from rs2._common.ProxyObject import ProxyObject
 from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
 class FEAGroundwaterStageFactor(ProxyObject):
@@ -47,6 +43,10 @@ class FEAGroundwaterDefinedStageFactor(FEAGroundwaterStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_MV_MODEL", value, self.propertyID], proxyArgumentIndices=[2])
 	def setMvFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_MV", value, self.propertyID], proxyArgumentIndices=[2])
+class FEAGroundwater(PropertyProxy):
+	"""
+	:ref:`Hydraulic Property FEAGroundwater Example`
+	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.Simple = Simple(client, ID, documentProxyID)
 		self.Fredlund = Fredlund(client, ID, documentProxyID)

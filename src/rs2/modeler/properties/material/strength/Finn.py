@@ -3,7 +3,48 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+class FinnStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getResidualCohesionFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_COHESION_RES", self.propertyID], proxyArgumentIndices=[1])
+	def getDilationAngleFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_DILATION_ANGLE", self.propertyID], proxyArgumentIndices=[1])
+	def getResidualFrictionAngleFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_FRICTION_ANGLE_RES", self.propertyID], proxyArgumentIndices=[1])
+	def getPeakCohesionFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_PEAK_COHESION", self.propertyID], proxyArgumentIndices=[1])
+	def getPeakFrictionAngleFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_PEAK_FRICTION_ANGLE", self.propertyID], proxyArgumentIndices=[1])
+	def getPeakTensileStrengthFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_PEAK_TENSILE_STRENGTH", self.propertyID], proxyArgumentIndices=[1])
+	def getResidualTensileStrengthFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_TENSILE_STRENGTH_RES", self.propertyID], proxyArgumentIndices=[1])
+class FinnDefinedStageFactor(FinnStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setResidualCohesionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_COHESION_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setDilationAngleFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_DILATION_ANGLE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResidualFrictionAngleFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_FRICTION_ANGLE_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPeakCohesionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_PEAK_COHESION", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPeakFrictionAngleFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_PEAK_FRICTION_ANGLE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPeakTensileStrengthFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_PEAK_TENSILE_STRENGTH", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResidualTensileStrengthFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_TENSILE_STRENGTH_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Finn(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[FinnDefinedStageFactor, FinnStageFactor](self._client, stageFactorInterfaceID, ID, FinnDefinedStageFactor, FinnStageFactor)
 	def getPeakTensileStrength(self) -> float:
 		return self._getDoubleProperty("MP_PEAK_TENSILE_STRENGTH")
 	def setPeakTensileStrength(self, value: float):

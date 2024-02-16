@@ -3,7 +3,36 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+class IsotropicStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getPoissonsRatioFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_POISSONS_RATIO", self.propertyID], proxyArgumentIndices=[1])
+	def getShearModulusFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_SHEAR_MODULUS", self.propertyID], proxyArgumentIndices=[1])
+	def getYoungsModulusFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_YOUNGS_MODULUS", self.propertyID], proxyArgumentIndices=[1])
+	def getResidualYoungsModulusFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_YOUNGS_MODULUS_RES", self.propertyID], proxyArgumentIndices=[1])
+class IsotropicDefinedStageFactor(IsotropicStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setPoissonsRatioFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_POISSONS_RATIO", value, self.propertyID], proxyArgumentIndices=[2])
+	def setShearModulusFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_SHEAR_MODULUS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setYoungsModulusFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResidualYoungsModulusFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Isotropic(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[IsotropicDefinedStageFactor, IsotropicStageFactor](self._client, stageFactorInterfaceID, ID, IsotropicDefinedStageFactor, IsotropicStageFactor)
 	def getUseUnloadingCondition(self) -> bool:
 		return self._getBoolProperty("MP_USE_UNLOADING_CONDITION")
 	def setUseUnloadingCondition(self, value: bool):

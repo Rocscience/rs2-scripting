@@ -3,7 +3,52 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+class NonLinearHyperbolicStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getAtmosphericPressureFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_ATMOSPHERIC_PRESSURE", self.propertyID], proxyArgumentIndices=[1])
+	def getBulkModulusExpMFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_BULK_MODULUS_EXP", self.propertyID], proxyArgumentIndices=[1])
+	def getBulkModulusNumberFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_BULK_MODULUS_NUMBER", self.propertyID], proxyArgumentIndices=[1])
+	def getFailureRatioRfFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_FAILURE_RATIO", self.propertyID], proxyArgumentIndices=[1])
+	def getModulusExpNFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_MODULUS_EXP", self.propertyID], proxyArgumentIndices=[1])
+	def getModulusNumberFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_MODULUS_NUMBER", self.propertyID], proxyArgumentIndices=[1])
+	def getPoissonsRatioFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_NLH_POISSONS_RATIO", self.propertyID], proxyArgumentIndices=[1])
+	def getUnloadingModulusNumberFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_UNLOADING_MODULUS_NUMBER", self.propertyID], proxyArgumentIndices=[1])
+class NonLinearHyperbolicDefinedStageFactor(NonLinearHyperbolicStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setAtmosphericPressureFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_ATMOSPHERIC_PRESSURE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setBulkModulusExpMFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_BULK_MODULUS_EXP", value, self.propertyID], proxyArgumentIndices=[2])
+	def setBulkModulusNumberFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_BULK_MODULUS_NUMBER", value, self.propertyID], proxyArgumentIndices=[2])
+	def setFailureRatioRfFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_FAILURE_RATIO", value, self.propertyID], proxyArgumentIndices=[2])
+	def setModulusExpNFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_MODULUS_EXP", value, self.propertyID], proxyArgumentIndices=[2])
+	def setModulusNumberFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_MODULUS_NUMBER", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPoissonsRatioFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_NLH_POISSONS_RATIO", value, self.propertyID], proxyArgumentIndices=[2])
+	def setUnloadingModulusNumberFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_UNLOADING_MODULUS_NUMBER", value, self.propertyID], proxyArgumentIndices=[2])
 class NonLinearHyperbolic(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[NonLinearHyperbolicDefinedStageFactor, NonLinearHyperbolicStageFactor](self._client, stageFactorInterfaceID, ID, NonLinearHyperbolicDefinedStageFactor, NonLinearHyperbolicStageFactor)
 	def getModulusNumber(self) -> float:
 		return self._getDoubleProperty("MP_MODULUS_NUMBER")
 	def setModulusNumber(self, value: float):

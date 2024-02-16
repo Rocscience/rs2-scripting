@@ -38,6 +38,67 @@ from rs2.modeler.properties.material.strength.HardeningSoilWithSmallStrainStiffn
 from rs2.modeler.properties.material.strength.SoftSoilStrength import SoftSoilStrength
 from rs2.modeler.properties.material.strength.SoftSoilCreepStrength import SoftSoilCreepStrength
 from rs2.modeler.properties.material.strength.SwellingRockStrength import SwellingRockStrength
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+class StrengthStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getFailureCriterionFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_FAILURE_CRITERION", self.propertyID], proxyArgumentIndices=[1])
+	def getUnsaturatedBehaviorFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_UNSATURATED_PARAMETER_TYPE", self.propertyID], proxyArgumentIndices=[1])
+	def getUnsaturatedShearStrengthTypeFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_UNSATURATED_SHEAR_STRENGTH_TYPE", self.propertyID], proxyArgumentIndices=[1])
+	def getUnsaturatedShearStrengthAngleFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_UNSATURATED_SHEAR_STRENGTH_ANGLE", self.propertyID], proxyArgumentIndices=[1])
+	def getAirEntryValueFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_UNSATURATED_AIR_ENTRY_VALUE", self.propertyID], proxyArgumentIndices=[1])
+	def getSingleEffectiveStressMethodFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_UNSATURATED_SINGLE_EFFECTIVE_STRESS_METHOD", self.propertyID], proxyArgumentIndices=[1])
+	def getAlphaFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_UNSATURATED_ALPHA", self.propertyID], proxyArgumentIndices=[1])
+	def getAirEntrySuctionFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_UNSATURATED_AIR_ENTRY_SUCTION", self.propertyID], proxyArgumentIndices=[1])
+	def getCriticalSuctionFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_UNSATURATED_CRITICAL_SUCTION", self.propertyID], proxyArgumentIndices=[1])
+	def getMaterialParameterFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_UNSATURATED_MATERIAL_PARAMETER", self.propertyID], proxyArgumentIndices=[1])
+	def getUseCutoffFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_UNSATURATED_USE_CUTOFF", self.propertyID], proxyArgumentIndices=[1])
+	def getCutoffValueFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_UNSATURATED_CUTOFF_VALUE", self.propertyID], proxyArgumentIndices=[1])
+	def getTabularValuesFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_UNSATURATED_TABULAR_VALUE_METHOD", self.propertyID], proxyArgumentIndices=[1])
+class StrengthDefinedStageFactor(StrengthStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setFailureCriterionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_FAILURE_CRITERION", value, self.propertyID], proxyArgumentIndices=[2])
+	def setUnsaturatedBehaviorFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_UNSATURATED_PARAMETER_TYPE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setUnsaturatedShearStrengthTypeFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_UNSATURATED_SHEAR_STRENGTH_TYPE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setUnsaturatedShearStrengthAngleFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_UNSATURATED_SHEAR_STRENGTH_ANGLE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setAirEntryValueFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_UNSATURATED_AIR_ENTRY_VALUE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setSingleEffectiveStressMethodFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_UNSATURATED_SINGLE_EFFECTIVE_STRESS_METHOD", value, self.propertyID], proxyArgumentIndices=[2])
+	def setAlphaFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_UNSATURATED_ALPHA", value, self.propertyID], proxyArgumentIndices=[2])
+	def setAirEntrySuctionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_UNSATURATED_AIR_ENTRY_SUCTION", value, self.propertyID], proxyArgumentIndices=[2])
+	def setCriticalSuctionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_UNSATURATED_CRITICAL_SUCTION", value, self.propertyID], proxyArgumentIndices=[2])
+	def setMaterialParameterFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_UNSATURATED_MATERIAL_PARAMETER", value, self.propertyID], proxyArgumentIndices=[2])
+	def setUseCutoffFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_UNSATURATED_USE_CUTOFF", value, self.propertyID], proxyArgumentIndices=[2])
+	def setCutoffValueFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_UNSATURATED_CUTOFF_VALUE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setTabularValuesFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_UNSATURATED_TABULAR_VALUE_METHOD", value, self.propertyID], proxyArgumentIndices=[2])
 class Strength(PropertyProxy):
 	"""
 	:ref:`Material Property Strength Example`
@@ -79,6 +140,8 @@ class Strength(PropertyProxy):
 		self.SoftSoilCreepStrength = SoftSoilCreepStrength(client, ID, documentProxyID)
 		self.SwellingRockStrength = SwellingRockStrength(client, ID, documentProxyID)
 		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[StrengthDefinedStageFactor, StrengthStageFactor](self._client, stageFactorInterfaceID, ID, StrengthDefinedStageFactor, StrengthStageFactor)
 	def getFailureCriterion(self) -> StrengthCriteriaTypes:
 		return StrengthCriteriaTypes(self._getEnumEStrengthCriteriaTypesProperty("MP_FAILURE_CRITERION"))
 	def setFailureCriterion(self, value: StrengthCriteriaTypes):

@@ -3,7 +3,48 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+class SofteningHardeningModelStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getHardeningPropertyFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_HARDENING_PROPERTY", self.propertyID], proxyArgumentIndices=[1])
+	def getInitialMeanStressFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_INITIAL_MEAN_STRESS", self.propertyID], proxyArgumentIndices=[1])
+	def getLambdaKappaFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_LAMBDA_KAPPA", self.propertyID], proxyArgumentIndices=[1])
+	def getPeakCohesionFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_PEAK_COHESION", self.propertyID], proxyArgumentIndices=[1])
+	def getPeakFrictionAngleFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_PEAK_FRICTION_ANGLE", self.propertyID], proxyArgumentIndices=[1])
+	def getPeakTensileStrengthFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_PEAK_TENSILE_STRENGTH", self.propertyID], proxyArgumentIndices=[1])
+	def getDilationAngleFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_SOFT_HARD_DILATION_ANGLE", self.propertyID], proxyArgumentIndices=[1])
+class SofteningHardeningModelDefinedStageFactor(SofteningHardeningModelStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setHardeningPropertyFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_HARDENING_PROPERTY", value, self.propertyID], proxyArgumentIndices=[2])
+	def setInitialMeanStressFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_INITIAL_MEAN_STRESS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setLambdaKappaFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_LAMBDA_KAPPA", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPeakCohesionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_PEAK_COHESION", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPeakFrictionAngleFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_PEAK_FRICTION_ANGLE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPeakTensileStrengthFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_PEAK_TENSILE_STRENGTH", value, self.propertyID], proxyArgumentIndices=[2])
+	def setDilationAngleFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_SOFT_HARD_DILATION_ANGLE", value, self.propertyID], proxyArgumentIndices=[2])
 class SofteningHardeningModel(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[SofteningHardeningModelDefinedStageFactor, SofteningHardeningModelStageFactor](self._client, stageFactorInterfaceID, ID, SofteningHardeningModelDefinedStageFactor, SofteningHardeningModelStageFactor)
 	def getPeakTensileStrength(self) -> float:
 		return self._getDoubleProperty("MP_PEAK_TENSILE_STRENGTH")
 	def setPeakTensileStrength(self, value: float):

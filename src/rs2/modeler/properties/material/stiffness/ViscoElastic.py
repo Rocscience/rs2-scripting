@@ -3,7 +3,24 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+class ViscoElasticStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getShearModulusFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_SHEAR_MODULUS", self.propertyID], proxyArgumentIndices=[1])
+class ViscoElasticDefinedStageFactor(ViscoElasticStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setShearModulusFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_SHEAR_MODULUS", value, self.propertyID], proxyArgumentIndices=[2])
 class ViscoElastic(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[ViscoElasticDefinedStageFactor, ViscoElasticStageFactor](self._client, stageFactorInterfaceID, ID, ViscoElasticDefinedStageFactor, ViscoElasticStageFactor)
 	def getViscoElasticType(self) -> ViscoElasticTypes:
 		return ViscoElasticTypes(self._getEnumEViscoElasticTypesProperty("MP_VISCO_ELASTIC_TYPE"))
 	def setViscoElasticType(self, value: ViscoElasticTypes):

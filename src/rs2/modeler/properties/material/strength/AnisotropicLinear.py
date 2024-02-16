@@ -3,7 +3,28 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+class AnisotropicLinearStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getPeakTensileStrengthFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_PEAK_TENSILE_STRENGTH", self.propertyID], proxyArgumentIndices=[1])
+	def getResidualTensileStrengthFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_TENSILE_STRENGTH_RES", self.propertyID], proxyArgumentIndices=[1])
+class AnisotropicLinearDefinedStageFactor(AnisotropicLinearStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setPeakTensileStrengthFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_PEAK_TENSILE_STRENGTH", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResidualTensileStrengthFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_TENSILE_STRENGTH_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class AnisotropicLinear(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[AnisotropicLinearDefinedStageFactor, AnisotropicLinearStageFactor](self._client, stageFactorInterfaceID, ID, AnisotropicLinearDefinedStageFactor, AnisotropicLinearStageFactor)
 	def getMaterialType(self) -> MaterialType:
 		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE"))
 	def setMaterialType(self, value: MaterialType):
