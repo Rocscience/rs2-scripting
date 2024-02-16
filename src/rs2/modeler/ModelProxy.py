@@ -1,5 +1,6 @@
 from rs2._common.ProxyObject import ProxyObject
 from rs2._common.documentProxy import DocumentProxy
+from rs2._common.Units import Units
 from rs2.modeler.properties.bolt.Bolt import BoltProperty
 from rs2.modeler.properties.liner.Liner import LinerProperty
 from rs2.modeler.properties.joint.Joint import JointProperty
@@ -263,3 +264,21 @@ class ModelProxy(ProxyObject):
 		'''
 		return self._callFunction('save', [])
 
+	
+	def getUnits(self):
+		'''
+		Get Units
+		'''
+		NUM_UNITS = 3
+		data = self._callFunction('getUnits', [])
+		if (len (data) !=NUM_UNITS) :
+			assert False
+			return Units()
+		return Units(*data)
+
+	def ResetProperties(self):
+		'''
+		Reset All Properties
+		'''
+		return self._callFunction('ResetProperties', [])
+	
