@@ -6,6 +6,8 @@ rs2.utilities package
    :undoc-members:
    :show-inheritance:
 
+Submodules
+----------
 
 rs2.utilities.ApplicationManager module
 ---------------------------------------

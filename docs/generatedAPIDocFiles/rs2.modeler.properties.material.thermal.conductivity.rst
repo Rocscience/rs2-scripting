@@ -6,6 +6,8 @@ rs2.modeler.properties.material.thermal.conductivity package
    :undoc-members:
    :show-inheritance:
 
+Submodules
+----------
 
 rs2.modeler.properties.material.thermal.conductivity.Conductivity module
 ------------------------------------------------------------------------

@@ -8,6 +8,10 @@ class DiscreteFunction(PropertyProxy):
 		return self._getBoolProperty("MP_APPLY_SSR")
 	def setApplySSRShearStrengthReduction(self, value: bool):
 		return self._setBoolProperty("MP_APPLY_SSR", value)
+	def setSelectedDiscreteFunctionByName(self, name: str):
+		return self._callFunction("setSelectedDiscreteFunctionByName", [name])
+	def getSelectedDiscreteFunctionName(self) -> str:
+		return self._callFunction("getSelectedDiscreteFunctionName", [])
 	def setProperties(self, ApplySSRShearStrengthReduction : bool = None):
 		if ApplySSRShearStrengthReduction is not None:
 			self._setBoolProperty("MP_APPLY_SSR", ApplySSRShearStrengthReduction)

@@ -6,6 +6,8 @@ rs2.modeler.properties.material package
    :undoc-members:
    :show-inheritance:
 
+Subpackages
+-----------
 
 .. toctree::
    :maxdepth: 4
@@ -16,6 +18,8 @@ rs2.modeler.properties.material package
    rs2.modeler.properties.material.strength
    rs2.modeler.properties.material.thermal
 
+Submodules
+----------
 
 rs2.modeler.properties.material.InitialConditions module
 --------------------------------------------------------

@@ -11,6 +11,8 @@ from rs2.modeler.properties.CompositeProperty import CompositeProperty
 from rs2.modeler.properties.material.MaterialPropertyProxy import MaterialProperty
 from rs2.modeler.properties.ShearNormalFunctionProxy import ShearNormalFunction
 from rs2.modeler.properties.UserDefinedWaterMode import UserDefinedWaterMode
+from rs2.modeler.properties.DiscreteFunction import DiscreteFunction
+
 class ModelProxy(ProxyObject):
 	"""
 	:ref:`Model Example`
@@ -264,7 +266,40 @@ class ModelProxy(ProxyObject):
 		'''
 		return self._callFunction('save', [])
 
+	def getDiscreteFunctions(self) -> list[DiscreteFunction]:
+		'''
+		Returns a list of all discrete functions
+		'''
+		activeDiscreteFunctionProperties = []
+		discreteFunctionIDList = self._callFunction('getDiscreteFunctions', [], keepReturnValueReference=True)
+		for discreteFunctionObjectID in discreteFunctionIDList:
+			activeDiscreteFunctionProperties.append(DiscreteFunction(self._client, discreteFunctionObjectID))
+		return activeDiscreteFunctionProperties
 	
+	def getDiscreteFunctionByName(self, discreteFunctionName : str) -> DiscreteFunction:
+		'''
+		Returns a discrete function object based on its name.
+		'''
+		discreteFunctionObjectID = self._callFunction('getDiscreteFunctionByName', [discreteFunctionName], keepReturnValueReference=True)
+		return DiscreteFunction(self._client, discreteFunctionObjectID)
+	
+	def createNewDiscreteFunction(self, functionName):
+		'''
+		Creates a new discrete function with the given name
+		'''
+		return self._callFunction('createNewDiscreteFunction', [functionName])
+	
+	def deleteDiscreteFunction(self, functionName):
+		'''
+		Deletes a discrete function with the given name
+		'''
+		return self._callFunction('deleteDiscreteFunction', [functionName])
+	
+	def renameDiscreteFunction(self, oldName, newName):
+		'''
+		Renames a discrete function with the given name
+		'''
+		return self._callFunction('renameDiscreteFunction', [oldName, newName])	
 	def getUnits(self):
 		'''
 		Get Units
