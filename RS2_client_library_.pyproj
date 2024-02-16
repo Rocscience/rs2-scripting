@@ -5,14 +5,16 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{cf16b438-0272-4178-b87c-f3c8fed7ab40}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>tests\Properties\Pile\pile_unit_test.py</StartupFile>
-    <SearchPath>./;./tests</SearchPath>
+    <StartupFile>
+    </StartupFile>
+    <SearchPath>.;tests</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
     <ProjectTypeGuids>{888888a0-9f3d-457c-b088-3a5042f75d52}</ProjectTypeGuids>
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <InterpreterId>Global|PythonCore|3.11</InterpreterId>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+    <TestFramework>Pytest</TestFramework>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -78,20 +80,23 @@
     <Compile Include="sampleClientScripts\SampleStartApplication.py" />
     <Compile Include="sampleClientScripts\SampleStructuralInterface.py" />
     <Compile Include="sampleClientScripts\sampleTestHigherLevelFunctions.py" />
+    <Compile Include="sampleClientScripts\sampleUnits.py" />
     <Compile Include="sampleClientScripts\SampleWaitForCompute.py" />
     <Compile Include="sampleClientScripts\SampleWarningTest.py" />
     <Compile Include="sampleClientScripts\testArchitecture.py" />
     <Compile Include="sampleClientScripts\testPileGeometryChanges.py" />
     <Compile Include="sampleClientScripts\WriteMeshResultsToCSV.py" />
-    <Compile Include="src\rs2\interpreter\BeamResult.py" />
     <Compile Include="src\rs2\interpreter\BoltResult.py" />
+    <Compile Include="src\rs2\interpreter\CompositeResult.py" />
     <Compile Include="src\rs2\interpreter\HistoryQueryResults.py" />
     <Compile Include="src\rs2\interpreter\InterpreterEnums.py" />
     <Compile Include="src\rs2\interpreter\InterpreterGraphEnums.py" />
     <Compile Include="src\rs2\interpreter\InterpreterModelProxy.py" />
     <Compile Include="src\rs2\interpreter\JointResult.py" />
+    <Compile Include="src\rs2\interpreter\LinerResult.py" />
     <Compile Include="src\rs2\interpreter\MeshResults.py" />
     <Compile Include="src\rs2\interpreter\RS2Interpreter.py" />
+    <Compile Include="src\rs2\interpreter\UtilityResult.py" />
     <Compile Include="src\rs2\interpreter\__init__.py" />
     <Compile Include="src\rs2\modeler\ModelProxy.py" />
     <Compile Include="src\rs2\modeler\properties\AbsoluteStageFactorInterface.py" />
@@ -254,6 +259,7 @@
     <Compile Include="src\rs2\_common\Client.py" />
     <Compile Include="src\rs2\_common\documentProxy.py" />
     <Compile Include="src\rs2\_common\ProxyObject.py" />
+    <Compile Include="src\rs2\_common\Units.py" />
     <Compile Include="src\rs2\_common\__init__.py" />
     <Compile Include="src\rs2\__init__.py" />
     <Compile Include="tests\HistoryQuery\testAddHistoryQuery.py" />
