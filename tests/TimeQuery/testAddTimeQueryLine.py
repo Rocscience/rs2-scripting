@@ -31,7 +31,6 @@ class TestAddTimeQueryLine(unittest.TestCase):
         os.remove(self.copiedModelPath)
         os.remove(self.modelWithoutDynamicPath)
         os.remove(self.modelWithoutMeshPath)
-        
     
     def testAddTimeQueryLineSuccess(self):
         self.model.AddTimeQueryLine([[-12, -6], [-4, 5]], 5)
@@ -47,7 +46,7 @@ class TestAddTimeQueryLine(unittest.TestCase):
     
     def testAddTimeQueryLineCompletelyOutsideMeshSuccess(self):
         # In this case, the line doesn't get added to model and UI doesn't throw any errors
-        self.model.AddTimeQueryLine([[-15, -2.5], [5, 5]], 5)
+        self.model.AddTimeQueryLine([[-15, -10], [-15, 0]], 5)
     
     def testAddTimeQueryLinePassingThroughExcavationSuccess(self):
         # In this case, part of the line passes through/resides within the excavation region
