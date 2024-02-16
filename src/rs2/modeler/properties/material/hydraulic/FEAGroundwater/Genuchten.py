@@ -3,7 +3,52 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+class GenuchtenStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getKsFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_KS", self.propertyID], proxyArgumentIndices=[1])
+	def getMFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_VAN_CUSTOM_M", self.propertyID], proxyArgumentIndices=[1])
+	def getNFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_VAN_GENUCHTEM_N", self.propertyID], proxyArgumentIndices=[1])
+	def getAlphaFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_VAN_GENUCHTEN_ALPHA", self.propertyID], proxyArgumentIndices=[1])
+	def getWCSatFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_WC_SAT", self.propertyID], proxyArgumentIndices=[1])
+	def getWCResFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_WC_RES", self.propertyID], proxyArgumentIndices=[1])
+	def getDoSSatFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_DOS_SAT", self.propertyID], proxyArgumentIndices=[1])
+	def getDoSResFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_DOS_RES", self.propertyID], proxyArgumentIndices=[1])
+class GenuchtenDefinedStageFactor(GenuchtenStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setKsFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_KS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setMFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_VAN_CUSTOM_M", value, self.propertyID], proxyArgumentIndices=[2])
+	def setNFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_VAN_GENUCHTEM_N", value, self.propertyID], proxyArgumentIndices=[2])
+	def setAlphaFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_VAN_GENUCHTEN_ALPHA", value, self.propertyID], proxyArgumentIndices=[2])
+	def setWCSatFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_WC_SAT", value, self.propertyID], proxyArgumentIndices=[2])
+	def setWCResFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_WC_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setDoSSatFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_DOS_SAT", value, self.propertyID], proxyArgumentIndices=[2])
+	def setDoSResFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_DOS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Genuchten(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID):
+		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[GenuchtenDefinedStageFactor, GenuchtenStageFactor](self._client, stageFactorInterfaceID, ID, GenuchtenDefinedStageFactor, GenuchtenStageFactor)
 	def getAlpha(self) -> float:
 		return self._getDoubleProperty("MP_VAN_GENUCHTEN_ALPHA")
 	def setAlpha(self, value: float):

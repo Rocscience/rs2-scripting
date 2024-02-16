@@ -14,6 +14,39 @@ class FEAGroundwater(PropertyProxy):
 	"""
 	:ref:`Hydraulic Property FEAGroundwater Example`
 	"""
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+class FEAGroundwaterStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getModelFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_HYDRAULIC_MODEL", self.propertyID], proxyArgumentIndices=[1])
+	def getK2K1Factor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_K2_K1", self.propertyID], proxyArgumentIndices=[1])
+	def getK1DefinitionFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_K1_DEFINITION", self.propertyID], proxyArgumentIndices=[1])
+	def getK1AngleFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_K1_ANGLE", self.propertyID], proxyArgumentIndices=[1])
+	def getMvModelFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_MV_MODEL", self.propertyID], proxyArgumentIndices=[1])
+	def getMvFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_MV", self.propertyID], proxyArgumentIndices=[1])
+class FEAGroundwaterDefinedStageFactor(FEAGroundwaterStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setModelFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_HYDRAULIC_MODEL", value, self.propertyID], proxyArgumentIndices=[2])
+	def setK2K1Factor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_K2_K1", value, self.propertyID], proxyArgumentIndices=[2])
+	def setK1DefinitionFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_K1_DEFINITION", value, self.propertyID], proxyArgumentIndices=[2])
+	def setK1AngleFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_K1_ANGLE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setMvModelFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_MV_MODEL", value, self.propertyID], proxyArgumentIndices=[2])
+	def setMvFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_MV", value, self.propertyID], proxyArgumentIndices=[2])
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.Simple = Simple(client, ID, documentProxyID)
 		self.Fredlund = Fredlund(client, ID, documentProxyID)
@@ -23,6 +56,8 @@ class FEAGroundwater(PropertyProxy):
 		self.Constant = Constant(client, ID, documentProxyID)
 		self.UserDefined = UserDefined(client, ID, documentProxyID)
 		super().__init__(client, ID, documentProxyID)
+		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[FEAGroundwaterDefinedStageFactor, FEAGroundwaterStageFactor](self._client, stageFactorInterfaceID, ID, FEAGroundwaterDefinedStageFactor, FEAGroundwaterStageFactor)
 	def getModel(self) -> GroundWaterModes:
 		return GroundWaterModes(self._getEnumEGroundWaterModesProperty("MP_HYDRAULIC_MODEL"))
 	def setModel(self, value: GroundWaterModes):
