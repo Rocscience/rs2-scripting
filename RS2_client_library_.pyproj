@@ -5,7 +5,8 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{cf16b438-0272-4178-b87c-f3c8fed7ab40}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>tests\Properties\testUnits.py</StartupFile>
+    <StartupFile>
+    </StartupFile>
     <SearchPath>.;tests</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -79,6 +80,7 @@
     <Compile Include="sampleClientScripts\SampleStartApplication.py" />
     <Compile Include="sampleClientScripts\SampleStructuralInterface.py" />
     <Compile Include="sampleClientScripts\sampleTestHigherLevelFunctions.py" />
+    <Compile Include="sampleClientScripts\sampleUnits.py" />
     <Compile Include="sampleClientScripts\SampleWaitForCompute.py" />
     <Compile Include="sampleClientScripts\SampleWarningTest.py" />
     <Compile Include="sampleClientScripts\testArchitecture.py" />
@@ -424,7 +426,6 @@
     <Compile Include="tests\Properties\Pile\__init__.py" />
     <Compile Include="tests\Properties\StructuralInterface\testStructuralInterfaceExtraFunctions.py" />
     <Compile Include="tests\Properties\StructuralInterface\__init__.py" />
-    <Compile Include="tests\Properties\testUnits.py" />
     <Compile Include="tests\Properties\testUserDefinedWaterMode.py" />
     <Compile Include="tests\Properties\__init__.py" />
     <Compile Include="tests\Results\testGetHistoryQueryResults.py" />

@@ -16,8 +16,3 @@ model.ResetProperties()
 model.close()
 
 pass
-
-
-
-
-pass
