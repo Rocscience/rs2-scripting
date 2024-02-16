@@ -1,4 +1,5 @@
 from enum import Enum
+from rs2.interpreter.UtilityResult import *
 
 class BoltElementYieldStatus(Enum):
     BOLT_ELEMENT_NOT_YIELDED = 0
@@ -14,7 +15,9 @@ class BoltYieldingResult:
         self.start_y = start_y #1
         self.end_x = end_x #2
         self.end_y = end_y #3
-        self.yielding_flag = yielding_flag #4
+        self.yielding_flag = BoltElementYieldStatus(yielding_flag) #4
+        ResetInvalid.validate(self)
+
 
 class BoltForceDisplacementResult:
     def __init__(self, location_x, location_y, distance, axial_force, axial_stress, shear_force, rock_displacement, bolt_displacement):
@@ -26,3 +29,21 @@ class BoltForceDisplacementResult:
         self.shear_force = shear_force #5
         self.rock_displacement = rock_displacement #6
         self.bolt_displacement = bolt_displacement #7
+        ResetInvalid.validate(self)
+
+class BoltResult:
+    def __init__(self, entity_id, entity_data, yielding_results, force_displacement_results):
+        if len(entity_data) == 0 or len(entity_data[0]) == 0:
+            assert False, 'location not defined'
+            return
+        location_tensor = entity_data[0][0]
+        start_x, start_y, end_x, end_y = location_tensor
+
+        self.entity_id = entity_id
+        self.start_x = start_x
+        self.start_y = start_y
+        self.end_x = end_x
+        self.end_y = end_y
+        self.yielding_results = yielding_results
+        self.force_displacement_results = force_displacement_results
+
