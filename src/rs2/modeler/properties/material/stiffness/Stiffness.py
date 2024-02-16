@@ -26,13 +26,13 @@ class Stiffness(PropertyProxy):
 	"""
 	:ref:`Material Property Stiffness Example`
 	"""
-	def __init__(self, client : Client, ID, documentProxyID):
-		self.Isotropic = Isotropic(client, ID, documentProxyID)
-		self.TransverselyIsotropic = TransverselyIsotropic(client, ID, documentProxyID)
-		self.Orthotropic = Orthotropic(client, ID, documentProxyID)
-		self.NonLinearHyperbolic = NonLinearHyperbolic(client, ID, documentProxyID)
-		self.NonLinearIsotropic = NonLinearIsotropic(client, ID, documentProxyID)
-		self.ViscoElastic = ViscoElastic(client, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
+		self.Isotropic = Isotropic(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.TransverselyIsotropic = TransverselyIsotropic(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.Orthotropic = Orthotropic(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.NonLinearHyperbolic = NonLinearHyperbolic(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.NonLinearIsotropic = NonLinearIsotropic(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.ViscoElastic = ViscoElastic(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.Custom = Custom(client, ID, documentProxyID)
 		self.ChSoil = ChSoil(client, ID, documentProxyID)
 		self.CySoil = CySoil(client, ID, documentProxyID)

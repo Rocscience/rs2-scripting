@@ -37,9 +37,8 @@ class HoekBrownDefinedStageFactor(HoekBrownStageFactor):
 	def setResidualSParameterFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_S_PARAMETER_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class HoekBrown(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[HoekBrownDefinedStageFactor, HoekBrownStageFactor](self._client, stageFactorInterfaceID, ID, HoekBrownDefinedStageFactor, HoekBrownStageFactor)
 	def getMaterialType(self) -> MaterialType:
 		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE"))

@@ -57,9 +57,8 @@ class NonLinearIsotropicDefinedStageFactor(NonLinearIsotropicStageFactor):
 	def setResidualYoungsModulusFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class NonLinearIsotropic(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[NonLinearIsotropicDefinedStageFactor, NonLinearIsotropicStageFactor](self._client, stageFactorInterfaceID, ID, NonLinearIsotropicDefinedStageFactor, NonLinearIsotropicStageFactor)
 	def getUseUnloadingCondition(self) -> bool:
 		return self._getBoolProperty("MP_USE_UNLOADING_CONDITION")

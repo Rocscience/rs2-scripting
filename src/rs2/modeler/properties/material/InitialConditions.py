@@ -17,9 +17,8 @@ class InitialConditionsDefinedStageFactor(InitialConditionsStageFactor):
 	def setUnitWeightFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_UNIT_WEIGHT", value, self.propertyID], proxyArgumentIndices=[2])
 class InitialConditions(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[InitialConditionsDefinedStageFactor, InitialConditionsStageFactor](self._client, stageFactorInterfaceID, ID, InitialConditionsDefinedStageFactor, InitialConditionsStageFactor)
 	def getInitialElementLoading(self) -> InitialElementLoadingType:
 		return InitialElementLoadingType(self._getEnumEInitialElementLoadingTypeProperty("MP_INITIAL_ELEMENT_LOADING"))

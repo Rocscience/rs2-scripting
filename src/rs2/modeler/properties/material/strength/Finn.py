@@ -41,9 +41,8 @@ class FinnDefinedStageFactor(FinnStageFactor):
 	def setResidualTensileStrengthFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_TENSILE_STRENGTH_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Finn(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[FinnDefinedStageFactor, FinnStageFactor](self._client, stageFactorInterfaceID, ID, FinnDefinedStageFactor, FinnStageFactor)
 	def getPeakTensileStrength(self) -> float:
 		return self._getDoubleProperty("MP_PEAK_TENSILE_STRENGTH")

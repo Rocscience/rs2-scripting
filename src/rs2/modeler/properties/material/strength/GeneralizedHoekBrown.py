@@ -53,9 +53,8 @@ class GeneralizedHoekBrownDefinedStageFactor(GeneralizedHoekBrownStageFactor):
 	def setTensileCutoffFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_UD_TENSION_CUTOFF", value, self.propertyID], proxyArgumentIndices=[2])
 class GeneralizedHoekBrown(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[GeneralizedHoekBrownDefinedStageFactor, GeneralizedHoekBrownStageFactor](self._client, stageFactorInterfaceID, ID, GeneralizedHoekBrownDefinedStageFactor, GeneralizedHoekBrownStageFactor)
 	def getMaterialType(self) -> MaterialType:
 		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE"))

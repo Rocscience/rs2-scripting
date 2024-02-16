@@ -29,9 +29,8 @@ class BoundingSurfacePlasticityDefinedStageFactor(BoundingSurfacePlasticityStage
 	def setPeakTensileStrengthFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_PEAK_TENSILE_STRENGTH", value, self.propertyID], proxyArgumentIndices=[2])
 class BoundingSurfacePlasticity(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[BoundingSurfacePlasticityDefinedStageFactor, BoundingSurfacePlasticityStageFactor](self._client, stageFactorInterfaceID, ID, BoundingSurfacePlasticityDefinedStageFactor, BoundingSurfacePlasticityStageFactor)
 	def getPeakTensileStrength(self) -> float:
 		return self._getDoubleProperty("MP_PEAK_TENSILE_STRENGTH")

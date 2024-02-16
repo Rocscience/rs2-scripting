@@ -41,9 +41,8 @@ class BrooksDefinedStageFactor(BrooksStageFactor):
 	def setDoSResFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_DOS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Brooks(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[BrooksDefinedStageFactor, BrooksStageFactor](self._client, stageFactorInterfaceID, ID, BrooksDefinedStageFactor, BrooksStageFactor)
 	def getPoreSizeIndex(self) -> float:
 		return self._getDoubleProperty("MP_PORE_SIZE_INDEX")

@@ -45,9 +45,8 @@ class NonLinearHyperbolicDefinedStageFactor(NonLinearHyperbolicStageFactor):
 	def setUnloadingModulusNumberFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_UNLOADING_MODULUS_NUMBER", value, self.propertyID], proxyArgumentIndices=[2])
 class NonLinearHyperbolic(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[NonLinearHyperbolicDefinedStageFactor, NonLinearHyperbolicStageFactor](self._client, stageFactorInterfaceID, ID, NonLinearHyperbolicDefinedStageFactor, NonLinearHyperbolicStageFactor)
 	def getModulusNumber(self) -> float:
 		return self._getDoubleProperty("MP_MODULUS_NUMBER")

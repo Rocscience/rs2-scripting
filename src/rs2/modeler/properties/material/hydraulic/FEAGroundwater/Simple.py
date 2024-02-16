@@ -33,9 +33,8 @@ class SimpleDefinedStageFactor(SimpleStageFactor):
 	def setDoSResFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_DOS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Simple(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[SimpleDefinedStageFactor, SimpleStageFactor](self._client, stageFactorInterfaceID, ID, SimpleDefinedStageFactor, SimpleStageFactor)
 	def getSoilType(self) -> EnhancedSimpleSoilTypes:
 		return EnhancedSimpleSoilTypes(self._getEnumEEnhancedSimpleSoilTypesProperty("MP_SOIL_TYPE"))

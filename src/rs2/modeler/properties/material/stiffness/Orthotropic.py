@@ -45,9 +45,8 @@ class OrthotropicDefinedStageFactor(OrthotropicStageFactor):
 	def setYoungsModulusEZFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_EZ", value, self.propertyID], proxyArgumentIndices=[2])
 class Orthotropic(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[OrthotropicDefinedStageFactor, OrthotropicStageFactor](self._client, stageFactorInterfaceID, ID, OrthotropicDefinedStageFactor, OrthotropicStageFactor)
 	def getUseUnloadingCondition(self) -> bool:
 		return self._getBoolProperty("MP_USE_UNLOADING_CONDITION")

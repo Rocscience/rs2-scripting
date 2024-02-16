@@ -37,9 +37,8 @@ class TransverselyIsotropicDefinedStageFactor(TransverselyIsotropicStageFactor):
 	def setYoungsModulusE2Factor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_E2", value, self.propertyID], proxyArgumentIndices=[2])
 class TransverselyIsotropic(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[TransverselyIsotropicDefinedStageFactor, TransverselyIsotropicStageFactor](self._client, stageFactorInterfaceID, ID, TransverselyIsotropicDefinedStageFactor, TransverselyIsotropicStageFactor)
 	def getUseUnloadingCondition(self) -> bool:
 		return self._getBoolProperty("MP_USE_UNLOADING_CONDITION")

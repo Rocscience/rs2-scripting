@@ -17,9 +17,8 @@ class ViscoElasticDefinedStageFactor(ViscoElasticStageFactor):
 	def setShearModulusFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_SHEAR_MODULUS", value, self.propertyID], proxyArgumentIndices=[2])
 class ViscoElastic(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[ViscoElasticDefinedStageFactor, ViscoElasticStageFactor](self._client, stageFactorInterfaceID, ID, ViscoElasticDefinedStageFactor, ViscoElasticStageFactor)
 	def getViscoElasticType(self) -> ViscoElasticTypes:
 		return ViscoElasticTypes(self._getEnumEViscoElasticTypesProperty("MP_VISCO_ELASTIC_TYPE"))

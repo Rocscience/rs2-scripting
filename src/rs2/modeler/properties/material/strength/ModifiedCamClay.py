@@ -41,9 +41,8 @@ class ModifiedCamClayDefinedStageFactor(ModifiedCamClayStageFactor):
 	def setPreconsolidationStressFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_PRECONSOLIDATION_STRESS", value, self.propertyID], proxyArgumentIndices=[2])
 class ModifiedCamClay(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[ModifiedCamClayDefinedStageFactor, ModifiedCamClayStageFactor](self._client, stageFactorInterfaceID, ID, ModifiedCamClayDefinedStageFactor, ModifiedCamClayStageFactor)
 	def getCriticalStateSlope(self) -> float:
 		return self._getDoubleProperty("MP_CRITICAL_STATE_SLOPE")

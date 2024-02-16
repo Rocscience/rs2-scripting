@@ -14,12 +14,16 @@ class MaterialProperty(PropertyProxy):
 	:ref:`Material Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
-		self.InitialConditions = InitialConditions(client, ID, documentProxyID)
-		self.Stiffness = Stiffness(client, ID, documentProxyID)
-		self.Strength = Strength(client, ID, documentProxyID)
-		self.Hydraulic = Hydraulic(client, ID, documentProxyID)
-		self.Thermal = Thermal(client, ID, documentProxyID)
-		self.Datum = Datum(client, ID, documentProxyID)
+		strengthStiffnessStageFactorInterface = self._callFunction("getStrengthStiffnessStageFactorInterface", [], keepReturnValueReference=True)
+		datumStageFactorInterface = self._callFunction("getDatumStageFactorInterface", [], keepReturnValueReference=True)
+		hydroStageFactorInterface = self._callFunction("getHydroStageFactorInterface", [], keepReturnValueReference=True)
+		thermalStageFactorInterface = self._callFunction("getThermalStageFactorInterface", [], keepReturnValueReference=True)
+		self.InitialConditions = InitialConditions(client, ID, documentProxyID, strengthStiffnessStageFactorInterface)
+		self.Stiffness = Stiffness(client, ID, documentProxyID, strengthStiffnessStageFactorInterface)
+		self.Strength = Strength(client, ID, documentProxyID, strengthStiffnessStageFactorInterface)
+		self.Hydraulic = Hydraulic(client, ID, documentProxyID, hydroStageFactorInterface)
+		self.Thermal = Thermal(client, ID, documentProxyID, thermalStageFactorInterface)
+		self.Datum = Datum(client, ID, documentProxyID, datumStageFactorInterface)
 		super().__init__(client, ID, documentProxyID)
 	def getMaterialName(self) -> str:
 		return self._getCStringProperty("MP_NAME")

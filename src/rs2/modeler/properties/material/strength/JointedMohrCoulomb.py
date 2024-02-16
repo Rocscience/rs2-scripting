@@ -42,9 +42,8 @@ class JointedMohrCoulombDefinedStageFactor(JointedMohrCoulombStageFactor):
 	def setResidualTensileStrengthFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_TENSILE_STRENGTH_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class JointedMohrCoulomb(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[JointedMohrCoulombDefinedStageFactor, JointedMohrCoulombStageFactor](self._client, stageFactorInterfaceID, ID, JointedMohrCoulombDefinedStageFactor, JointedMohrCoulombStageFactor)
 	def getMaterialType(self) -> MaterialType:
 		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE"))

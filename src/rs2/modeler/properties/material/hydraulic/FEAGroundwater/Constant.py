@@ -17,9 +17,8 @@ class ConstantDefinedStageFactor(ConstantStageFactor):
 	def setWCCurveSlopeFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_WC_SLOPE", value, self.propertyID], proxyArgumentIndices=[2])
 class Constant(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[ConstantDefinedStageFactor, ConstantStageFactor](self._client, stageFactorInterfaceID, ID, ConstantDefinedStageFactor, ConstantStageFactor)
 	def getUseCV(self) -> bool:
 		return self._getBoolProperty("MP_USE_CV")

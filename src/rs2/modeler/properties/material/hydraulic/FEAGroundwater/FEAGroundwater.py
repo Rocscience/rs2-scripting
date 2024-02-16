@@ -47,17 +47,16 @@ class FEAGroundwater(PropertyProxy):
 	"""
 	:ref:`Hydraulic Property FEAGroundwater Example`
 	"""
-	def __init__(self, client : Client, ID, documentProxyID):
-		self.Simple = Simple(client, ID, documentProxyID)
-		self.Fredlund = Fredlund(client, ID, documentProxyID)
-		self.Genuchten = Genuchten(client, ID, documentProxyID)
-		self.Brooks = Brooks(client, ID, documentProxyID)
-		self.Gardner = Gardner(client, ID, documentProxyID)
-		self.Constant = Constant(client, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
+		self.stageFactorInterface = AbsoluteStageFactorInterface[FEAGroundwaterDefinedStageFactor, FEAGroundwaterStageFactor](self._client, stageFactorInterfaceID, ID, FEAGroundwaterDefinedStageFactor, FEAGroundwaterStageFactor)
+		self.Simple = Simple(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.Fredlund = Fredlund(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.Genuchten = Genuchten(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.Brooks = Brooks(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.Gardner = Gardner(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.Constant = Constant(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.UserDefined = UserDefined(client, ID, documentProxyID)
 		super().__init__(client, ID, documentProxyID)
-		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[FEAGroundwaterDefinedStageFactor, FEAGroundwaterStageFactor](self._client, stageFactorInterfaceID, ID, FEAGroundwaterDefinedStageFactor, FEAGroundwaterStageFactor)
 	def getModel(self) -> GroundWaterModes:
 		return GroundWaterModes(self._getEnumEGroundWaterModesProperty("MP_HYDRAULIC_MODEL"))
 	def setModel(self, value: GroundWaterModes):
