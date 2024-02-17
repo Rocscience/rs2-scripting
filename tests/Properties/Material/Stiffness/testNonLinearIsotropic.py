@@ -80,3 +80,34 @@ class TestNonLinearIsotropic(unittest.TestCase):
         self.assertEqual(stiffness.NonLinearIsotropic.getUnloadingGMax(), 1257.7)
         self.assertEqual(stiffness.NonLinearIsotropic.getUnloadingGammaY(), 1702.5)
         self.assertEqual(stiffness.NonLinearIsotropic.getUnloadingRParameter(), 857.5)
+    def testNonLinearIsotropicStageFactors(self):
+        stiffness = self.material.Stiffness
+        stageFactor = stiffness.NonLinearIsotropic.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setAParameterFactor(2489.6)
+        stageFactor.setAlphaFactor(1772.3)
+        stageFactor.setBParameterFactor(2188.4)
+        stageFactor.setGMaxFactor(812.6)
+        stageFactor.setInitialEFactor(208.8)#
+        stageFactor.setMParameterFactor(2180.6)
+        stageFactor.setPrefFactor(84.0)
+        stageFactor.setRParameterFactor(870.1)
+        stageFactor.setGammaYFactor(223.6)
+        stageFactor.setPoissonsRatioFactor(453.6)
+        stageFactor.setResidualYoungsModulusFactor(3206.5)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        stiffness = self.material.Stiffness
+        stageFactor = stiffness.NonLinearIsotropic.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getAParameterFactor(), 2489.6)
+        self.assertEqual(stageFactor.getAlphaFactor(), 1772.3)
+        self.assertEqual(stageFactor.getBParameterFactor(), 2188.4)
+        self.assertEqual(stageFactor.getGMaxFactor(), 812.6)
+        self.assertEqual(stageFactor.getInitialEFactor(), 208.8)
+        self.assertEqual(stageFactor.getMParameterFactor(), 2180.6)
+        self.assertEqual(stageFactor.getPrefFactor(), 84.0)
+        self.assertEqual(stageFactor.getRParameterFactor(), 870.1)
+        self.assertEqual(stageFactor.getGammaYFactor(), 223.6)
+        self.assertEqual(stageFactor.getPoissonsRatioFactor(), 453.6)
+        self.assertEqual(stageFactor.getResidualYoungsModulusFactor(), 3206.5)
