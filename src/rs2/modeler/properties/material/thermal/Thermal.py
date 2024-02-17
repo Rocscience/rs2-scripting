@@ -10,11 +10,11 @@ class Thermal(PropertyProxy):
 	"""
 	:ref:`Material Property Thermal Example`
 	"""
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
+		super().__init__(client, ID, documentProxyID)
 		self.Conductivity = Conductivity(client, ID, documentProxyID)
 		self.HeatCapacity = HeatCapacity(client, ID, documentProxyID)
 		self.SoilUnfrozenWaterContent = SoilUnfrozenWaterContent(client, ID, documentProxyID)
-		super().__init__(client, ID, documentProxyID)
 	def getStaticTemperatureMode(self) -> StaticWaterModes:
 		return StaticWaterModes(self._getEnumEStaticWaterModesProperty("MP_STATIC_TEMPERATURE_METHOD"))
 	def setStaticTemperatureMode(self, value: StaticWaterModes):

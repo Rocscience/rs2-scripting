@@ -4,10 +4,14 @@ from rs2.modeler.properties.PropertyEnums import *
 from rs2.modeler.properties.material.datum.PeakResidualDatum import PeakResidualDatum
 from rs2.modeler.properties.material.datum.SimpleDatum import SimpleDatum
 
+from rs2._common.Client import Client
 class Datum(PropertyProxy):
 	"""
 	:ref:`Material Property Datum Example`
 	"""
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
+		super().__init__(client, ID, documentProxyID)
+	
 	def setUsingDatum(self, use : bool):
 		self._callFunction("setUsingDatum", [use])
 	def getUsingDatum(self) -> bool:

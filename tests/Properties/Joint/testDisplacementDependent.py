@@ -48,8 +48,9 @@ class TestDisplacementDependent(unittest.TestCase):
         self.assertEqual(joint.DisplacementDependent.getApplyStageFactors(), 0)
         self.assertEqual(joint.DisplacementDependent.getDisplacementDependentTable(), [[1.2,2,3,4],[1.5,2,3,4]])
     def testDisplacementDependentStageFactors(self):
+        joint = self.joint
         self.joint.setSlipCriterion(JointTypes.JOINT_DISPLACEMENT_DEPENDENT)
-        stageFactor = self.joint.DisplacementDependent.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor = joint.DisplacementDependent.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(2598.3)
         stageFactor.setShearStiffnessFactor(2572.7)
         stageFactor.setShearDisplacementFactor(2605.0)
@@ -63,7 +64,8 @@ class TestDisplacementDependent(unittest.TestCase):
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.joint = self.model.getAllJointProperties()[0]
-        stageFactor = self.joint.DisplacementDependent.stageFactorInterface.getDefinedStageFactors()[1]
+        joint = self.joint
+        stageFactor = joint.DisplacementDependent.stageFactorInterface.getDefinedStageFactors()[1]
         self.assertEqual(stageFactor.getNormalStiffnessFactor(), 2598.3)
         self.assertEqual(stageFactor.getShearStiffnessFactor(), 2572.7)
         self.assertEqual(stageFactor.getShearDisplacementFactor(), 2605.0)

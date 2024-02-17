@@ -54,8 +54,9 @@ class TestBartonBandis(unittest.TestCase):
         self.assertEqual(joint.BartonBandis.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.BartonBandis.getApplyStageFactors(), 1)
     def testBartonBandisStageFactors(self):
+        joint = self.joint
         self.joint.setSlipCriterion(JointTypes.JOINT_BARTON_BANDIS)
-        stageFactor = self.joint.BartonBandis.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor = joint.BartonBandis.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(176.8)
         stageFactor.setShearStiffnessFactor(1508.0)
         stageFactor.setJCSFactor(857.2)
@@ -68,7 +69,8 @@ class TestBartonBandis(unittest.TestCase):
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.joint = self.model.getAllJointProperties()[0]
-        stageFactor = self.joint.BartonBandis.stageFactorInterface.getDefinedStageFactors()[1]
+        joint = self.joint
+        stageFactor = joint.BartonBandis.stageFactorInterface.getDefinedStageFactors()[1]
         self.assertEqual(stageFactor.getNormalStiffnessFactor(), 176.8)
         self.assertEqual(stageFactor.getShearStiffnessFactor(), 1508.0)
         self.assertEqual(stageFactor.getJCSFactor(), 857.2)

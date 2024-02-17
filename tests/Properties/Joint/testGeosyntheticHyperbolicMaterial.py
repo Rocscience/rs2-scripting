@@ -51,7 +51,8 @@ class TestGeosyntheticHyperbolicMaterial(unittest.TestCase):
         self.assertEqual(jointmaterial.GeosyntheticHyperbolicMaterial.getTensileStrength(), 1413.6)
         self.assertEqual(jointmaterial.GeosyntheticHyperbolicMaterial.getDilationRatio(), 2.2)
     def testGeosyntheticHyperbolicMaterialStageFactors(self):
-        stageFactor = self.jointmaterial.GeosyntheticHyperbolicMaterial.stageFactorInterface.getDefinedStageFactors()[1]
+        jointmaterial = self.jointmaterial
+        stageFactor = jointmaterial.GeosyntheticHyperbolicMaterial.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setPeakAdhesionAtSigninfFactor(468.3)
         stageFactor.setPeakFrictionAngleAtSign0Factor(2350.4)
         stageFactor.setResAdhesionAtSigninfFactor(2598.3)
@@ -64,7 +65,8 @@ class TestGeosyntheticHyperbolicMaterial(unittest.TestCase):
         self.mat.Strength.setFailureCriterion(StrengthCriteriaTypes.JOINTED_MOHR_COULOMB)
         self.matJointOptions = self.mat.Strength.JointedMohrCoulomb.getJointOptions()
         self.jointmaterial = self.matJointOptions.getJoint(0)
-        stageFactor = self.jointmaterial.GeosyntheticHyperbolicMaterial.stageFactorInterface.getDefinedStageFactors()[1]
+        jointmaterial = self.jointmaterial
+        stageFactor = jointmaterial.GeosyntheticHyperbolicMaterial.stageFactorInterface.getDefinedStageFactors()[1]
         self.assertEqual(stageFactor.getPeakAdhesionAtSigninfFactor(), 468.3)
         self.assertEqual(stageFactor.getPeakFrictionAngleAtSign0Factor(), 2350.4)
         self.assertEqual(stageFactor.getResAdhesionAtSigninfFactor(), 2598.3)
