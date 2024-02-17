@@ -54,6 +54,13 @@ class TestRemoveMaterialQuery(unittest.TestCase):
         except:
             pass
     
+    def testRemoveMaterialQueryNoneIDsFailure(self):
+        try:
+            self.model.RemoveMaterialQuery([None, None, None])
+            self.fail("Expected exception")
+        except:
+            pass
+    
     def testRemoveMaterialQueryInvalidIDsFailure(self):
         try:
             guid1 = self.model.AddMaterialQuery(points=[[0.0, 1.0]])
