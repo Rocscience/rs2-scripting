@@ -38,3 +38,18 @@ class TestFEAGroundwater(unittest.TestCase):
         self.assertEqual(hydraulic.FEAGroundwater.getK1Angle(), 2628.5)
         self.assertEqual(hydraulic.FEAGroundwater.getMvModel(), MVModel.MV_CONSTANT)
         self.assertEqual(hydraulic.FEAGroundwater.getMv(), 972.5)
+    def testFEAGroundwaterStageFactors(self):
+        hydraulic = self.material.Hydraulic
+        stageFactor = hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setK1AngleFactor(86.7)
+        stageFactor.setK2K1Factor(762.9)
+        stageFactor.setMvFactor(1413.6)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        hydraulic = self.material.Hydraulic
+        stageFactor = hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getK1AngleFactor(), 86.7)
+        self.assertEqual(stageFactor.getK2K1Factor(), 762.9)
+        self.assertEqual(stageFactor.getMvFactor(), 1413.6)
