@@ -40,14 +40,3 @@ class TestViscoElastic(unittest.TestCase):
         self.assertEqual(stiffness.ViscoElastic.getKelvinShearModulus(), 86.7)
         self.assertEqual(stiffness.ViscoElastic.getKelvinViscosity(), 762.9)
         self.assertEqual(stiffness.ViscoElastic.getShearModulus(), 1413.6)
-    def testViscoElasticStageFactors(self):
-        stiffness = self.material.Stiffness
-        stageFactor = stiffness.ViscoElastic.stageFactorInterface.getDefinedStageFactors()[1]
-        stageFactor.setShearModulusFactor(468.3)
-        self.model.save()
-        self.model.close()
-        self.model = self.modeler.openFile(self.copiedModelPath)
-        self.material = self.model.getAllMaterialProperties()[0]
-        stiffness = self.material.Stiffness
-        stageFactor = stiffness.ViscoElastic.stageFactorInterface.getDefinedStageFactors()[1]
-        self.assertEqual(stageFactor.getShearModulusFactor(), 468.3)

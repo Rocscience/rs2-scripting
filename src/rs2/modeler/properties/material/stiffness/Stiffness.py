@@ -33,7 +33,7 @@ class Stiffness(PropertyProxy):
 		self.Orthotropic = Orthotropic(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.NonLinearHyperbolic = NonLinearHyperbolic(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.NonLinearIsotropic = NonLinearIsotropic(client, ID, documentProxyID, stageFactorInterfaceID)
-		self.ViscoElastic = ViscoElastic(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.ViscoElastic = ViscoElastic(client, ID, documentProxyID)
 		self.Custom = Custom(client, ID, documentProxyID)
 		self.ChSoil = ChSoil(client, ID, documentProxyID)
 		self.CySoil = CySoil(client, ID, documentProxyID)
