@@ -3,35 +3,7 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
-from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
-class HyperbolicStageFactor(ProxyObject):
-	def __init__(self, client : Client, ID, propertyID):
-		super().__init__(client, ID)
-		self.propertyID = propertyID
-	def getResidualCohesionFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["MP_COHESION_RES", self.propertyID], proxyArgumentIndices=[1])
-	def getResidualFrictionAngleFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["MP_FRICTION_ANGLE_RES", self.propertyID], proxyArgumentIndices=[1])
-	def getPeakCohesionFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["MP_PEAK_COHESION", self.propertyID], proxyArgumentIndices=[1])
-	def getPeakFrictionAngleFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["MP_PEAK_FRICTION_ANGLE", self.propertyID], proxyArgumentIndices=[1])
-class HyperbolicDefinedStageFactor(HyperbolicStageFactor):
-	def __init__(self, client : Client, ID, propertyID):
-		super().__init__(client, ID, propertyID)
-	def setResidualCohesionFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["MP_COHESION_RES", value, self.propertyID], proxyArgumentIndices=[2])
-	def setResidualFrictionAngleFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["MP_FRICTION_ANGLE_RES", value, self.propertyID], proxyArgumentIndices=[2])
-	def setPeakCohesionFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["MP_PEAK_COHESION", value, self.propertyID], proxyArgumentIndices=[2])
-	def setPeakFrictionAngleFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["MP_PEAK_FRICTION_ANGLE", value, self.propertyID], proxyArgumentIndices=[2])
 class Hyperbolic(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
-		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[HyperbolicDefinedStageFactor, HyperbolicStageFactor](self._client, stageFactorInterfaceID, ID, HyperbolicDefinedStageFactor, HyperbolicStageFactor)
 	def getMaterialType(self) -> MaterialType:
 		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE"))
 	def setMaterialType(self, value: MaterialType):
