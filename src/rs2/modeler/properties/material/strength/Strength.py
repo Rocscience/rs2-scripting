@@ -110,7 +110,7 @@ class Strength(PropertyProxy):
 		self.HoekBrown = HoekBrown(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.DruckerPrager = DruckerPrager(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.GeneralizedHoekBrown = GeneralizedHoekBrown(client, ID, documentProxyID, stageFactorInterfaceID)
-		self.DiscreteFunction = DiscreteFunction(client, ID, documentProxyID)
+		self.DiscreteFunction = DiscreteFunction(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.CamClay = CamClay(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.ModifiedCamClay = ModifiedCamClay(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.MohrCoulombWithCap = MohrCoulombWithCap(client, ID, documentProxyID, stageFactorInterfaceID)
