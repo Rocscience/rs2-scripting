@@ -52,3 +52,16 @@ class TestStrength(unittest.TestCase):
         self.assertEqual(material.Strength.getUseCutoff(), 0)
         self.assertEqual(material.Strength.getCutoffValue(), 2350.4)
         self.assertEqual(material.Strength.getTabularValues(), UnsaturatedTabularValueMethod.UNSATURATED_RESPECT_DEGREE_SATURATION)
+    def testStrengthStageFactors(self):
+        material = self.material
+        stageFactor = material.Strength.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setAirEntryValueFactor(2598.3)
+        stageFactor.setUnsaturatedShearStrengthAngleFactor(2572.7)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        material = self.material
+        stageFactor = material.Strength.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getAirEntryValueFactor(), 2598.3)
+        self.assertEqual(stageFactor.getUnsaturatedShearStrengthAngleFactor(), 2572.7)

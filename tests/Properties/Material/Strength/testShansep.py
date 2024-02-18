@@ -66,3 +66,16 @@ class TestShansep(unittest.TestCase):
         self.assertEqual(strength.Shansep.getOCR(), 5.6)
         self.assertEqual(strength.Shansep.getPcDefinitionMethod(), StressHistoryDefinitionMethods.STRESS_HISTORY_DEPTH)
         self.assertEqual(strength.Shansep.getPc(), 5.6)
+    def testShansepStageFactors(self):
+        strength = self.material.Strength
+        stageFactor = strength.Shansep.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setPeakTensileStrengthFactor(857.2)
+        stageFactor.setResidualTensileStrengthFactor(3215.6)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        strength = self.material.Strength
+        stageFactor = strength.Shansep.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getPeakTensileStrengthFactor(), 857.2)
+        self.assertEqual(stageFactor.getResidualTensileStrengthFactor(), 3215.6)

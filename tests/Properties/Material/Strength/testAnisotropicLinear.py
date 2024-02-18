@@ -64,3 +64,16 @@ class TestAnisotropicLinear(unittest.TestCase):
         self.assertEqual(strength.AnisotropicLinear.getApplySSRShearStrengthReduction(), 0)
         self.assertEqual(strength.AnisotropicLinear.getAnisotropyDefinition(), AnisotropyDefinitions.ANISOTROPY_DEFINITION_ANGLE)
         self.assertEqual(strength.AnisotropicLinear.getAngleCcwTo1(), 1475.5)
+    def testAnisotropicLinearStageFactors(self):
+        strength = self.material.Strength
+        stageFactor = strength.AnisotropicLinear.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setPeakTensileStrengthFactor(2227.9)
+        stageFactor.setResidualTensileStrengthFactor(3008.6)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        strength = self.material.Strength
+        stageFactor = strength.AnisotropicLinear.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getPeakTensileStrengthFactor(), 2227.9)
+        self.assertEqual(stageFactor.getResidualTensileStrengthFactor(), 3008.6)

@@ -60,3 +60,26 @@ class TestFinn(unittest.TestCase):
         self.assertEqual(strength.Finn.getFinnByrneC1Parameter(), 176.8)
         self.assertEqual(strength.Finn.getFinnByrneC2Parameter(), 1508.0)
         self.assertEqual(strength.Finn.getN160(), 16759)
+    def testFinnStageFactors(self):
+        strength = self.material.Strength
+        stageFactor = strength.Finn.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setResidualCohesionFactor(3215.6)
+        stageFactor.setDilationAngleFactor(1475.5)
+        stageFactor.setResidualFrictionAngleFactor(2227.9)
+        stageFactor.setPeakCohesionFactor(3008.6)
+        stageFactor.setPeakFrictionAngleFactor(2917.7)
+        stageFactor.setPeakTensileStrengthFactor(1006.5)
+        stageFactor.setResidualTensileStrengthFactor(1374.4)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        strength = self.material.Strength
+        stageFactor = strength.Finn.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getResidualCohesionFactor(), 3215.6)
+        self.assertEqual(stageFactor.getDilationAngleFactor(), 1475.5)
+        self.assertEqual(stageFactor.getResidualFrictionAngleFactor(), 2227.9)
+        self.assertEqual(stageFactor.getPeakCohesionFactor(), 3008.6)
+        self.assertEqual(stageFactor.getPeakFrictionAngleFactor(), 2917.7)
+        self.assertEqual(stageFactor.getPeakTensileStrengthFactor(), 1006.5)
+        self.assertEqual(stageFactor.getResidualTensileStrengthFactor(), 1374.4)

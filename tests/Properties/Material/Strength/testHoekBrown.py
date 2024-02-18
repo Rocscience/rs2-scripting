@@ -43,3 +43,24 @@ class TestHoekBrown(unittest.TestCase):
         self.assertEqual(strength.HoekBrown.getResidualSParameter(), 762.9)
         self.assertEqual(strength.HoekBrown.getDilationParameter(), 1413.6)
         self.assertEqual(strength.HoekBrown.getApplySSRShearStrengthReduction(), 0)
+    def testHoekBrownStageFactors(self):
+        strength = self.material.Strength
+        stageFactor = strength.HoekBrown.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setCompressiveStrengthFactor(2350.4)
+        stageFactor.setDilationParameterFactor(2598.3)
+        stageFactor.setMbParameterFactor(2572.7)
+        stageFactor.setResidualMbParameterFactor(2605.0)
+        stageFactor.setSParameterFactor(3213.4)
+        stageFactor.setResidualSParameterFactor(176.8)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        strength = self.material.Strength
+        stageFactor = strength.HoekBrown.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getCompressiveStrengthFactor(), 2350.4)
+        self.assertEqual(stageFactor.getDilationParameterFactor(), 2598.3)
+        self.assertEqual(stageFactor.getMbParameterFactor(), 2572.7)
+        self.assertEqual(stageFactor.getResidualMbParameterFactor(), 2605.0)
+        self.assertEqual(stageFactor.getSParameterFactor(), 3213.4)
+        self.assertEqual(stageFactor.getResidualSParameterFactor(), 176.8)

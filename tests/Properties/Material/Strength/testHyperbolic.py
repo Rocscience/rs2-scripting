@@ -40,3 +40,20 @@ class TestHyperbolic(unittest.TestCase):
         self.assertEqual(strength.Hyperbolic.getResidualCohesion(), 86.7)
         self.assertEqual(strength.Hyperbolic.getDilationRatio(), 762.9)
         self.assertEqual(strength.Hyperbolic.getApplySSRShearStrengthReduction(), 0)
+    def testHyperbolicStageFactors(self):
+        strength = self.material.Strength
+        stageFactor = strength.Hyperbolic.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setResidualCohesionFactor(468.3)
+        stageFactor.setResidualFrictionAngleFactor(2350.4)
+        stageFactor.setPeakCohesionFactor(2598.3)
+        stageFactor.setPeakFrictionAngleFactor(2572.7)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        strength = self.material.Strength
+        stageFactor = strength.Hyperbolic.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getResidualCohesionFactor(), 468.3)
+        self.assertEqual(stageFactor.getResidualFrictionAngleFactor(), 2350.4)
+        self.assertEqual(stageFactor.getPeakCohesionFactor(), 2598.3)
+        self.assertEqual(stageFactor.getPeakFrictionAngleFactor(), 2572.7)

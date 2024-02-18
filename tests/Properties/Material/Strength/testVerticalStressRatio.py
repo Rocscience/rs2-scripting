@@ -50,3 +50,16 @@ class TestVerticalStressRatio(unittest.TestCase):
         self.assertEqual(strength.VerticalStressRatio.getResidualMaximumShearStrength(), 2598.3)
         self.assertEqual(strength.VerticalStressRatio.getResidualTensileStrength(), 2572.7)
         self.assertEqual(strength.VerticalStressRatio.getApplySSRShearStrengthReduction(), 0)
+    def testVerticalStressRatioStageFactors(self):
+        strength = self.material.Strength
+        stageFactor = strength.VerticalStressRatio.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setPeakTensileStrengthFactor(3213.4)
+        stageFactor.setResidualTensileStrengthFactor(176.8)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        strength = self.material.Strength
+        stageFactor = strength.VerticalStressRatio.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getPeakTensileStrengthFactor(), 3213.4)
+        self.assertEqual(stageFactor.getResidualTensileStrengthFactor(), 176.8)

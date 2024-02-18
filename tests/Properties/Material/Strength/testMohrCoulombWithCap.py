@@ -43,3 +43,24 @@ class TestMohrCoulombWithCap(unittest.TestCase):
         self.assertEqual(strength.MohrCoulombWithCap.getCapHardeningType(), CapHardeningTypes.MC_CAP_HARDENING_TABULAR)
         self.assertEqual(strength.MohrCoulombWithCap.getInitialMeanStress(), 762.9)
         self.assertEqual(strength.MohrCoulombWithCap.getLambdaKappa(), 1413.6)
+    def testMohrCoulombWithCapStageFactors(self):
+        strength = self.material.Strength
+        stageFactor = strength.MohrCoulombWithCap.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setDilationAngleFactor(468.3)
+        stageFactor.setInitialMeanStressFactor(2350.4)
+        stageFactor.setLambdaKappaFactor(2598.3)
+        stageFactor.setPeakCohesionFactor(2572.7)
+        stageFactor.setPeakFrictionAngleFactor(2605.0)
+        stageFactor.setPeakTensileStrengthFactor(3213.4)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        strength = self.material.Strength
+        stageFactor = strength.MohrCoulombWithCap.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getDilationAngleFactor(), 468.3)
+        self.assertEqual(stageFactor.getInitialMeanStressFactor(), 2350.4)
+        self.assertEqual(stageFactor.getLambdaKappaFactor(), 2598.3)
+        self.assertEqual(stageFactor.getPeakCohesionFactor(), 2572.7)
+        self.assertEqual(stageFactor.getPeakFrictionAngleFactor(), 2605.0)
+        self.assertEqual(stageFactor.getPeakTensileStrengthFactor(), 3213.4)
