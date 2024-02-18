@@ -87,7 +87,7 @@ class TestNonLinearIsotropic(unittest.TestCase):
         stageFactor.setAlphaFactor(1772.3)
         stageFactor.setBParameterFactor(2188.4)
         stageFactor.setGMaxFactor(812.6)
-        stageFactor.setInitialEFactor(208.8)#
+        stageFactor.setInitialEFactor(208.8)
         stageFactor.setMParameterFactor(2180.6)
         stageFactor.setPrefFactor(84.0)
         stageFactor.setRParameterFactor(870.1)

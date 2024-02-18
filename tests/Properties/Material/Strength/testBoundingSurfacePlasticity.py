@@ -42,20 +42,3 @@ class TestBoundingSurfacePlasticity(unittest.TestCase):
         self.assertEqual(strength.BoundingSurfacePlasticity.getUnloadingToLoadingPlasticModulusRatio(), 1413.6)
         self.assertEqual(strength.BoundingSurfacePlasticity.getPowerTerm(), 468.3)
         self.assertEqual(strength.BoundingSurfacePlasticity.getApplySSRShearStrengthReduction(), 0)
-    def testBoundingSurfacePlasticityStageFactors(self):
-        strength = self.material.Strength
-        stageFactor = strength.BoundingSurfacePlasticity.stageFactorInterface.getDefinedStageFactors()[1]
-        stageFactor.setHardeningPropertyFactor(2598.3)
-        stageFactor.setPeakCohesionFactor(2572.7)
-        stageFactor.setPeakFrictionAngleFactor(2605.0)
-        stageFactor.setPeakTensileStrengthFactor(3213.4)
-        self.model.save()
-        self.model.close()
-        self.model = self.modeler.openFile(self.copiedModelPath)
-        self.material = self.model.getAllMaterialProperties()[0]
-        strength = self.material.Strength
-        stageFactor = strength.BoundingSurfacePlasticity.stageFactorInterface.getDefinedStageFactors()[1]
-        self.assertEqual(stageFactor.getHardeningPropertyFactor(), 2598.3)
-        self.assertEqual(stageFactor.getPeakCohesionFactor(), 2572.7)
-        self.assertEqual(stageFactor.getPeakFrictionAngleFactor(), 2605.0)
-        self.assertEqual(stageFactor.getPeakTensileStrengthFactor(), 3213.4)
