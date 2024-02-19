@@ -5,12 +5,26 @@ from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2.modeler.properties.material.hydraulic.FEAGroundwater.FEAGroundwater import FEAGroundwater
 from rs2.modeler.properties.material.hydraulic.StaticGroundwater import StaticGroundwater
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+class HydraulicStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getMaterialBehaviourFactor(self) -> str:
+		return MaterialBehaviours(self._callFunction("getMaterialBehaviourFactor", []))
+class HydraulicDefinedStageFactor(HydraulicStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setMaterialBehaviourFactor(self, materialBehavior: MaterialBehaviours):
+		return self._callFunction("setMaterialBehaviourFactor", [materialBehavior.value])
 class Hydraulic(PropertyProxy):
 	"""
 	:ref:`Hydraulic Property Stiffness Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
+		self.stageFactorInterface = AbsoluteStageFactorInterface[HydraulicDefinedStageFactor, HydraulicStageFactor](self._client, stageFactorInterfaceID, ID, HydraulicDefinedStageFactor, HydraulicStageFactor)
 		self.StaticGroundwater = StaticGroundwater(client, ID, documentProxyID)
 		self.FEAGroundwater = FEAGroundwater(client, ID, documentProxyID, stageFactorInterfaceID)
 	def getMaterialBehaviour(self) -> MaterialBehaviours:
