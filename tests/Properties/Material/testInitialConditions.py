@@ -58,6 +58,7 @@ class TestInitialConditions(unittest.TestCase):
         material = self.material
         stageFactor = material.InitialConditions.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setUnitWeightFactor(468.3)
+        stageFactor.setPorosityValueFactor(2350.4)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -65,3 +66,4 @@ class TestInitialConditions(unittest.TestCase):
         material = self.material
         stageFactor = material.InitialConditions.stageFactorInterface.getDefinedStageFactors()[1]
         self.assertEqual(stageFactor.getUnitWeightFactor(), 468.3)
+        self.assertEqual(stageFactor.getPorosityValueFactor(), 2350.4)

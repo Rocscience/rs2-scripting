@@ -115,7 +115,7 @@ class Strength(PropertyProxy):
 		self.ModifiedCamClay = ModifiedCamClay(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.MohrCoulombWithCap = MohrCoulombWithCap(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.SofteningHardeningModel = SofteningHardeningModel(client, ID, documentProxyID, stageFactorInterfaceID)
-		self.BarcelonaBasic = BarcelonaBasic(client, ID, documentProxyID)
+		self.BarcelonaBasic = BarcelonaBasic(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.NorSandStrength = NorSandStrength(client, ID, documentProxyID)
 		self.BoundingSurfacePlasticity = BoundingSurfacePlasticity(client, ID, documentProxyID)
 		self.ManzariAndDafaliasStrength = ManzariAndDafaliasStrength(client, ID, documentProxyID)

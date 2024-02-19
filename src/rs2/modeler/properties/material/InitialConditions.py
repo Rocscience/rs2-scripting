@@ -11,11 +11,15 @@ class InitialConditionsStageFactor(ProxyObject):
 		self.propertyID = propertyID
 	def getUnitWeightFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["MP_UNIT_WEIGHT", self.propertyID], proxyArgumentIndices=[1])
+	def getPorosityValueFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_POROSITY_VALUE", self.propertyID], proxyArgumentIndices=[1])
 class InitialConditionsDefinedStageFactor(InitialConditionsStageFactor):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID, propertyID)
 	def setUnitWeightFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_UNIT_WEIGHT", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPorosityValueFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_POROSITY_VALUE", value, self.propertyID], proxyArgumentIndices=[2])
 class InitialConditions(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
