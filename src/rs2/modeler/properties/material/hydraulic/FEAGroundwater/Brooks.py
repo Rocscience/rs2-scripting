@@ -11,10 +11,10 @@ class BrooksStageFactor(ProxyObject):
 		self.propertyID = propertyID
 	def getBubblingPressureFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["MP_BUBBLING_PRESSURE", self.propertyID], proxyArgumentIndices=[1])
-	def getKsFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["MP_KS", self.propertyID], proxyArgumentIndices=[1])
 	def getPoreSizeIndexFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["MP_PORE_SIZE_INDEX", self.propertyID], proxyArgumentIndices=[1])
+	def getKsFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_KS", self.propertyID], proxyArgumentIndices=[1])
 	def getWCSatFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["MP_WC_SAT", self.propertyID], proxyArgumentIndices=[1])
 	def getWCResFactor(self) -> float:
@@ -28,10 +28,10 @@ class BrooksDefinedStageFactor(BrooksStageFactor):
 		super().__init__(client, ID, propertyID)
 	def setBubblingPressureFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_BUBBLING_PRESSURE", value, self.propertyID], proxyArgumentIndices=[2])
-	def setKsFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["MP_KS", value, self.propertyID], proxyArgumentIndices=[2])
 	def setPoreSizeIndexFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_PORE_SIZE_INDEX", value, self.propertyID], proxyArgumentIndices=[2])
+	def setKsFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_KS", value, self.propertyID], proxyArgumentIndices=[2])
 	def setWCSatFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_WC_SAT", value, self.propertyID], proxyArgumentIndices=[2])
 	def setWCResFactor(self, value: float):

@@ -50,10 +50,10 @@ class TestGenuchten(unittest.TestCase):
     def testGenuchtenStageFactors(self):
         feagroundwater = self.material.Hydraulic.FEAGroundwater
         stageFactor = feagroundwater.Genuchten.stageFactorInterface.getDefinedStageFactors()[1]
-        stageFactor.setKsFactor(762.9)
-        stageFactor.setMFactor(1413.6)
-        stageFactor.setNFactor(468.3)
-        stageFactor.setAlphaFactor(2350.4)
+        stageFactor.setMFactor(762.9)
+        stageFactor.setNFactor(1413.6)
+        stageFactor.setAlphaFactor(468.3)
+        stageFactor.setKsFactor(2350.4)
         stageFactor.setWCSatFactor(0.11)
         stageFactor.setWCResFactor(0.22)
         stageFactor.setDoSSatFactor(0.33)
@@ -64,10 +64,10 @@ class TestGenuchten(unittest.TestCase):
         self.material = self.model.getAllMaterialProperties()[0]
         feagroundwater = self.material.Hydraulic.FEAGroundwater
         stageFactor = feagroundwater.Genuchten.stageFactorInterface.getDefinedStageFactors()[1]
-        self.assertEqual(stageFactor.getKsFactor(), 762.9)
-        self.assertEqual(stageFactor.getMFactor(), 1413.6)
-        self.assertEqual(stageFactor.getNFactor(), 468.3)
-        self.assertEqual(stageFactor.getAlphaFactor(), 2350.4)
+        self.assertEqual(stageFactor.getMFactor(), 762.9)
+        self.assertEqual(stageFactor.getNFactor(), 1413.6)
+        self.assertEqual(stageFactor.getAlphaFactor(), 468.3)
+        self.assertEqual(stageFactor.getKsFactor(), 2350.4)
         self.assertEqual(stageFactor.getWCSatFactor(), 0.11)
         self.assertEqual(stageFactor.getWCResFactor(), 0.22)
         self.assertEqual(stageFactor.getDoSSatFactor(), 0.33)

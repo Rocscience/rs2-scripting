@@ -9,14 +9,14 @@ class GenuchtenStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
 		self.propertyID = propertyID
-	def getKsFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["MP_KS", self.propertyID], proxyArgumentIndices=[1])
 	def getMFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["MP_VAN_CUSTOM_M", self.propertyID], proxyArgumentIndices=[1])
 	def getNFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["MP_VAN_GENUCHTEM_N", self.propertyID], proxyArgumentIndices=[1])
 	def getAlphaFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["MP_VAN_GENUCHTEN_ALPHA", self.propertyID], proxyArgumentIndices=[1])
+	def getKsFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_KS", self.propertyID], proxyArgumentIndices=[1])
 	def getWCSatFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["MP_WC_SAT", self.propertyID], proxyArgumentIndices=[1])
 	def getWCResFactor(self) -> float:
@@ -28,14 +28,14 @@ class GenuchtenStageFactor(ProxyObject):
 class GenuchtenDefinedStageFactor(GenuchtenStageFactor):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID, propertyID)
-	def setKsFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["MP_KS", value, self.propertyID], proxyArgumentIndices=[2])
 	def setMFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_VAN_CUSTOM_M", value, self.propertyID], proxyArgumentIndices=[2])
 	def setNFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_VAN_GENUCHTEM_N", value, self.propertyID], proxyArgumentIndices=[2])
 	def setAlphaFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_VAN_GENUCHTEN_ALPHA", value, self.propertyID], proxyArgumentIndices=[2])
+	def setKsFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_KS", value, self.propertyID], proxyArgumentIndices=[2])
 	def setWCSatFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_WC_SAT", value, self.propertyID], proxyArgumentIndices=[2])
 	def setWCResFactor(self, value: float):

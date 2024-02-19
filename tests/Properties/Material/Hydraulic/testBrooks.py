@@ -47,8 +47,8 @@ class TestBrooks(unittest.TestCase):
         feagroundwater = self.material.Hydraulic.FEAGroundwater
         stageFactor = feagroundwater.Brooks.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setBubblingPressureFactor(86.7)
-        stageFactor.setKsFactor(762.9)
-        stageFactor.setPoreSizeIndexFactor(1413.6)
+        stageFactor.setPoreSizeIndexFactor(762.9)
+        stageFactor.setKsFactor(1413.6)
         stageFactor.setWCSatFactor(0.11)
         stageFactor.setWCResFactor(0.22)
         stageFactor.setDoSSatFactor(0.33)
@@ -60,8 +60,8 @@ class TestBrooks(unittest.TestCase):
         feagroundwater = self.material.Hydraulic.FEAGroundwater
         stageFactor = feagroundwater.Brooks.stageFactorInterface.getDefinedStageFactors()[1]
         self.assertEqual(stageFactor.getBubblingPressureFactor(), 86.7)
-        self.assertEqual(stageFactor.getKsFactor(), 762.9)
-        self.assertEqual(stageFactor.getPoreSizeIndexFactor(), 1413.6)
+        self.assertEqual(stageFactor.getPoreSizeIndexFactor(), 762.9)
+        self.assertEqual(stageFactor.getKsFactor(), 1413.6)
         self.assertEqual(stageFactor.getWCSatFactor(), 0.11)
         self.assertEqual(stageFactor.getWCResFactor(), 0.22)
         self.assertEqual(stageFactor.getDoSSatFactor(), 0.33)
