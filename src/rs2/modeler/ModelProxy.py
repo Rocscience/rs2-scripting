@@ -68,9 +68,9 @@ class ModelProxy(ProxyObject):
 		'''
 		compositeLinerObjectID = self._callFunction('getCompositePropertyByName', [compositeName], keepReturnValueReference=True)
 		return CompositeProperty(self._client, compositeLinerObjectID, self._documentProxy._ID)
-
-
 	
+	
+
 	def getMaterialPropertyByName(self, materialName : str) -> MaterialProperty:
 		'''
 		Returns a Material Property object based on its name.
@@ -221,7 +221,7 @@ class ModelProxy(ProxyObject):
 
 		'''
 		return self._callFunction('AddHistoryQueryPoint', [x, y, history_query_name])
-
+	
 
 	def RemoveHistoryQueryPoint(self, history_query_name: str):
 		'''
@@ -232,7 +232,7 @@ class ModelProxy(ProxyObject):
 
 		'''
 		return self._callFunction('RemoveHistoryQueryPoint', [history_query_name])
-	
+
 	def AddTimeQueryLine(self, points: list[list[float]], points_on_line: int) -> str:
 		'''
 		Add a new Time Query Line to your model with the specified coordinates
