@@ -68,7 +68,9 @@ class ModelProxy(ProxyObject):
 		'''
 		compositeLinerObjectID = self._callFunction('getCompositePropertyByName', [compositeName], keepReturnValueReference=True)
 		return CompositeProperty(self._client, compositeLinerObjectID, self._documentProxy._ID)
-	
+
+
+		
 	def getMaterialPropertyByName(self, materialName : str) -> MaterialProperty:
 		'''
 		Returns a Material Property object based on its name.
@@ -219,7 +221,8 @@ class ModelProxy(ProxyObject):
 
 		'''
 		return self._callFunction('AddHistoryQueryPoint', [x, y, history_query_name])
-		
+
+
 	def RemoveHistoryQueryPoint(self, history_query_name: str):
 		'''
 		Remove a History Query point from your model by label name.
@@ -238,8 +241,8 @@ class ModelProxy(ProxyObject):
 			points (list[list[float]]) : List of points making the time query line.
 			points_on_line (int) : Number of segments to evenly divide time query line
 		
-		Exception:
-			RangeError: points_on_line must be between 0 and 10 inclusive.
+		Warning:
+			points_on_line must be between 1 and 10 inclusive.
 
 		'''
 		return self._callFunction('AddTimeQueryLine', [points, points_on_line])
@@ -270,7 +273,7 @@ class ModelProxy(ProxyObject):
 		Removes Time Query Point(s) from your model using provided list of IDs.
 
 		Args:
-			IDs_toRemove (list[int]): List of unique identifier for time query points(s) to remove.
+			IDs_toRemove (list[str]): List of unique identifier for time query points(s) to remove.
 
 		'''
 		return self._callFunction('RemoveTimeQueryPoint', [IDs_toRemove])

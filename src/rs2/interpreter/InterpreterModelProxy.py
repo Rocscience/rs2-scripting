@@ -138,9 +138,11 @@ class ModelProxy(ProxyObject):
 		"""
 		Returns the results for all the time query points defined in the model for given stages and graph axes type.
 
+		Please note points that are over an excavation at specific stages will not have data returned at those locations.
+
 		Args:
+			stages (list[int]): Takes the stages by their stage number for which results should be returned.
 			vertical_axis (TimeQueryGraphEnums): Takes the vertical axis to generate results for.
-			stages (int): Takes the stages by their stage number for which results should be returned.
 		
 		Returns:
 			Returns a dictionary with key as stage number and value a list[TimeQueryPointResults] object.
@@ -159,8 +161,7 @@ class ModelProxy(ProxyObject):
 			- QueryPointResult.GetValue()
 		
 		Exceptions:
-			ValueError: horizontal_axis and vertical_axis must be an enum of type TimeQueryGraphEnums.
-						Any other value will raise an error.
+			ValueError: vertical_axis must be an enum of type TimeQueryGraphEnums. Any other value will raise an error.
 		"""
 		map_data = self._callFunction('GetAllTimeQueryPointsResults', 
 							 [stages, vertical_axis.value])
@@ -183,12 +184,11 @@ class ModelProxy(ProxyObject):
 		"""
 		Returns the results for all the time query lines defined in the model for given stages and graph axes types.
 
-		Please note midpoints that cross over excavations at specific stages will not have data returned at those locations.
+		Please note points that are over an excavation at specific stages will not have data returned at those locations.
 
 		Args:
-			horizontal_axis (TimeQueryGraphEnums): Takes the horizontal axis to generate results for.
+			stages (list[int]): Takes the stages by their stage number for which results should be returned.
 			vertical_axis (TimeQueryGraphEnums): Takes the vertical axis to generate results for.
-			stages (int): Takes the stages by their stage number for which results should be returned.
 			apply_post_process_scaling (bool): Bool input taking whether post-process scaling should be applied or not
 		
 		Returns:
@@ -209,8 +209,7 @@ class ModelProxy(ProxyObject):
 			- QueryPointResult.GetValue()
 		
 		Exceptions:
-			ValueError: horizontal_axis and vertical_axis must be an enum of type TimeQueryGraphEnums.
-						Any other value will raise an error.
+			ValueError: vertical_axis must be an enum of type TimeQueryGraphEnums. Any other value will raise an error.
 		"""
 		map_data =  self._callFunction('GetAllTimeQueryLinesResults', 
 							 [stages, vertical_axis.value, apply_post_process_scaling])
