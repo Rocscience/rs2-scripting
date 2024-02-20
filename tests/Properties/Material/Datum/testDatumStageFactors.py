@@ -12,7 +12,7 @@ class TestDatumStageFactors(unittest.TestCase):
     @classmethod
     def setUpClass(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
-        blankModelPath = f"{parentDirectory}/resources/starterProject.fez"
+        blankModelPath = f"{parentDirectory}/resources/testAllDatumsEnabled.fez"
         self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
         shutil.copy(blankModelPath, self.copiedModelPath)
         self.modeler = RS2Modeler()
