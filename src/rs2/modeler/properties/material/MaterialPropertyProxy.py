@@ -9,6 +9,7 @@ from rs2.modeler.properties.material.strength.Strength import Strength
 from rs2.modeler.properties.material.hydraulic.Hydraulic import Hydraulic
 from rs2.modeler.properties.material.thermal.Thermal import Thermal
 from rs2.modeler.properties.material.datum.Datum import Datum
+from rs2.modeler.properties.material.StageFactors import StageFactors
 class MaterialProperty(PropertyProxy):
 	"""
 	:ref:`Material Example`
@@ -25,6 +26,7 @@ class MaterialProperty(PropertyProxy):
 		self.Hydraulic = Hydraulic(client, ID, documentProxyID, hydroStageFactorInterface)
 		self.Thermal = Thermal(client, ID, documentProxyID, thermalStageFactorInterface)
 		self.Datum = Datum(client, ID, documentProxyID, datumStageFactorInterface)
+		self.StageFactors = StageFactors(client, ID, documentProxyID)
 	def getMaterialName(self) -> str:
 		return self._getCStringProperty("MP_NAME")
 	def setMaterialName(self, value: str):
