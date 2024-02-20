@@ -32,6 +32,9 @@ class DatumValueStageFactor(DatumValueStageFactorGetters):
 		self._callFunction("setCutoff2", [residualCutoffValue])
 
 class DatumStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
 	def getDatumYoungsStageFactor(self) -> DatumValueStageFactorGetters:
 		return DatumValueStageFactorGetters(self._client, self._callFunction("getDatumYoungsStageFactorViewModel", keepReturnValueReference=True))
 	def getDatumCohesionStageFactor(self) -> DatumValueStageFactorGetters:
@@ -40,6 +43,9 @@ class DatumStageFactor(ProxyObject):
 		return DatumValueStageFactorGetters(self._client, self._callFunction("getDatumFrictionStageFactorViewModel", keepReturnValueReference=True))
 	
 class DatumDefinedStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
 	def getDatumYoungsStageFactor(self) -> DatumValueStageFactor:
 		return DatumValueStageFactor(self._client, self._callFunction("getDatumYoungsStageFactorViewModel", keepReturnValueReference=True))
 	def getDatumCohesionStageFactor(self) -> DatumValueStageFactor:
