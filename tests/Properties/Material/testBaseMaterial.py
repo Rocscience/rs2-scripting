@@ -36,3 +36,9 @@ class TestBaseMaterial(unittest.TestCase):
         self.assertEqual(material.getHatch(), 0)
         self.assertEqual(material.getHatchStyle(), HatchStyle.HatchStyleVertical)
         self.assertEqual(material.getHatchColour(), 17887)
+    def testRepeatedSetPropertyName(self):
+        material = self.material
+        material.setMaterialName("Test")
+        material.setMaterialName("Test")
+        material.setMaterialName("Test")
+        self.assertEqual(material.getMaterialName(), "Test")

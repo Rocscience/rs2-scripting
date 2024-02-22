@@ -32,3 +32,9 @@ class TestCompositeLiner(unittest.TestCase):
         self.assertEqual(compositeliner.getCompositeName(), "VYJpH")
         self.assertEqual(compositeliner.getCompositeColor(), 31891)
         self.assertEqual(compositeliner.getJointPlacement(), CompositeJointPlacementTypes.BETWEEN_SOIL_ROCK_AND_FIRST_LINER)
+    def testRepeatedSetPropertyName(self):
+        compositeliner = self.compositeliner
+        compositeliner.setCompositeName("Test")
+        compositeliner.setCompositeName("Test")
+        compositeliner.setCompositeName("Test")
+        self.assertEqual(compositeliner.getCompositeName(), "Test")

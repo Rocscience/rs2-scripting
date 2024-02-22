@@ -32,3 +32,9 @@ class TestBaseBolt(unittest.TestCase):
         self.assertEqual(bolt.getBoltName(), "VYJpH")
         self.assertEqual(bolt.getBoltColor(), 31891)
         self.assertEqual(bolt.getBoltType(), BoltTypes.FULLY_BONDED)
+    def testRepeatedSetPropertyName(self):
+        bolt = self.bolt
+        bolt.setBoltName("Test")
+        bolt.setBoltName("Test")
+        bolt.setBoltName("Test")
+        self.assertEqual(bolt.getBoltName(), "Test")

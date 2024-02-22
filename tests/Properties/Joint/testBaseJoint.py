@@ -34,3 +34,9 @@ class TestBaseJoint(unittest.TestCase):
         self.assertEqual(joint.getJointColor(), 31891)
         self.assertEqual(joint.getSlipCriterion(), JointTypes.JOINT_HYPERBOLIC_SIMPLE)
         self.assertEqual(joint.getInitialDeformation(), 0)
+    def testRepeatedSetPropertyName(self):
+        joint = self.joint
+        joint.setJointName("Test")
+        joint.setJointName("Test")
+        joint.setJointName("Test")
+        self.assertEqual(joint.getJointName(), "Test")

@@ -9,8 +9,7 @@ from rs2.utilities.ColorPicker import ColorPicker
 parentDirectoryHelper.addParentDirectoryToPath()
 
 class TestStructuralInterface(unittest.TestCase):
-    @classmethod
-    def setUpClass(self):
+    def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
         blankModelPath = f"{parentDirectory}/resources/starterProject.fez"
         self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
@@ -18,8 +17,7 @@ class TestStructuralInterface(unittest.TestCase):
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.liner = self.model.getAllLinerProperties()[0]
-    @classmethod
-    def tearDownClass(self):
+    def tearDown(self):
         self.model.close()
         self.model._client.closeConnection()
         os.remove(self.copiedModelPath)
@@ -40,6 +38,13 @@ class TestStructuralInterface(unittest.TestCase):
         interface = self.model.getStructuralInterfacePropertyByName("Structural 1")
         interface.setStructuralInterfaceName("Test Name")
         self.assertEqual(interface.getStructuralInterfaceName(), "Test Name")
+
+    def testRepeatedSetPropertyName(self):
+        interface = self.model.getAllStructuralInterfaceProperties()[0]
+        interface.setStructuralInterfaceName("Test")
+        interface.setStructuralInterfaceName("Test")
+        interface.setStructuralInterfaceName("Test")
+        self.assertEqual(interface.getStructuralInterfaceName(), "Test")
 
     def testSetStructuralInterfaceColorFailure(self):
         try:
@@ -123,3 +128,4 @@ class TestStructuralInterface(unittest.TestCase):
             self.fail("Expected exception")
         except:
             pass
+    
