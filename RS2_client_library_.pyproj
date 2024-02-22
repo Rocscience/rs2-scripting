@@ -5,8 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{cf16b438-0272-4178-b87c-f3c8fed7ab40}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>
-    </StartupFile>
+    <StartupFile>docs\example_code\zach_BoltTieback.py</StartupFile>
     <SearchPath>.;tests</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -55,6 +54,11 @@
     <Compile Include="docs\example_code\model_example.py" />
     <Compile Include="docs\example_code\pile_prop_example.py" />
     <Compile Include="docs\example_code\structural_prop_example.py" />
+    <Compile Include="docs\example_code\zach_BoltEndAnchored.py" />
+    <Compile Include="docs\example_code\zach_BoltFullyBonded.py" />
+    <Compile Include="docs\example_code\zach_BoltPlainStrand.py" />
+    <Compile Include="docs\example_code\zach_BoltSwellex.py" />
+    <Compile Include="docs\example_code\zach_BoltTieback.py" />
     <Compile Include="generateAndBuildDocumentation.py" />
     <Compile Include="sampleClientScripts\ExtraFunctionsTest.py" />
     <Compile Include="sampleClientScripts\SampleApplicationManager.py" />
