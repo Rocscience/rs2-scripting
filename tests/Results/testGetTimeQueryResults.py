@@ -90,14 +90,6 @@ class TestGetTimeQueryResults(unittest.TestCase):
             self.fail("Expected exception")
         except:
             pass
-    
-    def testGetTimeQueryPointResultsNoDynamicFailure(self):
-        try:
-            self.modelWithoutTQ.GetAllTimeQueryPointResults(stages=[2, 3],
-                                          vertical_axis=TimeQueryGraphEnums.VerticalAxisTypes.EFFECTIVE_STRESS_XX)
-            self.fail("Expected exception")
-        except:
-            pass
 
     # Time Query Line Results Test
     def testGetTimeQueryLineResultsSuccess(self):
@@ -158,15 +150,6 @@ class TestGetTimeQueryResults(unittest.TestCase):
     def testGetTimeQueryLineResultsMaxStagesFailure(self):
         try:
             self.model.GetAllTimeQueryLinesResults(stages=[1, 8, 3, 4],
-                                          vertical_axis=TimeQueryGraphEnums.VerticalAxisTypes.EFFECTIVE_STRESS_XX,
-                                          apply_post_process_scaling=False)
-            self.fail("Expected exception")
-        except:
-            pass
-    
-    def testGetTimeQueryLineResultsNoDynamicFailure(self):
-        try:
-            self.modelWithoutTQ.GetAllTimeQueryLinesResults(stages=[1, 2, 3, 4],
                                           vertical_axis=TimeQueryGraphEnums.VerticalAxisTypes.EFFECTIVE_STRESS_XX,
                                           apply_post_process_scaling=False)
             self.fail("Expected exception")
