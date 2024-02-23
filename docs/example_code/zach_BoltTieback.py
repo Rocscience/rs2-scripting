@@ -102,7 +102,7 @@ def test2():
     bolt2.Tieback.setFacePlates(False)
     bolt2.Tieback.setAddPullOutForce(False)
     bolt2.Tieback.setUseBondPercentageLength(False)
-    bolt2.Tieback.setBondLength(1)
+    bolt2.Tieback.setBondLength(1.12)
     bolt2.Tieback.setUseSecondaryBondLength(False)
 
     assert(bolt2.Tieback.getBoltDiameter(), 1.1)
@@ -120,7 +120,7 @@ def test2():
     assert(bolt2.Tieback.getFacePlates(), False) 
     assert(bolt2.Tieback.getAddPullOutForce(), False)
     assert(bolt2.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt2.Tieback.getBondLength(), 1)
+    assert(bolt2.Tieback.getBondLength(), 1.12)
     assert(bolt2.Tieback.getSecondaryBondLength(), False)
 
 def test3():
@@ -140,7 +140,7 @@ def test3():
     bolt3.Tieback.setFacePlates(False)
     bolt3.Tieback.setAddPullOutForce(False)
     bolt3.Tieback.setUseBondPercentageLength(False)
-    bolt3.Tieback.setBondLength(1)
+    bolt3.Tieback.setBondLength(1.12)
     bolt3.Tieback.setUseSecondaryBondLength(False)
 
     assert(bolt3.Tieback.getBoltDiameter(), 1.1)
@@ -158,7 +158,7 @@ def test3():
     assert(bolt3.Tieback.getFacePlates(), False) 
     assert(bolt3.Tieback.getAddPullOutForce(), False)
     assert(bolt3.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt3.Tieback.getBondLength(), 1)
+    assert(bolt3.Tieback.getBondLength(), 1.12)
     assert(bolt3.Tieback.getSecondaryBondLength(), False)
 
 def test4():
@@ -179,7 +179,7 @@ def test4():
     bolt4.Tieback.setFacePlates(False)
     bolt4.Tieback.setAddPullOutForce(False)
     bolt4.Tieback.setUseBondPercentageLength(False)
-    bolt4.Tieback.setBondLength(1)
+    bolt4.Tieback.setBondLength(1.12)
     bolt4.Tieback.setUseSecondaryBondLength(False)
 
     assert(bolt4.Tieback.getBoltDiameter(), 1.1)
@@ -198,7 +198,7 @@ def test4():
     assert(bolt4.Tieback.getFacePlates(), False) 
     assert(bolt4.Tieback.getAddPullOutForce(), False)
     assert(bolt4.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt4.Tieback.getBondLength(), 1)
+    assert(bolt4.Tieback.getBondLength(), 1.12)
     assert(bolt4.Tieback.getSecondaryBondLength(), False)
 
 def test5():
@@ -218,7 +218,7 @@ def test5():
     bolt5.Tieback.setFacePlates(False)
     bolt5.Tieback.setAddPullOutForce(False)
     bolt5.Tieback.setUseBondPercentageLength(False)
-    bolt5.Tieback.setBondLength(1)
+    bolt5.Tieback.setBondLength(1.12)
     bolt5.Tieback.setUseSecondaryBondLength(False)
 
     assert(bolt5.Tieback.getBoltDiameter(), 1.1)
@@ -236,7 +236,7 @@ def test5():
     assert(bolt5.Tieback.getFacePlates(), False) 
     assert(bolt5.Tieback.getAddPullOutForce(), False)
     assert(bolt5.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt5.Tieback.getBondLength(), 1)
+    assert(bolt5.Tieback.getBondLength(), 1.12)
     assert(bolt5.Tieback.getSecondaryBondLength(), False)
 
 def test6():
@@ -256,7 +256,7 @@ def test6():
     bolt6.Tieback.setFacePlates(True)
     bolt6.Tieback.setAddPullOutForce(False)
     bolt6.Tieback.setUseBondPercentageLength(False)
-    bolt6.Tieback.setBondLength(1)
+    bolt6.Tieback.setBondLength(1.12)
     bolt6.Tieback.setUseSecondaryBondLength(False)
 
     assert(bolt6.Tieback.getBoltDiameter(), 1.1)
@@ -274,7 +274,7 @@ def test6():
     assert(bolt6.Tieback.getFacePlates(), True) 
     assert(bolt6.Tieback.getAddPullOutForce(), False)
     assert(bolt6.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt6.Tieback.getBondLength(), 1)
+    assert(bolt6.Tieback.getBondLength(), 1.12)
     assert(bolt6.Tieback.getSecondaryBondLength(), False)
 
 def test7():
@@ -295,7 +295,7 @@ def test7():
     bolt7.Tieback.setAddPullOutForce(True)
     bolt7.Tieback.setPullOutForce(1.11)
     bolt7.Tieback.setUseBondPercentageLength(False)
-    bolt7.Tieback.setBondLength(1)
+    bolt7.Tieback.setBondLength(1.12)
     bolt7.Tieback.setUseSecondaryBondLength(False)
 
     assert(bolt7.Tieback.getBoltDiameter(), 1.1)
@@ -314,7 +314,7 @@ def test7():
     assert(bolt7.Tieback.getAddPullOutForce(), True)
     assert(bolt7.Tieback.getPullOutForce(),1.11)
     assert(bolt7.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt7.Tieback.getBondLength(), 1)
+    assert(bolt7.Tieback.getBondLength(), 1.12)
     assert(bolt7.Tieback.getSecondaryBondLength(), False)
 
 def test8():
@@ -372,7 +372,7 @@ def test9():
     bolt9.Tieback.setFacePlates(False)
     bolt9.Tieback.setAddPullOutForce(False)
     bolt9.Tieback.setUseBondPercentageLength(False)
-    bolt9.Tieback.setBondLength(1)
+    bolt9.Tieback.setBondLength(1.12)
     bolt9.Tieback.setUseSecondaryBondLength(True)
     bolt9.Tieback.setSecondaryBondLengthType(SecondaryBondLengthType.P2_BOLT_TIEBACK_SECONDARY_PERCENT)
     bolt9.Tieback.setPercentOfSecondaryBondLength(2)
@@ -393,7 +393,7 @@ def test9():
     assert(bolt9.Tieback.getFacePlates(), False) 
     assert(bolt9.Tieback.getAddPullOutForce(), False)
     assert(bolt9.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt9.Tieback.getBondLength(), 1)
+    assert(bolt9.Tieback.getBondLength(), 1.12)
     assert(bolt9.Tieback.getSecondaryBondLength(), True)
     assert(bolt9.Tieback.getSecondaryBondLengthType(), SecondaryBondLengthType.P2_BOLT_TIEBACK_SECONDARY_PERCENT)
     assert(bolt9.Tieback.getPercentOfSecondaryBondLength(), 2)
@@ -416,7 +416,7 @@ def test10():
     bolt10.Tieback.setFacePlates(False)
     bolt10.Tieback.setAddPullOutForce(False)
     bolt10.Tieback.setUseBondPercentageLength(False)
-    bolt10.Tieback.setBondLength(1)
+    bolt10.Tieback.setBondLength(1.12)
     bolt10.Tieback.setUseSecondaryBondLength(True)
     bolt10.Tieback.setSecondaryBondLengthType(SecondaryBondLengthType.P2_BOLT_TIEBACK_SECONDARY_PHYSICAL)
     bolt10.Tieback.setPercentOfSecondaryBondLength(2)
@@ -437,7 +437,7 @@ def test10():
     assert(bolt10.Tieback.getFacePlates(), False) 
     assert(bolt10.Tieback.getAddPullOutForce(), False)
     assert(bolt10.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt10.Tieback.getBondLength(), 1)
+    assert(bolt10.Tieback.getBondLength(), 1.12)
     assert(bolt10.Tieback.getSecondaryBondLength(), True)
     assert(bolt10.Tieback.getSecondaryBondLengthType(), SecondaryBondLengthType.P2_BOLT_TIEBACK_SECONDARY_PHYSICAL)
     assert(bolt10.Tieback.getPercentOfSecondaryBondLength(), 2)
@@ -460,7 +460,7 @@ def test11():
     bolt11.Tieback.setFacePlates(False)
     bolt11.Tieback.setAddPullOutForce(False)
     bolt11.Tieback.setUseBondPercentageLength(False)
-    bolt11.Tieback.setBondLength(1)
+    bolt11.Tieback.setBondLength(1.12)
     bolt11.Tieback.setUseSecondaryBondLength(True)
     bolt11.Tieback.setSecondaryBondLengthType(SecondaryBondLengthType.P2_BOLT_TIEBACK_SECONDARY_FULLY)
     bolt11.Tieback.setDelayInstallAfterBolt(3)
@@ -480,7 +480,7 @@ def test11():
     assert(bolt11.Tieback.getFacePlates(), False) 
     assert(bolt11.Tieback.getAddPullOutForce(), False)
     assert(bolt11.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt11.Tieback.getBondLength(), 1)
+    assert(bolt11.Tieback.getBondLength(), 1.12)
     assert(bolt11.Tieback.getSecondaryBondLength(), True)
     assert(bolt11.Tieback.getSecondaryBondLengthType(), SecondaryBondLengthType.P2_BOLT_TIEBACK_SECONDARY_FULLY)
     assert(bolt11.Tieback.getDelayInstallAfterBolt(), 3)
@@ -503,7 +503,7 @@ def test12():
     bolt12.Tieback.setAddPullOutForce(True)
     bolt12.Tieback.setPullOutForce(1.11)
     bolt12.Tieback.setUseBondPercentageLength(False)
-    bolt12.Tieback.setBondLength(1)
+    bolt12.Tieback.setBondLength(1.12)
     bolt12.Tieback.setUseSecondaryBondLength(True)
     bolt12.Tieback.setSecondaryBondLengthType(SecondaryBondLengthType.P2_BOLT_TIEBACK_SECONDARY_PERCENT)
     bolt12.Tieback.setPercentOfSecondaryBondLength(2)
@@ -525,7 +525,7 @@ def test12():
     assert(bolt12.Tieback.getAddPullOutForce(), True)
     assert(bolt12.Tieback.getPullOutForce(), 1.11)
     assert(bolt12.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt12.Tieback.getBondLength(), 1)
+    assert(bolt12.Tieback.getBondLength(), 1.12)
     assert(bolt12.Tieback.getSecondaryBondLength(), True)
     assert(bolt12.Tieback.getSecondaryBondLengthType(), SecondaryBondLengthType.P2_BOLT_TIEBACK_SECONDARY_PERCENT)
     assert(bolt12.Tieback.getPercentOfSecondaryBondLength(), 2)
@@ -589,7 +589,7 @@ def test14():
     bolt14.Tieback.setFacePlates(True)
     bolt14.Tieback.setAddPullOutForce(False)
     bolt14.Tieback.setUseBondPercentageLength(False)
-    bolt14.Tieback.setBondLength(1)
+    bolt14.Tieback.setBondLength(1.12)
     bolt14.Tieback.setUseSecondaryBondLength(False)
 
     assert(bolt14.Tieback.getBoltDiameter(), 1.1)
@@ -608,7 +608,7 @@ def test14():
     assert(bolt14.Tieback.getFacePlates(), True) 
     assert(bolt14.Tieback.getAddPullOutForce(), False)
     assert(bolt14.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt14.Tieback.getBondLength(), 1)
+    assert(bolt14.Tieback.getBondLength(), 1.12)
     assert(bolt14.Tieback.getSecondaryBondLength(), False)
 
 def test15():
@@ -752,7 +752,7 @@ def test18():
     bolt18.Tieback.setFacePlates(False)
     bolt18.Tieback.setAddPullOutForce(False)
     bolt18.Tieback.setUseBondPercentageLength(False)
-    bolt18.Tieback.setBondLength(1)
+    bolt18.Tieback.setBondLength(1.12)
     bolt18.Tieback.setUseSecondaryBondLength(False)
 
     assert(bolt18.Tieback.getBoltDiameter(), 1.1)
@@ -766,7 +766,7 @@ def test18():
     assert(bolt18.Tieback.getFacePlates(), False) 
     assert(bolt18.Tieback.getAddPullOutForce(), False)
     assert(bolt18.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt18.Tieback.getBondLength(), 1)
+    assert(bolt18.Tieback.getBondLength(), 1.12)
     assert(bolt18.Tieback.getSecondaryBondLength(), False)
 
 def test19():
@@ -783,7 +783,7 @@ def test19():
     bolt19.Tieback.setFacePlates(False)
     bolt19.Tieback.setAddPullOutForce(False)
     bolt19.Tieback.setUseBondPercentageLength(False)
-    bolt19.Tieback.setBondLength(1)
+    bolt19.Tieback.setBondLength(1.12)
     bolt19.Tieback.setUseSecondaryBondLength(False)
 
     assert(bolt19.Tieback.getBoltDiameter(), 1.1)
@@ -798,7 +798,7 @@ def test19():
     assert(bolt19.Tieback.getFacePlates(), False) 
     assert(bolt19.Tieback.getAddPullOutForce(), False)
     assert(bolt19.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt19.Tieback.getBondLength(), 1)
+    assert(bolt19.Tieback.getBondLength(), 1.12)
     assert(bolt19.Tieback.getSecondaryBondLength(), False)
 
 def test20():
@@ -814,7 +814,7 @@ def test20():
     bolt20.Tieback.setFacePlates(False)
     bolt20.Tieback.setAddPullOutForce(False)
     bolt20.Tieback.setUseBondPercentageLength(False)
-    bolt20.Tieback.setBondLength(1)
+    bolt20.Tieback.setBondLength(1.12)
     bolt20.Tieback.setUseSecondaryBondLength(False)
 
     assert(bolt20.Tieback.getBoltDiameter(), 1.1)
@@ -828,7 +828,7 @@ def test20():
     assert(bolt20.Tieback.getFacePlates(), False) 
     assert(bolt20.Tieback.getAddPullOutForce(), False)
     assert(bolt20.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt20.Tieback.getBondLength(), 1)
+    assert(bolt20.Tieback.getBondLength(), 1.12)
     assert(bolt20.Tieback.getSecondaryBondLength(), False)
 
 def test21():
@@ -844,7 +844,7 @@ def test21():
     bolt21.Tieback.setFacePlates(True)
     bolt21.Tieback.setAddPullOutForce(False)
     bolt21.Tieback.setUseBondPercentageLength(False)
-    bolt21.Tieback.setBondLength(1)
+    bolt21.Tieback.setBondLength(1.12)
     bolt21.Tieback.setUseSecondaryBondLength(False)
 
     assert(bolt21.Tieback.getBoltDiameter(), 1.1)
@@ -858,7 +858,7 @@ def test21():
     assert(bolt21.Tieback.getFacePlates(), True) 
     assert(bolt21.Tieback.getAddPullOutForce(), False)
     assert(bolt21.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt21.Tieback.getBondLength(), 1)
+    assert(bolt21.Tieback.getBondLength(), 1.12)
     assert(bolt21.Tieback.getSecondaryBondLength(), False)
 
 def test22():
@@ -875,7 +875,7 @@ def test22():
     bolt22.Tieback.setAddPullOutForce(True)
     bolt22.Tieback.setPullOutForce(1.7)
     bolt22.Tieback.setUseBondPercentageLength(False)
-    bolt22.Tieback.setBondLength(1)
+    bolt22.Tieback.setBondLength(1.12)
     bolt22.Tieback.setUseSecondaryBondLength(False)
 
     assert(bolt22.Tieback.getBoltDiameter(), 1.1)
@@ -890,7 +890,7 @@ def test22():
     assert(bolt22.Tieback.getAddPullOutForce(), True)
     assert(bolt22.Tieback.getPullOutForce(), 1.7)
     assert(bolt22.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt22.Tieback.getBondLength(), 1)
+    assert(bolt22.Tieback.getBondLength(), 1.12)
     assert(bolt22.Tieback.getSecondaryBondLength(), False)
 
 def test23():
@@ -936,7 +936,7 @@ def test24():
     bolt24.Tieback.setFacePlates(False)
     bolt24.Tieback.setAddPullOutForce(False)
     bolt24.Tieback.setUseBondPercentageLength(False)
-    bolt24.Tieback.setBondLength(1)
+    bolt24.Tieback.setBondLength(1.12)
     bolt24.Tieback.setUseSecondaryBondLength(False)
 
     assert(bolt24.Tieback.getBoltDiameter(), 1.1)
@@ -950,7 +950,7 @@ def test24():
     assert(bolt24.Tieback.getFacePlates(), False) 
     assert(bolt24.Tieback.getAddPullOutForce(), False)
     assert(bolt24.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt24.Tieback.getBondLength(), 1)
+    assert(bolt24.Tieback.getBondLength(), 1.12)
     assert(bolt24.Tieback.getSecondaryBondLength(), False)
 
 def test25():
@@ -999,7 +999,7 @@ def test26():
     bolt26.Tieback.setAddPullOutForce(True)
     bolt26.Tieback.setPullOutForce(1.7)
     bolt26.Tieback.setUseBondPercentageLength(False)
-    bolt26.Tieback.setBondLength(1)
+    bolt26.Tieback.setBondLength(1.12)
     bolt26.Tieback.setUseSecondaryBondLength(True)
     bolt26.Tieback.setSecondaryBondLengthType(SecondaryBondLengthType.P2_BOLT_TIEBACK_SECONDARY_PERCENT)
     bolt26.Tieback.setPercentOfSecondaryBondLength(2)
@@ -1017,7 +1017,7 @@ def test26():
     assert(bolt26.Tieback.getAddPullOutForce(), True)
     assert(bolt26.Tieback.getPullOutForce(), 1.7)
     assert(bolt26.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt26.Tieback.getBondLength(), 1)
+    assert(bolt26.Tieback.getBondLength(), 1.12)
     assert(bolt26.Tieback.getSecondaryBondLength(), True)
     assert(bolt26.Tieback.getSecondaryBondLengthType(), SecondaryBondLengthType.P2_BOLT_TIEBACK_SECONDARY_PERCENT)
     assert(bolt26.Tieback.getPercentOfSecondaryBondLength(), 2)
@@ -1037,7 +1037,7 @@ def test27():
     bolt27.Tieback.setFacePlates(True)
     bolt27.Tieback.setAddPullOutForce(False)
     bolt27.Tieback.setUseBondPercentageLength(False)
-    bolt27.Tieback.setBondLength(1)
+    bolt27.Tieback.setBondLength(1.12)
     bolt27.Tieback.setUseSecondaryBondLength(False)
 
     assert(bolt27.Tieback.getBoltDiameter(), 1.1)
@@ -1052,7 +1052,7 @@ def test27():
     assert(bolt27.Tieback.getFacePlates(), True) 
     assert(bolt27.Tieback.getAddPullOutForce(), False)
     assert(bolt27.Tieback.getUseBondPercentageLength(), False)
-    assert(bolt27.Tieback.getBondLength(), 1)
+    assert(bolt27.Tieback.getBondLength(), 1.12)
     assert(bolt27.Tieback.getSecondaryBondLength(), False)
 
 def test28():
