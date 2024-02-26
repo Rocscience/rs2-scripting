@@ -5,7 +5,14 @@ from rs2.modeler.properties.bolt import PlainStrandCable
 
 modeler = RS2Modeler()
 
-model = modeler.openFile(r"C:\scriptingModels\plainStrand_final.fez")
+# vanila untouched
+base_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\BaseModel_BoltAndPile.fez'
+# modified by user via ui
+final_ui_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Bolt\plainStrand_ui.fez'
+#unit test result
+final_python_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Bolt\plainStrand_python.fez'
+
+model = modeler.openFile(base_model)
 
 boltList = model.getAllBoltProperties()
 bolt1 = boltList[0]
@@ -414,6 +421,6 @@ test11()
 test12()
 test13()
 
-model.save()
+model.saveAs(final_python_model)
 
 pass

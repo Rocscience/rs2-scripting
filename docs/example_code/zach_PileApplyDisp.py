@@ -3,7 +3,14 @@ from rs2.modeler.properties.PropertyEnums import *
 
 modeler = RS2Modeler()
 
-model = modeler.openFile(r"C:\scriptingModels\Pile\applyDisp_final.fez")
+# vanila untouched
+base_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\BaseModel_BoltAndPile.fez'
+# modified by user via ui
+final_ui_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Pile\applyDisp_ui.fez'
+#unit test result
+final_python_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Pile\applyDisp_python.fez'
+
+model = modeler.openFile(base_model)
 
 pileList = model.getAllPileProperties()
 pile1 = pileList[0]
@@ -36,6 +43,6 @@ def test2():
 test1()
 test2()
 
-model.save()
+model.saveAs(final_python_model)
 
 pass

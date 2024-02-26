@@ -3,7 +3,14 @@ from rs2.modeler.properties.PropertyEnums import *
 
 modeler = RS2Modeler()
 
-model = modeler.openFile(r"C:\scriptingModels\swellex_final.fez")
+# vanila untouched
+base_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\BaseModel_BoltAndPile.fez'
+# modified by user via ui
+final_ui_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Bolt\swellex_ui.fez'
+#unit test result
+final_python_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Bolt\swellex_python.fez'
+
+model = modeler.openFile(base_model)
 
 boltList = model.getAllBoltProperties()
 bolt1 = boltList[0]
@@ -740,6 +747,6 @@ test21()
 test22()
 test23()
 
-model.save()
+model.saveAs(final_python_model)
 
 pass
