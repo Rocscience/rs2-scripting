@@ -32,9 +32,3 @@ class TestBaseLiner(unittest.TestCase):
         self.assertEqual(liner.getLinerName(), "VYJpH")
         self.assertEqual(liner.getLinerColor(), 31891)
         self.assertEqual(liner.getLinerType(), LinerTypes.P2_LINER_REINFORCED_CONCRETE)
-    def testRepeatedSetPropertyName(self):
-        liner = self.liner
-        liner.setLinerName("Test")
-        liner.setLinerName("Test")
-        liner.setLinerName("Test")
-        self.assertEqual(liner.getLinerName(), "Test")

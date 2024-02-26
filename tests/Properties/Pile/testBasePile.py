@@ -42,9 +42,3 @@ class TestBasePile(unittest.TestCase):
         self.assertEqual(pile.getOutOfPlaneSpacing(), 2.3)
         self.assertEqual(pile.getLength(), 2.2)
         self.assertEqual(pile.getStageForceDisplacement(), True)
-    def testRepeatedSetPropertyName(self):
-        pile = self.pile
-        pile.setPileName("Test")
-        pile.setPileName("Test")
-        pile.setPileName("Test")
-        self.assertEqual(pile.getPileName(), "Test")

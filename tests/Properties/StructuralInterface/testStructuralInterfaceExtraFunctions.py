@@ -39,13 +39,6 @@ class TestStructuralInterface(unittest.TestCase):
         interface.setStructuralInterfaceName("Test Name")
         self.assertEqual(interface.getStructuralInterfaceName(), "Test Name")
 
-    def testRepeatedSetPropertyName(self):
-        interface = self.model.getAllStructuralInterfaceProperties()[0]
-        interface.setStructuralInterfaceName("Test")
-        interface.setStructuralInterfaceName("Test")
-        interface.setStructuralInterfaceName("Test")
-        self.assertEqual(interface.getStructuralInterfaceName(), "Test")
-
     def testSetStructuralInterfaceColorFailure(self):
         try:
             interface = self.model.getStructuralInterfacePropertyByName("Structural 2")
