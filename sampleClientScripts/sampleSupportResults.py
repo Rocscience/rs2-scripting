@@ -48,6 +48,7 @@ interpreter_model2 = interpreter.openFile("C:\scriptingModels\si.fez")
 
 stages = [1]
 
+
 pile_results = interpreter_model.GetPileResults( stages)
 print_dict_elements(pile_results)
 
