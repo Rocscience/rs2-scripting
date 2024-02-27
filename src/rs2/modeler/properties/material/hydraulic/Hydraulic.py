@@ -25,7 +25,7 @@ class Hydraulic(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorInterface[HydraulicDefinedStageFactor, HydraulicStageFactor](self._client, stageFactorInterfaceID, ID, HydraulicDefinedStageFactor, HydraulicStageFactor)
-		self.StaticGroundwater = StaticGroundwater(client, ID, documentProxyID)
+		self.StaticGroundwater = StaticGroundwater(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.FEAGroundwater = FEAGroundwater(client, ID, documentProxyID, stageFactorInterfaceID)
 	def getMaterialBehaviour(self) -> MaterialBehaviours:
 		return MaterialBehaviours(self._getEnumEMaterialBehavioursProperty("MP_MATERIAL_BEHAVIOUR"))
