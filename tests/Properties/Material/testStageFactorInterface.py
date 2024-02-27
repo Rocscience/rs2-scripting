@@ -138,6 +138,50 @@ class TestStageFactors(unittest.TestCase):
         self.assertEqual(sfdGroup[1].getDatumYoungsStageFactor().getChange(), 0.3)
         self.assertEqual(sfdGroup[2].getDatumYoungsStageFactor().getChange(), 0.1)
         self.assertEqual(sfdGroup[3].getDatumYoungsStageFactor().getChange(), 0.2)
+class TestStaticHydraulicStageFactors(unittest.TestCase):
 
-    def testHydraulicPiezoAndGridReorder(self):
-        sfhGroup = self.hydraulicInterface.getDefinedStageFactors()
+    @classmethod
+    def setUpClass(self):
+        parentDirectory = parentDirectoryHelper.getParentDirectory()
+        blankModelPath = f"{parentDirectory}/resources/testProjectDynamicPropertiesStaticGroundwater.fez"
+        self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
+        shutil.copy(blankModelPath, self.copiedModelPath)
+        self.modeler = RS2Modeler()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+
+        self.strengthStiffnessInterface = self.material.InitialConditions.stageFactorInterface
+        self.thermalInterface = self.material.Thermal.stageFactorInterface
+        self.hydraulicInterface = self.material.Hydraulic.FEAGroundwater.stageFactorInterface
+        self.datumInterface = self.material.Datum.stageFactorInterface
+        
+    @classmethod
+    def tearDownClass(self):
+        self.model.close()
+        self.model._client.closeConnection()
+        os.remove(self.copiedModelPath)
+
+    def testReorderStaticStageFactorProperties(self):
+        staticStageFactorInterface = self.material.Hydraulic.StaticGroundwater.stageFactorInterface
+
+        sfhGroup = staticStageFactorInterface.getDefinedStageFactors()
+
+        sfhGroup[1].setGridToUse("Default Grid")
+        sfhGroup[2].setGridToUse("Grid 2")
+        sfhGroup[3].setGridToUse("Grid 3")
+
+        sfhGroup[1].setPiezoToUse("None")
+        sfhGroup[2].setPiezoToUse("1")
+        sfhGroup[3].setPiezoToUse("2")
+        
+        staticStageFactorInterface.setDefinedStageFactors({1: sfhGroup[3], 2: sfhGroup[1], 3: sfhGroup[2]})
+
+        sfhGroup = staticStageFactorInterface.getDefinedStageFactors()
+
+        self.assertEqual(sfhGroup[1].getGridToUse(), "Grid 3")
+        self.assertEqual(sfhGroup[2].getGridToUse(), "Default Grid")
+        self.assertEqual(sfhGroup[3].getGridToUse(), "Grid 2")
+
+        self.assertEqual(sfhGroup[1].getPiezoToUse(), "2")
+        self.assertEqual(sfhGroup[2].getPiezoToUse(), "None")
+        self.assertEqual(sfhGroup[3].getPiezoToUse(), "1")
