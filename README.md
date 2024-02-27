@@ -41,6 +41,9 @@ To run all the tests, navigate to the root directory of the project and execute 
 To run an individual test file, navigate to the root directory of the project and execute the following command with the correct filename:  
 ```python -m unittest discover -s tests -p "<sampleTestFile>.py"```
 
+To run a sub-folder of tests, navigate to the 'tests' folder, and run:  
+```python -m unittest discover -v -s Path/To/Folder```  
+
 **_NOTE:_** To display additional information on the results of the unit tests, pass the `-v` option into the testing command:  
 ```python -m unittest discover -v -s tests```
 
@@ -50,8 +53,9 @@ The following steps can be taken to regenerate the RS2 Scripting Documentation:
 ```python -m venv venv```
 ```venv/Scripts/activate```
 2. Rebuild the RS2 library in your virtual environment by following the [Build](#build) section.
-3. Run the command below to install Sphinx:  
+3. Run the commands below to install Sphinx and the copy button extension:  
 ```python -m pip install sphinx```
+```pip install sphinx-copybutton```
 4. Install a LaTeX distribution. MiKTeX Reccomended: https://miktex.org/download   
 5. To generate the documentation run the following:  
 ```python generateAndBuildDocumentation.py```  
