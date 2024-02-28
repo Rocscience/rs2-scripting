@@ -3,7 +3,8 @@ from rs2._common.documentProxy import DocumentProxy
 from rs2._common.Units import Units
 from rs2.interpreter.InterpreterEnums import *
 from rs2.interpreter.MeshResults import MeshResults
-from rs2.interpreter.HistoryQueryResults import HistoryQueryResult
+from rs2.interpreter.HistoryQueryResults import *
+from rs2.interpreter.TimeQueryResults import *
 from rs2.interpreter.InterpreterGraphEnums import *
 from rs2.interpreter.JointResult import *
 from rs2.interpreter.LinerResult import *
@@ -137,6 +138,99 @@ class ModelProxy(ProxyObject):
 		
 		return structured_data
 	
+	def GetAllTimeQueryPointResults(self, stages: list[int], 
+							  vertical_axis: TimeQueryGraphEnums.VerticalAxisTypes
+							  ) -> dict[int, list[TimeQueryPointResults]]:
+		"""
+		Returns the results for all the time query points defined in the model for given stages and graph axes type.
+
+		Please note points that are over an excavation at specific stages will not have data returned at those locations.
+
+		Args:
+			stages (list[int]): Takes the stages by their stage number for which results should be returned.
+			vertical_axis (TimeQueryGraphEnums): Takes the vertical axis to generate results for.
+		
+		Returns:
+			Returns a dictionary with key as stage number and value a list[TimeQueryPointResults] object.
+			To extract the unique identifier, x-coordinate, y-coordinate, horizontal axis result and vertical axis result,
+			please call the supported functions from the class:
+			- TimeQueryPointResults.GetUniqueIdentifier()
+			
+			To get all the results for this query, please call:
+			- TimeQueryPointResults.GetAllValues()
+		
+		The above method returns list[QueryPointResult] for each node. 
+			To get the x-coordiante, y-coordinate, dynamic stage time or value, please call:
+			- QueryPointResult.GetXCoordinate()
+			- QueryPointResult.GetYCoordinate()
+			- QueryPointResult.GetStageTime()
+			- QueryPointResult.GetValue()
+		
+		Exceptions:
+			ValueError: vertical_axis must be an enum of type TimeQueryGraphEnums. Any other value will raise an error.
+		"""
+		map_data = self._callFunction('GetAllTimeQueryPointsResults', 
+							 [stages, vertical_axis.value])
+		structured_data = {}
+		for stageNumber, stageData in map_data.items():
+			list_stage_data_as_classObj = []
+			for query_point_data in stageData:
+				entity_id, list_node_result = query_point_data
+				unpack_list_data = [entity_id, list_node_result]
+				list_stage_data_as_classObj.append(TimeQueryPointResults(*unpack_list_data))
+			
+			structured_data[stageNumber] = list_stage_data_as_classObj
+		
+		return structured_data
+
+	def GetAllTimeQueryLinesResults(self, stages: list[int], 
+							  vertical_axis: TimeQueryGraphEnums.VerticalAxisTypes,
+							  apply_post_process_scaling: bool
+							  ) -> dict[int, list[TimeQueryLineResults]]:
+		"""
+		Returns the results for all the time query lines defined in the model for given stages and graph axes types.
+
+		Please note points that are over an excavation at specific stages will not have data returned at those locations.
+
+		Args:
+			stages (list[int]): Takes the stages by their stage number for which results should be returned.
+			vertical_axis (TimeQueryGraphEnums): Takes the vertical axis to generate results for.
+			apply_post_process_scaling (bool): Bool input taking whether post-process scaling should be applied or not
+		
+		Returns:
+			Returns a dictionary with key as stage number and value a list[TimeQueryLineResults] object.
+			To extract the unique identifier, or list[QueryLineResult] representing all node objects for this query line,
+			please call the supported functions from the class:
+			- TimeQueryLineResults.GetUniqueIdentifier()
+			- TimeQueryLineResults.GetAllNodeObjects()
+			
+			To get list[QueryPointResult] denoting all the node objects at a specific node of time query line, please call:
+			- QueryLineResult.GetNodeValues()
+		
+			The above method returns list[QueryPointResult] representing all the values at this node of the time query line. 
+			To get the x-coordiante, y-coordinate, dynamic stage time or value, please call:
+			- QueryPointResult.GetXCoordinate()
+			- QueryPointResult.GetYCoordinate()
+			- QueryPointResult.GetStageTime()
+			- QueryPointResult.GetValue()
+		
+		Exceptions:
+			ValueError: vertical_axis must be an enum of type TimeQueryGraphEnums. Any other value will raise an error.
+		"""
+		map_data =  self._callFunction('GetAllTimeQueryLinesResults', 
+							 [stages, vertical_axis.value, apply_post_process_scaling])
+		structured_data = {}
+		for stageNumber, stageData in map_data.items():
+			list_stage_data_as_classObj = []
+			for line_data in stageData:
+				entity_id, list_line_node_data = line_data
+				unpack_list_data = [entity_id, list_line_node_data]
+				list_stage_data_as_classObj.append(TimeQueryLineResults(*unpack_list_data))
+			
+			structured_data[stageNumber] = list_stage_data_as_classObj
+		
+		return structured_data	
+	
 	def AddMaterialQuery(self, points: list[list[float]]) -> str:
 		"""
 		Adds a material query point/line to your model using the specified coordinates in order.
@@ -189,6 +283,7 @@ class ModelProxy(ProxyObject):
 			all_mat_query_data_as_classObj.append(MaterialQueryResults(*unpack_list_data))
 		return all_mat_query_data_as_classObj
 
+	
 		
 
 	def GetBoltResults (

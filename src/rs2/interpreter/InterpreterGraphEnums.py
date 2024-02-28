@@ -31,3 +31,24 @@ class HistoryQueryGraphEnums():
     class HorizontalAxisTypes(Enum):
         TIME = 9094
         STAGE_LOAD_PERCENTAGE = 9096
+
+class TimeQueryGraphEnums():
+    class VerticalAxisTypes(Enum):
+        X_VELOCITY = 4041
+        X_DISPLACEMENT = 4042
+        X_ACCELERATION = 4043
+        Y_VELOCITY = 4044
+        Y_DISPLACEMENT = 4045
+        Y_ACCELERATION = 4046
+        PORE_PRESSURE = 4050
+        STRAIN_XX = 4055
+        STRAIN_YY = 4056
+        STRAIN_XY = 4057
+        TOTAL_STRESS_XX = 4058
+        TOTAL_STRESS_YY = 4059
+        TOTAL_STRESS_XY = 4060
+        TOTAL_STRESS_ZZ = 4061
+        EFFECTIVE_STRESS_XX = 4062
+        EFFECTIVE_STRESS_YY = 4063
+        EFFECTIVE_STRESS_XY = 4064
+        EFFECTIVE_STRESS_ZZ = 4065

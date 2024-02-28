@@ -80,3 +80,11 @@ rs2.interpreter.RS2Interpreter module
    :members:
    :undoc-members:
    :show-inheritance:
+
+rs2.interpreter.TimeQueryResults module
+---------------------------------------
+
+.. automodule:: rs2.interpreter.TimeQueryResults
+   :members:
+   :undoc-members:
+   :show-inheritance:
