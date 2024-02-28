@@ -9,7 +9,7 @@ from rs2.interpreter.JointResult import *
 from rs2.interpreter.LinerResult import *
 from rs2.interpreter.BoltResult import*
 from rs2.interpreter.CompositeResult import*
-
+from rs2.interpreter.MaterialQueryResults import *
 class ModelProxy(ProxyObject):
 	"""
 	:ref:`Model Example`
@@ -42,6 +42,12 @@ class ModelProxy(ProxyObject):
 		Saves the model
 		'''
 		return self._callFunction('save', [])
+	
+	def SetActiveStage(self, stageNumber: int):
+		'''
+		Change model's active stage by its stage number
+		'''
+		return self._callFunction('SetActiveStage', [stageNumber])
 	
 	def SetResultType(self, resultType: ExportResultType) -> list[dict]:
 		"""
@@ -130,6 +136,59 @@ class ModelProxy(ProxyObject):
 			structured_data[stage_idx] = list_stage_data_as_classObj
 		
 		return structured_data
+	
+	def AddMaterialQuery(self, points: list[list[float]]) -> str:
+		"""
+		Adds a material query point/line to your model using the specified coordinates in order.
+
+		Returns:
+			A unique identifier for the newly added material query point/line.
+		
+		"""
+		return self._callFunction('AddMaterialQuery', [points])
+	
+	def RemoveMaterialQuery(self, IDs_toRemove: list[str]) -> str:
+		"""
+		Removes material query points or lines for provided list of IDs.
+		
+		"""
+		return self._callFunction('RemoveMaterialQuery', [IDs_toRemove])
+	
+	def GetMaterialQueryResults(self) -> list[MaterialQueryResults]:
+		"""
+		Returns the results for all the material queries defined in the model for active model stage and result type.
+		To get results for a different stage, please call SetActiveStage(int stageNumber) before calling this function.
+		To get results for a different result type, please call either before calling this function:
+		- SetResultType(InterpreterGraphEnums resultType)
+		- SetUserDefinedResultType("Your defined resultType name")
+
+		Returns: 
+			A list[MaterialQueryResults] of query results.
+			To extract the Unique Identifier, Material ID for a specific material query object,
+			please call any of the supported functions from the class:
+			- MaterialQueryResults.GetUniqueIdentifier()
+			- MaterialQueryResults.GetMaterialID()
+			
+			To get all the results for this query, please call:
+			- MaterialQueryResults.GetAllValues()
+
+			The above method returns list[QueryResult] for each result. 
+			To get the x-coordiante, y-coordinate, distance or value, please call:
+			- QueryResult.GetXCoordinate()
+			- QueryResult.GetYCoordinate()
+			- QueryResult.GetDistance()
+			- QueryResult.GetValue()
+
+		"""
+		all_material_query_data = self._callFunction('GetMaterialQueryResults', [])
+		all_mat_query_data_as_classObj = []
+		for mat_query_data in all_material_query_data:
+			# This list corresponds to the data at each vertex of material query in iteration
+			entity_id, material_id, list_query_data = mat_query_data
+			unpack_list_data = [entity_id, material_id, list_query_data]
+			all_mat_query_data_as_classObj.append(MaterialQueryResults(*unpack_list_data))
+		return all_mat_query_data_as_classObj
+
 		
 
 	def GetBoltResults (
