@@ -3,6 +3,7 @@ from rs2._common.Client import Client
 from rs2.utilities.ApplicationManager import ApplicationManager
 from rs2.interpreter.InterpreterModelProxy import ModelProxy
 import winreg
+import time
 
 class RS2Interpreter:
 	"""
@@ -55,15 +56,23 @@ class RS2Interpreter:
 
 		return rs2ModelerInstallLocation
 	
-	def closeProgram(self, saveModels = True):
+	def closeProgram(self, saveModels=True):
 		'''
-		Closes the interpreter program. All unsaved models are saved by default.
+		Closes the modeler program. All unsaved models are saved by default.
 
 		Typical Usage example to save all models:
-		interpreter.closeProgram(True)
+		modeler.closeProgram(True)
 
 		Typical Usage example to not save all models:
-		interpreter.closeProgram(False)
+		modeler.closeProgram(False)
 		'''
 		request = functionRequest('closeProgram', [saveModels])
-		self.client.callFunction(request)
+		portUsed = self.client.callFunction(request)
+		self.client.closeConnection()
+		appManager = ApplicationManager()
+		portIsAvailable = False
+		startTime = time.time()
+		while not portIsAvailable:
+			if (time.time() - startTime) > ApplicationManager.maxTimeout:
+				return
+			portIsAvailable = appManager._isPortAvailable(portUsed)

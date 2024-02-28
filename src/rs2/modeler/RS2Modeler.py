@@ -3,6 +3,7 @@ from rs2._common.Client import Client
 from rs2.modeler.ModelProxy import ModelProxy
 from rs2.utilities.ApplicationManager import ApplicationManager
 import winreg
+import time
 
 class RS2Modeler:
 	"""
@@ -51,7 +52,7 @@ class RS2Modeler:
 
 		return rs2ModelerInstallLocation
 	
-	def closeProgram(self, saveModels = True):
+	def closeProgram(self, saveModels=True):
 		'''
 		Closes the modeler program. All unsaved models are saved by default.
 
@@ -62,4 +63,13 @@ class RS2Modeler:
 		modeler.closeProgram(False)
 		'''
 		request = functionRequest('closeProgram', [saveModels])
-		self.client.callFunction(request)
+		portUsed = self.client.callFunction(request)
+		self.client.closeConnection()
+		appManager = ApplicationManager()
+		portIsAvailable = False
+		startTime = time.time()
+		while not portIsAvailable:
+			t = time.time() 
+			if (t - startTime) > ApplicationManager.maxTimeout:
+				return
+			portIsAvailable = appManager._isPortAvailable(portUsed)
