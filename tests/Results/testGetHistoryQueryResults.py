@@ -23,10 +23,10 @@ class TestGetHistoryQueryResults(unittest.TestCase):
     def tearDown(self):
         self.model.close()
         self.modelWithoutHQ.close()
-        os.remove(self.copiedModelPath)
-        os.remove(self.modelWithoutHQPath)
         self.model._client.closeConnection()
         self.modelWithoutHQ._client.closeConnection()
+        os.remove(self.copiedModelPath)
+        os.remove(self.modelWithoutHQPath)
 
     def testGetHistoryQueryResultsSuccess(self):
         self.model.GetHistoryQueryResults(hq_name="HQ 1", horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
