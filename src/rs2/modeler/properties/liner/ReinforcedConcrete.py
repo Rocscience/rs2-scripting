@@ -17,11 +17,11 @@ class ReinforcedConcreteStageFactor(ProxyObject):
 		return self._callFunction("getDoubleFactor", ["LNP_WEIGHT_REIN", self.propertyID], proxyArgumentIndices=[1])
 	def getThicknessFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_THICKNESS_CONCRETE", self.propertyID], proxyArgumentIndices=[1])
-	def getYoungsModulusFactor(self) -> float:
+	def getConcreteYoungsModulusFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_YOUNGS_MODULUS_CONCRETE", self.propertyID], proxyArgumentIndices=[1])
-	def getCompressiveStrengthFactor(self) -> float:
+	def getConcreteCompressiveStrengthFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_COMPRESSIVE_STRENGTH_CONCRETE", self.propertyID], proxyArgumentIndices=[1])
-	def getTensileStrengthFactor(self) -> float:
+	def getConcreteTensileStrengthFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_TENSILE_STRENGTH_CONCRETE", self.propertyID], proxyArgumentIndices=[1])
 	def getAxialStrainExpansionFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["LNP_AXIAL_STRAIN", self.propertyID], proxyArgumentIndices=[1])
@@ -42,11 +42,11 @@ class ReinforcedConcreteDefinedStageFactor(ReinforcedConcreteStageFactor):
 		return self._callFunction("setDoubleFactor", ["LNP_WEIGHT_REIN", value, self.propertyID], proxyArgumentIndices=[2])
 	def setThicknessFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["LNP_THICKNESS_CONCRETE", value, self.propertyID], proxyArgumentIndices=[2])
-	def setYoungsModulusFactor(self, value: float):
+	def setConcreteYoungsModulusFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["LNP_YOUNGS_MODULUS_CONCRETE", value, self.propertyID], proxyArgumentIndices=[2])
-	def setCompressiveStrengthFactor(self, value: float):
+	def setConcreteCompressiveStrengthFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["LNP_COMPRESSIVE_STRENGTH_CONCRETE", value, self.propertyID], proxyArgumentIndices=[2])
-	def setTensileStrengthFactor(self, value: float):
+	def setConcreteTensileStrengthFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["LNP_TENSILE_STRENGTH_CONCRETE", value, self.propertyID], proxyArgumentIndices=[2])
 	def setAxialStrainExpansionFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["LNP_AXIAL_STRAIN", value, self.propertyID], proxyArgumentIndices=[2])
@@ -93,17 +93,17 @@ class ReinforcedConcrete(PropertyProxy):
 		return self._getDoubleProperty("LNP_MOMENT_OF_INERTIA")
 	def setMomentOfInertia(self, value: float):
 		return self._setDoubleProperty("LNP_MOMENT_OF_INERTIA", value)
-	def getConcreteYoungsModulus(self) -> float:
+	def getYoungsModulus(self) -> float:
 		return self._getDoubleProperty("LNP_YOUNGS_MODULUS_REIN")
-	def setConcreteYoungsModulus(self, value: float):
+	def setYoungsModulus(self, value: float):
 		return self._setDoubleProperty("LNP_YOUNGS_MODULUS_REIN", value)
-	def getConcreteCompressiveStrength(self) -> float:
+	def getCompressiveStrength(self) -> float:
 		return self._getDoubleProperty("LNP_COMPRESSIVE_STRENGTH_REIN")
-	def setConcreteCompressiveStrength(self, value: float):
+	def setCompressiveStrength(self, value: float):
 		return self._setDoubleProperty("LNP_COMPRESSIVE_STRENGTH_REIN", value)
-	def getConcreteTensileStrength(self) -> float:
+	def getTensileStrength(self) -> float:
 		return self._getDoubleProperty("LNP_TENSILE_STRENGTH_REIN")
-	def setConcreteTensileStrength(self, value: float):
+	def setTensileStrength(self, value: float):
 		return self._setDoubleProperty("LNP_TENSILE_STRENGTH_REIN", value)
 	def getWeight(self) -> float:
 		return self._getDoubleProperty("LNP_WEIGHT_REIN")
@@ -117,21 +117,21 @@ class ReinforcedConcrete(PropertyProxy):
 		return self._getDoubleProperty("LNP_THICKNESS_CONCRETE")
 	def setThickness(self, value: float):
 		return self._setDoubleProperty("LNP_THICKNESS_CONCRETE", value)
-	def getYoungsModulus(self) -> float:
+	def getConcreteYoungsModulus(self) -> float:
 		return self._getDoubleProperty("LNP_YOUNGS_MODULUS_CONCRETE")
-	def setYoungsModulus(self, value: float):
+	def setConcreteYoungsModulus(self, value: float):
 		return self._setDoubleProperty("LNP_YOUNGS_MODULUS_CONCRETE", value)
 	def getPoissonRatio(self) -> float:
 		return self._getDoubleProperty("LNP_POISSONS_RATIO_CONCRETE")
 	def setPoissonRatio(self, value: float):
 		return self._setDoubleProperty("LNP_POISSONS_RATIO_CONCRETE", value)
-	def getCompressiveStrength(self) -> float:
+	def getConcreteCompressiveStrength(self) -> float:
 		return self._getDoubleProperty("LNP_COMPRESSIVE_STRENGTH_CONCRETE")
-	def setCompressiveStrength(self, value: float):
+	def setConcreteCompressiveStrength(self, value: float):
 		return self._setDoubleProperty("LNP_COMPRESSIVE_STRENGTH_CONCRETE", value)
-	def getTensileStrength(self) -> float:
+	def getConcreteTensileStrength(self) -> float:
 		return self._getDoubleProperty("LNP_TENSILE_STRENGTH_CONCRETE")
-	def setTensileStrength(self, value: float):
+	def setConcreteTensileStrength(self, value: float):
 		return self._setDoubleProperty("LNP_TENSILE_STRENGTH_CONCRETE", value)
 	def getMaterialType(self) -> MaterialType:
 		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE"))
@@ -192,7 +192,7 @@ class ReinforcedConcrete(PropertyProxy):
 		Grids "None" and "Default Grid" available by default.
 		"""
 		return self._callFunction("setStaticTemperatureGridToUse", [gridName])
-	def setProperties(self, ConcreteUnitWeight : float = None, IncludeWeightInStressAnalysis : bool = None, InitialTemperature : float = None, Reinforcement : bool = None, Spacing : float = None, SectionDepth : float = None, Area : float = None, MomentOfInertia : float = None, ConcreteYoungsModulus : float = None, ConcreteCompressiveStrength : float = None, ConcreteTensileStrength : float = None, Weight : float = None, Concrete : bool = None, Thickness : float = None, YoungsModulus : float = None, PoissonRatio : float = None, CompressiveStrength : float = None, TensileStrength : float = None, MaterialType : MaterialType = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, AxialStrainExpansion : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageConcreteProperties : bool = None):
+	def setProperties(self, ConcreteUnitWeight : float = None, IncludeWeightInStressAnalysis : bool = None, InitialTemperature : float = None, Reinforcement : bool = None, Spacing : float = None, SectionDepth : float = None, Area : float = None, MomentOfInertia : float = None, YoungsModulus : float = None, CompressiveStrength : float = None, TensileStrength : float = None, Weight : float = None, Concrete : bool = None, Thickness : float = None, ConcreteYoungsModulus : float = None, PoissonRatio : float = None, ConcreteCompressiveStrength : float = None, ConcreteTensileStrength : float = None, MaterialType : MaterialType = None, SlidingGap : bool = None, StrainAtLocking : float = None, BeamElementFormulation : LinerFormulation = None, AxialStrainExpansion : float = None, ActivateThermal : bool = None, StaticTemperatureMode : StaticWaterModes = None, StaticTemperature : float = None, Conductivity : float = None, SpecificHeatCapacity : float = None, ThermalExpansion : bool = None, ExpansionCoefficient : float = None, StageConcreteProperties : bool = None):
 		if ConcreteUnitWeight is not None:
 			self._setDoubleProperty("LNP_UNIT_WEIGTH_CONCRETE", ConcreteUnitWeight)
 		if IncludeWeightInStressAnalysis is not None:
@@ -209,26 +209,26 @@ class ReinforcedConcrete(PropertyProxy):
 			self._setDoubleProperty("LNP_STEELSET_AREA", Area)
 		if MomentOfInertia is not None:
 			self._setDoubleProperty("LNP_MOMENT_OF_INERTIA", MomentOfInertia)
-		if ConcreteYoungsModulus is not None:
-			self._setDoubleProperty("LNP_YOUNGS_MODULUS_REIN", ConcreteYoungsModulus)
-		if ConcreteCompressiveStrength is not None:
-			self._setDoubleProperty("LNP_COMPRESSIVE_STRENGTH_REIN", ConcreteCompressiveStrength)
-		if ConcreteTensileStrength is not None:
-			self._setDoubleProperty("LNP_TENSILE_STRENGTH_REIN", ConcreteTensileStrength)
+		if YoungsModulus is not None:
+			self._setDoubleProperty("LNP_YOUNGS_MODULUS_REIN", YoungsModulus)
+		if CompressiveStrength is not None:
+			self._setDoubleProperty("LNP_COMPRESSIVE_STRENGTH_REIN", CompressiveStrength)
+		if TensileStrength is not None:
+			self._setDoubleProperty("LNP_TENSILE_STRENGTH_REIN", TensileStrength)
 		if Weight is not None:
 			self._setDoubleProperty("LNP_WEIGHT_REIN", Weight)
 		if Concrete is not None:
 			self._setBoolProperty("LNP_USE_CONCRETE", Concrete)
 		if Thickness is not None:
 			self._setDoubleProperty("LNP_THICKNESS_CONCRETE", Thickness)
-		if YoungsModulus is not None:
-			self._setDoubleProperty("LNP_YOUNGS_MODULUS_CONCRETE", YoungsModulus)
+		if ConcreteYoungsModulus is not None:
+			self._setDoubleProperty("LNP_YOUNGS_MODULUS_CONCRETE", ConcreteYoungsModulus)
 		if PoissonRatio is not None:
 			self._setDoubleProperty("LNP_POISSONS_RATIO_CONCRETE", PoissonRatio)
-		if CompressiveStrength is not None:
-			self._setDoubleProperty("LNP_COMPRESSIVE_STRENGTH_CONCRETE", CompressiveStrength)
-		if TensileStrength is not None:
-			self._setDoubleProperty("LNP_TENSILE_STRENGTH_CONCRETE", TensileStrength)
+		if ConcreteCompressiveStrength is not None:
+			self._setDoubleProperty("LNP_COMPRESSIVE_STRENGTH_CONCRETE", ConcreteCompressiveStrength)
+		if ConcreteTensileStrength is not None:
+			self._setDoubleProperty("LNP_TENSILE_STRENGTH_CONCRETE", ConcreteTensileStrength)
 		if MaterialType is not None:
 			self._setEnumEMaterialAnalysisTypesProperty("LNP_MATERIAL_TYPE", MaterialType)
 		if SlidingGap is not None:
@@ -265,16 +265,16 @@ class ReinforcedConcrete(PropertyProxy):
 		"SectionDepth" : self.getSectionDepth(), 
 		"Area" : self.getArea(), 
 		"MomentOfInertia" : self.getMomentOfInertia(), 
-		"ConcreteYoungsModulus" : self.getConcreteYoungsModulus(), 
-		"ConcreteCompressiveStrength" : self.getConcreteCompressiveStrength(), 
-		"ConcreteTensileStrength" : self.getConcreteTensileStrength(), 
+		"YoungsModulus" : self.getYoungsModulus(), 
+		"CompressiveStrength" : self.getCompressiveStrength(), 
+		"TensileStrength" : self.getTensileStrength(), 
 		"Weight" : self.getWeight(), 
 		"Concrete" : self.getConcrete(), 
 		"Thickness" : self.getThickness(), 
-		"YoungsModulus" : self.getYoungsModulus(), 
+		"ConcreteYoungsModulus" : self.getConcreteYoungsModulus(), 
 		"PoissonRatio" : self.getPoissonRatio(), 
-		"CompressiveStrength" : self.getCompressiveStrength(), 
-		"TensileStrength" : self.getTensileStrength(), 
+		"ConcreteCompressiveStrength" : self.getConcreteCompressiveStrength(), 
+		"ConcreteTensileStrength" : self.getConcreteTensileStrength(), 
 		"MaterialType" : self.getMaterialType(), 
 		"SlidingGap" : self.getSlidingGap(), 
 		"StrainAtLocking" : self.getStrainAtLocking(), 
