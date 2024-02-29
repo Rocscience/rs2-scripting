@@ -56,7 +56,7 @@ class RS2Interpreter:
 
 		return rs2ModelerInstallLocation
 	
-	def closeProgram(self, saveModels=True):
+	def closeProgram(self, saveModels=True, timeout=30):
 		'''
 		Closes the modeler program. All unsaved models are saved by default.
 
@@ -73,6 +73,6 @@ class RS2Interpreter:
 		portIsAvailable = False
 		startTime = time.time()
 		while not portIsAvailable:
-			if (time.time() - startTime) > ApplicationManager.defaultTimeout:
+			if (time.time() - startTime) > timeout:
 				raise TimeoutError("The application did not start within the given timeout time.")
 			portIsAvailable = appManager._isPortAvailable(portUsed)
