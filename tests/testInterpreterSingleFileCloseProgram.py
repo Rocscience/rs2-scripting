@@ -7,7 +7,7 @@ from rs2.interpreter.RS2Interpreter import RS2Interpreter
 parentDirectoryHelper.addParentDirectoryToPath()
 
 class TestCloseProgram(unittest.TestCase):
-    pathToInterpreterExecutable = r"C:\RS2_dev\Build\Debug_x64\Interpret.exe"
+    pathToInterpreterExecutable = ""
     interpreterPortToUse = 60041
 
     def setUp(self):

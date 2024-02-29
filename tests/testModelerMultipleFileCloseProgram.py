@@ -9,7 +9,7 @@ from rs2.modeler.properties.PropertyEnums import*
 parentDirectoryHelper.addParentDirectoryToPath()
 
 class TestCloseProgram(unittest.TestCase):
-    pathToModelerExecutable = r"C:\RS2_dev\Build\Debug_x64\RS2.exe"
+    pathToModelerExecutable = ""
     modelerPortToUse = 60040
 
     def setUp(self):

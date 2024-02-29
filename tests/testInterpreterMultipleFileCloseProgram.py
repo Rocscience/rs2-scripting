@@ -7,9 +7,8 @@ from rs2.interpreter.RS2Interpreter import RS2Interpreter
 parentDirectoryHelper.addParentDirectoryToPath()
 
 class TestCloseProgram(unittest.TestCase):
-    pathToInterpreterExecutable = r"C:\RS2_dev\Build\Debug_x64\Interpret.exe"
+    pathToInterpreterExecutable = ""
     interpreterPortToUse = 60041
-
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
         blankModelPath = f"{parentDirectory}/resources/example_computed_model.fez"
@@ -21,7 +20,6 @@ class TestCloseProgram(unittest.TestCase):
         self.interpreter = RS2Interpreter(port=TestCloseProgram.interpreterPortToUse)
         self.interpreterModel1 = self.interpreter.openFile(self.copiedModelPath1)
         self.interpreterModel2 = self.interpreter.openFile(self.copiedModelPath2)
-
     def tearDown(self):
         os.remove(self.copiedModelPath1)
         os.remove(self.copiedModelPath2)
@@ -47,7 +45,7 @@ class TestCloseProgram(unittest.TestCase):
         self.assertEqual(model2_queryID, model2_resultQueryID)
 
     @unittest.skipIf(not pathToInterpreterExecutable, "requires path to debug build of RS2 Interpreter")  
-    def testCloseModelerWithChangesNotSaved(self):
+    def testCloseInterpreterWithChangesNotSaved(self):
         # Add a material query to each model to avoid No Query found exception
         self.interpreterModel1.AddMaterialQuery([[10, -5], [10, 0]])
         self.interpreterModel2.AddMaterialQuery([[12, -5], [12, 0]])
