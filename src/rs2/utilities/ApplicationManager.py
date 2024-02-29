@@ -22,7 +22,6 @@ class ApplicationManager:
         	ValueError: Port range must be between 49152 and 65535, otherwise ValueError is raised
 		    TimeoutError: if timeout is provided, raises TimeoutError if not able to connect to the server within that time.
         """
-        ApplicationManager.defaultTimeout = timeout
         if port < self.minimumPort or port > self.maximumPort:
             raise ValueError(f"port must be in the range {self.minimumPort} to {self.maximumPort}")
         
