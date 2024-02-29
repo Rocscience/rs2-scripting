@@ -70,5 +70,5 @@ class RS2Modeler:
 		startTime = time.time()
 		while not portIsAvailable:
 			if (time.time() - startTime) > timeout:
-				raise TimeoutError("The application did not start within the given timeout time.")
+				raise TimeoutError("The application did not close within the given timeout time.")
 			portIsAvailable = appManager._isPortAvailable(portUsed)
