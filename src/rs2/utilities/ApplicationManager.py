@@ -6,8 +6,8 @@ from multiprocessing.connection import Listener
 class ApplicationManager:
     minimumPort = 49152
     maximumPort = 65535
-    maxTimeout = 30
-    def startApplication(self, pathToExecutable : str, port : int, timeout : float = maxTimeout ):
+    defaultTimeout = 30
+    def startApplication(self, pathToExecutable : str, port : int, timeout : float = defaultTimeout ):
         """
         Starts the application specified by pathToExecutable and starts the python server on the given port. 
         Returns when the server is ready to accept requests.
@@ -22,6 +22,7 @@ class ApplicationManager:
         	ValueError: Port range must be between 49152 and 65535, otherwise ValueError is raised
 		    TimeoutError: if timeout is provided, raises TimeoutError if not able to connect to the server within that time.
         """
+        ApplicationManager.defaultTimeout = timeout
         if port < self.minimumPort or port > self.maximumPort:
             raise ValueError(f"port must be in the range {self.minimumPort} to {self.maximumPort}")
         

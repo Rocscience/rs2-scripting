@@ -73,6 +73,6 @@ class RS2Interpreter:
 		portIsAvailable = False
 		startTime = time.time()
 		while not portIsAvailable:
-			if (time.time() - startTime) > ApplicationManager.maxTimeout:
-				return
+			if (time.time() - startTime) > ApplicationManager.defaultTimeout:
+				raise TimeoutError("The application did not start within the given timeout time.")
 			portIsAvailable = appManager._isPortAvailable(portUsed)

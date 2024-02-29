@@ -12,12 +12,11 @@ interpreterPort = 60041
 RS2Modeler.startApplication(port=modelerPort, overridePathToExecutable=pathToModelerExecutable)
 modeler = RS2Modeler(port=modelerPort)
 modeler.openFile(modelPath)
+# # Close modeler
+modeler.closeProgram(False)
 
 RS2Interpreter.startApplication(port=interpreterPort, overridePathToExecutable=pathToInterpreterExecutable)
-interpreter = RS2Interpreter()
+interpreter = RS2Interpreter(port=interpreterPort)
 interpreter.openFile(modelPath)
-
-# Close modeler
-modeler.closeProgram(False)
 # Close interpreter
 interpreter.closeProgram(False)
