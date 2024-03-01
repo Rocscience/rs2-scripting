@@ -68,9 +68,9 @@ class ModelProxy(ProxyObject):
 		'''
 		compositeLinerObjectID = self._callFunction('getCompositePropertyByName', [compositeName], keepReturnValueReference=True)
 		return CompositeProperty(self._client, compositeLinerObjectID, self._documentProxy._ID)
+	
+	
 
-	
-	
 	def getMaterialPropertyByName(self, materialName : str) -> MaterialProperty:
 		'''
 		Returns a Material Property object based on its name.
@@ -222,7 +222,7 @@ class ModelProxy(ProxyObject):
 		'''
 		return self._callFunction('AddHistoryQueryPoint', [x, y, history_query_name])
 	
-		
+
 	def RemoveHistoryQueryPoint(self, history_query_name: str):
 		'''
 		Remove a History Query point from your model by label name.
@@ -232,6 +232,51 @@ class ModelProxy(ProxyObject):
 
 		'''
 		return self._callFunction('RemoveHistoryQueryPoint', [history_query_name])
+
+	def AddTimeQueryLine(self, points: list[list[float]], points_on_line: int) -> str:
+		'''
+		Add a new Time Query Line to your model with the specified coordinates
+
+		Args:
+			points (list[list[float]]) : List of points making the time query line.
+			points_on_line (int) : Number of segments to evenly divide time query line
+		
+		Warning:
+			points_on_line must be between 1 and 10 inclusive.
+
+		'''
+		return self._callFunction('AddTimeQueryLine', [points, points_on_line])
+	
+	def RemoveTimeQueryLine(self, IDs_toRemove: list[str]):
+		'''
+		Removes Time Query Line(s) from your model using provided list of IDs.
+
+		Args:
+			IDs_toRemove (list[str]): List of unique identifier for time query line(s) to remove.
+
+		'''
+		return self._callFunction('RemoveTimeQueryLine', [IDs_toRemove])
+	
+	def AddTimeQueryPoint(self, x: float, y: float) -> str:
+		'''
+		Add a new Time Query Point to your model with the specified x and y coordinates
+
+		Args:
+			x (float) : x-coordinate of the time query line.
+			y (float) : y-coordinate of the time query line.
+
+		'''
+		return self._callFunction('AddTimeQueryPoint', [x, y])
+	
+	def RemoveTimeQueryPoint(self, IDs_toRemove: list[str]):
+		'''
+		Removes Time Query Point(s) from your model using provided list of IDs.
+
+		Args:
+			IDs_toRemove (list[str]): List of unique identifier for time query points(s) to remove.
+
+		'''
+		return self._callFunction('RemoveTimeQueryPoint', [IDs_toRemove])
 	
 	def compute(self):
 		'''
