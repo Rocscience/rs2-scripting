@@ -19,6 +19,7 @@ compList = model.getAllCompositeLinerProperties()
 comp1 = compList[0]
 comp2 = compList[1]
 comp3 = compList[2]
+comp4 = compList[3]
 
 
 def test1():
@@ -48,10 +49,18 @@ def test3():
     assert(comp.getJointApplied(), True)
     assert(comp.getCompositeJointPropertyName(), 'Joint 3')
 
+def test4():
+    comp = comp4
+
+    comp.setJointApplied(False)
+
+    assert(comp.getJointApplied(), False)
+
 
 test1()
 test2()
 test3()
+test4()
 
 model.save()
 pass
