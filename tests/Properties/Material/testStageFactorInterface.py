@@ -75,7 +75,7 @@ class TestStageFactors(unittest.TestCase):
 
         sf1 = self.strengthStiffnessInterface.getDefinedStageFactors()[1]
         sf1.setPorosityValueFactor(0.123)
-        self.strengthStiffnessInterface.setDefinedStageFactors({1: sf1, 2: sf1, 3: sf1})
+        self.strengthStiffnessInterface.setDefinedStageFactors({1: sf1, 2: sf1, 3: sf1, 4: sf1})
 
         self.material.StageFactors.setStageHydraulicStageFactor(True)
         self.material.StageFactors.setStageDatumStageFactor(True)
@@ -86,10 +86,13 @@ class TestStageFactors(unittest.TestCase):
         hydraulicFactors = self.hydraulicInterface.getDefinedStageFactors()
         datumFactors = self.datumInterface.getDefinedStageFactors()
 
-        self.assertEqual(len(strengthStiffnessFactors), 3)
-        self.assertEqual(len(thermalFactors), 3)
-        self.assertEqual(len(hydraulicFactors), 3)
-        self.assertEqual(len(datumFactors), 3)
+        self.assertEqual(len(strengthStiffnessFactors), 4)
+        self.assertEqual(len(thermalFactors), 4)
+        self.assertEqual(len(hydraulicFactors), 4)
+        self.assertEqual(len(datumFactors), 4)
+
+        strengthStiffnessFactors.pop(4)
+        self.strengthStiffnessInterface.setDefinedStageFactors(strengthStiffnessFactors)
 
     def testReorderWithMultipleActive(self):
         self.SetEnableAllStageFactorInterfaces(True)
@@ -138,6 +141,49 @@ class TestStageFactors(unittest.TestCase):
         self.assertEqual(sfdGroup[1].getDatumYoungsStageFactor().getChange(), 0.3)
         self.assertEqual(sfdGroup[2].getDatumYoungsStageFactor().getChange(), 0.1)
         self.assertEqual(sfdGroup[3].getDatumYoungsStageFactor().getChange(), 0.2)
+
+    def testDeleteOneDeletesOthers(self):
+        self.SetEnableAllStageFactorInterfaces(True)
+
+        sfmGroup = self.strengthStiffnessInterface.getDefinedStageFactors()
+        self.strengthStiffnessInterface.setDefinedStageFactors({1: sfmGroup[3], 3: sfmGroup[2]})
+
+        self.assertEqual(len(self.strengthStiffnessInterface.getDefinedStageFactors()), 2)
+        self.assertEqual(len(self.hydraulicInterface.getDefinedStageFactors()), 2)
+        self.assertEqual(len(self.thermalInterface.getDefinedStageFactors()), 2)
+        self.assertEqual(len(self.datumInterface.getDefinedStageFactors()), 2)
+
+        self.strengthStiffnessInterface.createStageFactor(2)
+
+    def testCreateOneCreatesOthers(self):
+        self.SetEnableAllStageFactorInterfaces(True)
+
+        self.strengthStiffnessInterface.createStageFactor(4)
+
+        self.assertEqual(len(self.strengthStiffnessInterface.getDefinedStageFactors()), 4)
+        self.assertEqual(len(self.hydraulicInterface.getDefinedStageFactors()), 4)
+        self.assertEqual(len(self.thermalInterface.getDefinedStageFactors()), 4)
+        self.assertEqual(len(self.datumInterface.getDefinedStageFactors()), 4)
+    
+        sfs = self.strengthStiffnessInterface.getDefinedStageFactors()
+        sfs.pop(4)
+        self.strengthStiffnessInterface.setDefinedStageFactors(sfs)
+
+    def testCreateOthersDisabled(self):
+        self.SetEnableAllStageFactorInterfaces(False)
+        self.material.StageFactors.setStageStrengthStiffnessStageFactors(True)
+
+        self.strengthStiffnessInterface.createStageFactor(4)
+        self.SetEnableAllStageFactorInterfaces(True)
+
+        self.assertEqual(len(self.strengthStiffnessInterface.getDefinedStageFactors()), 4)
+        self.assertEqual(len(self.hydraulicInterface.getDefinedStageFactors()), 4)
+        self.assertEqual(len(self.thermalInterface.getDefinedStageFactors()), 4)
+        self.assertEqual(len(self.datumInterface.getDefinedStageFactors()), 4)
+
+        sfs = self.strengthStiffnessInterface.getDefinedStageFactors()
+        sfs.pop(4)
+        self.strengthStiffnessInterface.setDefinedStageFactors(sfs)
 class TestStaticHydraulicStageFactors(unittest.TestCase):
 
     @classmethod
