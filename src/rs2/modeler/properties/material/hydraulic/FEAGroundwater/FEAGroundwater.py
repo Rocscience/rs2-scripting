@@ -22,7 +22,7 @@ class FEAGroundwaterStageFactor(ProxyObject):
 		return self._callFunction("getDoubleFactor", ["MP_K2_K1", self.propertyID], proxyArgumentIndices=[1])
 	def getMvFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["MP_MV", self.propertyID], proxyArgumentIndices=[1])
-	def getSurfaceFactor(self) -> str:
+	def getAnisotropicSurfaceFactor(self) -> str:
 		return self._callFunction("getSurfaceFactor", [self.propertyID], proxyArgumentIndices=[0])
 class FEAGroundwaterDefinedStageFactor(FEAGroundwaterStageFactor):
 	def __init__(self, client : Client, ID, propertyID):
@@ -33,7 +33,7 @@ class FEAGroundwaterDefinedStageFactor(FEAGroundwaterStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_K2_K1", value, self.propertyID], proxyArgumentIndices=[2])
 	def setMvFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_MV", value, self.propertyID], proxyArgumentIndices=[2])
-	def setSurfaceFactor(self, surfaceName: str):
+	def setAnisotropicSurfaceFactor(self, surfaceName: str):
 		return self._callFunction("setSurfaceFactor", [surfaceName, self.propertyID], proxyArgumentIndices=[1])
 class FEAGroundwater(PropertyProxy):
 	"""
