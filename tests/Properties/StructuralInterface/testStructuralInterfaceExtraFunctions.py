@@ -123,4 +123,3 @@ class TestStructuralInterface(unittest.TestCase):
             self.fail("Expected exception")
         except:
             pass
-    
