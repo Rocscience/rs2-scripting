@@ -20,7 +20,12 @@ class Client:
 		canConnect = self.callFunction(functionRequest("checkVersion", [self.compatibleProgramVersion]))
 		if canConnect == False:
 			self.connection.close()
-			raise RuntimeError(f"Library version does not match the program version. Please ensure the versions match by installing the correct version of the library or program. Library version: {self.version} Program version: find in help->about.")
+			raise RuntimeError(f"""
+					  Library version is not compatible with the program version. 
+					  Please ensure the versions match by installing the correct version of the library or program. 
+					  Library version: {self.version} Program version: find in help->about.
+					  """
+					  )
  
 	def establishConnection(self, host, port):
 		try:
