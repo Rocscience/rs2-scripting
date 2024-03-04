@@ -55,13 +55,13 @@ excess_pore_pressure_time_history_all_stages = model_results.GetHistoryQueryResu
 # Create dataframe
 time_label = 'Time (d)'
 excess_pore_pressure_label = 'Excess Pore Pressure (kPa)'
-data_for_dataFrame = []
+data_for_dataframe = []
 for stage_data in excess_pore_pressure_time_history_all_stages.values():
     for history_query_point in stage_data:
         # Append the data to the list
-        data_for_dataFrame.append([history_query_point.GetHorizontalAxisResult(), history_query_point.GetVerticalAxisResult()])
+        data_for_dataframe.append([history_query_point.GetHorizontalAxisResult(), history_query_point.GetVerticalAxisResult()])
 
-df_epp = pd.DataFrame(data_for_dataFrame, columns=[time_label, excess_pore_pressure_label])
+df_epp = pd.DataFrame(data_for_dataframe, columns=[time_label, excess_pore_pressure_label])
 
 # Calculate excess pore pressure using the end of stage 1 (start of stage 2) as the reference stage
 reference_pore_pressure = df_epp[excess_pore_pressure_label].iloc[0]
