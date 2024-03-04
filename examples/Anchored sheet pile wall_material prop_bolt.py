@@ -15,7 +15,6 @@ model = modeler.openFile(rf"{current_dir}\..\ExampleFiles\Anchored Sheet Pile Wa
 # Import the Excel file
 excel_data = pd.ExcelFile (rf"{current_dir}\..\ExampleFiles\data.xlsx") #open Excel file
 
-
 '''
 # Joint Properties
 
