@@ -17,8 +17,8 @@ class Client:
 		if self.connection == None:
 			raise RuntimeError("Could not establish connection with the server. Make sure the server is started on the application.")
 		
-		canConnect = self.callFunction(functionRequest("checkVersion", [self.compatibleProgramVersion]))
-		if canConnect == False:
+		versionCompatible = self.callFunction(functionRequest("checkVersion", [self.compatibleProgramVersion]))
+		if not versionCompatible:
 			self.connection.close()
 			raise RuntimeError(f"""
 					  Library version is not compatible with the program version. 
