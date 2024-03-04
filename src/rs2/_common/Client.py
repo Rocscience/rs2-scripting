@@ -23,7 +23,7 @@ class Client:
 			raise RuntimeError(f"""
 					  Library version is not compatible with the program version. 
 					  Please ensure the versions match by installing the correct version of the library or program. 
-					  Library version: {self.version} Program version: find in help->about.
+					  Library version: {self.compatibleProgramVersion} Program version: find in help->about.
 					  """
 					  )
  
