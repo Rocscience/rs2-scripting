@@ -253,3 +253,9 @@ class ModelProxy(ProxyObject):
 			assert False
 			return Units()
 		return Units(*data)
+
+	def getCriticalSRF(self):
+		'''
+		Get Critical SRF
+		'''
+		return ResetInvalid.validate_double(self._callFunction('getCriticalSRF', []))
