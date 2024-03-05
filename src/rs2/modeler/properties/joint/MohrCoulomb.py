@@ -154,6 +154,8 @@ class MohrCoulomb(PropertyProxy):
 			self._setDoubleProperty("JP_PEAK_FRICTION_ANGLE", PeakFrictionAngle)
 		if IncludeDilation is not None:
 			self._setBoolProperty("JP_INCLUDE_DILATION", IncludeDilation)
+		if IncludeDilation is not None:
+			self._setBoolProperty("JP_INCLUDE_DILATION", IncludeDilation)
 		if DilationAngle is not None:
 			self._setDoubleProperty("JP_DILATION_ANGLE", DilationAngle)
 		if DMin is not None:
