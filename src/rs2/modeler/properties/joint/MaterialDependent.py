@@ -77,10 +77,6 @@ class MaterialDependent(PropertyProxy):
 		return self._getDoubleProperty("JP_ADDITIONAL_PRESSURE")
 	def setAdditionalPressureInsideJoint(self, value: float):
 		return self._setDoubleProperty("JP_ADDITIONAL_PRESSURE", value)
-	def getPiezoID(self) -> int:
-		return int(self._getIntProperty("JP_ADDITIONAL_PIEZO_ID"))
-	def setPiezoID(self, value: int):
-		return self._setIntProperty("JP_ADDITIONAL_PIEZO_ID", value)
 	def getApplyPressureToLinerSideOnly(self) -> bool:
 		return self._getBoolProperty("JP_USE_PRESSURE_TO_LINER_SIDE_ONLY")
 	def setApplyPressureToLinerSideOnly(self, value: bool):
@@ -89,7 +85,11 @@ class MaterialDependent(PropertyProxy):
 		return self._getBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES")
 	def setApplyStageFactors(self, value: bool):
 		return self._setBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES", value)
-	def setProperties(self, InterfaceCoefficient : float = None, DefineStiffness : DefineStiffness = None, NormalStiffness : float = None, ShearStiffness : float = None, StiffnessCoefficient : float = None, ApplyPorePressure : bool = None, ApplyAdditionalPressureInsideJoint : bool = None, AdditionalPressureType : AdditionalPressureType = None, AdditionalPressureInsideJoint : float = None, PiezoID : int = None, ApplyPressureToLinerSideOnly : bool = None, ApplyStageFactors : bool = None):
+	def setPiezoID(self, piezoID: int):
+		return self._callFunction("python_setPiezoPressureID", [piezoID])
+	def getPiezoID(self) -> int:
+		return self._callFunction("__getattribute__", ["m_pressure_piezo_id"])
+	def setProperties(self, InterfaceCoefficient : float = None, DefineStiffness : DefineStiffness = None, NormalStiffness : float = None, ShearStiffness : float = None, StiffnessCoefficient : float = None, ApplyPorePressure : bool = None, ApplyAdditionalPressureInsideJoint : bool = None, AdditionalPressureType : AdditionalPressureType = None, AdditionalPressureInsideJoint : float = None, ApplyPressureToLinerSideOnly : bool = None, ApplyStageFactors : bool = None):
 		if InterfaceCoefficient is not None:
 			self._setDoubleProperty("JP_INTERFACE_COEFFICIENT", InterfaceCoefficient)
 		if DefineStiffness is not None:
@@ -108,8 +108,6 @@ class MaterialDependent(PropertyProxy):
 			self._setEnumEJointWaterPressureTypeProperty("JP_ADDITIONAL_TYPE", AdditionalPressureType)
 		if AdditionalPressureInsideJoint is not None:
 			self._setDoubleProperty("JP_ADDITIONAL_PRESSURE", AdditionalPressureInsideJoint)
-		if PiezoID is not None:
-			self._setIntProperty("JP_ADDITIONAL_PIEZO_ID", PiezoID)
 		if ApplyPressureToLinerSideOnly is not None:
 			self._setBoolProperty("JP_USE_PRESSURE_TO_LINER_SIDE_ONLY", ApplyPressureToLinerSideOnly)
 		if ApplyStageFactors is not None:
@@ -125,7 +123,6 @@ class MaterialDependent(PropertyProxy):
 		"ApplyAdditionalPressureInsideJoint" : self.getApplyAdditionalPressureInsideJoint(), 
 		"AdditionalPressureType" : self.getAdditionalPressureType(), 
 		"AdditionalPressureInsideJoint" : self.getAdditionalPressureInsideJoint(), 
-		"PiezoID" : self.getPiezoID(), 
 		"ApplyPressureToLinerSideOnly" : self.getApplyPressureToLinerSideOnly(), 
 		"ApplyStageFactors" : self.getApplyStageFactors(), 
 		}
