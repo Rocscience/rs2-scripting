@@ -6,7 +6,8 @@ from multiprocessing.connection import Listener
 class ApplicationManager:
     minimumPort = 49152
     maximumPort = 65535
-    def startApplication(self, pathToExecutable : str, port : int, timeout : float = 30 ):
+    defaultTimeout = 30
+    def startApplication(self, pathToExecutable : str, port : int, timeout : float = defaultTimeout ):
         """
         Starts the application specified by pathToExecutable and starts the python server on the given port. 
         Returns when the server is ready to accept requests.
