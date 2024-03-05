@@ -10,8 +10,9 @@ def report(path) :
 	print(interpreter_model.getCriticalSRF())
 	pass
 
-report("C:\scriptingModels\srf_value_133.fez")
-report("C:\scriptingModels\srf_value_undefined.fez")
+report(rf"C:\scriptingModels\testSSR.fez")
+report(rf"C:\scriptingModels\srf_value_133.fez")
+report(rf"C:\scriptingModels\srf_value_undefined.fez")
 
 
 
