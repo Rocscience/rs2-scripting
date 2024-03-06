@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{cf16b438-0272-4178-b87c-f3c8fed7ab40}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>docs\example_code\zach_BoltTieback.py</StartupFile>
+    <StartupFile>sampleClientScripts\SampleCriticalSRF.py</StartupFile>
     <SearchPath>.;tests</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -67,6 +67,7 @@
     <Compile Include="sampleClientScripts\SampleCommunicateWithInterpreterAndModeler.py" />
     <Compile Include="sampleClientScripts\SampleCompositeLiners.py" />
     <Compile Include="sampleClientScripts\SampleComputeWithoutSave.py" />
+    <Compile Include="sampleClientScripts\SampleCriticalSRF.py" />
     <Compile Include="sampleClientScripts\SampleDatum.py" />
     <Compile Include="sampleClientScripts\SampleError.py" />
     <Compile Include="sampleClientScripts\sampleGetAllBoltsLinersProxyClient.py" />

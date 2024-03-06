@@ -73,6 +73,10 @@ class MohrCoulomb(PropertyProxy):
 		return self._getDoubleProperty("JP_PEAK_FRICTION_ANGLE")
 	def setPeakFrictionAngle(self, value: float):
 		return self._setDoubleProperty("JP_PEAK_FRICTION_ANGLE", value)
+	def getIncludeDilation(self) -> bool:
+		return self._getBoolProperty("JP_INCLUDE_DILATION")
+	def setIncludeDilation(self, value: bool):
+		return self._setBoolProperty("JP_INCLUDE_DILATION", value)
 	def getDilationAngle(self) -> float:
 		return self._getDoubleProperty("JP_DILATION_ANGLE")
 	def setDilationAngle(self, value: float):
@@ -141,13 +145,15 @@ class MohrCoulomb(PropertyProxy):
 		return self._getBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES")
 	def setApplyStageFactors(self, value: bool):
 		return self._setBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES", value)
-	def setProperties(self, TensileStrength : float = None, PeakCohesion : float = None, PeakFrictionAngle : float = None, DilationAngle : float = None, DMin : float = None, DMax : float = None, Directional : bool = None, ResidualStrength : bool = None, ResTensileStrength : float = None, ResCohesion : float = None, ResFrictionAngle : float = None, NormalStiffness : float = None, ShearStiffness : float = None, ApplyPorePressure : bool = None, ApplyAdditionalPressureInsideJoint : bool = None, AdditionalPressureType : AdditionalPressureType = None, AdditionalPressureInsideJoint : float = None, PiezoID : int = None, ApplyPressureToLinerSideOnly : bool = None, ApplyStageFactors : bool = None):
+	def setProperties(self, TensileStrength : float = None, PeakCohesion : float = None, PeakFrictionAngle : float = None, IncludeDilation : bool = None, DilationAngle : float = None, DMin : float = None, DMax : float = None, Directional : bool = None, ResidualStrength : bool = None, ResTensileStrength : float = None, ResCohesion : float = None, ResFrictionAngle : float = None, NormalStiffness : float = None, ShearStiffness : float = None, ApplyPorePressure : bool = None, ApplyAdditionalPressureInsideJoint : bool = None, AdditionalPressureType : AdditionalPressureType = None, AdditionalPressureInsideJoint : float = None, PiezoID : int = None, ApplyPressureToLinerSideOnly : bool = None, ApplyStageFactors : bool = None):
 		if TensileStrength is not None:
 			self._setDoubleProperty("JP_TENSILE_STRENGTH", TensileStrength)
 		if PeakCohesion is not None:
 			self._setDoubleProperty("JP_PEAK_COHESION", PeakCohesion)
 		if PeakFrictionAngle is not None:
 			self._setDoubleProperty("JP_PEAK_FRICTION_ANGLE", PeakFrictionAngle)
+		if IncludeDilation is not None:
+			self._setBoolProperty("JP_INCLUDE_DILATION", IncludeDilation)
 		if DilationAngle is not None:
 			self._setDoubleProperty("JP_DILATION_ANGLE", DilationAngle)
 		if DMin is not None:
@@ -187,6 +193,7 @@ class MohrCoulomb(PropertyProxy):
 		"TensileStrength" : self.getTensileStrength(), 
 		"PeakCohesion" : self.getPeakCohesion(), 
 		"PeakFrictionAngle" : self.getPeakFrictionAngle(), 
+		"IncludeDilation" : self.getIncludeDilation(), 
 		"DilationAngle" : self.getDilationAngle(), 
 		"DMin" : self.getDMin(), 
 		"DMax" : self.getDMax(), 
