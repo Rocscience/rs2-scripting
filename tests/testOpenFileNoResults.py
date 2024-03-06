@@ -9,16 +9,27 @@ parentDirectoryHelper.addParentDirectoryToPath()
 class TesOpenFileNoResults(unittest.TestCase):
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
-        blankModelPath = f"{parentDirectory}/resources/noResults.fez"
-        self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
+        zipFilePath = f"{parentDirectory}/resources/noResults.fez"
+        self.copiedZipFilePath = f"{parentDirectory}/resources/testProjectFez.fez"
 
-        shutil.copy(blankModelPath, self.copiedModelPath)
+        feaFilePath = f"{parentDirectory}/resources/noResults.fea"
+        self.copiedFeaFilePath = f"{parentDirectory}/resources/testProjectFea.fea"
+
+        shutil.copy(zipFilePath, self.copiedZipFilePath)
+        shutil.copy(feaFilePath, self.copiedFeaFilePath)
+
         self.interpreter = RS2Interpreter()
+
     def tearDown(self):
-        os.remove(self.copiedModelPath)
+        os.remove(self.copiedZipFilePath)
+        os.remove(self.copiedFeaFilePath)
+
         self.interpreter.client.closeConnection()
 
     def testOpenFileNoResultsException(self):
         with self.assertRaises(Exception):
-            self.interpreter.openFile(self.copiedModelPath)
+            self.interpreter.openFile(self.copiedZipFilePath)
         
+    def testOpenFEANoResultsException(self):
+        with self.assertRaises(Exception):
+            self.interpreter.openFile(self.copiedFeaFilePath)
