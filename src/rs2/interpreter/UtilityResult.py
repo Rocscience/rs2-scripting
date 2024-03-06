@@ -12,10 +12,7 @@ class ResetInvalid:
         pass
     @staticmethod
     def validate_double(value):
-        
-        
         if isinstance(value, float) and (value >= ResetInvalid.flt_max):
-            sys.float_info.max
             value = None
         return value
 
