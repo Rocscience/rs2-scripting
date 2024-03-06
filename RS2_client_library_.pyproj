@@ -13,7 +13,9 @@
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <InterpreterId>Global|PythonCore|3.11</InterpreterId>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
-    <TestFramework>Pytest</TestFramework>
+    <TestFramework>unittest</TestFramework>
+    <UnitTestPattern>test*.py</UnitTestPattern>
+    <UnitTestRootDirectory>.</UnitTestRootDirectory>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
   <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
@@ -440,6 +442,54 @@
     <Compile Include="tests\testMaterialJointOptions.py" />
     <Compile Include="tests\testShearNormalFunction.py" />
     <Compile Include="tests\testSnowdenAnisotropicFunction.py" />
+    <Compile Include="tests\zach\test_BoltEndAnchored.py" />
+    <Compile Include="tests\zach\test_BoltFullyBonded.py" />
+    <Compile Include="tests\zach\test_BoltPlainStrand.py" />
+    <Compile Include="tests\zach\test_BoltSwellex.py" />
+    <Compile Include="tests\zach\test_BoltTieback.py" />
+    <Compile Include="tests\zach\test_CompositeJointPlacement.py" />
+    <Compile Include="tests\zach\test_CompositeJointType.py" />
+    <Compile Include="tests\zach\test_CompositeLinerInstallRemove.py" />
+    <Compile Include="tests\zach\test_CompositelinerType.py" />
+    <Compile Include="tests\zach\test_JointAdditionalPressure.py" />
+    <Compile Include="tests\zach\test_JointBottomSection.py" />
+    <Compile Include="tests\zach\test_JointSlipCriterion.py" />
+    <Compile Include="tests\zach\test_JointStageFactors.py" />
+    <Compile Include="tests\zach\test_JointStiffness.py" />
+    <Compile Include="tests\zach\test_LinerCableTruss.py" />
+    <Compile Include="tests\zach\test_LinerGeosynthetic.py" />
+    <Compile Include="tests\zach\test_LinerReinforcedConcrete.py" />
+    <Compile Include="tests\zach\test_LinerStageFactors.py" />
+    <Compile Include="tests\zach\test_LinerStandardBeam.py" />
+    <Compile Include="tests\zach\test_MaterialDatum.py" />
+    <Compile Include="tests\zach\test_MaterialHydraulicTransientConstant.py" />
+    <Compile Include="tests\zach\test_MaterialInitConditions.py" />
+    <Compile Include="tests\zach\test_MaterialInitConditionsPiezo.py" />
+    <Compile Include="tests\zach\test_MaterialInitConditionsPwpGrid.py" />
+    <Compile Include="tests\zach\test_MaterialInitConditionsThermalGrid.py" />
+    <Compile Include="tests\zach\test_MaterialStiffnessDynamicSoils.py" />
+    <Compile Include="tests\zach\test_MaterialStiffnessFLACSoils.py" />
+    <Compile Include="tests\zach\test_MaterialStiffnessMohrCoulomb.py" />
+    <Compile Include="tests\zach\test_MaterialStiffnessPLAXISSoils.py" />
+    <Compile Include="tests\zach\test_MaterialStiffnessSofteningHardeningSoils.py" />
+    <Compile Include="tests\zach\test_MaterialThermalCapacity.py" />
+    <Compile Include="tests\zach\test_MaterialThermalConductivity.py" />
+    <Compile Include="tests\zach\test_MaterialThermalDispersivity.py" />
+    <Compile Include="tests\zach\test_MaterialThermalExpansion.py" />
+    <Compile Include="tests\zach\test_MaterialThermalSoilUnfrozenWC.py" />
+    <Compile Include="tests\zach\test_MaterialThermalType.py" />
+    <Compile Include="tests\zach\test_PileApplyDisp.py" />
+    <Compile Include="tests\zach\test_PileApplyForce.py" />
+    <Compile Include="tests\zach\test_PileBeamByLength.py" />
+    <Compile Include="tests\zach\test_PileBeamConstant.py" />
+    <Compile Include="tests\zach\test_PileConnectionType.py" />
+    <Compile Include="tests\zach\test_PileElastic.py" />
+    <Compile Include="tests\zach\test_PileLinear.py" />
+    <Compile Include="tests\zach\test_PileMaterialDependent.py" />
+    <Compile Include="tests\zach\test_PileMohrCoulomb.py" />
+    <Compile Include="tests\zach\test_PileMultilinear.py" />
+    <Compile Include="tests\zach\test_PileStageForceDisp.py" />
+    <Compile Include="tests\zach\test_StructuralInterface.py" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include=".vs\" />
@@ -495,6 +545,7 @@
     <Folder Include="tests\Properties\Pile" />
     <Folder Include="tests\Properties\StructuralInterface" />
     <Folder Include="tests\Results" />
+    <Folder Include="tests\zach\" />
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|PythonCore|3.11" />
