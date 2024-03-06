@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{cf16b438-0272-4178-b87c-f3c8fed7ab40}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>sampleClientScripts\SampleCriticalSRF.py</StartupFile>
+    <StartupFile>tests\zach\test_MaterialHydraulicTransientUserDefinedCoupled.py</StartupFile>
     <SearchPath>.;tests</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -13,6 +13,7 @@
     <LaunchProvider>Standard Python launcher</LaunchProvider>
     <InterpreterId>Global|PythonCore|3.11</InterpreterId>
     <EnableNativeCodeDebugging>False</EnableNativeCodeDebugging>
+    <TestFramework>Pytest</TestFramework>
     <TestFramework>unittest</TestFramework>
     <UnitTestPattern>test*.py</UnitTestPattern>
     <UnitTestRootDirectory>.</UnitTestRootDirectory>
@@ -56,11 +57,6 @@
     <Compile Include="docs\example_code\model_example.py" />
     <Compile Include="docs\example_code\pile_prop_example.py" />
     <Compile Include="docs\example_code\structural_prop_example.py" />
-    <Compile Include="docs\example_code\zach_BoltEndAnchored.py" />
-    <Compile Include="docs\example_code\zach_BoltFullyBonded.py" />
-    <Compile Include="docs\example_code\zach_BoltPlainStrand.py" />
-    <Compile Include="docs\example_code\zach_BoltSwellex.py" />
-    <Compile Include="docs\example_code\zach_BoltTieback.py" />
     <Compile Include="generateAndBuildDocumentation.py" />
     <Compile Include="sampleClientScripts\ExtraFunctionsTest.py" />
     <Compile Include="sampleClientScripts\SampleApplicationManager.py" />
@@ -463,6 +459,9 @@
     <Compile Include="tests\zach\test_LinerStandardBeam.py" />
     <Compile Include="tests\zach\test_MaterialDatum.py" />
     <Compile Include="tests\zach\test_MaterialHydraulicTransientConstant.py" />
+    <Compile Include="tests\zach\test_MaterialHydraulicTransientConstantCoupled.py" />
+    <Compile Include="tests\zach\test_MaterialHydraulicTransientUserDefined.py" />
+    <Compile Include="tests\zach\test_MaterialHydraulicTransientUserDefinedCoupled.py" />
     <Compile Include="tests\zach\test_MaterialInitConditions.py" />
     <Compile Include="tests\zach\test_MaterialInitConditionsPiezo.py" />
     <Compile Include="tests\zach\test_MaterialInitConditionsPwpGrid.py" />

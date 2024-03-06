@@ -2,11 +2,11 @@ from rs2.modeler.RS2Modeler import RS2Modeler
 from rs2.modeler.properties.PropertyEnums import *
 
 # vanila untouched
-base_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\BaseModel_HydraulicTransientUncoupled.fez'
+base_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\BaseModel_HydraulicTransient.fez'
 # modified by user via ui
-final_ui_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Material\hydraulicTransientConstantUncoupled_ui.fez'
+final_ui_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Material\hydraulicTransientConstant_ui.fez'
 #unit test result
-final_python_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Material\hydraulicTransientConstantUncoupled_python.fez'
+final_python_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Material\hydraulicTransientConstant_python.fez'
 
 modeler = RS2Modeler()
 
