@@ -21,7 +21,7 @@ class TestTieback(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testTiebackProperty(self):
         bolt = self.bolt
-        self.bolt.setBoltType(BoltTypes.TIEBACK)
+        self.bolt.setBoltType(BoltTypes.TIEBACK_BOLT)
         bolt.Tieback.setBoltDiameter(836.5)
         bolt.Tieback.setBoltModulusE(2628.5)
         bolt.Tieback.setBoltModel(BoltModels.P2_BOLT_ELASTIC)

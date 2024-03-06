@@ -21,7 +21,7 @@ class TestSwellex(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testSwellexProperty(self):
         bolt = self.bolt
-        self.bolt.setBoltType(BoltTypes.SWELLEX)
+        self.bolt.setBoltType(BoltTypes.SHEAR_BOLT)
         bolt.Swellex.setTensileCapacity(836.5)
         bolt.Swellex.setResidualTensileCapacity(2628.5)
         bolt.Swellex.setTributaryArea(972.5)
