@@ -37,3 +37,11 @@ class TestInterpreterSaveAs(unittest.TestCase):
             self.fail("Expected exception")
         except:
             pass
+
+    def testInterpeterSaveAsEmptyPathFailure(self):
+        try:
+            self.saveAsPath = ""
+            self.model.saveAs(self.saveAsPath)
+            self.fail("Expected exception")
+        except:
+            pass
