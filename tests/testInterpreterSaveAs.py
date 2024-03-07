@@ -7,6 +7,7 @@ parentDirectoryHelper.addParentDirectoryToPath()
 
 class TestInterpreterSaveAs(unittest.TestCase):
     parentDirectory = parentDirectoryHelper.getParentDirectory()
+    modelSavePath = ""
     @classmethod
     def setUpClass(self):
         blankModelPath = f"{TestInterpreterSaveAs.parentDirectory}/resources/example_computed_model.fez"
@@ -18,30 +19,31 @@ class TestInterpreterSaveAs(unittest.TestCase):
     def tearDownClass(self):
         self.model.close()
         os.remove(self.copiedModelPath)
+        if os.path.exists(TestInterpreterSaveAs.modelSavePath):
+            os.remove(TestInterpreterSaveAs.modelSavePath)
         self.model._client.closeConnection()
     
     def testInterpreterSaveAsSuccess(self):
-        self.saveAsPath = f"{TestInterpreterSaveAs.parentDirectory}/resources/testFileSaveAs.fez"
-        self.model.saveAs(self.saveAsPath)
+        TestInterpreterSaveAs.modelSavePath = f"{TestInterpreterSaveAs.parentDirectory}/resources/testFileSaveAs.fez"
+        self.model.saveAs(TestInterpreterSaveAs.modelSavePath)
     
     def testInterpreterConsecutiveSaveAsSuccess(self):
-        self.saveAsPath = f"{TestInterpreterSaveAs.parentDirectory}/resources/testFileSaveAs.fez"
-        self.model.saveAs(self.saveAsPath)
-        self.model.saveAs(self.saveAsPath)
-        self.model.saveAs(self.saveAsPath)
-    
+        TestInterpreterSaveAs.modelSavePath = f"{TestInterpreterSaveAs.parentDirectory}/resources/testFileSaveAs.fez"
+        self.model.saveAs(TestInterpreterSaveAs.modelSavePath)
+        self.model.saveAs(TestInterpreterSaveAs.modelSavePath)
+        self.model.saveAs(TestInterpreterSaveAs.modelSavePath)
+
     def testInterpeterSaveAsFailure(self):
         try:
-            self.saveAsPath = f"{TestInterpreterSaveAs.parentDirectory}/resources/testProject.fez"
-            self.model.saveAs(self.saveAsPath)
+            TestInterpreterSaveAs.modelSavePath = f"{TestInterpreterSaveAs.parentDirectory}/resources/testProject.fez"
+            self.model.saveAs(TestInterpreterSaveAs.modelSavePath)
             self.fail("Expected exception")
         except:
             pass
 
     def testInterpeterSaveAsEmptyPathFailure(self):
         try:
-            self.saveAsPath = ""
-            self.model.saveAs(self.saveAsPath)
+            self.model.saveAs("")
             self.fail("Expected exception")
         except:
             pass
