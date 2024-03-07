@@ -161,7 +161,7 @@ class Test_pile_unit_test(unittest.TestCase):
         bolt = bolts[0]
     
             # Bolt 1
-        bolt.setBoltType(BoltTypes.TIEBACK_BOLT)
+        bolt.setBoltType(BoltTypes.TIEBACK)
         bolt.Tieback.setBoltDiameter(1)
         bolt.Tieback.setBoltModulusE(134)
         bolt.Tieback.setBoltModel(BoltModels.P2_BOLT_PLASTIC)
@@ -187,7 +187,7 @@ class Test_pile_unit_test(unittest.TestCase):
 
 
     
-        self.assertEqual(bolt.getBoltType(), BoltTypes.TIEBACK_BOLT)
+        self.assertEqual(bolt.getBoltType(), BoltTypes.TIEBACK)
         self.assertEqual(bolt.Tieback.getBoltDiameter(), 1)
         self.assertEqual(bolt.Tieback.getBoltModulusE(),134)
         self.assertEqual(bolt.Tieback.getBoltModel(), BoltModels.P2_BOLT_PLASTIC)
