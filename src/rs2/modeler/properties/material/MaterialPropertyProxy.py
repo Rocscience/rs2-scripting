@@ -20,13 +20,13 @@ class MaterialProperty(PropertyProxy):
 		datumStageFactorInterface = self._callFunction("getDatumStageFactorInterface", [], keepReturnValueReference=True)
 		hydroStageFactorInterface = self._callFunction("getHydroStageFactorInterface", [], keepReturnValueReference=True)
 		thermalStageFactorInterface = self._callFunction("getThermalStageFactorInterface", [], keepReturnValueReference=True)
+		self.StageFactors = StageFactors(client, self._callFunction("getStageFactorManager", [], keepReturnValueReference=True))
 		self.InitialConditions = InitialConditions(client, ID, documentProxyID, strengthStiffnessStageFactorInterface)
 		self.Stiffness = Stiffness(client, ID, documentProxyID, strengthStiffnessStageFactorInterface)
 		self.Strength = Strength(client, ID, documentProxyID, strengthStiffnessStageFactorInterface)
 		self.Hydraulic = Hydraulic(client, ID, documentProxyID, hydroStageFactorInterface)
 		self.Thermal = Thermal(client, ID, documentProxyID, thermalStageFactorInterface)
 		self.Datum = Datum(client, ID, documentProxyID, datumStageFactorInterface)
-		self.StageFactors = StageFactors(client, ID, documentProxyID)
 	def getMaterialName(self) -> str:
 		return self._getCStringProperty("MP_NAME")
 	def setMaterialName(self, value: str):

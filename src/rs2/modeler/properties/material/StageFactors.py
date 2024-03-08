@@ -1,10 +1,10 @@
-from rs2.modeler.properties.propertyProxy import PropertyProxy
+from rs2._common.ProxyObject import ProxyObject
 from rs2._common.Client import Client
 from rs2.modeler.properties.PropertyEnums import *
 
-class StageFactors(PropertyProxy):
-	def __init__(self, client : Client, ID, documentProxyID):
-		super().__init__(client, ID, documentProxyID)
+class StageFactors(ProxyObject):
+	def __init__(self, client : Client, ID):
+		super().__init__(client, ID)
 	def setStageStrengthStiffnessStageFactors(self, value: bool):
 		return self._callFunction("setApplyStrengthStiffnessStageFactors", [value])
 	def getStageStrengthStiffnessStageFactors(self) -> bool:
