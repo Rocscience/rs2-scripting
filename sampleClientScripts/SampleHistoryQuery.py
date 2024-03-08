@@ -6,7 +6,7 @@ from pprint import pprint
 modeler = RS2Modeler()
 interpreter = RS2Interpreter()
 
-filePath = "C:\scriptingModels\Profiles_and_Boreholes.fez"
+filePath = r"C:\scriptingModels\Profiles_and_Boreholes.fez"
 modeler_model = modeler.openFile(filePath)
 interpreter_model = interpreter.openFile(filePath)
 

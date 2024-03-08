@@ -2,7 +2,7 @@ from rs2.interpreter.RS2Interpreter import RS2Interpreter
 from rs2.interpreter.InterpreterEnums import *
 
 interpreter = RS2Interpreter()
-model = interpreter.openFile("S:\willSati\Scripting\TestModels\Profiles_and_Boreholes.fez")
+model = interpreter.openFile(r"S:\willSati\Scripting\TestModels\Profiles_and_Boreholes.fez")
 
 # Setting and Retrieving results for built-in type
 model.SetResultType(ExportResultType.SOLID_EFFECTIVE_STRESS_EFFECTIVE_SIGMA_Z)

@@ -34,7 +34,6 @@ print(joint2.HyperbolicSoftening.getProperties())
 joint3.setJointName("Example Joint 3")
 joint3.setSlipCriterion(JointTypes.JOINT_DISPLACEMENT_DEPENDENT)
 joint3.DisplacementDependent.setProperties(AdditionalPressureType=AdditionalPressureType.JOINT_ADDITIONAL_PRESSURE_BY_VALUE, AdditionalPressureInsideJoint=5)
-#Not all functions are accesible through the setProperties method. 
 #Consult setProperties method definition in documentation to determine properties available.
 joint3.DisplacementDependent.setDisplacementDependentTable([[2,8,9,12],[5,6,7,8]])
 
