@@ -9,9 +9,9 @@ bolt = model.getAllBoltProperties()[0]
 liner = model.getAllLinerProperties()[0]
 joint = model.getAllJointProperties()[0]
 
-bolt.setBoltType(BoltTypes.SHEAR_BOLT)
-liner.setLinerType(LinerTypes.P2_LINER_REINFORCED_CONCRETE)
-joint.setSlipCriterion(JointTypes.JOINT_MATERIAL_DEPENDENT)
+bolt.setBoltType(BoltTypes.SWELLEX)
+liner.setLinerType(LinerTypes.REINFORCED_CONCRETE)
+joint.setSlipCriterion(JointTypes.MATERIAL_DEPENDENT)
 
 model.save()
 model.compute()

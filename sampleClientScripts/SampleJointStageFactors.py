@@ -6,8 +6,8 @@ modeler = RS2Modeler()
 model = modeler.openFile(r"S:\willSati\Scripting\TestModels\Profiles_and_Boreholes.fez")
 
 joint = model.getJointPropertyByName("Joint 1")
-joint.setSlipCriterion(JointTypes.JOINT_MOHR_COULOMB)
-mohrCoulombFactors = joint.MohrCoulomb.getStageFactors()
+joint.setSlipCriterion(JointTypes.MOHR_COULOMB)
+mohrCoulombFactors = joint.MohrCoulomb.stageFactorInterface.getDefinedStageFactors()
 stage1mohrCoulombFactors = mohrCoulombFactors[0]
 # Update the stage factor fields for the project
 stage1mohrCoulombFactors.setNormalStiffnessFactor(3)
@@ -21,9 +21,9 @@ stage1mohrCoulombFactors.setResTensileStrengthFactor(3)
 stage1mohrCoulombFactors.setAdditionalPressureInsideJointFactor(6)
 stage1mohrCoulombFactors.setGroundwaterPressureFactor(6)
 
-joint.setSlipCriterion(JointTypes.JOINT_BARTON_BANDIS) 
+joint.setSlipCriterion(JointTypes.BARTON_BANDIS) 
 
-bartonBandisfactors = joint.BartonBandis.getStageFactors()
+bartonBandisfactors = joint.BartonBandis.stageFactorInterface.getDefinedStageFactors()
 stage1bartonBandisFactors = bartonBandisfactors[0]
 # Update the stage factor fields for the project
 stage1bartonBandisFactors.setNormalStiffnessFactor(3)
@@ -34,9 +34,9 @@ stage1bartonBandisFactors.setResidualFrictionAngleFactor(3)
 stage1bartonBandisFactors.setAdditionalPressureInsideJointFactor(6)
 stage1bartonBandisFactors.setGroundwaterPressureFactor(6)
 
-joint.setSlipCriterion(JointTypes.JOINT_HYPERBOLIC_SIMPLE)
+joint.setSlipCriterion(JointTypes.GEOSYNTHETIC_HYPERBOLIC)
 
-geoSynfactors = joint.GeosyntheticHyperbolic.getStageFactors()
+geoSynfactors = joint.GeosyntheticHyperbolic.stageFactorInterface.getDefinedStageFactors()
 stage1geoSynFactors = geoSynfactors[0]
 # Update the stage factor fields for the project
 stage1geoSynFactors.setNormalStiffnessFactor(3) 
@@ -48,9 +48,9 @@ stage1geoSynFactors.setResFrictionAngleAtSign0Factor(3)
 stage1geoSynFactors.setAdditionalPressureInsideJointFactor(6)
 stage1geoSynFactors.setGroundwaterPressureFactor(6)
 
-joint.setSlipCriterion(JointTypes.JOINT_HYPERBOLIC_SOFTENING)
+joint.setSlipCriterion(JointTypes.HYPERBOLIC_SOFTENING)
 
-hyperbolicSoftFactors = joint.HyperbolicSoftening.getStageFactors()
+hyperbolicSoftFactors = joint.HyperbolicSoftening.stageFactorInterface.getDefinedStageFactors()
 stage1hyperbolicSoftFactors = hyperbolicSoftFactors[0]
 # Update the stage factor fields for the project
 stage1hyperbolicSoftFactors.setNormalStiffnessFactor(3)
@@ -67,9 +67,9 @@ stage1hyperbolicSoftFactors.setWorkSofteningFactor(False)
 stage1hyperbolicSoftFactors.setAdditionalPressureInsideJointFactor(6)
 stage1hyperbolicSoftFactors.setGroundwaterPressureFactor(6)
 
-joint.setSlipCriterion(JointTypes.JOINT_MATERIAL_DEPENDENT) 
+joint.setSlipCriterion(JointTypes.MATERIAL_DEPENDENT) 
 
-matDepfactors = joint.MaterialDependent.getStageFactors()
+matDepfactors = joint.MaterialDependent.stageFactorInterface.getDefinedStageFactors()
 stage1MatDepFactors = matDepfactors[0]
 # Update the stage factor fields for the project
 stage1MatDepFactors.setNormalStiffnessFactor(3)
@@ -78,9 +78,9 @@ stage1MatDepFactors.setInterfaceCoefficientFactor(3)
 stage1MatDepFactors.setAdditionalPressureInsideJointFactor(6)
 stage1MatDepFactors.setGroundwaterPressureFactor(6)
 
-joint.setSlipCriterion(JointTypes.JOINT_DISPLACEMENT_DEPENDENT)
+joint.setSlipCriterion(JointTypes.DISPLACEMENT_DEPENDENT)
 
-DispDepfactors = joint.DisplacementDependent.getStageFactors()
+DispDepfactors = joint.DisplacementDependent.stageFactorInterface.getDefinedStageFactors()
 stage1DisDepnFactors = DispDepfactors[0]
 # Update the stage factor fields for the project
 stage1DisDepnFactors.setNormalStiffnessFactor(3)

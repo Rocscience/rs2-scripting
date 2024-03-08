@@ -1,12 +1,13 @@
-from RS2Modeler import RS2Modeler
+from rs2.modeler.RS2Modeler import RS2Modeler
+from rs2.modeler.properties.PropertyEnums import *
 
 modeler = RS2Modeler()
 
-document = modeler.openFile('C:/Intel/simple_3_stage.fez')
-bolt = modeler.getFirstBolt()
+model = modeler.openFile('C:/Intel/simple_3_stage.fez')
+bolt = model.getAllBoltProperties()[0]
 
-bolt.setBoltType(bolt.BoltTypes.QUEENS_CABLE)
-bolt.setAddBulges(True)
+bolt.setBoltType(BoltTypes.PLAIN_STRAND_CABLE)
+bolt.PlainStrandCable.setAddBulges(True)
 
-bolt.setBulgeLocations([26,63,82])
-print(bolt.getBulgeLocations())
+bolt.PlainStrandCable.setBulgeLocations([26,63,82])
+print(bolt.PlainStrandCable.getBulgeLocations())

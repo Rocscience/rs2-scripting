@@ -12,7 +12,7 @@ joint3 = jointList[2]
 
 #Assigning joint1 properties individually
 joint1.setJointName("Example Joint 1")
-joint1.setSlipCriterion(JointTypes.JOINT_MOHR_COULOMB)
+joint1.setSlipCriterion(JointTypes.MOHR_COULOMB)
 joint1.MohrCoulomb.setTensileStrength(50)
 joint1.MohrCoulomb.setNormalStiffness(150000)
 joint1.MohrCoulomb.setApplyAdditionalPressureInsideJoint(True)
@@ -22,9 +22,9 @@ print(joint1.MohrCoulomb.getTensileStrength())
 print(joint1.MohrCoulomb.getNormalStiffness())
 print(joint1.MohrCoulomb.getApplyAdditionalPressureInsideJoint())
 
-#Bulk assignment of joint2 properties
+#Bulk assignment of joint2 properties 
 joint2.setJointName("Example Joint 2")
-joint2.setSlipCriterion(JointTypes.JOINT_HYPERBOLIC_SOFTENING)
+joint2.setSlipCriterion(JointTypes.HYPERBOLIC_SOFTENING)
 joint2.HyperbolicSoftening.setProperties(PeakCohesion=155, ShearStiffness=15000, ApplyPressureToLinerSideOnly=False)
 
 #Bulk retrieval of joint2 properties
@@ -32,8 +32,8 @@ print(joint2.HyperbolicSoftening.getProperties())
 
 #Assignment of joint3 properties
 joint3.setJointName("Example Joint 3")
-joint3.setSlipCriterion(JointTypes.JOINT_DISPLACEMENT_DEPENDENT)
-joint3.DisplacementDependent.setProperties(AdditionalPressureType=AdditionalPressureType.JOINT_ADDITIONAL_PRESSURE_BY_VALUE, AdditionalPressureInsideJoint=5)
+joint3.setSlipCriterion(JointTypes.DISPLACEMENT_DEPENDENT)
+joint3.DisplacementDependent.setProperties(AdditionalPressureType=AdditionalPressureType.PRESSURE, AdditionalPressureInsideJoint=5)
 #Not all functions are accesible through the setProperties method. 
 #Consult setProperties method definition in documentation to determine properties available.
 joint3.DisplacementDependent.setDisplacementDependentTable([[2,8,9,12],[5,6,7,8]])

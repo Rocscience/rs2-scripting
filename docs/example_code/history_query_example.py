@@ -14,8 +14,10 @@ modeler_model.AddHistoryQueryPoint(history_query_name="Example Point 1", x=-1.1,
 # Remove History Query Point in Modeler
 modeler_model.RemoveHistoryQueryPoint("HQ 1")
 # Get Results for a specific History Query Point in Interpreter
-results = interpreter_model.GetHistoryQueryResults(hq_name="HQ 2", horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
-                                                   vertical_axis=HistoryQueryGraphEnums.VerticalAxisTypes.EFFECTIVE_STRESS_YY, stages=[1, 2])
+results = interpreter_model.GetHistoryQueryResults(hq_name="HQ 2", 
+                                                   horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
+                                                   vertical_axis=HistoryQueryGraphEnums.VerticalAxisTypes.EFFECTIVE_STRESS_YY, 
+                                                   stages=[1, 2])
 
 # Extracting data
 stage_number = 1

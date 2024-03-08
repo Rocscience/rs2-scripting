@@ -21,7 +21,10 @@ vertical_axis = HistoryQueryGraphEnums.VerticalAxisTypes.EFFECTIVE_STRESS_YY
 horizontal_axis = HistoryQueryGraphEnums.HorizontalAxisTypes.STAGE_LOAD_PERCENTAGE
 stages = [1, 2]
 
-history_query_results = interpreter_model.GetHistoryQueryResults(hq_name=hq_name, horizontal_axis=horizontal_axis, vertical_axis=vertical_axis, stages=stages)
+history_query_results = interpreter_model.GetHistoryQueryResults(hq_name=hq_name, 
+                                                                 horizontal_axis=horizontal_axis, 
+                                                                 vertical_axis=vertical_axis, 
+                                                                 stages=stages)
 
 # Extracting data
 stage_number = 1
