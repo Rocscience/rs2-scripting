@@ -6,11 +6,11 @@ from rs2.interpreter.InterpreterGraphEnums import *
 modeler = RS2Modeler()
 interpreter = RS2Interpreter()
 
-modeler_model = modeler.openFile("S:\willSati\Scripting\TestModels\Profiles_and_Boreholes.fez")
-interpreter_model = interpreter.openFile("S:\willSati\Scripting\TestModels\Profiles_and_Boreholes.fez")
+modeler_model = modeler.openFile("C:\scriptingModels\Profiles_and_Boreholes.fez")
+interpreter_model = interpreter.openFile("C:\scriptingModels\Profiles_and_Boreholes.fez")
 
 # Add History Query Point in Modeler
-modeler_model.AddHistoryQueryPoint(history_query_name="Example Point 1", x=-1.1, y=3.8)
+modeler_model.AddHistoryQueryPoint(history_query_name="Testing Point 1", x=-3.1, y=2.8)
 # Remove History Query Point in Modeler
 modeler_model.RemoveHistoryQueryPoint("HQ 1")
 # Get Results for a specific History Query Point in Interpreter
