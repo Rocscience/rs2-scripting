@@ -32,15 +32,15 @@ class TestStageFactorExtraFunctions(unittest.TestCase):
 
     def testSetK1SurfaceFactor(self):
         sf1 = self.material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[1]
-        sf1.setSurfaceFactor("Anisotropic Surface 2")
-        self.assertEqual(sf1.getSurfaceFactor(), "Anisotropic Surface 2")
-        sf1.setSurfaceFactor("Anisotropic Surface 1")
-        self.assertEqual(sf1.getSurfaceFactor(), "Anisotropic Surface 1")
+        sf1.setAnisotropicSurfaceFactor("Anisotropic Surface 2")
+        self.assertEqual(sf1.getAnisotropicSurfaceFactor(), "Anisotropic Surface 2")
+        sf1.setAnisotropicSurfaceFactor("Anisotropic Surface 1")
+        self.assertEqual(sf1.getAnisotropicSurfaceFactor(), "Anisotropic Surface 1")
     
     def testSetK1SurfaceFactorFailure(self):
         sf1 = self.material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[1]
         with self.assertRaises(Exception):
-            sf1.setSurfaceFactor("NonExistant Surface")
+            sf1.setAnisotropicSurfaceFactor("NonExistant Surface")
 
 
 class TestStageFactorStaticGroundwaterExtraFunctions(unittest.TestCase):
