@@ -22,7 +22,7 @@ class TestHydraulicModel(unittest.TestCase):
     def testHydraulicModelProperty(self):
         soilunfrozenwatercontent = self.material.Thermal.SoilUnfrozenWaterContent
         soilunfrozenwatercontent.HydraulicModel.setFrozenTemperature(836.5)
-        soilunfrozenwatercontent.HydraulicModel.setSelectHydraulicModel(GroundWaterModes.SL_WATER_MODE_FREDLUND)
+        soilunfrozenwatercontent.HydraulicModel.setSelectHydraulicModel(GroundWaterModes.FREDLUND_AND_XING)
         soilunfrozenwatercontent.HydraulicModel.setWCSat(0.3)
         soilunfrozenwatercontent.HydraulicModel.setWCRes(0.4)
         self.model.save()
@@ -31,6 +31,6 @@ class TestHydraulicModel(unittest.TestCase):
         self.material = self.model.getAllMaterialProperties()[0]
         soilunfrozenwatercontent = self.material.Thermal.SoilUnfrozenWaterContent
         self.assertEqual(soilunfrozenwatercontent.HydraulicModel.getFrozenTemperature(), 836.5)
-        self.assertEqual(soilunfrozenwatercontent.HydraulicModel.getSelectHydraulicModel(), GroundWaterModes.SL_WATER_MODE_FREDLUND)
+        self.assertEqual(soilunfrozenwatercontent.HydraulicModel.getSelectHydraulicModel(), GroundWaterModes.FREDLUND_AND_XING)
         self.assertEqual(soilunfrozenwatercontent.HydraulicModel.getWCSat(), 0.3)
         self.assertEqual(soilunfrozenwatercontent.HydraulicModel.getWCRes(), 0.4)

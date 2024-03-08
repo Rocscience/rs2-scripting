@@ -65,13 +65,13 @@ class TestDynamicProperties(unittest.TestCase):
     
     def testAnisotropicSurfaceSuccess(self):
         self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.SNOWDEN_MODIFIED_ANISOTROPIC_LINEAR)
-        self.material.Strength.SnowdenModAnisotropicLinear.setAnisotropyDefinition(AnisotropyDefinitions.ANISOTROPY_DEFINITION_SURFACE)
+        self.material.Strength.SnowdenModAnisotropicLinear.setAnisotropyDefinition(AnisotropyDefinitions.SURFACE)
         self.material.Strength.SnowdenModAnisotropicLinear.setAnisotropicSurfaceByName("Anisotropic Surface 1")
         self.assertEqual(self.material.Strength.SnowdenModAnisotropicLinear.getAnisotropicSurfaceName(), "Anisotropic Surface 1")
 
     def testAnisotropicSurfaceFail(self):
         self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.SNOWDEN_MODIFIED_ANISOTROPIC_LINEAR)
-        self.material.Strength.SnowdenModAnisotropicLinear.setAnisotropyDefinition(AnisotropyDefinitions.ANISOTROPY_DEFINITION_SURFACE)
+        self.material.Strength.SnowdenModAnisotropicLinear.setAnisotropyDefinition(AnisotropyDefinitions.SURFACE)
         with self.assertRaises(Exception):
             self.material.Strength.SnowdenModAnisotropicLinear.setAnisotropicSurfaceByName("Not a surface")
 
@@ -116,14 +116,14 @@ class TestDynamicProperties(unittest.TestCase):
             self.material.Hydraulic.StaticGroundwater.setGridToUse("Not a grid")
     
     def testK1SurfaceToUseByName(self):
-        self.material.Hydraulic.FEAGroundwater.setK1Definition(AnisotropyDefinitions.ANISOTROPY_DEFINITION_SURFACE)
+        self.material.Hydraulic.FEAGroundwater.setK1Definition(AnisotropyDefinitions.SURFACE)
         self.material.Hydraulic.FEAGroundwater.setK1SurfaceToUseByName("Anisotropic Surface 1")
         self.assertEqual(self.material.Hydraulic.FEAGroundwater.getK1SurfaceToUse(), "Anisotropic Surface 1")
 
     def testK1SurfaceToUseFail(self):
         self.material.Hydraulic.FEAGroundwater.setK1SurfaceToUseByName("Anisotropic Surface 1")
 
-        self.material.Hydraulic.FEAGroundwater.setK1Definition(AnisotropyDefinitions.ANISOTROPY_DEFINITION_SURFACE)
+        self.material.Hydraulic.FEAGroundwater.setK1Definition(AnisotropyDefinitions.SURFACE)
         with self.assertRaises(Exception):
             self.material.Hydraulic.FEAGroundwater.setK1SurfaceToUseByName("Not a surface")
     

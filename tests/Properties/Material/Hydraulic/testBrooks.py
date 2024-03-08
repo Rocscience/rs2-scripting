@@ -16,7 +16,7 @@ class TestBrooks(unittest.TestCase):
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
-        self.material.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.SL_WATER_MODE_BROOK)
+        self.material.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.BROOKS_AND_COREY)
     def tearDown(self):
         self.model.close()
         os.remove(self.copiedModelPath)
@@ -25,7 +25,7 @@ class TestBrooks(unittest.TestCase):
         feagroundwater.Brooks.setPoreSizeIndex(836.5)
         feagroundwater.Brooks.setBubblingPressure(2628.5)
         feagroundwater.Brooks.setKs(972.5)
-        feagroundwater.Brooks.setWCInputType(WCInputType.WC_INPUT_DOS)
+        feagroundwater.Brooks.setWCInputType(WCInputType.BY_DEGREE_OF_SATURATION)
         feagroundwater.Brooks.setWCSat(0.15)
         feagroundwater.Brooks.setWCRes(0.2)
         feagroundwater.Brooks.setDoSSat(0.3)
@@ -38,7 +38,7 @@ class TestBrooks(unittest.TestCase):
         self.assertEqual(feagroundwater.Brooks.getPoreSizeIndex(), 836.5)
         self.assertEqual(feagroundwater.Brooks.getBubblingPressure(), 2628.5)
         self.assertEqual(feagroundwater.Brooks.getKs(), 972.5)
-        self.assertEqual(feagroundwater.Brooks.getWCInputType(), WCInputType.WC_INPUT_DOS)
+        self.assertEqual(feagroundwater.Brooks.getWCInputType(), WCInputType.BY_DEGREE_OF_SATURATION)
         self.assertEqual(feagroundwater.Brooks.getWCSat(), 0.15)
         self.assertEqual(feagroundwater.Brooks.getWCRes(), 0.2)
         self.assertEqual(feagroundwater.Brooks.getDoSSat(), 0.3)

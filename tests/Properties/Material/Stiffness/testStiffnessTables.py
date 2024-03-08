@@ -17,7 +17,7 @@ class TestStiffnessTables(unittest.TestCase):
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
-        self.material.Stiffness.setElasticType(MaterialElasticityTypes.CUSTOM_STIFFNESS)
+        self.material.Stiffness.setElasticType(MaterialElasticityTypes.CUSTOM)
 
     @classmethod
     def tearDownClass(self):
@@ -111,7 +111,7 @@ class TestStiffnessUnloadingTables(unittest.TestCase):
         self.material.Stiffness.Custom.setCustomStiffnessLoadingTable(CustomMode.CUSTOM_P, newTable)
         self.material.Stiffness.Custom.setCustomStiffnessLoadingTable(CustomMode.CUSTOM_Q, newTable)
 
-        self.material.Stiffness.setElasticType(MaterialElasticityTypes.CUSTOM_STIFFNESS)
+        self.material.Stiffness.setElasticType(MaterialElasticityTypes.CUSTOM)
         self.material.Stiffness.Custom.setUseUnloadingCondition(True)
     @classmethod
     def tearDownClass(self):

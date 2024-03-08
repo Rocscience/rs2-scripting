@@ -21,7 +21,7 @@ class TestMultiLinear(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testMultiLinearProperty(self):
         pile = self.pile
-        self.pile.setSkinResistance(PileSkinResistanceType.SKIN_RESISTANCE_MULTI_LINEAR)
+        self.pile.setSkinResistance(PileSkinResistanceType.MULTI_LINEAR)
         pile.MultiLinear.setShearStiffness(836.5)
         pile.MultiLinear.setNormalStiffness(2628.5)
         pile.MultiLinear.setDefinitionMethod(PileDefinitionMethod.ELEVATION)

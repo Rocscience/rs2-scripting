@@ -28,7 +28,7 @@ class TestJointMaterial(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testJointMaterialProperty(self):
         jointmaterial = self.jointmaterial
-        jointmaterial.setSlipCriterion(JointTypes.JOINT_HYPERBOLIC_SIMPLE)
+        jointmaterial.setSlipCriterion(JointTypes.GEOSYNTHETIC_HYPERBOLIC)
         jointmaterial.SetApplySSR(True)
         self.model.save()
         self.model.close()
@@ -38,5 +38,5 @@ class TestJointMaterial(unittest.TestCase):
         self.matJointOptions = self.mat.Strength.JointedMohrCoulomb.getJointOptions()
         self.jointmaterial = self.matJointOptions.getJoint(0)
         jointmaterial = self.jointmaterial
-        self.assertEqual(jointmaterial.getSlipCriterion(), JointTypes.JOINT_HYPERBOLIC_SIMPLE)
+        self.assertEqual(jointmaterial.getSlipCriterion(), JointTypes.GEOSYNTHETIC_HYPERBOLIC)
         self.assertEqual(jointmaterial.GetApplySSR(), True)

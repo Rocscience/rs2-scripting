@@ -21,7 +21,7 @@ class TestViscoElastic(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testViscoElasticProperty(self):
         stiffness = self.material.Stiffness
-        stiffness.ViscoElastic.setViscoElasticType(ViscoElasticTypes.VET_BURGERS)
+        stiffness.ViscoElastic.setViscoElasticType(ViscoElasticTypes.BURGERS)
         stiffness.ViscoElastic.setBulkModulus(836.5)
         stiffness.ViscoElastic.setMaxwellShearModulus(2628.5)
         stiffness.ViscoElastic.setMaxwellViscosity(972.5)
@@ -33,7 +33,7 @@ class TestViscoElastic(unittest.TestCase):
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         stiffness = self.material.Stiffness
-        self.assertEqual(stiffness.ViscoElastic.getViscoElasticType(), ViscoElasticTypes.VET_BURGERS)
+        self.assertEqual(stiffness.ViscoElastic.getViscoElasticType(), ViscoElasticTypes.BURGERS)
         self.assertEqual(stiffness.ViscoElastic.getBulkModulus(), 836.5)
         self.assertEqual(stiffness.ViscoElastic.getMaxwellShearModulus(), 2628.5)
         self.assertEqual(stiffness.ViscoElastic.getMaxwellViscosity(), 972.5)

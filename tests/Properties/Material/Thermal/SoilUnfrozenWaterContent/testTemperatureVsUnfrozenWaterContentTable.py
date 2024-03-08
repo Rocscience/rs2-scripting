@@ -17,7 +17,7 @@ class TestTemperatureVsUnfrozenWaterContentTable(unittest.TestCase):
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
-        self.material.Thermal.SoilUnfrozenWaterContent.setType(ThermalWaterContentType.THERMAL_WATER_CONTENT_CUSTOM)
+        self.material.Thermal.SoilUnfrozenWaterContent.setType(ThermalWaterContentType.CUSTOM)
     @classmethod
     def tearDownClass(self):
         self.model.close()
