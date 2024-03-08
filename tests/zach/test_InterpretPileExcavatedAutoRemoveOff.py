@@ -14,11 +14,11 @@ from rs2.interpreter.MaterialQueryResults import *
 import csv
 
 # vanila untouched
-base_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\BaseModel_InterpretLinerExcavatedAutoRemoveOff.fez'
+base_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\BaseModel_InterpretPileExcavatedAutoRemoveOff.fez'
 #unit test result
-final_python_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Interpret\interpretLinerExcavatedAutoRemoveOff_python.fez'
+final_python_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Interpret\interpretPileExcavatedAutoRemoveOff_python.fez'
 # CSV to write data
-csvFile = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Interpret\interpretLinerExcavatedAutoRemoveOff.csv'
+csvFile = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Interpret\interpretPileExcavatedAutoRemoveOff.csv'
 
 modeler = RS2Modeler()
 interpreter = RS2Interpreter()
@@ -58,6 +58,29 @@ def extractLinerElementResults(linerElements: list[LinerElementResult]):
     return allElementResults
 
 
+def extractJointElementResults(jointElements: list[JointElementResult]):
+    # Extracts individual values (stress, displacement, etc.) from a list of jointElementResults
+    # Returns a list of lists, where each internal list contains all extracted values for a particular joint element
+    allElementResults = []
+    for x in range(len(jointElements)):
+        element = jointElements[x]
+        elementResults = []
+        elementResults.append(element.start_x)
+        elementResults.append(element.start_y)
+        elementResults.append(element.end_x)
+        elementResults.append(element.end_y)
+        elementResults.append(element.distance)
+        elementResults.append(element.normal_stress)
+        elementResults.append(element.shear_stress)
+        elementResults.append(element.confining_stress)
+        elementResults.append(element.normal_displacement)
+        elementResults.append(element.shear_displacement)
+        elementResults.append(element.yielded)
+
+        allElementResults.append(elementResults)
+    return allElementResults
+
+
 def test1():
 
     model.compute()
@@ -65,22 +88,30 @@ def test1():
 
     interpretModel = interpreter.openFile(final_python_model)
 
-    linerResultsList = interpretModel.GetLinerResults([1,2,3,4])
-    extractedLinerResults = []
-
+    allPileResults = interpretModel.GetPileResults([1,2,3,4])
+    extractedPileResults = []
     for stage in range (1,5):
-        linerResult = linerResultsList[stage]
+        pileResultList = allPileResults[stage]
 
-        if len(linerResult) != 0: # Screen to make sure liner exists at given stage
-            linerElementResults = linerResult[0].liner_element_results
-            extractedLinerResults.append(extractLinerElementResults(linerElementResults))
-        else:
-            extractedLinerResults.append([[0]*18]*3)
+        for i in range(len(pileResultList)):
+            pile = pileResultList[i]
+
+            pileLinerResult = pile.liner_result
+            pileLinerElementResult = pileLinerResult.liner_element_results
+            pileJointResult = pile.joint_result
+            pileJointElementResult = pileJointResult.joint_element_results
+            extractedPileResults.append(extractLinerElementResults(pileLinerElementResult))
+            extractedPileResults.append(extractJointElementResults(pileJointElementResult))
+
+    print(extractedPileResults)
+
+
+
 
     # Write results to CSV
     with open(csvFile, mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerows(extractedLinerResults)
+        writer.writerows(extractedPileResults)
 
 
 test1()

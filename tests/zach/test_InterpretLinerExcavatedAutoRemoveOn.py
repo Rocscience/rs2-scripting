@@ -27,7 +27,7 @@ model = modeler.openFile(base_model)
 
 model.saveAs(final_python_model)
 
-def extractElementResults(linerElements: list[LinerElementResult]):
+def extractLinerElementResults(linerElements: list[LinerElementResult]):
     # Extracts individual values (stress, displacement, etc.) from a list of linerElementResults
     # Returns a list of lists, where each internal list contains all extracted values for a particular liner element
     allElementResults = []
@@ -74,7 +74,7 @@ def test1():
 
         if len(linerResult) != 0: # Screen to make sure liner exists at given stage
             linerElementResults = linerResult[0].liner_element_results
-            extractedLinerResults.append(extractElementResults(linerElementResults))
+            extractedLinerResults.append(extractLinerElementResults(linerElementResults))
         else:
             extractedLinerResults.append([[0]*18]*3)
 
