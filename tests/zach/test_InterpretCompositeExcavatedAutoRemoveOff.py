@@ -14,11 +14,11 @@ from rs2.interpreter.MaterialQueryResults import *
 import csv
 
 # vanila untouched
-base_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\BaseModel_InterpretStructuralInterface.fez'
+base_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\BaseModel_InterpretCompositeExcavatedAutoRemoveOff.fez'
 #unit test result
-final_python_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Interpret\interpretStructuralInterface_python.fez'
+final_python_model = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Interpret\interpretCompositeExcavatedAutoRemoveOff_python.fez'
 # CSV to write data
-csvFile = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Interpret\interpretStructuralInterface.csv'
+csvFile = r'S:\Students\2024-1 Jan-Apr\Zachary\scriptingModels\Interpret\interpretCompositeExcavatedAutoRemoveOff.csv'
 
 modeler = RS2Modeler()
 interpreter = RS2Interpreter()
@@ -88,51 +88,47 @@ def test1():
 
     interpretModel = interpreter.openFile(final_python_model)
 
-    allStructResults = interpretModel.GetStructuralResults([1,2,3,4])
-    extractedStructResults = []
+    allCompositeResults = interpretModel.GetCompositeResults([1,2,3,4])
+    extractedCompositeResults = []
     for stage in range (1,5):
-        structResultList = allStructResults[stage]
+        compositeResultList = allCompositeResults[stage]
 
-        for i in range(len(structResultList)):
-            struct = structResultList[i]
+        for i in range(len(compositeResultList)):
+            composite = compositeResultList[i]
 
-            structLinerResult = struct.liner_result
-            structLinerElementResult = structLinerResult.liner_element_results
-            structJointResult = struct.joint_result
-            structJointElementResult = structJointResult.joint_element_results
-            extractedStructResults.append(extractLinerElementResults(structLinerElementResult))
-            extractedStructResults.append(extractJointElementResults(structJointElementResult))
+            compositeLinerResult = composite.liner_result
+            compositeLinerElementResult = compositeLinerResult.liner_element_results
+            compositeJointResult = composite.joint_result
+            compositeJointElementResult = compositeJointResult.joint_element_results
+            extractedCompositeResults.append(extractLinerElementResults(compositeLinerElementResult))
+            extractedCompositeResults.append(extractJointElementResults(compositeJointElementResult))
 
-    print(extractedStructResults)
+    print(extractedCompositeResults)
 
-    struct1LinerStage2 = allStructResults[2][0].liner_result
-    struct1JointStage2 = allStructResults[2][0].joint_result
-    struct2LinerStage2 = allStructResults[2][1].liner_result
-    struct2JointStage2 = allStructResults[2][1].joint_result
-    struct1LinerStage3 = allStructResults[3][0].liner_result
-    struct1JointStage3 = allStructResults[3][0].joint_result
-    struct2LinerStage3 = allStructResults[3][1].liner_result
-    struct2JointStage3 = allStructResults[3][1].joint_result
+    compLinerStage2 = allCompositeResults[2][0].liner_result
+    compJointStage2 = allCompositeResults[2][0].joint_result
+    compLinerStage3 = allCompositeResults[3][0].liner_result
+    compJointStage3 = allCompositeResults[3][0].joint_result
 
-    assert(len(allStructResults[1]) == 0) # Assert structural interfaces do not exist at stage 1 (Not installed yet)
+    assert(len(allCompositeResults[1]) == 0) # Assert composite does not exist in stage 1 (Not installed yet)
 
-    assert(extractLinerElementResults(struct1LinerStage2.liner_element_results)[0][7] != extractLinerElementResults(struct1LinerStage3.liner_element_results)[0][7]) # Assert liner axial force change Struct 1
-    assert(extractLinerElementResults(struct2LinerStage2.liner_element_results)[0][7] != extractLinerElementResults(struct2LinerStage3.liner_element_results)[0][7]) # Assert liner axial force change Struct 2
+    assert(extractLinerElementResults(compLinerStage2.liner_element_results)[0][7] == 0) # Assert axial force is 0 for all liner layers in stages 2 and 3 (Liners exist but no forces act on them)
+    assert(extractLinerElementResults(compLinerStage3.liner_element_results)[0][7] == 0) 
+    assert(extractLinerElementResults(compLinerStage2.liner_element_results)[2][7] == 0)
+    assert(extractLinerElementResults(compLinerStage3.liner_element_results)[2][7] == 0)
+    assert(extractLinerElementResults(compLinerStage2.liner_element_results)[4][7] == 0)
+    assert(extractLinerElementResults(compLinerStage3.liner_element_results)[4][7] == 0)
 
-    assert(extractLinerElementResults(struct1LinerStage2.liner_element_results)[0][18] != extractLinerElementResults(struct1LinerStage3.liner_element_results)[0][18]) # Assert liner temperature change Struct 1
-    assert(extractLinerElementResults(struct2LinerStage2.liner_element_results)[0][18] != extractLinerElementResults(struct2LinerStage3.liner_element_results)[0][18]) # Assert liner temperature change Struct 2
+    assert(extractJointElementResults(compJointStage2.joint_element_results)[0][6] == 0) # Assert joint shear stress is 0 for stages 2 and 3
+    assert(extractJointElementResults(compJointStage3.joint_element_results)[0][6] == 0)
 
-    assert(extractJointElementResults(struct1JointStage2.joint_element_results)[0][6] != extractJointElementResults(struct1JointStage3.joint_element_results)[0][6]) # Assert joint 1 shear stress change Struct 1
-    assert(extractJointElementResults(struct1JointStage2.joint_element_results)[1][6] != extractJointElementResults(struct1JointStage3.joint_element_results)[1][6]) # Assert joint 2 shear stress change Struct 1
-    assert(extractJointElementResults(struct2JointStage2.joint_element_results)[0][6] != extractJointElementResults(struct2JointStage3.joint_element_results)[0][6]) # Assert joint 1 shear stress change Struct 2
-    assert(extractJointElementResults(struct2JointStage2.joint_element_results)[1][6] != extractJointElementResults(struct2JointStage3.joint_element_results)[1][6]) # Assert joint 2 shear stress change Struct 2
+    assert(len(allCompositeResults[4]) == 0) # Assert composite does not exist in stage 4 (Liner removed)
 
-    assert(len(allStructResults[4]) != 0) # Assert that structural interfaces exist at stage 4 (Structural Interfaces cannot be removed)
 
     # Write results to CSV
     with open(csvFile, mode='w', newline='') as file:
         writer = csv.writer(file)
-        writer.writerows(extractedStructResults)
+        writer.writerows(extractedCompositeResults)
 
 
 test1()

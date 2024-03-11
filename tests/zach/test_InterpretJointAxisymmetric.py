@@ -101,8 +101,24 @@ def test1():
 
     print(extractedJointResults)
 
+    joint1Stage1 = allJointResults[1][0]
+    joint2Stage1 = allJointResults[1][1]
+    joint1Stage2 = allJointResults[2][0]
+    joint2Stage2 = allJointResults[2][1]
+    joint1Stage3 = allJointResults[3][0]
+    joint2Stage3 = allJointResults[3][1]
+    joint1Stage4 = allJointResults[4][0]
+    joint2Stage4 = allJointResults[4][1]
 
 
+    assert(extractJointElementResults(joint1Stage1.joint_element_results)[0][6] == None) # Assert joint 1 shear stress is none at stage 1 (Joint not installed yet)
+    assert(extractJointElementResults(joint2Stage1.joint_element_results)[0][6] == None) # Assert joint 2 shear stress is none at stage 1 (Joint not installed yet)
+
+    assert(extractJointElementResults(joint1Stage2.joint_element_results)[0][6] != extractJointElementResults(joint1Stage3.joint_element_results)[0][6]) # Assert Joint 1 shear stress change
+    assert(extractJointElementResults(joint2Stage2.joint_element_results)[0][6] != extractJointElementResults(joint2Stage3.joint_element_results)[0][6]) # Assert Joint 2 shear stress change
+
+    assert(extractJointElementResults(joint1Stage4.joint_element_results)[0][6] != None) # Assert joint 1 shear stress exists (Joints cannot be removed)
+    assert(extractJointElementResults(joint2Stage4.joint_element_results)[0][6] != None) # Assert joint 2 shear stress exists (Joints cannot be removed)
 
     # Write results to CSV
     with open(csvFile, mode='w', newline='') as file:

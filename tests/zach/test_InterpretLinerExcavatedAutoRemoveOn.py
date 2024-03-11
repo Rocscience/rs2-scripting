@@ -78,6 +78,11 @@ def test1():
         else:
             extractedLinerResults.append([[0]*18]*3)
 
+    assert(len(linerResultsList[1]) == 0)
+    assert(len(linerResultsList[2]) == 0)
+    assert(len(linerResultsList[3]) == 0)
+    assert(len(linerResultsList[4]) == 0)
+
     # Write results to CSV
     with open(csvFile, mode='w', newline='') as file:
         writer = csv.writer(file)

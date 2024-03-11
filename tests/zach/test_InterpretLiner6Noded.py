@@ -78,6 +78,13 @@ def test1():
         else:
             extractedLinerResults.append([[0]*18]*3)
 
+    assert(len(linerResultsList[1]) == 0)
+    linerStage2 = linerResultsList[2]
+    linerStage3 = linerResultsList[3]
+    assert(extractLinerElementResults(linerStage2[0].liner_element_results)[0][7] != extractLinerElementResults(linerStage3[0].liner_element_results)[0][7]) # Assert axial force change
+    assert(extractLinerElementResults(linerStage2[0].liner_element_results)[0][18] != extractLinerElementResults(linerStage3[0].liner_element_results)[0][18]) # Assert temperature change
+    assert(len(linerResultsList[4]) == 0)
+
     # Write results to CSV
     with open(csvFile, mode='w', newline='') as file:
         writer = csv.writer(file)

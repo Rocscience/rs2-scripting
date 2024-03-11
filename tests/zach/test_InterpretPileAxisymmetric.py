@@ -105,8 +105,43 @@ def test1():
 
     print(extractedPileResults)
 
+    pile1LinerStage1 = allPileResults[1][0].liner_result
+    pile1JointStage1 = allPileResults[1][0].joint_result
+    pile2LinerStage1 = allPileResults[1][1].liner_result
+    pile2JointStage1 = allPileResults[1][1].joint_result
+    pile1LinerStage2 = allPileResults[2][0].liner_result
+    pile1JointStage2 = allPileResults[2][0].joint_result
+    pile2LinerStage2 = allPileResults[2][1].liner_result
+    pile2JointStage2 = allPileResults[2][1].joint_result
+    pile1LinerStage3 = allPileResults[3][0].liner_result
+    pile1JointStage3 = allPileResults[3][0].joint_result
+    pile2LinerStage3 = allPileResults[3][1].liner_result
+    pile2JointStage3 = allPileResults[3][1].joint_result
+    pile1LinerStage4 = allPileResults[4][0].liner_result
+    pile1JointStage4 = allPileResults[4][0].joint_result
+    pile2LinerStage4 = allPileResults[4][1].liner_result
+    pile2JointStage4 = allPileResults[4][1].joint_result
 
+    assert(len(pile1LinerStage1.liner_element_results) == 0) # Assert pile 1 liner does not exist at stage 1
+    assert(len(pile2LinerStage1.liner_element_results) == 0) # Assert pile 2 liner does not exist at stage 1
 
+    assert(extractJointElementResults(pile1JointStage1.joint_element_results)[0][7] == None) # Assert pile 1 joint confining stress is none at stage 1 (joint does not exist)
+    assert(extractJointElementResults(pile2JointStage1.joint_element_results)[0][7] == None) # Assert pile 2 joint confining stress is none at stage 1 (joint does not exist)
+
+    assert(extractLinerElementResults(pile1LinerStage2.liner_element_results)[0][7] != extractLinerElementResults(pile1LinerStage3.liner_element_results)[0][7]) # Assert liner axial force change Pile 1
+    assert(extractLinerElementResults(pile2LinerStage2.liner_element_results)[0][7] != extractLinerElementResults(pile2LinerStage3.liner_element_results)[0][7]) # Assert liner axial force change Pile 2
+
+    assert(extractLinerElementResults(pile1LinerStage2.liner_element_results)[0][18] != extractLinerElementResults(pile1LinerStage3.liner_element_results)[0][18]) # Assert liner temperature change Pile 1
+    assert(extractLinerElementResults(pile2LinerStage2.liner_element_results)[0][18] != extractLinerElementResults(pile2LinerStage3.liner_element_results)[0][18]) # Assert liner temperature change Pile 2
+
+    assert(extractJointElementResults(pile1JointStage2.joint_element_results)[0][7] != extractJointElementResults(pile1JointStage3.joint_element_results)[0][5]) # Assert joint confining stress change Pile 1
+    assert(extractJointElementResults(pile2JointStage2.joint_element_results)[0][7] != extractJointElementResults(pile2JointStage3.joint_element_results)[0][5]) # Assert joint confining stress change Pile 2
+
+    assert(len(pile1LinerStage4.liner_element_results) == 0) # Assert pile 1 liner does not exist at stage 4
+    assert(len(pile2LinerStage4.liner_element_results) == 0) # Assert pile 2 liner does not exist at stage 4
+
+    assert(extractJointElementResults(pile1JointStage4.joint_element_results)[0][7] == None) # Assert pile 1 joint confining stress is none at stage 4 (joint does not exist)
+    assert(extractJointElementResults(pile2JointStage4.joint_element_results)[0][7] == None) # Assert pile 2 joint confining stress is none at stage 4 (joint does not exist)
 
     # Write results to CSV
     with open(csvFile, mode='w', newline='') as file:

@@ -105,6 +105,45 @@ def test1():
 
     print(extractedStructResults)
 
+    struct1LinerStage2 = allStructResults[2][0].liner_result
+    struct1JointStage2 = allStructResults[2][0].joint_result
+    struct2LinerStage2 = allStructResults[2][1].liner_result
+    struct2JointStage2 = allStructResults[2][1].joint_result
+    struct1LinerStage3 = allStructResults[3][0].liner_result
+    struct1JointStage3 = allStructResults[3][0].joint_result
+    struct2LinerStage3 = allStructResults[3][1].liner_result
+    struct2JointStage3 = allStructResults[3][1].joint_result
+    struct1LinerStage4 = allStructResults[4][0].liner_result
+    struct1JointStage4 = allStructResults[4][0].joint_result
+    struct2LinerStage4 = allStructResults[4][1].liner_result
+    struct2JointStage4 = allStructResults[4][1].joint_result
+
+    assert(len(allStructResults[1]) == 0) # Assert structural interfaces do not exist at stage 1 (Not installed yet)
+    
+    assert(extractLinerElementResults(struct1LinerStage2.liner_element_results)[0][7] == 0) # Assert struct 1 liner axial force is 0 at stage 2 (liner removed when excavated)
+    assert(extractLinerElementResults(struct2LinerStage2.liner_element_results)[0][7] == 0) # Assert struct 2 liner axial force is 0 at stage 2 (liner removed when excavated)
+                                                                                                        
+    assert(extractJointElementResults(struct1JointStage2.joint_element_results)[0][5] == None) # Assert struct 1 joint 1 normal stress is none at stage 2 (joint removed when excavated)
+    assert(extractJointElementResults(struct1JointStage2.joint_element_results)[1][5] == None) # Assert struct 1 joint 2 normal stress is none at stage 2 (joint removed when excavated)
+    assert(extractJointElementResults(struct2JointStage2.joint_element_results)[0][5] == None) # Assert struct 2 joint 1 normal stress is none at stage 2 (joint removed when excavated)
+    assert(extractJointElementResults(struct2JointStage2.joint_element_results)[1][5] == None) # Assert struct 2 joint 2 normal stress is none at stage 2 (joint removed when excavated)
+                                                                                                        
+    assert(extractLinerElementResults(struct1LinerStage3.liner_element_results)[0][7] == 0) # Assert struct 1 liner axial force is 0 at stage 3 (liner removed when excavated)
+    assert(extractLinerElementResults(struct2LinerStage3.liner_element_results)[0][7] == 0) # Assert struct 2 liner axial force is 0 at stage 3 (liner removed when excavated)
+                                                                                                        
+    assert(extractJointElementResults(struct1JointStage3.joint_element_results)[0][5] == None) # Assert struct 1 joint 1 normal stress is none at stage 3 (joint removed when excavated)
+    assert(extractJointElementResults(struct1JointStage3.joint_element_results)[1][5] == None) # Assert struct 1 joint 2 normal stress is none at stage 3 (joint removed when excavated)
+    assert(extractJointElementResults(struct2JointStage3.joint_element_results)[0][5] == None) # Assert struct 2 joint 1 normal stress is none at stage 3 (joint removed when excavated)
+    assert(extractJointElementResults(struct2JointStage3.joint_element_results)[1][5] == None) # Assert struct 2 joint 2 normal stress is none at stage 3 (joint removed when excavated)
+    
+    assert(extractLinerElementResults(struct1LinerStage4.liner_element_results)[0][7] == 0) # Assert struct 1 liner axial force is 0 at stage 4 (liner removed when excavated)
+    assert(extractLinerElementResults(struct2LinerStage4.liner_element_results)[0][7] == 0) # Assert struct 2 liner axial force is 0 at stage 4 (liner removed when excavated)
+                                                                                                       
+    assert(extractJointElementResults(struct1JointStage4.joint_element_results)[0][5] == None) # Assert struct 1 joint 1 normal stress is none at stage 4 (joint removed when excavated)
+    assert(extractJointElementResults(struct1JointStage4.joint_element_results)[1][5] == None) # Assert struct 1 joint 2 normal stress is none at stage 4 (joint removed when excavated)
+    assert(extractJointElementResults(struct2JointStage4.joint_element_results)[0][5] == None) # Assert struct 2 joint 1 normal stress is none at stage 4 (joint removed when excavated)
+    assert(extractJointElementResults(struct2JointStage4.joint_element_results)[1][5] == None) # Assert struct 2 joint 2 normal stress is none at stage 4 (joint removed when excavated)
+
     # Write results to CSV
     with open(csvFile, mode='w', newline='') as file:
         writer = csv.writer(file)

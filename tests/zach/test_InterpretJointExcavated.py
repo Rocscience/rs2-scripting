@@ -101,7 +101,10 @@ def test1():
 
     print(extractedJointResults)
 
-
+    for stage in range(1,5):
+        for joint in range(2):
+            jointResult = allJointResults[stage][joint]
+            assert(extractJointElementResults(jointResult.joint_element_results)[0][6] == None) # Assert that all shear stresses are none (Joint is removed when excavated)
 
 
     # Write results to CSV

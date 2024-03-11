@@ -105,6 +105,30 @@ def test1():
 
     print(extractedStructResults)
 
+    struct1LinerStage2 = allStructResults[2][0].liner_result
+    struct1JointStage2 = allStructResults[2][0].joint_result
+    struct2LinerStage2 = allStructResults[2][1].liner_result
+    struct2JointStage2 = allStructResults[2][1].joint_result
+    struct1LinerStage3 = allStructResults[3][0].liner_result
+    struct1JointStage3 = allStructResults[3][0].joint_result
+    struct2LinerStage3 = allStructResults[3][1].liner_result
+    struct2JointStage3 = allStructResults[3][1].joint_result
+
+    assert(len(allStructResults[1]) == 0) # Assert structural interfaces do not exist at stage 1 (Not installed yet)
+
+    assert(extractLinerElementResults(struct1LinerStage2.liner_element_results)[0][7] != extractLinerElementResults(struct1LinerStage3.liner_element_results)[0][7]) # Assert liner axial force change Struct 1
+    assert(extractLinerElementResults(struct2LinerStage2.liner_element_results)[0][7] != extractLinerElementResults(struct2LinerStage3.liner_element_results)[0][7]) # Assert liner axial force change Struct 2
+
+    assert(extractLinerElementResults(struct1LinerStage2.liner_element_results)[0][18] != extractLinerElementResults(struct1LinerStage3.liner_element_results)[0][18]) # Assert liner temperature change Struct 1
+    assert(extractLinerElementResults(struct2LinerStage2.liner_element_results)[0][18] != extractLinerElementResults(struct2LinerStage3.liner_element_results)[0][18]) # Assert liner temperature change Struct 2
+
+    assert(extractJointElementResults(struct1JointStage2.joint_element_results)[0][6] != extractJointElementResults(struct1JointStage3.joint_element_results)[0][6]) # Assert joint 1 shear stress change Struct 1
+    assert(extractJointElementResults(struct1JointStage2.joint_element_results)[1][6] != extractJointElementResults(struct1JointStage3.joint_element_results)[1][6]) # Assert joint 2 shear stress change Struct 1
+    assert(extractJointElementResults(struct2JointStage2.joint_element_results)[0][6] != extractJointElementResults(struct2JointStage3.joint_element_results)[0][6]) # Assert joint 1 shear stress change Struct 2
+    assert(extractJointElementResults(struct2JointStage2.joint_element_results)[1][6] != extractJointElementResults(struct2JointStage3.joint_element_results)[1][6]) # Assert joint 2 shear stress change Struct 2
+
+    assert(len(allStructResults[4]) != 0) # Assert that structural interfaces exist at stage 4 (Structural Interfaces cannot be removed)
+
     # Write results to CSV
     with open(csvFile, mode='w', newline='') as file:
         writer = csv.writer(file)
