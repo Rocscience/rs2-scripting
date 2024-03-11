@@ -11,11 +11,11 @@ import os
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 # Output folder
-output_dir = rf'{current_dir}\history_query_example'
+output_dir = rf'{current_dir}\Results'
 os.makedirs(output_dir, exist_ok=True)
 
 # Output file path
-output_file_name = 'Embankment Consolidation - History Query.fez'
+output_file_name = 'Embankment Consolidation (History Query).fez'
 output_path = os.path.join(output_dir, output_file_name)
 
 
@@ -26,7 +26,7 @@ RS2Modeler.startApplication(port=60054)
 modeler = RS2Modeler(port=60054)
 
 # Open model 
-model = modeler.openFile(rf"C:\Users\Public\Documents\Rocscience\RS2 Examples\Tutorials\Consolidation Settlement\Embankment Consolidation.fez")
+model = modeler.openFile(rf'{current_dir}\Embankment Consolidation (Initial).fez')
 
 # Save as a different name
 model.saveAs(output_path)
@@ -68,7 +68,7 @@ reference_pore_pressure = df_epp[excess_pore_pressure_label].iloc[0]
 df_epp[excess_pore_pressure_label] = df_epp[excess_pore_pressure_label] - reference_pore_pressure
 
 # Export data
-df_epp.to_csv(os.path.join(output_dir, 'Embankment Consolidation - History Query.csv'), index=False)
+df_epp.to_csv(os.path.join(output_dir, 'Excess Pore Pressure History.csv'), index=False)
 
 # Plot data
 plt.plot(df_epp[time_label], df_epp[excess_pore_pressure_label])
@@ -77,6 +77,6 @@ plt.xlabel(time_label)
 plt.ylabel(excess_pore_pressure_label)
 plt.title('Excess Pore Pressure History')
 
-plt.show()
+plt.savefig(os.path.join(output_dir, 'Excess Pore Pressure History.png'))
 
 
