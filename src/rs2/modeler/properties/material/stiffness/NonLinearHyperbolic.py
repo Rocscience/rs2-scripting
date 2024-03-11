@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class NonLinearHyperbolicStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -47,7 +47,7 @@ class NonLinearHyperbolicDefinedStageFactor(NonLinearHyperbolicStageFactor):
 class NonLinearHyperbolic(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[NonLinearHyperbolicDefinedStageFactor, NonLinearHyperbolicStageFactor](self._client, stageFactorInterfaceID, ID, NonLinearHyperbolicDefinedStageFactor, NonLinearHyperbolicStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[NonLinearHyperbolicDefinedStageFactor, NonLinearHyperbolicStageFactor](self._client, stageFactorInterfaceID, ID, NonLinearHyperbolicDefinedStageFactor, NonLinearHyperbolicStageFactor)
 	def getModulusNumber(self) -> float:
 		return self._getDoubleProperty("MP_MODULUS_NUMBER")
 	def setModulusNumber(self, value: float):

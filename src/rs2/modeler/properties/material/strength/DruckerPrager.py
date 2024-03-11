@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class DruckerPragerStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -43,7 +43,7 @@ class DruckerPragerDefinedStageFactor(DruckerPragerStageFactor):
 class DruckerPrager(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[DruckerPragerDefinedStageFactor, DruckerPragerStageFactor](self._client, stageFactorInterfaceID, ID, DruckerPragerDefinedStageFactor, DruckerPragerStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[DruckerPragerDefinedStageFactor, DruckerPragerStageFactor](self._client, stageFactorInterfaceID, ID, DruckerPragerDefinedStageFactor, DruckerPragerStageFactor)
 	def getMaterialType(self) -> MaterialType:
 		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE"))
 	def setMaterialType(self, value: MaterialType):

@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class MohrCoulombStrengthStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -43,7 +43,7 @@ class MohrCoulombStrengthDefinedStageFactor(MohrCoulombStrengthStageFactor):
 class MohrCoulombStrength(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[MohrCoulombStrengthDefinedStageFactor, MohrCoulombStrengthStageFactor](self._client, stageFactorInterfaceID, ID, MohrCoulombStrengthDefinedStageFactor, MohrCoulombStrengthStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[MohrCoulombStrengthDefinedStageFactor, MohrCoulombStrengthStageFactor](self._client, stageFactorInterfaceID, ID, MohrCoulombStrengthDefinedStageFactor, MohrCoulombStrengthStageFactor)
 	def getMaterialType(self) -> MaterialType:
 		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE"))
 	def setMaterialType(self, value: MaterialType):

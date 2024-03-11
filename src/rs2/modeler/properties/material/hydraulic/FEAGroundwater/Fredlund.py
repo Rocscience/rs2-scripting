@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class FredlundStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -47,7 +47,7 @@ class FredlundDefinedStageFactor(FredlundStageFactor):
 class Fredlund(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[FredlundDefinedStageFactor, FredlundStageFactor](self._client, stageFactorInterfaceID, ID, FredlundDefinedStageFactor, FredlundStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[FredlundDefinedStageFactor, FredlundStageFactor](self._client, stageFactorInterfaceID, ID, FredlundDefinedStageFactor, FredlundStageFactor)
 	def getA(self) -> float:
 		return self._getDoubleProperty("MP_FREDLUND_XING_A")
 	def setA(self, value: float):

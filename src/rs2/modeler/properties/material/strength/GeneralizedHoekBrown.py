@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class GeneralizedHoekBrownStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -55,7 +55,7 @@ class GeneralizedHoekBrownDefinedStageFactor(GeneralizedHoekBrownStageFactor):
 class GeneralizedHoekBrown(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[GeneralizedHoekBrownDefinedStageFactor, GeneralizedHoekBrownStageFactor](self._client, stageFactorInterfaceID, ID, GeneralizedHoekBrownDefinedStageFactor, GeneralizedHoekBrownStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[GeneralizedHoekBrownDefinedStageFactor, GeneralizedHoekBrownStageFactor](self._client, stageFactorInterfaceID, ID, GeneralizedHoekBrownDefinedStageFactor, GeneralizedHoekBrownStageFactor)
 	def getMaterialType(self) -> MaterialType:
 		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE"))
 	def setMaterialType(self, value: MaterialType):

@@ -39,7 +39,7 @@ from rs2.modeler.properties.material.strength.SoftSoilStrength import SoftSoilSt
 from rs2.modeler.properties.material.strength.SoftSoilCreepStrength import SoftSoilCreepStrength
 from rs2.modeler.properties.material.strength.SwellingRockStrength import SwellingRockStrength
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class StrengthStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -65,7 +65,7 @@ class Strength(PropertyProxy):
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[StrengthDefinedStageFactor, StrengthStageFactor](self._client, stageFactorInterfaceID, ID, StrengthDefinedStageFactor, StrengthStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[StrengthDefinedStageFactor, StrengthStageFactor](self._client, stageFactorInterfaceID, ID, StrengthDefinedStageFactor, StrengthStageFactor)
 		self.MohrCoulombStrength = MohrCoulombStrength(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.HoekBrown = HoekBrown(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.DruckerPrager = DruckerPrager(client, ID, documentProxyID, stageFactorInterfaceID)

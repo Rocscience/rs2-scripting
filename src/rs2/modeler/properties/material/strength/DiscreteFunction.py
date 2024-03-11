@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class DiscreteFunctionStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -23,7 +23,7 @@ class DiscreteFunctionDefinedStageFactor(DiscreteFunctionStageFactor):
 class DiscreteFunction(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[DiscreteFunctionDefinedStageFactor, DiscreteFunctionStageFactor](self._client, stageFactorInterfaceID, ID, DiscreteFunctionDefinedStageFactor, DiscreteFunctionStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[DiscreteFunctionDefinedStageFactor, DiscreteFunctionStageFactor](self._client, stageFactorInterfaceID, ID, DiscreteFunctionDefinedStageFactor, DiscreteFunctionStageFactor)
 	def getApplySSRShearStrengthReduction(self) -> bool:
 		return self._getBoolProperty("MP_APPLY_SSR")
 	def setApplySSRShearStrengthReduction(self, value: bool):

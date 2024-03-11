@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class ConstantStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -19,7 +19,7 @@ class ConstantDefinedStageFactor(ConstantStageFactor):
 class Constant(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[ConstantDefinedStageFactor, ConstantStageFactor](self._client, stageFactorInterfaceID, ID, ConstantDefinedStageFactor, ConstantStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[ConstantDefinedStageFactor, ConstantStageFactor](self._client, stageFactorInterfaceID, ID, ConstantDefinedStageFactor, ConstantStageFactor)
 	def getUseCV(self) -> bool:
 		return self._getBoolProperty("MP_USE_CV")
 	def setUseCV(self, value: bool):

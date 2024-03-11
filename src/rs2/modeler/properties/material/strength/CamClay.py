@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class CamClayStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -43,7 +43,7 @@ class CamClayDefinedStageFactor(CamClayStageFactor):
 class CamClay(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[CamClayDefinedStageFactor, CamClayStageFactor](self._client, stageFactorInterfaceID, ID, CamClayDefinedStageFactor, CamClayStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[CamClayDefinedStageFactor, CamClayStageFactor](self._client, stageFactorInterfaceID, ID, CamClayDefinedStageFactor, CamClayStageFactor)
 	def getCriticalStateSlope(self) -> float:
 		return self._getDoubleProperty("MP_CRITICAL_STATE_SLOPE")
 	def setCriticalStateSlope(self, value: float):

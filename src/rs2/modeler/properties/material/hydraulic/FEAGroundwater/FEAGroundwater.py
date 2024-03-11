@@ -11,7 +11,7 @@ from rs2.modeler.properties.material.hydraulic.FEAGroundwater.Gardner import Gar
 from rs2.modeler.properties.material.hydraulic.FEAGroundwater.Constant import Constant
 from rs2.modeler.properties.material.hydraulic.FEAGroundwater.UserDefined import UserDefined
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class FEAGroundwaterStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -41,7 +41,7 @@ class FEAGroundwater(PropertyProxy):
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[FEAGroundwaterDefinedStageFactor, FEAGroundwaterStageFactor](self._client, stageFactorInterfaceID, ID, FEAGroundwaterDefinedStageFactor, FEAGroundwaterStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[FEAGroundwaterDefinedStageFactor, FEAGroundwaterStageFactor](self._client, stageFactorInterfaceID, ID, FEAGroundwaterDefinedStageFactor, FEAGroundwaterStageFactor)
 		self.Simple = Simple(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.Fredlund = Fredlund(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.Genuchten = Genuchten(client, ID, documentProxyID, stageFactorInterfaceID)

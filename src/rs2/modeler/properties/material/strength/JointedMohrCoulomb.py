@@ -5,7 +5,7 @@ from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2.modeler.properties.MaterialJointOptions import MaterialJointOptions
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class JointedMohrCoulombStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -44,7 +44,7 @@ class JointedMohrCoulombDefinedStageFactor(JointedMohrCoulombStageFactor):
 class JointedMohrCoulomb(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[JointedMohrCoulombDefinedStageFactor, JointedMohrCoulombStageFactor](self._client, stageFactorInterfaceID, ID, JointedMohrCoulombDefinedStageFactor, JointedMohrCoulombStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[JointedMohrCoulombDefinedStageFactor, JointedMohrCoulombStageFactor](self._client, stageFactorInterfaceID, ID, JointedMohrCoulombDefinedStageFactor, JointedMohrCoulombStageFactor)
 	def getMaterialType(self) -> MaterialType:
 		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE"))
 	def setMaterialType(self, value: MaterialType):

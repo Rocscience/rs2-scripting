@@ -5,7 +5,7 @@ from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2.modeler.properties.MaterialJointOptions import MaterialJointOptions
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class JointedGeneralizedHoekBrownStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -56,7 +56,7 @@ class JointedGeneralizedHoekBrownDefinedStageFactor(JointedGeneralizedHoekBrownS
 class JointedGeneralizedHoekBrown(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[JointedGeneralizedHoekBrownDefinedStageFactor, JointedGeneralizedHoekBrownStageFactor](self._client, stageFactorInterfaceID, ID, JointedGeneralizedHoekBrownDefinedStageFactor, JointedGeneralizedHoekBrownStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[JointedGeneralizedHoekBrownDefinedStageFactor, JointedGeneralizedHoekBrownStageFactor](self._client, stageFactorInterfaceID, ID, JointedGeneralizedHoekBrownDefinedStageFactor, JointedGeneralizedHoekBrownStageFactor)
 	def getMaterialType(self) -> MaterialType:
 		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE"))
 	def setMaterialType(self, value: MaterialType):

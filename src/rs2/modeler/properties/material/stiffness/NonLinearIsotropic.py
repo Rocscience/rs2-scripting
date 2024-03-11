@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class NonLinearIsotropicStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -59,7 +59,7 @@ class NonLinearIsotropicDefinedStageFactor(NonLinearIsotropicStageFactor):
 class NonLinearIsotropic(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[NonLinearIsotropicDefinedStageFactor, NonLinearIsotropicStageFactor](self._client, stageFactorInterfaceID, ID, NonLinearIsotropicDefinedStageFactor, NonLinearIsotropicStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[NonLinearIsotropicDefinedStageFactor, NonLinearIsotropicStageFactor](self._client, stageFactorInterfaceID, ID, NonLinearIsotropicDefinedStageFactor, NonLinearIsotropicStageFactor)
 	def getUseUnloadingCondition(self) -> bool:
 		return self._getBoolProperty("MP_USE_UNLOADING_CONDITION")
 	def setUseUnloadingCondition(self, value: bool):

@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class BrooksStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -43,7 +43,7 @@ class BrooksDefinedStageFactor(BrooksStageFactor):
 class Brooks(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[BrooksDefinedStageFactor, BrooksStageFactor](self._client, stageFactorInterfaceID, ID, BrooksDefinedStageFactor, BrooksStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[BrooksDefinedStageFactor, BrooksStageFactor](self._client, stageFactorInterfaceID, ID, BrooksDefinedStageFactor, BrooksStageFactor)
 	def getPoreSizeIndex(self) -> float:
 		return self._getDoubleProperty("MP_PORE_SIZE_INDEX")
 	def setPoreSizeIndex(self, value: float):

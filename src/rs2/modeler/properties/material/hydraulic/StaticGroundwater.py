@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class StaticGroundwaterStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -23,7 +23,7 @@ class StaticGroundwaterDefinedStageFactor(StaticGroundwaterStageFactor):
 class StaticGroundwater(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[StaticGroundwaterDefinedStageFactor, StaticGroundwaterStageFactor](self._client, stageFactorInterfaceID, ID, StaticGroundwaterDefinedStageFactor, StaticGroundwaterStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[StaticGroundwaterDefinedStageFactor, StaticGroundwaterStageFactor](self._client, stageFactorInterfaceID, ID, StaticGroundwaterDefinedStageFactor, StaticGroundwaterStageFactor)
 	def getStaticWaterMode(self) -> StaticWaterModes:
 		return StaticWaterModes(self._getEnumEStaticWaterModesProperty("MP_STATIC_WATER_MODE"))
 	def setStaticWaterMode(self, value: StaticWaterModes):

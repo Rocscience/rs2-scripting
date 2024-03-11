@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class GenuchtenStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -47,7 +47,7 @@ class GenuchtenDefinedStageFactor(GenuchtenStageFactor):
 class Genuchten(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[GenuchtenDefinedStageFactor, GenuchtenStageFactor](self._client, stageFactorInterfaceID, ID, GenuchtenDefinedStageFactor, GenuchtenStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[GenuchtenDefinedStageFactor, GenuchtenStageFactor](self._client, stageFactorInterfaceID, ID, GenuchtenDefinedStageFactor, GenuchtenStageFactor)
 	def getAlpha(self) -> float:
 		return self._getDoubleProperty("MP_VAN_GENUCHTEN_ALPHA")
 	def setAlpha(self, value: float):

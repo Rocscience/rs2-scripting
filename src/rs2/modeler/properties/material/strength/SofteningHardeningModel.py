@@ -4,7 +4,7 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
-from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class SofteningHardeningModelStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
@@ -43,7 +43,7 @@ class SofteningHardeningModelDefinedStageFactor(SofteningHardeningModelStageFact
 class SofteningHardeningModel(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
-		self.stageFactorInterface = AbsoluteStageFactorInterface[SofteningHardeningModelDefinedStageFactor, SofteningHardeningModelStageFactor](self._client, stageFactorInterfaceID, ID, SofteningHardeningModelDefinedStageFactor, SofteningHardeningModelStageFactor)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[SofteningHardeningModelDefinedStageFactor, SofteningHardeningModelStageFactor](self._client, stageFactorInterfaceID, ID, SofteningHardeningModelDefinedStageFactor, SofteningHardeningModelStageFactor)
 	def getPeakTensileStrength(self) -> float:
 		return self._getDoubleProperty("MP_PEAK_TENSILE_STRENGTH")
 	def setPeakTensileStrength(self, value: float):
