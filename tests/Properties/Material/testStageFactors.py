@@ -54,5 +54,3 @@ class TestStageFactors(unittest.TestCase):
         self.assertEqual(self.material.StageFactors.getResetStress(), True)
         self.material.StageFactors.setResetStress(False)
         self.assertEqual(self.material.StageFactors.getResetStress(), False)
-
-    
