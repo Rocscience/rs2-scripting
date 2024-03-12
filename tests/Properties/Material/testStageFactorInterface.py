@@ -216,4 +216,58 @@ class TestStageFactorInterface(unittest.TestCase):
         self.assertFalse(3 in self.sfi.getDefinedStageFactors())
         self.assertTrue(4 in self.sfi.getDefinedStageFactors())
 
-    
+
+class TestStageFactorInterfaceDynamicProperties(unittest.TestCase):
+
+    @classmethod
+    def setUpClass(self):
+        parentDirectory = parentDirectoryHelper.getParentDirectory()
+        blankModelPath = f"{parentDirectory}/resources/testProjectDynamicPropertiesStaticGroundwater.fez"
+        self.copiedModelPath = f"{parentDirectory}/resources/testProject.fez"
+        shutil.copy(blankModelPath, self.copiedModelPath)
+        self.modeler = RS2Modeler()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        self.sfi = self.material.StageFactors
+
+    @classmethod
+    def tearDownClass(self):
+        self.model.close()
+        self.model._client.closeConnection()
+        os.remove(self.copiedModelPath)
+
+    def setUp(self) -> None:
+        self.sfi.setStageStrengthStiffnessStageFactors(True)
+        self.sfi.setStageHydraulicStageFactor(True)
+        self.sfi.setStageThermalStageFactors(True)
+        self.sfi.setStageDatumStageFactor(True)
+
+        dfs = self.sfi.getDefinedStageFactors()
+
+        if not (1 in dfs):
+            self.sfi.createStageFactor(1)   
+            dfs = self.sfi.getDefinedStageFactors()
+
+        self.sfi.setDefinedStageFactors({1: dfs[1]})
+
+    def testHydroPiezoAndGridPerStage(self):
+        self.sfi.createStageFactor(3)
+        hyi = self.material.Hydraulic.StaticGroundwater.stageFactorInterface
+        hyi.getDefinedStageFactors()[3].setPiezoToUse("2")
+        hyi.getDefinedStageFactors()[1].setPiezoToUse("1")
+        hyi.getDefinedStageFactors()[3].setGridToUse("Grid 3")
+        hyi.getDefinedStageFactors()[1].setGridToUse("Grid 2")
+
+        #swap
+        self.sfi.setDefinedStageFactors({1: self.sfi.getDefinedStageFactors()[3], 3: self.sfi.getDefinedStageFactors()[1]})
+
+        self.assertEqual(hyi.getDefinedStageFactors()[1].getPiezoToUse(), "2")
+        self.assertEqual(hyi.getDefinedStageFactors()[3].getPiezoToUse(), "1")
+        self.assertEqual(hyi.getDefinedStageFactors()[1].getGridToUse(), "Grid 3")
+        self.assertEqual(hyi.getDefinedStageFactors()[3].getGridToUse(), "Grid 2")
+
+        self.sfi.createStageFactor(2)
+
+        self.assertEqual(hyi.getDefinedStageFactors()[2].getPiezoToUse(), hyi.getDefinedStageFactors()[1].getPiezoToUse())
+        self.assertEqual(hyi.getDefinedStageFactors()[2].getGridToUse(), hyi.getDefinedStageFactors()[1].getGridToUse())
+
