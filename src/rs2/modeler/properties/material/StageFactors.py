@@ -33,7 +33,7 @@ class StageFactors(ProxyObject):
 		return self._callFunction("setResetStress", [value])
 	def getResetStress(self) -> bool:
 		return self._callFunction("getResetStress")
-	def getDefinedStageFactors(self) -> dict[int, tuple[int, int, int]]:
+	def getDefinedStageFactors(self) -> dict[int, tuple[ObjectReferenceId, ObjectReferenceId, ObjectReferenceId]]:
 		"""returns a dictionary of the defined stage factors. 
 		The key is the stage number and the value is a tuple of stage factors defined for that stage (strengthStiffnessAndDatum, hydraulic, thermal)
 		If a stage factor is not enabled, the values for that type will be None.
@@ -57,7 +57,7 @@ class StageFactors(ProxyObject):
 		"""
 		return self._callFunction("getStageFactor", [stage], keepReturnValueReference=True)
 
-	def setDefinedStageFactors(self, stageFactors: dict[int, tuple[int, int, int]]):
+	def setDefinedStageFactors(self, stageFactors: dict[int, tuple[ObjectReferenceId, ObjectReferenceId, ObjectReferenceId]]):
 		"""sets the stage factor table for the material. 
 		The key is the stage number and the value is a tuple of stage factors defined for that stage (strengthStiffnessAndDatum, hydraulic, thermal)
 		If a type of stage factor is not enabled, the values for that type should be None.
