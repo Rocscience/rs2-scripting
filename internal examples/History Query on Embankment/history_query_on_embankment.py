@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 import os
 
 # Current folder location
-current_dir = os.path.dirname(os.path.abspath(__file__))
+current_dir = os.path.dirname(os.path.abspath(__file__)) 
 
 # Output folder
 output_dir = rf'{current_dir}\Results'
