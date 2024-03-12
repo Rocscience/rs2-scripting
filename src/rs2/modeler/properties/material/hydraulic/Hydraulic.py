@@ -35,3 +35,7 @@ class Hydraulic(PropertyProxy):
 		return self._getDoubleProperty("MP_FLUID_BULK_MODULUS")
 	def setFluidBulkModulus(self, value: float):
 		return self._setDoubleProperty("MP_FLUID_BULK_MODULUS", value)
+	def getUseBiotsCoefficientForCalculatingEffectiveStress(self) -> bool:
+		return self._getBoolProperty("MP_USE_ALPHA_BIOT")
+	def setUseBiotsCoefficientForCalculatingEffectiveStress(self, value: bool):
+		return self._setBoolProperty("MP_USE_ALPHA_BIOT", value)

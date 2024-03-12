@@ -3,7 +3,7 @@ from rs2.interpreter.InterpreterEnums import *
 
 interpreter = RS2Interpreter()
 
-model = interpreter.openFile("S:\willSati\Scripting\TestModels\Profiles_and_Boreholes.fez")
+model = interpreter.openFile(r"S:\willSati\Scripting\TestModels\Profiles_and_Boreholes.fez")
 
 # Add a material query point to model
 pointID = model.AddMaterialQuery(points=[[3.3, -2.2]])
