@@ -25,18 +25,18 @@ class TestInterpreterSaveAs(unittest.TestCase):
     
     def testInterpreterSaveAsSuccess(self):
         TestInterpreterSaveAs.modelSavePath = f"{TestInterpreterSaveAs.parentDirectory}/resources/testFileSaveAs.fez"
-        self.model.saveAs(TestInterpreterSaveAs.modelSavePath)
+        self.model.saveCopyAs(TestInterpreterSaveAs.modelSavePath)
     
     def testInterpreterConsecutiveSaveAsSuccess(self):
         TestInterpreterSaveAs.modelSavePath = f"{TestInterpreterSaveAs.parentDirectory}/resources/testFileSaveAs.fez"
-        self.model.saveAs(TestInterpreterSaveAs.modelSavePath)
-        self.model.saveAs(TestInterpreterSaveAs.modelSavePath)
-        self.model.saveAs(TestInterpreterSaveAs.modelSavePath)
+        self.model.saveCopyAs(TestInterpreterSaveAs.modelSavePath)
+        self.model.saveCopyAs(TestInterpreterSaveAs.modelSavePath)
+        self.model.saveCopyAs(TestInterpreterSaveAs.modelSavePath)
 
     def testInterpeterSaveAsFailure(self):
         try:
             TestInterpreterSaveAs.modelSavePath = f"{TestInterpreterSaveAs.parentDirectory}/resources/testProject.fez"
-            self.model.saveAs(TestInterpreterSaveAs.modelSavePath)
+            self.model.saveCopyAs(TestInterpreterSaveAs.modelSavePath)
             self.fail("Expected exception")
         except:
             pass

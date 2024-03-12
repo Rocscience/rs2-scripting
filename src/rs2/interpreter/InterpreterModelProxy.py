@@ -29,12 +29,12 @@ class ModelProxy(ProxyObject):
 		'''
 		return self._callFunction('close', [])
 
-	def saveAs(self, fileName : str):
+	def saveCopyAs(self, fileName : str):
 		'''
 		Saves the model using the given file name.
 
 		Typical usage example:
-		model.saveAs('C:/simple_3_stage.fez')
+		model.saveCopyAs('C:/simple_3_stage.fez')
 		'''
 		formattedFileName = fileName.replace('/', '\\')
 		return self._callFunction('saveAs', [formattedFileName])
