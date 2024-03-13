@@ -21,10 +21,10 @@ class TestConductivity(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testConductivityProperty(self):
         thermal = self.material.Thermal
-        thermal.Conductivity.setMethod(ThermalType.THERMAL_JOHANSEN)
+        thermal.Conductivity.setMethod(ThermalType.JOHANSEN)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         thermal = self.material.Thermal
-        self.assertEqual(thermal.Conductivity.getMethod(), ThermalType.THERMAL_JOHANSEN)
+        self.assertEqual(thermal.Conductivity.getMethod(), ThermalType.JOHANSEN)

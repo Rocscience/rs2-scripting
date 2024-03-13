@@ -21,7 +21,7 @@ class TestHyperbolicSoftening(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testHyperbolicSofteningProperty(self):
         joint = self.joint
-        self.joint.setSlipCriterion(JointTypes.JOINT_HYPERBOLIC_SOFTENING)
+        self.joint.setSlipCriterion(JointTypes.HYPERBOLIC_SOFTENING)
         joint.HyperbolicSoftening.setPeakCohesion(836.5)
         joint.HyperbolicSoftening.setPeakFriction(2628.5)
         joint.HyperbolicSoftening.setResCohesion(972.5)
@@ -35,7 +35,7 @@ class TestHyperbolicSoftening(unittest.TestCase):
         joint.HyperbolicSoftening.setShearStiffness(2605.0)
         joint.HyperbolicSoftening.setApplyPorePressure(1)
         joint.HyperbolicSoftening.setApplyAdditionalPressureInsideJoint(1)
-        joint.HyperbolicSoftening.setAdditionalPressureType(AdditionalPressureType.JOINT_ADDITIONAL_PRESSURE_BY_PIEZO)
+        joint.HyperbolicSoftening.setAdditionalPressureType(AdditionalPressureType.PIEZOMETRIC_LINE)
         joint.HyperbolicSoftening.setAdditionalPressureInsideJoint(1508.0)
         joint.HyperbolicSoftening.setPiezoID(16759)
         joint.HyperbolicSoftening.setApplyPressureToLinerSideOnly(0)
@@ -58,13 +58,13 @@ class TestHyperbolicSoftening(unittest.TestCase):
         self.assertEqual(joint.HyperbolicSoftening.getShearStiffness(), 2605.0)
         self.assertEqual(joint.HyperbolicSoftening.getApplyPorePressure(), 1)
         self.assertEqual(joint.HyperbolicSoftening.getApplyAdditionalPressureInsideJoint(), 1)
-        self.assertEqual(joint.HyperbolicSoftening.getAdditionalPressureType(), AdditionalPressureType.JOINT_ADDITIONAL_PRESSURE_BY_PIEZO)
+        self.assertEqual(joint.HyperbolicSoftening.getAdditionalPressureType(), AdditionalPressureType.PIEZOMETRIC_LINE)
         self.assertEqual(joint.HyperbolicSoftening.getAdditionalPressureInsideJoint(), 1508.0)
         self.assertEqual(joint.HyperbolicSoftening.getPiezoID(), 16759)
         self.assertEqual(joint.HyperbolicSoftening.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.HyperbolicSoftening.getApplyStageFactors(), 1)
     def testHyperbolicSofteningStageFactors(self):
-        self.joint.setSlipCriterion(JointTypes.JOINT_HYPERBOLIC_SOFTENING)
+        self.joint.setSlipCriterion(JointTypes.HYPERBOLIC_SOFTENING)
         stageFactor = self.joint.HyperbolicSoftening.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(2227.9)
         stageFactor.setShearStiffnessFactor(3008.6)

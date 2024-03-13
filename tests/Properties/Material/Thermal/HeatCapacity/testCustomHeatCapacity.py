@@ -22,11 +22,11 @@ class TestCustomHeatCapacity(unittest.TestCase):
     def testCustomHeatCapacityProperty(self):
         heatcapacity = self.material.Thermal.HeatCapacity
         heatcapacity.CustomHeatCapacity.setIncludeLatentHeat(0)
-        heatcapacity.CustomHeatCapacity.setDependence(ThermalVolumetricDepencenceType.THERMAL_VOLUMETRIC_DEPENDENCE_WATER_CONTENT)
+        heatcapacity.CustomHeatCapacity.setDependence(ThermalVolumetricDepencenceType.WATER_CONTENT)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         heatcapacity = self.material.Thermal.HeatCapacity
         self.assertEqual(heatcapacity.CustomHeatCapacity.getIncludeLatentHeat(), 0)
-        self.assertEqual(heatcapacity.CustomHeatCapacity.getDependence(), ThermalVolumetricDepencenceType.THERMAL_VOLUMETRIC_DEPENDENCE_WATER_CONTENT)
+        self.assertEqual(heatcapacity.CustomHeatCapacity.getDependence(), ThermalVolumetricDepencenceType.WATER_CONTENT)

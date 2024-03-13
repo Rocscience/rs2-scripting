@@ -23,7 +23,7 @@ class TestBaseLiner(unittest.TestCase):
         liner = self.liner
         liner.setLinerName("VYJpH")
         liner.setLinerColor(31891)
-        liner.setLinerType(LinerTypes.P2_LINER_REINFORCED_CONCRETE)
+        liner.setLinerType(LinerTypes.REINFORCED_CONCRETE)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -31,4 +31,4 @@ class TestBaseLiner(unittest.TestCase):
         liner = self.liner
         self.assertEqual(liner.getLinerName(), "VYJpH")
         self.assertEqual(liner.getLinerColor(), 31891)
-        self.assertEqual(liner.getLinerType(), LinerTypes.P2_LINER_REINFORCED_CONCRETE)
+        self.assertEqual(liner.getLinerType(), LinerTypes.REINFORCED_CONCRETE)

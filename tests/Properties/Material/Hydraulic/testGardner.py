@@ -16,7 +16,7 @@ class TestGardner(unittest.TestCase):
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
-        self.material.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.SL_WATER_MODE_GARDNER)
+        self.material.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.GARDNER)
     def tearDown(self):
         self.model.close()
         os.remove(self.copiedModelPath)
@@ -25,7 +25,7 @@ class TestGardner(unittest.TestCase):
         feagroundwater.Gardner.setA(836.5)
         feagroundwater.Gardner.setN(2628.5)
         feagroundwater.Gardner.setKs(972.5)
-        feagroundwater.Gardner.setWCInputType(WCInputType.WC_INPUT_DOS)
+        feagroundwater.Gardner.setWCInputType(WCInputType.BY_DEGREE_OF_SATURATION)
         feagroundwater.Gardner.setWCSat(0.15)
         feagroundwater.Gardner.setWCRes(0.2)
         feagroundwater.Gardner.setDoSSat(0.3)
@@ -38,7 +38,7 @@ class TestGardner(unittest.TestCase):
         self.assertEqual(feagroundwater.Gardner.getA(), 836.5)
         self.assertEqual(feagroundwater.Gardner.getN(), 2628.5)
         self.assertEqual(feagroundwater.Gardner.getKs(), 972.5)
-        self.assertEqual(feagroundwater.Gardner.getWCInputType(), WCInputType.WC_INPUT_DOS)
+        self.assertEqual(feagroundwater.Gardner.getWCInputType(), WCInputType.BY_DEGREE_OF_SATURATION)
         self.assertEqual(feagroundwater.Gardner.getWCSat(), 0.15)
         self.assertEqual(feagroundwater.Gardner.getWCRes(), 0.2)
         self.assertEqual(feagroundwater.Gardner.getDoSSat(), 0.3)
