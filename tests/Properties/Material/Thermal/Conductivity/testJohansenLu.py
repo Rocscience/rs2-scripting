@@ -21,12 +21,12 @@ class TestJohansenLu(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testJohansenLuProperty(self):
         conductivity = self.material.Thermal.Conductivity
-        conductivity.JohansenLu.setSoilType(ThermalSoilType.THERMAL_SOIL_COARSE)
+        conductivity.JohansenLu.setSoilType(ThermalSoilType.COARSE)
         conductivity.JohansenLu.setQuartzContent(836.5)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         conductivity = self.material.Thermal.Conductivity
-        self.assertEqual(conductivity.JohansenLu.getSoilType(), ThermalSoilType.THERMAL_SOIL_COARSE)
+        self.assertEqual(conductivity.JohansenLu.getSoilType(), ThermalSoilType.COARSE)
         self.assertEqual(conductivity.JohansenLu.getQuartzContent(), 836.5)

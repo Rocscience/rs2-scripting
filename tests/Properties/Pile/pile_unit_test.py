@@ -4,6 +4,7 @@ import os, sys, inspect
 import shutil
 from rs2.modeler.RS2Modeler import RS2Modeler
 from rs2.modeler.properties.PropertyEnums import*
+from rs2.utilities.ColorPicker import ColorPicker
 
 
 class Test_pile_unit_test(unittest.TestCase):
@@ -28,7 +29,7 @@ class Test_pile_unit_test(unittest.TestCase):
 
         pile.setPileName("Pile 1")
         #1
-        pile.setSkinResistance(PileSkinResistanceType.SKIN_RESISTANCE_C_PHI)
+        pile.setSkinResistance(PileSkinResistanceType.MOHR_COULOMB)
         pile.MohrCoulombPile.setShearStiffness(1.1)
         pile.MohrCoulombPile.setNormalStiffness(2.2) 
         pile.MohrCoulombPile.setFrictionAngle(30)
@@ -56,7 +57,7 @@ class Test_pile_unit_test(unittest.TestCase):
 
 
         #2
-        pile.setSkinResistance(PileSkinResistanceType.SKIN_RESISTANCE_ELASTIC)
+        pile.setSkinResistance(PileSkinResistanceType.ELASTIC)
         pile.Elastic.setShearStiffness(1) 
         pile.Elastic.setNormalStiffness(2)
         
@@ -73,7 +74,7 @@ class Test_pile_unit_test(unittest.TestCase):
 
 
         #3
-        pile.setSkinResistance(PileSkinResistanceType.SKIN_RESISTANCE_MULTI_LINEAR)
+        pile.setSkinResistance(PileSkinResistanceType.MULTI_LINEAR)
         pile.MultiLinear.setShearStiffness(1.1)
         pile.MultiLinear.setNormalStiffness(2.2)
         pile.MultiLinear.setDefinitionMethod(PileDefinitionMethod.DISTANCE_FROM_TOP)
@@ -95,7 +96,7 @@ class Test_pile_unit_test(unittest.TestCase):
         self.assertEqual(pile.MultiLinear.getBaseForceResistance(), 4.4)
         self.assertEqual(pile.MultiLinear.getCoordinates(), ([1,2,3,5.456],[4,5,6,7]))
         #4
-        pile.setSkinResistance(PileSkinResistanceType.SKIN_RESISTANCE_MATERIAL_DEPENDENT)
+        pile.setSkinResistance(PileSkinResistanceType.MATERIAL_DEPENDENT)
         pile.MaterialDependentPile.setInterfaceCoefficient(1.2)
         pile.MaterialDependentPile.setUseStiffnessMaterialDependent(True)
         pile.MaterialDependentPile.setStiffnessCoefficient(2.2)
@@ -121,35 +122,35 @@ class Test_pile_unit_test(unittest.TestCase):
         
         
         pile.setStageForceDisplacement(True)
-        pile.ForceDisplacement.setApply(PileEndCondition.FP_DISPLACEMENT)
+        pile.ForceDisplacement.setApply(PileEndCondition.DISPLACEMENT)
         pile.ForceDisplacement.setApplyOn(PileForceApplicationPoint.FP_TOP)
         pile.ForceDisplacement.setX(10.0)
         pile.ForceDisplacement.setY(20.0)
 
-        self.assertEqual(pile.ForceDisplacement.getApply(), PileEndCondition.FP_DISPLACEMENT)
-        self.assertEqual(pile.ForceDisplacement.getApplyOn(), PileForceApplicationPoint.FP_TOP)
+        self.assertEqual(pile.ForceDisplacement.getApply(), PileEndCondition.DISPLACEMENT)
+        self.assertEqual(pile.ForceDisplacement.getApplyOn(), PileForceApplicationPoint.TOP)
         self.assertEqual(pile.ForceDisplacement.getX(), 10.0)
         self.assertEqual(pile.ForceDisplacement.getY(), 20.0)
 
 
         pile.setStageForceDisplacement(True)
-        pile.ForceDisplacement.setApply(PileEndCondition.FP_FORCE)
-        pile.ForceDisplacement.setApplyOn(PileForceApplicationPoint.FP_BOTTOM)
+        pile.ForceDisplacement.setApply(PileEndCondition.FORCE)
+        pile.ForceDisplacement.setApplyOn(PileForceApplicationPoint.BOTTOM)
         pile.ForceDisplacement.setX(10.456)
         pile.ForceDisplacement.setY(20.789)
 
-        self.assertEqual(pile.ForceDisplacement.getApply(), PileEndCondition.FP_FORCE)
-        self.assertEqual(pile.ForceDisplacement.getApplyOn(), PileForceApplicationPoint.FP_BOTTOM)
+        self.assertEqual(pile.ForceDisplacement.getApply(), PileEndCondition.FORCE)
+        self.assertEqual(pile.ForceDisplacement.getApplyOn(), PileForceApplicationPoint.BOTTOM)
         self.assertEqual(pile.ForceDisplacement.getX(), 10.456)
         self.assertEqual(pile.ForceDisplacement.getY(), 20.789)
 
         pile.setLength(4.3)
-        pile.setConnectionType(PileConnectionType.CONNECT_SEMIRIGID)
+        pile.setConnectionType(PileConnectionType.SEMI_RIGID)
         pile.setOutOfPlaneSpacing(123.456)
         pile.setMMax(123.111)
 
         self.assertEqual(pile.getLength(), 4.3)
-        self.assertEqual(pile.getConnectionType(), PileConnectionType.CONNECT_SEMIRIGID)
+        self.assertEqual(pile.getConnectionType(), PileConnectionType.SEMI_RIGID)
         self.assertEqual(pile.getOutOfPlaneSpacing() ,123.456)
         self.assertEqual(pile.getMMax(), 123.111)
 
@@ -161,10 +162,10 @@ class Test_pile_unit_test(unittest.TestCase):
         bolt = bolts[0]
     
             # Bolt 1
-        bolt.setBoltType(BoltTypes.TIEBACK_BOLT)
+        bolt.setBoltType(BoltTypes.TIEBACK)
         bolt.Tieback.setBoltDiameter(1)
         bolt.Tieback.setBoltModulusE(134)
-        bolt.Tieback.setBoltModel(BoltModels.P2_BOLT_PLASTIC)
+        bolt.Tieback.setBoltModel(BoltModels.PLASTIC)
         bolt.Tieback.setTensileCapacity(3)
         bolt.Tieback.setResidualTensileCapacity(4)
         bolt.Tieback.setOutofPlaneSpacing(123)
@@ -181,16 +182,16 @@ class Test_pile_unit_test(unittest.TestCase):
         bolt.Tieback.setUseBondPercentageLength(True)
         bolt.Tieback.setPercentageBondLength(11)
         bolt.Tieback.setUseSecondaryBondLength(True)
-        bolt.Tieback.setSecondaryBondLengthType(SecondaryBondLengthType.P2_BOLT_TIEBACK_SECONDARY_PERCENT)
+        bolt.Tieback.setSecondaryBondLengthType(SecondaryBondLengthType.PERCENTAGE_OF_LENGTH)
         bolt.Tieback.setPercentOfSecondaryBondLength(12)
         bolt.Tieback.setDelayInstallAfterBolt(13)
 
 
     
-        self.assertEqual(bolt.getBoltType(), BoltTypes.TIEBACK_BOLT)
+        self.assertEqual(bolt.getBoltType(), BoltTypes.TIEBACK)
         self.assertEqual(bolt.Tieback.getBoltDiameter(), 1)
         self.assertEqual(bolt.Tieback.getBoltModulusE(),134)
-        self.assertEqual(bolt.Tieback.getBoltModel(), BoltModels.P2_BOLT_PLASTIC)
+        self.assertEqual(bolt.Tieback.getBoltModel(), BoltModels.PLASTIC)
         self.assertEqual(bolt.Tieback.getTensileCapacity(), 3)
         self.assertEqual(bolt.Tieback.getResidualTensileCapacity(), 4)
         self.assertEqual(bolt.Tieback.getOutofPlaneSpacing(), 123)
@@ -207,7 +208,7 @@ class Test_pile_unit_test(unittest.TestCase):
         self.assertEqual(bolt.Tieback.getUseBondPercentageLength(), True)
         self.assertEqual(bolt.Tieback.getPercentageBondLength(), 11)
         self.assertEqual(bolt.Tieback.getUseSecondaryBondLength(), True)
-        self.assertEqual(bolt.Tieback.getSecondaryBondLengthType(), SecondaryBondLengthType.P2_BOLT_TIEBACK_SECONDARY_PERCENT)
+        self.assertEqual(bolt.Tieback.getSecondaryBondLengthType(), SecondaryBondLengthType.PERCENTAGE_OF_LENGTH)
         self.assertEqual(bolt.Tieback.getPercentOfSecondaryBondLength(), 12)
         self.assertEqual(bolt.Tieback.getDelayInstallAfterBolt(), 13)
 
@@ -240,7 +241,7 @@ class Test_pile_unit_test(unittest.TestCase):
 
 
         #2
-        liner.setLinerType(LinerTypes.P2_LINER_REINFORCED_CONCRETE)
+        liner.setLinerType(LinerTypes.REINFORCED_CONCRETE)
         liner.ReinforcedConcrete.setIncludeWeightInStressAnalysis(True)
         liner.ReinforcedConcrete.setConcreteUnitWeight(1)
     
@@ -267,7 +268,7 @@ class Test_pile_unit_test(unittest.TestCase):
         liner.ReinforcedConcrete.setMaterialType(MaterialType.ELASTIC)
         liner.ReinforcedConcrete.setSlidingGap(True)
         liner.ReinforcedConcrete.setStrainAtLocking(15.11)
-        liner.ReinforcedConcrete.setBeamElementFormulation(LinerFormulation.P2_LINER_FORMULATION_BERNOULLI)
+        liner.ReinforcedConcrete.setBeamElementFormulation(LinerFormulation.BERNOULLI)
         liner.ReinforcedConcrete.setAxialStrainExpansion(16.11)
     
         liner.ReinforcedConcrete.setStageConcreteProperties(True)
@@ -307,7 +308,7 @@ class Test_pile_unit_test(unittest.TestCase):
 
 
         
-        bolt.setBoltType(BoltTypes.QUEENS_CABLE)
+        bolt.setBoltType(BoltTypes.PLAIN_STRAND_CABLE)
         bolt.PlainStrandCable.setBoreholeDiameter(1.31)
         bolt.PlainStrandCable.setCableDiameter(1.2)
         bolt.PlainStrandCable.setCableModulusE(1.3)

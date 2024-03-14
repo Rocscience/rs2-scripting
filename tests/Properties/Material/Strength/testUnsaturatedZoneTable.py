@@ -17,8 +17,8 @@ class TestUnsaturatedZoneTable(unittest.TestCase):
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
-        self.material.Strength.setUnsaturatedBehavior(UnsaturatedParameterType.UNSATURATED_SINGLE_EFFECTIVE_STRESS)
-        self.material.Strength.setSingleEffectiveStressMethod(UnsaturatedSingleEffectiveStressMethod.UNSATURATED_TABULAR_VALUE)
+        self.material.Strength.setUnsaturatedBehavior(UnsaturatedParameterType.SINGLE_EFFECTIVE_STRESS)
+        self.material.Strength.setSingleEffectiveStressMethod(UnsaturatedSingleEffectiveStressMethod.TABULAR_VALUE)
 
     @classmethod
     def tearDownClass(self):

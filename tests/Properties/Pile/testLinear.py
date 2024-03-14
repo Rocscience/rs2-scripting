@@ -21,7 +21,7 @@ class TestLinear(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testLinearProperty(self):
         pile = self.pile
-        self.pile.setSkinResistance(PileSkinResistanceType.SKIN_RESISTANCE_LINEAR)
+        self.pile.setSkinResistance(PileSkinResistanceType.LINEAR)
         pile.Linear.setShearStiffness(836.5)
         pile.Linear.setNormalStiffness(2628.5)
         pile.Linear.setMaxTractionAtTheTop(972.5)
