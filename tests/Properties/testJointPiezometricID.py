@@ -22,26 +22,32 @@ class TestJointPiezometricID(unittest.TestCase):
         self.model.close()
         os.remove(self.copiedModelPath)
 
-    def testJointPiezoIDSuccess(self):
-        joint = self.joint
-        joint.setPiezoID(2)
-        self.assertEqual(joint.getPiezoID(), 2)
-
-    def testJointSetPiezoIDFailure(self):
-        try:
-            joint = self.joint
-            joint.setPiezoID(500)
-            self.fail("Expected exception")
-        except:
-            pass
-    
     def testAllJointTypesPiezoIDSuccess(self):
         joint = self.joint
-        joint.setPiezoID(1)
-        self.assertEqual(joint.getPiezoID(), 1)
+        joint.NoneSlip.setPiezoID("1")
+        self.assertEqual(joint.NoneSlip.getPiezoID(), 1)
         self.assertEqual(joint.MohrCoulomb.getPiezoID(), 1)
         self.assertEqual(joint.BartonBandis.getPiezoID(), 1)
         self.assertEqual(joint.GeosyntheticHyperbolic.getPiezoID(), 1)
         self.assertEqual(joint.HyperbolicSoftening.getPiezoID(), 1)
         self.assertEqual(joint.MaterialDependent.getPiezoID(), 1)
         self.assertEqual(joint.DisplacementDependent.getPiezoID(), 1)
+    
+    def testNonePiezoIDSuccess(self):
+        joint = self.joint
+        joint.NoneSlip.setPiezoID("None")
+        self.assertEqual(joint.NoneSlip.getPiezoID(), 0)
+        self.assertEqual(joint.MohrCoulomb.getPiezoID(), 0)
+        self.assertEqual(joint.BartonBandis.getPiezoID(), 0)
+        self.assertEqual(joint.GeosyntheticHyperbolic.getPiezoID(), 0)
+        self.assertEqual(joint.HyperbolicSoftening.getPiezoID(), 0)
+        self.assertEqual(joint.MaterialDependent.getPiezoID(), 0)
+        self.assertEqual(joint.DisplacementDependent.getPiezoID(), 0)
+        
+    def testJointSetPiezoIDFailure(self):
+        try:
+            joint = self.joint
+            joint.NoneSlip.setPiezoID("500")
+            self.fail("Expected exception")
+        except:
+            pass

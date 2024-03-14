@@ -100,8 +100,8 @@ class DisplacementDependent(PropertyProxy):
 		the third column represents Friction Angle, and the fourth column represents Tensile Strength.
 		"""
 		return self._callFunction("setDisplacementDependentTable", [displacementGrid])
-	def setPiezoID(self, piezoID: int):
-		return self._callFunction("python_setPiezoPressureID", [piezoID])
+	def setPiezoID(self, piezoName: str):
+		return self._callFunction("python_setPiezoPressureID", [piezoName])
 	def getPiezoID(self) -> int:
 		return self._callFunction("__getattribute__", ["m_pressure_piezo_id"])
 	def setProperties(self, NormalStiffness : float = None, ShearStiffness : float = None, ApplyPorePressure : bool = None, ApplyAdditionalPressureInsideJoint : bool = None, AdditionalPressureType : AdditionalPressureType = None, AdditionalPressureInsideJoint : float = None, ApplyPressureToLinerSideOnly : bool = None, ApplyStageFactors : bool = None):

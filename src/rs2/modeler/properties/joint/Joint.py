@@ -55,7 +55,3 @@ class JointProperty(PropertyProxy):
 		return self._callFunction("SetAllowSlipStartFromStage", [stage])
 	def GetAllowSlipStartFromStage(self) -> int:
 		return self._callFunction("GetAllowSlipStartFromStage", [])
-	def setPiezoID(self, piezoID: int):
-		return self._callFunction("python_setPiezoPressureID", [piezoID])
-	def getPiezoID(self) -> int:
-		return self._callFunction("__getattribute__", ["m_pressure_piezo_id"])

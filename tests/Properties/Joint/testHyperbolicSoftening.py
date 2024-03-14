@@ -39,7 +39,6 @@ class TestHyperbolicSoftening(unittest.TestCase):
         joint.HyperbolicSoftening.setAdditionalPressureInsideJoint(1508.0)
         joint.HyperbolicSoftening.setApplyPressureToLinerSideOnly(0)
         joint.HyperbolicSoftening.setApplyStageFactors(0)
-        joint.HyperbolicSoftening.setPiezoID(0)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -62,7 +61,6 @@ class TestHyperbolicSoftening(unittest.TestCase):
         self.assertEqual(joint.HyperbolicSoftening.getAdditionalPressureInsideJoint(), 1508.0)
         self.assertEqual(joint.HyperbolicSoftening.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.HyperbolicSoftening.getApplyStageFactors(), 0)
-        self.assertEqual(joint.HyperbolicSoftening.getPiezoID(), 0)
     def testHyperbolicSofteningStageFactors(self):
         self.joint.setSlipCriterion(JointTypes.HYPERBOLIC_SOFTENING)
         stageFactor = self.joint.HyperbolicSoftening.stageFactorInterface.getDefinedStageFactors()[1]

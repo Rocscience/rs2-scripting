@@ -97,8 +97,8 @@ class BartonBandis(PropertyProxy):
 		return self._getBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES")
 	def setApplyStageFactors(self, value: bool):
 		return self._setBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES", value)
-	def setPiezoID(self, piezoID: int):
-		return self._callFunction("python_setPiezoPressureID", [piezoID])
+	def setPiezoID(self, piezoName: str):
+		return self._callFunction("python_setPiezoPressureID", [piezoName])
 	def getPiezoID(self) -> int:
 		return self._callFunction("__getattribute__", ["m_pressure_piezo_id"])
 	def setProperties(self, JCS : float = None, JRC : float = None, ResidualFrictionAngle : float = None, ResidualStrength : bool = None, NormalStiffness : float = None, ShearStiffness : float = None, ApplyPorePressure : bool = None, ApplyAdditionalPressureInsideJoint : bool = None, AdditionalPressureType : AdditionalPressureType = None, AdditionalPressureInsideJoint : float = None, ApplyPressureToLinerSideOnly : bool = None, ApplyStageFactors : bool = None):

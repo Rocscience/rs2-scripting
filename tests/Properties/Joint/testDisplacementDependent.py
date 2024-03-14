@@ -31,7 +31,7 @@ class TestDisplacementDependent(unittest.TestCase):
         joint.DisplacementDependent.setApplyPressureToLinerSideOnly(0)
         joint.DisplacementDependent.setApplyStageFactors(0)
         joint.DisplacementDependent.setDisplacementDependentTable([[1.2,2,3,4],[1.5,2,3,4]])
-        joint.DisplacementDependent.setPiezoID(0)
+        joint.DisplacementDependent.setPiezoID("None")
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)

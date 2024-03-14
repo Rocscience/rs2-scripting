@@ -33,7 +33,6 @@ class TestMaterialDependent(unittest.TestCase):
         joint.MaterialDependent.setAdditionalPressureInsideJoint(468.3)
         joint.MaterialDependent.setApplyPressureToLinerSideOnly(0)
         joint.MaterialDependent.setApplyStageFactors(1)
-        joint.MaterialDependent.setPiezoID(0)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -50,7 +49,6 @@ class TestMaterialDependent(unittest.TestCase):
         self.assertEqual(joint.MaterialDependent.getAdditionalPressureInsideJoint(), 468.3)
         self.assertEqual(joint.MaterialDependent.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.MaterialDependent.getApplyStageFactors(), 1)
-        self.assertEqual(joint.MaterialDependent.getPiezoID(), 0)
     def testMaterialDependentStageFactors(self):
         self.joint.setSlipCriterion(JointTypes.MATERIAL_DEPENDENT)
         stageFactor = self.joint.MaterialDependent.stageFactorInterface.getDefinedStageFactors()[1]
