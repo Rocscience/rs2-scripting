@@ -21,10 +21,10 @@ class TestHeatCapacity(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testHeatCapacityProperty(self):
         thermal = self.material.Thermal
-        thermal.HeatCapacity.setType(ThermalHeatCapacityType.THERMAL_HEAT_CAPACITY_JAMENEWMAN)
+        thermal.HeatCapacity.setType(ThermalHeatCapacityType.JAME_NEWMAN)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         thermal = self.material.Thermal
-        self.assertEqual(thermal.HeatCapacity.getType(), ThermalHeatCapacityType.THERMAL_HEAT_CAPACITY_JAMENEWMAN)
+        self.assertEqual(thermal.HeatCapacity.getType(), ThermalHeatCapacityType.JAME_NEWMAN)

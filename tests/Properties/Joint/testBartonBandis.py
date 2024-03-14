@@ -21,7 +21,7 @@ class TestBartonBandis(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testBartonBandisProperty(self):
         joint = self.joint
-        self.joint.setSlipCriterion(JointTypes.JOINT_BARTON_BANDIS)
+        self.joint.setSlipCriterion(JointTypes.BARTON_BANDIS)
         joint.BartonBandis.setJCS(836.5)
         joint.BartonBandis.setJRC(2628.5)
         joint.BartonBandis.setResidualFrictionAngle(972.5)
@@ -30,7 +30,7 @@ class TestBartonBandis(unittest.TestCase):
         joint.BartonBandis.setShearStiffness(1413.6)
         joint.BartonBandis.setApplyPorePressure(0)
         joint.BartonBandis.setApplyAdditionalPressureInsideJoint(0)
-        joint.BartonBandis.setAdditionalPressureType(AdditionalPressureType.JOINT_ADDITIONAL_PRESSURE_BY_PIEZO)
+        joint.BartonBandis.setAdditionalPressureType(AdditionalPressureType.PIEZOMETRIC_LINE)
         joint.BartonBandis.setAdditionalPressureInsideJoint(2598.3)
         joint.BartonBandis.setPiezoID(12830)
         joint.BartonBandis.setApplyPressureToLinerSideOnly(0)
@@ -48,13 +48,13 @@ class TestBartonBandis(unittest.TestCase):
         self.assertEqual(joint.BartonBandis.getShearStiffness(), 1413.6)
         self.assertEqual(joint.BartonBandis.getApplyPorePressure(), 0)
         self.assertEqual(joint.BartonBandis.getApplyAdditionalPressureInsideJoint(), 0)
-        self.assertEqual(joint.BartonBandis.getAdditionalPressureType(), AdditionalPressureType.JOINT_ADDITIONAL_PRESSURE_BY_PIEZO)
+        self.assertEqual(joint.BartonBandis.getAdditionalPressureType(), AdditionalPressureType.PIEZOMETRIC_LINE)
         self.assertEqual(joint.BartonBandis.getAdditionalPressureInsideJoint(), 2598.3)
         self.assertEqual(joint.BartonBandis.getPiezoID(), 12830)
         self.assertEqual(joint.BartonBandis.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.BartonBandis.getApplyStageFactors(), 1)
     def testBartonBandisStageFactors(self):
-        self.joint.setSlipCriterion(JointTypes.JOINT_BARTON_BANDIS)
+        self.joint.setSlipCriterion(JointTypes.BARTON_BANDIS)
         stageFactor = self.joint.BartonBandis.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(176.8)
         stageFactor.setShearStiffnessFactor(1508.0)

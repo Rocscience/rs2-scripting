@@ -16,7 +16,7 @@ class TestGenuchten(unittest.TestCase):
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
-        self.material.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.SL_WATER_MODE_VAN_GENUCHTEN)
+        self.material.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.VAN_GENUCHTEN)
     def tearDown(self):
         self.model.close()
         os.remove(self.copiedModelPath)
@@ -27,7 +27,7 @@ class TestGenuchten(unittest.TestCase):
         feagroundwater.Genuchten.setCustomM(1)
         feagroundwater.Genuchten.setM(972.5)
         feagroundwater.Genuchten.setKs(86.7)
-        feagroundwater.Genuchten.setWCInputType(WCInputType.WC_INPUT_DOS)
+        feagroundwater.Genuchten.setWCInputType(WCInputType.BY_DEGREE_OF_SATURATION)
         feagroundwater.Genuchten.setWCSat(0.15)
         feagroundwater.Genuchten.setWCRes(0.2)
         feagroundwater.Genuchten.setDoSSat(0.3)
@@ -42,7 +42,7 @@ class TestGenuchten(unittest.TestCase):
         self.assertEqual(feagroundwater.Genuchten.getCustomM(), 1)
         self.assertEqual(feagroundwater.Genuchten.getM(), 972.5)
         self.assertEqual(feagroundwater.Genuchten.getKs(), 86.7)
-        self.assertEqual(feagroundwater.Genuchten.getWCInputType(), WCInputType.WC_INPUT_DOS)
+        self.assertEqual(feagroundwater.Genuchten.getWCInputType(), WCInputType.BY_DEGREE_OF_SATURATION)
         self.assertEqual(feagroundwater.Genuchten.getWCSat(), 0.15)
         self.assertEqual(feagroundwater.Genuchten.getWCRes(), 0.2)
         self.assertEqual(feagroundwater.Genuchten.getDoSSat(), 0.3)

@@ -22,7 +22,7 @@ class TestNonLinearIsotropic(unittest.TestCase):
     def testNonLinearIsotropicProperty(self):
         stiffness = self.material.Stiffness
         stiffness.NonLinearIsotropic.setUseUnloadingCondition(0)
-        stiffness.NonLinearIsotropic.setUnloadingCondition(UnloadingConditions.UC_DEVIATORIC_STRESS)
+        stiffness.NonLinearIsotropic.setUnloadingCondition(UnloadingConditions.DEVIATORIC_STRESS)
         stiffness.NonLinearIsotropic.setNonLinearIsotropicFormula(NLIFormulaTypes.NLI_TYPE_FORMULA2)
         stiffness.NonLinearIsotropic.setPoissonsRatio(2628.5)
         stiffness.NonLinearIsotropic.setUseResidualYoungsModulus(0)
@@ -54,7 +54,7 @@ class TestNonLinearIsotropic(unittest.TestCase):
         self.material = self.model.getAllMaterialProperties()[0]
         stiffness = self.material.Stiffness
         self.assertEqual(stiffness.NonLinearIsotropic.getUseUnloadingCondition(), 0)
-        self.assertEqual(stiffness.NonLinearIsotropic.getUnloadingCondition(), UnloadingConditions.UC_DEVIATORIC_STRESS)
+        self.assertEqual(stiffness.NonLinearIsotropic.getUnloadingCondition(), UnloadingConditions.DEVIATORIC_STRESS)
         self.assertEqual(stiffness.NonLinearIsotropic.getNonLinearIsotropicFormula(), NLIFormulaTypes.NLI_TYPE_FORMULA2)
         self.assertEqual(stiffness.NonLinearIsotropic.getPoissonsRatio(), 2628.5)
         self.assertEqual(stiffness.NonLinearIsotropic.getUseResidualYoungsModulus(), 0)

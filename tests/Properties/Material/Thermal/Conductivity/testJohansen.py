@@ -21,7 +21,7 @@ class TestJohansen(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testJohansenProperty(self):
         conductivity = self.material.Thermal.Conductivity
-        conductivity.Johansen.setSoilType(ThermalSoilType.THERMAL_SOIL_COARSE)
+        conductivity.Johansen.setSoilType(ThermalSoilType.COARSE)
         conductivity.Johansen.setQuartzContent(836.5)
         conductivity.Johansen.setDryConductivity(2628.5)
         conductivity.Johansen.setSaturatedUnfrozenConductivity(972.5)
@@ -31,7 +31,7 @@ class TestJohansen(unittest.TestCase):
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         conductivity = self.material.Thermal.Conductivity
-        self.assertEqual(conductivity.Johansen.getSoilType(), ThermalSoilType.THERMAL_SOIL_COARSE)
+        self.assertEqual(conductivity.Johansen.getSoilType(), ThermalSoilType.COARSE)
         self.assertEqual(conductivity.Johansen.getQuartzContent(), 836.5)
         self.assertEqual(conductivity.Johansen.getDryConductivity(), 2628.5)
         self.assertEqual(conductivity.Johansen.getSaturatedUnfrozenConductivity(), 972.5)

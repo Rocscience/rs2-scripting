@@ -22,7 +22,7 @@ class TestOrthotropic(unittest.TestCase):
     def testOrthotropicProperty(self):
         stiffness = self.material.Stiffness
         stiffness.Orthotropic.setUseUnloadingCondition(0)
-        stiffness.Orthotropic.setUnloadingCondition(UnloadingConditions.UC_DEVIATORIC_STRESS)
+        stiffness.Orthotropic.setUnloadingCondition(UnloadingConditions.DEVIATORIC_STRESS)
         stiffness.Orthotropic.setShearModulus(2628.5)
         stiffness.Orthotropic.setAngleCounterclockwiseFromHorizontalToE1(972.5)
         stiffness.Orthotropic.setYoungsModulusE1(86.7)
@@ -45,7 +45,7 @@ class TestOrthotropic(unittest.TestCase):
         self.material = self.model.getAllMaterialProperties()[0]
         stiffness = self.material.Stiffness
         self.assertEqual(stiffness.Orthotropic.getUseUnloadingCondition(), 0)
-        self.assertEqual(stiffness.Orthotropic.getUnloadingCondition(), UnloadingConditions.UC_DEVIATORIC_STRESS)
+        self.assertEqual(stiffness.Orthotropic.getUnloadingCondition(), UnloadingConditions.DEVIATORIC_STRESS)
         self.assertEqual(stiffness.Orthotropic.getShearModulus(), 2628.5)
         self.assertEqual(stiffness.Orthotropic.getAngleCounterclockwiseFromHorizontalToE1(), 972.5)
         self.assertEqual(stiffness.Orthotropic.getYoungsModulusE1(), 86.7)

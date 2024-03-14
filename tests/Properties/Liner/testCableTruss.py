@@ -21,7 +21,7 @@ class TestCableTruss(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testCableTrussProperty(self):
         liner = self.liner
-        self.liner.setLinerType(LinerTypes.P2_LINER_CABLE_TRUSS)
+        self.liner.setLinerType(LinerTypes.CABLE_TRUSS)
         liner.CableTruss.setUnitWeight(836.5)
         liner.CableTruss.setInitialTemperature(2628.5)
         liner.CableTruss.setCableDiameter(972.5)
@@ -34,7 +34,7 @@ class TestCableTruss(unittest.TestCase):
         liner.CableTruss.setPreTensioningForce(2598.3)
         liner.CableTruss.setAxialStrainExpansion(2572.7)
         liner.CableTruss.setActivateThermal(0)
-        liner.CableTruss.setStaticTemperatureMode(StaticWaterModes.SWM_GRID)
+        liner.CableTruss.setStaticTemperatureMode(StaticWaterModes.GRID)
         liner.CableTruss.setStaticTemperature(3213.4)
         liner.CableTruss.setConductivity(176.8)
         liner.CableTruss.setSpecificHeatCapacity(1508.0)
@@ -59,7 +59,7 @@ class TestCableTruss(unittest.TestCase):
         self.assertEqual(liner.CableTruss.getPreTensioningForce(), 2598.3)
         self.assertEqual(liner.CableTruss.getAxialStrainExpansion(), 2572.7)
         self.assertEqual(liner.CableTruss.getActivateThermal(), 0)
-        self.assertEqual(liner.CableTruss.getStaticTemperatureMode(), StaticWaterModes.SWM_GRID)
+        self.assertEqual(liner.CableTruss.getStaticTemperatureMode(), StaticWaterModes.GRID)
         self.assertEqual(liner.CableTruss.getStaticTemperature(), 3213.4)
         self.assertEqual(liner.CableTruss.getConductivity(), 176.8)
         self.assertEqual(liner.CableTruss.getSpecificHeatCapacity(), 1508.0)
@@ -68,7 +68,7 @@ class TestCableTruss(unittest.TestCase):
         self.assertEqual(liner.CableTruss.getStageCableProperties(), 1)
         self.assertEqual(liner.CableTruss.getStaticTemperatureGridToUse(), "None")
     def testCableTrussStageFactors(self):
-        self.liner.setLinerType(LinerTypes.P2_LINER_CABLE_TRUSS)
+        self.liner.setLinerType(LinerTypes.CABLE_TRUSS)
         stageFactor = self.liner.CableTruss.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setUnitWeightFactor(2227.9)
         stageFactor.setCableDiameterFactor(3008.6)
