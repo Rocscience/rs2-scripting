@@ -304,6 +304,20 @@ class TestJointStageFactor(unittest.TestCase):
         sf1 = self.stageFactorInterface.getStageFactor(1)
         self.assertEqual(sf1.getJointPermeableFactor(), False)
 
+    def CreateDefault(self):
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
+        self.stageFactorInterface.setDefinedStageFactors({2: sfMap[1]})
+    
+        self.joint.SetPermeable(True)
+        sf1 = self.stageFactorInterface.createStageFactor(1)
+        self.assertEqual(sf1.getJointPermeableFactor(), True)
+
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
+        self.stageFactorInterface.setDefinedStageFactors({2: sfMap[1]})
+
+        self.joint.SetPermeable(False)
+        sf1 = self.stageFactorInterface.createStageFactor(1)
+        self.assertEqual(sf1.getJointPermeableFactor(), False)
 class TestJointStageFactorAbsolute(TestJointStageFactor):
     def testGetStageFactorSuccess(self):
         self.GetStageFactorSuccess()
@@ -341,3 +355,5 @@ class TestJointStageFactorAbsolute(TestJointStageFactor):
         self.GetDefinedStageFactorsSuccess()
     def testGetDefault(self):
         self.GetDefault()
+    def testCreateDefault(self):
+        self.CreateDefault()
