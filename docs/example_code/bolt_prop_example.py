@@ -34,7 +34,6 @@ print(bolt2.EndAnchored.getProperties())
 bolt3.setBoltName("Example Bolt 3")
 bolt3.setBoltType(BoltTypes.PLAIN_STRAND_CABLE)
 bolt3.PlainStrandCable.setProperties(AddBulges=True, AddPullOutForce=True, PullOutForce=1)
-#Not all functions are accesible through the setProperties method. 
 #Consult setProperties method definition in documentation to determine properties available.
 bolt3.PlainStrandCable.setBulgeLocations([10,20,30])
 

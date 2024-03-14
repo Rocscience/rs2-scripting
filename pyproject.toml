@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "rs2"
-version = "0.0.1"
+version = "11.23.0.dev1"
 authors = [
   { name="Rocscience"},
 ]

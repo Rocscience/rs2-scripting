@@ -12,9 +12,21 @@ logger.level = logging.INFO
 
 class Client:
 	def __init__(self, host, port):
+		self.compatibleProgramVersion = "11.023"
 		self.connection = self.establishConnection(host, port)
 		if self.connection == None:
 			raise RuntimeError("Could not establish connection with the server. Make sure the server is started on the application.")
+		
+		versionCompatible = self.callFunction(functionRequest("checkVersion", [self.compatibleProgramVersion]))
+		if not versionCompatible:
+			self.connection.close()
+			raise RuntimeError(f"""
+					  Library version is not compatible with the program version. 
+					  Please ensure the versions match by installing the correct version of the library or program. 
+					  Library version: {self.compatibleProgramVersion} Program version: find in help->about.
+					  """
+					  )
+ 
 	def establishConnection(self, host, port):
 		try:
 			connection = multiProcessingClient((host, port) ,'AF_INET')

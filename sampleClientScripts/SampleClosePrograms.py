@@ -2,8 +2,8 @@ from rs2.modeler.RS2Modeler import RS2Modeler
 from rs2.interpreter.RS2Interpreter import RS2Interpreter
 from rs2.modeler.properties.PropertyEnums import*
 
-pathToModelerExecutable = "C:\RS2_dev\Build\Debug_x64\RS2.exe"
-pathToInterpreterExecutable = "C:\RS2_dev\Build\Debug_x64\Interpret.exe"
+pathToModelerExecutable = r"C:\RS2_dev\Build\Debug_x64\RS2.exe"
+pathToInterpreterExecutable = r"C:\RS2_dev\Build\Debug_x64\Interpret.exe"
 modelPath = r"C:\scriptingModels\Profiles_and_Boreholes.fez"
 
 modelerPort = 60040

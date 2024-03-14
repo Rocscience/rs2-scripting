@@ -35,6 +35,7 @@ class StaticWaterModes(Enum):
 	RU = "SWM_RU"
 	PIEZO = "SWM_PIEZO"
 	GRID = "SWM_GRID"
+	INTERPOLATED = "SWM_INTERPOLATED"
 class StageFactorDefinitionMethod(Enum):
 	ABSOLUTE_STAGE_FACTOR = 0
 	RELATIVE_STAGE_FACTOR = 1

@@ -34,7 +34,6 @@ print(liner2.Geosynthetic.getProperties())
 liner3.setLinerName("Example Liner 3")
 liner3.setLinerType(LinerTypes.REINFORCED_CONCRETE)
 liner3.ReinforcedConcrete.setProperties(IncludeWeightInStressAnalysis=False, Spacing=2.2, SlidingGap=False)
-#Not all functions are accesible through the setProperties method. 
 #Consult setProperties method definition in documentation to determine properties available.
 liner3.ReinforcedConcrete.setStaticTemperatureGridToUse("Default Grid")
 

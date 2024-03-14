@@ -23,6 +23,7 @@ class TestHydraulic(unittest.TestCase):
         material = self.material
         material.Hydraulic.setMaterialBehaviour(MaterialBehaviours.UNDRAINED)
         material.Hydraulic.setFluidBulkModulus(836.5)
+        material.Hydraulic.setUseBiotsCoefficientForCalculatingEffectiveStress(0)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
@@ -30,3 +31,4 @@ class TestHydraulic(unittest.TestCase):
         material = self.material
         self.assertEqual(material.Hydraulic.getMaterialBehaviour(), MaterialBehaviours.UNDRAINED)
         self.assertEqual(material.Hydraulic.getFluidBulkModulus(), 836.5)
+        self.assertEqual(material.Hydraulic.getUseBiotsCoefficientForCalculatingEffectiveStress(), 0)

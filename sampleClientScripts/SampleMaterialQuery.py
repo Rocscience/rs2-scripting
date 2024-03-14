@@ -2,7 +2,7 @@ from rs2.interpreter.RS2Interpreter import RS2Interpreter
 from rs2.interpreter.InterpreterEnums import *
 
 interpreter = RS2Interpreter()
-model = interpreter.openFile("C:\scriptingModels\Profiles_and_Boreholes.fez")
+model = interpreter.openFile(r"C:\scriptingModels\Profiles_and_Boreholes.fez")
 
 # Add a material query point to model
 pointID = model.AddMaterialQuery([[3.5, 4.5]])
