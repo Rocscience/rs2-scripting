@@ -21,18 +21,18 @@ class TestStaticGroundwater(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testStaticGroundwaterProperty(self):
         hydraulic = self.material.Hydraulic
-        hydraulic.StaticGroundwater.setStaticWaterMode(StaticWaterModes.SWM_PWP)
+        hydraulic.StaticGroundwater.setStaticWaterMode(StaticWaterModes.PORE_WATER_PRESSURE)
         hydraulic.StaticGroundwater.setStaticPoreWaterPressure(836.5)
         hydraulic.StaticGroundwater.setRuValue(2628.5)
-        hydraulic.StaticGroundwater.setHuType(HuTypes.HT_AUTO)
+        hydraulic.StaticGroundwater.setHuType(HuTypes.AUTO)
         hydraulic.StaticGroundwater.setHuValue(972.5)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         hydraulic = self.material.Hydraulic
-        self.assertEqual(hydraulic.StaticGroundwater.getStaticWaterMode(), StaticWaterModes.SWM_PWP)
+        self.assertEqual(hydraulic.StaticGroundwater.getStaticWaterMode(), StaticWaterModes.PORE_WATER_PRESSURE)
         self.assertEqual(hydraulic.StaticGroundwater.getStaticPoreWaterPressure(), 836.5)
         self.assertEqual(hydraulic.StaticGroundwater.getRuValue(), 2628.5)
-        self.assertEqual(hydraulic.StaticGroundwater.getHuType(), HuTypes.HT_AUTO)
+        self.assertEqual(hydraulic.StaticGroundwater.getHuType(), HuTypes.AUTO)
         self.assertEqual(hydraulic.StaticGroundwater.getHuValue(), 972.5)

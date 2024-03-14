@@ -21,12 +21,12 @@ class TestDisplacementDependent(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testDisplacementDependentProperty(self):
         joint = self.joint
-        self.joint.setSlipCriterion(JointTypes.JOINT_DISPLACEMENT_DEPENDENT)
+        self.joint.setSlipCriterion(JointTypes.DISPLACEMENT_DEPENDENT)
         joint.DisplacementDependent.setNormalStiffness(836.5)
         joint.DisplacementDependent.setShearStiffness(2628.5)
         joint.DisplacementDependent.setApplyPorePressure(0)
         joint.DisplacementDependent.setApplyAdditionalPressureInsideJoint(1)
-        joint.DisplacementDependent.setAdditionalPressureType(AdditionalPressureType.JOINT_ADDITIONAL_PRESSURE_BY_PIEZO)
+        joint.DisplacementDependent.setAdditionalPressureType(AdditionalPressureType.PIEZOMETRIC_LINE)
         joint.DisplacementDependent.setAdditionalPressureInsideJoint(762.9)
         joint.DisplacementDependent.setApplyPressureToLinerSideOnly(0)
         joint.DisplacementDependent.setApplyStageFactors(0)
@@ -41,14 +41,14 @@ class TestDisplacementDependent(unittest.TestCase):
         self.assertEqual(joint.DisplacementDependent.getShearStiffness(), 2628.5)
         self.assertEqual(joint.DisplacementDependent.getApplyPorePressure(), 0)
         self.assertEqual(joint.DisplacementDependent.getApplyAdditionalPressureInsideJoint(), 1)
-        self.assertEqual(joint.DisplacementDependent.getAdditionalPressureType(), AdditionalPressureType.JOINT_ADDITIONAL_PRESSURE_BY_PIEZO)
+        self.assertEqual(joint.DisplacementDependent.getAdditionalPressureType(), AdditionalPressureType.PIEZOMETRIC_LINE)
         self.assertEqual(joint.DisplacementDependent.getAdditionalPressureInsideJoint(), 762.9)
         self.assertEqual(joint.DisplacementDependent.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.DisplacementDependent.getApplyStageFactors(), 0)
         self.assertEqual(joint.DisplacementDependent.getDisplacementDependentTable(), [[1.2,2,3,4],[1.5,2,3,4]])
         self.assertEqual(joint.DisplacementDependent.getPiezoID(), 0)
     def testDisplacementDependentStageFactors(self):
-        self.joint.setSlipCriterion(JointTypes.JOINT_DISPLACEMENT_DEPENDENT)
+        self.joint.setSlipCriterion(JointTypes.DISPLACEMENT_DEPENDENT)
         stageFactor = self.joint.DisplacementDependent.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(2350.4)
         stageFactor.setShearStiffnessFactor(2598.3)

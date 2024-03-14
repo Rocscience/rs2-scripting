@@ -3,6 +3,7 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2.modeler.properties.joint.NoneSlip import NoneSlip
 from rs2.modeler.properties.joint.MohrCoulomb import MohrCoulomb
 from rs2.modeler.properties.joint.BartonBandis import BartonBandis
 from rs2.modeler.properties.joint.GeosyntheticHyperbolic import GeosyntheticHyperbolic
@@ -14,6 +15,7 @@ class JointProperty(PropertyProxy):
 	:ref:`Joint Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
+		self.NoneSlip = NoneSlip(client, ID, documentProxyID)
 		self.MohrCoulomb = MohrCoulomb(client, ID, documentProxyID)
 		self.BartonBandis = BartonBandis(client, ID, documentProxyID)
 		self.GeosyntheticHyperbolic = GeosyntheticHyperbolic(client, ID, documentProxyID)

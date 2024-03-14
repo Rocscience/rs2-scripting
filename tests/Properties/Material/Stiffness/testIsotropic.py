@@ -22,7 +22,7 @@ class TestIsotropic(unittest.TestCase):
     def testIsotropicProperty(self):
         stiffness = self.material.Stiffness
         stiffness.Isotropic.setUseUnloadingCondition(0)
-        stiffness.Isotropic.setUnloadingCondition(UnloadingConditions.UC_DEVIATORIC_STRESS)
+        stiffness.Isotropic.setUnloadingCondition(UnloadingConditions.DEVIATORIC_STRESS)
         stiffness.Isotropic.setElasticParameters(ElasticParameters.CONSTANT_POISSON_RATIO)
         stiffness.Isotropic.setShearModulus(2628.5)
         stiffness.Isotropic.setPoissonsRatio(972.5)
@@ -39,7 +39,7 @@ class TestIsotropic(unittest.TestCase):
         self.material = self.model.getAllMaterialProperties()[0]
         stiffness = self.material.Stiffness
         self.assertEqual(stiffness.Isotropic.getUseUnloadingCondition(), 0)
-        self.assertEqual(stiffness.Isotropic.getUnloadingCondition(), UnloadingConditions.UC_DEVIATORIC_STRESS)
+        self.assertEqual(stiffness.Isotropic.getUnloadingCondition(), UnloadingConditions.DEVIATORIC_STRESS)
         self.assertEqual(stiffness.Isotropic.getElasticParameters(), ElasticParameters.CONSTANT_POISSON_RATIO)
         self.assertEqual(stiffness.Isotropic.getShearModulus(), 2628.5)
         self.assertEqual(stiffness.Isotropic.getPoissonsRatio(), 972.5)

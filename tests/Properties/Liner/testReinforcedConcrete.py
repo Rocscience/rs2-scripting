@@ -21,7 +21,7 @@ class TestReinforcedConcrete(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testReinforcedConcreteProperty(self):
         liner = self.liner
-        self.liner.setLinerType(LinerTypes.P2_LINER_REINFORCED_CONCRETE)
+        self.liner.setLinerType(LinerTypes.REINFORCED_CONCRETE)
         liner.ReinforcedConcrete.setConcreteUnitWeight(836.5)
         liner.ReinforcedConcrete.setIncludeWeightInStressAnalysis(0)
         liner.ReinforcedConcrete.setInitialTemperature(972.5)
@@ -43,10 +43,10 @@ class TestReinforcedConcrete(unittest.TestCase):
         liner.ReinforcedConcrete.setMaterialType(MaterialType.PLASTIC)
         liner.ReinforcedConcrete.setSlidingGap(0)
         liner.ReinforcedConcrete.setStrainAtLocking(3008.6)
-        liner.ReinforcedConcrete.setBeamElementFormulation(LinerFormulation.P2_LINER_FORMULATION_TIMOSHENKO)
+        liner.ReinforcedConcrete.setBeamElementFormulation(LinerFormulation.TIMOSHENKO)
         liner.ReinforcedConcrete.setAxialStrainExpansion(2917.7)
         liner.ReinforcedConcrete.setActivateThermal(1)
-        liner.ReinforcedConcrete.setStaticTemperatureMode(StaticWaterModes.SWM_GRID)
+        liner.ReinforcedConcrete.setStaticTemperatureMode(StaticWaterModes.GRID)
         liner.ReinforcedConcrete.setStaticTemperature(1374.4)
         liner.ReinforcedConcrete.setConductivity(1257.7)
         liner.ReinforcedConcrete.setSpecificHeatCapacity(1702.5)
@@ -80,10 +80,10 @@ class TestReinforcedConcrete(unittest.TestCase):
         self.assertEqual(liner.ReinforcedConcrete.getMaterialType(), MaterialType.PLASTIC)
         self.assertEqual(liner.ReinforcedConcrete.getSlidingGap(), 0)
         self.assertEqual(liner.ReinforcedConcrete.getStrainAtLocking(), 3008.6)
-        self.assertEqual(liner.ReinforcedConcrete.getBeamElementFormulation(), LinerFormulation.P2_LINER_FORMULATION_TIMOSHENKO)
+        self.assertEqual(liner.ReinforcedConcrete.getBeamElementFormulation(), LinerFormulation.TIMOSHENKO)
         self.assertEqual(liner.ReinforcedConcrete.getAxialStrainExpansion(), 2917.7)
         self.assertEqual(liner.ReinforcedConcrete.getActivateThermal(), 1)
-        self.assertEqual(liner.ReinforcedConcrete.getStaticTemperatureMode(), StaticWaterModes.SWM_GRID)
+        self.assertEqual(liner.ReinforcedConcrete.getStaticTemperatureMode(), StaticWaterModes.GRID)
         self.assertEqual(liner.ReinforcedConcrete.getStaticTemperature(), 1374.4)
         self.assertEqual(liner.ReinforcedConcrete.getConductivity(), 1257.7)
         self.assertEqual(liner.ReinforcedConcrete.getSpecificHeatCapacity(), 1702.5)
@@ -92,7 +92,7 @@ class TestReinforcedConcrete(unittest.TestCase):
         self.assertEqual(liner.ReinforcedConcrete.getStageConcreteProperties(), 0)
         self.assertEqual(liner.ReinforcedConcrete.getStaticTemperatureGridToUse(), "None")
     def testReinforcedConcreteStageFactors(self):
-        self.liner.setLinerType(LinerTypes.P2_LINER_REINFORCED_CONCRETE)
+        self.liner.setLinerType(LinerTypes.REINFORCED_CONCRETE)
         stageFactor = self.liner.ReinforcedConcrete.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setConcreteUnitWeightFactor(2188.4)
         stageFactor.setAreaFactor(812.6)

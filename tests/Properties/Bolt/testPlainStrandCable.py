@@ -21,7 +21,7 @@ class TestPlainStrandCable(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testPlainStrandCableProperty(self):
         bolt = self.bolt
-        self.bolt.setBoltType(BoltTypes.QUEENS_CABLE)
+        self.bolt.setBoltType(BoltTypes.PLAIN_STRAND_CABLE)
         bolt.PlainStrandCable.setBoreholeDiameter(836.5)
         bolt.PlainStrandCable.setCableDiameter(2628.5)
         bolt.PlainStrandCable.setCableModulusE(972.5)
@@ -35,7 +35,7 @@ class TestPlainStrandCable(unittest.TestCase):
         bolt.PlainStrandCable.setConstantShearStiffness(0)
         bolt.PlainStrandCable.setStiffness(3213.4)
         bolt.PlainStrandCable.setAddBulges(True)
-        bolt.PlainStrandCable.setBulgeType(BulgeTypes.PHASE2_BULGE_NUTCASE_21)
+        bolt.PlainStrandCable.setBulgeType(BulgeTypes.NUT_CASE_21MM)
         bolt.PlainStrandCable.setBulgeLocations([2.0, 3.1])
         self.model.save()
         self.model.close()
@@ -55,5 +55,5 @@ class TestPlainStrandCable(unittest.TestCase):
         self.assertEqual(bolt.PlainStrandCable.getConstantShearStiffness(), 0)
         self.assertEqual(bolt.PlainStrandCable.getStiffness(), 3213.4)
         self.assertEqual(bolt.PlainStrandCable.getAddBulges(), True)
-        self.assertEqual(bolt.PlainStrandCable.getBulgeType(), BulgeTypes.PHASE2_BULGE_NUTCASE_21)
+        self.assertEqual(bolt.PlainStrandCable.getBulgeType(), BulgeTypes.NUT_CASE_21MM)
         self.assertEqual(bolt.PlainStrandCable.getBulgeLocations(), [2.0, 3.1])

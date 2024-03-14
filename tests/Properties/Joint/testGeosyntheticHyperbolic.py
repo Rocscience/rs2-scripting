@@ -21,7 +21,7 @@ class TestGeosyntheticHyperbolic(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testGeosyntheticHyperbolicProperty(self):
         joint = self.joint
-        self.joint.setSlipCriterion(JointTypes.JOINT_HYPERBOLIC_SIMPLE)
+        self.joint.setSlipCriterion(JointTypes.GEOSYNTHETIC_HYPERBOLIC)
         joint.GeosyntheticHyperbolic.setPeakAdhesionAtSigninf(836.5)
         joint.GeosyntheticHyperbolic.setPeakFrictionAngleAtSign0(2628.5)
         joint.GeosyntheticHyperbolic.setResAdhesionAtSigninf(972.5)
@@ -30,7 +30,7 @@ class TestGeosyntheticHyperbolic(unittest.TestCase):
         joint.GeosyntheticHyperbolic.setShearStiffness(1413.6)
         joint.GeosyntheticHyperbolic.setApplyPorePressure(0)
         joint.GeosyntheticHyperbolic.setApplyAdditionalPressureInsideJoint(0)
-        joint.GeosyntheticHyperbolic.setAdditionalPressureType(AdditionalPressureType.JOINT_ADDITIONAL_PRESSURE_BY_PIEZO)
+        joint.GeosyntheticHyperbolic.setAdditionalPressureType(AdditionalPressureType.PIEZOMETRIC_LINE)
         joint.GeosyntheticHyperbolic.setAdditionalPressureInsideJoint(2598.3)
         joint.GeosyntheticHyperbolic.setApplyPressureToLinerSideOnly(0)
         joint.GeosyntheticHyperbolic.setApplyStageFactors(0)
@@ -48,13 +48,13 @@ class TestGeosyntheticHyperbolic(unittest.TestCase):
         self.assertEqual(joint.GeosyntheticHyperbolic.getShearStiffness(), 1413.6)
         self.assertEqual(joint.GeosyntheticHyperbolic.getApplyPorePressure(), 0)
         self.assertEqual(joint.GeosyntheticHyperbolic.getApplyAdditionalPressureInsideJoint(), 0)
-        self.assertEqual(joint.GeosyntheticHyperbolic.getAdditionalPressureType(), AdditionalPressureType.JOINT_ADDITIONAL_PRESSURE_BY_PIEZO)
+        self.assertEqual(joint.GeosyntheticHyperbolic.getAdditionalPressureType(), AdditionalPressureType.PIEZOMETRIC_LINE)
         self.assertEqual(joint.GeosyntheticHyperbolic.getAdditionalPressureInsideJoint(), 2598.3)
         self.assertEqual(joint.GeosyntheticHyperbolic.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.GeosyntheticHyperbolic.getApplyStageFactors(), 0)
         self.assertEqual(joint.GeosyntheticHyperbolic.getPiezoID(), 0)
     def testGeosyntheticHyperbolicStageFactors(self):
-        self.joint.setSlipCriterion(JointTypes.JOINT_HYPERBOLIC_SIMPLE)
+        self.joint.setSlipCriterion(JointTypes.GEOSYNTHETIC_HYPERBOLIC)
         stageFactor = self.joint.GeosyntheticHyperbolic.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(3213.4)
         stageFactor.setShearStiffnessFactor(176.8)

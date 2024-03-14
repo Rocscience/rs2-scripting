@@ -22,7 +22,7 @@ class TestTransverselyIsotropic(unittest.TestCase):
     def testTransverselyIsotropicProperty(self):
         stiffness = self.material.Stiffness
         stiffness.TransverselyIsotropic.setUseUnloadingCondition(0)
-        stiffness.TransverselyIsotropic.setUnloadingCondition(UnloadingConditions.UC_DEVIATORIC_STRESS)
+        stiffness.TransverselyIsotropic.setUnloadingCondition(UnloadingConditions.DEVIATORIC_STRESS)
         stiffness.TransverselyIsotropic.setShearModulus(2628.5)
         stiffness.TransverselyIsotropic.setAngleCounterclockwiseFromHorizontalToE1(972.5)
         stiffness.TransverselyIsotropic.setYoungsModulusE1AndEz(86.7)
@@ -41,7 +41,7 @@ class TestTransverselyIsotropic(unittest.TestCase):
         self.material = self.model.getAllMaterialProperties()[0]
         stiffness = self.material.Stiffness
         self.assertEqual(stiffness.TransverselyIsotropic.getUseUnloadingCondition(), 0)
-        self.assertEqual(stiffness.TransverselyIsotropic.getUnloadingCondition(), UnloadingConditions.UC_DEVIATORIC_STRESS)
+        self.assertEqual(stiffness.TransverselyIsotropic.getUnloadingCondition(), UnloadingConditions.DEVIATORIC_STRESS)
         self.assertEqual(stiffness.TransverselyIsotropic.getShearModulus(), 2628.5)
         self.assertEqual(stiffness.TransverselyIsotropic.getAngleCounterclockwiseFromHorizontalToE1(), 972.5)
         self.assertEqual(stiffness.TransverselyIsotropic.getYoungsModulusE1AndEz(), 86.7)

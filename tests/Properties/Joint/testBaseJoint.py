@@ -23,7 +23,7 @@ class TestBaseJoint(unittest.TestCase):
         joint = self.joint
         joint.setJointName("VYJpH")
         joint.setJointColor(31891)
-        joint.setSlipCriterion(JointTypes.JOINT_HYPERBOLIC_SIMPLE)
+        joint.setSlipCriterion(JointTypes.GEOSYNTHETIC_HYPERBOLIC)
         joint.setInitialDeformation(0)
         joint.SetApplySSR(True)
         joint.SetPermeable(True)
@@ -37,7 +37,7 @@ class TestBaseJoint(unittest.TestCase):
         joint = self.joint
         self.assertEqual(joint.getJointName(), "VYJpH")
         self.assertEqual(joint.getJointColor(), 31891)
-        self.assertEqual(joint.getSlipCriterion(), JointTypes.JOINT_HYPERBOLIC_SIMPLE)
+        self.assertEqual(joint.getSlipCriterion(), JointTypes.GEOSYNTHETIC_HYPERBOLIC)
         self.assertEqual(joint.getInitialDeformation(), 0)
         self.assertEqual(joint.GetApplySSR(), True)
         self.assertEqual(joint.GetPermeable(), True)
