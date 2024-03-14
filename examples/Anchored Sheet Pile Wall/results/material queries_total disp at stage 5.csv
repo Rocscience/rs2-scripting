@@ -1,0 +1,12 @@
+X,Y,Distance,Total Displacement (m)
+10.0,8.0,0.0,<bound method QueryResult.GetYCoordinate of <rs2.interpreter.MaterialQueryResults.QueryResult object at 0x0000021D67DE9ED0>>
+10.0,9.0,1.0,<bound method QueryResult.GetYCoordinate of <rs2.interpreter.MaterialQueryResults.QueryResult object at 0x0000021D67D55810>>
+10.0,10.0,2.0,<bound method QueryResult.GetYCoordinate of <rs2.interpreter.MaterialQueryResults.QueryResult object at 0x0000021D6805FC50>>
+10.0,11.0,3.0,<bound method QueryResult.GetYCoordinate of <rs2.interpreter.MaterialQueryResults.QueryResult object at 0x0000021D680180D0>>
+10.0,12.0,4.0,<bound method QueryResult.GetYCoordinate of <rs2.interpreter.MaterialQueryResults.QueryResult object at 0x0000021D67D800D0>>
+10.0,13.0,5.0,<bound method QueryResult.GetYCoordinate of <rs2.interpreter.MaterialQueryResults.QueryResult object at 0x0000021D68050950>>
+10.0,14.0,6.0,<bound method QueryResult.GetYCoordinate of <rs2.interpreter.MaterialQueryResults.QueryResult object at 0x0000021D68050650>>
+10.0,15.0,7.0,<bound method QueryResult.GetYCoordinate of <rs2.interpreter.MaterialQueryResults.QueryResult object at 0x0000021D680509D0>>
+10.0,16.0,8.0,<bound method QueryResult.GetYCoordinate of <rs2.interpreter.MaterialQueryResults.QueryResult object at 0x0000021D68050A10>>
+10.0,17.0,9.0,<bound method QueryResult.GetYCoordinate of <rs2.interpreter.MaterialQueryResults.QueryResult object at 0x0000021D68050990>>
+10.0,18.0,10.0,<bound method QueryResult.GetYCoordinate of <rs2.interpreter.MaterialQueryResults.QueryResult object at 0x0000021D68050A50>>
