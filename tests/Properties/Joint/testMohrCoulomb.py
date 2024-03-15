@@ -70,7 +70,7 @@ class TestMohrCoulomb(unittest.TestCase):
     def testMohrCoulombStageFactors(self):
         joint = self.joint
         self.joint.setSlipCriterion(JointTypes.MOHR_COULOMB)
-        stageFactor = self.joint.MohrCoulomb.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor = joint.MohrCoulomb.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(2917.7)
         stageFactor.setShearStiffnessFactor(1006.5)
         stageFactor.setTensileStrengthFactor(1374.4)
@@ -86,7 +86,8 @@ class TestMohrCoulomb(unittest.TestCase):
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.joint = self.model.getAllJointProperties()[0]
-        stageFactor = self.joint.MohrCoulomb.stageFactorInterface.getDefinedStageFactors()[1]
+        joint = self.joint
+        stageFactor = joint.MohrCoulomb.stageFactorInterface.getDefinedStageFactors()[1]
         self.assertEqual(stageFactor.getNormalStiffnessFactor(), 2917.7)
         self.assertEqual(stageFactor.getShearStiffnessFactor(), 1006.5)
         self.assertEqual(stageFactor.getTensileStrengthFactor(), 1374.4)

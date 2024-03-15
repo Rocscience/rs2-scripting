@@ -52,7 +52,7 @@ class TestMaterialDependent(unittest.TestCase):
     def testMaterialDependentStageFactors(self):
         joint = self.joint
         self.joint.setSlipCriterion(JointTypes.MATERIAL_DEPENDENT)
-        stageFactor = self.joint.MaterialDependent.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor = joint.MaterialDependent.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(2572.7)
         stageFactor.setShearStiffnessFactor(2605.0)
         stageFactor.setInterfaceCoefficientFactor(3213.4)
@@ -63,7 +63,8 @@ class TestMaterialDependent(unittest.TestCase):
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.joint = self.model.getAllJointProperties()[0]
-        stageFactor = self.joint.MaterialDependent.stageFactorInterface.getDefinedStageFactors()[1]
+        joint = self.joint
+        stageFactor = joint.MaterialDependent.stageFactorInterface.getDefinedStageFactors()[1]
         self.assertEqual(stageFactor.getNormalStiffnessFactor(), 2572.7)
         self.assertEqual(stageFactor.getShearStiffnessFactor(), 2605.0)
         self.assertEqual(stageFactor.getInterfaceCoefficientFactor(), 3213.4)
