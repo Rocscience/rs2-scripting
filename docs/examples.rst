@@ -79,7 +79,12 @@ Python Script Examples
 .. literalinclude:: example_code/material_property_thermal_example.py
    :language: python
    :caption: Code Snippet: Manipulation of Thermal Properties
-   
+
+.. _hydraulic property static groundwater example:
+.. literalinclude:: example_code/material_hydraulic_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Hydraulic Static Groundwater Properties
+
 .. _hydraulic property stiffness example:
 .. literalinclude:: example_code/material_hydraulic_property_stiffness_example.py
    :language: python
