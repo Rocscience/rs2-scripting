@@ -1,9 +1,12 @@
+from rs2.interpreter.UtilityResult import *
+
 class QueryResult:
     def __init__(self, x_location, y_location, distance, value):
         self.x_location = x_location
         self.y_location = y_location
         self.distance = distance
         self.value = value
+        ResetInvalid.validate(self)
     
     def GetXCoordinate(self) -> float:
         '''
