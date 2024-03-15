@@ -52,6 +52,7 @@ class TestBartonBandis(unittest.TestCase):
         self.assertEqual(joint.BartonBandis.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.BartonBandis.getApplyStageFactors(), 0)
     def testBartonBandisStageFactors(self):
+        joint = self.joint
         self.joint.setSlipCriterion(JointTypes.BARTON_BANDIS)
         stageFactor = self.joint.BartonBandis.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(3213.4)

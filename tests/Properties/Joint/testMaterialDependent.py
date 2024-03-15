@@ -50,6 +50,7 @@ class TestMaterialDependent(unittest.TestCase):
         self.assertEqual(joint.MaterialDependent.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.MaterialDependent.getApplyStageFactors(), 1)
     def testMaterialDependentStageFactors(self):
+        joint = self.joint
         self.joint.setSlipCriterion(JointTypes.MATERIAL_DEPENDENT)
         stageFactor = self.joint.MaterialDependent.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(2572.7)

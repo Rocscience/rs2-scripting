@@ -62,3 +62,26 @@ class TestBarcelonaBasic(unittest.TestCase):
         self.assertEqual(strength.BarcelonaBasic.getBetaParameter(), 1508.0)
         self.assertEqual(strength.BarcelonaBasic.getReferenceMeanStress(), 857.2)
         self.assertEqual(strength.BarcelonaBasic.getAtmosphericPressure(), 3215.6)
+    def testBarcelonaBasicStageFactors(self):
+        strength = self.material.Strength
+        stageFactor = strength.BarcelonaBasic.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setCriticalStateSlopeFactor(1475.5)
+        stageFactor.setGammaFactor(2227.9)
+        stageFactor.setKappaFactor(3008.6)
+        stageFactor.setLambdaFactor(2917.7)
+        stageFactor.setNParameterFactor(1006.5)
+        stageFactor.setOverconsolidationRatioFactor(1374.4)
+        stageFactor.setPreconsolidationStressFactor(1257.7)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        strength = self.material.Strength
+        stageFactor = strength.BarcelonaBasic.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getCriticalStateSlopeFactor(), 1475.5)
+        self.assertEqual(stageFactor.getGammaFactor(), 2227.9)
+        self.assertEqual(stageFactor.getKappaFactor(), 3008.6)
+        self.assertEqual(stageFactor.getLambdaFactor(), 2917.7)
+        self.assertEqual(stageFactor.getNParameterFactor(), 1006.5)
+        self.assertEqual(stageFactor.getOverconsolidationRatioFactor(), 1374.4)
+        self.assertEqual(stageFactor.getPreconsolidationStressFactor(), 1257.7)

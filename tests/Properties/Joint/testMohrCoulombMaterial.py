@@ -55,7 +55,8 @@ class TestMohrCoulombMaterial(unittest.TestCase):
         self.assertEqual(jointmaterial.MohrCoulombMaterial.getApplyStageFactors(), 0)
         self.assertEqual(jointmaterial.MohrCoulombMaterial.getDilationAngle(), 2.3)
     def testMohrCoulombMaterialStageFactors(self):
-        stageFactor = self.jointmaterial.MohrCoulombMaterial.stageFactorInterface.getDefinedStageFactors()[1]
+        jointmaterial = self.jointmaterial
+        stageFactor = jointmaterial.MohrCoulombMaterial.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setTensileStrengthFactor(2598.3)
         stageFactor.setPeakFrictionAngleFactor(2572.7)
         stageFactor.setPeakCohesionFactor(2605.0)
@@ -70,7 +71,8 @@ class TestMohrCoulombMaterial(unittest.TestCase):
         self.mat.Strength.setFailureCriterion(StrengthCriteriaTypes.JOINTED_MOHR_COULOMB)
         self.matJointOptions = self.mat.Strength.JointedMohrCoulomb.getJointOptions()
         self.jointmaterial = self.matJointOptions.getJoint(0)
-        stageFactor = self.jointmaterial.MohrCoulombMaterial.stageFactorInterface.getDefinedStageFactors()[1]
+        jointmaterial = self.jointmaterial
+        stageFactor = jointmaterial.MohrCoulombMaterial.stageFactorInterface.getDefinedStageFactors()[1]
         self.assertEqual(stageFactor.getTensileStrengthFactor(), 2598.3)
         self.assertEqual(stageFactor.getPeakFrictionAngleFactor(), 2572.7)
         self.assertEqual(stageFactor.getPeakCohesionFactor(), 2605.0)

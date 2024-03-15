@@ -54,3 +54,16 @@ class TestInitialConditions(unittest.TestCase):
         self.assertEqual(material.InitialConditions.getInitialHu(), 762.9)
         self.assertEqual(material.InitialConditions.getInitialTemperatureCondition(), StaticWaterModes.PORE_WATER_PRESSURE)
         self.assertEqual(material.InitialConditions.getInitialTemperature(), 1413.6)
+    def testInitialConditionsStageFactors(self):
+        material = self.material
+        stageFactor = material.InitialConditions.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setUnitWeightFactor(468.3)
+        stageFactor.setPorosityValueFactor(2350.4)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        material = self.material
+        stageFactor = material.InitialConditions.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getUnitWeightFactor(), 468.3)
+        self.assertEqual(stageFactor.getPorosityValueFactor(), 2350.4)

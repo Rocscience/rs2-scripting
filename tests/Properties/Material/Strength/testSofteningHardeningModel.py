@@ -47,3 +47,26 @@ class TestSofteningHardeningModel(unittest.TestCase):
         self.assertEqual(strength.SofteningHardeningModel.getCapType(), CapTypes.VERTICAL)
         self.assertEqual(strength.SofteningHardeningModel.getInitialMeanStress(), 1413.6)
         self.assertEqual(strength.SofteningHardeningModel.getLambdaKappa(), 468.3)
+    def testSofteningHardeningModelStageFactors(self):
+        strength = self.material.Strength
+        stageFactor = strength.SofteningHardeningModel.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setHardeningPropertyFactor(2350.4)
+        stageFactor.setInitialMeanStressFactor(2598.3)
+        stageFactor.setLambdaKappaFactor(2572.7)
+        stageFactor.setPeakCohesionFactor(2605.0)
+        stageFactor.setPeakFrictionAngleFactor(3213.4)
+        stageFactor.setPeakTensileStrengthFactor(176.8)
+        stageFactor.setDilationAngleFactor(1508.0)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        strength = self.material.Strength
+        stageFactor = strength.SofteningHardeningModel.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getHardeningPropertyFactor(), 2350.4)
+        self.assertEqual(stageFactor.getInitialMeanStressFactor(), 2598.3)
+        self.assertEqual(stageFactor.getLambdaKappaFactor(), 2572.7)
+        self.assertEqual(stageFactor.getPeakCohesionFactor(), 2605.0)
+        self.assertEqual(stageFactor.getPeakFrictionAngleFactor(), 3213.4)
+        self.assertEqual(stageFactor.getPeakTensileStrengthFactor(), 176.8)
+        self.assertEqual(stageFactor.getDilationAngleFactor(), 1508.0)

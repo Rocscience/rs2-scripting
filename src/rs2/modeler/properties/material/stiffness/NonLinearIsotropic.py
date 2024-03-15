@@ -3,7 +3,63 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
+class NonLinearIsotropicStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getAParameterFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_NLI_A", self.propertyID], proxyArgumentIndices=[1])
+	def getAlphaFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_NLI_ALPHA", self.propertyID], proxyArgumentIndices=[1])
+	def getBParameterFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_NLI_B", self.propertyID], proxyArgumentIndices=[1])
+	def getGMaxFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_NLI_G_MAX", self.propertyID], proxyArgumentIndices=[1])
+	def getInitialEFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_NLI_INITIAL_E", self.propertyID], proxyArgumentIndices=[1])
+	def getMParameterFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_NLI_M", self.propertyID], proxyArgumentIndices=[1])
+	def getPrefFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_NLI_PREF", self.propertyID], proxyArgumentIndices=[1])
+	def getRParameterFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_NLI_R", self.propertyID], proxyArgumentIndices=[1])
+	def getGammaYFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_NLI_TAU_Y", self.propertyID], proxyArgumentIndices=[1])
+	def getPoissonsRatioFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_POISSONS_RATIO", self.propertyID], proxyArgumentIndices=[1])
+	def getResidualYoungsModulusFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_YOUNGS_MODULUS_RES", self.propertyID], proxyArgumentIndices=[1])
+class NonLinearIsotropicDefinedStageFactor(NonLinearIsotropicStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setAParameterFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_NLI_A", value, self.propertyID], proxyArgumentIndices=[2])
+	def setAlphaFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_NLI_ALPHA", value, self.propertyID], proxyArgumentIndices=[2])
+	def setBParameterFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_NLI_B", value, self.propertyID], proxyArgumentIndices=[2])
+	def setGMaxFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_NLI_G_MAX", value, self.propertyID], proxyArgumentIndices=[2])
+	def setInitialEFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_NLI_INITIAL_E", value, self.propertyID], proxyArgumentIndices=[2])
+	def setMParameterFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_NLI_M", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPrefFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_NLI_PREF", value, self.propertyID], proxyArgumentIndices=[2])
+	def setRParameterFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_NLI_R", value, self.propertyID], proxyArgumentIndices=[2])
+	def setGammaYFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_NLI_TAU_Y", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPoissonsRatioFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_POISSONS_RATIO", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResidualYoungsModulusFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class NonLinearIsotropic(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
+		super().__init__(client, ID, documentProxyID)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[NonLinearIsotropicDefinedStageFactor, NonLinearIsotropicStageFactor](self._client, stageFactorInterfaceID, ID, NonLinearIsotropicDefinedStageFactor, NonLinearIsotropicStageFactor)
 	def getUseUnloadingCondition(self) -> bool:
 		return self._getBoolProperty("MP_USE_UNLOADING_CONDITION")
 	def setUseUnloadingCondition(self, value: bool):

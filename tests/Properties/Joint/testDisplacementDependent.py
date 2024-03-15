@@ -48,6 +48,7 @@ class TestDisplacementDependent(unittest.TestCase):
         self.assertEqual(joint.DisplacementDependent.getDisplacementDependentTable(), [[1.2,2,3,4],[1.5,2,3,4]])
         self.assertEqual(joint.DisplacementDependent.getPiezoID(), "None")
     def testDisplacementDependentStageFactors(self):
+        joint = self.joint
         self.joint.setSlipCriterion(JointTypes.DISPLACEMENT_DEPENDENT)
         stageFactor = self.joint.DisplacementDependent.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(2350.4)

@@ -62,6 +62,7 @@ class TestHyperbolicSoftening(unittest.TestCase):
         self.assertEqual(joint.HyperbolicSoftening.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.HyperbolicSoftening.getApplyStageFactors(), 0)
     def testHyperbolicSofteningStageFactors(self):
+        joint = self.joint
         self.joint.setSlipCriterion(JointTypes.HYPERBOLIC_SOFTENING)
         stageFactor = self.joint.HyperbolicSoftening.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(1475.5)

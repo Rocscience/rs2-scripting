@@ -3,7 +3,27 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
+class StaticGroundwaterStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getPiezoToUse(self) -> str:
+		return self._callFunction("getPiezoToUse", [self.propertyID], proxyArgumentIndices=[0])
+	def getGridToUse(self) -> str:
+		return self._callFunction("getGridToUse", [self.propertyID], proxyArgumentIndices=[0])
+class StaticGroundwaterDefinedStageFactor(StaticGroundwaterStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setPiezoToUse(self, piezoName: str):
+		return self._callFunction("setPiezoToUse", [piezoName, self.propertyID], proxyArgumentIndices=[1])
+	def setGridToUse(self, gridName: str):
+		return self._callFunction("setGridToUse", [gridName, self.propertyID], proxyArgumentIndices=[1])
 class StaticGroundwater(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
+		super().__init__(client, ID, documentProxyID)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[StaticGroundwaterDefinedStageFactor, StaticGroundwaterStageFactor](self._client, stageFactorInterfaceID, ID, StaticGroundwaterDefinedStageFactor, StaticGroundwaterStageFactor)
 	def getStaticWaterMode(self) -> StaticWaterModes:
 		return StaticWaterModes(self._getEnumEStaticWaterModesProperty("MP_STATIC_WATER_MODE"))
 	def setStaticWaterMode(self, value: StaticWaterModes):

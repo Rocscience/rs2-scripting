@@ -44,3 +44,28 @@ class TestNonLinearHyperbolic(unittest.TestCase):
         self.assertEqual(stiffness.NonLinearHyperbolic.getAtmosphericPressure(), 1413.6)
         self.assertEqual(stiffness.NonLinearHyperbolic.getFailureRatioRf(), 468.3)
         self.assertEqual(stiffness.NonLinearHyperbolic.getUnloadingModulusNumber(), 2350.4)
+    def testNonLinearHyperbolicStageFactors(self):
+        stiffness = self.material.Stiffness
+        stageFactor = stiffness.NonLinearHyperbolic.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setAtmosphericPressureFactor(2598.3)
+        stageFactor.setBulkModulusExpMFactor(2572.7)
+        stageFactor.setBulkModulusNumberFactor(2605.0)
+        stageFactor.setFailureRatioRfFactor(3213.4)
+        stageFactor.setModulusExpNFactor(176.8)
+        stageFactor.setModulusNumberFactor(1508.0)
+        stageFactor.setPoissonsRatioFactor(857.2)
+        stageFactor.setUnloadingModulusNumberFactor(3215.6)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        stiffness = self.material.Stiffness
+        stageFactor = stiffness.NonLinearHyperbolic.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getAtmosphericPressureFactor(), 2598.3)
+        self.assertEqual(stageFactor.getBulkModulusExpMFactor(), 2572.7)
+        self.assertEqual(stageFactor.getBulkModulusNumberFactor(), 2605.0)
+        self.assertEqual(stageFactor.getFailureRatioRfFactor(), 3213.4)
+        self.assertEqual(stageFactor.getModulusExpNFactor(), 176.8)
+        self.assertEqual(stageFactor.getModulusNumberFactor(), 1508.0)
+        self.assertEqual(stageFactor.getPoissonsRatioFactor(), 857.2)
+        self.assertEqual(stageFactor.getUnloadingModulusNumberFactor(), 3215.6)

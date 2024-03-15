@@ -62,3 +62,28 @@ class TestOrthotropic(unittest.TestCase):
         self.assertEqual(stiffness.Orthotropic.getUnloadingPoissonsRatioV12(), 857.2)
         self.assertEqual(stiffness.Orthotropic.getUnloadingPoissonsRatioV2(), 3215.6)
         self.assertEqual(stiffness.Orthotropic.getUnloadingPoissonsRatioV2z(), 1475.5)
+    def testOrthotropicStageFactors(self):
+        stiffness = self.material.Stiffness
+        stageFactor = stiffness.Orthotropic.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setAngleCounterclockwiseFromHorizontalToE1Factor(2227.9)
+        stageFactor.setPoissonsRatioV12Factor(3008.6)
+        stageFactor.setPoissonsRatioV2Factor(2917.7)
+        stageFactor.setPoissonsRatioV2zFactor(1006.5)
+        stageFactor.setShearModulusFactor(1374.4)
+        stageFactor.setYoungsModulusE1Factor(1257.7)
+        stageFactor.setYoungsModulusE2Factor(1702.5)
+        stageFactor.setYoungsModulusEZFactor(857.5)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        stiffness = self.material.Stiffness
+        stageFactor = stiffness.Orthotropic.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getAngleCounterclockwiseFromHorizontalToE1Factor(), 2227.9)
+        self.assertEqual(stageFactor.getPoissonsRatioV12Factor(), 3008.6)
+        self.assertEqual(stageFactor.getPoissonsRatioV2Factor(), 2917.7)
+        self.assertEqual(stageFactor.getPoissonsRatioV2zFactor(), 1006.5)
+        self.assertEqual(stageFactor.getShearModulusFactor(), 1374.4)
+        self.assertEqual(stageFactor.getYoungsModulusE1Factor(), 1257.7)
+        self.assertEqual(stageFactor.getYoungsModulusE2Factor(), 1702.5)
+        self.assertEqual(stageFactor.getYoungsModulusEZFactor(), 857.5)

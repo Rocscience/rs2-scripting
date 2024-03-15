@@ -44,6 +44,7 @@ class TestNoneSlip(unittest.TestCase):
         self.assertEqual(joint.NoneSlip.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.NoneSlip.getApplyStageFactors(), 0)
     def testNoneSlipStageFactors(self):
+        joint = self.joint
         self.joint.setSlipCriterion(JointTypes.NONE)
         stageFactor = self.joint.NoneSlip.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(2350.4)

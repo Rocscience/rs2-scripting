@@ -68,6 +68,7 @@ class TestMohrCoulomb(unittest.TestCase):
         self.assertEqual(joint.MohrCoulomb.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.MohrCoulomb.getApplyStageFactors(), 1)
     def testMohrCoulombStageFactors(self):
+        joint = self.joint
         self.joint.setSlipCriterion(JointTypes.MOHR_COULOMB)
         stageFactor = self.joint.MohrCoulomb.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(2917.7)

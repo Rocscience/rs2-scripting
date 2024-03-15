@@ -52,6 +52,7 @@ class TestGeosyntheticHyperbolic(unittest.TestCase):
         self.assertEqual(joint.GeosyntheticHyperbolic.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.GeosyntheticHyperbolic.getApplyStageFactors(), 0)
     def testGeosyntheticHyperbolicStageFactors(self):
+        joint = self.joint
         self.joint.setSlipCriterion(JointTypes.GEOSYNTHETIC_HYPERBOLIC)
         stageFactor = self.joint.GeosyntheticHyperbolic.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(3213.4)
