@@ -216,6 +216,23 @@ class TestStageFactorInterface(unittest.TestCase):
         self.assertFalse(3 in self.sfi.getDefinedStageFactors())
         self.assertTrue(4 in self.sfi.getDefinedStageFactors())
 
+    def testGetDefaultStageFactor(self):
+        sf2 = self.sfi.createStageFactor(2)
+        self.sfi.setDefinedStageFactors({2: sf2})
+
+        self.material.Thermal.setStaticTemperatureGridToUseByName("Grid 2")
+        sf1 = self.material.Thermal.stageFactorInterface.getStageFactor(1)
+        self.assertEqual(sf1.getThermalGridFactor(), "Grid 2")
+        self.assertEqual(self.material.Strength.stageFactorInterface.getStageFactor(1).getResetYield(), False)
+    def testCreateDefaultStageFactor(self):
+        sf2 = self.sfi.createStageFactor(2)
+        self.sfi.setDefinedStageFactors({2: sf2})
+
+        self.material.Thermal.setStaticTemperatureGridToUseByName("Grid 2")
+        self.material.StageFactors.createStageFactor(1)
+        sf1 = self.material.Thermal.stageFactorInterface.getStageFactor(1)
+        self.assertEqual(sf1.getThermalGridFactor(), "Grid 2")
+        self.assertEqual(self.material.Strength.stageFactorInterface.getStageFactor(1).getResetYield(), False)
 
 class TestStageFactorInterfaceDynamicProperties(unittest.TestCase):
 
@@ -271,3 +288,39 @@ class TestStageFactorInterfaceDynamicProperties(unittest.TestCase):
         self.assertEqual(hyi.getDefinedStageFactors()[2].getPiezoToUse(), hyi.getDefinedStageFactors()[1].getPiezoToUse())
         self.assertEqual(hyi.getDefinedStageFactors()[2].getGridToUse(), hyi.getDefinedStageFactors()[1].getGridToUse())
 
+    def testGetDefaultStageFactor(self):
+        sf2 = self.sfi.createStageFactor(2)
+        self.sfi.setDefinedStageFactors({2: sf2})
+
+        self.material.Hydraulic.setMaterialBehaviour(MaterialBehaviours.UNDRAINED)
+        self.material.Hydraulic.FEAGroundwater.setK1SurfaceToUseByName("Anisotropic Surface 2")
+        self.material.Hydraulic.StaticGroundwater.setGridToUse("Grid 2")
+        self.material.Hydraulic.StaticGroundwater.setPiezoToUse("2")
+
+        sf1 = self.material.Hydraulic.stageFactorInterface.getStageFactor(1)
+        self.assertEqual(sf1.getMaterialBehaviourFactor(), MaterialBehaviours.UNDRAINED)
+        sf1 = self.material.Hydraulic.FEAGroundwater.stageFactorInterface.getStageFactor(1)
+        self.assertEqual(sf1.getAnisotropicSurfaceFactor(), "Anisotropic Surface 2")
+        sf1 = self.material.Hydraulic.StaticGroundwater.stageFactorInterface.getStageFactor(1)
+        self.assertEqual(sf1.getGridToUse(), "Grid 2")
+        self.assertEqual(sf1.getPiezoToUse(), "2")
+
+    def testCreateDefaultStageFactor(self):
+        sf2 = self.sfi.createStageFactor(2)
+        self.sfi.setDefinedStageFactors({2: sf2})
+
+        self.material.Hydraulic.setMaterialBehaviour(MaterialBehaviours.UNDRAINED)
+        self.material.Hydraulic.FEAGroundwater.setK1SurfaceToUseByName("Anisotropic Surface 2")
+        self.material.Hydraulic.StaticGroundwater.setGridToUse("Grid 2")
+        self.material.Hydraulic.StaticGroundwater.setPiezoToUse("2")
+
+        self.material.StageFactors.createStageFactor(1)
+        sf1 = self.material.Hydraulic.stageFactorInterface.getStageFactor(1)
+        self.assertEqual(sf1.getMaterialBehaviourFactor(), MaterialBehaviours.UNDRAINED)
+        sf1 = self.material.Hydraulic.FEAGroundwater.stageFactorInterface.getStageFactor(1)
+        self.assertEqual(sf1.getAnisotropicSurfaceFactor(), "Anisotropic Surface 2")
+        sf1 = self.material.Hydraulic.StaticGroundwater.stageFactorInterface.getStageFactor(1)
+        self.assertEqual(sf1.getGridToUse(), "Grid 2")
+        self.assertEqual(sf1.getPiezoToUse(), "2")
+
+        
