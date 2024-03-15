@@ -54,3 +54,24 @@ class TestTransverselyIsotropic(unittest.TestCase):
         self.assertEqual(stiffness.TransverselyIsotropic.getUnloadingYoungsModulusE2(), 2605.0)
         self.assertEqual(stiffness.TransverselyIsotropic.getUnloadingPoissonsRatioV12(), 3213.4)
         self.assertEqual(stiffness.TransverselyIsotropic.getUnloadingPoissonsRatioVAndV1z(), 176.8)
+    def testTransverselyIsotropicStageFactors(self):
+        stiffness = self.material.Stiffness
+        stageFactor = stiffness.TransverselyIsotropic.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setAngleCounterclockwiseFromHorizontalToE1Factor(1508.0)
+        stageFactor.setPoissonsRatioVAndV1zFactor(857.2)
+        stageFactor.setPoissonsRatioV12Factor(3215.6)
+        stageFactor.setShearModulusFactor(1475.5)
+        stageFactor.setYoungsModulusE1AndEzFactor(2227.9)
+        stageFactor.setYoungsModulusE2Factor(3008.6)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        stiffness = self.material.Stiffness
+        stageFactor = stiffness.TransverselyIsotropic.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getAngleCounterclockwiseFromHorizontalToE1Factor(), 1508.0)
+        self.assertEqual(stageFactor.getPoissonsRatioVAndV1zFactor(), 857.2)
+        self.assertEqual(stageFactor.getPoissonsRatioV12Factor(), 3215.6)
+        self.assertEqual(stageFactor.getShearModulusFactor(), 1475.5)
+        self.assertEqual(stageFactor.getYoungsModulusE1AndEzFactor(), 2227.9)
+        self.assertEqual(stageFactor.getYoungsModulusE2Factor(), 3008.6)

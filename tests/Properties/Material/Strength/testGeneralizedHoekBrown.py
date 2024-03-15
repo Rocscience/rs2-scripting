@@ -65,3 +65,32 @@ class TestGeneralizedHoekBrown(unittest.TestCase):
         self.assertEqual(strength.GeneralizedHoekBrown.getTensileCutoffType(), TensileCutoffOptions.HOEK_MARTIN_2004)
         self.assertEqual(strength.GeneralizedHoekBrown.getTensileCutoff(), 3215.6)
         self.assertEqual(strength.GeneralizedHoekBrown.getHoekMartinMi(), 1475.5)
+    def testGeneralizedHoekBrownStageFactors(self):
+        strength = self.material.Strength
+        stageFactor = strength.GeneralizedHoekBrown.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setAParameterFactor(2227.9)
+        stageFactor.setResidualAParameterFactor(3008.6)
+        stageFactor.setCompressiveStrengthFactor(2917.7)
+        stageFactor.setDilationParameterFactor(1006.5)
+        stageFactor.setMbParameterFactor(1374.4)
+        stageFactor.setResidualMbParameterFactor(1257.7)
+        stageFactor.setHoekMartinMiFactor(1702.5)
+        stageFactor.setSParameterFactor(857.5)
+        stageFactor.setResidualSParameterFactor(2489.6)
+        stageFactor.setTensileCutoffFactor(1772.3)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        strength = self.material.Strength
+        stageFactor = strength.GeneralizedHoekBrown.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getAParameterFactor(), 2227.9)
+        self.assertEqual(stageFactor.getResidualAParameterFactor(), 3008.6)
+        self.assertEqual(stageFactor.getCompressiveStrengthFactor(), 2917.7)
+        self.assertEqual(stageFactor.getDilationParameterFactor(), 1006.5)
+        self.assertEqual(stageFactor.getMbParameterFactor(), 1374.4)
+        self.assertEqual(stageFactor.getResidualMbParameterFactor(), 1257.7)
+        self.assertEqual(stageFactor.getHoekMartinMiFactor(), 1702.5)
+        self.assertEqual(stageFactor.getSParameterFactor(), 857.5)
+        self.assertEqual(stageFactor.getResidualSParameterFactor(), 2489.6)
+        self.assertEqual(stageFactor.getTensileCutoffFactor(), 1772.3)

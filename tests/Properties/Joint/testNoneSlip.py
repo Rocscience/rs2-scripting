@@ -46,8 +46,9 @@ class TestNoneSlip(unittest.TestCase):
         self.assertEqual(joint.NoneSlip.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.NoneSlip.getApplyStageFactors(), 0)
     def testNoneSlipStageFactors(self):
+        joint = self.joint
         self.joint.setSlipCriterion(JointTypes.NONE)
-        stageFactor = self.joint.NoneSlip.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor = joint.NoneSlip.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(2598.3)
         stageFactor.setShearStiffnessFactor(2572.7)
         stageFactor.setAdditionalPressureInsideJointFactor(2605.0)
@@ -57,7 +58,8 @@ class TestNoneSlip(unittest.TestCase):
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.joint = self.model.getAllJointProperties()[0]
-        stageFactor = self.joint.NoneSlip.stageFactorInterface.getDefinedStageFactors()[1]
+        joint = self.joint
+        stageFactor = joint.NoneSlip.stageFactorInterface.getDefinedStageFactors()[1]
         self.assertEqual(stageFactor.getNormalStiffnessFactor(), 2598.3)
         self.assertEqual(stageFactor.getShearStiffnessFactor(), 2572.7)
         self.assertEqual(stageFactor.getAdditionalPressureInsideJointFactor(), 2605.0)

@@ -3,7 +3,51 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
+class OrthotropicStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getAngleCounterclockwiseFromHorizontalToE1Factor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_ELASTIC_ANGLE", self.propertyID], proxyArgumentIndices=[1])
+	def getPoissonsRatioV12Factor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_POISSONS_RATIO_V12", self.propertyID], proxyArgumentIndices=[1])
+	def getPoissonsRatioV2Factor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_POISSONS_RATIO_V2", self.propertyID], proxyArgumentIndices=[1])
+	def getPoissonsRatioV2zFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_POISSONS_RATIO_V2Z", self.propertyID], proxyArgumentIndices=[1])
+	def getShearModulusFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_SHEAR_MODULUS", self.propertyID], proxyArgumentIndices=[1])
+	def getYoungsModulusE1Factor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_YOUNGS_MODULUS_E1", self.propertyID], proxyArgumentIndices=[1])
+	def getYoungsModulusE2Factor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_YOUNGS_MODULUS_E2", self.propertyID], proxyArgumentIndices=[1])
+	def getYoungsModulusEZFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_YOUNGS_MODULUS_EZ", self.propertyID], proxyArgumentIndices=[1])
+class OrthotropicDefinedStageFactor(OrthotropicStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setAngleCounterclockwiseFromHorizontalToE1Factor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_ELASTIC_ANGLE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPoissonsRatioV12Factor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_POISSONS_RATIO_V12", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPoissonsRatioV2Factor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_POISSONS_RATIO_V2", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPoissonsRatioV2zFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_POISSONS_RATIO_V2Z", value, self.propertyID], proxyArgumentIndices=[2])
+	def setShearModulusFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_SHEAR_MODULUS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setYoungsModulusE1Factor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_E1", value, self.propertyID], proxyArgumentIndices=[2])
+	def setYoungsModulusE2Factor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_E2", value, self.propertyID], proxyArgumentIndices=[2])
+	def setYoungsModulusEZFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_EZ", value, self.propertyID], proxyArgumentIndices=[2])
 class Orthotropic(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
+		super().__init__(client, ID, documentProxyID)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[OrthotropicDefinedStageFactor, OrthotropicStageFactor](self._client, stageFactorInterfaceID, ID, OrthotropicDefinedStageFactor, OrthotropicStageFactor)
 	def getUseUnloadingCondition(self) -> bool:
 		return self._getBoolProperty("MP_USE_UNLOADING_CONDITION")
 	def setUseUnloadingCondition(self, value: bool):

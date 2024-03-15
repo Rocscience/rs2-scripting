@@ -3,7 +3,47 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
+class ModifiedCamClayStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getCriticalStateSlopeFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_CRITICAL_STATE_SLOPE", self.propertyID], proxyArgumentIndices=[1])
+	def getGammaFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_GAMMA", self.propertyID], proxyArgumentIndices=[1])
+	def getKappaFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_KAPPA", self.propertyID], proxyArgumentIndices=[1])
+	def getLambdaFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_LAMBDA", self.propertyID], proxyArgumentIndices=[1])
+	def getNParameterFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_N", self.propertyID], proxyArgumentIndices=[1])
+	def getOverconsolidationRatioFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_OVERCONSOLIDATION_RATIO", self.propertyID], proxyArgumentIndices=[1])
+	def getPreconsolidationStressFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_PRECONSOLIDATION_STRESS", self.propertyID], proxyArgumentIndices=[1])
+class ModifiedCamClayDefinedStageFactor(ModifiedCamClayStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setCriticalStateSlopeFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_CRITICAL_STATE_SLOPE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setGammaFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_GAMMA", value, self.propertyID], proxyArgumentIndices=[2])
+	def setKappaFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_KAPPA", value, self.propertyID], proxyArgumentIndices=[2])
+	def setLambdaFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_LAMBDA", value, self.propertyID], proxyArgumentIndices=[2])
+	def setNParameterFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_N", value, self.propertyID], proxyArgumentIndices=[2])
+	def setOverconsolidationRatioFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_OVERCONSOLIDATION_RATIO", value, self.propertyID], proxyArgumentIndices=[2])
+	def setPreconsolidationStressFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_PRECONSOLIDATION_STRESS", value, self.propertyID], proxyArgumentIndices=[2])
 class ModifiedCamClay(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
+		super().__init__(client, ID, documentProxyID)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[ModifiedCamClayDefinedStageFactor, ModifiedCamClayStageFactor](self._client, stageFactorInterfaceID, ID, ModifiedCamClayDefinedStageFactor, ModifiedCamClayStageFactor)
 	def getCriticalStateSlope(self) -> float:
 		return self._getDoubleProperty("MP_CRITICAL_STATE_SLOPE")
 	def setCriticalStateSlope(self, value: float):
