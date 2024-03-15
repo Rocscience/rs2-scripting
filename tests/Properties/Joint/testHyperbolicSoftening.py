@@ -64,7 +64,7 @@ class TestHyperbolicSoftening(unittest.TestCase):
     def testHyperbolicSofteningStageFactors(self):
         joint = self.joint
         self.joint.setSlipCriterion(JointTypes.HYPERBOLIC_SOFTENING)
-        stageFactor = self.joint.HyperbolicSoftening.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor = joint.HyperbolicSoftening.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(1475.5)
         stageFactor.setShearStiffnessFactor(2227.9)
         stageFactor.setPeakCohesionFactor(3008.6)
@@ -83,7 +83,8 @@ class TestHyperbolicSoftening(unittest.TestCase):
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.joint = self.model.getAllJointProperties()[0]
-        stageFactor = self.joint.HyperbolicSoftening.stageFactorInterface.getDefinedStageFactors()[1]
+        joint = self.joint
+        stageFactor = joint.HyperbolicSoftening.stageFactorInterface.getDefinedStageFactors()[1]
         self.assertEqual(stageFactor.getNormalStiffnessFactor(), 1475.5)
         self.assertEqual(stageFactor.getShearStiffnessFactor(), 2227.9)
         self.assertEqual(stageFactor.getPeakCohesionFactor(), 3008.6)
