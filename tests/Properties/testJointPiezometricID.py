@@ -25,24 +25,24 @@ class TestJointPiezometricID(unittest.TestCase):
     def testAllJointTypesPiezoIDSuccess(self):
         joint = self.joint
         joint.NoneSlip.setPiezoID("1")
-        self.assertEqual(joint.NoneSlip.getPiezoID(), 1)
-        self.assertEqual(joint.MohrCoulomb.getPiezoID(), 1)
-        self.assertEqual(joint.BartonBandis.getPiezoID(), 1)
-        self.assertEqual(joint.GeosyntheticHyperbolic.getPiezoID(), 1)
-        self.assertEqual(joint.HyperbolicSoftening.getPiezoID(), 1)
-        self.assertEqual(joint.MaterialDependent.getPiezoID(), 1)
-        self.assertEqual(joint.DisplacementDependent.getPiezoID(), 1)
+        self.assertEqual(joint.NoneSlip.getPiezoID(), "1")
+        self.assertEqual(joint.MohrCoulomb.getPiezoID(), "1")
+        self.assertEqual(joint.BartonBandis.getPiezoID(), "1")
+        self.assertEqual(joint.GeosyntheticHyperbolic.getPiezoID(), "1")
+        self.assertEqual(joint.HyperbolicSoftening.getPiezoID(), "1")
+        self.assertEqual(joint.MaterialDependent.getPiezoID(), "1")
+        self.assertEqual(joint.DisplacementDependent.getPiezoID(), "1")
     
     def testNonePiezoIDSuccess(self):
         joint = self.joint
         joint.NoneSlip.setPiezoID("None")
-        self.assertEqual(joint.NoneSlip.getPiezoID(), 0)
-        self.assertEqual(joint.MohrCoulomb.getPiezoID(), 0)
-        self.assertEqual(joint.BartonBandis.getPiezoID(), 0)
-        self.assertEqual(joint.GeosyntheticHyperbolic.getPiezoID(), 0)
-        self.assertEqual(joint.HyperbolicSoftening.getPiezoID(), 0)
-        self.assertEqual(joint.MaterialDependent.getPiezoID(), 0)
-        self.assertEqual(joint.DisplacementDependent.getPiezoID(), 0)
+        self.assertEqual(joint.NoneSlip.getPiezoID(), "None")
+        self.assertEqual(joint.MohrCoulomb.getPiezoID(), "None")
+        self.assertEqual(joint.BartonBandis.getPiezoID(), "None")
+        self.assertEqual(joint.GeosyntheticHyperbolic.getPiezoID(), "None")
+        self.assertEqual(joint.HyperbolicSoftening.getPiezoID(), "None")
+        self.assertEqual(joint.MaterialDependent.getPiezoID(), "None")
+        self.assertEqual(joint.DisplacementDependent.getPiezoID(), "None")
         
     def testJointSetPiezoIDFailure(self):
         try:

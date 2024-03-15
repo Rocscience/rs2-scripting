@@ -102,8 +102,8 @@ class DisplacementDependent(PropertyProxy):
 		return self._callFunction("setDisplacementDependentTable", [displacementGrid])
 	def setPiezoID(self, piezoName: str):
 		return self._callFunction("python_setPiezoPressureID", [piezoName])
-	def getPiezoID(self) -> int:
-		return self._callFunction("__getattribute__", ["m_pressure_piezo_id"])
+	def getPiezoID(self):
+		return self._callFunction("python_getPiezoPressureID", [])
 	def setProperties(self, NormalStiffness : float = None, ShearStiffness : float = None, ApplyPorePressure : bool = None, ApplyAdditionalPressureInsideJoint : bool = None, AdditionalPressureType : AdditionalPressureType = None, AdditionalPressureInsideJoint : float = None, ApplyPressureToLinerSideOnly : bool = None, ApplyStageFactors : bool = None):
 		if NormalStiffness is not None:
 			self._setDoubleProperty("JP_NORMAL_STIFFNESS", NormalStiffness)

@@ -87,8 +87,8 @@ class MaterialDependent(PropertyProxy):
 		return self._setBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES", value)
 	def setPiezoID(self, piezoName: str):
 		return self._callFunction("python_setPiezoPressureID", [piezoName])
-	def getPiezoID(self) -> int:
-		return self._callFunction("__getattribute__", ["m_pressure_piezo_id"])
+	def getPiezoID(self):
+		return self._callFunction("python_getPiezoPressureID", [])
 	def setProperties(self, InterfaceCoefficient : float = None, DefineStiffness : DefineStiffness = None, NormalStiffness : float = None, ShearStiffness : float = None, StiffnessCoefficient : float = None, ApplyPorePressure : bool = None, ApplyAdditionalPressureInsideJoint : bool = None, AdditionalPressureType : AdditionalPressureType = None, AdditionalPressureInsideJoint : float = None, ApplyPressureToLinerSideOnly : bool = None, ApplyStageFactors : bool = None):
 		if InterfaceCoefficient is not None:
 			self._setDoubleProperty("JP_INTERFACE_COEFFICIENT", InterfaceCoefficient)

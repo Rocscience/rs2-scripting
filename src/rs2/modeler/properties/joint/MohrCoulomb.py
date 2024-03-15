@@ -143,8 +143,8 @@ class MohrCoulomb(PropertyProxy):
 		return self._setBoolProperty("JP_USE_STAGE_JOINT_PROPERTIES", value)
 	def setPiezoID(self, piezoName: str):
 		return self._callFunction("python_setPiezoPressureID", [piezoName])
-	def getPiezoID(self) -> int:
-		return self._callFunction("__getattribute__", ["m_pressure_piezo_id"])
+	def getPiezoID(self):
+		return self._callFunction("python_getPiezoPressureID", [])
 	def setProperties(self, TensileStrength : float = None, PeakCohesion : float = None, PeakFrictionAngle : float = None, IncludeDilation : bool = None, DilationAngle : float = None, DMin : float = None, DMax : float = None, Directional : bool = None, ResidualStrength : bool = None, ResTensileStrength : float = None, ResCohesion : float = None, ResFrictionAngle : float = None, NormalStiffness : float = None, ShearStiffness : float = None, ApplyPorePressure : bool = None, ApplyAdditionalPressureInsideJoint : bool = None, AdditionalPressureType : AdditionalPressureType = None, AdditionalPressureInsideJoint : float = None, ApplyPressureToLinerSideOnly : bool = None, ApplyStageFactors : bool = None):
 		if TensileStrength is not None:
 			self._setDoubleProperty("JP_TENSILE_STRENGTH", TensileStrength)
