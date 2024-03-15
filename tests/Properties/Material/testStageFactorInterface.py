@@ -91,9 +91,7 @@ class TestStageFactorInterface(unittest.TestCase):
     
     def testSetWithExtraFactor(self):
         dfs = self.sfi.getDefinedStageFactors()
-        with self.assertRaises(Exception):
-            self.sfi.setDefinedStageFactors({1: (dfs[1][0], dfs[1][1], dfs[1][2], dfs[1][2])})
-    
+        
         self.sfi.setStageThermalStageFactors(False)
         with self.assertRaises(Exception):
             self.sfi.setDefinedStageFactors({1: (dfs[1][0], dfs[1][1], dfs[1][2])})
@@ -234,6 +232,38 @@ class TestStageFactorInterface(unittest.TestCase):
         self.assertEqual(sf1.getThermalGridFactor(), "Grid 2")
         self.assertEqual(self.material.Strength.stageFactorInterface.getStageFactor(1).getResetYield(), False)
 
+
+    def testSetUsingObjectsFromSubProxyGetters(self):
+        self.sfi.setStageStrengthStiffnessStageFactors(True)
+        self.sfi.setStageHydraulicStageFactor(True)
+        self.sfi.setStageThermalStageFactors(True)
+        self.sfi.setStageDatumStageFactor(True)
+
+        self.sfi.createStageFactor(2)
+
+        matStageFactors = self.material.Strength.stageFactorInterface.getDefinedStageFactors()
+        matStageFactors[1].setAirEntryValueFactor(1.1)
+        matStageFactors[2].setAirEntryValueFactor(2.2)
+        hydroStageFactors = self.material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()
+        hydroStageFactors[1].setK1AngleFactor(1.1)
+        hydroStageFactors[2].setK1AngleFactor(2.2)
+        thermalStageFactors = self.material.Thermal.stageFactorInterface.getDefinedStageFactors()
+        thermalStageFactors[1].setThermalGridFactor("Grid 2")
+        thermalStageFactors[2].setThermalGridFactor("Grid 3")
+
+        self.sfi.setDefinedStageFactors({1: (matStageFactors[2], hydroStageFactors[2], thermalStageFactors[2]), 
+                                         2: (matStageFactors[1], hydroStageFactors[1], thermalStageFactors[1])})
+
+        self.assertEqual(self.material.Strength.stageFactorInterface.getDefinedStageFactors()[1].getAirEntryValueFactor(), 2.2)
+        self.assertEqual(self.material.Strength.stageFactorInterface.getDefinedStageFactors()[2].getAirEntryValueFactor(), 1.1)
+        self.assertEqual(self.material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[1].getK1AngleFactor(), 2.2)
+        self.assertEqual(self.material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[2].getK1AngleFactor(), 1.1)
+        self.assertEqual(self.material.Thermal.stageFactorInterface.getDefinedStageFactors()[1].getThermalGridFactor(), "Grid 3")
+        self.assertEqual(self.material.Thermal.stageFactorInterface.getDefinedStageFactors()[2].getThermalGridFactor(), "Grid 2")
+
+
+
+
 class TestStageFactorInterfaceDynamicProperties(unittest.TestCase):
 
     @classmethod
@@ -322,5 +352,3 @@ class TestStageFactorInterfaceDynamicProperties(unittest.TestCase):
         sf1 = self.material.Hydraulic.StaticGroundwater.stageFactorInterface.getStageFactor(1)
         self.assertEqual(sf1.getGridToUse(), "Grid 2")
         self.assertEqual(sf1.getPiezoToUse(), "2")
-
-        

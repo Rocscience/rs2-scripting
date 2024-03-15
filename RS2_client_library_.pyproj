@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{cf16b438-0272-4178-b87c-f3c8fed7ab40}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>tests\zach\test_MaterialHydraulicTransientUserDefinedCoupled.py</StartupFile>
+    <StartupFile>tests\zach\test_StageFactors.py</StartupFile>
     <SearchPath>.;tests</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -488,6 +488,7 @@
     <Compile Include="tests\zach\test_PileMohrCoulomb.py" />
     <Compile Include="tests\zach\test_PileMultilinear.py" />
     <Compile Include="tests\zach\test_PileStageForceDisp.py" />
+    <Compile Include="tests\zach\test_StageFactors.py" />
     <Compile Include="tests\zach\test_StructuralInterface.py" />
   </ItemGroup>
   <ItemGroup>
