@@ -223,6 +223,7 @@ class TestStageFactorInterface(unittest.TestCase):
         self.material.Thermal.setStaticTemperatureGridToUseByName("Grid 2")
         sf1 = self.material.Thermal.stageFactorInterface.getStageFactor(1)
         self.assertEqual(sf1.getThermalGridFactor(), "Grid 2")
+        self.assertEqual(self.material.Strength.stageFactorInterface.getStageFactor(1).getResetYield(), False)
     def testCreateDefaultStageFactor(self):
         sf2 = self.sfi.createStageFactor(2)
         self.sfi.setDefinedStageFactors({2: sf2})
@@ -231,6 +232,8 @@ class TestStageFactorInterface(unittest.TestCase):
         self.material.StageFactors.createStageFactor(1)
         sf1 = self.material.Thermal.stageFactorInterface.getStageFactor(1)
         self.assertEqual(sf1.getThermalGridFactor(), "Grid 2")
+        self.assertEqual(self.material.Strength.stageFactorInterface.getStageFactor(1).getResetYield(), False)
+
 class TestStageFactorInterfaceDynamicProperties(unittest.TestCase):
 
     @classmethod
