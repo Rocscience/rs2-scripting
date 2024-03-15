@@ -303,7 +303,8 @@ class ModelProxy(ProxyObject):
 		Typical usage example:
 		model.saveAs('C:/simple_3_stage.fez')
 		'''
-		return self._callFunction('saveAs', [fileName])
+		formattedFileName = fileName.replace('/', '\\')
+		return self._callFunction('saveAs', [formattedFileName])
 
 	def save(self):
 		'''
