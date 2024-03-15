@@ -16,7 +16,7 @@ class TestConstant(unittest.TestCase):
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
-        self.material.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.SL_WATER_MODE_CONSTANT)
+        self.material.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.CUSTOM)
     def tearDown(self):
         self.model.close()
         os.remove(self.copiedModelPath)

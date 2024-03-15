@@ -126,25 +126,25 @@ class TestDiscreteFunctionFunctions(unittest.TestCase):
         os.remove(self.copiedModelPath)
 
     def testFunctionParameters(self):
-        self.df.setFunctionParameters(DiscreteDrainedMode.SL_DISCRETE_DRAINED, True, 1.1, 2.2, 3.3, True)
-        self.assertEqual(self.df.getFunctionParameters(), (DiscreteDrainedMode.SL_DISCRETE_DRAINED, True, 1.1, 2.2, 3.3, True))
+        self.df.setFunctionParameters(DiscreteDrainedMode.DRAINED, True, 1.1, 2.2, 3.3, True)
+        self.assertEqual(self.df.getFunctionParameters(), (DiscreteDrainedMode.DRAINED, True, 1.1, 2.2, 3.3, True))
 
-        self.df.setFunctionParameters(DiscreteDrainedMode.SL_DISCRETE_UNDRAINED, False, 1.1, 2.2, 3.3, False)
-        self.assertEqual(self.df.getFunctionParameters(), (DiscreteDrainedMode.SL_DISCRETE_UNDRAINED, False, 1.1, 2.2, 3.3, False))
+        self.df.setFunctionParameters(DiscreteDrainedMode.UNDRAINED, False, 1.1, 2.2, 3.3, False)
+        self.assertEqual(self.df.getFunctionParameters(), (DiscreteDrainedMode.UNDRAINED, False, 1.1, 2.2, 3.3, False))
 
     def testInterpolationMethod(self):
-        self.df.setInterpolationMethod(InterpolationMethod.BCINTERPOLATE_THINPLATESPLINE)
-        self.assertEqual(self.df.getInterpolationMethod(), InterpolationMethod.BCINTERPOLATE_THINPLATESPLINE)
+        self.df.setInterpolationMethod(InterpolationMethod.THIN_PLATE_SPLINE)
+        self.assertEqual(self.df.getInterpolationMethod(), InterpolationMethod.THIN_PLATE_SPLINE)
 
-        self.df.setInterpolationMethod(InterpolationMethod.BCINTERPOLATE_ORIGINALCHUGH)
-        self.assertEqual(self.df.getInterpolationMethod(), InterpolationMethod.BCINTERPOLATE_ORIGINALCHUGH)
+        self.df.setInterpolationMethod(InterpolationMethod.CHUGH)
+        self.assertEqual(self.df.getInterpolationMethod(), InterpolationMethod.CHUGH)
 
     def testSetSymbolDrawing(self):
-        self.df.setSymbolDrawing(SymbolTypes.SL_SYMBOL_TYPE_SQUARE, ColorPicker.Green, True, ColorPicker.Blue)
-        self.assertEqual(self.df.getSymbolDrawing(), (SymbolTypes.SL_SYMBOL_TYPE_SQUARE, ColorPicker.Green, True, ColorPicker.Blue))
+        self.df.setSymbolDrawing(SymbolTypes.SQUARE, ColorPicker.Green, True, ColorPicker.Blue)
+        self.assertEqual(self.df.getSymbolDrawing(), (SymbolTypes.SQUARE, ColorPicker.Green, True, ColorPicker.Blue))
 
-        self.df.setSymbolDrawing(SymbolTypes.SL_SYMBOL_TYPE_DOT, ColorPicker.Red, False, ColorPicker.Yellow)
-        self.assertEqual(self.df.getSymbolDrawing(), (SymbolTypes.SL_SYMBOL_TYPE_DOT, ColorPicker.Red, False, ColorPicker.Yellow))
+        self.df.setSymbolDrawing(SymbolTypes.DOT, ColorPicker.Red, False, ColorPicker.Yellow)
+        self.assertEqual(self.df.getSymbolDrawing(), (SymbolTypes.DOT, ColorPicker.Red, False, ColorPicker.Yellow))
 
     def testSetPointLocations(self):
         self.df.setPointLocations([(0, 0), (1.1, 1.2), (2.1, 2.2)])

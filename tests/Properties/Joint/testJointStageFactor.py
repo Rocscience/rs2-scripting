@@ -297,27 +297,36 @@ class TestJointStageFactor(unittest.TestCase):
         self.stageFactorInterface.setDefinedStageFactors({2: sfMap[1]})
     
         self.joint.SetPermeable(True)
+        self.joint.HyperbolicSoftening.setWorkSoftening(True)
         sf1 = self.stageFactorInterface.getStageFactor(1)
         self.assertEqual(sf1.getJointPermeableFactor(), True)
+        self.assertEqual(self.joint.HyperbolicSoftening.stageFactorInterface.getStageFactor(1).getWorkSofteningFactor(), True)
 
         self.joint.SetPermeable(False)
+        self.joint.HyperbolicSoftening.setWorkSoftening(False)
         sf1 = self.stageFactorInterface.getStageFactor(1)
         self.assertEqual(sf1.getJointPermeableFactor(), False)
+        self.assertEqual(self.joint.HyperbolicSoftening.stageFactorInterface.getStageFactor(1).getWorkSofteningFactor(), False)
 
     def CreateDefault(self):
         sfMap = self.stageFactorInterface.getDefinedStageFactors()
         self.stageFactorInterface.setDefinedStageFactors({2: sfMap[1]})
     
         self.joint.SetPermeable(True)
+        self.joint.HyperbolicSoftening.setWorkSoftening(True)
         sf1 = self.stageFactorInterface.createStageFactor(1)
         self.assertEqual(sf1.getJointPermeableFactor(), True)
+        self.assertEqual(self.joint.HyperbolicSoftening.stageFactorInterface.getStageFactor(1).getWorkSofteningFactor(), True)
 
         sfMap = self.stageFactorInterface.getDefinedStageFactors()
         self.stageFactorInterface.setDefinedStageFactors({2: sfMap[1]})
 
         self.joint.SetPermeable(False)
+        self.joint.HyperbolicSoftening.setWorkSoftening(False)
         sf1 = self.stageFactorInterface.createStageFactor(1)
         self.assertEqual(sf1.getJointPermeableFactor(), False)
+        self.assertEqual(self.joint.HyperbolicSoftening.stageFactorInterface.getStageFactor(1).getWorkSofteningFactor(), False)
+
 class TestJointStageFactorAbsolute(TestJointStageFactor):
     def testGetStageFactorSuccess(self):
         self.GetStageFactorSuccess()

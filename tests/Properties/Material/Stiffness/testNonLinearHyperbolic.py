@@ -22,7 +22,7 @@ class TestNonLinearHyperbolic(unittest.TestCase):
     def testNonLinearHyperbolicProperty(self):
         stiffness = self.material.Stiffness
         stiffness.NonLinearHyperbolic.setModulusNumber(836.5)
-        stiffness.NonLinearHyperbolic.setPoissonRatioType(PoissonRatioType.POISSON_RATIO_STRESS_DEPENDENT)
+        stiffness.NonLinearHyperbolic.setPoissonRatioType(PoissonRatioType.STRESS_DEPENDENT)
         stiffness.NonLinearHyperbolic.setBulkModulusNumber(2628.5)
         stiffness.NonLinearHyperbolic.setBulkModulusExpM(972.5)
         stiffness.NonLinearHyperbolic.setPoissonsRatio(86.7)
@@ -36,7 +36,7 @@ class TestNonLinearHyperbolic(unittest.TestCase):
         self.material = self.model.getAllMaterialProperties()[0]
         stiffness = self.material.Stiffness
         self.assertEqual(stiffness.NonLinearHyperbolic.getModulusNumber(), 836.5)
-        self.assertEqual(stiffness.NonLinearHyperbolic.getPoissonRatioType(), PoissonRatioType.POISSON_RATIO_STRESS_DEPENDENT)
+        self.assertEqual(stiffness.NonLinearHyperbolic.getPoissonRatioType(), PoissonRatioType.STRESS_DEPENDENT)
         self.assertEqual(stiffness.NonLinearHyperbolic.getBulkModulusNumber(), 2628.5)
         self.assertEqual(stiffness.NonLinearHyperbolic.getBulkModulusExpM(), 972.5)
         self.assertEqual(stiffness.NonLinearHyperbolic.getPoissonsRatio(), 86.7)

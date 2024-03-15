@@ -21,7 +21,7 @@ class TestDoubleYieldStrength(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testDoubleYieldStrengthProperty(self):
         strength = self.material.Strength
-        strength.DoubleYieldStrength.setCap(CySoilCapOption.CYS_CAP_ELLIPTICAL)
+        strength.DoubleYieldStrength.setCap(CySoilCapOption.ELLIPTICAL)
         strength.DoubleYieldStrength.setAlfaCap(836.5)
         strength.DoubleYieldStrength.setNormallyConsolidatedCapPressure(2628.5)
         strength.DoubleYieldStrength.setFrictionAngleFailure(972.5)
@@ -38,7 +38,7 @@ class TestDoubleYieldStrength(unittest.TestCase):
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         strength = self.material.Strength
-        self.assertEqual(strength.DoubleYieldStrength.getCap(), CySoilCapOption.CYS_CAP_ELLIPTICAL)
+        self.assertEqual(strength.DoubleYieldStrength.getCap(), CySoilCapOption.ELLIPTICAL)
         self.assertEqual(strength.DoubleYieldStrength.getAlfaCap(), 836.5)
         self.assertEqual(strength.DoubleYieldStrength.getNormallyConsolidatedCapPressure(), 2628.5)
         self.assertEqual(strength.DoubleYieldStrength.getFrictionAngleFailure(), 972.5)

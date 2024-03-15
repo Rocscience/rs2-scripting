@@ -21,7 +21,7 @@ class TestSwellex(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testSwellexProperty(self):
         bolt = self.bolt
-        self.bolt.setBoltType(BoltTypes.SHEAR_BOLT)
+        self.bolt.setBoltType(BoltTypes.SWELLEX)
         bolt.Swellex.setTensileCapacity(836.5)
         bolt.Swellex.setResidualTensileCapacity(2628.5)
         bolt.Swellex.setTributaryArea(972.5)
@@ -33,7 +33,7 @@ class TestSwellex(unittest.TestCase):
         bolt.Swellex.setBondShearStiffness(2598.3)
         bolt.Swellex.setBondStrength(2572.7)
         bolt.Swellex.setResidualBondStrength(2605.0)
-        bolt.Swellex.setBoltModel(BoltModels.P2_BOLT_ELASTIC)
+        bolt.Swellex.setBoltModel(BoltModels.ELASTIC)
         bolt.Swellex.setJointShear(1)
         bolt.Swellex.setPreTensioningForce(176.8)
         bolt.Swellex.setConstantPretensioningForceInInstallStage(1)
@@ -56,7 +56,7 @@ class TestSwellex(unittest.TestCase):
         self.assertEqual(bolt.Swellex.getBondShearStiffness(), 2598.3)
         self.assertEqual(bolt.Swellex.getBondStrength(), 2572.7)
         self.assertEqual(bolt.Swellex.getResidualBondStrength(), 2605.0)
-        self.assertEqual(bolt.Swellex.getBoltModel(), BoltModels.P2_BOLT_ELASTIC)
+        self.assertEqual(bolt.Swellex.getBoltModel(), BoltModels.ELASTIC)
         self.assertEqual(bolt.Swellex.getJointShear(), 1)
         self.assertEqual(bolt.Swellex.getPreTensioningForce(), 176.8)
         self.assertEqual(bolt.Swellex.getConstantPretensioningForceInInstallStage(), 1)

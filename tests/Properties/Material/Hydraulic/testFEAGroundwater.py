@@ -21,22 +21,22 @@ class TestFEAGroundwater(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testFEAGroundwaterProperty(self):
         hydraulic = self.material.Hydraulic
-        hydraulic.FEAGroundwater.setModel(GroundWaterModes.SL_WATER_MODE_FREDLUND)
+        hydraulic.FEAGroundwater.setModel(GroundWaterModes.FREDLUND_AND_XING)
         hydraulic.FEAGroundwater.setK2K1(836.5)
-        hydraulic.FEAGroundwater.setK1Definition(AnisotropyDefinitions.ANISOTROPY_DEFINITION_ANGLE)
+        hydraulic.FEAGroundwater.setK1Definition(AnisotropyDefinitions.ANGLE)
         hydraulic.FEAGroundwater.setK1Angle(2628.5)
-        hydraulic.FEAGroundwater.setMvModel(MVModel.MV_CONSTANT)
+        hydraulic.FEAGroundwater.setMvModel(MVModel.CONSTANT)
         hydraulic.FEAGroundwater.setMv(972.5)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         hydraulic = self.material.Hydraulic
-        self.assertEqual(hydraulic.FEAGroundwater.getModel(), GroundWaterModes.SL_WATER_MODE_FREDLUND)
+        self.assertEqual(hydraulic.FEAGroundwater.getModel(), GroundWaterModes.FREDLUND_AND_XING)
         self.assertEqual(hydraulic.FEAGroundwater.getK2K1(), 836.5)
-        self.assertEqual(hydraulic.FEAGroundwater.getK1Definition(), AnisotropyDefinitions.ANISOTROPY_DEFINITION_ANGLE)
+        self.assertEqual(hydraulic.FEAGroundwater.getK1Definition(), AnisotropyDefinitions.ANGLE)
         self.assertEqual(hydraulic.FEAGroundwater.getK1Angle(), 2628.5)
-        self.assertEqual(hydraulic.FEAGroundwater.getMvModel(), MVModel.MV_CONSTANT)
+        self.assertEqual(hydraulic.FEAGroundwater.getMvModel(), MVModel.CONSTANT)
         self.assertEqual(hydraulic.FEAGroundwater.getMv(), 972.5)
     def testFEAGroundwaterStageFactors(self):
         hydraulic = self.material.Hydraulic

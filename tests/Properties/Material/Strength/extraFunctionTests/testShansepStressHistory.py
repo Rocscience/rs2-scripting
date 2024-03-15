@@ -19,7 +19,7 @@ class TestShansepStressHistory(unittest.TestCase):
 
         allMaterials = self.model.getAllMaterialProperties()
         self.material = allMaterials[0]
-        self.material.Strength.Shansep.setStressHistoryType(StressHistoryTypes.SHT_OCR)
+        self.material.Strength.Shansep.setStressHistoryType(StressHistoryTypes.OVER_CONSOLIDATION_OCR)
 
     @classmethod
     def tearDownClass(self):
