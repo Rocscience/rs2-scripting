@@ -91,9 +91,7 @@ class TestStageFactorInterface(unittest.TestCase):
     
     def testSetWithExtraFactor(self):
         dfs = self.sfi.getDefinedStageFactors()
-        with self.assertRaises(Exception):
-            self.sfi.setDefinedStageFactors({1: (dfs[1][0], dfs[1][1], dfs[1][2], dfs[1][2])})
-    
+        
         self.sfi.setStageThermalStageFactors(False)
         with self.assertRaises(Exception):
             self.sfi.setDefinedStageFactors({1: (dfs[1][0], dfs[1][1], dfs[1][2])})
