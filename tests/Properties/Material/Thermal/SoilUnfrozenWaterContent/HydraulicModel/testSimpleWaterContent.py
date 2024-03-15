@@ -21,10 +21,10 @@ class TestSimpleWaterContent(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testSimpleWaterContentProperty(self):
         hydraulicmodel = self.material.Thermal.SoilUnfrozenWaterContent.HydraulicModel
-        hydraulicmodel.SimpleWaterContent.setSoilType(EnhancedSimpleSoilTypes.SL_ES_SOIL_TYPE_SAND)
+        hydraulicmodel.SimpleWaterContent.setSoilType(EnhancedSimpleSoilTypes.SAND)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         hydraulicmodel = self.material.Thermal.SoilUnfrozenWaterContent.HydraulicModel
-        self.assertEqual(hydraulicmodel.SimpleWaterContent.getSoilType(), EnhancedSimpleSoilTypes.SL_ES_SOIL_TYPE_SAND)
+        self.assertEqual(hydraulicmodel.SimpleWaterContent.getSoilType(), EnhancedSimpleSoilTypes.SAND)

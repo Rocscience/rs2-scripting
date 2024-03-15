@@ -21,10 +21,10 @@ class TestSoilUnfrozenWaterContent(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testSoilUnfrozenWaterContentProperty(self):
         thermal = self.material.Thermal
-        thermal.SoilUnfrozenWaterContent.setType(ThermalWaterContentType.THERMAL_WATER_CONTENT_TICE_ANDERSON)
+        thermal.SoilUnfrozenWaterContent.setType(ThermalWaterContentType.TICE_AND_ANDERSON)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         thermal = self.material.Thermal
-        self.assertEqual(thermal.SoilUnfrozenWaterContent.getType(), ThermalWaterContentType.THERMAL_WATER_CONTENT_TICE_ANDERSON)
+        self.assertEqual(thermal.SoilUnfrozenWaterContent.getType(), ThermalWaterContentType.TICE_AND_ANDERSON)

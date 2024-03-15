@@ -21,9 +21,9 @@ class TestThermal(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testThermalProperty(self):
         material = self.material
-        material.Thermal.setStaticTemperatureMode(StaticWaterModes.SWM_PWP)
+        material.Thermal.setStaticTemperatureMode(StaticWaterModes.PORE_WATER_PRESSURE)
         material.Thermal.setStaticTemperature(836.5)
-        material.Thermal.setWaterContent(ThermalWaterContentMethodType.THERMAL_WATER_CONTENT_DEFINE)
+        material.Thermal.setWaterContent(ThermalWaterContentMethodType.DEFINE)
         material.Thermal.setWaterContentValue(0.2)
         material.Thermal.setThermalExpansion(0)
         material.Thermal.setExpansionCoefficient(972.5)
@@ -35,9 +35,9 @@ class TestThermal(unittest.TestCase):
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         material = self.material
-        self.assertEqual(material.Thermal.getStaticTemperatureMode(), StaticWaterModes.SWM_PWP)
+        self.assertEqual(material.Thermal.getStaticTemperatureMode(), StaticWaterModes.PORE_WATER_PRESSURE)
         self.assertEqual(material.Thermal.getStaticTemperature(), 836.5)
-        self.assertEqual(material.Thermal.getWaterContent(), ThermalWaterContentMethodType.THERMAL_WATER_CONTENT_DEFINE)
+        self.assertEqual(material.Thermal.getWaterContent(), ThermalWaterContentMethodType.DEFINE)
         self.assertEqual(material.Thermal.getWaterContentValue(), 0.2)
         self.assertEqual(material.Thermal.getThermalExpansion(), 0)
         self.assertEqual(material.Thermal.getExpansionCoefficient(), 972.5)

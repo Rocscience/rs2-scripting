@@ -25,30 +25,30 @@ class TestExtraJointFunctions(unittest.TestCase):
         os.remove(self.copiedModelPath)
 
     def testSetDisplacementDependentTableTooShort(self):
-        self.joint.setSlipCriterion(JointTypes.JOINT_DISPLACEMENT_DEPENDENT)
-        self.assertEqual(self.joint.getSlipCriterion(), JointTypes.JOINT_DISPLACEMENT_DEPENDENT)
+        self.joint.setSlipCriterion(JointTypes.DISPLACEMENT_DEPENDENT)
+        self.assertEqual(self.joint.getSlipCriterion(), JointTypes.DISPLACEMENT_DEPENDENT)
  
         self.joint.DisplacementDependent.setDisplacementDependentTable([[1,2,3.3,4],[4,5,6,7]])
         self.assertEqual(self.joint.DisplacementDependent.getDisplacementDependentTable(), [[1,2,3.3,4],[4,5,6,7]])
 
     def testSetDisplacementDependentTableNotEnoughRows(self):
-        self.joint.setSlipCriterion(JointTypes.JOINT_DISPLACEMENT_DEPENDENT)
-        self.assertEqual(self.joint.getSlipCriterion(), JointTypes.JOINT_DISPLACEMENT_DEPENDENT)
+        self.joint.setSlipCriterion(JointTypes.DISPLACEMENT_DEPENDENT)
+        self.assertEqual(self.joint.getSlipCriterion(), JointTypes.DISPLACEMENT_DEPENDENT)
 
         with self.assertRaises(Exception):
             self.joint.DisplacementDependent.setDisplacementDependentTable([[1,2,3,4]])
 
     def testSetDisplacementDependentTableNotEnoughColumns(self):
-        self.joint.setSlipCriterion(JointTypes.JOINT_DISPLACEMENT_DEPENDENT)
-        self.assertEqual(self.joint.getSlipCriterion(), JointTypes.JOINT_DISPLACEMENT_DEPENDENT)
+        self.joint.setSlipCriterion(JointTypes.DISPLACEMENT_DEPENDENT)
+        self.assertEqual(self.joint.getSlipCriterion(), JointTypes.DISPLACEMENT_DEPENDENT)
 
         with self.assertRaises(Exception):
             self.joint.DisplacementDependent.setDisplacementDependentTable([[1,2],[3,4]])
     
     #non ascending order
     def testSetDisplacementDependentTableNotAscendingOrder(self):
-        self.joint.setSlipCriterion(JointTypes.JOINT_DISPLACEMENT_DEPENDENT)
-        self.assertEqual(self.joint.getSlipCriterion(), JointTypes.JOINT_DISPLACEMENT_DEPENDENT)
+        self.joint.setSlipCriterion(JointTypes.DISPLACEMENT_DEPENDENT)
+        self.assertEqual(self.joint.getSlipCriterion(), JointTypes.DISPLACEMENT_DEPENDENT)
 
         with self.assertRaises(Exception):
             self.joint.DisplacementDependent.setDisplacementDependentTable([[1,2,3,4],[4,5,6,7],[2,6,7,8]])

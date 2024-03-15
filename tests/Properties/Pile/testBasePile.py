@@ -23,8 +23,8 @@ class TestBasePile(unittest.TestCase):
         pile = self.pile
         pile.setPileName("VYJpH")
         pile.setPileColor(31891)
-        pile.setConnectionType(PileConnectionType.CONNECT_SEMIRIGID)
-        pile.setSkinResistance(PileSkinResistanceType.SKIN_RESISTANCE_MATERIAL_DEPENDENT)
+        pile.setConnectionType(PileConnectionType.SEMI_RIGID)
+        pile.setSkinResistance(PileSkinResistanceType.MATERIAL_DEPENDENT)
         pile.setMMax(2.2)
         pile.setOutOfPlaneSpacing(2.3)
         pile.setLength(2.2)
@@ -36,8 +36,8 @@ class TestBasePile(unittest.TestCase):
         pile = self.pile
         self.assertEqual(pile.getPileName(), "VYJpH")
         self.assertEqual(pile.getPileColor(), 31891)
-        self.assertEqual(pile.getConnectionType(), PileConnectionType.CONNECT_SEMIRIGID)
-        self.assertEqual(pile.getSkinResistance(), PileSkinResistanceType.SKIN_RESISTANCE_MATERIAL_DEPENDENT)
+        self.assertEqual(pile.getConnectionType(), PileConnectionType.SEMI_RIGID)
+        self.assertEqual(pile.getSkinResistance(), PileSkinResistanceType.MATERIAL_DEPENDENT)
         self.assertEqual(pile.getMMax(), 2.2)
         self.assertEqual(pile.getOutOfPlaneSpacing(), 2.3)
         self.assertEqual(pile.getLength(), 2.2)

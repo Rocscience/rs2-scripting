@@ -21,7 +21,7 @@ class TestMohrCoulomb(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testMohrCoulombProperty(self):
         joint = self.joint
-        self.joint.setSlipCriterion(JointTypes.JOINT_MOHR_COULOMB)
+        self.joint.setSlipCriterion(JointTypes.MOHR_COULOMB)
         joint.MohrCoulomb.setTensileStrength(836.5)
         joint.MohrCoulomb.setPeakCohesion(2628.5)
         joint.MohrCoulomb.setPeakFrictionAngle(972.5)
@@ -38,7 +38,7 @@ class TestMohrCoulomb(unittest.TestCase):
         joint.MohrCoulomb.setShearStiffness(1508.0)
         joint.MohrCoulomb.setApplyPorePressure(0)
         joint.MohrCoulomb.setApplyAdditionalPressureInsideJoint(0)
-        joint.MohrCoulomb.setAdditionalPressureType(AdditionalPressureType.JOINT_ADDITIONAL_PRESSURE_BY_PIEZO)
+        joint.MohrCoulomb.setAdditionalPressureType(AdditionalPressureType.PIEZOMETRIC_LINE)
         joint.MohrCoulomb.setAdditionalPressureInsideJoint(1475.5)
         joint.MohrCoulomb.setPiezoID(26556)
         joint.MohrCoulomb.setApplyPressureToLinerSideOnly(1)
@@ -64,14 +64,14 @@ class TestMohrCoulomb(unittest.TestCase):
         self.assertEqual(joint.MohrCoulomb.getShearStiffness(), 1508.0)
         self.assertEqual(joint.MohrCoulomb.getApplyPorePressure(), 0)
         self.assertEqual(joint.MohrCoulomb.getApplyAdditionalPressureInsideJoint(), 0)
-        self.assertEqual(joint.MohrCoulomb.getAdditionalPressureType(), AdditionalPressureType.JOINT_ADDITIONAL_PRESSURE_BY_PIEZO)
+        self.assertEqual(joint.MohrCoulomb.getAdditionalPressureType(), AdditionalPressureType.PIEZOMETRIC_LINE)
         self.assertEqual(joint.MohrCoulomb.getAdditionalPressureInsideJoint(), 1475.5)
         self.assertEqual(joint.MohrCoulomb.getPiezoID(), 26556)
         self.assertEqual(joint.MohrCoulomb.getApplyPressureToLinerSideOnly(), 1)
         self.assertEqual(joint.MohrCoulomb.getApplyStageFactors(), 0)
     def testMohrCoulombStageFactors(self):
         joint = self.joint
-        self.joint.setSlipCriterion(JointTypes.JOINT_MOHR_COULOMB)
+        self.joint.setSlipCriterion(JointTypes.MOHR_COULOMB)
         stageFactor = joint.MohrCoulomb.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setNormalStiffnessFactor(1006.5)
         stageFactor.setShearStiffnessFactor(1374.4)

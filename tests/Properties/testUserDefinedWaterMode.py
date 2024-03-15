@@ -60,7 +60,7 @@ class TestUserDefinedWaterMode(unittest.TestCase):
         self.model.createUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode2")
 
         material1 = self.model.getAllMaterialProperties()[0]
-        material1.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.SL_WATER_MODE_USER_DEFINED)
+        material1.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.USER_DEFINED)
         material1.Hydraulic.FEAGroundwater.UserDefined.setUserDefinedPermeabilityAndWaterContentFunction("testUserDefinedWaterMode1")
         self.assertEqual(material1.Hydraulic.FEAGroundwater.UserDefined.getUserDefinedPermeabilityAndWaterContentFunction(), "testUserDefinedWaterMode1")
         
@@ -71,7 +71,7 @@ class TestUserDefinedWaterMode(unittest.TestCase):
         
         self.model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode1")
 
-        material1.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.SL_WATER_MODE_VAN_GENUCHTEN)
+        material1.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.VAN_GENUCHTEN)
         self.model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode2")
 
     def testGetSetWaterContentFunction(self):
@@ -139,10 +139,10 @@ class TestUserDefinedWaterMode(unittest.TestCase):
         model.createUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
         userDefinedWaterMode = model.getUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")
 
-        userDefinedWaterMode.setWaterContentInputType(WCInputType.WC_INPUT_DOS)
-        self.assertEqual(userDefinedWaterMode.getWaterContentInputType(), WCInputType.WC_INPUT_DOS)
+        userDefinedWaterMode.setWaterContentInputType(WCInputType.BY_DEGREE_OF_SATURATION)
+        self.assertEqual(userDefinedWaterMode.getWaterContentInputType(), WCInputType.BY_DEGREE_OF_SATURATION)
 
-        userDefinedWaterMode.setWaterContentInputType(WCInputType.WC_INPUT_WC)
-        self.assertEqual(userDefinedWaterMode.getWaterContentInputType(), WCInputType.WC_INPUT_WC)
+        userDefinedWaterMode.setWaterContentInputType(WCInputType.BY_WATER_CONTENT)
+        self.assertEqual(userDefinedWaterMode.getWaterContentInputType(), WCInputType.BY_WATER_CONTENT)
 
         model.deleteUserDefinedPermeabilityAndWaterContentMode("testUserDefinedWaterMode")

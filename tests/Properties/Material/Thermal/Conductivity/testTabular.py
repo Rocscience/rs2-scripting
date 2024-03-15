@@ -21,10 +21,10 @@ class TestTabular(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testTabularProperty(self):
         conductivity = self.material.Thermal.Conductivity
-        conductivity.Tabular.setDependence(ThermalVolumetricDepencenceType.THERMAL_VOLUMETRIC_DEPENDENCE_WATER_CONTENT)
+        conductivity.Tabular.setDependence(ThermalVolumetricDepencenceType.WATER_CONTENT)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         conductivity = self.material.Thermal.Conductivity
-        self.assertEqual(conductivity.Tabular.getDependence(), ThermalVolumetricDepencenceType.THERMAL_VOLUMETRIC_DEPENDENCE_WATER_CONTENT)
+        self.assertEqual(conductivity.Tabular.getDependence(), ThermalVolumetricDepencenceType.WATER_CONTENT)
