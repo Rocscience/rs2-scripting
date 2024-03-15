@@ -123,7 +123,7 @@ for query_point in query_results.GetAllValues():
     mat_que_dict["X"].append(query_point.GetXCoordinate())
     mat_que_dict["Y"].append(query_point.GetYCoordinate())
     mat_que_dict["Distance"].append(query_point.GetDistance())
-    mat_que_dict["Total Displacement (m)"].append(query_point.GetYCoordinate)
+    mat_que_dict["Total Displacement (m)"].append(query_point.GetValue())
 
 # Output results to a new csv
 
@@ -144,8 +144,8 @@ stage_liner_results = liner_results[stage_number][0] #output the first liner res
 # Create an empty distionary for the data frame
 liner_dict = {"Start Node":[], "End Node":[],"Start Node X":[], "Start Node Y":[], 
                 "End Node X":[], "End Node Y":[], "Distance (m)":[], "Axial Force (kN)":[],
-                "Shear Force (kN)":[], "Bending Moment_start (kNm)":[], "Bending Moment_mid (kNm)":[],
-                "Bending Moment_end (kNm)":[]}
+                "Shear Force (kN)":[], "Bending Moment Start (kNm)":[], "Bending Moment Mid (kNm)":[],
+                "Bending Moment End (kNm)":[]}
 
 for liner_node in stage_liner_results.liner_element_results:
     # Add data to the liner results dictionary
@@ -160,9 +160,9 @@ for liner_node in stage_liner_results.liner_element_results:
     # Add axial force, shear force, and bending moment results for each node
     liner_dict["Axial Force (kN)"].append(liner_node.axial_force)
     liner_dict["Shear Force (kN)"].append(liner_node.shear_force)
-    liner_dict["Bending Moment_start (kNm)"].append(liner_node.moment1)
-    liner_dict["Bending Moment_mid (kNm)"].append(liner_node.moment_mid)
-    liner_dict["Bending Moment_end (kNm)"].append(liner_node.moment2)
+    liner_dict["Bending Moment Start (kNm)"].append(liner_node.moment1)
+    liner_dict["Bending Moment Mid (kNm)"].append(liner_node.moment_mid)
+    liner_dict["Bending Moment End (kNm)"].append(liner_node.moment2)
 
 # Convert the dictionary to data frame
 liner_results_df = pd.DataFrame(liner_dict) 
@@ -209,9 +209,9 @@ moment_dist = [] # x-axis data (depth)
 moment_value = [] # y-axis data (bending moment)
 
 distance_col = liner_results_df["Distance (m)"]
-moment1_col = liner_results_df["Bending Moment_start (kNm)"]
-moment_mid_col = liner_results_df["Bending Moment_mid (kNm)"]
-moment2_col = liner_results_df["Bending Moment_end (kNm)"]
+moment1_col = liner_results_df["Bending Moment Start (kNm)"]
+moment_mid_col = liner_results_df["Bending Moment Mid (kNm)"]
+moment2_col = liner_results_df["Bending Moment End (kNm)"]
 
 # Moment data has three points: moment 1 at start node, moment mid at midpoint and moment 2 at end node
 # Let's get distance and moment values at the start, mid and end points
