@@ -4,4 +4,5 @@ modeler = RS2Modeler()
 
 model = modeler.openFile(r"C:\scriptingModels\simple_3_stage.fez")
 
-model.saveAndComputeGroundWater()
+model.save()
+model.computeGroundWater()

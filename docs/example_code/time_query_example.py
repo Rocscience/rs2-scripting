@@ -8,9 +8,9 @@ modeler = RS2Modeler()
 
 model = modeler.openFile(modelPath)
 # Add Time Query Line to Model
-points1 = [[6, -4], [6, 0]]
-points2 = [[-4, 2], [10, 2]]
-points_on_line = 10
+points1 = [[5, -4.5], [5, 0]]
+points2 = [[-5, 2], [11, 2]]
+points_on_line = 8
 guid1 = model.AddTimeQueryLine(points1, points_on_line)
 guid2 = model.AddTimeQueryLine(points2, points_on_line)
 
@@ -18,8 +18,8 @@ guid2 = model.AddTimeQueryLine(points2, points_on_line)
 model.RemoveTimeQueryLine([guid1])
 
 # Add Time Query Point(s) to Model
-id = model.AddTimeQueryPoint(x=5.5, y=2.7)
-id2 = model.AddTimeQueryPoint(x=10, y=-2)
+id = model.AddTimeQueryPoint(x=4.5, y=2.7)
+id2 = model.AddTimeQueryPoint(x=9, y=-2)
 
 # Remove Time Query Point by ID
 model.RemoveTimeQueryPoint([id])

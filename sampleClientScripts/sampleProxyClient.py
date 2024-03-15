@@ -37,13 +37,13 @@ print(bolt.FullyBonded.getJointShear())
 liner.StandardBeam.setPoissonsRatio(0.49)
 print(liner.StandardBeam.getPoissonsRatio())
 
-liner.setLinerType(LinerTypes.P2_LINER_STANDARD_BEAM)
+liner.setLinerType(LinerTypes.STANDARD_BEAM)
 print(liner.getLinerType())
 
-liner.StandardBeam.setMethod(GeometryChoice.LNP_USE_AREA)
+liner.StandardBeam.setMethod(GeometryChoice.AREA)
 print(liner.StandardBeam.getMethod())
 
-liner.StandardBeam.setMethod(GeometryChoice.LNP_USE_THICKNESS)
+liner.StandardBeam.setMethod(GeometryChoice.THICKNESS)
 print(liner.StandardBeam.getMethod())
 
 liner.StandardBeam.setThickness(20)
@@ -52,7 +52,7 @@ print(liner.StandardBeam.getThickness())
 liner.StandardBeam.setActivateThermal(True)
 print(liner.StandardBeam.getActivateThermal())
 
-liner.StandardBeam.setStaticTemperatureMode(StaticWaterModes.SWM_GRID)
+liner.StandardBeam.setStaticTemperatureMode(StaticWaterModes.GRID)
 print(liner.StandardBeam.getStaticTemperatureMode())
 
 liner.StandardBeam.setStaticTemperatureGridToUse("Default Grid")
