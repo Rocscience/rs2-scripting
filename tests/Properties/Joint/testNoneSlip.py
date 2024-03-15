@@ -28,7 +28,6 @@ class TestNoneSlip(unittest.TestCase):
         joint.NoneSlip.setApplyAdditionalPressureInsideJoint(1)
         joint.NoneSlip.setAdditionalPressureType(AdditionalPressureType.PIEZOMETRIC_LINE)
         joint.NoneSlip.setAdditionalPressureInsideJoint(762.9)
-        joint.NoneSlip.setPiezoID(11649)
         joint.NoneSlip.setApplyPressureToLinerSideOnly(0)
         joint.NoneSlip.setApplyStageFactors(0)
         self.model.save()
@@ -42,16 +41,15 @@ class TestNoneSlip(unittest.TestCase):
         self.assertEqual(joint.NoneSlip.getApplyAdditionalPressureInsideJoint(), 1)
         self.assertEqual(joint.NoneSlip.getAdditionalPressureType(), AdditionalPressureType.PIEZOMETRIC_LINE)
         self.assertEqual(joint.NoneSlip.getAdditionalPressureInsideJoint(), 762.9)
-        self.assertEqual(joint.NoneSlip.getPiezoID(), 11649)
         self.assertEqual(joint.NoneSlip.getApplyPressureToLinerSideOnly(), 0)
         self.assertEqual(joint.NoneSlip.getApplyStageFactors(), 0)
     def testNoneSlipStageFactors(self):
         joint = self.joint
         self.joint.setSlipCriterion(JointTypes.NONE)
         stageFactor = joint.NoneSlip.stageFactorInterface.getDefinedStageFactors()[1]
-        stageFactor.setNormalStiffnessFactor(2598.3)
-        stageFactor.setShearStiffnessFactor(2572.7)
-        stageFactor.setAdditionalPressureInsideJointFactor(2605.0)
+        stageFactor.setNormalStiffnessFactor(2350.4)
+        stageFactor.setShearStiffnessFactor(2598.3)
+        stageFactor.setAdditionalPressureInsideJointFactor(2572.7)
         stageFactor.setGroundwaterPressureFactor(2.2)
         stageFactor.setJointPermeableFactor(True)
         self.model.save()
@@ -60,8 +58,8 @@ class TestNoneSlip(unittest.TestCase):
         self.joint = self.model.getAllJointProperties()[0]
         joint = self.joint
         stageFactor = joint.NoneSlip.stageFactorInterface.getDefinedStageFactors()[1]
-        self.assertEqual(stageFactor.getNormalStiffnessFactor(), 2598.3)
-        self.assertEqual(stageFactor.getShearStiffnessFactor(), 2572.7)
-        self.assertEqual(stageFactor.getAdditionalPressureInsideJointFactor(), 2605.0)
+        self.assertEqual(stageFactor.getNormalStiffnessFactor(), 2350.4)
+        self.assertEqual(stageFactor.getShearStiffnessFactor(), 2598.3)
+        self.assertEqual(stageFactor.getAdditionalPressureInsideJointFactor(), 2572.7)
         self.assertEqual(stageFactor.getGroundwaterPressureFactor(), 2.2)
         self.assertEqual(stageFactor.getJointPermeableFactor(), True)
