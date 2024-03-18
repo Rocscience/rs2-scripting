@@ -60,7 +60,7 @@ class ModelProxy(ProxyObject):
 
 		Args:
 			resultType (ExportResultType): Takes an enum of type ExportResultType representing the desired
-			export option for mesh results.
+				export option for mesh results.
 		
 		Raises:
 			ValueError: resultType must be an enum of type ExportResultType. Any other value will raise an error
@@ -83,11 +83,11 @@ class ModelProxy(ProxyObject):
 		Returns the mesh results at all nodes of the model.
 
 		Returns:
-			An object of type MeshResults. To extract the x-coordinate, y-coordinate or value from the returned data, 
-			please call the supported functions from the class:
-			MeshResults.GetXCoordinate(index)
-			MeshResults.GetYCoordinate(index)
-			MeshResults.GetValue(index)
+			|  An object of type MeshResults. To extract the x-coordinate, y-coordinate or value from the returned data, 
+			|  please call the supported functions from the class:
+			|  MeshResults.GetXCoordinate(index)
+			|  MeshResults.GetYCoordinate(index)
+			|  MeshResults.GetValue(index)
 				
 		Example:
 
@@ -114,18 +114,19 @@ class ModelProxy(ProxyObject):
 			stages (int): Takes the stages by their stage number for which results should be returned.
 		
 		Returns:
-			Returns a dictionary with key as stage number and value a List of HistoryQueryResult object.
-			To extract the stage number, x-coordinate, y-coordinate, horizontal axis result and vertical axis result,
-			please call the supported functions from the class:
-			- HistoryQueryResult.GetXCoordinate()
-			- HistoryQueryResult.GetYCoordinate()
-			- HistoryQueryResult.GetHorizontalAxisResult()
-			- HistoryQueryResult.GetVerticalAxisResult()
+			|  Returns a dictionary with key as stage number and value a List of HistoryQueryResult object.
+			|  To extract the stage number, x-coordinate, y-coordinate, horizontal axis result and vertical axis result,
+			|  please call the supported functions from the class:
+
+			* GetXCoordinate()
+			* GetYCoordinate()
+			* GetHorizontalAxisResult()
+			* GetVerticalAxisResult()
 		
 		Example:
 
 		.. code-block:: python
-		
+
 			results = model.GetHistoryQueryResults(params)
 			results_for_stage_1 = results[1]
 			x_coordiante = results_for_stage_1[0].GetXCoordinate()
@@ -161,20 +162,23 @@ class ModelProxy(ProxyObject):
 			vertical_axis (TimeQueryGraphEnums): Takes the vertical axis to generate results for.
 		
 		Returns:
-			Returns a dictionary with key as stage number and value a list[TimeQueryPointResults] object.
-			To extract the unique identifier, x-coordinate, y-coordinate, horizontal axis result and vertical axis result,
-			please call the supported functions from the class:
-			- TimeQueryPointResults.GetUniqueIdentifier()
+			| Returns a dictionary with key as stage number and value a list[TimeQueryPointResults] object.
+			| To extract the unique identifier, x-coordinate, y-coordinate, horizontal axis result and vertical axis result,
+			| please call the supported functions from the class:
+
+			* TimeQueryPointResults.GetUniqueIdentifier()
 			
 			To get all the results for this query, please call:
-			- TimeQueryPointResults.GetAllValues()
+
+			* TimeQueryPointResults.GetAllValues()
 		
 		The above method returns list[QueryPointResult] for each node. 
-			To get the x-coordiante, y-coordinate, dynamic stage time or value, please call:
-			- QueryPointResult.GetXCoordinate()
-			- QueryPointResult.GetYCoordinate()
-			- QueryPointResult.GetStageTime()
-			- QueryPointResult.GetValue()
+		To get the x-coordiante, y-coordinate, dynamic stage time or value, please call:
+		
+		* QueryPointResult.GetXCoordinate()
+		* QueryPointResult.GetYCoordinate()
+		* QueryPointResult.GetStageTime()
+		* QueryPointResult.GetValue()
 		
 		Raises:
 			ValueError: vertical_axis must be an enum of type TimeQueryGraphEnums. Any other value will raise an error.
@@ -208,21 +212,24 @@ class ModelProxy(ProxyObject):
 			apply_post_process_scaling (bool): Bool input taking whether post-process scaling should be applied or not
 		
 		Returns:
-			Returns a dictionary with key as stage number and value a list[TimeQueryLineResults] object.
-			To extract the unique identifier, or list[QueryLineResult] representing all node objects for this query line,
-			please call the supported functions from the class:
-			- TimeQueryLineResults.GetUniqueIdentifier()
-			- TimeQueryLineResults.GetAllNodeObjects()
-			
-			To get list[QueryPointResult] denoting all the node objects at a specific node of time query line, please call:
-			- QueryLineResult.GetNodeValues()
-		
-			The above method returns list[QueryPointResult] representing all the values at this node of the time query line. 
-			To get the x-coordiante, y-coordinate, dynamic stage time or value, please call:
-			- QueryPointResult.GetXCoordinate()
-			- QueryPointResult.GetYCoordinate()
-			- QueryPointResult.GetStageTime()
-			- QueryPointResult.GetValue()
+			|  Returns a dictionary with key as stage number and value a list[TimeQueryLineResults] object.
+			|  To extract the unique identifier, or list[QueryLineResult] representing all node objects for this query line,
+			|  please call the supported functions from the class:
+
+			* TimeQueryLineResults.GetUniqueIdentifier()
+			* TimeQueryLineResults.GetAllNodeObjects()
+
+			|  To get list[QueryPointResult] denoting all the node objects at a specific node of time query line, please call:
+
+			* QueryLineResult.GetNodeValues()
+
+			|  The above method returns list[QueryPointResult] representing all the values at this node of the time query line. 
+			|  To get the x-coordiante, y-coordinate, dynamic stage time or value, please call:
+
+			* QueryPointResult.GetXCoordinate()
+			* QueryPointResult.GetYCoordinate()
+			* QueryPointResult.GetStageTime()
+			* QueryPointResult.GetValue()
 		
 		Raises:
 			ValueError: vertical_axis must be an enum of type TimeQueryGraphEnums. Any other value will raise an error.
@@ -242,8 +249,7 @@ class ModelProxy(ProxyObject):
 		return structured_data	
 	
 	def AddMaterialQuery(self, points: list[list[float]]) -> str:
-		"""
-		Adds a material query point/line to your model using the specified coordinates in order.
+		"""Adds a material query point/line to your model using the specified coordinates in order.
 
 		Returns:
 			A unique identifier for the newly added material query point/line.
@@ -252,36 +258,39 @@ class ModelProxy(ProxyObject):
 		return self._callFunction('AddMaterialQuery', [points])
 	
 	def RemoveMaterialQuery(self, IDs_toRemove: list[str]) -> str:
-		"""
-		Removes material query points or lines for provided list of IDs.
-		
-		"""
+		"""Removes material query points or lines for provided list of IDs."""
 		return self._callFunction('RemoveMaterialQuery', [IDs_toRemove])
 	
 	def GetMaterialQueryResults(self) -> list[MaterialQueryResults]:
 		"""
-		Returns the results for all the material queries defined in the model for active model stage and result type.
-		To get results for a different stage, please call SetActiveStage(int stageNumber) before calling this function.
-		To get results for a different result type, please call either before calling this function:
-		- SetResultType(InterpreterGraphEnums resultType)
-		- SetUserDefinedResultType("Your defined resultType name")
+		
+		|  Returns the results for all the material queries defined in the model for active model stage and result type.
+		|  To get results for a different stage, please call SetActiveStage(int stageNumber) before calling this function.
+		|  To get results for a different result type, please call either before calling this function:
+
+		* SetResultType(InterpreterGraphEnums resultType)
+		* SetUserDefinedResultType("Your defined resultType name")
 
 		Returns: 
-			A list[MaterialQueryResults] of query results.
-			To extract the Unique Identifier, Material ID for a specific material query object,
-			please call any of the supported functions from the class:
-			- MaterialQueryResults.GetUniqueIdentifier()
-			- MaterialQueryResults.GetMaterialID()
-			
-			To get all the results for this query, please call:
-			- MaterialQueryResults.GetAllValues()
+			|  A list[MaterialQueryResults] of query results.
+			|  To extract the Unique Identifier, Material ID for a specific material query object,
 
-			The above method returns list[QueryResult] for each result. 
-			To get the x-coordiante, y-coordinate, distance or value, please call:
-			- QueryResult.GetXCoordinate()
-			- QueryResult.GetYCoordinate()
-			- QueryResult.GetDistance()
-			- QueryResult.GetValue()
+			please call any of the supported functions from the class:
+
+			* MaterialQueryResults.GetUniqueIdentifier()
+			* MaterialQueryResults.GetMaterialID()
+
+			|  To get all the results for this query, please call:
+
+			* MaterialQueryResults.GetAllValues()
+
+			|  The above method returns list[QueryResult] for each result. 
+			|  To get the x-coordiante, y-coordinate, distance or value, please call:
+
+			* QueryResult.GetXCoordinate()
+			* QueryResult.GetYCoordinate()
+			* QueryResult.GetDistance()
+			* QueryResult.GetValue()
 
 		"""
 		all_material_query_data = self._callFunction('GetMaterialQueryResults', [])

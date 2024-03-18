@@ -38,12 +38,13 @@ class QueryLineResult:
     
     def GetNodeValues(self) -> list[QueryPointResult]:
         '''
-        Returns a list[QueryPointResult] representing result at this node part of the time query line
-        To get the x-coordinate, y-coordinate, dynamic stage time, or value, please call the supporting class methods:
-        - QueryPointResult.GetXCoordinate()
-        - QueryPointResult.GetYCoordinate()
-        - QueryPointResult.GetStageTime()
-        - QueryPointResult.GetValue()
+        | Returns a list[QueryPointResult] representing result at this node part of the time query line
+        | To get the x-coordinate, y-coordinate, dynamic stage time, or value, please call the supporting class methods:
+
+        * QueryPointResult.GetXCoordinate()
+        * QueryPointResult.GetYCoordinate()
+        * QueryPointResult.GetStageTime()
+        * QueryPointResult.GetValue()
         '''
         return self.query_values
 
@@ -65,12 +66,13 @@ class TimeQueryPointResults:
     
     def GetAllValues(self) -> list[QueryPointResult]:
         '''
-        Returns a list[QueryPointResult] representing result at all nodes of the time query point
-        To get the x-coordinate, y-coordinate, dynamic stage time, or value, please call the supporting class methods:
-        - QueryPointResult.GetXCoordinate()
-        - QueryPointResult.GetYCoordinate()
-        - QueryPointResult.GetStageTime()
-        - QueryPointResult.GetValue()
+        | Returns a list[QueryPointResult] representing result at all nodes of the time query point
+        | To get the x-coordinate, y-coordinate, dynamic stage time, or value, please call the supporting class methods:
+
+        * QueryPointResult.GetXCoordinate()
+        * QueryPointResult.GetYCoordinate()
+        * QueryPointResult.GetStageTime()
+        * QueryPointResult.GetValue()
         '''
         return self.query_values
 
@@ -95,13 +97,15 @@ class TimeQueryLineResults:
         Returns a list[QueryLineResult] representing nodes making up the time query line
 
         To get list of node values associated with a specific node, please call the supported class method:
-        - QueryLineResult.GetNodeValues()
 
-        The above returns a list[QueryPointResult] representing result at this node part of the time query line
-        To get the x-coordinate, y-coordinate, dynamic stage time, or value, please call the supporting class methods:
-        - QueryPointResult.GetXCoordinate()
-        - QueryPointResult.GetYCoordinate()
-        - QueryPointResult.GetStageTime()
-        - QueryPointResult.GetValue()
+        * QueryLineResult.GetNodeValues()
+
+        | The above returns a list[QueryPointResult] representing result at this node part of the time query line
+        | To get the x-coordinate, y-coordinate, dynamic stage time, or value, please call the supporting class methods:
+        
+        * QueryPointResult.GetXCoordinate()
+        * QueryPointResult.GetYCoordinate()
+        * QueryPointResult.GetStageTime()
+        * QueryPointResult.GetValue()
         '''
         return self.line_data
