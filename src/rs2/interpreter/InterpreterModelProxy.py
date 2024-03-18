@@ -62,7 +62,7 @@ class ModelProxy(ProxyObject):
 			resultType (ExportResultType): Takes an enum of type ExportResultType representing the desired
 			export option for mesh results.
 		
-		Exceptions:
+		Raises:
 			ValueError: resultType must be an enum of type ExportResultType. Any other value will raise an error
 		
 		"""
@@ -127,7 +127,7 @@ class ModelProxy(ProxyObject):
 			horizontal_result = results_for_stage_1[0].GetHorizontalResult()
 			vertical_result = results_for_stage_1[0].GetVerticalResult()
 		
-		Exceptions:
+		Raises:
 			ValueError: horizontal_axis and vertical_axis must be an enum of type HistoryQueryGraphEnums.
 						Any other value will raise an error.
 		"""
@@ -170,7 +170,7 @@ class ModelProxy(ProxyObject):
 			- QueryPointResult.GetStageTime()
 			- QueryPointResult.GetValue()
 		
-		Exceptions:
+		Raises:
 			ValueError: vertical_axis must be an enum of type TimeQueryGraphEnums. Any other value will raise an error.
 		"""
 		map_data = self._callFunction('GetAllTimeQueryPointsResults', 
@@ -218,7 +218,7 @@ class ModelProxy(ProxyObject):
 			- QueryPointResult.GetStageTime()
 			- QueryPointResult.GetValue()
 		
-		Exceptions:
+		Raises:
 			ValueError: vertical_axis must be an enum of type TimeQueryGraphEnums. Any other value will raise an error.
 		"""
 		map_data =  self._callFunction('GetAllTimeQueryLinesResults', 
