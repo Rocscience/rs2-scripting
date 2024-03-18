@@ -281,12 +281,33 @@ class ModelProxy(ProxyObject):
 	def compute(self):
 		'''
 		Saves the file if modified and then runs compute. Replaces any existing results.
+
+		Warning:
+			All objects retrieved from the interpreter for this file will be invalidated after this call.
+			If you have an interpreter model open, you should close, compute, and then re-open the model.
+
+			.. code-block:: python
+
+				interpreterModel.close()
+				model.compute()
+				interpreterModel = modeler.openFile('C:/previouslyOpened.fez')
+				
 		'''
 		return self._callFunction('compute', [False])
 
 	def computeGroundWater(self):
 		'''
 		Saves the file if modified and then runs groundwater compute. Replaces any existing results.
+
+		Warning:
+			All objects retrieved from the interpreter for this file will be invalidated after this call.
+			If you have an interpreter model open, you should close, compute, and then re-open the model.
+
+			.. code-block:: python
+
+				interpreterModel.close()
+				model.compute()
+				interpreterModel = modeler.openFile('C:/previouslyOpened.fez')
 		'''
 		return self._callFunction('compute', [True])
 
@@ -300,10 +321,14 @@ class ModelProxy(ProxyObject):
 		'''
 		Saves the model using the given file name.
 
-		Typical usage example:
-		model.saveAs('C:/simple_3_stage.fez')
+		Example:
+
+		.. code-block:: python
+
+			model.saveAs('C:/simple_3_stage.fez')
 		'''
-		return self._callFunction('saveAs', [fileName])
+		formattedFileName = fileName.replace('/', '\\')
+		return self._callFunction('saveAs', [formattedFileName])
 
 	def save(self):
 		'''

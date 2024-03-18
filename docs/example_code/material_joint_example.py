@@ -15,7 +15,7 @@ jointOptions.setNumberOfJoints(2)
 jointOptions.setTracePlaneProperties(1, 20.1, 2.2, 3.4)
 
 joint = jointOptions.getJoint(1)
-joint.setSlipCriterion(JointTypes.JOINT_BARTON_BANDIS)
+joint.setSlipCriterion(JointTypes.BARTON_BANDIS)
 joint.BartonBandisMaterial.setDilationAngle(30)
 joint.BartonBandisMaterial.setJCS(2.2)
 

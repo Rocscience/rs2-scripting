@@ -6,8 +6,6 @@ rs2.modeler.properties package
    :undoc-members:
    :show-inheritance:
 
-Subpackages
------------
 
 .. toctree::
    :maxdepth: 4
@@ -18,8 +16,14 @@ Subpackages
    rs2.modeler.properties.material
    rs2.modeler.properties.pile
 
-Submodules
-----------
+
+rs2.modeler.properties.AbsoluteStageFactorGettersInterface module
+-----------------------------------------------------------------
+
+.. automodule:: rs2.modeler.properties.AbsoluteStageFactorGettersInterface
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 rs2.modeler.properties.AbsoluteStageFactorInterface module
 ----------------------------------------------------------
@@ -33,6 +37,14 @@ rs2.modeler.properties.CompositeProperty module
 -----------------------------------------------
 
 .. automodule:: rs2.modeler.properties.CompositeProperty
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.modeler.properties.DiscreteFunction module
+----------------------------------------------
+
+.. automodule:: rs2.modeler.properties.DiscreteFunction
    :members:
    :undoc-members:
    :show-inheritance:

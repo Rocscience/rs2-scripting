@@ -6,13 +6,19 @@ rs2.interpreter package
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
 
-rs2.interpreter.BeamResult module
+rs2.interpreter.BoltResult module
 ---------------------------------
 
-.. automodule:: rs2.interpreter.BeamResult
+.. automodule:: rs2.interpreter.BoltResult
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.interpreter.CompositeResult module
+--------------------------------------
+
+.. automodule:: rs2.interpreter.CompositeResult
    :members:
    :undoc-members:
    :show-inheritance:
@@ -57,6 +63,14 @@ rs2.interpreter.JointResult module
    :undoc-members:
    :show-inheritance:
 
+rs2.interpreter.LinerResult module
+----------------------------------
+
+.. automodule:: rs2.interpreter.LinerResult
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 rs2.interpreter.MaterialQueryResults module
 -------------------------------------------
 
@@ -85,6 +99,14 @@ rs2.interpreter.TimeQueryResults module
 ---------------------------------------
 
 .. automodule:: rs2.interpreter.TimeQueryResults
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.interpreter.UtilityResult module
+------------------------------------
+
+.. automodule:: rs2.interpreter.UtilityResult
    :members:
    :undoc-members:
    :show-inheritance:

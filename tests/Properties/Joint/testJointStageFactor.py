@@ -292,6 +292,41 @@ class TestJointStageFactor(unittest.TestCase):
         self.assertEqual(sfMap[4].getNormalStiffnessFactor(), 0.4)
         self.assertEqual(sfMap[6].getNormalStiffnessFactor(), 0.6)
 
+    def GetDefault(self):
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
+        self.stageFactorInterface.setDefinedStageFactors({2: sfMap[1]})
+    
+        self.joint.SetPermeable(True)
+        self.joint.HyperbolicSoftening.setWorkSoftening(True)
+        sf1 = self.stageFactorInterface.getStageFactor(1)
+        self.assertEqual(sf1.getJointPermeableFactor(), True)
+        self.assertEqual(self.joint.HyperbolicSoftening.stageFactorInterface.getStageFactor(1).getWorkSofteningFactor(), True)
+
+        self.joint.SetPermeable(False)
+        self.joint.HyperbolicSoftening.setWorkSoftening(False)
+        sf1 = self.stageFactorInterface.getStageFactor(1)
+        self.assertEqual(sf1.getJointPermeableFactor(), False)
+        self.assertEqual(self.joint.HyperbolicSoftening.stageFactorInterface.getStageFactor(1).getWorkSofteningFactor(), False)
+
+    def CreateDefault(self):
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
+        self.stageFactorInterface.setDefinedStageFactors({2: sfMap[1]})
+    
+        self.joint.SetPermeable(True)
+        self.joint.HyperbolicSoftening.setWorkSoftening(True)
+        sf1 = self.stageFactorInterface.createStageFactor(1)
+        self.assertEqual(sf1.getJointPermeableFactor(), True)
+        self.assertEqual(self.joint.HyperbolicSoftening.stageFactorInterface.getStageFactor(1).getWorkSofteningFactor(), True)
+
+        sfMap = self.stageFactorInterface.getDefinedStageFactors()
+        self.stageFactorInterface.setDefinedStageFactors({2: sfMap[1]})
+
+        self.joint.SetPermeable(False)
+        self.joint.HyperbolicSoftening.setWorkSoftening(False)
+        sf1 = self.stageFactorInterface.createStageFactor(1)
+        self.assertEqual(sf1.getJointPermeableFactor(), False)
+        self.assertEqual(self.joint.HyperbolicSoftening.stageFactorInterface.getStageFactor(1).getWorkSofteningFactor(), False)
+
 class TestJointStageFactorAbsolute(TestJointStageFactor):
     def testGetStageFactorSuccess(self):
         self.GetStageFactorSuccess()
@@ -327,3 +362,7 @@ class TestJointStageFactorAbsolute(TestJointStageFactor):
         self.GetDefinedStageFactorsNotEnabled()
     def testGetDefinedStageFactorsSuccess(self):
         self.GetDefinedStageFactorsSuccess()
+    def testGetDefault(self):
+        self.GetDefault()
+    def testCreateDefault(self):
+        self.CreateDefault()

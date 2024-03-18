@@ -11,4 +11,4 @@ model = modeler.openFile(r"C:\scriptingModels\simple_3_stage.fez")
 
 RS2Interpreter.startApplication(interpreterPortToUse)
 interpreter = RS2Interpreter(port=interpreterPortToUse)
-interpreter.doNothing()
+interpreter.openFile(r"C:\scriptingModels\simple_3_stage.fez")
