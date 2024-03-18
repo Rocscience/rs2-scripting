@@ -10,7 +10,7 @@ sphinx-build Documentation: https://www.sphinx-doc.org/en/master/man/sphinx-buil
 html = 'html'
 singleHtml = 'singlehtml'
 
-builder = singleHtml
+builder = html
 
 def set_sphinx_apidoc_settings():
     # Command to set SPHINX_APIDOC_OPTIONS environment variable

@@ -33,7 +33,7 @@ class ModelProxy(ProxyObject):
 		'''
 		Saves the model using the given file name.
 
-		Typical usage example:
+		Example:
 
 		.. code-block:: python
 			
@@ -89,7 +89,10 @@ class ModelProxy(ProxyObject):
 			MeshResults.GetYCoordinate(index)
 			MeshResults.GetValue(index)
 				
-		Typical Usage:
+		Example:
+
+		.. code-block:: python
+
 			results = model.GetMeshResults()
 			x_coordiante = results.GetXCoordinate(0)
 			y_coordinate = results.GetYCoordinate(0)
@@ -119,7 +122,10 @@ class ModelProxy(ProxyObject):
 			- HistoryQueryResult.GetHorizontalAxisResult()
 			- HistoryQueryResult.GetVerticalAxisResult()
 		
-		Typical Usage:
+		Example:
+
+		.. code-block:: python
+		
 			results = model.GetHistoryQueryResults(params)
 			results_for_stage_1 = results[1]
 			x_coordiante = results_for_stage_1[0].GetXCoordinate()

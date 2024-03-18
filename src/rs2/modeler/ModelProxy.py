@@ -300,8 +300,11 @@ class ModelProxy(ProxyObject):
 		'''
 		Saves the model using the given file name.
 
-		Typical usage example:
-		model.saveAs('C:/simple_3_stage.fez')
+		Example:
+
+		.. code-block:: python
+
+			model.saveAs('C:/simple_3_stage.fez')
 		'''
 		formattedFileName = fileName.replace('/', '\\')
 		return self._callFunction('saveAs', [formattedFileName])
