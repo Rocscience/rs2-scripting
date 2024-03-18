@@ -24,10 +24,6 @@ class RS2Interpreter:
 		modelProxy = ModelProxy(self.client, modelObjectId)
 		return modelProxy
 	
-	def doNothing(self):
-		request = functionRequest('doNothing', [])
-		return self.client.callFunction(request)
-	
 	@classmethod
 	def startApplication(cls, port : int, overridePathToExecutable : str = None, timeout : float = 30) -> None:
 		"""Opens the most recently installed RS2 application. Starts the python server and binds it to the given port.

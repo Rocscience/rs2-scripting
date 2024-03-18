@@ -37,7 +37,6 @@
     <Compile Include="docs\example_code\composite_prop_example.py" />
     <Compile Include="docs\example_code\get_mesh_results_example.py" />
     <Compile Include="docs\example_code\history_query_example.py" />
-    <Compile Include="docs\example_code\interpreter_example.py" />
     <Compile Include="docs\example_code\joint_prop_example.py" />
     <Compile Include="docs\example_code\liner_prop_example.py" />
     <Compile Include="docs\example_code\material_datum_example.py" />
@@ -62,7 +61,6 @@
     <Compile Include="sampleClientScripts\SampleApplicationManager.py" />
     <Compile Include="sampleClientScripts\sampleClientOpenMultipleModels.py" />
     <Compile Include="sampleClientScripts\SampleColorPicker.py" />
-    <Compile Include="sampleClientScripts\SampleCommunicateWithInterpreterAndModeler.py" />
     <Compile Include="sampleClientScripts\SampleCompositeLiners.py" />
     <Compile Include="sampleClientScripts\SampleComputeWithoutSave.py" />
     <Compile Include="sampleClientScripts\SampleCriticalSRF.py" />
@@ -71,7 +69,6 @@
     <Compile Include="sampleClientScripts\sampleGetAllBoltsLinersProxyClient.py" />
     <Compile Include="sampleClientScripts\SampleGetMeshResults.py" />
     <Compile Include="sampleClientScripts\SampleHistoryQuery.py" />
-    <Compile Include="sampleClientScripts\SampleInterpreterClient.py" />
     <Compile Include="sampleClientScripts\sampleJointBeamResults.py" />
     <Compile Include="sampleClientScripts\SampleJointStageFactors.py" />
     <Compile Include="sampleClientScripts\SampleMaterial.py" />
