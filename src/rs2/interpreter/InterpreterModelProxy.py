@@ -80,6 +80,8 @@ class ModelProxy(ProxyObject):
 	
 	def GetMeshResults(self) -> MeshResults:
 		"""
+		:ref:`Get Mesh Results Example`
+
 		Returns the mesh results at all nodes of the model.
 
 		Returns:
@@ -105,6 +107,8 @@ class ModelProxy(ProxyObject):
 	def GetHistoryQueryResults(self, hq_name: str, horizontal_axis: HistoryQueryGraphEnums.HorizontalAxisTypes, vertical_axis: HistoryQueryGraphEnums.VerticalAxisTypes, 
 							stages: list[int]) -> dict[int, list[HistoryQueryResult]]:
 		"""
+		:ref:`History Query Example`
+
 		Returns the history query result for the provided query name with specified graph options and stages.
 
 		Args:
@@ -153,6 +157,8 @@ class ModelProxy(ProxyObject):
 							  vertical_axis: TimeQueryGraphEnums.VerticalAxisTypes
 							  ) -> dict[int, list[TimeQueryPointResults]]:
 		"""
+		:ref:`Time Query Example`
+
 		Returns the results for all the time query points defined in the model for given stages and graph axes type.
 
 		Please note points that are over an excavation at specific stages will not have data returned at those locations.
@@ -202,6 +208,8 @@ class ModelProxy(ProxyObject):
 							  apply_post_process_scaling: bool
 							  ) -> dict[int, list[TimeQueryLineResults]]:
 		"""
+		:ref:`Time Query Example`
+
 		Returns the results for all the time query lines defined in the model for given stages and graph axes types.
 
 		Please note points that are over an excavation at specific stages will not have data returned at those locations.
@@ -249,7 +257,10 @@ class ModelProxy(ProxyObject):
 		return structured_data	
 	
 	def AddMaterialQuery(self, points: list[list[float]]) -> str:
-		"""Adds a material query point/line to your model using the specified coordinates in order.
+		"""
+		:ref:`Material Query Example`
+
+		Adds a material query point/line to your model using the specified coordinates in order.
 
 		Returns:
 			A unique identifier for the newly added material query point/line.
@@ -258,11 +269,17 @@ class ModelProxy(ProxyObject):
 		return self._callFunction('AddMaterialQuery', [points])
 	
 	def RemoveMaterialQuery(self, IDs_toRemove: list[str]) -> str:
-		"""Removes material query points or lines for provided list of IDs."""
+		"""
+		:ref:`Material Query Example`
+
+		Removes material query points or lines for provided list of IDs.
+
+		"""
 		return self._callFunction('RemoveMaterialQuery', [IDs_toRemove])
 	
 	def GetMaterialQueryResults(self) -> list[MaterialQueryResults]:
 		"""
+		:ref:`Material Query Example`
 		
 		|  Returns the results for all the material queries defined in the model for active model stage and result type.
 		|  To get results for a different stage, please call SetActiveStage(int stageNumber) before calling this function.

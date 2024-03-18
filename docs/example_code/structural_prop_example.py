@@ -1,9 +1,10 @@
 from rs2.modeler.RS2Modeler import RS2Modeler
 from rs2.modeler.properties.PropertyEnums import *
+import os, inspect
 
+current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
 modeler = RS2Modeler()
-
-model = modeler.openFile(r"C:\scriptingModels\simple_3_stage.fez")
+model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 structural = model.getAllStructuralInterfaceProperties()[0]
 
