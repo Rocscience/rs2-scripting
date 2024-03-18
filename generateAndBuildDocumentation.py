@@ -10,7 +10,7 @@ sphinx-build Documentation: https://www.sphinx-doc.org/en/master/man/sphinx-buil
 html = 'html'
 singleHtml = 'singlehtml'
 
-builder = html
+builder = singleHtml
 
 def set_sphinx_apidoc_settings():
     # Command to set SPHINX_APIDOC_OPTIONS environment variable
@@ -79,5 +79,5 @@ def clear_generated_docs():
 if __name__ == "__main__":
     clear_generated_docs()
     run_sphinx_apidoc()
-    #remove_subpackage_submodule_headers()
+    remove_subpackage_submodule_headers()
     run_sphinx_build()

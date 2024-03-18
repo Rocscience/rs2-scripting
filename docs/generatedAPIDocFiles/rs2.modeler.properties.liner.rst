@@ -6,8 +6,6 @@ rs2.modeler.properties.liner package
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
 
 rs2.modeler.properties.liner.CableTruss module
 ----------------------------------------------

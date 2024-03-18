@@ -6,8 +6,6 @@ rs2.modeler.properties.joint package
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
 
 rs2.modeler.properties.joint.BartonBandis module
 ------------------------------------------------
@@ -85,6 +83,14 @@ rs2.modeler.properties.joint.MohrCoulombMaterial module
 -------------------------------------------------------
 
 .. automodule:: rs2.modeler.properties.joint.MohrCoulombMaterial
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+rs2.modeler.properties.joint.NoneSlip module
+--------------------------------------------
+
+.. automodule:: rs2.modeler.properties.joint.NoneSlip
    :members:
    :undoc-members:
    :show-inheritance:

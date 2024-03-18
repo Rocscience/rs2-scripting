@@ -6,8 +6,6 @@ rs2.modeler.properties.material.stiffness package
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
 
 rs2.modeler.properties.material.stiffness.ChSoil module
 -------------------------------------------------------
