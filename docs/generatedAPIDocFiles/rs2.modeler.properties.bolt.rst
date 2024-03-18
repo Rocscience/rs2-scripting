@@ -6,8 +6,6 @@ rs2.modeler.properties.bolt package
    :undoc-members:
    :show-inheritance:
 
-Submodules
-----------
 
 rs2.modeler.properties.bolt.Bolt module
 ---------------------------------------

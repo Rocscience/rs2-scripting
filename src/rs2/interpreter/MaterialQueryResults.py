@@ -56,11 +56,12 @@ class MaterialQueryResults:
     
     def GetAllValues(self) -> list[QueryResult]:
         '''
-        Returns a list[QueryResult] representing result at all nodes of the material query
-        To get the x-coordinate, y-coordinate, distance, or value, please call the supporting class methods:
-        - QueryResult.GetXCoordinate()
-        - QueryResult.GetYCoordinate()
-        - QueryResult.GetDistance()
-        - QueryResult.GetValue()
+        |  Returns a list[QueryResult] representing result at all nodes of the material query
+        |  To get the x-coordinate, y-coordinate, distance, or value, please call the supporting class methods:
+        
+        * QueryResult.GetXCoordinate()
+        * QueryResult.GetYCoordinate()
+        * QueryResult.GetDistance()
+        * QueryResult.GetValue()
         '''
         return self.query_values

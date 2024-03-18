@@ -6,8 +6,6 @@ rs2.modeler.properties.material.thermal package
    :undoc-members:
    :show-inheritance:
 
-Subpackages
------------
 
 .. toctree::
    :maxdepth: 4
@@ -16,8 +14,6 @@ Subpackages
    rs2.modeler.properties.material.thermal.heatcapacity
    rs2.modeler.properties.material.thermal.soilunfrozenwatercontent
 
-Submodules
-----------
 
 rs2.modeler.properties.material.thermal.Thermal module
 ------------------------------------------------------
