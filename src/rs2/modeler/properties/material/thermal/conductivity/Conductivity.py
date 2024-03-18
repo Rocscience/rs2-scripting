@@ -11,7 +11,7 @@ from rs2.modeler.properties.material.thermal.conductivity.CoteAndKonrad import C
 from rs2.modeler.properties.material.thermal.conductivity.Tabular import Tabular
 class Conductivity(PropertyProxy):
 	"""
-	:ref:`Material Property Thermal Conductivity Example`
+	:ref:`Material Property Thermal Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.ConstantConductivity = ConstantConductivity(client, ID, documentProxyID)

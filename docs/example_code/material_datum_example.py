@@ -1,12 +1,15 @@
 from rs2.modeler.RS2Modeler import RS2Modeler
 from rs2.modeler.properties.PropertyEnums import *
+import os, inspect
 
+current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
 modeler = RS2Modeler()
-
-model = modeler.openFile(r"C:\scriptingModels\Profiles_and_Boreholes.fez")
+model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 material = model.getAllMaterialProperties()[0]
 
+# Make sure to set Material Stiffness Type is Isotropic to set Datum Dependency Properties
+material.Stiffness.setElasticType(MaterialElasticityTypes.ISOTROPIC)
 material.Datum.setUsingDatum(True)
 
 # Youngs Modulus Datum properties
@@ -22,9 +25,9 @@ youngDatum.setCutoff(0.8)
 
 print("\nYoungs Modulus Datum Dependent Type:")
 print(f"Datum Type = {youngDatum.getType()}, Datum Value = {youngDatum.getDatum()}, Center = {youngDatum.getCenter()}")
-print(f"Use Cutoff = {youngDatum.getUseCutoff()}, Datum Change = {youngDatum.getChange()}, Cutoff = {youngDatum.getCutoff()}")
+print(f"Use Cutoff = {youngDatum.getUseCutoff()}, Datum Change = {youngDatum.getChange()}, Cutoff = {youngDatum.getCutoff()}\n")
 
-# Set Material Strength failure criterion to Mohr-Coulomb and material type of Plastic
+# Set Material Strength failure criterion to Mohr-Coulomb and material type to Plastic
 # This allows to specify properties for Friction and Cohesion Datum Dependent Types
 material.Strength.setFailureCriterion(StrengthCriteriaTypes.MOHR_COULOMB)
 material.Strength.MohrCoulombStrength.setMaterialType(MaterialType.PLASTIC)
@@ -46,7 +49,7 @@ frictionDatum.setResidualCutoffValue(45)
 print("\nFriction Datum Dependent Type:")
 print(f"Datum Type = {frictionDatum.getType()}, Datum Value = {frictionDatum.getDatum()}, Center = {frictionDatum.getCenter()}")
 print(f"Use Peak Cutoff = {frictionDatum.getUsePeakCutoff()}, Peak Change = {frictionDatum.getPeakChange()}, Peak Cutoff = {frictionDatum.getPeakCutoffValue()}")
-print(f"Use Residual Cutoff = {frictionDatum.getUseResidualCutoff()}, Residual Cutoff Value = {frictionDatum.getResidualCutoffValue()}")
+print(f"Use Residual Cutoff = {frictionDatum.getUseResidualCutoff()}, Residual Cutoff Value = {frictionDatum.getResidualCutoffValue()}\n")
 
 # Cohesion Datum properties
 cohesion = material.Datum.getDatumCohesion()
@@ -64,4 +67,4 @@ cohesion.setResidualCutoffValue(45)
 print("\nCohesion Datum Dependent Type:")
 print(f"Datum Type = {cohesion.getType()}, Datum Value = {cohesion.getDatum()}, Center = {cohesion.getCenter()}")
 print(f"Use Peak Cutoff = {cohesion.getUsePeakCutoff()}, Peak Change = {cohesion.getPeakChange()}, Peak Cutoff = {cohesion.getPeakCutoffValue()}")
-print(f"Use Residual Cutoff = {cohesion.getUseResidualCutoff()}, Residual Cutoff Value = {cohesion.getResidualCutoffValue()}")
+print(f"Use Residual Cutoff = {cohesion.getUseResidualCutoff()}, Residual Cutoff Value = {cohesion.getResidualCutoffValue()}\n")

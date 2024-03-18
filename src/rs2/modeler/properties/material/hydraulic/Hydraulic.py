@@ -20,7 +20,7 @@ class HydraulicDefinedStageFactor(HydraulicStageFactor):
 		return self._callFunction("setMaterialBehaviourFactor", [materialBehavior.value])
 class Hydraulic(PropertyProxy):
 	"""
-	:ref:`Hydraulic Property Stiffness Example`
+	:ref:`Hydraulic Property Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
