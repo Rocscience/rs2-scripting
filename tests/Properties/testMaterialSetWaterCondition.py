@@ -23,5 +23,5 @@ class TestInitialConditionSWMInterpolated(unittest.TestCase):
 
     def testInitialCondition_SWM_InterpolatedSuccess(self):
         material = self.model.getAllMaterialProperties()[0]
-        material.InitialConditions.setInitialWaterCondition(StaticWaterModes.SWM_INTERPOLATED)
-        self.assertEqual(material.InitialConditions.getInitialWaterCondition(), StaticWaterModes.SWM_INTERPOLATED)
+        material.InitialConditions.setInitialWaterCondition(StaticWaterModes.INTERPOLATED)
+        self.assertEqual(material.InitialConditions.getInitialWaterCondition(), StaticWaterModes.INTERPOLATED)
