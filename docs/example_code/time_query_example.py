@@ -1,12 +1,13 @@
 from rs2.modeler.RS2Modeler import RS2Modeler
 from rs2.interpreter.RS2Interpreter import RS2Interpreter
 from rs2.interpreter.InterpreterGraphEnums import *
+import os, inspect
 
-# Replace with a model with your desired model path
-modelPath = r"C:\scriptingModels\Profiles_and_Boreholes_2.fez"
+current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
 modeler = RS2Modeler()
+filePath = rf"{current_dir}\example_models\DynamicModel.fez"
+model = modeler.openFile(filePath)
 
-model = modeler.openFile(modelPath)
 # Add Time Query Line to Model
 points1 = [[5, -4.5], [5, 0]]
 points2 = [[-5, 2], [11, 2]]
@@ -30,7 +31,7 @@ model.compute()
 
 # Get Time Query Point Results
 interpreter = RS2Interpreter()
-interpreter_model = interpreter.openFile(modelPath)
+interpreter_model = interpreter.openFile(filePath)
 result = interpreter_model.GetAllTimeQueryPointResults(
     stages=[1, 2, 3, 4], 
     vertical_axis=TimeQueryGraphEnums.VerticalAxisTypes.EFFECTIVE_STRESS_XY)

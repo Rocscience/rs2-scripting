@@ -35,30 +35,20 @@ Python Script Examples
    :language: python
    :caption: Code Snippet: Manipulation of Material Properties
 
+.. _hydraulic property example:
+.. literalinclude:: example_code/material_hydraulic_property_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Hydraulic Properties
+
+.. _hydraulic property static groundwater example:
+.. literalinclude:: example_code/material_hydraulic_staticgroundwater_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Hydraulic Static Groundwater Properties
+
 .. _hydraulic property feagroundwater example:
 .. literalinclude:: example_code/material_hydraulic_property_feaGroundwater_example.py
    :language: python
    :caption: Code Snippet: Manipulation of Hydraulic FEA Groundwater Properties
-
-.. _material property thermal soilunfrozenwatercontent hydraulicmodel example:
-.. literalinclude:: example_code/material_thermal_soilUnfrozenWaterContent_hydraulicModel_example.py
-   :language: python
-   :caption: Code Snippet: Manipulation of Thermal Soil Unfrozen Water Content Hydraulic Model Properties
-
-.. _material property thermal conductivity example:
-.. literalinclude:: example_code/material_thermal_conductivity_example.py
-   :language: python
-   :caption: Code Snippet: Manipulation of Thermal Conductivity Properties
-
-.. _material property thermal heatcapacity example:
-.. literalinclude:: example_code/material_thermal_heatCapacity_example.py
-   :language: python
-   :caption: Code Snippet: Manipulation of Thermal Heat Capacity Properties
-
-.. _material property thermal soilunfrozenwatercontent example:
-.. literalinclude:: example_code/material_thermal_soilUnfrozenWaterContent_example.py
-   :language: python
-   :caption: Code Snippet: Manipulation of Thermal Soil Unfrozen Water Content Hydraulic Model Properties
 
 .. _material property datum example:
 .. literalinclude:: example_code/material_datum_example.py
@@ -79,11 +69,6 @@ Python Script Examples
 .. literalinclude:: example_code/material_property_thermal_example.py
    :language: python
    :caption: Code Snippet: Manipulation of Thermal Properties
-   
-.. _hydraulic property stiffness example:
-.. literalinclude:: example_code/material_hydraulic_property_stiffness_example.py
-   :language: python
-   :caption: Code Snippet: Manipulation of Hydraulic Stiffness Properties
    
 .. _Model Example:
 .. literalinclude:: example_code/model_example.py
