@@ -104,3 +104,33 @@ Python Script Examples
 .. literalinclude:: example_code/time_query_example.py
    :language: python
    :caption: Code Snippet: Manipulation of Time Query and its results
+
+.. _Support Bolt Results Example:
+.. literalinclude:: example_code/support_bolt_example.py
+   :language: python
+   :caption: Code Snippet: Get Support Bolt Results
+
+.. _Support Joint Results Example:
+.. literalinclude:: example_code/support_joint_example.py
+   :language: python
+   :caption: Code Snippet: Get Support Joint Results
+
+.. _Support Liner Results Example:
+.. literalinclude:: example_code/support_liner_example.py
+   :language: python
+   :caption: Code Snippet: Get Support Liner Results
+
+.. _Support Pile Results Example:
+.. literalinclude:: example_code/support_pile_example.py
+   :language: python
+   :caption: Code Snippet: Get Support Pile Results
+
+.. _Support Composite Results Example:
+.. literalinclude:: example_code/support_composite_example.py
+   :language: python
+   :caption: Code Snippet: Get Support Composite Results
+
+.. _Support Structural Results Example:
+.. literalinclude:: example_code/support_structural_example.py
+   :language: python
+   :caption: Code Snippet: Get Support Structural Results

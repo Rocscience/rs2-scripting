@@ -44,7 +44,7 @@ def print_dict_elements(data_dict):
 interpreter = RS2Interpreter()
 
 interpreter_model = interpreter.openFile(r"C:\scriptingModels\joint.fez")
-interpreter_model2 = interpreter.openFile(r"C:\scriptingModels\si.fez")
+interpreter_model2 = interpreter.openFile(r"C:\scriptingModels\supportStructuralResults.fez")
 
 stages = [1]
 
@@ -52,19 +52,49 @@ stages = [1]
 pile_results = interpreter_model.GetPileResults( stages)
 print_dict_elements(pile_results)
 
-composite_results = interpreter_model.GetCompositeResults( stages)
-print_dict_elements(composite_results)
+# composite_results = interpreter_model.GetCompositeResults( stages)
+# print_dict_elements(composite_results)
 
-structural_results = interpreter_model2.GetStructuralResults( stages)
-print_dict_elements(structural_results)
+# structural_results = interpreter_model2.GetStructuralResults( stages)
+# print_dict_elements(structural_results)
 
-liner_results = interpreter_model.GetLinerResults(stages)
-print_dict_elements(liner_results)
+# liner_results = interpreter_model.GetLinerResults(stages)
+# print_dict_elements(liner_results)
 
-joint_results = interpreter_model.GetJointResults(stages)
-print_dict_elements(joint_results)
+# joint_results = interpreter_model.GetJointResults(stages)
+# print_dict_elements(joint_results)
 
-bolt_results = interpreter_model.GetBoltResults( stages)
-print_dict_elements(bolt_results)
-
-pass
+# results = interpreter_model.GetBoltResults( stages)
+# #print_dict_elements(bolt_results)
+# for stageNum, allBoltResults in results.items():
+    # print(f"Stage {stageNum} Bolt Results")
+    # for singleBoltResult in allBoltResults:
+    #     boltID = singleBoltResult.entity_id
+    #     start_x = singleBoltResult.start_x
+    #     start_y = singleBoltResult.start_y
+    #     end_x = singleBoltResult.end_x
+    #     end_y = singleBoltResult.end_y
+    #     print(f"\tBolt Unique ID = {boltID}, \n\tStart X-Coord = {start_x}, \n\tStart Y-Coord = {start_y}, End X-Coord = {end_x}, End Y-Coord = {end_y}")
+    #     yieldingResults = singleBoltResult.yielding_results
+    #     print("\tBolt Yielding Results:")
+    #     for boltYieldData in yieldingResults:
+    #         start_x = boltYieldData.start_x
+    #         start_y = boltYieldData.start_y
+    #         end_x = boltYieldData.end_x
+    #         end_y = boltYieldData.end_y
+    #         yieldingStatus = boltYieldData.yielding_flag
+    #         print(f"\t\tYielded Start X-Coord = {start_x}, Yielded Start Y-Coord = {start_y}, Yielded End X-Coord = {end_x}, Yielded End Y-Coord = {end_y}")
+    #         print(f"\t\tYielded Status = {yieldingStatus}")
+    #     print("\tForce Displacement Results:")
+    #     forceDisplacementResults = singleBoltResult.force_displacement_results
+    #     for dispResult in forceDisplacementResults:
+    #         loc_x = dispResult.location_x
+    #         loc_y = dispResult.location_y
+    #         dist = dispResult.distance
+    #         axial_force = dispResult.axial_force
+    #         axial_stress = dispResult.axial_stress
+    #         shear_force = dispResult.shear_force
+    #         rock_disp = dispResult.rock_displacement
+    #         bolt_disp = dispResult.bolt_displacement
+    #         print(f"\t\tLocation X = {loc_x}, Location Y = {loc_y}, Distance = {dist}, Axial Force = {axial_force}, Axial Stress = {axial_stress}")
+    #         print(f"\t\tShear Force = {shear_force}, Rock Displacement = {rock_disp}, Bolt Displacement = {bolt_disp}\n")

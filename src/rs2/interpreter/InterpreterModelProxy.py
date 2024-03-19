@@ -319,12 +319,53 @@ class ModelProxy(ProxyObject):
 			all_mat_query_data_as_classObj.append(MaterialQueryResults(*unpack_list_data))
 		return all_mat_query_data_as_classObj
 
-	
+	def GetBoltResults (self, stages: list[int]) -> dict[int, list[BoltResult]]:
+		"""
+		:ref:`Support Bolt Results Example`
 		
+		|  Returns the results for all support bolts defined in the model for all stages.
 
-	def GetBoltResults (
-		self, 
-		stages: list[int]) -> dict[int, list[BoltResult]]:
+		Returns: 
+			|  A dict[int, list[BoltResult]] of support bolt results.
+			|  To extract the Unique Identifier, Start/End X or Y Coordiante,
+			|  please call the following attributes from the class:
+
+			* BoltResult.entity_id
+			* BoltResult.start_x
+			* BoltResult.start_y
+			* BoltResult.end_x
+			* BoltResult.end_y
+
+			|  To get results for bolt yielding, please call the following attribute from the class:
+
+			* BoltResult.yielding_results
+
+			|  The above returns list[BoltYieldingResult] for a specific bolt
+			|  To get the associated data with this, please call the following attributes:
+
+			* BoltYieldingResult.start_x
+			* BoltYieldingResult.start_y
+			* BoltYieldingResult.end_x
+			* BoltYieldingResult.end_y
+			* BoltYieldingResult.yielding_flag
+
+			|  To get bolt force displacement results, please call the following attribute from the class:
+
+			* BoltResult.force_displacement_results
+
+			|  The above returns list[BoltForceDisplacementResult] for a specific bolt
+			|  To get the associated data with this, please call the following attributes:
+
+			* BoltForceDisplacementResult.location_x
+			* BoltForceDisplacementResult.location_y
+			* BoltForceDisplacementResult.distance
+			* BoltForceDisplacementResult.axial_force
+			* BoltForceDisplacementResult.axial_stress
+			* BoltForceDisplacementResult.shear_force
+			* BoltForceDisplacementResult.rock_displacement
+			* BoltForceDisplacementResult.bolt_displacement
+
+		"""
 		map_data = self._callFunction('GetBoltResults', [stages])
 		structured_data = {}
 		for stage_idx, stage_data in map_data.items():
@@ -349,7 +390,7 @@ class ModelProxy(ProxyObject):
 				structured_data[stage_idx].append(bolt_result)
 		return structured_data
 		
-	def process_joint_data(self, entity_data, entity_name):
+	def _process_joint_data(self, entity_data, entity_name):
 
 		joint_element_results = []
 		for joint_vector in entity_data[1]:
@@ -359,7 +400,7 @@ class ModelProxy(ProxyObject):
 		joint_result = JointResult(entity_name, joint_element_results)
 		return joint_result
 
-	def process_liner_data(self, entity_data, entity_name):
+	def _process_liner_data(self, entity_data, entity_name):
 		liner_element_results = []
 
 		for liner_vector in entity_data[0]:
@@ -368,50 +409,348 @@ class ModelProxy(ProxyObject):
 		liner_result = LinerResult(entity_name,liner_element_results)
 		return liner_result
 
-	def GetJointResults(
-		self, 
-		stages: list[int]) -> dict[int, list[JointResult]]:
+	def GetJointResults(self, stages: list[int]) -> dict[int, list[JointResult]]:
+		"""
+		:ref:`Support Joint Results Example`
+		
+		|  Returns the results for all support joints defined in the model for all stages.
 
+		Returns: 
+			|  A dict[int, list[JointResult]] of support joint results.
+			|  To extract the Unique Identifier, please call the following attribute from the class:
+
+			* JointResult.entity_id
+
+			|  To get results for joint element, please call the following attribute from the class:
+
+			* JointResult.joint_element_results
+
+			|  The above returns list[JointElementResult] for a specific joint
+			|  To get the associated data with this, please call the following attributes:
+
+			* JointElementResult.start_x
+			* JointElementResult.start_y
+			* JointElementResult.end_x
+			* JointElementResult.end_y
+			* JointElementResult.distance
+			* JointElementResult.normal_stress
+			* JointElementResult.shear_stress
+			* JointElementResult.confining_stress
+			* JointElementResult.normal_displacement
+			* JointElementResult.shear_displacement
+			* JointElementResult.yielded
+
+		"""
 		map_data = self._callFunction('GetJointResults', [stages])
 		structured_data = {}
 		for stage_idx, stage_data in map_data.items():
 
 			structured_data[stage_idx] = []
 			for entity_name, entity_data in stage_data.items():
-				joint_result = self.process_joint_data(entity_data, entity_name)
+				joint_result = self._process_joint_data(entity_data, entity_name)
 				structured_data[stage_idx].append(joint_result)
 		
 		return structured_data
 	
-	def GetLinerResults(
-		self, 
-		stages: list[int]) -> dict[int, list[LinerResult]]:
+	def GetLinerResults(self, stages: list[int]) -> dict[int, list[LinerResult]]:
+		"""
+		:ref:`Support Liner Results Example`
+		
+		|  Returns the results for all support liners defined in the model for all stages.
 
+		Returns: 
+			|  A dict[int, list[LinerResult]] of support liner results.
+			|  To extract the Unique Identifier, please call the following attribute from the class:
+
+			* LinerResult.entity_id
+
+			|  To get results for liner element, please call the following attribute from the class:
+
+			* LinerResult.liner_element_results
+
+			|  The above returns list[LinerElementResult] for a specific liner
+			|  To get the associated data with this, please call the following attributes:
+
+			* LinerElementResult.composite_layer
+			* LinerElementResult.node_start
+			* LinerElementResult.node_end
+			* LinerElementResult.start_x
+			* LinerElementResult.start_y
+			* LinerElementResult.end_x
+			* LinerElementResult.end_y
+			* LinerElementResult.distance
+			* LinerElementResult.axial_force
+			* LinerElementResult.moment1
+			* LinerElementResult.moment_mid
+			* LinerElementResult.moment2
+			* LinerElementResult.shear_force
+			* LinerElementResult.displacement_total
+			* LinerElementResult.displacement_x
+			* LinerElementResult.displacement_y
+			* LinerElementResult.axi_sym_force
+			* LinerElementResult.axi_sym_moment
+			* LinerElementResult.beam_yield
+			* LinerElementResult.temperature
+
+		"""
 		map_data = self._callFunction('GetLinerResults', [stages])
 		structured_data = {}
 		for stage_idx, stage_data in map_data.items():
 
 			structured_data[stage_idx] = []
 			for entity_name, entity_data in stage_data.items():
-				liner_result = self.process_liner_data(entity_data, entity_name)
+				liner_result = self._process_liner_data(entity_data, entity_name)
 				structured_data[stage_idx].append(liner_result)
 		
 		return structured_data
 
+	def GetPileResults(self, stages: list[int]) -> dict[int, list[PileResult]]:
+		"""
+		:ref:`Support Pile Results Example`
+		
+		|  Returns the results for all support piles defined in the model for all stages.
 
-	def GetPileResults(	
-		self, 
-		stages: list[int]) -> dict[int, list[PileResult]]:
+		Returns: 
+			|  A dict[int, list[PileResult]] of support pile results.
+			|  To extract the Unique Identifier, please call the following attribute from the class:
+
+			* PileResult.entity_id
+
+			|  To get results for joint associated with this pile, please call the following attribute from the class:
+
+			* PileResult.joint_result
+
+			|  The above returns a JointResult object for a specific joint
+
+				|  To extract the Unique Identifier for this joint, please call the following attribute from the class:
+
+				* JointResult.entity_id
+
+				|  To get results for joint element, please call the following attribute from the class:
+
+				* JointResult.joint_element_results
+
+				|  The above returns list[JointElementResult] for a specific joint
+				|  To get the associated data with this, please call the following attributes:
+
+				* JointElementResult.start_x
+				* JointElementResult.start_y
+				* JointElementResult.end_x
+				* JointElementResult.end_y
+				* JointElementResult.distance
+				* JointElementResult.normal_stress
+				* JointElementResult.shear_stress
+				* JointElementResult.confining_stress
+				* JointElementResult.normal_displacement
+				* JointElementResult.shear_displacement
+				* JointElementResult.yielded
+
+
+			|  To get results for liner associated with this pile, please call the following attribute from the class:
+
+			* PileResult.liner_result
+
+			|  The above returns a LinerResult object for a specific liner
+
+				|  To extract the Unique Identifier for this liner, please call the following attribute from the class:
+
+					* LinerResult.entity_id
+
+					|  To get results for liner element, please call the following attribute from the class:
+
+					* LinerResult.liner_element_results
+
+					|  The above returns list[LinerElementResult] for a specific liner
+					|  To get the associated data with this, please call the following attributes:
+
+					* LinerElementResult.composite_layer
+					* LinerElementResult.node_start
+					* LinerElementResult.node_end
+					* LinerElementResult.start_x
+					* LinerElementResult.start_y
+					* LinerElementResult.end_x
+					* LinerElementResult.end_y
+					* LinerElementResult.distance
+					* LinerElementResult.axial_force
+					* LinerElementResult.moment1
+					* LinerElementResult.moment_mid
+					* LinerElementResult.moment2
+					* LinerElementResult.shear_force
+					* LinerElementResult.displacement_total
+					* LinerElementResult.displacement_x
+					* LinerElementResult.displacement_y
+					* LinerElementResult.axi_sym_force
+					* LinerElementResult.axi_sym_moment
+					* LinerElementResult.beam_yield
+					* LinerElementResult.temperature
+
+		"""
 		return self._get_composition_result('GetPileResults',PileResult, stages)
 
-	def GetCompositeResults(	
-		self, 
-		stages: list[int]) -> dict[int, list[CompositeResult]]:
+	def GetCompositeResults(self, stages: list[int]) -> dict[int, list[CompositeResult]]:
+		"""
+		:ref:`Support Composite Results Example`
+		
+		|  Returns the results for all support composite defined in the model for all stages.
+
+		Returns: 
+			|  A dict[int, list[CompositeResult]] of support composite results.
+			|  To extract the Unique Identifier, please call the following attribute from the class:
+
+			* CompositeResult.entity_id
+
+			|  To get results for joint associated with this composite, please call the following attribute from the class:
+
+			* CompositeResult.joint_result
+
+			|  The above returns a JointResult object for a specific joint
+
+				|  To extract the Unique Identifier for this joint, please call the following attribute from the class:
+
+				* JointResult.entity_id
+
+				|  To get results for joint element, please call the following attribute from the class:
+
+				* JointResult.joint_element_results
+
+				|  The above returns list[JointElementResult] for a specific joint
+				|  To get the associated data with this, please call the following attributes:
+
+				* JointElementResult.start_x
+				* JointElementResult.start_y
+				* JointElementResult.end_x
+				* JointElementResult.end_y
+				* JointElementResult.distance
+				* JointElementResult.normal_stress
+				* JointElementResult.shear_stress
+				* JointElementResult.confining_stress
+				* JointElementResult.normal_displacement
+				* JointElementResult.shear_displacement
+				* JointElementResult.yielded
+
+
+			|  To get results for liner associated with this composite, please call the following attribute from the class:
+
+			* CompositeResult.liner_result
+
+			|  The above returns a LinerResult object for a specific liner
+			
+				|  To extract the Unique Identifier for this liner, please call the following attribute from the class:
+
+					* LinerResult.entity_id
+
+					|  To get results for liner element, please call the following attribute from the class:
+
+					* LinerResult.liner_element_results
+
+					|  The above returns list[LinerElementResult] for a specific liner
+					|  To get the associated data with this, please call the following attributes:
+
+					* LinerElementResult.composite_layer
+					* LinerElementResult.node_start
+					* LinerElementResult.node_end
+					* LinerElementResult.start_x
+					* LinerElementResult.start_y
+					* LinerElementResult.end_x
+					* LinerElementResult.end_y
+					* LinerElementResult.distance
+					* LinerElementResult.axial_force
+					* LinerElementResult.moment1
+					* LinerElementResult.moment_mid
+					* LinerElementResult.moment2
+					* LinerElementResult.shear_force
+					* LinerElementResult.displacement_total
+					* LinerElementResult.displacement_x
+					* LinerElementResult.displacement_y
+					* LinerElementResult.axi_sym_force
+					* LinerElementResult.axi_sym_moment
+					* LinerElementResult.beam_yield
+					* LinerElementResult.temperature
+
+		"""
 		return self._get_composition_result('GetCompositeResults',CompositeResult, stages)
 
-	def GetStructuralResults(	
-		self, 
-		stages: list[int]) -> dict[int, list[PileResult]]:
+	def GetStructuralResults(self, stages: list[int]) -> dict[int, list[StructuralResult]]:
+		"""
+		:ref:`Support Structural Results Example`
+		
+		|  Returns the results for all support structural defined in the model for all stages.
+
+		Returns: 
+			|  A dict[int, list[StructuralResult]] of support structural results.
+			|  To extract the Unique Identifier, please call the following attribute from the class:
+
+			* StructuralResult.entity_id
+
+			|  To get results for joint associated with this structural, please call the following attribute from the class:
+
+			* StructuralResult.joint_result
+
+			|  The above returns a JointResult object for a specific joint
+
+				|  To extract the Unique Identifier for this joint, please call the following attribute from the class:
+
+				* JointResult.entity_id
+
+				|  To get results for joint element, please call the following attribute from the class:
+
+				* JointResult.joint_element_results
+
+				|  The above returns list[JointElementResult] for a specific joint
+				|  To get the associated data with this, please call the following attributes:
+
+				* JointElementResult.start_x
+				* JointElementResult.start_y
+				* JointElementResult.end_x
+				* JointElementResult.end_y
+				* JointElementResult.distance
+				* JointElementResult.normal_stress
+				* JointElementResult.shear_stress
+				* JointElementResult.confining_stress
+				* JointElementResult.normal_displacement
+				* JointElementResult.shear_displacement
+				* JointElementResult.yielded
+
+
+			|  To get results for liner associated with this structural, please call the following attribute from the class:
+
+			* StructuralResult.liner_result
+
+			|  The above returns a LinerResult object for a specific liner
+			
+				|  To extract the Unique Identifier for this liner, please call the following attribute from the class:
+
+					* LinerResult.entity_id
+
+					|  To get results for liner element, please call the following attribute from the class:
+
+					* LinerResult.liner_element_results
+
+					|  The above returns list[LinerElementResult] for a specific liner
+					|  To get the associated data with this, please call the following attributes:
+
+					* LinerElementResult.composite_layer
+					* LinerElementResult.node_start
+					* LinerElementResult.node_end
+					* LinerElementResult.start_x
+					* LinerElementResult.start_y
+					* LinerElementResult.end_x
+					* LinerElementResult.end_y
+					* LinerElementResult.distance
+					* LinerElementResult.axial_force
+					* LinerElementResult.moment1
+					* LinerElementResult.moment_mid
+					* LinerElementResult.moment2
+					* LinerElementResult.shear_force
+					* LinerElementResult.displacement_total
+					* LinerElementResult.displacement_x
+					* LinerElementResult.displacement_y
+					* LinerElementResult.axi_sym_force
+					* LinerElementResult.axi_sym_moment
+					* LinerElementResult.beam_yield
+					* LinerElementResult.temperature
+
+		"""
 		return self._get_composition_result('GetStructuralResults',StructuralResult, stages)
 
 
