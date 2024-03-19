@@ -1,3 +1,3 @@
 --extra-index-url https://rocscience.pkgs.visualstudio.com/_packaging/Rocscience_Feed/pypi/simple/
 rsmessages==0.0.2
-./dist/rs2-11.23.0.dev1-py3-none-any.whl
+./dist/RS2Scripting-11.23.0.dev1-py3-none-any.whl
