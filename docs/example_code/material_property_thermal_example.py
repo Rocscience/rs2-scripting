@@ -53,6 +53,25 @@ soilUnfrozenWaterContent.CustomWaterContent.setTemperatureVsUnfrozenWaterContent
 print("\nThermal Temperature vs Soil Unfrozen Water Content Table Values",
       soilUnfrozenWaterContent.CustomWaterContent.getTemperatureVsUnfrozenWaterContentValues())
 
+# Manipulation of Thermal Hydraulic Model Soil Unfrozen Water Content Properties
+soilUnfrozenWC = thermal.SoilUnfrozenWaterContent
+# Make sure to set Soil Unfrozen Water Content type to Hydraulic Properties
+soilUnfrozenWC.setType(ThermalWaterContentType.SOIL_WATER_CONTENT_IN_HYDRAULIC_PROPERTIES)
+hydraulic_soilUnfrozenWC = soilUnfrozenWaterContent.HydraulicModel
+# Make sure to set Hydraulic Model to your desired type
+hydraulic_soilUnfrozenWC.setSelectHydraulicModel(GroundWaterModes.GARDNER)
+hydraulic_soilUnfrozenWC.setFrozenTemperature(-0.015)
+hydraulic_soilUnfrozenWC.setWCSat(0.34)
+hydraulic_soilUnfrozenWC.setWCRes(0.01)
+# Set properties for Gardener Hydraulic Model
+gardenerWaterContent = hydraulic_soilUnfrozenWC.GardnerWaterContent
+gardenerWaterContent.setA(8)
+gardenerWaterContent.setN(3)
+
+print(f"\n Thermal Soil Unfrozen Water Content Type = {soilUnfrozenWaterContent.getType()}, Hydraulic Model Type = {hydraulic_soilUnfrozenWC.getSelectHydraulicModel()}")
+print(f"Frozen Temperature = {hydraulic_soilUnfrozenWC.getFrozenTemperature()}, WC Sat = {hydraulic_soilUnfrozenWC.getWCSat()}, WC Res = {hydraulic_soilUnfrozenWC.getWCRes()}")
+print(f"Gardener Parameter A = {gardenerWaterContent.getA()}, Gardener Parameter N = {gardenerWaterContent.getN()}")
+
 thermal.setThermalExpansion(True)
 thermal.setExpansionCoefficient(0.0005)
 
