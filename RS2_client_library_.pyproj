@@ -91,14 +91,14 @@
     <Compile Include="src\rs2\interpreter\HistoryQueryResults.py" />
     <Compile Include="src\rs2\interpreter\InterpreterEnums.py" />
     <Compile Include="src\rs2\interpreter\InterpreterGraphEnums.py" />
-    <Compile Include="src\rs2\interpreter\InterpreterModelProxy.py" />
+    <Compile Include="src\rs2\interpreter\InterpreterModel.py" />
     <Compile Include="src\rs2\interpreter\JointResult.py" />
     <Compile Include="src\rs2\interpreter\LinerResult.py" />
     <Compile Include="src\rs2\interpreter\MeshResults.py" />
     <Compile Include="src\rs2\interpreter\RS2Interpreter.py" />
     <Compile Include="src\rs2\interpreter\UtilityResult.py" />
     <Compile Include="src\rs2\interpreter\__init__.py" />
-    <Compile Include="src\rs2\modeler\ModelProxy.py" />
+    <Compile Include="src\rs2\modeler\Model.py" />
     <Compile Include="src\rs2\modeler\properties\AbsoluteStageFactorInterface.py" />
     <Compile Include="src\rs2\modeler\properties\bolt\Bolt.py" />
     <Compile Include="src\rs2\modeler\properties\bolt\EndAnchored.py" />
@@ -145,7 +145,7 @@
     <Compile Include="src\rs2\modeler\properties\material\hydraulic\StaticGroundwater.py" />
     <Compile Include="src\rs2\modeler\properties\material\hydraulic\__init__.py" />
     <Compile Include="src\rs2\modeler\properties\material\InitialConditions.py" />
-    <Compile Include="src\rs2\modeler\properties\material\MaterialPropertyProxy.py" />
+    <Compile Include="src\rs2\modeler\properties\material\MaterialProperty.py" />
     <Compile Include="src\rs2\modeler\properties\material\stiffness\ChSoil.py" />
     <Compile Include="src\rs2\modeler\properties\material\stiffness\Custom.py" />
     <Compile Include="src\rs2\modeler\properties\material\stiffness\CySoil.py" />
@@ -244,7 +244,7 @@
     <Compile Include="src\rs2\modeler\properties\PropertyEnums.py" />
     <Compile Include="src\rs2\modeler\properties\propertyProxy.py" />
     <Compile Include="src\rs2\modeler\properties\RelativeStageFactorInterface.py" />
-    <Compile Include="src\rs2\modeler\properties\ShearNormalFunctionProxy.py" />
+    <Compile Include="src\rs2\modeler\properties\ShearNormalFunction.py" />
     <Compile Include="src\rs2\modeler\properties\SnowdenAnisotropicFunction.py" />
     <Compile Include="src\rs2\modeler\properties\StructuralInterface.py" />
     <Compile Include="src\rs2\modeler\properties\UserDefinedWaterMode.py" />
