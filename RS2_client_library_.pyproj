@@ -98,7 +98,7 @@
     <Compile Include="src\rs2\interpreter\RS2Interpreter.py" />
     <Compile Include="src\rs2\interpreter\UtilityResult.py" />
     <Compile Include="src\rs2\interpreter\__init__.py" />
-    <Compile Include="src\rs2\modeler\ModelProxy.py" />
+    <Compile Include="src\rs2\modeler\Model.py" />
     <Compile Include="src\rs2\modeler\properties\AbsoluteStageFactorInterface.py" />
     <Compile Include="src\rs2\modeler\properties\bolt\Bolt.py" />
     <Compile Include="src\rs2\modeler\properties\bolt\EndAnchored.py" />

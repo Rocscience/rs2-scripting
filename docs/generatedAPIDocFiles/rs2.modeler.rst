@@ -13,10 +13,10 @@ rs2.modeler package
    rs2.modeler.properties
 
 
-rs2.modeler.ModelProxy module
+rs2.modeler.Model module
 -----------------------------
 
-.. automodule:: rs2.modeler.ModelProxy
+.. automodule:: rs2.modeler.Model
    :members:
    :undoc-members:
    :show-inheritance:
