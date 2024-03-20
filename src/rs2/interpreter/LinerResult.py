@@ -28,6 +28,6 @@ class LinerElementResult:
         ResetInvalid.validate(self)
 
 class LinerResult:
-    def __init__(self, entity_id, liner_element_results):
+    def __init__(self, entity_id, liner_element_results: LinerElementResult):
         self.entity_id = entity_id
-        self.liner_element_results = liner_element_results
+        self.liner_element_results: LinerElementResult = liner_element_results
