@@ -13,7 +13,7 @@ from rs2.modeler.properties.ShearNormalFunction import ShearNormalFunction
 from rs2.modeler.properties.UserDefinedWaterMode import UserDefinedWaterMode
 from rs2.modeler.properties.DiscreteFunction import DiscreteFunction
 
-class ModelProxy(ProxyObject):
+class Model(ProxyObject):
 	"""
 	:ref:`Model Example`
 	"""

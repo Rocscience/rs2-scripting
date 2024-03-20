@@ -11,7 +11,7 @@ from rs2.interpreter.LinerResult import *
 from rs2.interpreter.BoltResult import*
 from rs2.interpreter.CompositeResult import*
 from rs2.interpreter.MaterialQueryResults import *
-class ModelProxy(ProxyObject):
+class Model(ProxyObject):
 	"""
 	:ref:`Model Example`
 	"""

@@ -1,7 +1,7 @@
 from rsmessages.requestFormat import functionRequest
 from rs2._common.Client import Client
 from rs2.utilities.ApplicationManager import ApplicationManager
-from rs2.interpreter.InterpreterModel import ModelProxy
+from rs2.interpreter.InterpreterModel import Model
 import winreg
 import time
 
@@ -9,7 +9,7 @@ class RS2Interpreter:
 	def __init__(self, host = 'localhost', port=60055):
 		self.client = Client(host, port)
 
-	def openFile(self, fileName : str) -> ModelProxy:
+	def openFile(self, fileName : str) -> Model:
 		'''
 		Takes in the absolute path to an rs2 file to be opened in the modeler.
 
@@ -21,8 +21,8 @@ class RS2Interpreter:
 		'''
 		request = functionRequest('open_file', [fileName], keepReturnValueReference=True)
 		modelObjectId = self.client.callFunction(request)
-		modelProxy = ModelProxy(self.client, modelObjectId)
-		return modelProxy
+		model = Model(self.client, modelObjectId)
+		return model
 	
 	@classmethod
 	def startApplication(cls, port : int, overridePathToExecutable : str = None, timeout : float = 30) -> None:
