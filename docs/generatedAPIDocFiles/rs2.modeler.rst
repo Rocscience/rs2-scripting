@@ -14,7 +14,7 @@ rs2.modeler package
 
 
 rs2.modeler.Model module
------------------------------
+------------------------
 
 .. automodule:: rs2.modeler.Model
    :members:

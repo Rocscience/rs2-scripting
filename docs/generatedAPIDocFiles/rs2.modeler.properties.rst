@@ -82,7 +82,7 @@ rs2.modeler.properties.RelativeStageFactorInterface module
    :show-inheritance:
 
 rs2.modeler.properties.ShearNormalFunction module
-------------------------------------------------------
+-------------------------------------------------
 
 .. automodule:: rs2.modeler.properties.ShearNormalFunction
    :members:

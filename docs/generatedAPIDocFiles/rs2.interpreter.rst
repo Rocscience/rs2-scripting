@@ -48,7 +48,7 @@ rs2.interpreter.InterpreterGraphEnums module
    :show-inheritance:
 
 rs2.interpreter.InterpreterModel module
---------------------------------------------
+---------------------------------------
 
 .. automodule:: rs2.interpreter.InterpreterModel
    :members:

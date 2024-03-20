@@ -26,7 +26,7 @@ rs2.modeler.properties.material.InitialConditions module
    :show-inheritance:
 
 rs2.modeler.properties.material.MaterialProperty module
-------------------------------------------------------------
+-------------------------------------------------------
 
 .. automodule:: rs2.modeler.properties.material.MaterialProperty
    :members:
