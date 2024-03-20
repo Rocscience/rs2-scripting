@@ -244,7 +244,7 @@
     <Compile Include="src\rs2\modeler\properties\PropertyEnums.py" />
     <Compile Include="src\rs2\modeler\properties\propertyProxy.py" />
     <Compile Include="src\rs2\modeler\properties\RelativeStageFactorInterface.py" />
-    <Compile Include="src\rs2\modeler\properties\ShearNormalFunctionProxy.py" />
+    <Compile Include="src\rs2\modeler\properties\ShearNormalFunction.py" />
     <Compile Include="src\rs2\modeler\properties\SnowdenAnisotropicFunction.py" />
     <Compile Include="src\rs2\modeler\properties\StructuralInterface.py" />
     <Compile Include="src\rs2\modeler\properties\UserDefinedWaterMode.py" />

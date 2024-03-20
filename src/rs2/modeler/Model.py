@@ -9,7 +9,7 @@ from rs2.modeler.properties.StructuralInterface import StructuralInterfaceProper
 from rs2.modeler.properties.CompositeProperty import CompositeProperty
 
 from rs2.modeler.properties.material.MaterialProperty import MaterialProperty
-from rs2.modeler.properties.ShearNormalFunctionProxy import ShearNormalFunction
+from rs2.modeler.properties.ShearNormalFunction import ShearNormalFunction
 from rs2.modeler.properties.UserDefinedWaterMode import UserDefinedWaterMode
 from rs2.modeler.properties.DiscreteFunction import DiscreteFunction
 
