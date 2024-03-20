@@ -780,6 +780,8 @@
 
 <span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">()</span>
 <span class="n">interpreterModel</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+<span class="n">interpreterModel</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="n">interpreterModel</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -936,6 +938,7 @@
 <span class="c1"># Add Time Query Line to Model</span>
 <span class="n">points1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
 <span class="n">points2</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+<span class="c1"># Pleae note that the number of points on line must be between 1 and 10 inclusive</span>
 <span class="n">points_on_line</span> <span class="o">=</span> <span class="mi">8</span>
 <span class="n">guid1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">AddTimeQueryLine</span><span class="p">(</span><span class="n">points1</span><span class="p">,</span> <span class="n">points_on_line</span><span class="p">)</span>
 <span class="n">guid2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">AddTimeQueryLine</span><span class="p">(</span><span class="n">points2</span><span class="p">,</span> <span class="n">points_on_line</span><span class="p">)</span>
@@ -1002,6 +1005,451 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">End of Line Data</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">End of Stage </span><span class="si">{</span><span class="n">stageNumber</span><span class="si">}</span><span class="s2"> Data</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id22">
+<span id="support-bolt-results-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Get Support Bolt Results</span><a class="headerlink" href="#id22" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\SupportResults.fez&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define stages to get support results for</span>
+<span class="n">stages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># Get Bolt Results</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">GetBoltResults</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">stageNum</span><span class="p">,</span> <span class="n">allBoltResults</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stage </span><span class="si">{</span><span class="n">stageNum</span><span class="si">}</span><span class="s2"> Bolt Results&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">singleBoltResult</span> <span class="ow">in</span> <span class="n">allBoltResults</span><span class="p">:</span>
+        <span class="n">boltID</span> <span class="o">=</span> <span class="n">singleBoltResult</span><span class="o">.</span><span class="n">entity_id</span>
+        <span class="n">start_x</span> <span class="o">=</span> <span class="n">singleBoltResult</span><span class="o">.</span><span class="n">start_x</span>
+        <span class="n">start_y</span> <span class="o">=</span> <span class="n">singleBoltResult</span><span class="o">.</span><span class="n">start_y</span>
+        <span class="n">end_x</span> <span class="o">=</span> <span class="n">singleBoltResult</span><span class="o">.</span><span class="n">end_x</span>
+        <span class="n">end_y</span> <span class="o">=</span> <span class="n">singleBoltResult</span><span class="o">.</span><span class="n">end_y</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Bolt Unique ID = </span><span class="si">{</span><span class="n">boltID</span><span class="si">}</span><span class="s2">, </span><span class="se">\n\t</span><span class="s2">Start X-Coord = </span><span class="si">{</span><span class="n">start_x</span><span class="si">}</span><span class="s2">, </span><span class="se">\n\t</span><span class="s2">Start Y-Coord = </span><span class="si">{</span><span class="n">start_y</span><span class="si">}</span><span class="s2">, End X-Coord = </span><span class="si">{</span><span class="n">end_x</span><span class="si">}</span><span class="s2">, End Y-Coord = </span><span class="si">{</span><span class="n">end_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">yieldingResults</span> <span class="o">=</span> <span class="n">singleBoltResult</span><span class="o">.</span><span class="n">yielding_results</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Bolt Yielding Results:&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">boltYieldData</span> <span class="ow">in</span> <span class="n">yieldingResults</span><span class="p">:</span>
+            <span class="n">start_x</span> <span class="o">=</span> <span class="n">boltYieldData</span><span class="o">.</span><span class="n">start_x</span>
+            <span class="n">start_y</span> <span class="o">=</span> <span class="n">boltYieldData</span><span class="o">.</span><span class="n">start_y</span>
+            <span class="n">end_x</span> <span class="o">=</span> <span class="n">boltYieldData</span><span class="o">.</span><span class="n">end_x</span>
+            <span class="n">end_y</span> <span class="o">=</span> <span class="n">boltYieldData</span><span class="o">.</span><span class="n">end_y</span>
+            <span class="n">yieldingStatus</span> <span class="o">=</span> <span class="n">boltYieldData</span><span class="o">.</span><span class="n">yielding_flag</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Yielded Start X-Coord = </span><span class="si">{</span><span class="n">start_x</span><span class="si">}</span><span class="s2">, Yielded Start Y-Coord = </span><span class="si">{</span><span class="n">start_y</span><span class="si">}</span><span class="s2">, Yielded End X-Coord = </span><span class="si">{</span><span class="n">end_x</span><span class="si">}</span><span class="s2">, Yielded End Y-Coord = </span><span class="si">{</span><span class="n">end_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Yielded Status = </span><span class="si">{</span><span class="n">yieldingStatus</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Force Displacement Results:&quot;</span><span class="p">)</span>
+        <span class="n">forceDisplacementResults</span> <span class="o">=</span> <span class="n">singleBoltResult</span><span class="o">.</span><span class="n">force_displacement_results</span>
+        <span class="k">for</span> <span class="n">dispResult</span> <span class="ow">in</span> <span class="n">forceDisplacementResults</span><span class="p">:</span>
+            <span class="n">loc_x</span> <span class="o">=</span> <span class="n">dispResult</span><span class="o">.</span><span class="n">location_x</span>
+            <span class="n">loc_y</span> <span class="o">=</span> <span class="n">dispResult</span><span class="o">.</span><span class="n">location_y</span>
+            <span class="n">dist</span> <span class="o">=</span> <span class="n">dispResult</span><span class="o">.</span><span class="n">distance</span>
+            <span class="n">axial_force</span> <span class="o">=</span> <span class="n">dispResult</span><span class="o">.</span><span class="n">axial_force</span>
+            <span class="n">axial_stress</span> <span class="o">=</span> <span class="n">dispResult</span><span class="o">.</span><span class="n">axial_stress</span>
+            <span class="n">shear_force</span> <span class="o">=</span> <span class="n">dispResult</span><span class="o">.</span><span class="n">shear_force</span>
+            <span class="n">rock_disp</span> <span class="o">=</span> <span class="n">dispResult</span><span class="o">.</span><span class="n">rock_displacement</span>
+            <span class="n">bolt_disp</span> <span class="o">=</span> <span class="n">dispResult</span><span class="o">.</span><span class="n">bolt_displacement</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Location X = </span><span class="si">{</span><span class="n">loc_x</span><span class="si">}</span><span class="s2">, Location Y = </span><span class="si">{</span><span class="n">loc_y</span><span class="si">}</span><span class="s2">, Distance = </span><span class="si">{</span><span class="n">dist</span><span class="si">}</span><span class="s2">, Axial Force = </span><span class="si">{</span><span class="n">axial_force</span><span class="si">}</span><span class="s2">, Axial Stress = </span><span class="si">{</span><span class="n">axial_stress</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Shear Force = </span><span class="si">{</span><span class="n">shear_force</span><span class="si">}</span><span class="s2">, Rock Displacement = </span><span class="si">{</span><span class="n">rock_disp</span><span class="si">}</span><span class="s2">, Bolt Displacement = </span><span class="si">{</span><span class="n">bolt_disp</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id23">
+<span id="support-joint-results-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Get Support Joint Results</span><a class="headerlink" href="#id23" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\SupportResults.fez&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define stages to get support results for</span>
+<span class="n">stages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># Get Joint Results</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">GetJointResults</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">stageNum</span><span class="p">,</span> <span class="n">allJointResults</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stage </span><span class="si">{</span><span class="n">stageNum</span><span class="si">}</span><span class="s2"> Joint Results</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">singleJointResult</span> <span class="ow">in</span> <span class="n">allJointResults</span><span class="p">:</span>
+        <span class="n">jointID</span> <span class="o">=</span> <span class="n">singleJointResult</span><span class="o">.</span><span class="n">entity_id</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Joint Unique ID = </span><span class="si">{</span><span class="n">jointID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">joint_element_results</span> <span class="o">=</span> <span class="n">singleJointResult</span><span class="o">.</span><span class="n">joint_element_results</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Joint Element Results:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">jointResult</span> <span class="ow">in</span> <span class="n">joint_element_results</span><span class="p">:</span>
+            <span class="n">start_x</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">start_x</span>
+            <span class="n">start_y</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">start_y</span>
+            <span class="n">end_x</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">end_x</span>
+            <span class="n">end_y</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">end_y</span>
+            <span class="n">distance</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">distance</span>
+            <span class="n">normal_stress</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">normal_stress</span>
+            <span class="n">shear_stress</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">shear_stress</span>
+            <span class="n">confining_stress</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">confining_stress</span>
+            <span class="n">normal_displacement</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">normal_displacement</span>
+            <span class="n">shear_displacement</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">shear_displacement</span>
+            <span class="n">yieldedStatus</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">yielded</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Start X-Coord = </span><span class="si">{</span><span class="n">start_x</span><span class="si">}</span><span class="s2">, Start Y-Coord = </span><span class="si">{</span><span class="n">start_y</span><span class="si">}</span><span class="s2">, End X-Coord = </span><span class="si">{</span><span class="n">end_x</span><span class="si">}</span><span class="s2">, End Y-Coord = </span><span class="si">{</span><span class="n">end_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Distance = </span><span class="si">{</span><span class="n">distance</span><span class="si">}</span><span class="s2">, Normal Stress = </span><span class="si">{</span><span class="n">normal_stress</span><span class="si">}</span><span class="s2">, Shear Stress = </span><span class="si">{</span><span class="n">shear_stress</span><span class="si">}</span><span class="s2">, Confining Stress = </span><span class="si">{</span><span class="n">confining_stress</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Normal Displacement = </span><span class="si">{</span><span class="n">normal_displacement</span><span class="si">}</span><span class="s2">, Shear Displacement = </span><span class="si">{</span><span class="n">shear_displacement</span><span class="si">}</span><span class="s2">, Yielded = </span><span class="si">{</span><span class="n">yieldedStatus</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id24">
+<span id="support-liner-results-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Get Support Liner Results</span><a class="headerlink" href="#id24" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\SupportResults.fez&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define stages to get support results for</span>
+<span class="n">stages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># Get Liner Results</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">GetLinerResults</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">stageNum</span><span class="p">,</span> <span class="n">allLinerResults</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stage </span><span class="si">{</span><span class="n">stageNum</span><span class="si">}</span><span class="s2"> Liner Results</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">singleLinerResult</span> <span class="ow">in</span> <span class="n">allLinerResults</span><span class="p">:</span>
+        <span class="n">linerID</span> <span class="o">=</span> <span class="n">singleLinerResult</span><span class="o">.</span><span class="n">entity_id</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Liner Unique ID = </span><span class="si">{</span><span class="n">linerID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">liner_element_results</span> <span class="o">=</span> <span class="n">singleLinerResult</span><span class="o">.</span><span class="n">liner_element_results</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Liner Element Results:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">linerResult</span> <span class="ow">in</span> <span class="n">liner_element_results</span><span class="p">:</span>
+            <span class="n">composite_layer</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">composite_layer</span>
+            <span class="n">node_start</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">node_start</span>
+            <span class="n">node_end</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">node_end</span>
+            <span class="n">start_x</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">start_x</span>
+            <span class="n">start_y</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">start_y</span>
+            <span class="n">end_x</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">end_x</span>
+            <span class="n">end_y</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">end_y</span>
+            <span class="n">distance</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">distance</span>
+            <span class="n">axial_force</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axial_force</span>
+            <span class="n">moment1</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">moment1</span>
+            <span class="n">moment_mid</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">moment_mid</span>
+            <span class="n">moment2</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">moment2</span>
+            <span class="n">shear_force</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">shear_force</span>
+            <span class="n">displacement_total</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_total</span>
+            <span class="n">displacemet_x</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_x</span>
+            <span class="n">displacement_y</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_y</span>
+            <span class="n">axi_sym_force</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axi_sym_force</span>
+            <span class="n">axi_sym_moment</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axi_sym_moment</span>
+            <span class="n">beam_yield</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">beam_yield</span>
+            <span class="n">temperature</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">temperature</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Composite Layer = </span><span class="si">{</span><span class="n">composite_layer</span><span class="si">}</span><span class="s2">, Node Start = </span><span class="si">{</span><span class="n">node_start</span><span class="si">}</span><span class="s2">, Node End = </span><span class="si">{</span><span class="n">node_end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Start X-Coord = </span><span class="si">{</span><span class="n">start_x</span><span class="si">}</span><span class="s2">, Start Y-Coord = </span><span class="si">{</span><span class="n">start_y</span><span class="si">}</span><span class="s2">, End X-Coord = </span><span class="si">{</span><span class="n">end_x</span><span class="si">}</span><span class="s2">, End Y-Coord = </span><span class="si">{</span><span class="n">end_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Distance = </span><span class="si">{</span><span class="n">distance</span><span class="si">}</span><span class="s2">, Axial Force = </span><span class="si">{</span><span class="n">axial_force</span><span class="si">}</span><span class="s2">, Moment 1 = </span><span class="si">{</span><span class="n">moment1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Moment-Mid = </span><span class="si">{</span><span class="n">moment_mid</span><span class="si">}</span><span class="s2">, Moment 2 = </span><span class="si">{</span><span class="n">moment2</span><span class="si">}</span><span class="s2">, Shear Force = </span><span class="si">{</span><span class="n">shear_force</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Displacement Total = </span><span class="si">{</span><span class="n">displacement_total</span><span class="si">}</span><span class="s2">, Displacement X = </span><span class="si">{</span><span class="n">displacemet_x</span><span class="si">}</span><span class="s2">, Displacement Y = </span><span class="si">{</span><span class="n">displacement_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Axial Symmetry Force = </span><span class="si">{</span><span class="n">axi_sym_force</span><span class="si">}</span><span class="s2">, Axial Symmetry Moment = </span><span class="si">{</span><span class="n">axi_sym_moment</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Beam Yield = </span><span class="si">{</span><span class="n">beam_yield</span><span class="si">}</span><span class="s2">, Temperature = </span><span class="si">{</span><span class="n">temperature</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id25">
+<span id="support-pile-results-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Get Support Pile Results</span><a class="headerlink" href="#id25" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="k">def</span> <span class="nf">OutputJointResult</span><span class="p">(</span><span class="n">singleJointResult</span><span class="p">):</span>
+    <span class="n">jointID</span> <span class="o">=</span> <span class="n">singleJointResult</span><span class="o">.</span><span class="n">entity_id</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Joint Unique ID = </span><span class="si">{</span><span class="n">jointID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">joint_element_results</span> <span class="o">=</span> <span class="n">singleJointResult</span><span class="o">.</span><span class="n">joint_element_results</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Joint Element Results:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">jointResult</span> <span class="ow">in</span> <span class="n">joint_element_results</span><span class="p">:</span>
+        <span class="n">start_x</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">start_x</span>
+        <span class="n">start_y</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">start_y</span>
+        <span class="n">end_x</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">end_x</span>
+        <span class="n">end_y</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">end_y</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">distance</span>
+        <span class="n">normal_stress</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">normal_stress</span>
+        <span class="n">shear_stress</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">shear_stress</span>
+        <span class="n">confining_stress</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">confining_stress</span>
+        <span class="n">normal_displacement</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">normal_displacement</span>
+        <span class="n">shear_displacement</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">shear_displacement</span>
+        <span class="n">yieldedStatus</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">yielded</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Start X-Coord = </span><span class="si">{</span><span class="n">start_x</span><span class="si">}</span><span class="s2">, Start Y-Coord = </span><span class="si">{</span><span class="n">start_y</span><span class="si">}</span><span class="s2">, End X-Coord = </span><span class="si">{</span><span class="n">end_x</span><span class="si">}</span><span class="s2">, End Y-Coord = </span><span class="si">{</span><span class="n">end_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Distance = </span><span class="si">{</span><span class="n">distance</span><span class="si">}</span><span class="s2">, Normal Stress = </span><span class="si">{</span><span class="n">normal_stress</span><span class="si">}</span><span class="s2">, Shear Stress = </span><span class="si">{</span><span class="n">shear_stress</span><span class="si">}</span><span class="s2">, Confining Stress = </span><span class="si">{</span><span class="n">confining_stress</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Normal Displacement = </span><span class="si">{</span><span class="n">normal_displacement</span><span class="si">}</span><span class="s2">, Shear Displacement = </span><span class="si">{</span><span class="n">shear_displacement</span><span class="si">}</span><span class="s2">, Yielded = </span><span class="si">{</span><span class="n">yieldedStatus</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">OutputLinerResult</span><span class="p">(</span><span class="n">singleLinerResult</span><span class="p">):</span>
+    <span class="n">linerID</span> <span class="o">=</span> <span class="n">singleLinerResult</span><span class="o">.</span><span class="n">entity_id</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Liner Unique ID = </span><span class="si">{</span><span class="n">linerID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">liner_element_results</span> <span class="o">=</span> <span class="n">singleLinerResult</span><span class="o">.</span><span class="n">liner_element_results</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Liner Element Results:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">linerResult</span> <span class="ow">in</span> <span class="n">liner_element_results</span><span class="p">:</span>
+        <span class="n">composite_layer</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">composite_layer</span>
+        <span class="n">node_start</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">node_start</span>
+        <span class="n">node_end</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">node_end</span>
+        <span class="n">start_x</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">start_x</span>
+        <span class="n">start_y</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">start_y</span>
+        <span class="n">end_x</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">end_x</span>
+        <span class="n">end_y</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">end_y</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">distance</span>
+        <span class="n">axial_force</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axial_force</span>
+        <span class="n">moment1</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">moment1</span>
+        <span class="n">moment_mid</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">moment_mid</span>
+        <span class="n">moment2</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">moment2</span>
+        <span class="n">shear_force</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">shear_force</span>
+        <span class="n">displacement_total</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_total</span>
+        <span class="n">displacemet_x</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_x</span>
+        <span class="n">displacement_y</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_y</span>
+        <span class="n">axi_sym_force</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axi_sym_force</span>
+        <span class="n">axi_sym_moment</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axi_sym_moment</span>
+        <span class="n">beam_yield</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">beam_yield</span>
+        <span class="n">temperature</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">temperature</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Composite Layer = </span><span class="si">{</span><span class="n">composite_layer</span><span class="si">}</span><span class="s2">, Node Start = </span><span class="si">{</span><span class="n">node_start</span><span class="si">}</span><span class="s2">, Node End = </span><span class="si">{</span><span class="n">node_end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Start X-Coord = </span><span class="si">{</span><span class="n">start_x</span><span class="si">}</span><span class="s2">, Start Y-Coord = </span><span class="si">{</span><span class="n">start_y</span><span class="si">}</span><span class="s2">, End X-Coord = </span><span class="si">{</span><span class="n">end_x</span><span class="si">}</span><span class="s2">, End Y-Coord = </span><span class="si">{</span><span class="n">end_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Distance = </span><span class="si">{</span><span class="n">distance</span><span class="si">}</span><span class="s2">, Axial Force = </span><span class="si">{</span><span class="n">axial_force</span><span class="si">}</span><span class="s2">, Moment 1 = </span><span class="si">{</span><span class="n">moment1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Moment-Mid = </span><span class="si">{</span><span class="n">moment_mid</span><span class="si">}</span><span class="s2">, Moment 2 = </span><span class="si">{</span><span class="n">moment2</span><span class="si">}</span><span class="s2">, Shear Force = </span><span class="si">{</span><span class="n">shear_force</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Displacement Total = </span><span class="si">{</span><span class="n">displacement_total</span><span class="si">}</span><span class="s2">, Displacement X = </span><span class="si">{</span><span class="n">displacemet_x</span><span class="si">}</span><span class="s2">, Displacement Y = </span><span class="si">{</span><span class="n">displacement_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Axial Symmetry Force = </span><span class="si">{</span><span class="n">axi_sym_force</span><span class="si">}</span><span class="s2">, Axial Symmetry Moment = </span><span class="si">{</span><span class="n">axi_sym_moment</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Beam Yield = </span><span class="si">{</span><span class="n">beam_yield</span><span class="si">}</span><span class="s2">, Temperature = </span><span class="si">{</span><span class="n">temperature</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\SupportResults.fez&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define stages to get support results for</span>
+<span class="n">stages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># Get Pile Results</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">GetPileResults</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">stageNum</span><span class="p">,</span> <span class="n">allPileResults</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stage </span><span class="si">{</span><span class="n">stageNum</span><span class="si">}</span><span class="s2"> Pile Results</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">singlePileResult</span> <span class="ow">in</span> <span class="n">allPileResults</span><span class="p">:</span>
+        <span class="n">pileID</span> <span class="o">=</span> <span class="n">singlePileResult</span><span class="o">.</span><span class="n">entity_id</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Pile Unique ID = </span><span class="si">{</span><span class="n">pileID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">joint_result</span> <span class="o">=</span> <span class="n">singlePileResult</span><span class="o">.</span><span class="n">joint_result</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Joint Result for Pile with ID </span><span class="si">{</span><span class="n">pileID</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">OutputJointResult</span><span class="p">(</span><span class="n">joint_result</span><span class="p">)</span>
+
+        <span class="n">liner_result</span> <span class="o">=</span> <span class="n">singlePileResult</span><span class="o">.</span><span class="n">liner_result</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Liner Result for Pile with ID </span><span class="si">{</span><span class="n">pileID</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">OutputLinerResult</span><span class="p">(</span><span class="n">liner_result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id26">
+<span id="support-composite-results-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Get Support Composite Results</span><a class="headerlink" href="#id26" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="k">def</span> <span class="nf">OutputJointResult</span><span class="p">(</span><span class="n">singleJointResult</span><span class="p">):</span>
+    <span class="n">jointID</span> <span class="o">=</span> <span class="n">singleJointResult</span><span class="o">.</span><span class="n">entity_id</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Joint Unique ID = </span><span class="si">{</span><span class="n">jointID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">joint_element_results</span> <span class="o">=</span> <span class="n">singleJointResult</span><span class="o">.</span><span class="n">joint_element_results</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Joint Element Results:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">jointResult</span> <span class="ow">in</span> <span class="n">joint_element_results</span><span class="p">:</span>
+        <span class="n">start_x</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">start_x</span>
+        <span class="n">start_y</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">start_y</span>
+        <span class="n">end_x</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">end_x</span>
+        <span class="n">end_y</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">end_y</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">distance</span>
+        <span class="n">normal_stress</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">normal_stress</span>
+        <span class="n">shear_stress</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">shear_stress</span>
+        <span class="n">confining_stress</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">confining_stress</span>
+        <span class="n">normal_displacement</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">normal_displacement</span>
+        <span class="n">shear_displacement</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">shear_displacement</span>
+        <span class="n">yieldedStatus</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">yielded</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Start X-Coord = </span><span class="si">{</span><span class="n">start_x</span><span class="si">}</span><span class="s2">, Start Y-Coord = </span><span class="si">{</span><span class="n">start_y</span><span class="si">}</span><span class="s2">, End X-Coord = </span><span class="si">{</span><span class="n">end_x</span><span class="si">}</span><span class="s2">, End Y-Coord = </span><span class="si">{</span><span class="n">end_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Distance = </span><span class="si">{</span><span class="n">distance</span><span class="si">}</span><span class="s2">, Normal Stress = </span><span class="si">{</span><span class="n">normal_stress</span><span class="si">}</span><span class="s2">, Shear Stress = </span><span class="si">{</span><span class="n">shear_stress</span><span class="si">}</span><span class="s2">, Confining Stress = </span><span class="si">{</span><span class="n">confining_stress</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Normal Displacement = </span><span class="si">{</span><span class="n">normal_displacement</span><span class="si">}</span><span class="s2">, Shear Displacement = </span><span class="si">{</span><span class="n">shear_displacement</span><span class="si">}</span><span class="s2">, Yielded = </span><span class="si">{</span><span class="n">yieldedStatus</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">OutputLinerResult</span><span class="p">(</span><span class="n">singleLinerResult</span><span class="p">):</span>
+    <span class="n">linerID</span> <span class="o">=</span> <span class="n">singleLinerResult</span><span class="o">.</span><span class="n">entity_id</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Liner Unique ID = </span><span class="si">{</span><span class="n">linerID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">liner_element_results</span> <span class="o">=</span> <span class="n">singleLinerResult</span><span class="o">.</span><span class="n">liner_element_results</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Liner Element Results:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">linerResult</span> <span class="ow">in</span> <span class="n">liner_element_results</span><span class="p">:</span>
+        <span class="n">composite_layer</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">composite_layer</span>
+        <span class="n">node_start</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">node_start</span>
+        <span class="n">node_end</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">node_end</span>
+        <span class="n">start_x</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">start_x</span>
+        <span class="n">start_y</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">start_y</span>
+        <span class="n">end_x</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">end_x</span>
+        <span class="n">end_y</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">end_y</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">distance</span>
+        <span class="n">axial_force</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axial_force</span>
+        <span class="n">moment1</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">moment1</span>
+        <span class="n">moment_mid</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">moment_mid</span>
+        <span class="n">moment2</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">moment2</span>
+        <span class="n">shear_force</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">shear_force</span>
+        <span class="n">displacement_total</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_total</span>
+        <span class="n">displacemet_x</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_x</span>
+        <span class="n">displacement_y</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_y</span>
+        <span class="n">axi_sym_force</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axi_sym_force</span>
+        <span class="n">axi_sym_moment</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axi_sym_moment</span>
+        <span class="n">beam_yield</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">beam_yield</span>
+        <span class="n">temperature</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">temperature</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Composite Layer = </span><span class="si">{</span><span class="n">composite_layer</span><span class="si">}</span><span class="s2">, Node Start = </span><span class="si">{</span><span class="n">node_start</span><span class="si">}</span><span class="s2">, Node End = </span><span class="si">{</span><span class="n">node_end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Start X-Coord = </span><span class="si">{</span><span class="n">start_x</span><span class="si">}</span><span class="s2">, Start Y-Coord = </span><span class="si">{</span><span class="n">start_y</span><span class="si">}</span><span class="s2">, End X-Coord = </span><span class="si">{</span><span class="n">end_x</span><span class="si">}</span><span class="s2">, End Y-Coord = </span><span class="si">{</span><span class="n">end_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Distance = </span><span class="si">{</span><span class="n">distance</span><span class="si">}</span><span class="s2">, Axial Force = </span><span class="si">{</span><span class="n">axial_force</span><span class="si">}</span><span class="s2">, Moment 1 = </span><span class="si">{</span><span class="n">moment1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Moment-Mid = </span><span class="si">{</span><span class="n">moment_mid</span><span class="si">}</span><span class="s2">, Moment 2 = </span><span class="si">{</span><span class="n">moment2</span><span class="si">}</span><span class="s2">, Shear Force = </span><span class="si">{</span><span class="n">shear_force</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Displacement Total = </span><span class="si">{</span><span class="n">displacement_total</span><span class="si">}</span><span class="s2">, Displacement X = </span><span class="si">{</span><span class="n">displacemet_x</span><span class="si">}</span><span class="s2">, Displacement Y = </span><span class="si">{</span><span class="n">displacement_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Axial Symmetry Force = </span><span class="si">{</span><span class="n">axi_sym_force</span><span class="si">}</span><span class="s2">, Axial Symmetry Moment = </span><span class="si">{</span><span class="n">axi_sym_moment</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Beam Yield = </span><span class="si">{</span><span class="n">beam_yield</span><span class="si">}</span><span class="s2">, Temperature = </span><span class="si">{</span><span class="n">temperature</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\SupportResults.fez&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define stages to get support results for</span>
+<span class="n">stages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># Get Composite Results</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">GetCompositeResults</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">stageNum</span><span class="p">,</span> <span class="n">allCompositeResults</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stage </span><span class="si">{</span><span class="n">stageNum</span><span class="si">}</span><span class="s2"> Composite Results</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">singleCompositeResult</span> <span class="ow">in</span> <span class="n">allCompositeResults</span><span class="p">:</span>
+        <span class="n">compositeID</span> <span class="o">=</span> <span class="n">singleCompositeResult</span><span class="o">.</span><span class="n">entity_id</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;\Composite Unique ID = </span><span class="si">{</span><span class="n">compositeID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">joint_result</span> <span class="o">=</span> <span class="n">singleCompositeResult</span><span class="o">.</span><span class="n">joint_result</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Joint Result for Composite with ID </span><span class="si">{</span><span class="n">compositeID</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">OutputJointResult</span><span class="p">(</span><span class="n">joint_result</span><span class="p">)</span>
+
+        <span class="n">liner_result</span> <span class="o">=</span> <span class="n">singleCompositeResult</span><span class="o">.</span><span class="n">liner_result</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Liner Result for Composite with ID </span><span class="si">{</span><span class="n">compositeID</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">OutputLinerResult</span><span class="p">(</span><span class="n">liner_result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id27">
+<span id="support-structural-results-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Get Support Structural Results</span><a class="headerlink" href="#id27" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="k">def</span> <span class="nf">OutputJointResult</span><span class="p">(</span><span class="n">singleJointResult</span><span class="p">):</span>
+    <span class="n">jointID</span> <span class="o">=</span> <span class="n">singleJointResult</span><span class="o">.</span><span class="n">entity_id</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Joint Unique ID = </span><span class="si">{</span><span class="n">jointID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">joint_element_results</span> <span class="o">=</span> <span class="n">singleJointResult</span><span class="o">.</span><span class="n">joint_element_results</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Joint Element Results:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">jointResult</span> <span class="ow">in</span> <span class="n">joint_element_results</span><span class="p">:</span>
+        <span class="n">start_x</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">start_x</span>
+        <span class="n">start_y</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">start_y</span>
+        <span class="n">end_x</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">end_x</span>
+        <span class="n">end_y</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">end_y</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">distance</span>
+        <span class="n">normal_stress</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">normal_stress</span>
+        <span class="n">shear_stress</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">shear_stress</span>
+        <span class="n">confining_stress</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">confining_stress</span>
+        <span class="n">normal_displacement</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">normal_displacement</span>
+        <span class="n">shear_displacement</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">shear_displacement</span>
+        <span class="n">yieldedStatus</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">yielded</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Start X-Coord = </span><span class="si">{</span><span class="n">start_x</span><span class="si">}</span><span class="s2">, Start Y-Coord = </span><span class="si">{</span><span class="n">start_y</span><span class="si">}</span><span class="s2">, End X-Coord = </span><span class="si">{</span><span class="n">end_x</span><span class="si">}</span><span class="s2">, End Y-Coord = </span><span class="si">{</span><span class="n">end_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Distance = </span><span class="si">{</span><span class="n">distance</span><span class="si">}</span><span class="s2">, Normal Stress = </span><span class="si">{</span><span class="n">normal_stress</span><span class="si">}</span><span class="s2">, Shear Stress = </span><span class="si">{</span><span class="n">shear_stress</span><span class="si">}</span><span class="s2">, Confining Stress = </span><span class="si">{</span><span class="n">confining_stress</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Normal Displacement = </span><span class="si">{</span><span class="n">normal_displacement</span><span class="si">}</span><span class="s2">, Shear Displacement = </span><span class="si">{</span><span class="n">shear_displacement</span><span class="si">}</span><span class="s2">, Yielded = </span><span class="si">{</span><span class="n">yieldedStatus</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">OutputLinerResult</span><span class="p">(</span><span class="n">singleLinerResult</span><span class="p">):</span>
+    <span class="n">linerID</span> <span class="o">=</span> <span class="n">singleLinerResult</span><span class="o">.</span><span class="n">entity_id</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Liner Unique ID = </span><span class="si">{</span><span class="n">linerID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="n">liner_element_results</span> <span class="o">=</span> <span class="n">singleLinerResult</span><span class="o">.</span><span class="n">liner_element_results</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Liner Element Results:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">linerResult</span> <span class="ow">in</span> <span class="n">liner_element_results</span><span class="p">:</span>
+        <span class="n">composite_layer</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">composite_layer</span>
+        <span class="n">node_start</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">node_start</span>
+        <span class="n">node_end</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">node_end</span>
+        <span class="n">start_x</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">start_x</span>
+        <span class="n">start_y</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">start_y</span>
+        <span class="n">end_x</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">end_x</span>
+        <span class="n">end_y</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">end_y</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">distance</span>
+        <span class="n">axial_force</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axial_force</span>
+        <span class="n">moment1</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">moment1</span>
+        <span class="n">moment_mid</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">moment_mid</span>
+        <span class="n">moment2</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">moment2</span>
+        <span class="n">shear_force</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">shear_force</span>
+        <span class="n">displacement_total</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_total</span>
+        <span class="n">displacemet_x</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_x</span>
+        <span class="n">displacement_y</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_y</span>
+        <span class="n">axi_sym_force</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axi_sym_force</span>
+        <span class="n">axi_sym_moment</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axi_sym_moment</span>
+        <span class="n">beam_yield</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">beam_yield</span>
+        <span class="n">temperature</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">temperature</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Composite Layer = </span><span class="si">{</span><span class="n">composite_layer</span><span class="si">}</span><span class="s2">, Node Start = </span><span class="si">{</span><span class="n">node_start</span><span class="si">}</span><span class="s2">, Node End = </span><span class="si">{</span><span class="n">node_end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Start X-Coord = </span><span class="si">{</span><span class="n">start_x</span><span class="si">}</span><span class="s2">, Start Y-Coord = </span><span class="si">{</span><span class="n">start_y</span><span class="si">}</span><span class="s2">, End X-Coord = </span><span class="si">{</span><span class="n">end_x</span><span class="si">}</span><span class="s2">, End Y-Coord = </span><span class="si">{</span><span class="n">end_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Distance = </span><span class="si">{</span><span class="n">distance</span><span class="si">}</span><span class="s2">, Axial Force = </span><span class="si">{</span><span class="n">axial_force</span><span class="si">}</span><span class="s2">, Moment 1 = </span><span class="si">{</span><span class="n">moment1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Moment-Mid = </span><span class="si">{</span><span class="n">moment_mid</span><span class="si">}</span><span class="s2">, Moment 2 = </span><span class="si">{</span><span class="n">moment2</span><span class="si">}</span><span class="s2">, Shear Force = </span><span class="si">{</span><span class="n">shear_force</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Displacement Total = </span><span class="si">{</span><span class="n">displacement_total</span><span class="si">}</span><span class="s2">, Displacement X = </span><span class="si">{</span><span class="n">displacemet_x</span><span class="si">}</span><span class="s2">, Displacement Y = </span><span class="si">{</span><span class="n">displacement_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Axial Symmetry Force = </span><span class="si">{</span><span class="n">axi_sym_force</span><span class="si">}</span><span class="s2">, Axial Symmetry Moment = </span><span class="si">{</span><span class="n">axi_sym_moment</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Beam Yield = </span><span class="si">{</span><span class="n">beam_yield</span><span class="si">}</span><span class="s2">, Temperature = </span><span class="si">{</span><span class="n">temperature</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\SupportStructuralResults.fez&quot;</span><span class="p">)</span>
+
+<span class="c1"># Define stages to get support results for</span>
+<span class="n">stages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="c1"># Get Structural Results</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">GetStructuralResults</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">stageNum</span><span class="p">,</span> <span class="n">allStructuralResults</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stage </span><span class="si">{</span><span class="n">stageNum</span><span class="si">}</span><span class="s2"> Structural Results</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">singleStructuralResult</span> <span class="ow">in</span> <span class="n">allStructuralResults</span><span class="p">:</span>
+        <span class="n">structuralID</span> <span class="o">=</span> <span class="n">singleStructuralResult</span><span class="o">.</span><span class="n">entity_id</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;\Structural Unique ID = </span><span class="si">{</span><span class="n">structuralID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+        <span class="n">joint_result</span> <span class="o">=</span> <span class="n">singleStructuralResult</span><span class="o">.</span><span class="n">joint_result</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Joint Result for Structural with ID </span><span class="si">{</span><span class="n">structuralID</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">OutputJointResult</span><span class="p">(</span><span class="n">joint_result</span><span class="p">)</span>
+
+        <span class="n">liner_result</span> <span class="o">=</span> <span class="n">singleStructuralResult</span><span class="o">.</span><span class="n">liner_result</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Liner Result for Structural with ID </span><span class="si">{</span><span class="n">structuralID</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">OutputLinerResult</span><span class="p">(</span><span class="n">liner_result</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id28">
+<span id="get-model-units-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Get Model Units</span><a class="headerlink" href="#id28" title="Link to this code"></a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+<span class="kn">from</span> <span class="nn">pprint</span> <span class="kn">import</span> <span class="n">pprint</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span>
+
+<span class="c1"># Get Units for Interpreter</span>
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">()</span>
+<span class="n">interpreterModel</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\SupportResults.fez&quot;</span><span class="p">)</span>
+<span class="n">interpreterModelUnits</span> <span class="o">=</span> <span class="n">interpreterModel</span><span class="o">.</span><span class="n">getUnits</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Interpreter Model Units&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Solid Units :&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">interpreterModelUnits</span><span class="o">.</span><span class="n">solid_units</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Hydro Units :&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">interpreterModelUnits</span><span class="o">.</span><span class="n">hydro_units</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Thermal Units :&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">interpreterModelUnits</span><span class="o">.</span><span class="n">thermal_units</span><span class="p">)</span>
+
+<span class="c1"># Get Units for Modeler</span>
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\SupportStructuralResults.fez&quot;</span><span class="p">)</span>
+<span class="n">modelerUnits</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getUnits</span><span class="p">()</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Modeler Units&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Solid Units :&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">modelerUnits</span><span class="o">.</span><span class="n">solid_units</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Hydro Units :&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">modelerUnits</span><span class="o">.</span><span class="n">hydro_units</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Thermal Units :&quot;</span><span class="p">)</span>
+<span class="n">pprint</span><span class="p">(</span><span class="n">modelerUnits</span><span class="o">.</span><span class="n">thermal_units</span><span class="p">)</span>
+
+<span class="c1"># Reset Properties for model</span>
+<span class="n">model</span><span class="o">.</span><span class="n">ResetProperties</span><span class="p">()</span>
+
+<span class="c1"># Close the models</span>
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">interpreterModel</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
