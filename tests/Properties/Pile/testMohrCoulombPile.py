@@ -21,7 +21,7 @@ class TestMohrCoulombPile(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testMohrCoulombPileProperty(self):
         pile = self.pile
-        self.pile.setSkinResistance(PileSkinResistanceType.SKIN_RESISTANCE_C_PHI)
+        self.pile.setSkinResistance(PileSkinResistanceType.MOHR_COULOMB)
         pile.MohrCoulombPile.setShearStiffness(836.5)
         pile.MohrCoulombPile.setNormalStiffness(2628.5)
         pile.MohrCoulombPile.setFrictionAngle(972.5)

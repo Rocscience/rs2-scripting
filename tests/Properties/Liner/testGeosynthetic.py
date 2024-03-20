@@ -21,7 +21,7 @@ class TestGeosynthetic(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testGeosyntheticProperty(self):
         liner = self.liner
-        self.liner.setLinerType(LinerTypes.P2_LINER_GEOSYNTHETIC)
+        self.liner.setLinerType(LinerTypes.GEOSYNTHETIC)
         liner.Geosynthetic.setGeosyntheticUnitWeight(836.5)
         liner.Geosynthetic.setInitialTemperature(2628.5)
         liner.Geosynthetic.setTensileModulus(972.5)
@@ -29,7 +29,7 @@ class TestGeosynthetic(unittest.TestCase):
         liner.Geosynthetic.setTensileStrengthPeak(86.7)
         liner.Geosynthetic.setTensileStrengthResidual(762.9)
         liner.Geosynthetic.setActivateThermal(0)
-        liner.Geosynthetic.setStaticTemperatureMode(StaticWaterModes.SWM_GRID)
+        liner.Geosynthetic.setStaticTemperatureMode(StaticWaterModes.GRID)
         liner.Geosynthetic.setStaticTemperature(468.3)
         liner.Geosynthetic.setConductivity(2350.4)
         liner.Geosynthetic.setSpecificHeatCapacity(2598.3)
@@ -50,7 +50,7 @@ class TestGeosynthetic(unittest.TestCase):
         self.assertEqual(liner.Geosynthetic.getTensileStrengthPeak(), 86.7)
         self.assertEqual(liner.Geosynthetic.getTensileStrengthResidual(), 762.9)
         self.assertEqual(liner.Geosynthetic.getActivateThermal(), 0)
-        self.assertEqual(liner.Geosynthetic.getStaticTemperatureMode(), StaticWaterModes.SWM_GRID)
+        self.assertEqual(liner.Geosynthetic.getStaticTemperatureMode(), StaticWaterModes.GRID)
         self.assertEqual(liner.Geosynthetic.getStaticTemperature(), 468.3)
         self.assertEqual(liner.Geosynthetic.getConductivity(), 2350.4)
         self.assertEqual(liner.Geosynthetic.getSpecificHeatCapacity(), 2598.3)
@@ -60,8 +60,9 @@ class TestGeosynthetic(unittest.TestCase):
         self.assertEqual(liner.Geosynthetic.getStageGeosyntheticProperties(), 1)
         self.assertEqual(liner.Geosynthetic.getStaticTemperatureGridToUse(), "None")
     def testGeosyntheticStageFactors(self):
-        self.liner.setLinerType(LinerTypes.P2_LINER_GEOSYNTHETIC)
-        stageFactor = self.liner.Geosynthetic.stageFactorInterface.getDefinedStageFactors()[1]
+        liner = self.liner
+        self.liner.setLinerType(LinerTypes.GEOSYNTHETIC)
+        stageFactor = liner.Geosynthetic.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setGeosyntheticUnitWeightFactor(1508.0)
         stageFactor.setTensileModulusFactor(857.2)
         stageFactor.setAxialStrainExpansionFactor(3215.6)
@@ -74,7 +75,8 @@ class TestGeosynthetic(unittest.TestCase):
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.liner = self.model.getAllLinerProperties()[0]
-        stageFactor = self.liner.Geosynthetic.stageFactorInterface.getDefinedStageFactors()[1]
+        liner = self.liner
+        stageFactor = liner.Geosynthetic.stageFactorInterface.getDefinedStageFactors()[1]
         self.assertEqual(stageFactor.getGeosyntheticUnitWeightFactor(), 1508.0)
         self.assertEqual(stageFactor.getTensileModulusFactor(), 857.2)
         self.assertEqual(stageFactor.getAxialStrainExpansionFactor(), 3215.6)

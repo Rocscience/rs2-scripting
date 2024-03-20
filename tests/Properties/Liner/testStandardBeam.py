@@ -21,11 +21,11 @@ class TestStandardBeam(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testStandardBeamProperty(self):
         liner = self.liner
-        self.liner.setLinerType(LinerTypes.P2_LINER_STANDARD_BEAM)
+        self.liner.setLinerType(LinerTypes.STANDARD_BEAM)
         liner.StandardBeam.setUnitWeight(836.5)
         liner.StandardBeam.setIncludeWeightInStressAnalysis(0)
         liner.StandardBeam.setInitialTemperature(972.5)
-        liner.StandardBeam.setMethod(GeometryChoice.LNP_USE_THICKNESS)
+        liner.StandardBeam.setMethod(GeometryChoice.THICKNESS)
         liner.StandardBeam.setThickness(86.7)
         liner.StandardBeam.setArea(762.9)
         liner.StandardBeam.setMomentOfInertia(1413.6)
@@ -38,10 +38,10 @@ class TestStandardBeam(unittest.TestCase):
         liner.StandardBeam.setTensileStrengthResidual(3213.4)
         liner.StandardBeam.setSlidingGap(1)
         liner.StandardBeam.setStrainAtLocking(1508.0)
-        liner.StandardBeam.setBeamElementFormulation(LinerFormulation.P2_LINER_FORMULATION_TIMOSHENKO)
+        liner.StandardBeam.setBeamElementFormulation(LinerFormulation.TIMOSHENKO)
         liner.StandardBeam.setAxialStrainExpansion(857.2)
         liner.StandardBeam.setActivateThermal(0)
-        liner.StandardBeam.setStaticTemperatureMode(StaticWaterModes.SWM_GRID)
+        liner.StandardBeam.setStaticTemperatureMode(StaticWaterModes.GRID)
         liner.StandardBeam.setStaticTemperature(1475.5)
         liner.StandardBeam.setConductivity(2227.9)
         liner.StandardBeam.setSpecificHeatCapacity(3008.6)
@@ -57,7 +57,7 @@ class TestStandardBeam(unittest.TestCase):
         self.assertEqual(liner.StandardBeam.getUnitWeight(), 836.5)
         self.assertEqual(liner.StandardBeam.getIncludeWeightInStressAnalysis(), 0)
         self.assertEqual(liner.StandardBeam.getInitialTemperature(), 972.5)
-        self.assertEqual(liner.StandardBeam.getMethod(), GeometryChoice.LNP_USE_THICKNESS)
+        self.assertEqual(liner.StandardBeam.getMethod(), GeometryChoice.THICKNESS)
         self.assertEqual(liner.StandardBeam.getThickness(), 86.7)
         self.assertEqual(liner.StandardBeam.getArea(), 762.9)
         self.assertEqual(liner.StandardBeam.getMomentOfInertia(), 1413.6)
@@ -70,10 +70,10 @@ class TestStandardBeam(unittest.TestCase):
         self.assertEqual(liner.StandardBeam.getTensileStrengthResidual(), 3213.4)
         self.assertEqual(liner.StandardBeam.getSlidingGap(), 1)
         self.assertEqual(liner.StandardBeam.getStrainAtLocking(), 1508.0)
-        self.assertEqual(liner.StandardBeam.getBeamElementFormulation(), LinerFormulation.P2_LINER_FORMULATION_TIMOSHENKO)
+        self.assertEqual(liner.StandardBeam.getBeamElementFormulation(), LinerFormulation.TIMOSHENKO)
         self.assertEqual(liner.StandardBeam.getAxialStrainExpansion(), 857.2)
         self.assertEqual(liner.StandardBeam.getActivateThermal(), 0)
-        self.assertEqual(liner.StandardBeam.getStaticTemperatureMode(), StaticWaterModes.SWM_GRID)
+        self.assertEqual(liner.StandardBeam.getStaticTemperatureMode(), StaticWaterModes.GRID)
         self.assertEqual(liner.StandardBeam.getStaticTemperature(), 1475.5)
         self.assertEqual(liner.StandardBeam.getConductivity(), 2227.9)
         self.assertEqual(liner.StandardBeam.getSpecificHeatCapacity(), 3008.6)
@@ -82,8 +82,9 @@ class TestStandardBeam(unittest.TestCase):
         self.assertEqual(liner.StandardBeam.getStageLinerProperties(), 1)
         self.assertEqual(liner.StandardBeam.getStaticTemperatureGridToUse(), "None")
     def testStandardBeamStageFactors(self):
-        self.liner.setLinerType(LinerTypes.P2_LINER_STANDARD_BEAM)
-        stageFactor = self.liner.StandardBeam.stageFactorInterface.getDefinedStageFactors()[1]
+        liner = self.liner
+        self.liner.setLinerType(LinerTypes.STANDARD_BEAM)
+        stageFactor = liner.StandardBeam.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setUnitWeightFactor(1257.7)
         stageFactor.setThicknessFactor(1702.5)
         stageFactor.setAreaFactor(857.5)
@@ -102,7 +103,8 @@ class TestStandardBeam(unittest.TestCase):
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.liner = self.model.getAllLinerProperties()[0]
-        stageFactor = self.liner.StandardBeam.stageFactorInterface.getDefinedStageFactors()[1]
+        liner = self.liner
+        stageFactor = liner.StandardBeam.stageFactorInterface.getDefinedStageFactors()[1]
         self.assertEqual(stageFactor.getUnitWeightFactor(), 1257.7)
         self.assertEqual(stageFactor.getThicknessFactor(), 1702.5)
         self.assertEqual(stageFactor.getAreaFactor(), 857.5)

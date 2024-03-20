@@ -1,9 +1,11 @@
 from rs2.modeler.RS2Modeler import RS2Modeler
 from rs2.modeler.properties.PropertyEnums import *
+import os, inspect
+
+current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
 
 modeler = RS2Modeler()
-
-model = modeler.openFile(r"C:\scriptingModels\simple_3_stage.fez")
+model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 boltList = model.getAllBoltProperties()
 bolt1 = boltList[0]
@@ -32,9 +34,8 @@ print(bolt2.EndAnchored.getProperties())
 
 #Assignment of bolt3 properties
 bolt3.setBoltName("Example Bolt 3")
-bolt3.setBoltType(BoltTypes.QUEENS_CABLE)
+bolt3.setBoltType(BoltTypes.PLAIN_STRAND_CABLE)
 bolt3.PlainStrandCable.setProperties(AddBulges=True, AddPullOutForce=True, PullOutForce=1)
-#Not all functions are accesible through the setProperties method. 
 #Consult setProperties method definition in documentation to determine properties available.
 bolt3.PlainStrandCable.setBulgeLocations([10,20,30])
 

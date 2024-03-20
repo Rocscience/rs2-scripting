@@ -21,7 +21,7 @@ class TestElastic(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testElasticProperty(self):
         pile = self.pile
-        self.pile.setSkinResistance(PileSkinResistanceType.SKIN_RESISTANCE_ELASTIC)
+        self.pile.setSkinResistance(PileSkinResistanceType.ELASTIC)
         pile.Elastic.setShearStiffness(836.5)
         pile.Elastic.setNormalStiffness(2628.5)
         pile.Elastic.setUseBaseResistance(0)

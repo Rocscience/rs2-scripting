@@ -45,3 +45,26 @@ class TestDruckerPrager(unittest.TestCase):
         self.assertEqual(strength.DruckerPrager.getResidualTensileStrength(), 1413.6)
         self.assertEqual(strength.DruckerPrager.getDilationParameter(), 468.3)
         self.assertEqual(strength.DruckerPrager.getApplySSRShearStrengthReduction(), 0)
+    def testDruckerPragerStageFactors(self):
+        strength = self.material.Strength
+        stageFactor = strength.DruckerPrager.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setDilationParameterFactor(2598.3)
+        stageFactor.setPeakKParameterFactor(2572.7)
+        stageFactor.setResidualKParameterFactor(2605.0)
+        stageFactor.setPeakTensileStrengthFactor(3213.4)
+        stageFactor.setPeakQParameterFactor(176.8)
+        stageFactor.setResidualQParameterFactor(1508.0)
+        stageFactor.setResidualTensileStrengthFactor(857.2)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        strength = self.material.Strength
+        stageFactor = strength.DruckerPrager.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getDilationParameterFactor(), 2598.3)
+        self.assertEqual(stageFactor.getPeakKParameterFactor(), 2572.7)
+        self.assertEqual(stageFactor.getResidualKParameterFactor(), 2605.0)
+        self.assertEqual(stageFactor.getPeakTensileStrengthFactor(), 3213.4)
+        self.assertEqual(stageFactor.getPeakQParameterFactor(), 176.8)
+        self.assertEqual(stageFactor.getResidualQParameterFactor(), 1508.0)
+        self.assertEqual(stageFactor.getResidualTensileStrengthFactor(), 857.2)

@@ -21,7 +21,7 @@ class TestMaterialDependentPile(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testMaterialDependentPileProperty(self):
         pile = self.pile
-        self.pile.setSkinResistance(PileSkinResistanceType.SKIN_RESISTANCE_MATERIAL_DEPENDENT)
+        self.pile.setSkinResistance(PileSkinResistanceType.MATERIAL_DEPENDENT)
         pile.MaterialDependentPile.setInterfaceCoefficient(836.5)
         pile.MaterialDependentPile.setUseStiffnessMaterialDependent(0)
         pile.MaterialDependentPile.setStiffnessCoefficient(972.5)

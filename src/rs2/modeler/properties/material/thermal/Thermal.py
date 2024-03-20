@@ -3,6 +3,19 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
+class ThermalStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getThermalGridFactor(self) -> str:
+		return self._callFunction("getThermalGridFactor", [self.propertyID], proxyArgumentIndices=[0])
+class ThermalDefinedStageFactor(ThermalStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setThermalGridFactor(self, thermalGridName: str):
+		return self._callFunction("setThermalGridFactor", [thermalGridName, self.propertyID], proxyArgumentIndices=[1])
 from rs2.modeler.properties.material.thermal.conductivity.Conductivity import Conductivity
 from rs2.modeler.properties.material.thermal.heatcapacity.HeatCapacity import HeatCapacity
 from rs2.modeler.properties.material.thermal.soilunfrozenwatercontent.SoilUnfrozenWaterContent import SoilUnfrozenWaterContent
@@ -10,11 +23,12 @@ class Thermal(PropertyProxy):
 	"""
 	:ref:`Material Property Thermal Example`
 	"""
-	def __init__(self, client : Client, ID, documentProxyID):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
+		super().__init__(client, ID, documentProxyID)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[ThermalDefinedStageFactor, ThermalStageFactor](self._client, stageFactorInterfaceID, ID, ThermalDefinedStageFactor, ThermalStageFactor)
 		self.Conductivity = Conductivity(client, ID, documentProxyID)
 		self.HeatCapacity = HeatCapacity(client, ID, documentProxyID)
 		self.SoilUnfrozenWaterContent = SoilUnfrozenWaterContent(client, ID, documentProxyID)
-		super().__init__(client, ID, documentProxyID)
 	def getStaticTemperatureMode(self) -> StaticWaterModes:
 		return StaticWaterModes(self._getEnumEStaticWaterModesProperty("MP_STATIC_TEMPERATURE_METHOD"))
 	def setStaticTemperatureMode(self, value: StaticWaterModes):

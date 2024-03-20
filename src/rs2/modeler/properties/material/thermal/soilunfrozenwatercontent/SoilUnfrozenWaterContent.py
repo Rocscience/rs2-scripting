@@ -9,7 +9,7 @@ from rs2.modeler.properties.material.thermal.soilunfrozenwatercontent.CustomWate
 from rs2.modeler.properties.material.thermal.soilunfrozenwatercontent.hydraulic.HydraulicModel import HydraulicModel
 class SoilUnfrozenWaterContent(PropertyProxy):
 	"""
-	:ref:`Material Property Thermal SoilUnfrozenWaterContent Example`
+	:ref:`Material Property Thermal Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.Konrad = Konrad(client, ID, documentProxyID)

@@ -21,7 +21,7 @@ class TestCySoilStrength(unittest.TestCase):
         os.remove(self.copiedModelPath)
     def testCySoilStrengthProperty(self):
         strength = self.material.Strength
-        strength.CySoilStrength.setCap(CySoilCapOption.CYS_CAP_ELLIPTICAL)
+        strength.CySoilStrength.setCap(CySoilCapOption.ELLIPTICAL)
         strength.CySoilStrength.setAlfaCap(836.5)
         strength.CySoilStrength.setNormallyConsolidatedCapPressure(2628.5)
         strength.CySoilStrength.setFrictionAngleFailure(972.5)
@@ -38,7 +38,7 @@ class TestCySoilStrength(unittest.TestCase):
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         strength = self.material.Strength
-        self.assertEqual(strength.CySoilStrength.getCap(), CySoilCapOption.CYS_CAP_ELLIPTICAL)
+        self.assertEqual(strength.CySoilStrength.getCap(), CySoilCapOption.ELLIPTICAL)
         self.assertEqual(strength.CySoilStrength.getAlfaCap(), 836.5)
         self.assertEqual(strength.CySoilStrength.getNormallyConsolidatedCapPressure(), 2628.5)
         self.assertEqual(strength.CySoilStrength.getFrictionAngleFailure(), 972.5)

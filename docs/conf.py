@@ -24,7 +24,7 @@ release = '0.0'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autodoc', 'sphinx_copybutton']
+extensions = ['sphinx.ext.autodoc', 'sphinx_copybutton', 'sphinx.ext.napoleon']
 
 autodoc_default_options = {
     'member-order': 'bysource',

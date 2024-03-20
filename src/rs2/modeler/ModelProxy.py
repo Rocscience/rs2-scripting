@@ -212,6 +212,8 @@ class ModelProxy(ProxyObject):
 	
 	def AddHistoryQueryPoint(self, x: float, y: float, history_query_name: str):
 		'''
+		:ref:`History Query Example`
+
 		Add a new History Query point to your model with the specified coordinates and label name
 
 		Args:
@@ -225,6 +227,8 @@ class ModelProxy(ProxyObject):
 
 	def RemoveHistoryQueryPoint(self, history_query_name: str):
 		'''
+		:ref:`History Query Example`
+
 		Remove a History Query point from your model by label name.
 
 		Args:
@@ -235,6 +239,8 @@ class ModelProxy(ProxyObject):
 
 	def AddTimeQueryLine(self, points: list[list[float]], points_on_line: int) -> str:
 		'''
+		:ref:`Time Query Example`
+
 		Add a new Time Query Line to your model with the specified coordinates
 
 		Args:
@@ -249,6 +255,8 @@ class ModelProxy(ProxyObject):
 	
 	def RemoveTimeQueryLine(self, IDs_toRemove: list[str]):
 		'''
+		:ref:`Time Query Example`
+
 		Removes Time Query Line(s) from your model using provided list of IDs.
 
 		Args:
@@ -259,6 +267,8 @@ class ModelProxy(ProxyObject):
 	
 	def AddTimeQueryPoint(self, x: float, y: float) -> str:
 		'''
+		:ref:`Time Query Example`
+
 		Add a new Time Query Point to your model with the specified x and y coordinates
 
 		Args:
@@ -270,6 +280,8 @@ class ModelProxy(ProxyObject):
 	
 	def RemoveTimeQueryPoint(self, IDs_toRemove: list[str]):
 		'''
+		:ref:`Time Query Example`
+		
 		Removes Time Query Point(s) from your model using provided list of IDs.
 
 		Args:
@@ -281,12 +293,33 @@ class ModelProxy(ProxyObject):
 	def compute(self):
 		'''
 		Saves the file if modified and then runs compute. Replaces any existing results.
+
+		Warning:
+			All objects retrieved from the interpreter for this file will be invalidated after this call.
+			If you have an interpreter model open, you should close, compute, and then re-open the model.
+
+			.. code-block:: python
+
+				interpreterModel.close()
+				model.compute()
+				interpreterModel = modeler.openFile('C:/previouslyOpened.fez')
+				
 		'''
 		return self._callFunction('compute', [False])
 
 	def computeGroundWater(self):
 		'''
 		Saves the file if modified and then runs groundwater compute. Replaces any existing results.
+
+		Warning:
+			All objects retrieved from the interpreter for this file will be invalidated after this call.
+			If you have an interpreter model open, you should close, compute, and then re-open the model.
+
+			.. code-block:: python
+
+				interpreterModel.close()
+				model.compute()
+				interpreterModel = modeler.openFile('C:/previouslyOpened.fez')
 		'''
 		return self._callFunction('compute', [True])
 
@@ -300,10 +333,14 @@ class ModelProxy(ProxyObject):
 		'''
 		Saves the model using the given file name.
 
-		Typical usage example:
-		model.saveAs('C:/simple_3_stage.fez')
+		Example:
+
+		.. code-block:: python
+
+			model.saveAs('C:/simple_3_stage.fez')
 		'''
-		return self._callFunction('saveAs', [fileName])
+		formattedFileName = fileName.replace('/', '\\')
+		return self._callFunction('saveAs', [formattedFileName])
 
 	def save(self):
 		'''

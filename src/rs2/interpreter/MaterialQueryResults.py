@@ -1,9 +1,12 @@
+from rs2.interpreter.UtilityResult import *
+
 class QueryResult:
     def __init__(self, x_location, y_location, distance, value):
         self.x_location = x_location
         self.y_location = y_location
         self.distance = distance
         self.value = value
+        ResetInvalid.validate(self)
     
     def GetXCoordinate(self) -> float:
         '''
@@ -53,11 +56,12 @@ class MaterialQueryResults:
     
     def GetAllValues(self) -> list[QueryResult]:
         '''
-        Returns a list[QueryResult] representing result at all nodes of the material query
-        To get the x-coordinate, y-coordinate, distance, or value, please call the supporting class methods:
-        - QueryResult.GetXCoordinate()
-        - QueryResult.GetYCoordinate()
-        - QueryResult.GetDistance()
-        - QueryResult.GetValue()
+        |  Returns a list[QueryResult] representing result at all nodes of the material query
+        |  To get the x-coordinate, y-coordinate, distance, or value, please call the supporting class methods:
+        
+        * QueryResult.GetXCoordinate()
+        * QueryResult.GetYCoordinate()
+        * QueryResult.GetDistance()
+        * QueryResult.GetValue()
         '''
         return self.query_values

@@ -38,21 +38,44 @@ from rs2.modeler.properties.material.strength.HardeningSoilWithSmallStrainStiffn
 from rs2.modeler.properties.material.strength.SoftSoilStrength import SoftSoilStrength
 from rs2.modeler.properties.material.strength.SoftSoilCreepStrength import SoftSoilCreepStrength
 from rs2.modeler.properties.material.strength.SwellingRockStrength import SwellingRockStrength
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
+class StrengthStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getAirEntryValueFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_UNSATURATED_AIR_ENTRY_VALUE", self.propertyID], proxyArgumentIndices=[1])
+	def getUnsaturatedShearStrengthAngleFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_UNSATURATED_SHEAR_STRENGTH_ANGLE", self.propertyID], proxyArgumentIndices=[1])
+	def getResetYield(self) -> bool:
+		return self._callFunction("getResetYield", [])
+class StrengthDefinedStageFactor(StrengthStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setAirEntryValueFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_UNSATURATED_AIR_ENTRY_VALUE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setUnsaturatedShearStrengthAngleFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_UNSATURATED_SHEAR_STRENGTH_ANGLE", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResetYield(self, resetYield: bool):
+		return self._callFunction("setResetYield", [resetYield])
 class Strength(PropertyProxy):
 	"""
 	:ref:`Material Property Strength Example`
 	"""
-	def __init__(self, client : Client, ID, documentProxyID):
-		self.MohrCoulombStrength = MohrCoulombStrength(client, ID, documentProxyID)
-		self.HoekBrown = HoekBrown(client, ID, documentProxyID)
-		self.DruckerPrager = DruckerPrager(client, ID, documentProxyID)
-		self.GeneralizedHoekBrown = GeneralizedHoekBrown(client, ID, documentProxyID)
-		self.DiscreteFunction = DiscreteFunction(client, ID, documentProxyID)
-		self.CamClay = CamClay(client, ID, documentProxyID)
-		self.ModifiedCamClay = ModifiedCamClay(client, ID, documentProxyID)
-		self.MohrCoulombWithCap = MohrCoulombWithCap(client, ID, documentProxyID)
-		self.SofteningHardeningModel = SofteningHardeningModel(client, ID, documentProxyID)
-		self.BarcelonaBasic = BarcelonaBasic(client, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
+		super().__init__(client, ID, documentProxyID)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[StrengthDefinedStageFactor, StrengthStageFactor](self._client, stageFactorInterfaceID, ID, StrengthDefinedStageFactor, StrengthStageFactor)
+		self.MohrCoulombStrength = MohrCoulombStrength(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.HoekBrown = HoekBrown(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.DruckerPrager = DruckerPrager(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.GeneralizedHoekBrown = GeneralizedHoekBrown(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.DiscreteFunction = DiscreteFunction(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.CamClay = CamClay(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.ModifiedCamClay = ModifiedCamClay(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.MohrCoulombWithCap = MohrCoulombWithCap(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.SofteningHardeningModel = SofteningHardeningModel(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.BarcelonaBasic = BarcelonaBasic(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.NorSandStrength = NorSandStrength(client, ID, documentProxyID)
 		self.BoundingSurfacePlasticity = BoundingSurfacePlasticity(client, ID, documentProxyID)
 		self.ManzariAndDafaliasStrength = ManzariAndDafaliasStrength(client, ID, documentProxyID)
@@ -68,8 +91,8 @@ class Strength(PropertyProxy):
 		self.SnowdenModAnisotropicLinear = SnowdenModAnisotropicLinear(client, ID, documentProxyID)
 		self.AnisotropicLinear = AnisotropicLinear(client, ID, documentProxyID)
 		self.GeneralizedAnisotropic = GeneralizedAnisotropic(client, ID, documentProxyID)
-		self.JointedMohrCoulomb = JointedMohrCoulomb(client, ID, documentProxyID)
-		self.JointedGeneralizedHoekBrown = JointedGeneralizedHoekBrown(client, ID, documentProxyID)
+		self.JointedMohrCoulomb = JointedMohrCoulomb(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.JointedGeneralizedHoekBrown = JointedGeneralizedHoekBrown(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.ChSoilStrength = ChSoilStrength(client, ID, documentProxyID)
 		self.CySoilStrength = CySoilStrength(client, ID, documentProxyID)
 		self.DoubleYieldStrength = DoubleYieldStrength(client, ID, documentProxyID)
@@ -78,7 +101,6 @@ class Strength(PropertyProxy):
 		self.SoftSoilStrength = SoftSoilStrength(client, ID, documentProxyID)
 		self.SoftSoilCreepStrength = SoftSoilCreepStrength(client, ID, documentProxyID)
 		self.SwellingRockStrength = SwellingRockStrength(client, ID, documentProxyID)
-		super().__init__(client, ID, documentProxyID)
 	def getFailureCriterion(self) -> StrengthCriteriaTypes:
 		return StrengthCriteriaTypes(self._getEnumEStrengthCriteriaTypesProperty("MP_FAILURE_CRITERION"))
 	def setFailureCriterion(self, value: StrengthCriteriaTypes):

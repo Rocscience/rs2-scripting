@@ -1,4 +1,5 @@
 from rs2.modeler.RS2Modeler import RS2Modeler
+from rs2.modeler.properties.PropertyEnums import *
 
 modeler = RS2Modeler()
 
@@ -14,22 +15,22 @@ for bolt in boltList:
 	print(bolt.getBoltName())
 	i+=1
 
-	bolt.setBoltDiameter(23)
-	print(bolt.getBoltDiameter())
+	bolt.FullyBonded.setBoltDiameter(23)
+	print(bolt.FullyBonded.getBoltDiameter())
 
-	bolt.setBoltModulusE(201001)
-	print(bolt.getBoltModulusE())
+	bolt.FullyBonded.setBoltModulusE(201001)
+	print(bolt.FullyBonded.getBoltModulusE())
 
-	bolt.setTensileCapacity(0.2)
-	print(bolt.getTensileCapacity())
+	bolt.FullyBonded.setTensileCapacity(0.2)
+	print(bolt.FullyBonded.getTensileCapacity())
 
-	bolt.setResidualTensileCapacity(0.0232)
-	print(bolt.getResidualTensileCapacity())
+	bolt.FullyBonded.setResidualTensileCapacity(0.0232)
+	print(bolt.FullyBonded.getResidualTensileCapacity())
 
 bolt1 = model.getBoltPropertyByName("thisBolt1")
 
-bolt1.setBoltDiameter(30)
-print(bolt.getBoltDiameter())
+bolt1.FullyBonded.setBoltDiameter(30)
+print(bolt.FullyBonded.getBoltDiameter())
 
 i = 0
 newLinerNames = ["thisLiner1", "thisLiner2", "thisLiner3", "thisLiner4"]
@@ -39,42 +40,42 @@ for liner in linerList:
 	print(liner.getLinerName())
 	i+=1
 
-	liner.setPoissonsRatio(0.49)
-	print(liner.getPoissonsRatio())
+	liner.StandardBeam.setPoissonsRatio(0.49)
+	print(liner.StandardBeam.getPoissonsRatio())
 
-	liner.setLinerType(liner.LinerTypes.P2_LINER_STANDARD_BEAM)
+	liner.setLinerType(LinerTypes.STANDARD_BEAM)
 	print(liner.getLinerType())
 
-	liner.setMethod(liner.GeometryChoice.LNP_USE_AREA)
-	print(liner.getMethod())
+	liner.StandardBeam.setMethod(GeometryChoice.AREA)
+	print(liner.StandardBeam.getMethod())
 
-	liner.setMethod(liner.GeometryChoice.LNP_USE_THICKNESS)
-	print(liner.getMethod())
+	liner.StandardBeam.setMethod(GeometryChoice.THICKNESS)
+	print(liner.StandardBeam.getMethod())
 
-	liner.setThickness(20)
-	print(liner.getThickness())
+	liner.StandardBeam.setThickness(20)
+	print(liner.StandardBeam.getThickness())
 
 #Thermal needs to be set to steady state for the following
 #-------------------------------------------------------
 
-	liner.setActivateThermal(True)
-	print(liner.getActivateThermal())
+	liner.StandardBeam.setActivateThermal(True)
+	print(liner.StandardBeam.getActivateThermal())
 
-	liner.setStaticTemperatureMode(liner.StaticWaterModes.SWM_GRID)
-	print(liner.getStaticTemperatureMode())
+	liner.StandardBeam.setStaticTemperatureMode(StaticWaterModes.GRID)
+	print(liner.StandardBeam.getStaticTemperatureMode())
 
-	liner.setStaticTemperatureGridToUse("Default Grid")
-	print(liner.getStaticTemperatureGridToUse())
+	liner.StandardBeam.setStaticTemperatureGridToUse("Default Grid")
+	print(liner.StandardBeam.getStaticTemperatureGridToUse())
 
-	liner.setThermalExpansion(True)
-	print(liner.getThermalExpansion())
+	liner.StandardBeam.setThermalExpansion(True)
+	print(liner.StandardBeam.getThermalExpansion())
 
-	liner.setExpansionCoefficient(2)
-	print(liner.getExpansionCoefficient())
+	liner.StandardBeam.setExpansionCoefficient(2)
+	print(liner.StandardBeam.getExpansionCoefficient())
 
 
 #-------------------------------------------------------
 
 liner1 = model.getLinerPropertyByName("thisLiner2")
-liner1.setActivateThermal(False)
-print(liner1.getActivateThermal())
+liner1.StandardBeam.setActivateThermal(False)
+print(liner1.StandardBeam.getActivateThermal())

@@ -62,16 +62,16 @@ class TestMaterialJointOptions(unittest.TestCase):
         self.assertEqual(self.matJointOptions.getNumberOfJoints(), 2)
 
         joint2 = self.matJointOptions.getJoint(1)
-        joint2.setSlipCriterion(JointTypes.JOINT_BARTON_BANDIS)
+        joint2.setSlipCriterion(JointTypes.BARTON_BANDIS)
         joint2.BartonBandisMaterial.setDilationAngle(0.023)
 
         joint1 = self.matJointOptions.getJoint(0)
-        joint1.setSlipCriterion(JointTypes.JOINT_MOHR_COULOMB)
+        joint1.setSlipCriterion(JointTypes.MOHR_COULOMB)
         joint1.MohrCoulombMaterial.setDilationAngle(0.024)
 
-        self.assertEqual(joint2.getSlipCriterion(), JointTypes.JOINT_BARTON_BANDIS)
+        self.assertEqual(joint2.getSlipCriterion(), JointTypes.BARTON_BANDIS)
         self.assertEqual(joint2.BartonBandisMaterial.getDilationAngle(), 0.023)
-        self.assertEqual(joint1.getSlipCriterion(), JointTypes.JOINT_MOHR_COULOMB)
+        self.assertEqual(joint1.getSlipCriterion(), JointTypes.MOHR_COULOMB)
         self.assertEqual(joint1.MohrCoulombMaterial.getDilationAngle(), 0.024)
 
     def testDilationAngleFailureLessThanZero(self):

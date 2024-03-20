@@ -22,7 +22,7 @@ class TestIsotropic(unittest.TestCase):
     def testIsotropicProperty(self):
         stiffness = self.material.Stiffness
         stiffness.Isotropic.setUseUnloadingCondition(0)
-        stiffness.Isotropic.setUnloadingCondition(UnloadingConditions.UC_DEVIATORIC_STRESS)
+        stiffness.Isotropic.setUnloadingCondition(UnloadingConditions.DEVIATORIC_STRESS)
         stiffness.Isotropic.setElasticParameters(ElasticParameters.CONSTANT_POISSON_RATIO)
         stiffness.Isotropic.setShearModulus(2628.5)
         stiffness.Isotropic.setPoissonsRatio(972.5)
@@ -39,7 +39,7 @@ class TestIsotropic(unittest.TestCase):
         self.material = self.model.getAllMaterialProperties()[0]
         stiffness = self.material.Stiffness
         self.assertEqual(stiffness.Isotropic.getUseUnloadingCondition(), 0)
-        self.assertEqual(stiffness.Isotropic.getUnloadingCondition(), UnloadingConditions.UC_DEVIATORIC_STRESS)
+        self.assertEqual(stiffness.Isotropic.getUnloadingCondition(), UnloadingConditions.DEVIATORIC_STRESS)
         self.assertEqual(stiffness.Isotropic.getElasticParameters(), ElasticParameters.CONSTANT_POISSON_RATIO)
         self.assertEqual(stiffness.Isotropic.getShearModulus(), 2628.5)
         self.assertEqual(stiffness.Isotropic.getPoissonsRatio(), 972.5)
@@ -50,3 +50,20 @@ class TestIsotropic(unittest.TestCase):
         self.assertEqual(stiffness.Isotropic.getUnloadingYoungsModulus(), 2350.4)
         self.assertEqual(stiffness.Isotropic.getUseUnloadingResidualYoungsModulus(), 1)
         self.assertEqual(stiffness.Isotropic.getUnloadingResidualYoungsModulus(), 2572.7)
+    def testIsotropicStageFactors(self):
+        stiffness = self.material.Stiffness
+        stageFactor = stiffness.Isotropic.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setPoissonsRatioFactor(2605.0)
+        stageFactor.setShearModulusFactor(3213.4)
+        stageFactor.setYoungsModulusFactor(176.8)
+        stageFactor.setResidualYoungsModulusFactor(1508.0)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        stiffness = self.material.Stiffness
+        stageFactor = stiffness.Isotropic.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getPoissonsRatioFactor(), 2605.0)
+        self.assertEqual(stageFactor.getShearModulusFactor(), 3213.4)
+        self.assertEqual(stageFactor.getYoungsModulusFactor(), 176.8)
+        self.assertEqual(stageFactor.getResidualYoungsModulusFactor(), 1508.0)

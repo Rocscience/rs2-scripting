@@ -6,16 +6,12 @@ rs2.modeler.properties.material.thermal.soilunfrozenwatercontent package
    :undoc-members:
    :show-inheritance:
 
-Subpackages
------------
 
 .. toctree::
    :maxdepth: 4
 
    rs2.modeler.properties.material.thermal.soilunfrozenwatercontent.hydraulic
 
-Submodules
-----------
 
 rs2.modeler.properties.material.thermal.soilunfrozenwatercontent.CustomWaterContent module
 ------------------------------------------------------------------------------------------

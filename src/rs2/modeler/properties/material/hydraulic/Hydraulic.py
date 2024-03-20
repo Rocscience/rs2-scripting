@@ -5,14 +5,28 @@ from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2.modeler.properties.material.hydraulic.FEAGroundwater.FEAGroundwater import FEAGroundwater
 from rs2.modeler.properties.material.hydraulic.StaticGroundwater import StaticGroundwater
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
+class HydraulicStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getMaterialBehaviourFactor(self) -> str:
+		return MaterialBehaviours(self._callFunction("getMaterialBehaviourFactor", []))
+class HydraulicDefinedStageFactor(HydraulicStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setMaterialBehaviourFactor(self, materialBehavior: MaterialBehaviours):
+		return self._callFunction("setMaterialBehaviourFactor", [materialBehavior.value])
 class Hydraulic(PropertyProxy):
 	"""
-	:ref:`Hydraulic Property Stiffness Example`
+	:ref:`Hydraulic Property Example`
 	"""
-	def __init__(self, client : Client, ID, documentProxyID):
-		self.StaticGroundwater = StaticGroundwater(client, ID, documentProxyID)
-		self.FEAGroundwater = FEAGroundwater(client, ID, documentProxyID)
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[HydraulicDefinedStageFactor, HydraulicStageFactor](self._client, stageFactorInterfaceID, ID, HydraulicDefinedStageFactor, HydraulicStageFactor)
+		self.StaticGroundwater = StaticGroundwater(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.FEAGroundwater = FEAGroundwater(client, ID, documentProxyID, stageFactorInterfaceID)
 	def getMaterialBehaviour(self) -> MaterialBehaviours:
 		return MaterialBehaviours(self._getEnumEMaterialBehavioursProperty("MP_MATERIAL_BEHAVIOUR"))
 	def setMaterialBehaviour(self, value: MaterialBehaviours):
@@ -21,3 +35,7 @@ class Hydraulic(PropertyProxy):
 		return self._getDoubleProperty("MP_FLUID_BULK_MODULUS")
 	def setFluidBulkModulus(self, value: float):
 		return self._setDoubleProperty("MP_FLUID_BULK_MODULUS", value)
+	def getUseBiotsCoefficientForCalculatingEffectiveStress(self) -> bool:
+		return self._getBoolProperty("MP_USE_ALPHA_BIOT")
+	def setUseBiotsCoefficientForCalculatingEffectiveStress(self, value: bool):
+		return self._setBoolProperty("MP_USE_ALPHA_BIOT", value)

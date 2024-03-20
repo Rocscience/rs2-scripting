@@ -44,3 +44,26 @@ class TestMohrCoulombStrength(unittest.TestCase):
         self.assertEqual(strength.MohrCoulombStrength.getResidualCohesion(), 1413.6)
         self.assertEqual(strength.MohrCoulombStrength.getDilationAngle(), 468.3)
         self.assertEqual(strength.MohrCoulombStrength.getApplySSRShearStrengthReduction(), 0)
+    def testMohrCoulombStrengthStageFactors(self):
+        strength = self.material.Strength
+        stageFactor = strength.MohrCoulombStrength.stageFactorInterface.getDefinedStageFactors()[1]
+        stageFactor.setResidualCohesionFactor(2598.3)
+        stageFactor.setDilationAngleFactor(2572.7)
+        stageFactor.setResidualFrictionAngleFactor(2605.0)
+        stageFactor.setPeakCohesionFactor(3213.4)
+        stageFactor.setPeakFrictionAngleFactor(176.8)
+        stageFactor.setPeakTensileStrengthFactor(1508.0)
+        stageFactor.setResidualTensileStrengthFactor(857.2)
+        self.model.save()
+        self.model.close()
+        self.model = self.modeler.openFile(self.copiedModelPath)
+        self.material = self.model.getAllMaterialProperties()[0]
+        strength = self.material.Strength
+        stageFactor = strength.MohrCoulombStrength.stageFactorInterface.getDefinedStageFactors()[1]
+        self.assertEqual(stageFactor.getResidualCohesionFactor(), 2598.3)
+        self.assertEqual(stageFactor.getDilationAngleFactor(), 2572.7)
+        self.assertEqual(stageFactor.getResidualFrictionAngleFactor(), 2605.0)
+        self.assertEqual(stageFactor.getPeakCohesionFactor(), 3213.4)
+        self.assertEqual(stageFactor.getPeakFrictionAngleFactor(), 176.8)
+        self.assertEqual(stageFactor.getPeakTensileStrengthFactor(), 1508.0)
+        self.assertEqual(stageFactor.getResidualTensileStrengthFactor(), 857.2)

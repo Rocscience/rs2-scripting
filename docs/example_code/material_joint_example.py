@@ -1,9 +1,10 @@
 from rs2.modeler.RS2Modeler import RS2Modeler
 from rs2.modeler.properties.PropertyEnums import *
+import os, inspect
 
+current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
 modeler = RS2Modeler()
-
-model = modeler.openFile(r"C:\scriptingModels\simple_3_stage.fez")
+model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 material = model.getAllMaterialProperties()[0]
 
@@ -15,7 +16,7 @@ jointOptions.setNumberOfJoints(2)
 jointOptions.setTracePlaneProperties(1, 20.1, 2.2, 3.4)
 
 joint = jointOptions.getJoint(1)
-joint.setSlipCriterion(JointTypes.JOINT_BARTON_BANDIS)
+joint.setSlipCriterion(JointTypes.BARTON_BANDIS)
 joint.BartonBandisMaterial.setDilationAngle(30)
 joint.BartonBandisMaterial.setJCS(2.2)
 

@@ -1,19 +1,16 @@
 from rs2.interpreter.RS2Interpreter import RS2Interpreter
 from rs2.interpreter.InterpreterEnums import *
+import os, inspect
 
+current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
 interpreter = RS2Interpreter()
-model = interpreter.openFile("S:\willSati\Scripting\TestModels\Profiles_and_Boreholes.fez")
+model = interpreter.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 # Setting and Retrieving results for built-in type
 model.SetResultType(ExportResultType.SOLID_EFFECTIVE_STRESS_EFFECTIVE_SIGMA_Z)
 exportResult1 = model.GetMeshResults()
-# Setting and Retrieving results for user-defined type
 
-#change the result type below to be a result type you have defined
-#model.SetUserDefinedResultType("Sin(dy)")
-#exportResult2 = model.GetMeshResults()
-
-# Extracting results for specific vertex
+# Extracting results for specific vertex index
 x_coord = exportResult1.getXCoordinate(0)
-y_coord = exportResult1.getYCoordiante(0)
+y_coord = exportResult1.getYCoordinate(0)
 value = exportResult1.getValue(0)

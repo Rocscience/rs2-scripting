@@ -49,7 +49,8 @@ class TestBartonBandisMaterial(unittest.TestCase):
         self.assertEqual(jointmaterial.BartonBandisMaterial.getApplyStageFactors(), 1)
         self.assertEqual(jointmaterial.BartonBandisMaterial.getDilationAngle(), 2.3)
     def testBartonBandisMaterialStageFactors(self):
-        stageFactor = self.jointmaterial.BartonBandisMaterial.stageFactorInterface.getDefinedStageFactors()[1]
+        jointmaterial = self.jointmaterial
+        stageFactor = jointmaterial.BartonBandisMaterial.stageFactorInterface.getDefinedStageFactors()[1]
         stageFactor.setJCSFactor(1413.6)
         stageFactor.setJRCFactor(468.3)
         stageFactor.setResidualFrictionAngleFactor(2350.4)
@@ -61,7 +62,8 @@ class TestBartonBandisMaterial(unittest.TestCase):
         self.mat.Strength.setFailureCriterion(StrengthCriteriaTypes.JOINTED_MOHR_COULOMB)
         self.matJointOptions = self.mat.Strength.JointedMohrCoulomb.getJointOptions()
         self.jointmaterial = self.matJointOptions.getJoint(0)
-        stageFactor = self.jointmaterial.BartonBandisMaterial.stageFactorInterface.getDefinedStageFactors()[1]
+        jointmaterial = self.jointmaterial
+        stageFactor = jointmaterial.BartonBandisMaterial.stageFactorInterface.getDefinedStageFactors()[1]
         self.assertEqual(stageFactor.getJCSFactor(), 1413.6)
         self.assertEqual(stageFactor.getJRCFactor(), 468.3)
         self.assertEqual(stageFactor.getResidualFrictionAngleFactor(), 2350.4)

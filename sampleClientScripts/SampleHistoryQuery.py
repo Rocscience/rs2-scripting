@@ -6,7 +6,7 @@ from pprint import pprint
 modeler = RS2Modeler()
 interpreter = RS2Interpreter()
 
-filePath = "C:\scriptingModels\Profiles_and_Boreholes.fez"
+filePath = r"C:\scriptingModels\Profiles_and_Boreholes.fez"
 modeler_model = modeler.openFile(filePath)
 interpreter_model = interpreter.openFile(filePath)
 
@@ -21,7 +21,10 @@ vertical_axis = HistoryQueryGraphEnums.VerticalAxisTypes.EFFECTIVE_STRESS_YY
 horizontal_axis = HistoryQueryGraphEnums.HorizontalAxisTypes.STAGE_LOAD_PERCENTAGE
 stages = [1, 2]
 
-history_query_results = interpreter_model.GetHistoryQueryResults(hq_name=hq_name, horizontal_axis=horizontal_axis, vertical_axis=vertical_axis, stages=stages)
+history_query_results = interpreter_model.GetHistoryQueryResults(hq_name=hq_name, 
+                                                                 horizontal_axis=horizontal_axis, 
+                                                                 vertical_axis=vertical_axis, 
+                                                                 stages=stages)
 
 # Extracting data
 stage_number = 1

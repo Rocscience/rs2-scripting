@@ -3,7 +3,43 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
+class HoekBrownStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getCompressiveStrengthFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_COMPRESSIVE_STRENGTH", self.propertyID], proxyArgumentIndices=[1])
+	def getDilationParameterFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_DILATION_PARAMETER", self.propertyID], proxyArgumentIndices=[1])
+	def getMbParameterFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_MB_PARAMETER", self.propertyID], proxyArgumentIndices=[1])
+	def getResidualMbParameterFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_MB_PARAMETER_RES", self.propertyID], proxyArgumentIndices=[1])
+	def getSParameterFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_S_PARAMETER", self.propertyID], proxyArgumentIndices=[1])
+	def getResidualSParameterFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_S_PARAMETER_RES", self.propertyID], proxyArgumentIndices=[1])
+class HoekBrownDefinedStageFactor(HoekBrownStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setCompressiveStrengthFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_COMPRESSIVE_STRENGTH", value, self.propertyID], proxyArgumentIndices=[2])
+	def setDilationParameterFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_DILATION_PARAMETER", value, self.propertyID], proxyArgumentIndices=[2])
+	def setMbParameterFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_MB_PARAMETER", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResidualMbParameterFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_MB_PARAMETER_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setSParameterFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_S_PARAMETER", value, self.propertyID], proxyArgumentIndices=[2])
+	def setResidualSParameterFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_S_PARAMETER_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class HoekBrown(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
+		super().__init__(client, ID, documentProxyID)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[HoekBrownDefinedStageFactor, HoekBrownStageFactor](self._client, stageFactorInterfaceID, ID, HoekBrownDefinedStageFactor, HoekBrownStageFactor)
 	def getMaterialType(self) -> MaterialType:
 		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE"))
 	def setMaterialType(self, value: MaterialType):

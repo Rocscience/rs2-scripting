@@ -17,7 +17,7 @@ class TestVolumetricHeatCapacityTable(unittest.TestCase):
         self.modeler = RS2Modeler()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
-        self.material.Thermal.HeatCapacity.setType(ThermalHeatCapacityType.THERMAL_HEAT_CAPACITY_CUSTOM)
+        self.material.Thermal.HeatCapacity.setType(ThermalHeatCapacityType.CUSTOM)
     @classmethod
     def tearDownClass(self):
         self.model.close()

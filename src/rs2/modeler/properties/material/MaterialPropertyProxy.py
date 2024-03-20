@@ -9,18 +9,24 @@ from rs2.modeler.properties.material.strength.Strength import Strength
 from rs2.modeler.properties.material.hydraulic.Hydraulic import Hydraulic
 from rs2.modeler.properties.material.thermal.Thermal import Thermal
 from rs2.modeler.properties.material.datum.Datum import Datum
+from rs2.modeler.properties.material.StageFactors import StageFactors
 class MaterialProperty(PropertyProxy):
 	"""
 	:ref:`Material Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
-		self.InitialConditions = InitialConditions(client, ID, documentProxyID)
-		self.Stiffness = Stiffness(client, ID, documentProxyID)
-		self.Strength = Strength(client, ID, documentProxyID)
-		self.Hydraulic = Hydraulic(client, ID, documentProxyID)
-		self.Thermal = Thermal(client, ID, documentProxyID)
-		self.Datum = Datum(client, ID, documentProxyID)
 		super().__init__(client, ID, documentProxyID)
+		strengthStiffnessStageFactorInterface = self._callFunction("getStrengthStiffnessStageFactorInterface", [], keepReturnValueReference=True)
+		datumStageFactorInterface = self._callFunction("getDatumStageFactorInterface", [], keepReturnValueReference=True)
+		hydroStageFactorInterface = self._callFunction("getHydroStageFactorInterface", [], keepReturnValueReference=True)
+		thermalStageFactorInterface = self._callFunction("getThermalStageFactorInterface", [], keepReturnValueReference=True)
+		self.StageFactors = StageFactors(client, self._callFunction("getStageFactorManager", [], keepReturnValueReference = True))
+		self.InitialConditions = InitialConditions(client, ID, documentProxyID, strengthStiffnessStageFactorInterface)
+		self.Stiffness = Stiffness(client, ID, documentProxyID, strengthStiffnessStageFactorInterface)
+		self.Strength = Strength(client, ID, documentProxyID, strengthStiffnessStageFactorInterface)
+		self.Hydraulic = Hydraulic(client, ID, documentProxyID, hydroStageFactorInterface)
+		self.Thermal = Thermal(client, ID, documentProxyID, thermalStageFactorInterface)
+		self.Datum = Datum(client, ID, documentProxyID, datumStageFactorInterface)
 	def getMaterialName(self) -> str:
 		return self._getCStringProperty("MP_NAME")
 	def setMaterialName(self, value: str):

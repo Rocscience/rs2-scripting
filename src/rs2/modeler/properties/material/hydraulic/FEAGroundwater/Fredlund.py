@@ -3,7 +3,51 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
+from rs2._common.ProxyObject import ProxyObject
+from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
+class FredlundStageFactor(ProxyObject):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID)
+		self.propertyID = propertyID
+	def getAFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_FREDLUND_XING_A", self.propertyID], proxyArgumentIndices=[1])
+	def getBFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_FREDLUND_XING_B", self.propertyID], proxyArgumentIndices=[1])
+	def getCFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_FREDLUND_XING_C", self.propertyID], proxyArgumentIndices=[1])
+	def getKsFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_KS", self.propertyID], proxyArgumentIndices=[1])
+	def getWCSatFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_WC_SAT", self.propertyID], proxyArgumentIndices=[1])
+	def getWCResFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_WC_RES", self.propertyID], proxyArgumentIndices=[1])
+	def getDoSSatFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_DOS_SAT", self.propertyID], proxyArgumentIndices=[1])
+	def getDoSResFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_DOS_RES", self.propertyID], proxyArgumentIndices=[1])
+class FredlundDefinedStageFactor(FredlundStageFactor):
+	def __init__(self, client : Client, ID, propertyID):
+		super().__init__(client, ID, propertyID)
+	def setAFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_FREDLUND_XING_A", value, self.propertyID], proxyArgumentIndices=[2])
+	def setBFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_FREDLUND_XING_B", value, self.propertyID], proxyArgumentIndices=[2])
+	def setCFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_FREDLUND_XING_C", value, self.propertyID], proxyArgumentIndices=[2])
+	def setKsFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_KS", value, self.propertyID], proxyArgumentIndices=[2])
+	def setWCSatFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_WC_SAT", value, self.propertyID], proxyArgumentIndices=[2])
+	def setWCResFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_WC_RES", value, self.propertyID], proxyArgumentIndices=[2])
+	def setDoSSatFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_DOS_SAT", value, self.propertyID], proxyArgumentIndices=[2])
+	def setDoSResFactor(self, value: float):
+		return self._callFunction("setDoubleFactor", ["MP_DOS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Fredlund(PropertyProxy):
+	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
+		super().__init__(client, ID, documentProxyID)
+		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[FredlundDefinedStageFactor, FredlundStageFactor](self._client, stageFactorInterfaceID, ID, FredlundDefinedStageFactor, FredlundStageFactor)
 	def getA(self) -> float:
 		return self._getDoubleProperty("MP_FREDLUND_XING_A")
 	def setA(self, value: float):

@@ -3,6 +3,7 @@ from rs2._common.Client import Client
 from rs2.modeler.ModelProxy import ModelProxy
 from rs2.utilities.ApplicationManager import ApplicationManager
 import winreg
+import time
 
 class RS2Modeler:
 	"""
@@ -15,8 +16,11 @@ class RS2Modeler:
 		'''
 		Takes in the absolute path to an rs2 file to be opened in the modeler.
 
-		Typical Usage example:
-		model = modeler.openFile('C:/simple_3_stage.fez')
+		Example:
+
+		.. code-block:: python
+
+			model = modeler.openFile('C:/simple_3_stage.fez')
 		'''
 		request = functionRequest('open_file', [fileName], keepReturnValueReference=True)
 		modelObjectId = self.client.callFunction(request)
@@ -50,3 +54,28 @@ class RS2Modeler:
 		rs2ModelerInstallLocation =  rf"{installationLocation}\RS2"
 
 		return rs2ModelerInstallLocation
+	
+	def closeProgram(self, saveModels=True, timeout=30):
+		'''
+		Closes the modeler program. All unsaved models are saved by default.
+
+		Example:
+
+		.. code-block:: python
+
+			#saves all models before closing
+			modeler.closeProgram(True)
+
+			#closes the program without saving
+			modeler.closeProgram(False)
+		'''
+		request = functionRequest('closeProgram', [saveModels])
+		portUsed = self.client.callFunction(request)
+		self.client.closeConnection()
+		appManager = ApplicationManager()
+		portIsAvailable = False
+		startTime = time.time()
+		while not portIsAvailable:
+			if (time.time() - startTime) > timeout:
+				raise TimeoutError("The application did not close within the given timeout time.")
+			portIsAvailable = appManager._isPortAvailable(portUsed)

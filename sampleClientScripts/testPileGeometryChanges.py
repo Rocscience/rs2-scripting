@@ -23,8 +23,8 @@ model.close()
 model = modeler.openFile(r"C:\scriptingModels\pilesWithMesh.fez")
 pile = model.getAllPileProperties()[0]
 
-pile.Beam.setApplication(PileApplicationType.APPLICATION_BY_LENGTH)
-assert pile.Beam.getApplication() == PileApplicationType.APPLICATION_BY_LENGTH
+pile.Beam.setApplication(PileApplicationType.DEFINE_BEAM_SEGMENT_BY_LENGTH)
+assert pile.Beam.getApplication() == PileApplicationType.DEFINE_BEAM_SEGMENT_BY_LENGTH
 
 pile.Beam.defineBeamSegment([1,2,3], ["Liner 1","Liner 2","Liner 3"])
 assert pile.Beam.getBeamSegment() == ([1,2,3], ["Liner 1","Liner 2","Liner 3"])

@@ -2,20 +2,24 @@ from rs2.modeler.RS2Modeler import RS2Modeler
 from rs2.interpreter.RS2Interpreter import RS2Interpreter
 from rs2.interpreter.InterpreterEnums import *
 from rs2.interpreter.InterpreterGraphEnums import *
+import os, inspect
 
+current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
 modeler = RS2Modeler()
 interpreter = RS2Interpreter()
-
-modeler_model = modeler.openFile("S:\willSati\Scripting\TestModels\Profiles_and_Boreholes.fez")
-interpreter_model = interpreter.openFile("S:\willSati\Scripting\TestModels\Profiles_and_Boreholes.fez")
+modelPath = rf"{current_dir}\example_models\ExampleModel.fez"
+modeler_model = modeler.openFile(modelPath)
 
 # Add History Query Point in Modeler
-modeler_model.AddHistoryQueryPoint(history_query_name="Example Point 1", x=-1.1, y=3.8)
+modeler_model.AddHistoryQueryPoint(history_query_name="Testing Point 1", x=-3.1, y=2.8)
 # Remove History Query Point in Modeler
 modeler_model.RemoveHistoryQueryPoint("HQ 1")
 # Get Results for a specific History Query Point in Interpreter
-results = interpreter_model.GetHistoryQueryResults(hq_name="HQ 2", horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
-                                                   vertical_axis=HistoryQueryGraphEnums.VerticalAxisTypes.EFFECTIVE_STRESS_YY, stages=[1, 2])
+interpreter_model = interpreter.openFile(modelPath)
+results = interpreter_model.GetHistoryQueryResults(hq_name="HQ 2", 
+                                                   horizontal_axis=HistoryQueryGraphEnums.HorizontalAxisTypes.TIME,
+                                                   vertical_axis=HistoryQueryGraphEnums.VerticalAxisTypes.EFFECTIVE_STRESS_YY, 
+                                                   stages=[1, 2])
 
 # Extracting data
 stage_number = 1
