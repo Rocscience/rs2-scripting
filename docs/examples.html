@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+
+<html lang="en" data-content_root="./">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Python Script Examples &#8212; RS2 Scripting Client Library 0.0 documentation</title>
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
+    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <script src="_static/documentation_options.js?v=837179f8"></script>
+    <script src="_static/doctools.js?v=888ff710"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="rs2.utilities package" href="generatedAPIDocFiles/rs2.utilities.html" />
+   
+  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
+  
+
+  
+  
+
+  </head><body>
+  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          
+
+          <div class="body" role="main">
+            
+  <section id="python-script-examples">
+<h1>Python Script Examples<a class="headerlink" href="#python-script-examples" title="Link to this heading">¶</a></h1>
+<div class="literal-block-wrapper docutils container" id="id1">
+<span id="bolt-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Bolt Properties</span><a class="headerlink" href="#id1" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="n">boltList</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllBoltProperties</span><span class="p">()</span>
+<span class="n">bolt1</span> <span class="o">=</span> <span class="n">boltList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">bolt2</span> <span class="o">=</span> <span class="n">boltList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">bolt3</span> <span class="o">=</span> <span class="n">boltList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1">#Assigning bolt1 properties individually</span>
+<span class="n">bolt1</span><span class="o">.</span><span class="n">setBoltName</span><span class="p">(</span><span class="s2">&quot;Example Bolt 1&quot;</span><span class="p">)</span>
+<span class="n">bolt1</span><span class="o">.</span><span class="n">setBoltType</span><span class="p">(</span><span class="n">BoltTypes</span><span class="o">.</span><span class="n">FULLY_BONDED</span><span class="p">)</span>
+<span class="n">bolt1</span><span class="o">.</span><span class="n">FullyBonded</span><span class="o">.</span><span class="n">setBoltDiameter</span><span class="p">(</span><span class="mi">28</span><span class="p">)</span>
+<span class="n">bolt1</span><span class="o">.</span><span class="n">FullyBonded</span><span class="o">.</span><span class="n">setJointShear</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">bolt1</span><span class="o">.</span><span class="n">FullyBonded</span><span class="o">.</span><span class="n">setPreTensioningForce</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1">#Retrieving bolt1 properties individiually</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bolt1</span><span class="o">.</span><span class="n">FullyBonded</span><span class="o">.</span><span class="n">getBoltDiameter</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bolt1</span><span class="o">.</span><span class="n">FullyBonded</span><span class="o">.</span><span class="n">getJointShear</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bolt1</span><span class="o">.</span><span class="n">FullyBonded</span><span class="o">.</span><span class="n">getPreTensioningForce</span><span class="p">())</span>
+
+<span class="c1">#Bulk assignment of bolt2 properties</span>
+<span class="n">bolt2</span><span class="o">.</span><span class="n">setBoltName</span><span class="p">(</span><span class="s2">&quot;Example Bolt 2&quot;</span><span class="p">)</span>
+<span class="n">bolt2</span><span class="o">.</span><span class="n">setBoltType</span><span class="p">(</span><span class="n">BoltTypes</span><span class="o">.</span><span class="n">END_ANCHORED</span><span class="p">)</span>
+<span class="n">bolt2</span><span class="o">.</span><span class="n">EndAnchored</span><span class="o">.</span><span class="n">setProperties</span><span class="p">(</span><span class="n">BoltModulusE</span><span class="o">=</span><span class="mi">250000</span><span class="p">,</span> <span class="n">OutofPlaneSpacing</span><span class="o">=</span><span class="mf">1.2</span><span class="p">,</span> <span class="n">TensileCapacity</span><span class="o">=</span><span class="mf">0.2</span><span class="p">)</span>
+
+<span class="c1">#Bulk retrieval of bolt2 properties</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bolt2</span><span class="o">.</span><span class="n">EndAnchored</span><span class="o">.</span><span class="n">getProperties</span><span class="p">())</span>
+
+<span class="c1">#Assignment of bolt3 properties</span>
+<span class="n">bolt3</span><span class="o">.</span><span class="n">setBoltName</span><span class="p">(</span><span class="s2">&quot;Example Bolt 3&quot;</span><span class="p">)</span>
+<span class="n">bolt3</span><span class="o">.</span><span class="n">setBoltType</span><span class="p">(</span><span class="n">BoltTypes</span><span class="o">.</span><span class="n">PLAIN_STRAND_CABLE</span><span class="p">)</span>
+<span class="n">bolt3</span><span class="o">.</span><span class="n">PlainStrandCable</span><span class="o">.</span><span class="n">setProperties</span><span class="p">(</span><span class="n">AddBulges</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">AddPullOutForce</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">PullOutForce</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1">#Consult setProperties method definition in documentation to determine properties available.</span>
+<span class="n">bolt3</span><span class="o">.</span><span class="n">PlainStrandCable</span><span class="o">.</span><span class="n">setBulgeLocations</span><span class="p">([</span><span class="mi">10</span><span class="p">,</span><span class="mi">20</span><span class="p">,</span><span class="mi">30</span><span class="p">])</span>
+
+<span class="c1">#Retrieval of bolt2 properties</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bolt3</span><span class="o">.</span><span class="n">PlainStrandCable</span><span class="o">.</span><span class="n">getProperties</span><span class="p">())</span>
+<span class="c1">#Not all functions are accesible through the getProperties method. </span>
+<span class="c1">#Consult getProperties method definition in documentation to determine properties available.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">bolt3</span><span class="o">.</span><span class="n">PlainStrandCable</span><span class="o">.</span><span class="n">getBulgeLocations</span><span class="p">())</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id2">
+<span id="liner-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Liner Properties</span><a class="headerlink" href="#id2" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="n">linerList</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllLinerProperties</span><span class="p">()</span>
+<span class="n">liner1</span> <span class="o">=</span> <span class="n">linerList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">liner2</span> <span class="o">=</span> <span class="n">linerList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">liner3</span> <span class="o">=</span> <span class="n">linerList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1">#Assigning liner1 properties individually</span>
+<span class="n">liner1</span><span class="o">.</span><span class="n">setLinerName</span><span class="p">(</span><span class="s2">&quot;Example Liner 1&quot;</span><span class="p">)</span>
+<span class="n">liner1</span><span class="o">.</span><span class="n">setLinerType</span><span class="p">(</span><span class="n">LinerTypes</span><span class="o">.</span><span class="n">CABLE_TRUSS</span><span class="p">)</span>
+<span class="n">liner1</span><span class="o">.</span><span class="n">CableTruss</span><span class="o">.</span><span class="n">setYoungsModulus</span><span class="p">(</span><span class="mi">250000</span><span class="p">)</span>
+<span class="n">liner1</span><span class="o">.</span><span class="n">CableTruss</span><span class="o">.</span><span class="n">setMaterialType</span><span class="p">(</span><span class="n">MaterialType</span><span class="o">.</span><span class="n">ELASTIC</span><span class="p">)</span>
+<span class="n">liner1</span><span class="o">.</span><span class="n">CableTruss</span><span class="o">.</span><span class="n">setStageCableProperties</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1">#Retrieving liner1 properties individiually</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liner1</span><span class="o">.</span><span class="n">CableTruss</span><span class="o">.</span><span class="n">getYoungsModulus</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liner1</span><span class="o">.</span><span class="n">CableTruss</span><span class="o">.</span><span class="n">getMaterialType</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liner1</span><span class="o">.</span><span class="n">CableTruss</span><span class="o">.</span><span class="n">getMaterialType</span><span class="p">())</span>
+
+<span class="c1">#Bulk assignment of liner2 properties</span>
+<span class="n">liner2</span><span class="o">.</span><span class="n">setLinerName</span><span class="p">(</span><span class="s2">&quot;Example Liner 2&quot;</span><span class="p">)</span>
+<span class="n">liner2</span><span class="o">.</span><span class="n">setLinerType</span><span class="p">(</span><span class="n">LinerTypes</span><span class="o">.</span><span class="n">GEOSYNTHETIC</span><span class="p">)</span>
+<span class="n">liner2</span><span class="o">.</span><span class="n">Geosynthetic</span><span class="o">.</span><span class="n">setProperties</span><span class="p">(</span><span class="n">MaterialType</span><span class="o">=</span><span class="n">MaterialType</span><span class="o">.</span><span class="n">PLASTIC</span><span class="p">,</span> <span class="n">TensileStrengthPeak</span><span class="o">=</span><span class="mf">0.05</span><span class="p">,</span> <span class="n">TensileStrengthResidual</span><span class="o">=</span><span class="mf">0.025</span><span class="p">)</span>
+
+<span class="c1">#Bulk retrieval of liner2 properties</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liner2</span><span class="o">.</span><span class="n">Geosynthetic</span><span class="o">.</span><span class="n">getProperties</span><span class="p">())</span>
+
+<span class="c1">#Assignment of liner3 properties</span>
+<span class="n">liner3</span><span class="o">.</span><span class="n">setLinerName</span><span class="p">(</span><span class="s2">&quot;Example Liner 3&quot;</span><span class="p">)</span>
+<span class="n">liner3</span><span class="o">.</span><span class="n">setLinerType</span><span class="p">(</span><span class="n">LinerTypes</span><span class="o">.</span><span class="n">REINFORCED_CONCRETE</span><span class="p">)</span>
+<span class="n">liner3</span><span class="o">.</span><span class="n">ReinforcedConcrete</span><span class="o">.</span><span class="n">setProperties</span><span class="p">(</span><span class="n">IncludeWeightInStressAnalysis</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">Spacing</span><span class="o">=</span><span class="mf">2.2</span><span class="p">,</span> <span class="n">SlidingGap</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="c1">#Consult setProperties method definition in documentation to determine properties available.</span>
+<span class="n">liner3</span><span class="o">.</span><span class="n">ReinforcedConcrete</span><span class="o">.</span><span class="n">setStaticTemperatureGridToUse</span><span class="p">(</span><span class="s2">&quot;Default Grid&quot;</span><span class="p">)</span>
+
+<span class="c1">#Retrieval of liner2 properties</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liner3</span><span class="o">.</span><span class="n">ReinforcedConcrete</span><span class="o">.</span><span class="n">getProperties</span><span class="p">())</span>
+<span class="c1">#Not all functions are accesible through the getProperties method. </span>
+<span class="c1">#Consult getProperties method definition in documentation to determine properties available.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">liner3</span><span class="o">.</span><span class="n">ReinforcedConcrete</span><span class="o">.</span><span class="n">getStaticTemperatureGridToUse</span><span class="p">())</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<span id="joint-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Joint Properties</span><a class="headerlink" href="#id3" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="n">jointList</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllJointProperties</span><span class="p">()</span>
+<span class="n">joint1</span> <span class="o">=</span> <span class="n">jointList</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">joint2</span> <span class="o">=</span> <span class="n">jointList</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">joint3</span> <span class="o">=</span> <span class="n">jointList</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="c1">#Assigning joint1 properties individually</span>
+<span class="n">joint1</span><span class="o">.</span><span class="n">setJointName</span><span class="p">(</span><span class="s2">&quot;Example Joint 1&quot;</span><span class="p">)</span>
+<span class="n">joint1</span><span class="o">.</span><span class="n">setSlipCriterion</span><span class="p">(</span><span class="n">JointTypes</span><span class="o">.</span><span class="n">MOHR_COULOMB</span><span class="p">)</span>
+<span class="n">joint1</span><span class="o">.</span><span class="n">MohrCoulomb</span><span class="o">.</span><span class="n">setTensileStrength</span><span class="p">(</span><span class="mi">50</span><span class="p">)</span>
+<span class="n">joint1</span><span class="o">.</span><span class="n">MohrCoulomb</span><span class="o">.</span><span class="n">setNormalStiffness</span><span class="p">(</span><span class="mi">150000</span><span class="p">)</span>
+<span class="n">joint1</span><span class="o">.</span><span class="n">MohrCoulomb</span><span class="o">.</span><span class="n">setApplyAdditionalPressureInsideJoint</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1">#Retrieving joint1 properties individiually</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">joint1</span><span class="o">.</span><span class="n">MohrCoulomb</span><span class="o">.</span><span class="n">getTensileStrength</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">joint1</span><span class="o">.</span><span class="n">MohrCoulomb</span><span class="o">.</span><span class="n">getNormalStiffness</span><span class="p">())</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">joint1</span><span class="o">.</span><span class="n">MohrCoulomb</span><span class="o">.</span><span class="n">getApplyAdditionalPressureInsideJoint</span><span class="p">())</span>
+
+<span class="c1">#Bulk assignment of joint2 properties </span>
+<span class="n">joint2</span><span class="o">.</span><span class="n">setJointName</span><span class="p">(</span><span class="s2">&quot;Example Joint 2&quot;</span><span class="p">)</span>
+<span class="n">joint2</span><span class="o">.</span><span class="n">setSlipCriterion</span><span class="p">(</span><span class="n">JointTypes</span><span class="o">.</span><span class="n">HYPERBOLIC_SOFTENING</span><span class="p">)</span>
+<span class="n">joint2</span><span class="o">.</span><span class="n">HyperbolicSoftening</span><span class="o">.</span><span class="n">setProperties</span><span class="p">(</span><span class="n">PeakCohesion</span><span class="o">=</span><span class="mi">155</span><span class="p">,</span> <span class="n">ShearStiffness</span><span class="o">=</span><span class="mi">15000</span><span class="p">,</span> <span class="n">ApplyPressureToLinerSideOnly</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="c1">#Bulk retrieval of joint2 properties</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">joint2</span><span class="o">.</span><span class="n">HyperbolicSoftening</span><span class="o">.</span><span class="n">getProperties</span><span class="p">())</span>
+
+<span class="c1">#Assignment of joint3 properties</span>
+<span class="n">joint3</span><span class="o">.</span><span class="n">setJointName</span><span class="p">(</span><span class="s2">&quot;Example Joint 3&quot;</span><span class="p">)</span>
+<span class="n">joint3</span><span class="o">.</span><span class="n">setSlipCriterion</span><span class="p">(</span><span class="n">JointTypes</span><span class="o">.</span><span class="n">DISPLACEMENT_DEPENDENT</span><span class="p">)</span>
+<span class="n">joint3</span><span class="o">.</span><span class="n">DisplacementDependent</span><span class="o">.</span><span class="n">setProperties</span><span class="p">(</span><span class="n">AdditionalPressureType</span><span class="o">=</span><span class="n">AdditionalPressureType</span><span class="o">.</span><span class="n">PRESSURE</span><span class="p">,</span> <span class="n">AdditionalPressureInsideJoint</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+<span class="c1">#Not all functions are accesible through the setProperties method. </span>
+<span class="c1">#Consult setProperties method definition in documentation to determine properties available.</span>
+<span class="n">joint3</span><span class="o">.</span><span class="n">DisplacementDependent</span><span class="o">.</span><span class="n">setDisplacementDependentTable</span><span class="p">([[</span><span class="mi">2</span><span class="p">,</span><span class="mi">8</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">12</span><span class="p">],[</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">8</span><span class="p">]])</span>
+
+<span class="c1">#Retrieval of joint properties</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">joint3</span><span class="o">.</span><span class="n">DisplacementDependent</span><span class="o">.</span><span class="n">getProperties</span><span class="p">())</span>
+<span class="c1">#Not all functions are accesible through the getProperties method. </span>
+<span class="c1">#Consult getProperties method definition in documentation to determine properties available.</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">joint3</span><span class="o">.</span><span class="n">DisplacementDependent</span><span class="o">.</span><span class="n">getDisplacementDependentTable</span><span class="p">())</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<span id="pile-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Pile Properties</span><a class="headerlink" href="#id4" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="n">pile</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllPileProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">pile</span><span class="o">.</span><span class="n">setPileName</span><span class="p">(</span><span class="s2">&quot;MultiLinear Pile&quot;</span><span class="p">)</span>
+<span class="n">pile</span><span class="o">.</span><span class="n">setConnectionType</span><span class="p">(</span><span class="n">PileConnectionType</span><span class="o">.</span><span class="n">HINGED</span><span class="p">)</span>
+<span class="n">pile</span><span class="o">.</span><span class="n">setLength</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">pile</span><span class="o">.</span><span class="n">setOutOfPlaneSpacing</span><span class="p">(</span><span class="mf">0.6</span><span class="p">)</span>
+
+<span class="n">pile</span><span class="o">.</span><span class="n">setSkinResistance</span><span class="p">(</span><span class="n">PileSkinResistanceType</span><span class="o">.</span><span class="n">MULTI_LINEAR</span><span class="p">)</span>
+<span class="n">pile</span><span class="o">.</span><span class="n">MultiLinear</span><span class="o">.</span><span class="n">setShearStiffness</span><span class="p">(</span><span class="mi">1001</span><span class="p">)</span>
+
+<span class="n">pile</span><span class="o">.</span><span class="n">MultiLinear</span><span class="o">.</span><span class="n">setDefinitionMethod</span><span class="p">(</span><span class="n">PileDefinitionMethod</span><span class="o">.</span><span class="n">DISTANCE_FROM_TOP</span><span class="p">)</span>
+<span class="n">pile</span><span class="o">.</span><span class="n">MultiLinear</span><span class="o">.</span><span class="n">setCoordinates</span><span class="p">([</span><span class="mi">5</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">7</span><span class="p">],[</span><span class="mi">10</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">12</span><span class="p">])</span>
+
+<span class="n">pile</span><span class="o">.</span><span class="n">MultiLinear</span><span class="o">.</span><span class="n">setUseBaseResistance</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+
+<span class="n">pile</span><span class="o">.</span><span class="n">Beam</span><span class="o">.</span><span class="n">setApplication</span><span class="p">(</span><span class="n">PileApplicationType</span><span class="o">.</span><span class="n">DEFINE_BEAM_SEGMENT_BY_LENGTH</span><span class="p">)</span>
+<span class="n">pile</span><span class="o">.</span><span class="n">Beam</span><span class="o">.</span><span class="n">defineBeamSegment</span><span class="p">([</span><span class="mi">3</span><span class="p">,</span><span class="mi">6</span><span class="p">],</span> <span class="p">[</span><span class="s2">&quot;Liner 4&quot;</span><span class="p">,</span> <span class="s2">&quot;Liner 5&quot;</span><span class="p">])</span>
+
+
+<span class="n">pile</span><span class="o">.</span><span class="n">ForceDisplacement</span><span class="o">.</span><span class="n">setApply</span><span class="p">(</span><span class="n">PileEndCondition</span><span class="o">.</span><span class="n">FORCE</span><span class="p">)</span>
+<span class="n">pile</span><span class="o">.</span><span class="n">ForceDisplacement</span><span class="o">.</span><span class="n">setX</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">pile</span><span class="o">.</span><span class="n">ForceDisplacement</span><span class="o">.</span><span class="n">setY</span><span class="p">(</span><span class="mf">0.6</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<span id="structural-interface-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Structural Interface Properties</span><a class="headerlink" href="#id5" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="n">structural</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllStructuralInterfaceProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">structural</span><span class="o">.</span><span class="n">setStructuralInterfaceName</span><span class="p">(</span><span class="s2">&quot;Example Structural 1&quot;</span><span class="p">)</span>
+<span class="n">structural</span><span class="o">.</span><span class="n">setPositiveJointPropertyByName</span><span class="p">(</span><span class="s2">&quot;Joint 3&quot;</span><span class="p">)</span>
+<span class="n">structural</span><span class="o">.</span><span class="n">setLinerPropertyByName</span><span class="p">(</span><span class="s2">&quot;Liner 4&quot;</span><span class="p">)</span>
+<span class="n">structural</span><span class="o">.</span><span class="n">setNegativeJointPropertyByName</span><span class="p">(</span><span class="s2">&quot;Joint 5&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id6">
+<span id="composite-liner-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Composite Liner Properties</span><a class="headerlink" href="#id6" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="n">composite</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllCompositeLinerProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">composite</span><span class="o">.</span><span class="n">setCompositeName</span><span class="p">(</span><span class="s2">&quot;Example Composite 1&quot;</span><span class="p">)</span>
+<span class="n">composite</span><span class="o">.</span><span class="n">setNumberOfLayers</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="n">composite</span><span class="o">.</span><span class="n">setCompositeLinerPropertyByName</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="s2">&quot;Liner 2&quot;</span><span class="p">)</span>
+<span class="n">composite</span><span class="o">.</span><span class="n">setCompositeLinerPropertyByName</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="s2">&quot;Liner 3&quot;</span><span class="p">)</span>
+<span class="n">composite</span><span class="o">.</span><span class="n">setCompositeLinerPropertyByName</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="s2">&quot;Liner 5&quot;</span><span class="p">)</span>
+
+<span class="n">composite</span><span class="o">.</span><span class="n">setInstallDelay</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">composite</span><span class="o">.</span><span class="n">setInstallDelay</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+
+<span class="n">composite</span><span class="o">.</span><span class="n">setRemovedStage</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
+<span class="n">composite</span><span class="o">.</span><span class="n">setRemovedStage</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
+<span class="n">composite</span><span class="o">.</span><span class="n">setRemovedStage</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+
+<span class="n">composite</span><span class="o">.</span><span class="n">setJointApplied</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">composite</span><span class="o">.</span><span class="n">setCompositeJointPropertyByName</span><span class="p">(</span><span class="s2">&quot;Joint 5&quot;</span><span class="p">)</span>
+<span class="n">composite</span><span class="o">.</span><span class="n">setJointPlacement</span><span class="p">(</span><span class="n">CompositeJointPlacementTypes</span><span class="o">.</span><span class="n">BETWEEN_THIRD_AND_FOURTH_LINER</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id7">
+<span id="material-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Material Properties</span><a class="headerlink" href="#id7" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="n">material</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllMaterialProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">material</span><span class="o">.</span><span class="n">InitialConditions</span><span class="o">.</span><span class="n">setInitialElementLoading</span><span class="p">(</span><span class="n">InitialElementLoadingType</span><span class="o">.</span><span class="n">BODY_FORCE_ONLY</span><span class="p">)</span>
+
+<span class="n">material</span><span class="o">.</span><span class="n">Stiffness</span><span class="o">.</span><span class="n">setElasticType</span><span class="p">(</span><span class="n">MaterialElasticityTypes</span><span class="o">.</span><span class="n">TRANSVERSELY_ISOTROPIC</span><span class="p">)</span>
+<span class="n">material</span><span class="o">.</span><span class="n">Stiffness</span><span class="o">.</span><span class="n">TransverselyIsotropic</span><span class="o">.</span><span class="n">setUseUnloadingCondition</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">material</span><span class="o">.</span><span class="n">Strength</span><span class="o">.</span><span class="n">setFailureCriterion</span><span class="p">(</span><span class="n">StrengthCriteriaTypes</span><span class="o">.</span><span class="n">HOEK_BROWN</span><span class="p">)</span>
+<span class="n">material</span><span class="o">.</span><span class="n">Strength</span><span class="o">.</span><span class="n">HoekBrown</span><span class="o">.</span><span class="n">setCompressiveStrength</span><span class="p">(</span><span class="mi">101</span><span class="p">)</span>
+
+<span class="n">material</span><span class="o">.</span><span class="n">Hydraulic</span><span class="o">.</span><span class="n">StaticGroundwater</span><span class="o">.</span><span class="n">setStaticWaterMode</span><span class="p">(</span><span class="n">StaticWaterModes</span><span class="o">.</span><span class="n">PORE_WATER_PRESSURE</span><span class="p">)</span>
+<span class="n">material</span><span class="o">.</span><span class="n">Hydraulic</span><span class="o">.</span><span class="n">setMaterialBehaviour</span><span class="p">(</span><span class="n">MaterialBehaviours</span><span class="o">.</span><span class="n">UNDRAINED</span><span class="p">)</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id8">
+<span id="hydraulic-property-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Hydraulic Properties</span><a class="headerlink" href="#id8" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">staticGroundwaterModel</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\StaticGroundwater.fez&quot;</span><span class="p">)</span>
+<span class="n">FEAGroundwaterModel</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\FEAGroundwater.fez&quot;</span><span class="p">)</span>
+
+<span class="n">material</span> <span class="o">=</span> <span class="n">staticGroundwaterModel</span><span class="o">.</span><span class="n">getAllMaterialProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">hydraulic</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Hydraulic</span>
+
+<span class="n">hydraulic</span><span class="o">.</span><span class="n">setMaterialBehaviour</span><span class="p">(</span><span class="n">MaterialBehaviours</span><span class="o">.</span><span class="n">UNDRAINED</span><span class="p">)</span>
+<span class="n">hydraulic</span><span class="o">.</span><span class="n">setFluidBulkModulus</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">hydraulic</span><span class="o">.</span><span class="n">setUseBiotsCoefficientForCalculatingEffectiveStress</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Manupulation of Static Groundwater properties</span>
+<span class="n">staticgroundwater</span> <span class="o">=</span> <span class="n">hydraulic</span><span class="o">.</span><span class="n">StaticGroundwater</span>
+<span class="n">staticgroundwater</span><span class="o">.</span><span class="n">setStaticWaterMode</span><span class="p">(</span><span class="n">StaticWaterModes</span><span class="o">.</span><span class="n">PIEZO</span><span class="p">)</span>
+<span class="n">staticgroundwater</span><span class="o">.</span><span class="n">setPiezoToUse</span><span class="p">(</span><span class="s2">&quot;None&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Piezo To Use = </span><span class="si">{</span><span class="n">staticgroundwater</span><span class="o">.</span><span class="n">getPiezoToUse</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="n">staticgroundwater</span><span class="o">.</span><span class="n">setStaticWaterMode</span><span class="p">(</span><span class="n">StaticWaterModes</span><span class="o">.</span><span class="n">RU</span><span class="p">)</span>
+<span class="n">staticgroundwater</span><span class="o">.</span><span class="n">setRuValue</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Static Water Mode = </span><span class="si">{</span><span class="n">staticgroundwater</span><span class="o">.</span><span class="n">getStaticWaterMode</span><span class="p">()</span><span class="si">}</span><span class="s2">, RU Value = </span><span class="si">{</span><span class="n">staticgroundwater</span><span class="o">.</span><span class="n">getRuValue</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Manipulation of FEA Groundwater properties for Simple Model</span>
+<span class="n">material</span> <span class="o">=</span> <span class="n">FEAGroundwaterModel</span><span class="o">.</span><span class="n">getAllMaterialProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">FEAGroundwater</span> <span class="o">=</span> <span class="n">hydraulic</span><span class="o">.</span><span class="n">FEAGroundwater</span>
+<span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">setK2K1</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">setK1Definition</span><span class="p">(</span><span class="n">AnisotropyDefinitions</span><span class="o">.</span><span class="n">ANGLE</span><span class="p">)</span>
+<span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">setK1Angle</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;K2/K1 = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">getK2K1</span><span class="p">()</span><span class="si">}</span><span class="s2">, K1 Definition = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">getK1Definition</span><span class="p">()</span><span class="si">}</span><span class="s2">, K1 Angle = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">getK1Angle</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id9">
+<span id="hydraulic-property-static-groundwater-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Hydraulic Static Groundwater Properties</span><a class="headerlink" href="#id9" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\StaticGroundwater.fez&quot;</span><span class="p">)</span>
+
+<span class="n">material</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllMaterialProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">material</span><span class="o">.</span><span class="n">Hydraulic</span><span class="o">.</span><span class="n">setMaterialBehaviour</span><span class="p">(</span><span class="n">MaterialBehaviours</span><span class="o">.</span><span class="n">DRAINED</span><span class="p">)</span>
+<span class="n">material</span><span class="o">.</span><span class="n">Hydraulic</span><span class="o">.</span><span class="n">setFluidBulkModulus</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">material</span><span class="o">.</span><span class="n">Hydraulic</span><span class="o">.</span><span class="n">setUseBiotsCoefficientForCalculatingEffectiveStress</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Manipulation of Static Groundwater Hydarulic Properties</span>
+<span class="n">staticGroundwater</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Hydraulic</span><span class="o">.</span><span class="n">StaticGroundwater</span>
+<span class="n">staticGroundwater</span><span class="o">.</span><span class="n">setStaticWaterMode</span><span class="p">(</span><span class="n">StaticWaterModes</span><span class="o">.</span><span class="n">PORE_WATER_PRESSURE</span><span class="p">)</span>
+<span class="n">staticGroundwater</span><span class="o">.</span><span class="n">setStaticPoreWaterPressure</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">poreWaterPressure</span> <span class="o">=</span> <span class="n">staticGroundwater</span><span class="o">.</span><span class="n">getStaticPoreWaterPressure</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Static Pore Water Pressure = </span><span class="si">{</span><span class="n">poreWaterPressure</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">staticGroundwater</span><span class="o">.</span><span class="n">setStaticWaterMode</span><span class="p">(</span><span class="n">StaticWaterModes</span><span class="o">.</span><span class="n">RU</span><span class="p">)</span>
+<span class="n">staticGroundwater</span><span class="o">.</span><span class="n">setRuValue</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">ruValue</span> <span class="o">=</span> <span class="n">staticGroundwater</span><span class="o">.</span><span class="n">getRuValue</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ru Value = </span><span class="si">{</span><span class="n">ruValue</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">staticGroundwater</span><span class="o">.</span><span class="n">setStaticWaterMode</span><span class="p">(</span><span class="n">StaticWaterModes</span><span class="o">.</span><span class="n">PIEZO</span><span class="p">)</span>
+<span class="n">staticGroundwater</span><span class="o">.</span><span class="n">setPiezoToUse</span><span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">)</span>
+<span class="n">staticGroundwater</span><span class="o">.</span><span class="n">setHuType</span><span class="p">(</span><span class="n">HuTypes</span><span class="o">.</span><span class="n">CUSTOM</span><span class="p">)</span>
+<span class="n">staticGroundwater</span><span class="o">.</span><span class="n">setHuValue</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">huValue</span> <span class="o">=</span> <span class="n">staticGroundwater</span><span class="o">.</span><span class="n">getHuValue</span><span class="p">()</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Hu Value = </span><span class="si">{</span><span class="n">huValue</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">staticGroundwater</span><span class="o">.</span><span class="n">setStaticWaterMode</span><span class="p">(</span><span class="n">StaticWaterModes</span><span class="o">.</span><span class="n">GRID</span><span class="p">)</span>
+<span class="n">staticGroundwater</span><span class="o">.</span><span class="n">setGridToUse</span><span class="p">(</span><span class="s2">&quot;Default Grid&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id10">
+<span id="hydraulic-property-feagroundwater-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Hydraulic FEA Groundwater Properties</span><a class="headerlink" href="#id10" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\FEAGroundwater.fez&quot;</span><span class="p">)</span>
+
+<span class="n">material</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllMaterialProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">hydraulic</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Hydraulic</span>
+
+<span class="n">hydraulic</span><span class="o">.</span><span class="n">setMaterialBehaviour</span><span class="p">(</span><span class="n">MaterialBehaviours</span><span class="o">.</span><span class="n">UNDRAINED</span><span class="p">)</span>
+<span class="n">hydraulic</span><span class="o">.</span><span class="n">setFluidBulkModulus</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">hydraulic</span><span class="o">.</span><span class="n">setUseBiotsCoefficientForCalculatingEffectiveStress</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Manipulation of FEA Groundwater properties</span>
+<span class="n">FEAGroundwater</span> <span class="o">=</span> <span class="n">hydraulic</span><span class="o">.</span><span class="n">FEAGroundwater</span>
+<span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">setK2K1</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">setK1Definition</span><span class="p">(</span><span class="n">AnisotropyDefinitions</span><span class="o">.</span><span class="n">ANGLE</span><span class="p">)</span>
+<span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">setK1Angle</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">setMvModel</span><span class="p">(</span><span class="n">MVModel</span><span class="o">.</span><span class="n">CONSTANT</span><span class="p">)</span>
+<span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">setMv</span><span class="p">(</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Simple</span><span class="o">.</span><span class="n">setKs</span><span class="p">(</span><span class="mf">0.005</span><span class="p">)</span>
+<span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Simple</span><span class="o">.</span><span class="n">setWCInputType</span><span class="p">(</span><span class="n">WCInputType</span><span class="o">.</span><span class="n">BY_WATER_CONTENT</span><span class="p">)</span>
+<span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Simple</span><span class="o">.</span><span class="n">setWCSat</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Simple</span><span class="o">.</span><span class="n">setWCRes</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Simple</span><span class="o">.</span><span class="n">setWCInputType</span><span class="p">(</span><span class="n">WCInputType</span><span class="o">.</span><span class="n">BY_DEGREE_OF_SATURATION</span><span class="p">)</span>
+<span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Simple</span><span class="o">.</span><span class="n">setDoSSat</span><span class="p">(</span><span class="mf">0.3</span><span class="p">)</span>
+<span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Simple</span><span class="o">.</span><span class="n">setDoSRes</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fluid Bulk Modulus = </span><span class="si">{</span><span class="n">hydraulic</span><span class="o">.</span><span class="n">getFluidBulkModulus</span><span class="p">()</span><span class="si">}</span><span class="s2">, K2/K1 = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">getK2K1</span><span class="p">()</span><span class="si">}</span><span class="s2">, K1 Definition = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">getK1Definition</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;K1 Angle = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">getK1Angle</span><span class="p">()</span><span class="si">}</span><span class="s2">, MV Model = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">getMvModel</span><span class="p">()</span><span class="si">}</span><span class="s2">, Mv Value = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">getMv</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Ks Value = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Simple</span><span class="o">.</span><span class="n">getKs</span><span class="p">()</span><span class="si">}</span><span class="s2">, Water Content Sat = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Simple</span><span class="o">.</span><span class="n">getWCSat</span><span class="p">()</span><span class="si">}</span><span class="s2">, Water Content Res = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Simple</span><span class="o">.</span><span class="n">getWCRes</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Degree of Saturation Sat = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Simple</span><span class="o">.</span><span class="n">getDoSSat</span><span class="p">()</span><span class="si">}</span><span class="s2">, Degree of Staturation Res = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Simple</span><span class="o">.</span><span class="n">getDoSRes</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Simple Model Parameters</span>
+<span class="n">simple</span> <span class="o">=</span> <span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Simple</span>
+<span class="n">simple</span><span class="o">.</span><span class="n">setSoilType</span><span class="p">(</span><span class="n">EnhancedSimpleSoilTypes</span><span class="o">.</span><span class="n">SILT</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Soil Type = </span><span class="si">{</span><span class="n">simple</span><span class="o">.</span><span class="n">getSoilType</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Fredlund and Xing Model Paremeters</span>
+<span class="n">fredlund</span> <span class="o">=</span> <span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Fredlund</span>
+<span class="n">fredlund</span><span class="o">.</span><span class="n">setA</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">fredlund</span><span class="o">.</span><span class="n">setB</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">fredlund</span><span class="o">.</span><span class="n">setC</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Fredlund Param A = </span><span class="si">{</span><span class="n">fredlund</span><span class="o">.</span><span class="n">getA</span><span class="p">()</span><span class="si">}</span><span class="s2">, Fredlung Param B = </span><span class="si">{</span><span class="n">fredlund</span><span class="o">.</span><span class="n">getB</span><span class="p">()</span><span class="si">}</span><span class="s2">, Fredlund Param C = </span><span class="si">{</span><span class="n">fredlund</span><span class="o">.</span><span class="n">getC</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Van Genuchten Model Parameters</span>
+<span class="n">genuchten</span> <span class="o">=</span> <span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Genuchten</span>
+<span class="n">genuchten</span><span class="o">.</span><span class="n">setAlpha</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+<span class="n">genuchten</span><span class="o">.</span><span class="n">setN</span><span class="p">(</span><span class="mf">3.13</span><span class="p">)</span>
+<span class="n">genuchten</span><span class="o">.</span><span class="n">setCustomM</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">genuchten</span><span class="o">.</span><span class="n">setM</span><span class="p">(</span><span class="mf">0.55</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Alpha = </span><span class="si">{</span><span class="n">genuchten</span><span class="o">.</span><span class="n">getAlpha</span><span class="p">()</span><span class="si">}</span><span class="s2">, N = </span><span class="si">{</span><span class="n">genuchten</span><span class="o">.</span><span class="n">getN</span><span class="p">()</span><span class="si">}</span><span class="s2">, Custom M Value = </span><span class="si">{</span><span class="n">genuchten</span><span class="o">.</span><span class="n">getM</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Brooks and Corey Model Parameters</span>
+<span class="n">brooks</span> <span class="o">=</span> <span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Brooks</span>
+<span class="n">brooks</span><span class="o">.</span><span class="n">setPoreSizeIndex</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">brooks</span><span class="o">.</span><span class="n">setBubblingPressure</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Pore Size Index = </span><span class="si">{</span><span class="n">brooks</span><span class="o">.</span><span class="n">getPoreSizeIndex</span><span class="p">()</span><span class="si">}</span><span class="s2">, Bubbling Pressure = </span><span class="si">{</span><span class="n">brooks</span><span class="o">.</span><span class="n">getBubblingPressure</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Gardner Model Parameters</span>
+<span class="n">gardener</span> <span class="o">=</span> <span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">Gardner</span>
+<span class="n">gardener</span><span class="o">.</span><span class="n">setA</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">gardener</span><span class="o">.</span><span class="n">setN</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Param A = </span><span class="si">{</span><span class="n">gardener</span><span class="o">.</span><span class="n">getA</span><span class="p">()</span><span class="si">}</span><span class="s2">, Param N = </span><span class="si">{</span><span class="n">gardener</span><span class="o">.</span><span class="n">getN</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># User Defined Model Parameters</span>
+<span class="n">userDefined</span> <span class="o">=</span> <span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">UserDefined</span>
+<span class="n">userDefined</span><span class="o">.</span><span class="n">setUserDefinedPermeabilityAndWaterContentFunction</span><span class="p">(</span><span class="s2">&quot;User Defined 1&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User Defined Permeability And Water Content Function Name = </span><span class="si">{</span><span class="n">userDefined</span><span class="o">.</span><span class="n">getUserDefinedPermeabilityAndWaterContentFunction</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id11">
+<span id="material-property-datum-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Datum Properties</span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="n">material</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllMaterialProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Make sure to set Material Stiffness Type is Isotropic to set Datum Dependency Properties</span>
+<span class="n">material</span><span class="o">.</span><span class="n">Stiffness</span><span class="o">.</span><span class="n">setElasticType</span><span class="p">(</span><span class="n">MaterialElasticityTypes</span><span class="o">.</span><span class="n">ISOTROPIC</span><span class="p">)</span>
+<span class="n">material</span><span class="o">.</span><span class="n">Datum</span><span class="o">.</span><span class="n">setUsingDatum</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Youngs Modulus Datum properties</span>
+<span class="n">youngDatum</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Datum</span><span class="o">.</span><span class="n">getDatumYoungsModulus</span><span class="p">()</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setUsing</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">DatumType</span><span class="o">.</span><span class="n">DATUM_TYPE_DEPTH</span><span class="p">)</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setDatum</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">DatumType</span><span class="o">.</span><span class="n">DATUM_TYPE_RADIAL</span><span class="p">)</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setCenter</span><span class="p">(</span><span class="mf">3.5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setUseCutoff</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setChange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setCutoff</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Youngs Modulus Datum Dependent Type:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Datum Type = </span><span class="si">{</span><span class="n">youngDatum</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span><span class="si">}</span><span class="s2">, Datum Value = </span><span class="si">{</span><span class="n">youngDatum</span><span class="o">.</span><span class="n">getDatum</span><span class="p">()</span><span class="si">}</span><span class="s2">, Center = </span><span class="si">{</span><span class="n">youngDatum</span><span class="o">.</span><span class="n">getCenter</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use Cutoff = </span><span class="si">{</span><span class="n">youngDatum</span><span class="o">.</span><span class="n">getUseCutoff</span><span class="p">()</span><span class="si">}</span><span class="s2">, Datum Change = </span><span class="si">{</span><span class="n">youngDatum</span><span class="o">.</span><span class="n">getChange</span><span class="p">()</span><span class="si">}</span><span class="s2">, Cutoff = </span><span class="si">{</span><span class="n">youngDatum</span><span class="o">.</span><span class="n">getCutoff</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Set Material Strength failure criterion to Mohr-Coulomb and material type to Plastic</span>
+<span class="c1"># This allows to specify properties for Friction and Cohesion Datum Dependent Types</span>
+<span class="n">material</span><span class="o">.</span><span class="n">Strength</span><span class="o">.</span><span class="n">setFailureCriterion</span><span class="p">(</span><span class="n">StrengthCriteriaTypes</span><span class="o">.</span><span class="n">MOHR_COULOMB</span><span class="p">)</span>
+<span class="n">material</span><span class="o">.</span><span class="n">Strength</span><span class="o">.</span><span class="n">MohrCoulombStrength</span><span class="o">.</span><span class="n">setMaterialType</span><span class="p">(</span><span class="n">MaterialType</span><span class="o">.</span><span class="n">PLASTIC</span><span class="p">)</span>
+
+<span class="c1"># Friction Datum properties</span>
+<span class="n">frictionDatum</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Datum</span><span class="o">.</span><span class="n">getDatumFrictionAngle</span><span class="p">()</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setUsing</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">DatumType</span><span class="o">.</span><span class="n">DATUM_TYPE_DEPTH</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setDatum</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">DatumType</span><span class="o">.</span><span class="n">DATUM_TYPE_DEPTH</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setCenter</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setPeakChange</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setUsePeakCutoff</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setPeakCutoffValue</span><span class="p">(</span><span class="mi">44</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setResidualChange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setUseResidualCutoff</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setResidualCutoffValue</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Friction Datum Dependent Type:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Datum Type = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span><span class="si">}</span><span class="s2">, Datum Value = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getDatum</span><span class="p">()</span><span class="si">}</span><span class="s2">, Center = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getCenter</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use Peak Cutoff = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getUsePeakCutoff</span><span class="p">()</span><span class="si">}</span><span class="s2">, Peak Change = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getPeakChange</span><span class="p">()</span><span class="si">}</span><span class="s2">, Peak Cutoff = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getPeakCutoffValue</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use Residual Cutoff = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getUseResidualCutoff</span><span class="p">()</span><span class="si">}</span><span class="s2">, Residual Cutoff Value = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getResidualCutoffValue</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Cohesion Datum properties</span>
+<span class="n">cohesion</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Datum</span><span class="o">.</span><span class="n">getDatumCohesion</span><span class="p">()</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">DatumType</span><span class="o">.</span><span class="n">DATUM_TYPE_DEPTH</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setDatum</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">DatumType</span><span class="o">.</span><span class="n">DATUM_TYPE_RADIAL</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setCenter</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setPeakChange</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setUsePeakCutoff</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setPeakCutoffValue</span><span class="p">(</span><span class="mi">44</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setResidualChange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setUseResidualCutoff</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setResidualCutoffValue</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cohesion Datum Dependent Type:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Datum Type = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span><span class="si">}</span><span class="s2">, Datum Value = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getDatum</span><span class="p">()</span><span class="si">}</span><span class="s2">, Center = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getCenter</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use Peak Cutoff = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getUsePeakCutoff</span><span class="p">()</span><span class="si">}</span><span class="s2">, Peak Change = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getPeakChange</span><span class="p">()</span><span class="si">}</span><span class="s2">, Peak Cutoff = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getPeakCutoffValue</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use Residual Cutoff = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getUseResidualCutoff</span><span class="p">()</span><span class="si">}</span><span class="s2">, Residual Cutoff Value = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getResidualCutoffValue</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id12">
+<span id="material-property-stiffness-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Stiffness Properties</span><a class="headerlink" href="#id12" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="n">material</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllMaterialProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">stiffness</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Stiffness</span>
+<span class="n">custom</span> <span class="o">=</span> <span class="n">stiffness</span><span class="o">.</span><span class="n">Custom</span>
+<span class="c1"># Manipulation of Loading Properties</span>
+<span class="n">custom</span><span class="o">.</span><span class="n">setUseConstantPoissonsRatio</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">custom</span><span class="o">.</span><span class="n">setCustomStiffnessLoadingTable</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">CustomMode</span><span class="o">.</span><span class="n">CUSTOM_Q</span><span class="p">,</span>
+                                      <span class="n">table</span><span class="o">=</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)])</span>
+<span class="c1"># Manipulation of Unloading Properties</span>
+<span class="n">custom</span><span class="o">.</span><span class="n">setUseUnloadingCondition</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">custom</span><span class="o">.</span><span class="n">setUnloadingCondition</span><span class="p">(</span><span class="n">UnloadingConditions</span><span class="o">.</span><span class="n">DEVIATORIC_STRESS</span><span class="p">)</span>
+<span class="n">custom</span><span class="o">.</span><span class="n">setUnloadingUseConstantPoissonsRatio</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span>
+<span class="n">custom</span><span class="o">.</span><span class="n">setCustomStiffnessUnloadingTable</span><span class="p">(</span><span class="n">mode</span><span class="o">=</span><span class="n">CustomMode</span><span class="o">.</span><span class="n">CUSTOM_Q</span><span class="p">,</span>
+                                        <span class="n">table</span><span class="o">=</span><span class="p">[(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mf">0.3</span><span class="p">),</span> <span class="p">(</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">)])</span>
+
+<span class="c1"># Make sure to define Stiffness Loading and Unloading tables before setting Custom Model and Stiffness Elastic Type to Custom</span>
+<span class="n">custom</span><span class="o">.</span><span class="n">setCustomMode</span><span class="p">(</span><span class="n">CustomMode</span><span class="o">.</span><span class="n">CUSTOM_Q</span><span class="p">)</span>
+<span class="n">stiffness</span><span class="o">.</span><span class="n">setElasticType</span><span class="p">(</span><span class="n">MaterialElasticityTypes</span><span class="o">.</span><span class="n">CUSTOM</span><span class="p">)</span>
+
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading Custom Table = </span><span class="si">{</span><span class="n">custom</span><span class="o">.</span><span class="n">getCustomStiffnessLoadingTable</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unloading Condition = </span><span class="si">{</span><span class="n">custom</span><span class="o">.</span><span class="n">getUnloadingCondition</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unloading Custom Table = </span><span class="si">{</span><span class="n">custom</span><span class="o">.</span><span class="n">getCustomStiffnessUnloadingTable</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id13">
+<span id="material-property-strength-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Strength Properties</span><a class="headerlink" href="#id13" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="n">material</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllMaterialProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">strength</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Strength</span>
+
+<span class="n">strength</span><span class="o">.</span><span class="n">setFailureCriterion</span><span class="p">(</span><span class="n">StrengthCriteriaTypes</span><span class="o">.</span><span class="n">MOHR_COULOMB</span><span class="p">)</span>
+<span class="n">material</span><span class="o">.</span><span class="n">Strength</span><span class="o">.</span><span class="n">MohrCoulombStrength</span><span class="o">.</span><span class="n">setMaterialType</span><span class="p">(</span><span class="n">MaterialType</span><span class="o">.</span><span class="n">PLASTIC</span><span class="p">)</span>
+<span class="n">strength</span><span class="o">.</span><span class="n">setUnsaturatedBehavior</span><span class="p">(</span><span class="n">UnsaturatedParameterType</span><span class="o">.</span><span class="n">SINGLE_EFFECTIVE_STRESS</span><span class="p">)</span>
+<span class="n">strength</span><span class="o">.</span><span class="n">setSingleEffectiveStressMethod</span><span class="p">(</span><span class="n">UnsaturatedSingleEffectiveStressMethod</span><span class="o">.</span><span class="n">TABULAR_VALUE</span><span class="p">)</span>
+<span class="n">strength</span><span class="o">.</span><span class="n">setUseCutoff</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">strength</span><span class="o">.</span><span class="n">setCutoffValue</span><span class="p">(</span><span class="o">-</span><span class="mf">0.8</span><span class="p">)</span>
+<span class="c1"># Manipulation of Mohr-Coulomb Failure Criterion</span>
+<span class="n">mohr_coulomb</span> <span class="o">=</span> <span class="n">strength</span><span class="o">.</span><span class="n">MohrCoulombStrength</span>
+<span class="n">mohr_coulomb</span><span class="o">.</span><span class="n">setPeakTensileStrength</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">mohr_coulomb</span><span class="o">.</span><span class="n">setPeakFrictionAngle</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">mohr_coulomb</span><span class="o">.</span><span class="n">setPeakCohesion</span><span class="p">(</span><span class="mi">12</span><span class="p">)</span>
+<span class="n">mohr_coulomb</span><span class="o">.</span><span class="n">setResidualTensileStrength</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">mohr_coulomb</span><span class="o">.</span><span class="n">setResidualFrictionAngle</span><span class="p">(</span><span class="mi">35</span><span class="p">)</span>
+<span class="n">mohr_coulomb</span><span class="o">.</span><span class="n">setResidualCohesion</span><span class="p">(</span><span class="mf">13.5</span><span class="p">)</span>
+<span class="n">mohr_coulomb</span><span class="o">.</span><span class="n">setDilationAngle</span><span class="p">(</span><span class="mi">15</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Peak Tensile Strength = </span><span class="si">{</span><span class="n">mohr_coulomb</span><span class="o">.</span><span class="n">getPeakTensileStrength</span><span class="p">()</span><span class="si">}</span><span class="s2">, Peak Friction Angle = </span><span class="si">{</span><span class="n">mohr_coulomb</span><span class="o">.</span><span class="n">getPeakFrictionAngle</span><span class="p">()</span><span class="si">}</span><span class="s2">, Peak Cohesion = </span><span class="si">{</span><span class="n">mohr_coulomb</span><span class="o">.</span><span class="n">getPeakCohesion</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Res Peak Tensile = </span><span class="si">{</span><span class="n">mohr_coulomb</span><span class="o">.</span><span class="n">getResidualTensileStrength</span><span class="p">()</span><span class="si">}</span><span class="s2">, Res Peak Friction = </span><span class="si">{</span><span class="n">mohr_coulomb</span><span class="o">.</span><span class="n">getResidualFrictionAngle</span><span class="p">()</span><span class="si">}</span><span class="s2">, Res Cohesion = </span><span class="si">{</span><span class="n">mohr_coulomb</span><span class="o">.</span><span class="n">getResidualFrictionAngle</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">tabularValueMethod</span> <span class="o">=</span> <span class="n">strength</span><span class="o">.</span><span class="n">setTabularValues</span><span class="p">(</span><span class="n">UnsaturatedTabularValueMethod</span><span class="o">.</span><span class="n">WITH_RESPECT_TO_SUCTION</span><span class="p">)</span>
+<span class="n">strength</span><span class="o">.</span><span class="n">setUnsaturatedZoneTableWithRespectToSuction</span><span class="p">(</span><span class="n">coefficients</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+
+<span class="c1"># Manipulation of Snowden Mod. Anisotropic Linear Strength Function</span>
+<span class="n">snowdenAnisotripicFunction</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Strength</span><span class="o">.</span><span class="n">SnowdenModAnisotropicLinear</span><span class="o">.</span><span class="n">getBeddingStrengthFunction</span><span class="p">()</span>
+<span class="n">snowdenAnisotripicFunction</span><span class="o">.</span><span class="n">setDilationRatio</span><span class="p">(</span><span class="mf">0.74</span><span class="p">)</span>
+<span class="n">snowdenAnisotripicFunction</span><span class="o">.</span><span class="n">setPeakTensileStrength</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">snowdenAnisotripicFunction</span><span class="o">.</span><span class="n">setResidualTensileStrength</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">snowdenAnisotripicFunction</span><span class="o">.</span><span class="n">setFunctionType</span><span class="p">(</span><span class="n">SnowdenAnisotropicFunctionType</span><span class="o">.</span><span class="n">FUNCTION_TYPE_SHEAR_NORMAL</span><span class="p">)</span>
+<span class="n">snowdenAnisotripicFunction</span><span class="o">.</span><span class="n">setShearNormalFunctionWithResidual</span><span class="p">(</span><span class="n">normalStress</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span> <span class="p">,</span> <span class="mi">2</span><span class="p">],</span>
+                                                              <span class="n">shearStress</span><span class="o">=</span><span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span>
+                                                              <span class="n">residualShearStress</span><span class="o">=</span><span class="p">[</span><span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.6</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Normal Stress = </span><span class="si">{</span><span class="n">snowdenAnisotripicFunction</span><span class="o">.</span><span class="n">getNormalStress</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shear Stress = </span><span class="si">{</span><span class="n">snowdenAnisotripicFunction</span><span class="o">.</span><span class="n">getShearStress</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Residual Shear Stress = </span><span class="si">{</span><span class="n">snowdenAnisotripicFunction</span><span class="o">.</span><span class="n">getResidualShearStress</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id14">
+<span id="material-property-thermal-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Thermal Properties</span><a class="headerlink" href="#id14" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="n">material</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllMaterialProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">thermal</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Thermal</span>
+<span class="n">thermal</span><span class="o">.</span><span class="n">setWaterContent</span><span class="p">(</span><span class="n">ThermalWaterContentMethodType</span><span class="o">.</span><span class="n">DEFINE</span><span class="p">)</span>
+<span class="n">thermal</span><span class="o">.</span><span class="n">setWaterContentValue</span><span class="p">(</span><span class="mf">0.35</span><span class="p">)</span>
+
+<span class="c1"># Manipulation of Thermal Conductivity Properties</span>
+<span class="n">conductivity</span> <span class="o">=</span> <span class="n">thermal</span><span class="o">.</span><span class="n">Conductivity</span>
+<span class="n">conductivity</span><span class="o">.</span><span class="n">setMethod</span><span class="p">(</span><span class="n">ThermalType</span><span class="o">.</span><span class="n">JOHANSEN_LU</span><span class="p">)</span>
+<span class="n">johansenLu</span> <span class="o">=</span> <span class="n">conductivity</span><span class="o">.</span><span class="n">JohansenLu</span>
+<span class="n">johansenLu</span><span class="o">.</span><span class="n">setSoilType</span><span class="p">(</span><span class="n">ThermalSoilType</span><span class="o">.</span><span class="n">CRUSHED_ROCK</span><span class="p">)</span>
+<span class="n">johansenLu</span><span class="o">.</span><span class="n">setQuartzContent</span><span class="p">(</span><span class="mf">0.88</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Soil Type = </span><span class="si">{</span><span class="n">johansenLu</span><span class="o">.</span><span class="n">getSoilType</span><span class="p">()</span><span class="si">}</span><span class="s2">, Quartz Content = </span><span class="si">{</span><span class="n">johansenLu</span><span class="o">.</span><span class="n">getQuartzContent</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">conductivity</span><span class="o">.</span><span class="n">setMethod</span><span class="p">(</span><span class="n">ThermalType</span><span class="o">.</span><span class="n">CUSTOM</span><span class="p">)</span>
+<span class="n">conductivity</span><span class="o">.</span><span class="n">Tabular</span><span class="o">.</span><span class="n">setDependence</span><span class="p">(</span><span class="n">ThermalVolumetricDepencenceType</span><span class="o">.</span><span class="n">TEMPERATURE</span><span class="p">)</span>
+<span class="n">conductivity</span><span class="o">.</span><span class="n">Tabular</span><span class="o">.</span><span class="n">setThermalConductivityTemperatureFunction</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                                                               <span class="n">conductivity</span><span class="o">=</span><span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Thermal Temp. Vs Conductivity Table Values = </span><span class="si">{</span><span class="n">conductivity</span><span class="o">.</span><span class="n">Tabular</span><span class="o">.</span><span class="n">getThermalConductivityTemperatureFunction</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Manipulation of Thermal Heat Capacity Properties</span>
+<span class="n">heatCapacity</span> <span class="o">=</span> <span class="n">thermal</span><span class="o">.</span><span class="n">HeatCapacity</span>
+<span class="n">heatCapacity</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">ThermalHeatCapacityType</span><span class="o">.</span><span class="n">JAME_NEWMAN</span><span class="p">)</span>
+<span class="n">jameNewman</span> <span class="o">=</span> <span class="n">thermal</span><span class="o">.</span><span class="n">HeatCapacity</span><span class="o">.</span><span class="n">JameNewman</span>
+<span class="n">jameNewman</span><span class="o">.</span><span class="n">setIncludeLatentHeat</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">jameNewman</span><span class="o">.</span><span class="n">setSoilSpecificHeatCapacity</span><span class="p">(</span><span class="mi">890</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Heat Capacity Type = </span><span class="si">{</span><span class="n">heatCapacity</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span><span class="si">}</span><span class="s2">, Include Latent = </span><span class="si">{</span><span class="n">jameNewman</span><span class="o">.</span><span class="n">getIncludeLatentHeat</span><span class="p">()</span><span class="si">}</span><span class="s2">, Specific Heat Capacity = </span><span class="si">{</span><span class="n">jameNewman</span><span class="o">.</span><span class="n">getSoilSpecificHeatCapacity</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">custom</span> <span class="o">=</span> <span class="n">heatCapacity</span><span class="o">.</span><span class="n">CustomHeatCapacity</span>
+<span class="n">custom</span><span class="o">.</span><span class="n">setDependence</span><span class="p">(</span><span class="n">ThermalVolumetricDepencenceType</span><span class="o">.</span><span class="n">WATER_CONTENT</span><span class="p">)</span>
+<span class="n">custom</span><span class="o">.</span><span class="n">setVolumetricHeatCapacityVsWaterContentTable</span><span class="p">(</span><span class="n">volumetricHeatCapacity</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">],</span>
+                                                    <span class="n">waterContent</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Volumetric Heat Capacity VS Water Content Table&quot;</span><span class="p">,</span> <span class="n">custom</span><span class="o">.</span><span class="n">getVolumetricHeatCapacityVsWaterContentTable</span><span class="p">())</span>
+
+<span class="c1"># Manipulation of Thermal Soil Unfrozen Water Content Properties</span>
+<span class="n">soilUnfrozenWaterContent</span> <span class="o">=</span> <span class="n">thermal</span><span class="o">.</span><span class="n">SoilUnfrozenWaterContent</span>
+<span class="n">ticeAnderson</span> <span class="o">=</span> <span class="n">soilUnfrozenWaterContent</span><span class="o">.</span><span class="n">TiceAnderson</span>
+<span class="n">ticeAnderson</span><span class="o">.</span><span class="n">setFrozenTemperature</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">ticeAnderson</span><span class="o">.</span><span class="n">setInputAlpha</span><span class="p">(</span><span class="mf">0.009</span><span class="p">)</span>
+<span class="n">ticeAnderson</span><span class="o">.</span><span class="n">setInputBeta</span><span class="p">(</span><span class="mf">0.0085</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input Alpha = </span><span class="si">{</span><span class="n">ticeAnderson</span><span class="o">.</span><span class="n">getInputAlpha</span><span class="p">()</span><span class="si">}</span><span class="s2">, Input Beta = </span><span class="si">{</span><span class="n">ticeAnderson</span><span class="o">.</span><span class="n">getInputBeta</span><span class="p">()</span><span class="si">}</span><span class="s2">, Frozen Temp = </span><span class="si">{</span><span class="n">ticeAnderson</span><span class="o">.</span><span class="n">getFrozenTemperature</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">soilUnfrozenWaterContent</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">ThermalWaterContentType</span><span class="o">.</span><span class="n">CUSTOM</span><span class="p">)</span>
+<span class="n">soilUnfrozenWaterContent</span><span class="o">.</span><span class="n">CustomWaterContent</span><span class="o">.</span><span class="n">setTemperatureVsUnfrozenWaterContentValues</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                                                                                       <span class="n">unfrozenWaterContent</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Thermal Temperature vs Soil Unfrozen Water Content Table Values&quot;</span><span class="p">,</span>
+      <span class="n">soilUnfrozenWaterContent</span><span class="o">.</span><span class="n">CustomWaterContent</span><span class="o">.</span><span class="n">getTemperatureVsUnfrozenWaterContentValues</span><span class="p">())</span>
+
+<span class="c1"># Manipulation of Thermal Hydraulic Model Soil Unfrozen Water Content Properties</span>
+<span class="n">soilUnfrozenWC</span> <span class="o">=</span> <span class="n">thermal</span><span class="o">.</span><span class="n">SoilUnfrozenWaterContent</span>
+<span class="c1"># Make sure to set Soil Unfrozen Water Content type to Hydraulic Properties</span>
+<span class="n">soilUnfrozenWC</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">ThermalWaterContentType</span><span class="o">.</span><span class="n">SOIL_WATER_CONTENT_IN_HYDRAULIC_PROPERTIES</span><span class="p">)</span>
+<span class="n">hydraulic_soilUnfrozenWC</span> <span class="o">=</span> <span class="n">soilUnfrozenWaterContent</span><span class="o">.</span><span class="n">HydraulicModel</span>
+<span class="c1"># Make sure to set Hydraulic Model to your desired type</span>
+<span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">setSelectHydraulicModel</span><span class="p">(</span><span class="n">GroundWaterModes</span><span class="o">.</span><span class="n">GARDNER</span><span class="p">)</span>
+<span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">setFrozenTemperature</span><span class="p">(</span><span class="o">-</span><span class="mf">0.015</span><span class="p">)</span>
+<span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">setWCSat</span><span class="p">(</span><span class="mf">0.34</span><span class="p">)</span>
+<span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">setWCRes</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+<span class="c1"># Set properties for Gardener Hydraulic Model</span>
+<span class="n">gardenerWaterContent</span> <span class="o">=</span> <span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">GardnerWaterContent</span>
+<span class="n">gardenerWaterContent</span><span class="o">.</span><span class="n">setA</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">gardenerWaterContent</span><span class="o">.</span><span class="n">setN</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Thermal Soil Unfrozen Water Content Type = </span><span class="si">{</span><span class="n">soilUnfrozenWaterContent</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span><span class="si">}</span><span class="s2">, Hydraulic Model Type = </span><span class="si">{</span><span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">getSelectHydraulicModel</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Frozen Temperature = </span><span class="si">{</span><span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">getFrozenTemperature</span><span class="p">()</span><span class="si">}</span><span class="s2">, WC Sat = </span><span class="si">{</span><span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">getWCSat</span><span class="p">()</span><span class="si">}</span><span class="s2">, WC Res = </span><span class="si">{</span><span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">getWCRes</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gardener Parameter A = </span><span class="si">{</span><span class="n">gardenerWaterContent</span><span class="o">.</span><span class="n">getA</span><span class="p">()</span><span class="si">}</span><span class="s2">, Gardener Parameter N = </span><span class="si">{</span><span class="n">gardenerWaterContent</span><span class="o">.</span><span class="n">getN</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">thermal</span><span class="o">.</span><span class="n">setThermalExpansion</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">thermal</span><span class="o">.</span><span class="n">setExpansionCoefficient</span><span class="p">(</span><span class="mf">0.0005</span><span class="p">)</span>
+
+<span class="n">thermal</span><span class="o">.</span><span class="n">setDispersivity</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">thermal</span><span class="o">.</span><span class="n">setLongitudinalDispersivity</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">thermal</span><span class="o">.</span><span class="n">setTransverseDispersivity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Thermal Expansion Coeff. = </span><span class="si">{</span><span class="n">thermal</span><span class="o">.</span><span class="n">getExpansionCoefficient</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Longitudinal Dispersivity = </span><span class="si">{</span><span class="n">thermal</span><span class="o">.</span><span class="n">getLongitudinalDispersivity</span><span class="p">()</span><span class="si">}</span><span class="s2">, Transverse Dispersivity = </span><span class="si">{</span><span class="n">thermal</span><span class="o">.</span><span class="n">getTransverseDispersivity</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id15">
+<span id="model-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Model Manipulation</span><a class="headerlink" href="#id15" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="n">bolt</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllBoltProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">liner</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllLinerProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">joint</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllJointProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">bolt</span><span class="o">.</span><span class="n">setBoltType</span><span class="p">(</span><span class="n">BoltTypes</span><span class="o">.</span><span class="n">SWELLEX</span><span class="p">)</span>
+<span class="n">liner</span><span class="o">.</span><span class="n">setLinerType</span><span class="p">(</span><span class="n">LinerTypes</span><span class="o">.</span><span class="n">REINFORCED_CONCRETE</span><span class="p">)</span>
+<span class="n">joint</span><span class="o">.</span><span class="n">setSlipCriterion</span><span class="p">(</span><span class="n">JointTypes</span><span class="o">.</span><span class="n">MATERIAL_DEPENDENT</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">()</span>
+<span class="n">interpreterModel</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id16">
+<span id="modeler-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Modeler Scripting Functionality</span><a class="headerlink" href="#id16" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id17">
+<span id="get-mesh-results-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Get Model Mesh Results</span><a class="headerlink" href="#id17" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">from</span> <span class="nn">rs2.interpreter.InterpreterEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="c1"># Setting and Retrieving results for built-in type</span>
+<span class="n">model</span><span class="o">.</span><span class="n">SetResultType</span><span class="p">(</span><span class="n">ExportResultType</span><span class="o">.</span><span class="n">SOLID_EFFECTIVE_STRESS_EFFECTIVE_SIGMA_Z</span><span class="p">)</span>
+<span class="n">exportResult1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">GetMeshResults</span><span class="p">()</span>
+
+<span class="c1"># Extracting results for specific vertex index</span>
+<span class="n">x_coord</span> <span class="o">=</span> <span class="n">exportResult1</span><span class="o">.</span><span class="n">getXCoordinate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">y_coord</span> <span class="o">=</span> <span class="n">exportResult1</span><span class="o">.</span><span class="n">getYCoordinate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">value</span> <span class="o">=</span> <span class="n">exportResult1</span><span class="o">.</span><span class="n">getValue</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id18">
+<span id="history-query-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of History Query and its results</span><a class="headerlink" href="#id18" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">from</span> <span class="nn">rs2.interpreter.InterpreterEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">rs2.interpreter.InterpreterGraphEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">()</span>
+<span class="n">modelPath</span> <span class="o">=</span> <span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span>
+<span class="n">modeler_model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="n">modelPath</span><span class="p">)</span>
+
+<span class="c1"># Add History Query Point in Modeler</span>
+<span class="n">modeler_model</span><span class="o">.</span><span class="n">AddHistoryQueryPoint</span><span class="p">(</span><span class="n">history_query_name</span><span class="o">=</span><span class="s2">&quot;Testing Point 1&quot;</span><span class="p">,</span> <span class="n">x</span><span class="o">=-</span><span class="mf">3.1</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">2.8</span><span class="p">)</span>
+<span class="c1"># Remove History Query Point in Modeler</span>
+<span class="n">modeler_model</span><span class="o">.</span><span class="n">RemoveHistoryQueryPoint</span><span class="p">(</span><span class="s2">&quot;HQ 1&quot;</span><span class="p">)</span>
+<span class="c1"># Get Results for a specific History Query Point in Interpreter</span>
+<span class="n">interpreter_model</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="n">modelPath</span><span class="p">)</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">interpreter_model</span><span class="o">.</span><span class="n">GetHistoryQueryResults</span><span class="p">(</span><span class="n">hq_name</span><span class="o">=</span><span class="s2">&quot;HQ 2&quot;</span><span class="p">,</span> 
+                                                   <span class="n">horizontal_axis</span><span class="o">=</span><span class="n">HistoryQueryGraphEnums</span><span class="o">.</span><span class="n">HorizontalAxisTypes</span><span class="o">.</span><span class="n">TIME</span><span class="p">,</span>
+                                                   <span class="n">vertical_axis</span><span class="o">=</span><span class="n">HistoryQueryGraphEnums</span><span class="o">.</span><span class="n">VerticalAxisTypes</span><span class="o">.</span><span class="n">EFFECTIVE_STRESS_YY</span><span class="p">,</span> 
+                                                   <span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">])</span>
+
+<span class="c1"># Extracting data</span>
+<span class="n">stage_number</span> <span class="o">=</span> <span class="mi">1</span>
+<span class="n">results_for_stage_1</span> <span class="o">=</span> <span class="n">results</span><span class="p">[</span><span class="n">stage_number</span><span class="p">]</span>
+
+<span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">results_for_stage_1</span><span class="p">:</span>
+    <span class="n">x_coord</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">GetXCoordinate</span><span class="p">()</span>
+    <span class="n">y_coord</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">GetYCoordinate</span><span class="p">()</span>
+    <span class="n">horizontal_result</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">GetHorizontalAxisResult</span><span class="p">()</span>
+    <span class="n">vertical_result</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">GetVerticalAxisResult</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id19">
+<span id="material-query-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Material Queries</span><a class="headerlink" href="#id19" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">from</span> <span class="nn">rs2.interpreter.InterpreterEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="c1"># Add a material query point to model</span>
+<span class="n">pointID</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">AddMaterialQuery</span><span class="p">(</span><span class="n">points</span><span class="o">=</span><span class="p">[[</span><span class="mf">3.3</span><span class="p">,</span> <span class="o">-</span><span class="mf">2.2</span><span class="p">]])</span>
+
+<span class="c1"># Add a material query line to model</span>
+<span class="n">points_making_line</span> <span class="o">=</span> <span class="p">[[</span><span class="mf">4.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">4.5</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mf">2.5</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">6</span><span class="p">,</span> <span class="mf">2.5</span><span class="p">]]</span>
+<span class="n">lineID</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">AddMaterialQuery</span><span class="p">(</span><span class="n">points</span><span class="o">=</span><span class="n">points_making_line</span><span class="p">)</span>
+
+<span class="c1"># Remove Material Query Point in Modeler</span>
+<span class="n">model</span><span class="o">.</span><span class="n">RemoveMaterialQuery</span><span class="p">([</span><span class="n">pointID</span><span class="p">])</span>
+
+<span class="c1"># Set model stage to desired stage number</span>
+<span class="n">model</span><span class="o">.</span><span class="n">SetActiveStage</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Get results for all material queries defined in your model</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">GetMaterialQueryResults</span><span class="p">()</span>
+<span class="c1"># Extracting data for all material queries from model</span>
+<span class="k">for</span> <span class="n">mat_query_data</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+    <span class="n">unique_ID</span> <span class="o">=</span> <span class="n">mat_query_data</span><span class="o">.</span><span class="n">GetUniqueIdentifier</span><span class="p">()</span>
+    <span class="n">material_ID</span> <span class="o">=</span> <span class="n">mat_query_data</span><span class="o">.</span><span class="n">GetMaterialID</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Query Unique ID = </span><span class="si">{</span><span class="n">unique_ID</span><span class="si">}</span><span class="s2">, MaterialID = </span><span class="si">{</span><span class="n">material_ID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;----------------&quot;</span><span class="p">)</span>
+    <span class="n">query_results</span> <span class="o">=</span> <span class="n">mat_query_data</span><span class="o">.</span><span class="n">GetAllValues</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">result</span> <span class="ow">in</span> <span class="n">query_results</span><span class="p">:</span>
+        <span class="n">x</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">GetXCoordinate</span><span class="p">()</span>
+        <span class="n">y</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">GetYCoordinate</span><span class="p">()</span>
+        <span class="n">distance</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">GetDistance</span><span class="p">()</span>
+        <span class="n">value</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X-Coord =</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, Y-Coordinate = </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">, Distance = </span><span class="si">{</span><span class="n">distance</span><span class="si">}</span><span class="s2">, Result Type Node Value = </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id20">
+<span id="material-joint-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Material Joint Properties</span><a class="headerlink" href="#id20" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="n">material</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllMaterialProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="n">material</span><span class="o">.</span><span class="n">Strength</span><span class="o">.</span><span class="n">setFailureCriterion</span><span class="p">(</span><span class="n">StrengthCriteriaTypes</span><span class="o">.</span><span class="n">JOINTED_MOHR_COULOMB</span><span class="p">)</span>
+
+<span class="n">jointOptions</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Strength</span><span class="o">.</span><span class="n">JointedMohrCoulomb</span><span class="o">.</span><span class="n">getJointOptions</span><span class="p">()</span>
+
+<span class="n">jointOptions</span><span class="o">.</span><span class="n">setNumberOfJoints</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">jointOptions</span><span class="o">.</span><span class="n">setTracePlaneProperties</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mf">20.1</span><span class="p">,</span> <span class="mf">2.2</span><span class="p">,</span> <span class="mf">3.4</span><span class="p">)</span>
+
+<span class="n">joint</span> <span class="o">=</span> <span class="n">jointOptions</span><span class="o">.</span><span class="n">getJoint</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">joint</span><span class="o">.</span><span class="n">setSlipCriterion</span><span class="p">(</span><span class="n">JointTypes</span><span class="o">.</span><span class="n">BARTON_BANDIS</span><span class="p">)</span>
+<span class="n">joint</span><span class="o">.</span><span class="n">BartonBandisMaterial</span><span class="o">.</span><span class="n">setDilationAngle</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
+<span class="n">joint</span><span class="o">.</span><span class="n">BartonBandisMaterial</span><span class="o">.</span><span class="n">setJCS</span><span class="p">(</span><span class="mf">2.2</span><span class="p">)</span>
+
+
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id21">
+<span id="time-query-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Time Query and its results</span><a class="headerlink" href="#id21" title="Link to this code">¶</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">from</span> <span class="nn">rs2.interpreter.InterpreterGraphEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
+<span class="n">filePath</span> <span class="o">=</span> <span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\DynamicModel.fez&quot;</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
+
+<span class="c1"># Add Time Query Line to Model</span>
+<span class="n">points1</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">5</span><span class="p">,</span> <span class="o">-</span><span class="mf">4.5</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">0</span><span class="p">]]</span>
+<span class="n">points2</span> <span class="o">=</span> <span class="p">[[</span><span class="o">-</span><span class="mi">5</span><span class="p">,</span> <span class="mi">2</span><span class="p">],</span> <span class="p">[</span><span class="mi">11</span><span class="p">,</span> <span class="mi">2</span><span class="p">]]</span>
+<span class="n">points_on_line</span> <span class="o">=</span> <span class="mi">8</span>
+<span class="n">guid1</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">AddTimeQueryLine</span><span class="p">(</span><span class="n">points1</span><span class="p">,</span> <span class="n">points_on_line</span><span class="p">)</span>
+<span class="n">guid2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">AddTimeQueryLine</span><span class="p">(</span><span class="n">points2</span><span class="p">,</span> <span class="n">points_on_line</span><span class="p">)</span>
+
+<span class="c1"># Remove Time Query Line by ID</span>
+<span class="n">model</span><span class="o">.</span><span class="n">RemoveTimeQueryLine</span><span class="p">([</span><span class="n">guid1</span><span class="p">])</span>
+
+<span class="c1"># Add Time Query Point(s) to Model</span>
+<span class="nb">id</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">AddTimeQueryPoint</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mf">4.5</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="mf">2.7</span><span class="p">)</span>
+<span class="n">id2</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">AddTimeQueryPoint</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="mi">9</span><span class="p">,</span> <span class="n">y</span><span class="o">=-</span><span class="mi">2</span><span class="p">)</span>
+
+<span class="c1"># Remove Time Query Point by ID</span>
+<span class="n">model</span><span class="o">.</span><span class="n">RemoveTimeQueryPoint</span><span class="p">([</span><span class="nb">id</span><span class="p">])</span>
+
+<span class="c1"># Make sure to save and compute model before opening interpreter model and getting results</span>
+<span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+<span class="n">model</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+
+<span class="c1"># Get Time Query Point Results</span>
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">()</span>
+<span class="n">interpreter_model</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="n">filePath</span><span class="p">)</span>
+<span class="n">result</span> <span class="o">=</span> <span class="n">interpreter_model</span><span class="o">.</span><span class="n">GetAllTimeQueryPointResults</span><span class="p">(</span>
+    <span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
+    <span class="n">vertical_axis</span><span class="o">=</span><span class="n">TimeQueryGraphEnums</span><span class="o">.</span><span class="n">VerticalAxisTypes</span><span class="o">.</span><span class="n">EFFECTIVE_STRESS_XY</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">stageNumber</span><span class="p">,</span> <span class="n">stageData</span> <span class="ow">in</span> <span class="n">result</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Stage </span><span class="si">{</span><span class="n">stageNumber</span><span class="si">}</span><span class="s2"> Time Query Points Data&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">time_query_point_data</span> <span class="ow">in</span> <span class="n">stageData</span><span class="p">:</span>
+        <span class="n">uniqueIdentifier</span> <span class="o">=</span> <span class="n">time_query_point_data</span><span class="o">.</span><span class="n">GetUniqueIdentifier</span><span class="p">()</span>
+        <span class="n">all_node_values</span> <span class="o">=</span> <span class="n">time_query_point_data</span><span class="o">.</span><span class="n">GetAllValues</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">node_val</span> <span class="ow">in</span> <span class="n">all_node_values</span><span class="p">:</span>
+            <span class="n">x_coord</span> <span class="o">=</span> <span class="n">node_val</span><span class="o">.</span><span class="n">GetXCoordinate</span><span class="p">()</span>
+            <span class="n">y_coord</span> <span class="o">=</span> <span class="n">node_val</span><span class="o">.</span><span class="n">GetYCoordinate</span><span class="p">()</span>
+            <span class="n">stage_time</span> <span class="o">=</span> <span class="n">node_val</span><span class="o">.</span><span class="n">GetStageTime</span><span class="p">()</span>
+            <span class="n">value</span> <span class="o">=</span> <span class="n">node_val</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;UniqueID = </span><span class="si">{</span><span class="n">uniqueIdentifier</span><span class="si">}</span><span class="s2">, X-Coord = </span><span class="si">{</span><span class="n">x_coord</span><span class="si">}</span><span class="s2">, Y-Coord = </span><span class="si">{</span><span class="n">y_coord</span><span class="si">}</span><span class="s2">, Dynamic Stage Time = </span><span class="si">{</span><span class="n">stage_time</span><span class="si">}</span><span class="s2">, Value = </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">End of Stage </span><span class="si">{</span><span class="n">stageNumber</span><span class="si">}</span><span class="s2"> Data</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Time Query Line Results</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Time Query Line Results&quot;</span><span class="p">)</span>
+      
+<span class="n">line_results</span> <span class="o">=</span> <span class="n">interpreter_model</span><span class="o">.</span><span class="n">GetAllTimeQueryLinesResults</span><span class="p">(</span>
+    <span class="n">stages</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">],</span> 
+    <span class="n">vertical_axis</span><span class="o">=</span><span class="n">TimeQueryGraphEnums</span><span class="o">.</span><span class="n">VerticalAxisTypes</span><span class="o">.</span><span class="n">EFFECTIVE_STRESS_XY</span><span class="p">,</span>
+    <span class="n">apply_post_process_scaling</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+
+<span class="k">for</span> <span class="n">stageNumber</span><span class="p">,</span> <span class="n">stageData</span> <span class="ow">in</span> <span class="n">line_results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Stage </span><span class="si">{</span><span class="n">stageNumber</span><span class="si">}</span><span class="s2"> Time Query Line Data</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">time_query_line_data</span> <span class="ow">in</span> <span class="n">stageData</span><span class="p">:</span>
+        <span class="n">uniqueIdentifier</span> <span class="o">=</span> <span class="n">time_query_line_data</span><span class="o">.</span><span class="n">GetUniqueIdentifier</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unique Identifier for Line Query = </span><span class="si">{</span><span class="n">uniqueIdentifier</span><span class="si">}</span><span class="s2"> with data as follows:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">all_node_obj</span> <span class="o">=</span> <span class="n">time_query_line_data</span><span class="o">.</span><span class="n">GetAllNodeObjects</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">node_obj</span> <span class="ow">in</span> <span class="n">all_node_obj</span><span class="p">:</span>
+            <span class="n">all_node_values</span> <span class="o">=</span> <span class="n">node_obj</span><span class="o">.</span><span class="n">GetNodeValues</span><span class="p">()</span>
+            <span class="k">for</span> <span class="n">node_val</span> <span class="ow">in</span> <span class="n">all_node_values</span><span class="p">:</span>
+                <span class="n">x_coord</span> <span class="o">=</span> <span class="n">node_val</span><span class="o">.</span><span class="n">GetXCoordinate</span><span class="p">()</span>
+                <span class="n">y_coord</span> <span class="o">=</span> <span class="n">node_val</span><span class="o">.</span><span class="n">GetYCoordinate</span><span class="p">()</span>
+                <span class="n">stage_time</span> <span class="o">=</span> <span class="n">node_val</span><span class="o">.</span><span class="n">GetStageTime</span><span class="p">()</span>
+                <span class="n">value</span> <span class="o">=</span> <span class="n">node_val</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X-Coord = </span><span class="si">{</span><span class="n">x_coord</span><span class="si">}</span><span class="s2">, Y-Coord = </span><span class="si">{</span><span class="n">y_coord</span><span class="si">}</span><span class="s2">, Dynamic Stage Time = </span><span class="si">{</span><span class="n">stage_time</span><span class="si">}</span><span class="s2">, Value = </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">()</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">End of Line Data</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------&quot;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">End of Stage </span><span class="si">{</span><span class="n">stageNumber</span><span class="si">}</span><span class="s2"> Data</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+
+
+          </div>
+          
+        </div>
+      </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+<h1 class="logo"><a href="index.html">RS2 Scripting Client Library</a></h1>
+
+
+
+
+
+
+
+
+<h3>Navigation</h3>
+<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="generatedAPIDocFiles/rs2.html">rs2 package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python Script Examples</a></li>
+</ul>
+
+<div class="relations">
+<h3>Related Topics</h3>
+<ul>
+  <li><a href="index.html">Documentation overview</a><ul>
+      <li>Previous: <a href="generatedAPIDocFiles/rs2.utilities.html" title="previous chapter">rs2.utilities package</a></li>
+  </ul></li>
+</ul>
+</div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+
+
+
+
+
+
+
+
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="footer">
+      &#169;2023, Rocscience Inc..
+      
+      |
+      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.2.6</a>
+      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
+      
+      |
+      <a href="_sources/examples.rst.txt"
+          rel="nofollow">Page source</a>
+    </div>
+
+    
+
+    
+  </body>
+</html>
