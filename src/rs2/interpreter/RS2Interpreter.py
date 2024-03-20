@@ -1,7 +1,7 @@
 from rsmessages.requestFormat import functionRequest
 from rs2._common.Client import Client
 from rs2.utilities.ApplicationManager import ApplicationManager
-from rs2.interpreter.InterpreterModelProxy import ModelProxy
+from rs2.interpreter.InterpreterModel import ModelProxy
 import winreg
 import time
 

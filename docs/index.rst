@@ -8,7 +8,7 @@ Welcome to RS2 Scripting Client Library's documentation!
 
 .. toctree::
    :titlesonly:
-   :maxdepth: 6
+   :maxdepth: 4
    :caption: Contents:
 
    generatedAPIDocFiles/rs2

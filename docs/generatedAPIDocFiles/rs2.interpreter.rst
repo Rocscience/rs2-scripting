@@ -47,10 +47,10 @@ rs2.interpreter.InterpreterGraphEnums module
    :undoc-members:
    :show-inheritance:
 
-rs2.interpreter.InterpreterModelProxy module
+rs2.interpreter.InterpreterModel module
 --------------------------------------------
 
-.. automodule:: rs2.interpreter.InterpreterModelProxy
+.. automodule:: rs2.interpreter.InterpreterModel
    :members:
    :undoc-members:
    :show-inheritance:

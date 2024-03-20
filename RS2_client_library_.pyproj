@@ -91,7 +91,7 @@
     <Compile Include="src\rs2\interpreter\HistoryQueryResults.py" />
     <Compile Include="src\rs2\interpreter\InterpreterEnums.py" />
     <Compile Include="src\rs2\interpreter\InterpreterGraphEnums.py" />
-    <Compile Include="src\rs2\interpreter\InterpreterModelProxy.py" />
+    <Compile Include="src\rs2\interpreter\InterpreterModel.py" />
     <Compile Include="src\rs2\interpreter\JointResult.py" />
     <Compile Include="src\rs2\interpreter\LinerResult.py" />
     <Compile Include="src\rs2\interpreter\MeshResults.py" />
