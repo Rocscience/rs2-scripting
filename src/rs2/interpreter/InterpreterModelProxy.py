@@ -25,7 +25,10 @@ class ModelProxy(ProxyObject):
 
 	def close(self):
 		'''
-		Closes the model
+		:ref:`Model Example`
+
+		|  Closes the model
+		
 		'''
 		return self._callFunction('close', [])
 
@@ -44,23 +47,26 @@ class ModelProxy(ProxyObject):
 
 	def save(self):
 		'''
-		Saves the model
+		:ref:`Model Example`
+
+		|  Saves the model
+
 		'''
 		return self._callFunction('save', [])
 	
 	def SetActiveStage(self, stageNumber: int):
 		'''
-		Change model's active stage by its stage number
+		:ref:`Material Query Example`
+
+		|  Change model's active stage by its stage number
 		'''
 		return self._callFunction('SetActiveStage', [stageNumber])
 	
 	def SetResultType(self, resultType: ExportResultType) -> list[dict]:
 		"""
-		Sets the export result type for the model.
+		:ref:`Get Mesh Results Example`
 
-		Args:
-			resultType (ExportResultType): Takes an enum of type ExportResultType representing the desired
-				export option for mesh results.
+		|  Sets the export result type for your model.
 		
 		Raises:
 			ValueError: resultType must be an enum of type ExportResultType. Any other value will raise an error
@@ -70,10 +76,7 @@ class ModelProxy(ProxyObject):
 	
 	def SetUserDefinedResultType(self, resultName: str) -> list[dict]:
 		"""
-		Sets the export result type to the user defined result type name.
-
-		Args:
-			resultName (str): Takes the name of the user defined export option to generate mesh results for.
+		|  Sets the export result type to the user defined result type name.
 		
 		"""
 		return self._callFunction('SetUserDefinedResultType', [resultName])
@@ -82,23 +85,7 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Get Mesh Results Example`
 
-		Returns the mesh results at all nodes of the model.
-
-		Returns:
-			|  An object of type MeshResults. To extract the x-coordinate, y-coordinate or value from the returned data, 
-			|  please call the supported functions from the class:
-			|  MeshResults.GetXCoordinate(index)
-			|  MeshResults.GetYCoordinate(index)
-			|  MeshResults.GetValue(index)
-				
-		Example:
-
-		.. code-block:: python
-
-			results = model.GetMeshResults()
-			x_coordiante = results.GetXCoordinate(0)
-			y_coordinate = results.GetYCoordinate(0)
-			value = results.GetValue(0)
+		|  Returns the mesh results at all nodes for your model.
 		
 		"""
 		results = self._callFunction('GetMeshResults', [])
@@ -109,38 +96,12 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`History Query Example`
 
-		Returns the history query result for the provided query name with specified graph options and stages.
-
-		Args:
-			hq_name (str): Takes the name of the History Query Point.
-			horizontal_axis (HistoryQueryGraphEnums): Takes the horizontal axis to generate results for.
-			vertical_axis (HistoryQueryGraphEnums): Takes the vertical axis to generate results for.
-			stages (int): Takes the stages by their stage number for which results should be returned.
-		
-		Returns:
-			|  Returns a dictionary with key as stage number and value a List of HistoryQueryResult object.
-			|  To extract the stage number, x-coordinate, y-coordinate, horizontal axis result and vertical axis result,
-			|  please call the supported functions from the class:
-
-			* GetXCoordinate()
-			* GetYCoordinate()
-			* GetHorizontalAxisResult()
-			* GetVerticalAxisResult()
-		
-		Example:
-
-		.. code-block:: python
-
-			results = model.GetHistoryQueryResults(params)
-			results_for_stage_1 = results[1]
-			x_coordiante = results_for_stage_1[0].GetXCoordinate()
-			y_coordinate = results_for_stage_1[0].GetYCoordinate()
-			horizontal_result = results_for_stage_1[0].GetHorizontalResult()
-			vertical_result = results_for_stage_1[0].GetVerticalResult()
+		|   Returns a map of HistoryQueryResult for all input stages and history queries in your model.
 		
 		Raises:
 			ValueError: horizontal_axis and vertical_axis must be an enum of type HistoryQueryGraphEnums.
 						Any other value will raise an error.
+
 		"""
 		map_data = self._callFunction('GetHistoryQueryResults', [hq_name, horizontal_axis.value, vertical_axis.value, stages])
 		structured_data = {}
@@ -159,35 +120,13 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Time Query Example`
 
-		Returns the results for all the time query points defined in the model for given stages and graph axes type.
+		|  Returns a map of TimeQueryPointResults for all input stages and time query points in your model.
 
-		Please note points that are over an excavation at specific stages will not have data returned at those locations.
-
-		Args:
-			stages (list[int]): Takes the stages by their stage number for which results should be returned.
-			vertical_axis (TimeQueryGraphEnums): Takes the vertical axis to generate results for.
-		
-		Returns:
-			| Returns a dictionary with key as stage number and value a list[TimeQueryPointResults] object.
-			| To extract the unique identifier, x-coordinate, y-coordinate, horizontal axis result and vertical axis result,
-			| please call the supported functions from the class:
-
-			* TimeQueryPointResults.GetUniqueIdentifier()
-			
-			To get all the results for this query, please call:
-
-			* TimeQueryPointResults.GetAllValues()
-		
-		The above method returns list[QueryPointResult] for each node. 
-		To get the x-coordiante, y-coordinate, dynamic stage time or value, please call:
-		
-		* QueryPointResult.GetXCoordinate()
-		* QueryPointResult.GetYCoordinate()
-		* QueryPointResult.GetStageTime()
-		* QueryPointResult.GetValue()
+		|  Please note points that are over an excavation at specific stages will not have data returned at those locations.
 		
 		Raises:
 			ValueError: vertical_axis must be an enum of type TimeQueryGraphEnums. Any other value will raise an error.
+
 		"""
 		map_data = self._callFunction('GetAllTimeQueryPointsResults', 
 							 [stages, vertical_axis.value])
@@ -210,37 +149,13 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Time Query Example`
 
-		Returns the results for all the time query lines defined in the model for given stages and graph axes types.
+		|  Returns a map of TimeQueryLineResults for all input stages and time query lines in your model.
 
-		Please note points that are over an excavation at specific stages will not have data returned at those locations.
-
-		Args:
-			stages (list[int]): Takes the stages by their stage number for which results should be returned.
-			vertical_axis (TimeQueryGraphEnums): Takes the vertical axis to generate results for.
-			apply_post_process_scaling (bool): Bool input taking whether post-process scaling should be applied or not
-		
-		Returns:
-			|  Returns a dictionary with key as stage number and value a list[TimeQueryLineResults] object.
-			|  To extract the unique identifier, or list[QueryLineResult] representing all node objects for this query line,
-			|  please call the supported functions from the class:
-
-			* TimeQueryLineResults.GetUniqueIdentifier()
-			* TimeQueryLineResults.GetAllNodeObjects()
-
-			|  To get list[QueryPointResult] denoting all the node objects at a specific node of time query line, please call:
-
-			* QueryLineResult.GetNodeValues()
-
-			|  The above method returns list[QueryPointResult] representing all the values at this node of the time query line. 
-			|  To get the x-coordiante, y-coordinate, dynamic stage time or value, please call:
-
-			* QueryPointResult.GetXCoordinate()
-			* QueryPointResult.GetYCoordinate()
-			* QueryPointResult.GetStageTime()
-			* QueryPointResult.GetValue()
+		|  Please note points that are over an excavation at specific stages will not have data returned at those locations.
 		
 		Raises:
 			ValueError: vertical_axis must be an enum of type TimeQueryGraphEnums. Any other value will raise an error.
+
 		"""
 		map_data =  self._callFunction('GetAllTimeQueryLinesResults', 
 							 [stages, vertical_axis.value, apply_post_process_scaling])
@@ -260,10 +175,9 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Material Query Example`
 
-		Adds a material query point/line to your model using the specified coordinates in order.
+		|  Adds a material query point/line to your model using the specified coordinates in order.
 
-		Returns:
-			A unique identifier for the newly added material query point/line.
+		|  Returns a unique identifier for the newly added material query point/line.
 		
 		"""
 		return self._callFunction('AddMaterialQuery', [points])
@@ -272,7 +186,7 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Material Query Example`
 
-		Removes material query points or lines for provided list of IDs.
+		|  Removes material query points or lines for provided list of IDs.
 
 		"""
 		return self._callFunction('RemoveMaterialQuery', [IDs_toRemove])
@@ -281,33 +195,12 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Material Query Example`
 		
-		|  Returns the results for all the material queries defined in the model for active model stage and result type.
+		|  Returns the results for all the material queries defined in your model for active model stage and result type.
 		|  To get results for a different stage, please call SetActiveStage(int stageNumber) before calling this function.
 		|  To get results for a different result type, please call either before calling this function:
 
 		* SetResultType(InterpreterGraphEnums resultType)
 		* SetUserDefinedResultType("Your defined resultType name")
-
-		Returns: 
-			|  A list[MaterialQueryResults] of query results.
-			|  To extract the Unique Identifier, Material ID for a specific material query object,
-
-			please call any of the supported functions from the class:
-
-			* MaterialQueryResults.GetUniqueIdentifier()
-			* MaterialQueryResults.GetMaterialID()
-
-			|  To get all the results for this query, please call:
-
-			* MaterialQueryResults.GetAllValues()
-
-			|  The above method returns list[QueryResult] for each result. 
-			|  To get the x-coordiante, y-coordinate, distance or value, please call:
-
-			* QueryResult.GetXCoordinate()
-			* QueryResult.GetYCoordinate()
-			* QueryResult.GetDistance()
-			* QueryResult.GetValue()
 
 		"""
 		all_material_query_data = self._callFunction('GetMaterialQueryResults', [])
@@ -319,12 +212,13 @@ class ModelProxy(ProxyObject):
 			all_mat_query_data_as_classObj.append(MaterialQueryResults(*unpack_list_data))
 		return all_mat_query_data_as_classObj
 
-	
+	def GetBoltResults (self, stages: list[int]) -> dict[int, list[BoltResult]]:
+		"""
+		:ref:`Support Bolt Results Example`
 		
+		|  Returns a map of BoltResult for all input stages and support bolt defined in your model.
 
-	def GetBoltResults (
-		self, 
-		stages: list[int]) -> dict[int, list[BoltResult]]:
+		"""
 		map_data = self._callFunction('GetBoltResults', [stages])
 		structured_data = {}
 		for stage_idx, stage_data in map_data.items():
@@ -349,7 +243,7 @@ class ModelProxy(ProxyObject):
 				structured_data[stage_idx].append(bolt_result)
 		return structured_data
 		
-	def process_joint_data(self, entity_data, entity_name):
+	def _process_joint_data(self, entity_data, entity_name):
 
 		joint_element_results = []
 		for joint_vector in entity_data[1]:
@@ -359,7 +253,7 @@ class ModelProxy(ProxyObject):
 		joint_result = JointResult(entity_name, joint_element_results)
 		return joint_result
 
-	def process_liner_data(self, entity_data, entity_name):
+	def _process_liner_data(self, entity_data, entity_name):
 		liner_element_results = []
 
 		for liner_vector in entity_data[0]:
@@ -368,52 +262,68 @@ class ModelProxy(ProxyObject):
 		liner_result = LinerResult(entity_name,liner_element_results)
 		return liner_result
 
-	def GetJointResults(
-		self, 
-		stages: list[int]) -> dict[int, list[JointResult]]:
+	def GetJointResults(self, stages: list[int]) -> dict[int, list[JointResult]]:
+		"""
+		:ref:`Support Joint Results Example`
+		
+		|  Returns a map of JointResult for all input stages and support joint defined in your model.
 
+		"""
 		map_data = self._callFunction('GetJointResults', [stages])
 		structured_data = {}
 		for stage_idx, stage_data in map_data.items():
 
 			structured_data[stage_idx] = []
 			for entity_name, entity_data in stage_data.items():
-				joint_result = self.process_joint_data(entity_data, entity_name)
+				joint_result = self._process_joint_data(entity_data, entity_name)
 				structured_data[stage_idx].append(joint_result)
 		
 		return structured_data
 	
-	def GetLinerResults(
-		self, 
-		stages: list[int]) -> dict[int, list[LinerResult]]:
+	def GetLinerResults(self, stages: list[int]) -> dict[int, list[LinerResult]]:
+		"""
+		:ref:`Support Liner Results Example`
+		
+		|  Returns a map of LinerResult for all input stages and support liner defined in your model.
 
+		"""
 		map_data = self._callFunction('GetLinerResults', [stages])
 		structured_data = {}
 		for stage_idx, stage_data in map_data.items():
 
 			structured_data[stage_idx] = []
 			for entity_name, entity_data in stage_data.items():
-				liner_result = self.process_liner_data(entity_data, entity_name)
+				liner_result = self._process_liner_data(entity_data, entity_name)
 				structured_data[stage_idx].append(liner_result)
 		
 		return structured_data
 
+	def GetPileResults(self, stages: list[int]) -> dict[int, list[PileResult]]:
+		"""
+		:ref:`Support Pile Results Example`
+		
+		|  Returns a map of PileResult for all input stages and support pile defined in your model.
 
-	def GetPileResults(	
-		self, 
-		stages: list[int]) -> dict[int, list[PileResult]]:
+		"""
 		return self._get_composition_result('GetPileResults',PileResult, stages)
 
-	def GetCompositeResults(	
-		self, 
-		stages: list[int]) -> dict[int, list[CompositeResult]]:
+	def GetCompositeResults(self, stages: list[int]) -> dict[int, list[CompositeResult]]:
+		"""
+		:ref:`Support Composite Results Example`
+		
+		|  Returns a map of CompositeResult for all input stages and support composite defined in your model.
+
+		"""
 		return self._get_composition_result('GetCompositeResults',CompositeResult, stages)
 
-	def GetStructuralResults(	
-		self, 
-		stages: list[int]) -> dict[int, list[PileResult]]:
-		return self._get_composition_result('GetStructuralResults',StructuralResult, stages)
+	def GetStructuralResults(self, stages: list[int]) -> dict[int, list[StructuralResult]]:
+		"""
+		:ref:`Support Structural Results Example`
+		
+		|  Returns a map of StructuralResult for all input stages and support structural defined in your model.
 
+		"""
+		return self._get_composition_result('GetStructuralResults',StructuralResult, stages)
 
 	def _get_composition_result(
 	self,
@@ -433,9 +343,12 @@ class ModelProxy(ProxyObject):
 
 		return structured_data
 
-	def getUnits(self):
+	def getUnits(self) -> Units:
 		'''
-		Get Units
+		:ref:`Get Model Units Example`
+
+		|  Get Solid, Hydro and Thermal units for your model
+		
 		'''
 		NUM_UNITS = 3
 		data = self._callFunction('getUnits', [])
@@ -446,6 +359,6 @@ class ModelProxy(ProxyObject):
 
 	def getCriticalSRF(self):
 		'''
-		Get Critical SRF
+		|  Get Critical SRF
 		'''
 		return ResetInvalid.validate_double(self._callFunction('getCriticalSRF', []))

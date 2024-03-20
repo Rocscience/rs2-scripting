@@ -44,7 +44,7 @@ def print_dict_elements(data_dict):
 interpreter = RS2Interpreter()
 
 interpreter_model = interpreter.openFile(r"C:\scriptingModels\joint.fez")
-interpreter_model2 = interpreter.openFile(r"C:\scriptingModels\si.fez")
+interpreter_model2 = interpreter.openFile(r"C:\scriptingModels\supportStructuralResults.fez")
 
 stages = [1]
 
