@@ -24,7 +24,7 @@ release = '0.0'
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autodoc', 'sphinx_copybutton', 'sphinx.ext.napoleon']
+extensions = ['sphinx.ext.autodoc', 'sphinx_copybutton', 'sphinx.ext.napoleon', 'sphinx_rtd_theme']
 
 autodoc_default_options = {
     'member-order': 'bysource',
@@ -41,3 +41,5 @@ latex_elements = {
 }
 
 latex_logo = '_static/logo.png'
+
+html_theme = "sphinx_rtd_theme"

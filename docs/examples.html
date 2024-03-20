@@ -1,43 +1,85 @@
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="./">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en" data-content_root="./">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python Script Examples &mdash; RS2 Scripting Client Library 0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
 
-    <title>Python Script Examples &#8212; RS2 Scripting Client Library 0.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=d1102ebc" />
-    <link rel="stylesheet" type="text/css" href="_static/alabaster.css?v=12dfc556" />
-    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <script src="_static/documentation_options.js?v=837179f8"></script>
-    <script src="_static/doctools.js?v=888ff710"></script>
-    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="_static/copybutton.js?v=f281be69"></script>
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="_static/documentation_options.js?v=837179f8"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/js/theme.js"></script>
     <link rel="index" title="Index" href="genindex.html" />
     <link rel="search" title="Search" href="search.html" />
-    <link rel="prev" title="rs2.utilities package" href="generatedAPIDocFiles/rs2.utilities.html" />
-   
-  <link rel="stylesheet" href="_static/custom.css" type="text/css" />
-  
+    <link rel="prev" title="rs2.utilities package" href="generatedAPIDocFiles/rs2.utilities.html" /> 
+</head>
 
-  
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
           
+          
+          <a href="index.html" class="icon icon-home">
+            RS2 Scripting Client Library
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="generatedAPIDocFiles/rs2.html">rs2 package</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Python Script Examples</a></li>
+</ul>
 
-          <div class="body" role="main">
-            
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="index.html">RS2 Scripting Client Library</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Python Script Examples</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/examples.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="python-script-examples">
-<h1>Python Script Examples<a class="headerlink" href="#python-script-examples" title="Link to this heading">¶</a></h1>
+<h1>Python Script Examples<a class="headerlink" href="#python-script-examples" title="Link to this heading"></a></h1>
 <div class="literal-block-wrapper docutils container" id="id1">
-<span id="bolt-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Bolt Properties</span><a class="headerlink" href="#id1" title="Link to this code">¶</a></div>
+<span id="bolt-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Bolt Properties</span><a class="headerlink" href="#id1" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -90,7 +132,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id2">
-<span id="liner-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Liner Properties</span><a class="headerlink" href="#id2" title="Link to this code">¶</a></div>
+<span id="liner-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Liner Properties</span><a class="headerlink" href="#id2" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -142,7 +184,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id3">
-<span id="joint-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Joint Properties</span><a class="headerlink" href="#id3" title="Link to this code">¶</a></div>
+<span id="joint-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Joint Properties</span><a class="headerlink" href="#id3" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -196,7 +238,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id4">
-<span id="pile-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Pile Properties</span><a class="headerlink" href="#id4" title="Link to this code">¶</a></div>
+<span id="pile-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Pile Properties</span><a class="headerlink" href="#id4" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -232,7 +274,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id5">
-<span id="structural-interface-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Structural Interface Properties</span><a class="headerlink" href="#id5" title="Link to this code">¶</a></div>
+<span id="structural-interface-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Structural Interface Properties</span><a class="headerlink" href="#id5" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -252,7 +294,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id6">
-<span id="composite-liner-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Composite Liner Properties</span><a class="headerlink" href="#id6" title="Link to this code">¶</a></div>
+<span id="composite-liner-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Composite Liner Properties</span><a class="headerlink" href="#id6" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -285,7 +327,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id7">
-<span id="material-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Material Properties</span><a class="headerlink" href="#id7" title="Link to this code">¶</a></div>
+<span id="material-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Material Properties</span><a class="headerlink" href="#id7" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -312,7 +354,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id8">
-<span id="hydraulic-property-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Hydraulic Properties</span><a class="headerlink" href="#id8" title="Link to this code">¶</a></div>
+<span id="hydraulic-property-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Hydraulic Properties</span><a class="headerlink" href="#id8" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -352,7 +394,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id9">
-<span id="hydraulic-property-static-groundwater-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Hydraulic Static Groundwater Properties</span><a class="headerlink" href="#id9" title="Link to this code">¶</a></div>
+<span id="hydraulic-property-static-groundwater-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Hydraulic Static Groundwater Properties</span><a class="headerlink" href="#id9" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -392,7 +434,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id10">
-<span id="hydraulic-property-feagroundwater-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Hydraulic FEA Groundwater Properties</span><a class="headerlink" href="#id10" title="Link to this code">¶</a></div>
+<span id="hydraulic-property-feagroundwater-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Hydraulic FEA Groundwater Properties</span><a class="headerlink" href="#id10" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -467,7 +509,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id11">
-<span id="material-property-datum-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Datum Properties</span><a class="headerlink" href="#id11" title="Link to this code">¶</a></div>
+<span id="material-property-datum-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Datum Properties</span><a class="headerlink" href="#id11" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -542,7 +584,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id12">
-<span id="material-property-stiffness-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Stiffness Properties</span><a class="headerlink" href="#id12" title="Link to this code">¶</a></div>
+<span id="material-property-stiffness-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Stiffness Properties</span><a class="headerlink" href="#id12" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -577,7 +619,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id13">
-<span id="material-property-strength-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Strength Properties</span><a class="headerlink" href="#id13" title="Link to this code">¶</a></div>
+<span id="material-property-strength-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Strength Properties</span><a class="headerlink" href="#id13" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -626,7 +668,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id14">
-<span id="material-property-thermal-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Thermal Properties</span><a class="headerlink" href="#id14" title="Link to this code">¶</a></div>
+<span id="material-property-thermal-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Thermal Properties</span><a class="headerlink" href="#id14" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -714,7 +756,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id15">
-<span id="model-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Model Manipulation</span><a class="headerlink" href="#id15" title="Link to this code">¶</a></div>
+<span id="model-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Model Manipulation</span><a class="headerlink" href="#id15" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
@@ -742,7 +784,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id16">
-<span id="modeler-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Modeler Scripting Functionality</span><a class="headerlink" href="#id16" title="Link to this code">¶</a></div>
+<span id="modeler-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Modeler Scripting Functionality</span><a class="headerlink" href="#id16" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
 
@@ -753,7 +795,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id17">
-<span id="get-mesh-results-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Get Model Mesh Results</span><a class="headerlink" href="#id17" title="Link to this code">¶</a></div>
+<span id="get-mesh-results-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Get Model Mesh Results</span><a class="headerlink" href="#id17" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
 <span class="kn">from</span> <span class="nn">rs2.interpreter.InterpreterEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -774,7 +816,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id18">
-<span id="history-query-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of History Query and its results</span><a class="headerlink" href="#id18" title="Link to this code">¶</a></div>
+<span id="history-query-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of History Query and its results</span><a class="headerlink" href="#id18" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
 <span class="kn">from</span> <span class="nn">rs2.interpreter.InterpreterEnums</span> <span class="kn">import</span> <span class="o">*</span>
@@ -811,7 +853,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id19">
-<span id="material-query-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Material Queries</span><a class="headerlink" href="#id19" title="Link to this code">¶</a></div>
+<span id="material-query-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Material Queries</span><a class="headerlink" href="#id19" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
 <span class="kn">from</span> <span class="nn">rs2.interpreter.InterpreterEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -852,7 +894,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id20">
-<span id="material-joint-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Material Joint Properties</span><a class="headerlink" href="#id20" title="Link to this code">¶</a></div>
+<span id="material-joint-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Material Joint Properties</span><a class="headerlink" href="#id20" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
 <span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
@@ -880,7 +922,7 @@
 </div>
 </div>
 <div class="literal-block-wrapper docutils container" id="id21">
-<span id="time-query-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Time Query and its results</span><a class="headerlink" href="#id21" title="Link to this code">¶</a></div>
+<span id="time-query-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Time Query and its results</span><a class="headerlink" href="#id21" title="Link to this code"></a></div>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
 <span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
 <span class="kn">from</span> <span class="nn">rs2.interpreter.InterpreterGraphEnums</span> <span class="kn">import</span> <span class="o">*</span>
@@ -966,72 +1008,33 @@
 </section>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="generatedAPIDocFiles/rs2.utilities.html" class="btn btn-neutral float-left" title="rs2.utilities package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Rocscience Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="index.html">RS2 Scripting Client Library</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="generatedAPIDocFiles/rs2.html">rs2 package</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Python Script Examples</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="index.html">Documentation overview</a><ul>
-      <li>Previous: <a href="generatedAPIDocFiles/rs2.utilities.html" title="previous chapter">rs2.utilities package</a></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &#169;2023, Rocscience Inc..
-      
-      |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.2.6</a>
-      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
-      
-      |
-      <a href="_sources/examples.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>

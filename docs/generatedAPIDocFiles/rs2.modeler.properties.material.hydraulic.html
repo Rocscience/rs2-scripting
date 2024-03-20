@@ -1,42 +1,103 @@
 <!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-<html lang="en" data-content_root="../">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rs2.modeler.properties.material.hydraulic package &mdash; RS2 Scripting Client Library 0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
 
-    <title>rs2.modeler.properties.material.hydraulic package &#8212; RS2 Scripting Client Library 0.0 documentation</title>
-    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=d1102ebc" />
-    <link rel="stylesheet" type="text/css" href="../_static/alabaster.css?v=12dfc556" />
-    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
-    <script src="../_static/documentation_options.js?v=837179f8"></script>
-    <script src="../_static/doctools.js?v=888ff710"></script>
-    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-    <script src="../_static/copybutton.js?v=f281be69"></script>
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=837179f8"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="rs2.modeler.properties.material.hydraulic.FEAGroundwater package" href="rs2.modeler.properties.material.hydraulic.FEAGroundwater.html" />
-    <link rel="prev" title="rs2.modeler.properties.material.datum package" href="rs2.modeler.properties.material.datum.html" />
-   
-  <link rel="stylesheet" href="../_static/custom.css" type="text/css" />
-  
+    <link rel="prev" title="rs2.modeler.properties.material.datum package" href="rs2.modeler.properties.material.datum.html" /> 
+</head>
 
-  
-  
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
 
-  </head><body>
-  
-
-    <div class="document">
-      <div class="documentwrapper">
-        <div class="bodywrapper">
           
+          
+          <a href="../index.html" class="icon icon-home">
+            RS2 Scripting Client Library
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="rs2.html">rs2 package</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.html">rs2.interpreter package</a></li>
+<li class="toctree-l2 current"><a class="reference internal" href="rs2.modeler.html">rs2.modeler package</a><ul class="current">
+<li class="toctree-l3 current"><a class="reference internal" href="rs2.modeler.properties.html">rs2.modeler.properties package</a><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.html">rs2.modeler.properties.bolt package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.html">rs2.modeler.properties.joint package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.html">rs2.modeler.properties.liner package</a></li>
+<li class="toctree-l4 current"><a class="reference internal" href="rs2.modeler.properties.material.html">rs2.modeler.properties.material package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.html">rs2.modeler.properties.pile package</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.utilities.html">rs2.utilities package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Python Script Examples</a></li>
+</ul>
 
-          <div class="body" role="main">
-            
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RS2 Scripting Client Library</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="rs2.html">rs2 package</a></li>
+          <li class="breadcrumb-item"><a href="rs2.modeler.html">rs2.modeler package</a></li>
+          <li class="breadcrumb-item"><a href="rs2.modeler.properties.html">rs2.modeler.properties package</a></li>
+          <li class="breadcrumb-item"><a href="rs2.modeler.properties.material.html">rs2.modeler.properties.material package</a></li>
+      <li class="breadcrumb-item active">rs2.modeler.properties.material.hydraulic package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generatedAPIDocFiles/rs2.modeler.properties.material.hydraulic.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
   <section id="module-rs2.modeler.properties.material.hydraulic">
-<span id="rs2-modeler-properties-material-hydraulic-package"></span><h1>rs2.modeler.properties.material.hydraulic package<a class="headerlink" href="#module-rs2.modeler.properties.material.hydraulic" title="Link to this heading">¶</a></h1>
+<span id="rs2-modeler-properties-material-hydraulic-package"></span><h1>rs2.modeler.properties.material.hydraulic package<a class="headerlink" href="#module-rs2.modeler.properties.material.hydraulic" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.FEAGroundwater.html">rs2.modeler.properties.material.hydraulic.FEAGroundwater package</a><ul>
@@ -335,187 +396,187 @@
 </ul>
 </div>
 <section id="module-rs2.modeler.properties.material.hydraulic.Hydraulic">
-<span id="rs2-modeler-properties-material-hydraulic-hydraulic-module"></span><h2>rs2.modeler.properties.material.hydraulic.Hydraulic module<a class="headerlink" href="#module-rs2.modeler.properties.material.hydraulic.Hydraulic" title="Link to this heading">¶</a></h2>
+<span id="rs2-modeler-properties-material-hydraulic-hydraulic-module"></span><h2>rs2.modeler.properties.material.hydraulic.Hydraulic module<a class="headerlink" href="#module-rs2.modeler.properties.material.hydraulic.Hydraulic" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicStageFactor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.hydraulic.Hydraulic.</span></span><span class="sig-name descname"><span class="pre">HydraulicStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicStageFactor" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.hydraulic.Hydraulic.</span></span><span class="sig-name descname"><span class="pre">HydraulicStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicStageFactor" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ProxyObject</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicStageFactor.getMaterialBehaviourFactor">
-<span class="sig-name descname"><span class="pre">getMaterialBehaviourFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicStageFactor.getMaterialBehaviourFactor" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getMaterialBehaviourFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicStageFactor.getMaterialBehaviourFactor" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicDefinedStageFactor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.hydraulic.Hydraulic.</span></span><span class="sig-name descname"><span class="pre">HydraulicDefinedStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicDefinedStageFactor" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.hydraulic.Hydraulic.</span></span><span class="sig-name descname"><span class="pre">HydraulicDefinedStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicDefinedStageFactor" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicStageFactor" title="rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicStageFactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">HydraulicStageFactor</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicDefinedStageFactor.setMaterialBehaviourFactor">
-<span class="sig-name descname"><span class="pre">setMaterialBehaviourFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">materialBehavior</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.MaterialBehaviours" title="rs2.modeler.properties.PropertyEnums.MaterialBehaviours"><span class="pre">MaterialBehaviours</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicDefinedStageFactor.setMaterialBehaviourFactor" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setMaterialBehaviourFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">materialBehavior</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.MaterialBehaviours" title="rs2.modeler.properties.PropertyEnums.MaterialBehaviours"><span class="pre">MaterialBehaviours</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicDefinedStageFactor.setMaterialBehaviourFactor" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.hydraulic.Hydraulic.</span></span><span class="sig-name descname"><span class="pre">Hydraulic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentProxyID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stageFactorInterfaceID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.hydraulic.Hydraulic.</span></span><span class="sig-name descname"><span class="pre">Hydraulic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentProxyID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stageFactorInterfaceID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PropertyProxy</span></code></p>
 <p><a class="reference internal" href="../examples.html#hydraulic-property-example"><span class="std std-ref">Code Snippet: Manipulation of Hydraulic Properties</span></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.getMaterialBehaviour">
-<span class="sig-name descname"><span class="pre">getMaterialBehaviour</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.MaterialBehaviours" title="rs2.modeler.properties.PropertyEnums.MaterialBehaviours"><span class="pre">MaterialBehaviours</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.getMaterialBehaviour" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getMaterialBehaviour</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.MaterialBehaviours" title="rs2.modeler.properties.PropertyEnums.MaterialBehaviours"><span class="pre">MaterialBehaviours</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.getMaterialBehaviour" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.setMaterialBehaviour">
-<span class="sig-name descname"><span class="pre">setMaterialBehaviour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.MaterialBehaviours" title="rs2.modeler.properties.PropertyEnums.MaterialBehaviours"><span class="pre">MaterialBehaviours</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.setMaterialBehaviour" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setMaterialBehaviour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.MaterialBehaviours" title="rs2.modeler.properties.PropertyEnums.MaterialBehaviours"><span class="pre">MaterialBehaviours</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.setMaterialBehaviour" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.getFluidBulkModulus">
-<span class="sig-name descname"><span class="pre">getFluidBulkModulus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.getFluidBulkModulus" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getFluidBulkModulus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.getFluidBulkModulus" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.setFluidBulkModulus">
-<span class="sig-name descname"><span class="pre">setFluidBulkModulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.setFluidBulkModulus" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setFluidBulkModulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.setFluidBulkModulus" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.getUseBiotsCoefficientForCalculatingEffectiveStress">
-<span class="sig-name descname"><span class="pre">getUseBiotsCoefficientForCalculatingEffectiveStress</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.getUseBiotsCoefficientForCalculatingEffectiveStress" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getUseBiotsCoefficientForCalculatingEffectiveStress</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.getUseBiotsCoefficientForCalculatingEffectiveStress" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.setUseBiotsCoefficientForCalculatingEffectiveStress">
-<span class="sig-name descname"><span class="pre">setUseBiotsCoefficientForCalculatingEffectiveStress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.setUseBiotsCoefficientForCalculatingEffectiveStress" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setUseBiotsCoefficientForCalculatingEffectiveStress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.setUseBiotsCoefficientForCalculatingEffectiveStress" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 </section>
 <section id="module-rs2.modeler.properties.material.hydraulic.StaticGroundwater">
-<span id="rs2-modeler-properties-material-hydraulic-staticgroundwater-module"></span><h2>rs2.modeler.properties.material.hydraulic.StaticGroundwater module<a class="headerlink" href="#module-rs2.modeler.properties.material.hydraulic.StaticGroundwater" title="Link to this heading">¶</a></h2>
+<span id="rs2-modeler-properties-material-hydraulic-staticgroundwater-module"></span><h2>rs2.modeler.properties.material.hydraulic.StaticGroundwater module<a class="headerlink" href="#module-rs2.modeler.properties.material.hydraulic.StaticGroundwater" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterStageFactor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.hydraulic.StaticGroundwater.</span></span><span class="sig-name descname"><span class="pre">StaticGroundwaterStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterStageFactor" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.hydraulic.StaticGroundwater.</span></span><span class="sig-name descname"><span class="pre">StaticGroundwaterStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterStageFactor" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ProxyObject</span></code></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterStageFactor.getPiezoToUse">
-<span class="sig-name descname"><span class="pre">getPiezoToUse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterStageFactor.getPiezoToUse" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getPiezoToUse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterStageFactor.getPiezoToUse" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterStageFactor.getGridToUse">
-<span class="sig-name descname"><span class="pre">getGridToUse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterStageFactor.getGridToUse" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getGridToUse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterStageFactor.getGridToUse" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterDefinedStageFactor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.hydraulic.StaticGroundwater.</span></span><span class="sig-name descname"><span class="pre">StaticGroundwaterDefinedStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterDefinedStageFactor" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.hydraulic.StaticGroundwater.</span></span><span class="sig-name descname"><span class="pre">StaticGroundwaterDefinedStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterDefinedStageFactor" title="Link to this definition"></a></dt>
 <dd><p>Bases: <a class="reference internal" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterStageFactor" title="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterStageFactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">StaticGroundwaterStageFactor</span></code></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterDefinedStageFactor.setPiezoToUse">
-<span class="sig-name descname"><span class="pre">setPiezoToUse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">piezoName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterDefinedStageFactor.setPiezoToUse" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setPiezoToUse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">piezoName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterDefinedStageFactor.setPiezoToUse" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterDefinedStageFactor.setGridToUse">
-<span class="sig-name descname"><span class="pre">setGridToUse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gridName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterDefinedStageFactor.setGridToUse" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setGridToUse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gridName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterDefinedStageFactor.setGridToUse" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.hydraulic.StaticGroundwater.</span></span><span class="sig-name descname"><span class="pre">StaticGroundwater</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentProxyID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stageFactorInterfaceID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater" title="Link to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.hydraulic.StaticGroundwater.</span></span><span class="sig-name descname"><span class="pre">StaticGroundwater</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentProxyID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stageFactorInterfaceID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PropertyProxy</span></code></p>
 <p><a class="reference internal" href="../examples.html#hydraulic-property-static-groundwater-example"><span class="std std-ref">Code Snippet: Manipulation of Hydraulic Static Groundwater Properties</span></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getStaticWaterMode">
-<span class="sig-name descname"><span class="pre">getStaticWaterMode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getStaticWaterMode" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getStaticWaterMode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getStaticWaterMode" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setStaticWaterMode">
-<span class="sig-name descname"><span class="pre">setStaticWaterMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setStaticWaterMode" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setStaticWaterMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setStaticWaterMode" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getStaticPoreWaterPressure">
-<span class="sig-name descname"><span class="pre">getStaticPoreWaterPressure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getStaticPoreWaterPressure" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getStaticPoreWaterPressure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getStaticPoreWaterPressure" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setStaticPoreWaterPressure">
-<span class="sig-name descname"><span class="pre">setStaticPoreWaterPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setStaticPoreWaterPressure" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setStaticPoreWaterPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setStaticPoreWaterPressure" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getRuValue">
-<span class="sig-name descname"><span class="pre">getRuValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getRuValue" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getRuValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getRuValue" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setRuValue">
-<span class="sig-name descname"><span class="pre">setRuValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setRuValue" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setRuValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setRuValue" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getHuType">
-<span class="sig-name descname"><span class="pre">getHuType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.HuTypes" title="rs2.modeler.properties.PropertyEnums.HuTypes"><span class="pre">HuTypes</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getHuType" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getHuType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.HuTypes" title="rs2.modeler.properties.PropertyEnums.HuTypes"><span class="pre">HuTypes</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getHuType" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setHuType">
-<span class="sig-name descname"><span class="pre">setHuType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.HuTypes" title="rs2.modeler.properties.PropertyEnums.HuTypes"><span class="pre">HuTypes</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setHuType" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setHuType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.HuTypes" title="rs2.modeler.properties.PropertyEnums.HuTypes"><span class="pre">HuTypes</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setHuType" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getHuValue">
-<span class="sig-name descname"><span class="pre">getHuValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getHuValue" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getHuValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getHuValue" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setHuValue">
-<span class="sig-name descname"><span class="pre">setHuValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setHuValue" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setHuValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setHuValue" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setPiezoToUse">
-<span class="sig-name descname"><span class="pre">setPiezoToUse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">piezoName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setPiezoToUse" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setPiezoToUse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">piezoName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setPiezoToUse" title="Link to this definition"></a></dt>
 <dd><p>piezoName is the id of the piezo line to be used or “None”.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getPiezoToUse">
-<span class="sig-name descname"><span class="pre">getPiezoToUse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getPiezoToUse" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getPiezoToUse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getPiezoToUse" title="Link to this definition"></a></dt>
 <dd><p>Returns the id of the piezo line to be used or “None”.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setGridToUse">
-<span class="sig-name descname"><span class="pre">setGridToUse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gridName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setGridToUse" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setGridToUse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gridName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setGridToUse" title="Link to this definition"></a></dt>
 <dd><p>gridName is the name of the grid to be used. “None” and “Default Grid” are available by default.</p>
 </dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getGridToUse">
-<span class="sig-name descname"><span class="pre">getGridToUse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getGridToUse" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getGridToUse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getGridToUse" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setProperties">
-<span class="sig-name descname"><span class="pre">setProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">StaticWaterMode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">StaticPoreWaterPressure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RuValue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HuType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.HuTypes" title="rs2.modeler.properties.PropertyEnums.HuTypes"><span class="pre">HuTypes</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HuValue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setProperties" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">setProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">StaticWaterMode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">StaticPoreWaterPressure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">RuValue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HuType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.HuTypes" title="rs2.modeler.properties.PropertyEnums.HuTypes"><span class="pre">HuTypes</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HuValue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.setProperties" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getProperties">
-<span class="sig-name descname"><span class="pre">getProperties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getProperties" title="Link to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">getProperties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getProperties" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -524,106 +585,34 @@
 </section>
 
 
+           </div>
           </div>
-          
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rs2.modeler.properties.material.datum.html" class="btn btn-neutral float-left" title="rs2.modeler.properties.material.datum package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rs2.modeler.properties.material.hydraulic.FEAGroundwater.html" class="btn btn-neutral float-right" title="rs2.modeler.properties.material.hydraulic.FEAGroundwater package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Rocscience Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
         </div>
       </div>
-      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
-        <div class="sphinxsidebarwrapper">
-<h1 class="logo"><a href="../index.html">RS2 Scripting Client Library</a></h1>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
 
-
-
-
-
-
-
-
-<h3>Navigation</h3>
-<p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="rs2.html">rs2 package</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.html">rs2.interpreter package</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="rs2.modeler.html">rs2.modeler package</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="rs2.modeler.properties.html">rs2.modeler.properties package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.html">rs2.modeler.properties.bolt package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.html">rs2.modeler.properties.joint package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.html">rs2.modeler.properties.liner package</a></li>
-<li class="toctree-l4 current"><a class="reference internal" href="rs2.modeler.properties.material.html">rs2.modeler.properties.material package</a><ul class="current">
-<li class="toctree-l5"><a class="reference internal" href="rs2.modeler.properties.material.datum.html">rs2.modeler.properties.material.datum package</a></li>
-<li class="toctree-l5 current"><a class="current reference internal" href="#">rs2.modeler.properties.material.hydraulic package</a><ul>
-<li class="toctree-l6"><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.FEAGroundwater.html">rs2.modeler.properties.material.hydraulic.FEAGroundwater package</a></li>
-</ul>
-</li>
-<li class="toctree-l5"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.html">rs2.modeler.properties.material.stiffness package</a></li>
-<li class="toctree-l5"><a class="reference internal" href="rs2.modeler.properties.material.strength.html">rs2.modeler.properties.material.strength package</a></li>
-<li class="toctree-l5"><a class="reference internal" href="rs2.modeler.properties.material.thermal.html">rs2.modeler.properties.material.thermal package</a></li>
-</ul>
-</li>
-<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.html">rs2.modeler.properties.pile package</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="rs2.utilities.html">rs2.utilities package</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../examples.html">Python Script Examples</a></li>
-</ul>
-
-<div class="relations">
-<h3>Related Topics</h3>
-<ul>
-  <li><a href="../index.html">Documentation overview</a><ul>
-  <li><a href="rs2.html">rs2 package</a><ul>
-  <li><a href="rs2.modeler.html">rs2.modeler package</a><ul>
-  <li><a href="rs2.modeler.properties.html">rs2.modeler.properties package</a><ul>
-  <li><a href="rs2.modeler.properties.material.html">rs2.modeler.properties.material package</a><ul>
-      <li>Previous: <a href="rs2.modeler.properties.material.datum.html" title="previous chapter">rs2.modeler.properties.material.datum package</a></li>
-      <li>Next: <a href="rs2.modeler.properties.material.hydraulic.FEAGroundwater.html" title="next chapter">rs2.modeler.properties.material.hydraulic.FEAGroundwater package</a></li>
-  </ul></li>
-  </ul></li>
-  </ul></li>
-  </ul></li>
-  </ul></li>
-</ul>
-</div>
-<div id="searchbox" style="display: none" role="search">
-  <h3 id="searchlabel">Quick search</h3>
-    <div class="searchformwrapper">
-    <form class="search" action="../search.html" method="get">
-      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
-      <input type="submit" value="Go" />
-    </form>
-    </div>
-</div>
-<script>document.getElementById('searchbox').style.display = "block"</script>
-
-
-
-
-
-
-
-
-        </div>
-      </div>
-      <div class="clearer"></div>
-    </div>
-    <div class="footer">
-      &#169;2023, Rocscience Inc..
-      
-      |
-      Powered by <a href="https://www.sphinx-doc.org/">Sphinx 7.2.6</a>
-      &amp; <a href="https://alabaster.readthedocs.io">Alabaster 0.7.16</a>
-      
-      |
-      <a href="../_sources/generatedAPIDocFiles/rs2.modeler.properties.material.hydraulic.rst.txt"
-          rel="nofollow">Page source</a>
-    </div>
-
-    
-
-    
-  </body>
+</body>
 </html>
