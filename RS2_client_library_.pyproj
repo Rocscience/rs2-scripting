@@ -145,7 +145,7 @@
     <Compile Include="src\rs2\modeler\properties\material\hydraulic\StaticGroundwater.py" />
     <Compile Include="src\rs2\modeler\properties\material\hydraulic\__init__.py" />
     <Compile Include="src\rs2\modeler\properties\material\InitialConditions.py" />
-    <Compile Include="src\rs2\modeler\properties\material\MaterialPropertyProxy.py" />
+    <Compile Include="src\rs2\modeler\properties\material\MaterialProperty.py" />
     <Compile Include="src\rs2\modeler\properties\material\stiffness\ChSoil.py" />
     <Compile Include="src\rs2\modeler\properties\material\stiffness\Custom.py" />
     <Compile Include="src\rs2\modeler\properties\material\stiffness\CySoil.py" />

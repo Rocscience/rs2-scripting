@@ -25,10 +25,10 @@ rs2.modeler.properties.material.InitialConditions module
    :undoc-members:
    :show-inheritance:
 
-rs2.modeler.properties.material.MaterialPropertyProxy module
+rs2.modeler.properties.material.MaterialProperty module
 ------------------------------------------------------------
 
-.. automodule:: rs2.modeler.properties.material.MaterialPropertyProxy
+.. automodule:: rs2.modeler.properties.material.MaterialProperty
    :members:
    :undoc-members:
    :show-inheritance:

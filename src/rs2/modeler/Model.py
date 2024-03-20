@@ -8,7 +8,7 @@ from rs2.modeler.properties.pile.Pile import PileProperty
 from rs2.modeler.properties.StructuralInterface import StructuralInterfaceProperty
 from rs2.modeler.properties.CompositeProperty import CompositeProperty
 
-from rs2.modeler.properties.material.MaterialPropertyProxy import MaterialProperty
+from rs2.modeler.properties.material.MaterialProperty import MaterialProperty
 from rs2.modeler.properties.ShearNormalFunctionProxy import ShearNormalFunction
 from rs2.modeler.properties.UserDefinedWaterMode import UserDefinedWaterMode
 from rs2.modeler.properties.DiscreteFunction import DiscreteFunction
