@@ -7,7 +7,6 @@ from rs2.interpreter.InterpreterGraphEnums import *
 import os
 import pandas as pd
 import matplotlib.pyplot as plt
-import numpy as np
 
 # Start RS2 Modeler and Interpreter
 RS2Modeler.startApplication(port=60054)
