@@ -32,7 +32,7 @@ class BoltForceDisplacementResult:
         ResetInvalid.validate(self)
 
 class BoltResult:
-    def __init__(self, entity_id, entity_data, yielding_results, force_displacement_results):
+    def __init__(self, entity_id, entity_data, yielding_results: BoltYieldingResult, force_displacement_results: BoltForceDisplacementResult):
         if len(entity_data) == 0 or len(entity_data[0]) == 0:
             assert False, 'location not defined'
             return
@@ -44,6 +44,6 @@ class BoltResult:
         self.start_y = start_y
         self.end_x = end_x
         self.end_y = end_y
-        self.yielding_results = yielding_results
-        self.force_displacement_results = force_displacement_results
+        self.yielding_results: BoltYieldingResult = yielding_results
+        self.force_displacement_results: BoltForceDisplacementResult = force_displacement_results
 

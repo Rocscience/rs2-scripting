@@ -134,3 +134,8 @@ Python Script Examples
 .. literalinclude:: example_code/support_structural_example.py
    :language: python
    :caption: Code Snippet: Get Support Structural Results
+
+.. _Get Model Units Example:
+.. literalinclude:: example_code/model_units_example.py
+   :language: python
+   :caption: Code Snippet: Get Model Units

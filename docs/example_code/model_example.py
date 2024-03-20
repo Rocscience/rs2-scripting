@@ -21,3 +21,5 @@ model.close()
 
 interpreter = RS2Interpreter()
 interpreterModel = interpreter.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
+interpreterModel.save()
+interpreterModel.close()

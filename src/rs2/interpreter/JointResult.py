@@ -16,9 +16,9 @@ class JointElementResult:
         ResetInvalid.validate(self)
 
 class JointResult:
-    def __init__(self, entity_id, joint_element_results):
+    def __init__(self, entity_id, joint_element_results: JointElementResult):
         self.entity_id = entity_id
-        self.joint_element_results = joint_element_results
+        self.joint_element_results: JointElementResult = joint_element_results
 
 
 

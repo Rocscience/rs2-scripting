@@ -25,7 +25,10 @@ class ModelProxy(ProxyObject):
 
 	def close(self):
 		'''
-		Closes the model
+		:ref:`Model Example`
+
+		|  Closes the model
+		
 		'''
 		return self._callFunction('close', [])
 
@@ -44,23 +47,26 @@ class ModelProxy(ProxyObject):
 
 	def save(self):
 		'''
-		Saves the model
+		:ref:`Model Example`
+
+		|  Saves the model
+
 		'''
 		return self._callFunction('save', [])
 	
 	def SetActiveStage(self, stageNumber: int):
 		'''
-		Change model's active stage by its stage number
+		:ref:`Material Query Example`
+
+		|  Change model's active stage by its stage number
 		'''
 		return self._callFunction('SetActiveStage', [stageNumber])
 	
 	def SetResultType(self, resultType: ExportResultType) -> list[dict]:
 		"""
-		Sets the export result type for the model.
+		:ref:`Get Mesh Results Example`
 
-		Args:
-			resultType (ExportResultType): Takes an enum of type ExportResultType representing the desired
-				export option for mesh results.
+		|  Sets the export result type for your model.
 		
 		Raises:
 			ValueError: resultType must be an enum of type ExportResultType. Any other value will raise an error
@@ -70,10 +76,7 @@ class ModelProxy(ProxyObject):
 	
 	def SetUserDefinedResultType(self, resultName: str) -> list[dict]:
 		"""
-		Sets the export result type to the user defined result type name.
-
-		Args:
-			resultName (str): Takes the name of the user defined export option to generate mesh results for.
+		|  Sets the export result type to the user defined result type name.
 		
 		"""
 		return self._callFunction('SetUserDefinedResultType', [resultName])
@@ -82,23 +85,7 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Get Mesh Results Example`
 
-		Returns the mesh results at all nodes of the model.
-
-		Returns:
-			|  An object of type MeshResults. To extract the x-coordinate, y-coordinate or value from the returned data, 
-			|  please call the supported functions from the class:
-			|  MeshResults.GetXCoordinate(index)
-			|  MeshResults.GetYCoordinate(index)
-			|  MeshResults.GetValue(index)
-				
-		Example:
-
-		.. code-block:: python
-
-			results = model.GetMeshResults()
-			x_coordiante = results.GetXCoordinate(0)
-			y_coordinate = results.GetYCoordinate(0)
-			value = results.GetValue(0)
+		|  Returns the mesh results at all nodes for your model.
 		
 		"""
 		results = self._callFunction('GetMeshResults', [])
@@ -109,38 +96,12 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`History Query Example`
 
-		Returns the history query result for the provided query name with specified graph options and stages.
-
-		Args:
-			hq_name (str): Takes the name of the History Query Point.
-			horizontal_axis (HistoryQueryGraphEnums): Takes the horizontal axis to generate results for.
-			vertical_axis (HistoryQueryGraphEnums): Takes the vertical axis to generate results for.
-			stages (int): Takes the stages by their stage number for which results should be returned.
-		
-		Returns:
-			|  Returns a dictionary with key as stage number and value a List of HistoryQueryResult object.
-			|  To extract the stage number, x-coordinate, y-coordinate, horizontal axis result and vertical axis result,
-			|  please call the supported functions from the class:
-
-			* GetXCoordinate()
-			* GetYCoordinate()
-			* GetHorizontalAxisResult()
-			* GetVerticalAxisResult()
-		
-		Example:
-
-		.. code-block:: python
-
-			results = model.GetHistoryQueryResults(params)
-			results_for_stage_1 = results[1]
-			x_coordiante = results_for_stage_1[0].GetXCoordinate()
-			y_coordinate = results_for_stage_1[0].GetYCoordinate()
-			horizontal_result = results_for_stage_1[0].GetHorizontalResult()
-			vertical_result = results_for_stage_1[0].GetVerticalResult()
+		|   Returns a map of HistoryQueryResult for all input stages and history queries in your model.
 		
 		Raises:
 			ValueError: horizontal_axis and vertical_axis must be an enum of type HistoryQueryGraphEnums.
 						Any other value will raise an error.
+
 		"""
 		map_data = self._callFunction('GetHistoryQueryResults', [hq_name, horizontal_axis.value, vertical_axis.value, stages])
 		structured_data = {}
@@ -159,35 +120,13 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Time Query Example`
 
-		Returns the results for all the time query points defined in the model for given stages and graph axes type.
+		|  Returns a map of TimeQueryPointResults for all input stages and time query points in your model.
 
-		Please note points that are over an excavation at specific stages will not have data returned at those locations.
-
-		Args:
-			stages (list[int]): Takes the stages by their stage number for which results should be returned.
-			vertical_axis (TimeQueryGraphEnums): Takes the vertical axis to generate results for.
-		
-		Returns:
-			| Returns a dictionary with key as stage number and value a list[TimeQueryPointResults] object.
-			| To extract the unique identifier, x-coordinate, y-coordinate, horizontal axis result and vertical axis result,
-			| please call the supported functions from the class:
-
-			* TimeQueryPointResults.GetUniqueIdentifier()
-			
-			To get all the results for this query, please call:
-
-			* TimeQueryPointResults.GetAllValues()
-		
-		The above method returns list[QueryPointResult] for each node. 
-		To get the x-coordiante, y-coordinate, dynamic stage time or value, please call:
-		
-		* QueryPointResult.GetXCoordinate()
-		* QueryPointResult.GetYCoordinate()
-		* QueryPointResult.GetStageTime()
-		* QueryPointResult.GetValue()
+		|  Please note points that are over an excavation at specific stages will not have data returned at those locations.
 		
 		Raises:
 			ValueError: vertical_axis must be an enum of type TimeQueryGraphEnums. Any other value will raise an error.
+
 		"""
 		map_data = self._callFunction('GetAllTimeQueryPointsResults', 
 							 [stages, vertical_axis.value])
@@ -210,37 +149,13 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Time Query Example`
 
-		Returns the results for all the time query lines defined in the model for given stages and graph axes types.
+		|  Returns a map of TimeQueryLineResults for all input stages and time query lines in your model.
 
-		Please note points that are over an excavation at specific stages will not have data returned at those locations.
-
-		Args:
-			stages (list[int]): Takes the stages by their stage number for which results should be returned.
-			vertical_axis (TimeQueryGraphEnums): Takes the vertical axis to generate results for.
-			apply_post_process_scaling (bool): Bool input taking whether post-process scaling should be applied or not
-		
-		Returns:
-			|  Returns a dictionary with key as stage number and value a list[TimeQueryLineResults] object.
-			|  To extract the unique identifier, or list[QueryLineResult] representing all node objects for this query line,
-			|  please call the supported functions from the class:
-
-			* TimeQueryLineResults.GetUniqueIdentifier()
-			* TimeQueryLineResults.GetAllNodeObjects()
-
-			|  To get list[QueryPointResult] denoting all the node objects at a specific node of time query line, please call:
-
-			* QueryLineResult.GetNodeValues()
-
-			|  The above method returns list[QueryPointResult] representing all the values at this node of the time query line. 
-			|  To get the x-coordiante, y-coordinate, dynamic stage time or value, please call:
-
-			* QueryPointResult.GetXCoordinate()
-			* QueryPointResult.GetYCoordinate()
-			* QueryPointResult.GetStageTime()
-			* QueryPointResult.GetValue()
+		|  Please note points that are over an excavation at specific stages will not have data returned at those locations.
 		
 		Raises:
 			ValueError: vertical_axis must be an enum of type TimeQueryGraphEnums. Any other value will raise an error.
+
 		"""
 		map_data =  self._callFunction('GetAllTimeQueryLinesResults', 
 							 [stages, vertical_axis.value, apply_post_process_scaling])
@@ -260,10 +175,9 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Material Query Example`
 
-		Adds a material query point/line to your model using the specified coordinates in order.
+		|  Adds a material query point/line to your model using the specified coordinates in order.
 
-		Returns:
-			A unique identifier for the newly added material query point/line.
+		|  Returns a unique identifier for the newly added material query point/line.
 		
 		"""
 		return self._callFunction('AddMaterialQuery', [points])
@@ -272,7 +186,7 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Material Query Example`
 
-		Removes material query points or lines for provided list of IDs.
+		|  Removes material query points or lines for provided list of IDs.
 
 		"""
 		return self._callFunction('RemoveMaterialQuery', [IDs_toRemove])
@@ -281,33 +195,12 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Material Query Example`
 		
-		|  Returns the results for all the material queries defined in the model for active model stage and result type.
+		|  Returns the results for all the material queries defined in your model for active model stage and result type.
 		|  To get results for a different stage, please call SetActiveStage(int stageNumber) before calling this function.
 		|  To get results for a different result type, please call either before calling this function:
 
 		* SetResultType(InterpreterGraphEnums resultType)
 		* SetUserDefinedResultType("Your defined resultType name")
-
-		Returns: 
-			|  A list[MaterialQueryResults] of query results.
-			|  To extract the Unique Identifier, Material ID for a specific material query object,
-
-			please call any of the supported functions from the class:
-
-			* MaterialQueryResults.GetUniqueIdentifier()
-			* MaterialQueryResults.GetMaterialID()
-
-			|  To get all the results for this query, please call:
-
-			* MaterialQueryResults.GetAllValues()
-
-			|  The above method returns list[QueryResult] for each result. 
-			|  To get the x-coordiante, y-coordinate, distance or value, please call:
-
-			* QueryResult.GetXCoordinate()
-			* QueryResult.GetYCoordinate()
-			* QueryResult.GetDistance()
-			* QueryResult.GetValue()
 
 		"""
 		all_material_query_data = self._callFunction('GetMaterialQueryResults', [])
@@ -323,47 +216,7 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Support Bolt Results Example`
 		
-		|  Returns the results for all support bolts defined in the model for all stages.
-
-		Returns: 
-			|  A dict[int, list[BoltResult]] of support bolt results.
-			|  To extract the Unique Identifier, Start/End X or Y Coordiante,
-			|  please call the following attributes from the class:
-
-			* BoltResult.entity_id
-			* BoltResult.start_x
-			* BoltResult.start_y
-			* BoltResult.end_x
-			* BoltResult.end_y
-
-			|  To get results for bolt yielding, please call the following attribute from the class:
-
-			* BoltResult.yielding_results
-
-			|  The above returns list[BoltYieldingResult] for a specific bolt
-			|  To get the associated data with this, please call the following attributes:
-
-			* BoltYieldingResult.start_x
-			* BoltYieldingResult.start_y
-			* BoltYieldingResult.end_x
-			* BoltYieldingResult.end_y
-			* BoltYieldingResult.yielding_flag
-
-			|  To get bolt force displacement results, please call the following attribute from the class:
-
-			* BoltResult.force_displacement_results
-
-			|  The above returns list[BoltForceDisplacementResult] for a specific bolt
-			|  To get the associated data with this, please call the following attributes:
-
-			* BoltForceDisplacementResult.location_x
-			* BoltForceDisplacementResult.location_y
-			* BoltForceDisplacementResult.distance
-			* BoltForceDisplacementResult.axial_force
-			* BoltForceDisplacementResult.axial_stress
-			* BoltForceDisplacementResult.shear_force
-			* BoltForceDisplacementResult.rock_displacement
-			* BoltForceDisplacementResult.bolt_displacement
+		|  Returns a map of BoltResult for all input stages and support bolt defined in your model.
 
 		"""
 		map_data = self._callFunction('GetBoltResults', [stages])
@@ -413,32 +266,7 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Support Joint Results Example`
 		
-		|  Returns the results for all support joints defined in the model for all stages.
-
-		Returns: 
-			|  A dict[int, list[JointResult]] of support joint results.
-			|  To extract the Unique Identifier, please call the following attribute from the class:
-
-			* JointResult.entity_id
-
-			|  To get results for joint element, please call the following attribute from the class:
-
-			* JointResult.joint_element_results
-
-			|  The above returns list[JointElementResult] for a specific joint
-			|  To get the associated data with this, please call the following attributes:
-
-			* JointElementResult.start_x
-			* JointElementResult.start_y
-			* JointElementResult.end_x
-			* JointElementResult.end_y
-			* JointElementResult.distance
-			* JointElementResult.normal_stress
-			* JointElementResult.shear_stress
-			* JointElementResult.confining_stress
-			* JointElementResult.normal_displacement
-			* JointElementResult.shear_displacement
-			* JointElementResult.yielded
+		|  Returns a map of JointResult for all input stages and support joint defined in your model.
 
 		"""
 		map_data = self._callFunction('GetJointResults', [stages])
@@ -456,41 +284,7 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Support Liner Results Example`
 		
-		|  Returns the results for all support liners defined in the model for all stages.
-
-		Returns: 
-			|  A dict[int, list[LinerResult]] of support liner results.
-			|  To extract the Unique Identifier, please call the following attribute from the class:
-
-			* LinerResult.entity_id
-
-			|  To get results for liner element, please call the following attribute from the class:
-
-			* LinerResult.liner_element_results
-
-			|  The above returns list[LinerElementResult] for a specific liner
-			|  To get the associated data with this, please call the following attributes:
-
-			* LinerElementResult.composite_layer
-			* LinerElementResult.node_start
-			* LinerElementResult.node_end
-			* LinerElementResult.start_x
-			* LinerElementResult.start_y
-			* LinerElementResult.end_x
-			* LinerElementResult.end_y
-			* LinerElementResult.distance
-			* LinerElementResult.axial_force
-			* LinerElementResult.moment1
-			* LinerElementResult.moment_mid
-			* LinerElementResult.moment2
-			* LinerElementResult.shear_force
-			* LinerElementResult.displacement_total
-			* LinerElementResult.displacement_x
-			* LinerElementResult.displacement_y
-			* LinerElementResult.axi_sym_force
-			* LinerElementResult.axi_sym_moment
-			* LinerElementResult.beam_yield
-			* LinerElementResult.temperature
+		|  Returns a map of LinerResult for all input stages and support liner defined in your model.
 
 		"""
 		map_data = self._callFunction('GetLinerResults', [stages])
@@ -508,81 +302,7 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Support Pile Results Example`
 		
-		|  Returns the results for all support piles defined in the model for all stages.
-
-		Returns: 
-			|  A dict[int, list[PileResult]] of support pile results.
-			|  To extract the Unique Identifier, please call the following attribute from the class:
-
-			* PileResult.entity_id
-
-			|  To get results for joint associated with this pile, please call the following attribute from the class:
-
-			* PileResult.joint_result
-
-			|  The above returns a JointResult object for a specific joint
-
-				|  To extract the Unique Identifier for this joint, please call the following attribute from the class:
-
-				* JointResult.entity_id
-
-				|  To get results for joint element, please call the following attribute from the class:
-
-				* JointResult.joint_element_results
-
-				|  The above returns list[JointElementResult] for a specific joint
-				|  To get the associated data with this, please call the following attributes:
-
-				* JointElementResult.start_x
-				* JointElementResult.start_y
-				* JointElementResult.end_x
-				* JointElementResult.end_y
-				* JointElementResult.distance
-				* JointElementResult.normal_stress
-				* JointElementResult.shear_stress
-				* JointElementResult.confining_stress
-				* JointElementResult.normal_displacement
-				* JointElementResult.shear_displacement
-				* JointElementResult.yielded
-
-
-			|  To get results for liner associated with this pile, please call the following attribute from the class:
-
-			* PileResult.liner_result
-
-			|  The above returns a LinerResult object for a specific liner
-
-				|  To extract the Unique Identifier for this liner, please call the following attribute from the class:
-
-					* LinerResult.entity_id
-
-					|  To get results for liner element, please call the following attribute from the class:
-
-					* LinerResult.liner_element_results
-
-					|  The above returns list[LinerElementResult] for a specific liner
-					|  To get the associated data with this, please call the following attributes:
-
-					* LinerElementResult.composite_layer
-					* LinerElementResult.node_start
-					* LinerElementResult.node_end
-					* LinerElementResult.start_x
-					* LinerElementResult.start_y
-					* LinerElementResult.end_x
-					* LinerElementResult.end_y
-					* LinerElementResult.distance
-					* LinerElementResult.axial_force
-					* LinerElementResult.moment1
-					* LinerElementResult.moment_mid
-					* LinerElementResult.moment2
-					* LinerElementResult.shear_force
-					* LinerElementResult.displacement_total
-					* LinerElementResult.displacement_x
-					* LinerElementResult.displacement_y
-					* LinerElementResult.axi_sym_force
-					* LinerElementResult.axi_sym_moment
-					* LinerElementResult.beam_yield
-					* LinerElementResult.temperature
+		|  Returns a map of PileResult for all input stages and support pile defined in your model.
 
 		"""
 		return self._get_composition_result('GetPileResults',PileResult, stages)
@@ -591,81 +311,7 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Support Composite Results Example`
 		
-		|  Returns the results for all support composite defined in the model for all stages.
-
-		Returns: 
-			|  A dict[int, list[CompositeResult]] of support composite results.
-			|  To extract the Unique Identifier, please call the following attribute from the class:
-
-			* CompositeResult.entity_id
-
-			|  To get results for joint associated with this composite, please call the following attribute from the class:
-
-			* CompositeResult.joint_result
-
-			|  The above returns a JointResult object for a specific joint
-
-				|  To extract the Unique Identifier for this joint, please call the following attribute from the class:
-
-				* JointResult.entity_id
-
-				|  To get results for joint element, please call the following attribute from the class:
-
-				* JointResult.joint_element_results
-
-				|  The above returns list[JointElementResult] for a specific joint
-				|  To get the associated data with this, please call the following attributes:
-
-				* JointElementResult.start_x
-				* JointElementResult.start_y
-				* JointElementResult.end_x
-				* JointElementResult.end_y
-				* JointElementResult.distance
-				* JointElementResult.normal_stress
-				* JointElementResult.shear_stress
-				* JointElementResult.confining_stress
-				* JointElementResult.normal_displacement
-				* JointElementResult.shear_displacement
-				* JointElementResult.yielded
-
-
-			|  To get results for liner associated with this composite, please call the following attribute from the class:
-
-			* CompositeResult.liner_result
-
-			|  The above returns a LinerResult object for a specific liner
-			
-				|  To extract the Unique Identifier for this liner, please call the following attribute from the class:
-
-					* LinerResult.entity_id
-
-					|  To get results for liner element, please call the following attribute from the class:
-
-					* LinerResult.liner_element_results
-
-					|  The above returns list[LinerElementResult] for a specific liner
-					|  To get the associated data with this, please call the following attributes:
-
-					* LinerElementResult.composite_layer
-					* LinerElementResult.node_start
-					* LinerElementResult.node_end
-					* LinerElementResult.start_x
-					* LinerElementResult.start_y
-					* LinerElementResult.end_x
-					* LinerElementResult.end_y
-					* LinerElementResult.distance
-					* LinerElementResult.axial_force
-					* LinerElementResult.moment1
-					* LinerElementResult.moment_mid
-					* LinerElementResult.moment2
-					* LinerElementResult.shear_force
-					* LinerElementResult.displacement_total
-					* LinerElementResult.displacement_x
-					* LinerElementResult.displacement_y
-					* LinerElementResult.axi_sym_force
-					* LinerElementResult.axi_sym_moment
-					* LinerElementResult.beam_yield
-					* LinerElementResult.temperature
+		|  Returns a map of CompositeResult for all input stages and support composite defined in your model.
 
 		"""
 		return self._get_composition_result('GetCompositeResults',CompositeResult, stages)
@@ -674,85 +320,10 @@ class ModelProxy(ProxyObject):
 		"""
 		:ref:`Support Structural Results Example`
 		
-		|  Returns the results for all support structural defined in the model for all stages.
-
-		Returns: 
-			|  A dict[int, list[StructuralResult]] of support structural results.
-			|  To extract the Unique Identifier, please call the following attribute from the class:
-
-			* StructuralResult.entity_id
-
-			|  To get results for joint associated with this structural, please call the following attribute from the class:
-
-			* StructuralResult.joint_result
-
-			|  The above returns a JointResult object for a specific joint
-
-				|  To extract the Unique Identifier for this joint, please call the following attribute from the class:
-
-				* JointResult.entity_id
-
-				|  To get results for joint element, please call the following attribute from the class:
-
-				* JointResult.joint_element_results
-
-				|  The above returns list[JointElementResult] for a specific joint
-				|  To get the associated data with this, please call the following attributes:
-
-				* JointElementResult.start_x
-				* JointElementResult.start_y
-				* JointElementResult.end_x
-				* JointElementResult.end_y
-				* JointElementResult.distance
-				* JointElementResult.normal_stress
-				* JointElementResult.shear_stress
-				* JointElementResult.confining_stress
-				* JointElementResult.normal_displacement
-				* JointElementResult.shear_displacement
-				* JointElementResult.yielded
-
-
-			|  To get results for liner associated with this structural, please call the following attribute from the class:
-
-			* StructuralResult.liner_result
-
-			|  The above returns a LinerResult object for a specific liner
-			
-				|  To extract the Unique Identifier for this liner, please call the following attribute from the class:
-
-					* LinerResult.entity_id
-
-					|  To get results for liner element, please call the following attribute from the class:
-
-					* LinerResult.liner_element_results
-
-					|  The above returns list[LinerElementResult] for a specific liner
-					|  To get the associated data with this, please call the following attributes:
-
-					* LinerElementResult.composite_layer
-					* LinerElementResult.node_start
-					* LinerElementResult.node_end
-					* LinerElementResult.start_x
-					* LinerElementResult.start_y
-					* LinerElementResult.end_x
-					* LinerElementResult.end_y
-					* LinerElementResult.distance
-					* LinerElementResult.axial_force
-					* LinerElementResult.moment1
-					* LinerElementResult.moment_mid
-					* LinerElementResult.moment2
-					* LinerElementResult.shear_force
-					* LinerElementResult.displacement_total
-					* LinerElementResult.displacement_x
-					* LinerElementResult.displacement_y
-					* LinerElementResult.axi_sym_force
-					* LinerElementResult.axi_sym_moment
-					* LinerElementResult.beam_yield
-					* LinerElementResult.temperature
+		|  Returns a map of StructuralResult for all input stages and support structural defined in your model.
 
 		"""
 		return self._get_composition_result('GetStructuralResults',StructuralResult, stages)
-
 
 	def _get_composition_result(
 	self,
@@ -772,9 +343,12 @@ class ModelProxy(ProxyObject):
 
 		return structured_data
 
-	def getUnits(self):
+	def getUnits(self) -> Units:
 		'''
-		Get Units
+		:ref:`Get Model Units Example`
+
+		|  Get Solid, Hydro and Thermal units for your model
+		
 		'''
 		NUM_UNITS = 3
 		data = self._callFunction('getUnits', [])
@@ -785,6 +359,6 @@ class ModelProxy(ProxyObject):
 
 	def getCriticalSRF(self):
 		'''
-		Get Critical SRF
+		|  Get Critical SRF
 		'''
 		return ResetInvalid.validate_double(self._callFunction('getCriticalSRF', []))
