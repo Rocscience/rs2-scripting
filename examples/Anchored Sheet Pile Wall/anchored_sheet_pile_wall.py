@@ -51,7 +51,7 @@ df_joint = pd.read_csv(rf"{current_dir}\joints.csv") #read joints csv file
 joint1 = model.getAllJointProperties()[0] # get joint 1 properties
 
 #Assigning joint1 properties individually
-joint1.setSlipCriterion(JointTypes.JOINT_MOHR_COULOMB) # set slip criterion = mohr coulomb
+joint1.setSlipCriterion(JointTypes.MOHR_COULOMB) # set slip criterion = mohr coulomb
 
 # Liner Properties 
 df_liner = pd.read_csv(rf"{current_dir}\liners.csv") #read liners csv file
@@ -71,7 +71,7 @@ for index, read_bolt_props in df_bolt.iterrows():
     bolt_props = boltList[index] # get the bolt properties of the current row index
 
     # reformat Type column value
-    bolt_props.setBoltType(BoltTypes.TIEBACK_BOLT) # set bolt type = Tieback
+    bolt_props.setBoltType(BoltTypes.TIEBACK) # set bolt type = Tieback
 
     # read and set bolt properties for each bolt
     bolt_props.Tieback.setBondShearStiffness(float(df_bolt.iat[index,2])) # set'Bond Shear Stiffness'
