@@ -231,7 +231,8 @@ class Model(ProxyObject):
 				# displacement force
 				if len(entity_data) < 3 or len(entity_data[0]) <1 or len(entity_data[0][0]) < 4:
 					continue
-
+				if len(entity_data[1]) < 1 or len(entity_data[2]) < 1:
+					continue
 				for yeilding_vector in entity_data[1]:
 					yielding = BoltYieldingResult(*yeilding_vector)
 					yielding_results.append(yielding)
@@ -336,8 +337,8 @@ class Model(ProxyObject):
 		for stage_idx, stage_data in map_data.items():
 			structured_data[stage_idx] = []
 			for entity_name, entity_data in stage_data.items():
-				liner_result = self.process_liner_data(entity_data, entity_name)
-				joint_result = self.process_joint_data(entity_data, entity_name)
+				liner_result = self._process_liner_data(entity_data, entity_name)
+				joint_result = self._process_joint_data(entity_data, entity_name)
 				composition_result = ResultType(entity_name,joint_result,liner_result)
 				structured_data[stage_idx].append(composition_result)
 
