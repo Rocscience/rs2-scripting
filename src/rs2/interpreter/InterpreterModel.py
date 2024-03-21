@@ -337,8 +337,8 @@ class Model(ProxyObject):
 		for stage_idx, stage_data in map_data.items():
 			structured_data[stage_idx] = []
 			for entity_name, entity_data in stage_data.items():
-				liner_result = self.process_liner_data(entity_data, entity_name)
-				joint_result = self.process_joint_data(entity_data, entity_name)
+				liner_result = self._process_liner_data(entity_data, entity_name)
+				joint_result = self._process_joint_data(entity_data, entity_name)
 				composition_result = ResultType(entity_name,joint_result,liner_result)
 				structured_data[stage_idx].append(composition_result)
 
