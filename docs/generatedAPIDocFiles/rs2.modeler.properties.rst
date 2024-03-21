@@ -8,7 +8,7 @@ rs2.modeler.properties package
 
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 1
 
    rs2.modeler.properties.bolt
    rs2.modeler.properties.joint
