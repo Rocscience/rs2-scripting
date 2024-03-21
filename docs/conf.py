@@ -19,7 +19,6 @@ sys.path.insert(0, directory_path)
 project = 'RS2 Scripting Reference Manual'
 copyright = '2023, Rocscience Inc.'
 author = 'Rocscience Inc.'
-release = '0.0'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
