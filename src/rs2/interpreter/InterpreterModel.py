@@ -231,7 +231,8 @@ class Model(ProxyObject):
 				# displacement force
 				if len(entity_data) < 3 or len(entity_data[0]) <1 or len(entity_data[0][0]) < 4:
 					continue
-
+				if len(entity_data[1]) < 1 or len(entity_data[2]) < 1:
+					continue
 				for yeilding_vector in entity_data[1]:
 					yielding = BoltYieldingResult(*yeilding_vector)
 					yielding_results.append(yielding)
