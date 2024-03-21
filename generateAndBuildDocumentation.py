@@ -31,6 +31,8 @@ def run_sphinx_apidoc():
         "--module-first",
         "-o",
         "docs/generatedAPIDocFiles",
+        "-d",
+        "1",
         "src/rs2",
         "src/rs2/_common/Client.py",
         "src/rs2/_common/documentProxy.py",

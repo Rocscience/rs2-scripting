@@ -8,7 +8,7 @@ rs2.modeler.properties.material package
 
 
 .. toctree::
-   :maxdepth: 4
+   :maxdepth: 1
 
    rs2.modeler.properties.material.datum
    rs2.modeler.properties.material.hydraulic
