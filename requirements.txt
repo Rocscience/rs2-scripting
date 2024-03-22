@@ -1,2 +1,2 @@
 rsmessages==0.0.2.dev1
-./dist/RS2Scripting-11.23.0.dev3-py3-none-any.whl
+./dist/RS2Scripting-11.23.0.dev4-py3-none-any.whl
