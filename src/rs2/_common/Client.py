@@ -1,14 +1,7 @@
-import logging
 import warnings
 from rsmessages.requestFormat import functionRequest
 from rsmessages.responseFormat import functionResponse, functionStatus
 from multiprocessing.connection import Client as multiProcessingClient
-
-
-logging.basicConfig(filename='python_client.log', filemode='w', format='%(process)d - %(asctime)s - %(levelname)s - %(message)s')
-logger = logging.getLogger(__name__)
-logger.level = logging.INFO
-
 
 class Client:
 	def __init__(self, host, port):
@@ -31,7 +24,6 @@ class Client:
 		try:
 			connection = multiProcessingClient((host, port) ,'AF_INET')
 		except Exception as e:
-			logger.error(f"Unable to create client. Full error: {e}")
 			return
 		return connection
 	
