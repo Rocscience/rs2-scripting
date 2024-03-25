@@ -1,6 +1,6 @@
 from rs2._common.ProxyObject import ProxyObject
 from rs2._common.documentProxy import DocumentProxy
-from rs2 import Units
+from rs2.Units import Units
 class BaseModel(ProxyObject):
 
 	def __init__(self, client, ID):

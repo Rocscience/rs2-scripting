@@ -14,7 +14,6 @@ class Model(BaseModel):
 	"""
 	:ref:`Model Example`
 	"""
-
 	def saveCopyAs(self, fileName : str):
 		'''
 		Saves the model using the given file name.
