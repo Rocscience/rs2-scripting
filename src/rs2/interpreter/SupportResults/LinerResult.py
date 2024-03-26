@@ -1,4 +1,4 @@
-from rs2.interpreter.UtilityResult import *
+from rs2.interpreter._UtilityResult import *
 
 class LinerElementResult:
     def __init__(self,composite_layer, node_start, node_end, start_x, start_y, end_x, end_y, distance,axial_force, moment1, moment_mid, moment2, shear_force, displacement_total, displacement_x, displacement_y,

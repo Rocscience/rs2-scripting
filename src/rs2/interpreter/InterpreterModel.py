@@ -1,13 +1,13 @@
 from rs2.interpreter.InterpreterEnums import *
-from rs2.interpreter.MeshResults import MeshResults
-from rs2.interpreter.HistoryQueryResults import *
-from rs2.interpreter.TimeQueryResults import *
+from rs2.interpreter.QueryResults.MeshResults import MeshResults
+from rs2.interpreter.QueryResults.HistoryQueryResults import *
+from rs2.interpreter.QueryResults.TimeQueryResults import *
 from rs2.interpreter.InterpreterGraphEnums import *
-from rs2.interpreter.JointResult import *
-from rs2.interpreter.LinerResult import *
-from rs2.interpreter.BoltResult import*
-from rs2.interpreter.CompositeResult import*
-from rs2.interpreter.MaterialQueryResults import *
+from rs2.interpreter.SupportResults.JointResult import *
+from rs2.interpreter.SupportResults.LinerResult import *
+from rs2.interpreter.SupportResults.BoltResult import*
+from rs2.interpreter.SupportResults.CompositeResult import*
+from rs2.interpreter.QueryResults.MaterialQueryResults import *
 from rs2.BaseModel import BaseModel
 
 class Model(BaseModel):

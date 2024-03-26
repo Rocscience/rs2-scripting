@@ -1,5 +1,5 @@
 from enum import Enum
-from rs2.interpreter.UtilityResult import *
+from rs2.interpreter._UtilityResult import *
 
 class BoltElementYieldStatus(Enum):
     BOLT_ELEMENT_NOT_YIELDED = 0

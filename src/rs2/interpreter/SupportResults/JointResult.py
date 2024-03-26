@@ -1,4 +1,4 @@
-from rs2.interpreter.UtilityResult import *
+from rs2.interpreter._UtilityResult import *
 
 class JointElementResult:
     def __init__(self, start_x, start_y, end_x, end_y, distance, normal_stress, shear_stress,confining_stress, normal_displacement, shear_displacement, yielded):

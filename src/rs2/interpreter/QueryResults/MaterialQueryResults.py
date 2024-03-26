@@ -1,4 +1,4 @@
-from rs2.interpreter.UtilityResult import *
+from rs2.interpreter._UtilityResult import *
 
 class QueryResult:
     def __init__(self, x_location, y_location, distance, value):
