@@ -10,8 +10,8 @@ rs2.interpreter package
 .. toctree::
    :maxdepth: 1
 
-   rs2.interpreter.QueryResults
-   rs2.interpreter.SupportResults
+   rs2.interpreter.queryResults
+   rs2.interpreter.supportResults
 
 
 rs2.interpreter.InterpreterEnums module

@@ -2,15 +2,15 @@ from rs2.modeler.RS2Modeler import RS2Modeler
 from rs2.interpreter.RS2Interpreter import RS2Interpreter
 from rs2.modeler.properties.PropertyEnums import *
 from rs2.interpreter.InterpreterEnums import *
-from rs2.interpreter.QueryResults.MeshResults import MeshResults
-from rs2.interpreter.QueryResults.HistoryQueryResults import *
-from rs2.interpreter.QueryResults.TimeQueryResults import *
+from rs2.interpreter.queryResults.MeshResults import MeshResults
+from rs2.interpreter.queryResults.HistoryQueryResults import *
+from rs2.interpreter.queryResults.TimeQueryResults import *
 from rs2.interpreter.InterpreterGraphEnums import *
-from rs2.interpreter.SupportResults.JointResult import *
-from rs2.interpreter.SupportResults.LinerResult import *
-from rs2.interpreter.SupportResults.BoltResult import*
-from rs2.interpreter.SupportResults.CompositeResult import*
-from rs2.interpreter.QueryResults.MaterialQueryResults import *
+from rs2.interpreter.supportResults.JointResult import *
+from rs2.interpreter.supportResults.LinerResult import *
+from rs2.interpreter.supportResults.BoltResult import*
+from rs2.interpreter.supportResults.CompositeResult import*
+from rs2.interpreter.queryResults.MaterialQueryResults import *
 import csv
 
 # vanila untouched

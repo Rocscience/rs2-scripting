@@ -1,40 +1,40 @@
-rs2.interpreter.QueryResults package
+rs2.interpreter.queryResults package
 ====================================
 
-.. automodule:: rs2.interpreter.QueryResults
+.. automodule:: rs2.interpreter.queryResults
    :members:
    :undoc-members:
    :show-inheritance:
 
 
-rs2.interpreter.QueryResults.HistoryQueryResults module
+rs2.interpreter.queryResults.HistoryQueryResults module
 -------------------------------------------------------
 
-.. automodule:: rs2.interpreter.QueryResults.HistoryQueryResults
+.. automodule:: rs2.interpreter.queryResults.HistoryQueryResults
    :members:
    :undoc-members:
    :show-inheritance:
 
-rs2.interpreter.QueryResults.MaterialQueryResults module
+rs2.interpreter.queryResults.MaterialQueryResults module
 --------------------------------------------------------
 
-.. automodule:: rs2.interpreter.QueryResults.MaterialQueryResults
+.. automodule:: rs2.interpreter.queryResults.MaterialQueryResults
    :members:
    :undoc-members:
    :show-inheritance:
 
-rs2.interpreter.QueryResults.MeshResults module
+rs2.interpreter.queryResults.MeshResults module
 -----------------------------------------------
 
-.. automodule:: rs2.interpreter.QueryResults.MeshResults
+.. automodule:: rs2.interpreter.queryResults.MeshResults
    :members:
    :undoc-members:
    :show-inheritance:
 
-rs2.interpreter.QueryResults.TimeQueryResults module
+rs2.interpreter.queryResults.TimeQueryResults module
 ----------------------------------------------------
 
-.. automodule:: rs2.interpreter.QueryResults.TimeQueryResults
+.. automodule:: rs2.interpreter.queryResults.TimeQueryResults
    :members:
    :undoc-members:
    :show-inheritance:

@@ -3,7 +3,7 @@ from rs2.interpreter.InterpreterGraphEnums import *
 from rs2.modeler.properties import *
 
 from rs2.interpreter.RS2Interpreter import RS2Interpreter
-from rs2.interpreter.SupportResults.BoltResult import*
+from rs2.interpreter.supportResults.BoltResult import*
 
 def print_object_attributes(obj, indent=0):
     # Get the dictionary of attributes for the object

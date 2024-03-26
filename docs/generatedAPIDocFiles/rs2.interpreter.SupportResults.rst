@@ -1,40 +1,40 @@
-rs2.interpreter.SupportResults package
+rs2.interpreter.supportResults package
 ======================================
 
-.. automodule:: rs2.interpreter.SupportResults
+.. automodule:: rs2.interpreter.supportResults
    :members:
    :undoc-members:
    :show-inheritance:
 
 
-rs2.interpreter.SupportResults.BoltResult module
+rs2.interpreter.supportResults.BoltResult module
 ------------------------------------------------
 
-.. automodule:: rs2.interpreter.SupportResults.BoltResult
+.. automodule:: rs2.interpreter.supportResults.BoltResult
    :members:
    :undoc-members:
    :show-inheritance:
 
-rs2.interpreter.SupportResults.CompositeResult module
+rs2.interpreter.supportResults.CompositeResult module
 -----------------------------------------------------
 
-.. automodule:: rs2.interpreter.SupportResults.CompositeResult
+.. automodule:: rs2.interpreter.supportResults.CompositeResult
    :members:
    :undoc-members:
    :show-inheritance:
 
-rs2.interpreter.SupportResults.JointResult module
+rs2.interpreter.supportResults.JointResult module
 -------------------------------------------------
 
-.. automodule:: rs2.interpreter.SupportResults.JointResult
+.. automodule:: rs2.interpreter.supportResults.JointResult
    :members:
    :undoc-members:
    :show-inheritance:
 
-rs2.interpreter.SupportResults.LinerResult module
+rs2.interpreter.supportResults.LinerResult module
 -------------------------------------------------
 
-.. automodule:: rs2.interpreter.SupportResults.LinerResult
+.. automodule:: rs2.interpreter.supportResults.LinerResult
    :members:
    :undoc-members:
    :show-inheritance:

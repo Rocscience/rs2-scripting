@@ -1,5 +1,5 @@
-from rs2.interpreter.SupportResults.LinerResult import LinerResult
-from rs2.interpreter.SupportResults.JointResult import JointResult
+from rs2.interpreter.supportResults.LinerResult import LinerResult
+from rs2.interpreter.supportResults.JointResult import JointResult
 
 class PileResult:
     def __init__(self, entity_id, joint_result: JointResult, liner_result: LinerResult):
