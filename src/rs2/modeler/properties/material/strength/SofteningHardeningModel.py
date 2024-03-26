@@ -76,6 +76,10 @@ class SofteningHardeningModel(PropertyProxy):
 		return CapTypes(self._getEnumECapTypesProperty("MP_SH_CAP_TYPE"))
 	def setCapType(self, value: CapTypes):
 		return self._setEnumECapTypesProperty("MP_SH_CAP_TYPE", value)
+	def getCapHardeningType(self) -> CapHardeningTypes:
+		return CapHardeningTypes(self._getEnumECapHardeningTypesProperty("MP_SH_CAP_HARDENING_TYPE"))
+	def setCapHardeningType(self, value: CapHardeningTypes):
+		return self._setEnumECapHardeningTypesProperty("MP_SH_CAP_HARDENING_TYPE", value)
 	def getInitialMeanStress(self) -> float:
 		return self._getDoubleProperty("MP_INITIAL_MEAN_STRESS")
 	def setInitialMeanStress(self, value: float):
@@ -107,7 +111,7 @@ class SofteningHardeningModel(PropertyProxy):
 		returns a list of (x,y) tuples.
 		"""
 		return self._callFunction("getSHCapMeanStress", [])
-	def setProperties(self, PeakTensileStrength : float = None, PeakFrictionAngle : float = None, PeakCohesion : float = None, ConeHardeningType : ConeHardeningTypes = None, HardeningProperty : float = None, DilationAngle : float = None, ConeDilationType : DilationTypes = None, CapType : CapTypes = None, InitialMeanStress : float = None, LambdaKappa : float = None):
+	def setProperties(self, PeakTensileStrength : float = None, PeakFrictionAngle : float = None, PeakCohesion : float = None, ConeHardeningType : ConeHardeningTypes = None, HardeningProperty : float = None, DilationAngle : float = None, ConeDilationType : DilationTypes = None, CapType : CapTypes = None, CapHardeningType : CapHardeningTypes = None, InitialMeanStress : float = None, LambdaKappa : float = None):
 		if PeakTensileStrength is not None:
 			self._setDoubleProperty("MP_PEAK_TENSILE_STRENGTH", PeakTensileStrength)
 		if PeakFrictionAngle is not None:
@@ -124,6 +128,8 @@ class SofteningHardeningModel(PropertyProxy):
 			self._setEnumEDilationTypesProperty("MP_CONE_DILATION", ConeDilationType)
 		if CapType is not None:
 			self._setEnumECapTypesProperty("MP_SH_CAP_TYPE", CapType)
+		if CapHardeningType is not None:
+			self._setEnumECapHardeningTypesProperty("MP_SH_CAP_HARDENING_TYPE", CapHardeningType)
 		if InitialMeanStress is not None:
 			self._setDoubleProperty("MP_INITIAL_MEAN_STRESS", InitialMeanStress)
 		if LambdaKappa is not None:
@@ -138,6 +144,7 @@ class SofteningHardeningModel(PropertyProxy):
 		"DilationAngle" : self.getDilationAngle(), 
 		"ConeDilationType" : self.getConeDilationType(), 
 		"CapType" : self.getCapType(), 
+		"CapHardeningType" : self.getCapHardeningType(), 
 		"InitialMeanStress" : self.getInitialMeanStress(), 
 		"LambdaKappa" : self.getLambdaKappa(), 
 		}

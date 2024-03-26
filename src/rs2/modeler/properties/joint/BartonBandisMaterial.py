@@ -17,6 +17,8 @@ class BartonBandisMaterialStageFactor(ProxyObject):
 		return self._callFunction("getDoubleFactor", ["JP_FRICTION_ANGLE_RES_BARTON", self.propertyID], proxyArgumentIndices=[1])
 	def getDilationAngleFactor(self) -> float:
 		return self._callFunction("__getattribute__", ["m_dilation_angle"])
+	def getJointPermeableFactor(self) -> bool:
+		return self._callFunction("__getattribute__", ["m_joint_permeable_factor"])
 class BartonBandisMaterialDefinedStageFactor(BartonBandisMaterialStageFactor):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID, propertyID)
@@ -28,6 +30,8 @@ class BartonBandisMaterialDefinedStageFactor(BartonBandisMaterialStageFactor):
 		return self._callFunction("setDoubleFactor", ["JP_FRICTION_ANGLE_RES_BARTON", value, self.propertyID], proxyArgumentIndices=[2])
 	def setDilationAngleFactor(self, dilationAngleFactor: float):
 		return self._callFunction("setDilationAngle", [dilationAngleFactor])
+	def setJointPermeableFactor(self, Permeable: bool):
+		return self._callFunction("setJointPermeableFactor", [Permeable])
 class BartonBandisMaterial(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)
