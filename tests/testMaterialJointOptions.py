@@ -85,3 +85,30 @@ class TestMaterialJointOptions(unittest.TestCase):
         joint = self.matJointOptions.getJoint(0)
         with self.assertRaises(Exception):
             joint.GeosyntheticHyperbolicMaterial.setDilationRatio(-0.1)
+
+    def testSetPermeabilityFactor(self):
+        self.matJointOptions.setNumberOfJoints(1)
+        joint = self.matJointOptions.getJoint(0)
+        joint.setSlipCriterion(JointTypes.MOHR_COULOMB)
+        joint.MohrCoulombMaterial.setApplyStageFactors(True)        
+        fac1 = joint.MohrCoulombMaterial.stageFactorInterface.createStageFactor(1)
+        fac1.setJointPermeableFactor(True)
+        self.assertEqual(fac1.getJointPermeableFactor(),True)
+        fac1.setJointPermeableFactor(False)
+        self.assertEqual(fac1.getJointPermeableFactor(),False)
+
+        joint.setSlipCriterion(JointTypes.BARTON_BANDIS)
+        joint.BartonBandisMaterial.setApplyStageFactors(True)
+        fac1 = joint.BartonBandisMaterial.stageFactorInterface.getDefinedStageFactors()[1]
+        fac1.setJointPermeableFactor(True)
+        self.assertEqual(fac1.getJointPermeableFactor(),True)
+        fac1.setJointPermeableFactor(False)
+        self.assertEqual(fac1.getJointPermeableFactor(),False)
+
+        joint.setSlipCriterion(JointTypes.GEOSYNTHETIC_HYPERBOLIC)
+        joint.GeosyntheticHyperbolicMaterial.setApplyStageFactors(True)
+        fac1 = joint.GeosyntheticHyperbolicMaterial.stageFactorInterface.getDefinedStageFactors()[1]
+        fac1.setJointPermeableFactor(True)
+        self.assertEqual(fac1.getJointPermeableFactor(),True)
+        fac1.setJointPermeableFactor(False)
+        self.assertEqual(fac1.getJointPermeableFactor(),False)
