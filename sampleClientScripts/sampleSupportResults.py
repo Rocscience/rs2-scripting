@@ -3,7 +3,7 @@ from rs2.interpreter.InterpreterGraphEnums import *
 from rs2.modeler.properties import *
 
 from rs2.interpreter.RS2Interpreter import RS2Interpreter
-from rs2.interpreter.BoltResult import*
+from rs2.interpreter.supportResults.BoltResult import*
 
 def print_object_attributes(obj, indent=0):
     # Get the dictionary of attributes for the object
@@ -44,7 +44,7 @@ def print_dict_elements(data_dict):
 interpreter = RS2Interpreter()
 
 interpreter_model = interpreter.openFile(r"C:\scriptingModels\joint.fez")
-interpreter_model2 = interpreter.openFile(r"C:\scriptingModels\si.fez")
+interpreter_model2 = interpreter.openFile(r"C:\scriptingModels\supportStructuralResults.fez")
 
 stages = [1]
 

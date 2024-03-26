@@ -7,29 +7,12 @@ rs2.interpreter package
    :show-inheritance:
 
 
-rs2.interpreter.BoltResult module
----------------------------------
+.. toctree::
+   :maxdepth: 1
 
-.. automodule:: rs2.interpreter.BoltResult
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   rs2.interpreter.queryResults
+   rs2.interpreter.supportResults
 
-rs2.interpreter.CompositeResult module
---------------------------------------
-
-.. automodule:: rs2.interpreter.CompositeResult
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.interpreter.HistoryQueryResults module
-------------------------------------------
-
-.. automodule:: rs2.interpreter.HistoryQueryResults
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
 rs2.interpreter.InterpreterEnums module
 ---------------------------------------
@@ -47,42 +30,10 @@ rs2.interpreter.InterpreterGraphEnums module
    :undoc-members:
    :show-inheritance:
 
-rs2.interpreter.InterpreterModelProxy module
---------------------------------------------
+rs2.interpreter.InterpreterModel module
+---------------------------------------
 
-.. automodule:: rs2.interpreter.InterpreterModelProxy
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.interpreter.JointResult module
-----------------------------------
-
-.. automodule:: rs2.interpreter.JointResult
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.interpreter.LinerResult module
-----------------------------------
-
-.. automodule:: rs2.interpreter.LinerResult
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.interpreter.MaterialQueryResults module
--------------------------------------------
-
-.. automodule:: rs2.interpreter.MaterialQueryResults
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.interpreter.MeshResults module
-----------------------------------
-
-.. automodule:: rs2.interpreter.MeshResults
+.. automodule:: rs2.interpreter.InterpreterModel
    :members:
    :undoc-members:
    :show-inheritance:
@@ -91,22 +42,6 @@ rs2.interpreter.RS2Interpreter module
 -------------------------------------
 
 .. automodule:: rs2.interpreter.RS2Interpreter
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.interpreter.TimeQueryResults module
----------------------------------------
-
-.. automodule:: rs2.interpreter.TimeQueryResults
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.interpreter.UtilityResult module
-------------------------------------
-
-.. automodule:: rs2.interpreter.UtilityResult
    :members:
    :undoc-members:
    :show-inheritance:

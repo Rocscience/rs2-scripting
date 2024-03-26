@@ -17,10 +17,10 @@ class TransverselyIsotropicStageFactor(ProxyObject):
 		return self._callFunction("getDoubleFactor", ["MP_POISSONS_RATIO_V12", self.propertyID], proxyArgumentIndices=[1])
 	def getShearModulusFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["MP_SHEAR_MODULUS", self.propertyID], proxyArgumentIndices=[1])
-	def getYoungsModulusE1AndEzFactor(self) -> float:
-		return self._callFunction("getDoubleFactor", ["MP_YOUNGS_MODULUS_E1_AND_EZ", self.propertyID], proxyArgumentIndices=[1])
 	def getYoungsModulusE2Factor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["MP_YOUNGS_MODULUS_E2", self.propertyID], proxyArgumentIndices=[1])
+	def getYoungsModulusE1AndEzFactor(self) -> float:
+		return self._callFunction("getDoubleFactor", ["MP_YOUNGS_MODULUS_E1_AND_EZ", self.propertyID], proxyArgumentIndices=[1])
 class TransverselyIsotropicDefinedStageFactor(TransverselyIsotropicStageFactor):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID, propertyID)
@@ -32,10 +32,11 @@ class TransverselyIsotropicDefinedStageFactor(TransverselyIsotropicStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_POISSONS_RATIO_V12", value, self.propertyID], proxyArgumentIndices=[2])
 	def setShearModulusFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_SHEAR_MODULUS", value, self.propertyID], proxyArgumentIndices=[2])
-	def setYoungsModulusE1AndEzFactor(self, value: float):
-		return self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_E1_AND_EZ", value, self.propertyID], proxyArgumentIndices=[2])
 	def setYoungsModulusE2Factor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_E2", value, self.propertyID], proxyArgumentIndices=[2])
+	def setYoungsModulusE1AndEzFactor(self, value: float):
+		self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_E1", value, self.propertyID], proxyArgumentIndices = [2])
+		self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_EZ", value, self.propertyID], proxyArgumentIndices = [2])
 class TransverselyIsotropic(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

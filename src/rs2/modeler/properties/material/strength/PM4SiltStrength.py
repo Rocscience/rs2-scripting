@@ -32,6 +32,10 @@ class PM4SiltStrength(PropertyProxy):
 		return self._getDoubleProperty("MP_PM4_SILT_LAMBDA")
 	def setLambda(self, value: float):
 		return self._setDoubleProperty("MP_PM4_SILT_LAMBDA", value)
+	def getAutoCalculateFsu(self) -> bool:
+		return self._getBoolProperty("MP_USE_AUTO_FSU")
+	def setAutoCalculateFsu(self, value: bool):
+		return self._setBoolProperty("MP_USE_AUTO_FSU", value)
 	def getFsu(self) -> float:
 		return self._getDoubleProperty("MP_PM4_SILT_FSU")
 	def setFsu(self, value: float):
@@ -132,7 +136,7 @@ class PM4SiltStrength(PropertyProxy):
 		return self._getDoubleProperty("MP_FABRIC_DILATANCY_TENSOR_CZ")
 	def setCzParameter(self, value: float):
 		return self._setDoubleProperty("MP_FABRIC_DILATANCY_TENSOR_CZ", value)
-	def setProperties(self, AutoCalculateSuParameter : bool = None, SuParameter : float = None, SuRatioParameter : float = None, AutoCalculateEInitial : bool = None, EInitial : float = None, AutoCalculateLambda : bool = None, Lambda : float = None, Fsu : float = None, AutoCalculatePhiCv : bool = None, PhiCv : float = None, AutoCalculateNbWet : bool = None, NbWet : float = None, AutoCalculateNbDry : bool = None, NbDry : float = None, AutoCalculateNdParameter : bool = None, NdParameter : float = None, AutoCalculateADoParameter : bool = None, ADoParameter : float = None, AutoCalculateRuMax : bool = None, RuMax : float = None, Hp0Parameter : float = None, AutoCalculateCEpsParameter : bool = None, CEpsParameter : float = None, YieldSurfaceM : float = None, AutoCalculateH0Parameter : bool = None, H0Parameter : float = None, AutoCalculateCKafParameter : bool = None, CKafParameter : float = None, AutoCalculateZmax : bool = None, Zmax : float = None, AutoCalculateCzParameter : bool = None, CzParameter : float = None):
+	def setProperties(self, AutoCalculateSuParameter : bool = None, SuParameter : float = None, SuRatioParameter : float = None, AutoCalculateEInitial : bool = None, EInitial : float = None, AutoCalculateLambda : bool = None, Lambda : float = None, AutoCalculateFsu : bool = None, Fsu : float = None, AutoCalculatePhiCv : bool = None, PhiCv : float = None, AutoCalculateNbWet : bool = None, NbWet : float = None, AutoCalculateNbDry : bool = None, NbDry : float = None, AutoCalculateNdParameter : bool = None, NdParameter : float = None, AutoCalculateADoParameter : bool = None, ADoParameter : float = None, AutoCalculateRuMax : bool = None, RuMax : float = None, Hp0Parameter : float = None, AutoCalculateCEpsParameter : bool = None, CEpsParameter : float = None, YieldSurfaceM : float = None, AutoCalculateH0Parameter : bool = None, H0Parameter : float = None, AutoCalculateCKafParameter : bool = None, CKafParameter : float = None, AutoCalculateZmax : bool = None, Zmax : float = None, AutoCalculateCzParameter : bool = None, CzParameter : float = None):
 		if AutoCalculateSuParameter is not None:
 			self._setBoolProperty("MP_USE_AUTO_SU", AutoCalculateSuParameter)
 		if SuParameter is not None:
@@ -147,6 +151,8 @@ class PM4SiltStrength(PropertyProxy):
 			self._setBoolProperty("MP_USE_AUTO_LAMBDA", AutoCalculateLambda)
 		if Lambda is not None:
 			self._setDoubleProperty("MP_PM4_SILT_LAMBDA", Lambda)
+		if AutoCalculateFsu is not None:
+			self._setBoolProperty("MP_USE_AUTO_FSU", AutoCalculateFsu)
 		if Fsu is not None:
 			self._setDoubleProperty("MP_PM4_SILT_FSU", Fsu)
 		if AutoCalculatePhiCv is not None:
@@ -206,6 +212,7 @@ class PM4SiltStrength(PropertyProxy):
 		"EInitial" : self.getEInitial(), 
 		"AutoCalculateLambda" : self.getAutoCalculateLambda(), 
 		"Lambda" : self.getLambda(), 
+		"AutoCalculateFsu" : self.getAutoCalculateFsu(), 
 		"Fsu" : self.getFsu(), 
 		"AutoCalculatePhiCv" : self.getAutoCalculatePhiCv(), 
 		"PhiCv" : self.getPhiCv(), 
