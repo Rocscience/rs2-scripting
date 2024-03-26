@@ -1,6 +1,3 @@
-from rs2._common.ProxyObject import ProxyObject
-from rs2._common.documentProxy import DocumentProxy
-from rs2._common.Units import Units
 from rs2.modeler.properties.bolt.Bolt import BoltProperty
 from rs2.modeler.properties.liner.Liner import LinerProperty
 from rs2.modeler.properties.joint.Joint import JointProperty
@@ -13,18 +10,12 @@ from rs2.modeler.properties.ShearNormalFunction import ShearNormalFunction
 from rs2.modeler.properties.UserDefinedWaterMode import UserDefinedWaterMode
 from rs2.modeler.properties.DiscreteFunction import DiscreteFunction
 
-class Model(ProxyObject):
+from rs2.BaseModel import BaseModel
+
+class Model(BaseModel):
 	"""
 	:ref:`Model Example`
 	"""
-	def __init__(self, client, ID):
-		super().__init__(client, ID)
-		self._documentProxy = self._getDocument()
-
-	def _getDocument(self):
-		documentObjectID = self._callFunction('getDocument', [], keepReturnValueReference=True)
-		return DocumentProxy(self._client, documentObjectID)
-    
 	def getBoltPropertyByName(self, boltName : str) -> BoltProperty:
 		'''
 		|  Returns a Bolt Property object based on its name.
@@ -297,14 +288,6 @@ class Model(ProxyObject):
 		'''
 		return self._callFunction('compute', [True])
 
-	def close(self):
-		'''
-		:ref:`Model Example`
-
-		|  Closes the model
-		'''
-		return self._callFunction('close', [])
-
 	def saveAs(self, fileName : str):
 		'''
 		|  Saves the model using the given file name.
@@ -316,15 +299,8 @@ class Model(ProxyObject):
 			model.saveAs('C:/simple_3_stage.fez')
 		'''
 		formattedFileName = fileName.replace('/', '\\')
+		self._enforceFeaFezEnding(formattedFileName)
 		return self._callFunction('saveAs', [formattedFileName])
-
-	def save(self):
-		'''
-		:ref:`Model Example`
-
-		|  Saves the model
-		'''
-		return self._callFunction('save', [])
 
 	def getDiscreteFunctions(self) -> list[DiscreteFunction]:
 		'''
@@ -361,18 +337,7 @@ class Model(ProxyObject):
 		'''
 		return self._callFunction('renameDiscreteFunction', [oldName, newName])	
 	
-	def getUnits(self):
-		'''
-		:ref:`Get Model Units Example`
 
-		|  Get Solid, Hydro and Thermal units for your model
-		'''
-		NUM_UNITS = 3
-		data = self._callFunction('getUnits', [])
-		if (len (data) !=NUM_UNITS) :
-			assert False
-			return Units()
-		return Units(*data)
 
 	def ResetProperties(self):
 		'''

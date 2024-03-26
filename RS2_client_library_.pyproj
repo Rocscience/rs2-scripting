@@ -259,7 +259,7 @@
     <Compile Include="src\rs2\_common\Client.py" />
     <Compile Include="src\rs2\_common\documentProxy.py" />
     <Compile Include="src\rs2\_common\ProxyObject.py" />
-    <Compile Include="src\rs2\_common\Units.py" />
+    <Compile Include="src\rs2\Units.py" />
     <Compile Include="src\rs2\_common\__init__.py" />
     <Compile Include="src\rs2\__init__.py" />
     <Compile Include="tests\HistoryQuery\testAddHistoryQuery.py" />

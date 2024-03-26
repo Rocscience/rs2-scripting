@@ -1,6 +1,3 @@
-from rs2._common.ProxyObject import ProxyObject
-from rs2._common.documentProxy import DocumentProxy
-from rs2._common.Units import Units
 from rs2.interpreter.InterpreterEnums import *
 from rs2.interpreter.MeshResults import MeshResults
 from rs2.interpreter.HistoryQueryResults import *
@@ -11,27 +8,12 @@ from rs2.interpreter.LinerResult import *
 from rs2.interpreter.BoltResult import*
 from rs2.interpreter.CompositeResult import*
 from rs2.interpreter.MaterialQueryResults import *
-class Model(ProxyObject):
+from rs2.BaseModel import BaseModel
+
+class Model(BaseModel):
 	"""
 	:ref:`Model Example`
 	"""
-	def __init__(self, client, ID):
-		super().__init__(client, ID)
-		self._documentProxy = self._getDocument()
-
-	def _getDocument(self):
-		documentObjectID = self._callFunction('getDocument', [], keepReturnValueReference=True)
-		return DocumentProxy(self._client, documentObjectID)
-
-	def close(self):
-		'''
-		:ref:`Model Example`
-
-		|  Closes the model
-		
-		'''
-		return self._callFunction('close', [])
-
 	def saveCopyAs(self, fileName : str):
 		'''
 		Saves the model using the given file name.
@@ -43,16 +25,10 @@ class Model(ProxyObject):
 			model.saveCopyAs('C:/simple_3_stage.fez')
 		'''
 		formattedFileName = fileName.replace('/', '\\')
+		self._enforceFeaFezEnding(formattedFileName)
 		return self._callFunction('saveAs', [formattedFileName])
 
-	def save(self):
-		'''
-		:ref:`Model Example`
 
-		|  Saves the model
-
-		'''
-		return self._callFunction('save', [])
 	
 	def SetActiveStage(self, stageNumber: int):
 		'''
@@ -344,19 +320,6 @@ class Model(ProxyObject):
 
 		return structured_data
 
-	def getUnits(self) -> Units:
-		'''
-		:ref:`Get Model Units Example`
-
-		|  Get Solid, Hydro and Thermal units for your model
-		
-		'''
-		NUM_UNITS = 3
-		data = self._callFunction('getUnits', [])
-		if len(data) != NUM_UNITS:
-			assert False
-			return Units()
-		return Units(*data)
 
 	def getCriticalSRF(self):
 		'''
