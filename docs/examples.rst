@@ -10,6 +10,11 @@ Python Script Examples
    :language: python
    :caption: Code Snippet: Manipulation of Liner Properties
 
+.. _Liner Stage Factor Example:
+.. literalinclude:: example_code/liner_prop_stage_factor_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Liner Stage Factor Properties
+
 .. _Joint Example:
 .. literalinclude:: example_code/joint_prop_example.py
    :language: python
