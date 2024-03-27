@@ -79,3 +79,5 @@ for stageNum, allPileResults in results.items():
         liner_result = singlePileResult.liner_result
         print(f"\tLiner Result for Pile with ID {pileID}:\n")
         OutputLinerResult(liner_result)
+
+model.close()

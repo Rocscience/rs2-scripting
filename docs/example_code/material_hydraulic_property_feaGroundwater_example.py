@@ -68,3 +68,5 @@ print(f"Param A = {gardener.getA()}, Param N = {gardener.getN()}\n")
 userDefined = FEAGroundwater.UserDefined
 userDefined.setUserDefinedPermeabilityAndWaterContentFunction("User Defined 1")
 print(f"User Defined Permeability And Water Content Function Name = {userDefined.getUserDefinedPermeabilityAndWaterContentFunction()}\n")
+
+model.close()

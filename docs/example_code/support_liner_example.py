@@ -46,3 +46,5 @@ for stageNum, allLinerResults in results.items():
             print(f"\tDisplacement Total = {displacement_total}, Displacement X = {displacemet_x}, Displacement Y = {displacement_y}")
             print(f"\tAxial Symmetry Force = {axi_sym_force}, Axial Symmetry Moment = {axi_sym_moment}")
             print(f"\tBeam Yield = {beam_yield}, Temperature = {temperature}\n")
+
+model.close()
