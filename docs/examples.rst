@@ -15,7 +15,7 @@ Python Script Examples
    :language: python
    :caption: Code Snippet: Manipulation of Joint Properties
 
-.. _Joint Property Stage Factor Example:
+.. _Joint Stage Factor Example:
 .. literalinclude:: example_code/joint_prop_stage_factor_example.py
    :language: python
    :caption: Code Snippet: Manipulation of Joint Stage Factor Properties
@@ -39,6 +39,11 @@ Python Script Examples
 .. literalinclude:: example_code/material_prop_example.py
    :language: python
    :caption: Code Snippet: Manipulation of Material Properties
+
+.. _Material Joint Stage Factor Example:
+.. literalinclude:: example_code/material_joint_stage_factor_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Material Joint Stage Factor Properties
 
 .. _hydraulic property example:
 .. literalinclude:: example_code/material_hydraulic_property_example.py
