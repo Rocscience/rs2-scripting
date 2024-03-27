@@ -30,6 +30,11 @@ Python Script Examples
    :language: python
    :caption: Code Snippet: Manipulation of Pile Properties
 
+.. _Pile Stage Factor Example:
+.. literalinclude:: example_code/pile_prop_stage_factorexample.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Pile Stage Factor Properties
+
 .. _Structural Interface Example:
 .. literalinclude:: example_code/structural_prop_example.py
    :language: python
