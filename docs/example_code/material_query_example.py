@@ -34,3 +34,5 @@ for mat_query_data in results:
         distance = result.GetDistance()
         value = result.GetValue()
         print(f"X-Coord ={x}, Y-Coordinate = {y}, Distance = {distance}, Result Type Node Value = {value}")
+
+model.close()

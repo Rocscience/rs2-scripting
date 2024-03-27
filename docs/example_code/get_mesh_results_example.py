@@ -14,3 +14,5 @@ exportResult1 = model.GetMeshResults()
 x_coord = exportResult1.getXCoordinate(0)
 y_coord = exportResult1.getYCoordinate(0)
 value = exportResult1.getValue(0)
+
+model.close()
