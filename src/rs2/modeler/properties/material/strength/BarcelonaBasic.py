@@ -41,6 +41,12 @@ class BarcelonaBasicDefinedStageFactor(BarcelonaBasicStageFactor):
 	def setPreconsolidationStressFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_PRECONSOLIDATION_STRESS", value, self.propertyID], proxyArgumentIndices=[2])
 class BarcelonaBasic(PropertyProxy):
+	"""
+	:ref:`Material Property Strength Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[BarcelonaBasicDefinedStageFactor, BarcelonaBasicStageFactor]) : Reference object for modifying Strength Barcelona Basic stage factor properties.
+	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[BarcelonaBasicDefinedStageFactor, BarcelonaBasicStageFactor](self._client, stageFactorInterfaceID, ID, BarcelonaBasicDefinedStageFactor, BarcelonaBasicStageFactor)

@@ -53,6 +53,12 @@ class GeneralizedHoekBrownDefinedStageFactor(GeneralizedHoekBrownStageFactor):
 	def setTensileCutoffFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_UD_TENSION_CUTOFF", value, self.propertyID], proxyArgumentIndices=[2])
 class GeneralizedHoekBrown(PropertyProxy):
+	"""
+	:ref:`Material Property Strength Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[GeneralizedHoekBrownDefinedStageFactor, GeneralizedHoekBrownStageFactor]) : Reference object for modifying Strength Generalized Hoek Brown stage factor properties.
+	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[GeneralizedHoekBrownDefinedStageFactor, GeneralizedHoekBrownStageFactor](self._client, stageFactorInterfaceID, ID, GeneralizedHoekBrownDefinedStageFactor, GeneralizedHoekBrownStageFactor)

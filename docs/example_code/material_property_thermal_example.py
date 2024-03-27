@@ -4,7 +4,7 @@ import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
 modeler = RS2Modeler()
-model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
+model = modeler.openFile(rf"{current_dir}\example_models\TransientGroundwaterAndThermal.fez")
 
 material = model.getAllMaterialProperties()[0]
 thermal = material.Thermal
@@ -81,5 +81,12 @@ thermal.setTransverseDispersivity(3)
 
 print(f"Thermal Expansion Coeff. = {thermal.getExpansionCoefficient()}")
 print(f"Longitudinal Dispersivity = {thermal.getLongitudinalDispersivity()}, Transverse Dispersivity = {thermal.getTransverseDispersivity()}\n")
+
+# Manipulation of Thermal Stage Factor Properties
+thermalStageFactors = material.Thermal.stageFactorInterface.getDefinedStageFactors()[1]
+
+thermalStageFactors.setThermalGridFactor("Default Grid")
+
+print(f"Thermal Stage Factor Grid To Use = {thermalStageFactors.getThermalGridFactor()}")
 
 model.close()

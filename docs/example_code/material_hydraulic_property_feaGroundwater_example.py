@@ -69,4 +69,41 @@ userDefined = FEAGroundwater.UserDefined
 userDefined.setUserDefinedPermeabilityAndWaterContentFunction("User Defined 1")
 print(f"User Defined Permeability And Water Content Function Name = {userDefined.getUserDefinedPermeabilityAndWaterContentFunction()}\n")
 
+# Manipulation of FEAGroundwater Stage Factor Properties
+
+# Make sure to stage Hydraulic Stage Factor option before manipulating any factor properties
+material.StageFactors.setStageHydraulicStageFactor(True)
+
+# Constant Stage Factor for stage  1
+feaGroundwaterStageFactor = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[1]
+
+feaGroundwaterStageFactor.setK1AngleFactor(0.7)
+feaGroundwaterStageFactor.setK2K1Factor(2.2)
+feaGroundwaterStageFactor.setMvFactor(5)
+
+print("\nFEAGroundwater Stage Factor Values") 
+print(f"K1 Angle Factor = {feaGroundwaterStageFactor.getK1AngleFactor()}, K2/K1 Factor = {feaGroundwaterStageFactor.getK2K1Factor()}, MV Factor = {feaGroundwaterStageFactor.getMvFactor()}")
+
+# Manipulation of FEAGroundwater Constant Model Stage Factor Properties
+# Since we already enabled the use of hydraulic stage factors, we won't require enabling it again
+
+# Constant Stage Factor for stage  1
+constantModelStageFactor = material.Hydraulic.FEAGroundwater.Constant.stageFactorInterface.getDefinedStageFactors()[1]
+
+constantModelStageFactor.setWCCurveSlopeFactor(1.7)
+
+print("\nFEAGroundwater Constant Model Factor Values") 
+print(f"Curve Slope Factor = {constantModelStageFactor.getWCCurveSlopeFactor()}")
+
+# Fredlund Stage Factor for stage  1
+fredlundModelStageFactor = material.Hydraulic.FEAGroundwater.Fredlund.stageFactorInterface.getDefinedStageFactors()[1]
+
+fredlundModelStageFactor.setAFactor(0.7)
+fredlundModelStageFactor.setBFactor(2.2)
+fredlundModelStageFactor.setCFactor(5)
+fredlundModelStageFactor.setKsFactor(5)
+
+print("\nFEAGroundwater Fredlund Model Factor Values") 
+print(f"A Factor = {fredlundModelStageFactor.getAFactor()}, B Factor = {fredlundModelStageFactor.getBFactor()}, C Factor = {fredlundModelStageFactor.getCFactor()}, Ks Factor = {fredlundModelStageFactor.getKsFactor()}")
+
 model.close()

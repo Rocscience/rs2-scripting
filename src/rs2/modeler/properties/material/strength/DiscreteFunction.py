@@ -21,6 +21,12 @@ class DiscreteFunctionDefinedStageFactor(DiscreteFunctionStageFactor):
 	def setResidualTensileStrengthFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_TENSILE_STRENGTH_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class DiscreteFunction(PropertyProxy):
+	"""
+	:ref:`Material Property Strength Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[DiscreteFunctionDefinedStageFactor, DiscreteFunctionStageFactor]) : Reference object for modifying Strength Discrete Function stage factor properties.
+	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[DiscreteFunctionDefinedStageFactor, DiscreteFunctionStageFactor](self._client, stageFactorInterfaceID, ID, DiscreteFunctionDefinedStageFactor, DiscreteFunctionStageFactor)

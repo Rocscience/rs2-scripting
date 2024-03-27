@@ -23,6 +23,9 @@ class StaticGroundwaterDefinedStageFactor(StaticGroundwaterStageFactor):
 class StaticGroundwater(PropertyProxy):
 	"""
 	:ref:`Hydraulic Property Static Groundwater Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[StaticGroundwaterDefinedStageFactor, StaticGroundwaterStageFactor]) : Reference object for modifying StaticGroundwater stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

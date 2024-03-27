@@ -57,6 +57,12 @@ class NonLinearIsotropicDefinedStageFactor(NonLinearIsotropicStageFactor):
 	def setResidualYoungsModulusFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class NonLinearIsotropic(PropertyProxy):
+	"""
+	:ref:`Material Property Stiffness Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[NonLinearIsotropicDefinedStageFactor, NonLinearIsotropicStageFactor]) : Reference object for modifying Stiffness NonLinearIsotropic stage factor properties.
+	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[NonLinearIsotropicDefinedStageFactor, NonLinearIsotropicStageFactor](self._client, stageFactorInterfaceID, ID, NonLinearIsotropicDefinedStageFactor, NonLinearIsotropicStageFactor)

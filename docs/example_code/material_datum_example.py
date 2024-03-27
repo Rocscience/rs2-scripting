@@ -69,4 +69,19 @@ print(f"Datum Type = {cohesion.getType()}, Datum Value = {cohesion.getDatum()}, 
 print(f"Use Peak Cutoff = {cohesion.getUsePeakCutoff()}, Peak Change = {cohesion.getPeakChange()}, Peak Cutoff = {cohesion.getPeakCutoffValue()}")
 print(f"Use Residual Cutoff = {cohesion.getUseResidualCutoff()}, Residual Cutoff Value = {cohesion.getResidualCutoffValue()}\n")
 
+# Manipulation of Datum Stage Factor Properties for stage 1
+
+# Make sure to enable Stage Datum Stage Factor option before manipulating any factor properties
+material.StageFactors.setStageDatumStageFactor(True)
+
+datumStageFactor = material.Datum.stageFactorInterface.getDefinedStageFactors()[1]
+# Change Datum Young Stage Factor Properties
+datumYoungStageFactor = datumStageFactor.getDatumYoungsStageFactor()
+
+datumYoungStageFactor.setChange(0.2)
+datumYoungStageFactor.setDatum(3)
+datumYoungStageFactor.setPeakCutoffValue(4.42)
+
+print(f"Change Factor = {datumYoungStageFactor.getChange()}, Datum Factor Value= {datumYoungStageFactor.getDatum()}, Peak Cutoff Value Factor = {datumYoungStageFactor.getPeakCutoffValue()}")
+
 model.close()

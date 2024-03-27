@@ -33,6 +33,12 @@ class SimpleDefinedStageFactor(SimpleStageFactor):
 	def setDoSResFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_DOS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Simple(PropertyProxy):
+	"""
+	:ref:`Hydraulic Property FEAGroundwater Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[SimpleDefinedStageFactor, SimpleStageFactor]) : Reference object for modifying FEAGroundwater Simple model stage factor properties.
+	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[SimpleDefinedStageFactor, SimpleStageFactor](self._client, stageFactorInterfaceID, ID, SimpleDefinedStageFactor, SimpleStageFactor)

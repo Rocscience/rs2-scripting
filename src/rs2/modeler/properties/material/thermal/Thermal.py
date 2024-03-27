@@ -22,6 +22,9 @@ from rs2.modeler.properties.material.thermal.soilunfrozenwatercontent.SoilUnfroz
 class Thermal(PropertyProxy):
 	"""
 	:ref:`Material Property Thermal Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[ThermalDefinedStageFactor, ThermalStageFactor]) : Reference object for modifying material's thermal stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

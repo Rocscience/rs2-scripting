@@ -11,7 +11,7 @@ model = modeler.openFile(filePath)
 # Add Time Query Line to Model
 points1 = [[5, -4.5], [5, 0]]
 points2 = [[-5, 2], [11, 2]]
-# Pleae note that the number of points on line must be between 1 and 10 inclusive
+# Please note that the number of points on line must be between 1 and 10 inclusive
 points_on_line = 8
 guid1 = model.AddTimeQueryLine(points1, points_on_line)
 guid2 = model.AddTimeQueryLine(points2, points_on_line)

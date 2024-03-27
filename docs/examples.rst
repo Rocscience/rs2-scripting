@@ -50,6 +50,11 @@ Python Script Examples
    :language: python
    :caption: Code Snippet: Manipulation of Material Properties
 
+.. _Initial Condition Stage Factor Example:
+.. literalinclude:: example_code/material_initial_condition_stage_factor_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Material Initial Condition Stage Factor Properties
+
 .. _Material Joint Stage Factor Example:
 .. literalinclude:: example_code/material_joint_stage_factor_example.py
    :language: python

@@ -41,6 +41,12 @@ class DruckerPragerDefinedStageFactor(DruckerPragerStageFactor):
 	def setResidualTensileStrengthFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_TENSILE_STRENGTH_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class DruckerPrager(PropertyProxy):
+	"""
+	:ref:`Material Property Strength Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[DruckerPragerDefinedStageFactor, DruckerPragerStageFactor]) : Reference object for modifying Strength DruckerPrager stage factor properties.
+	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[DruckerPragerDefinedStageFactor, DruckerPragerStageFactor](self._client, stageFactorInterfaceID, ID, DruckerPragerDefinedStageFactor, DruckerPragerStageFactor)
