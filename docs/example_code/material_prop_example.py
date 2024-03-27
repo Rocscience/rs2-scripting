@@ -19,4 +19,4 @@ material.Strength.HoekBrown.setCompressiveStrength(101)
 material.Hydraulic.StaticGroundwater.setStaticWaterMode(StaticWaterModes.PORE_WATER_PRESSURE)
 material.Hydraulic.setMaterialBehaviour(MaterialBehaviours.UNDRAINED)
 
-
+model.close()

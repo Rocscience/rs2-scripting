@@ -8,7 +8,7 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Start RS2 Modeler and Interpreter
+# Start RS2 Modeler
 RS2Modeler.startApplication(port=60054)
 modeler = RS2Modeler(port=60054)
 
@@ -27,7 +27,7 @@ df_mat = pd.read_csv(rf"{current_dir}\material properties.csv") #read material p
 material1 = model.getAllMaterialProperties()[0] # get material 1 properties
 material2 = model.getAllMaterialProperties()[1] # get material 2 properties
 
-# Assigning material 1 properties individually
+# Assigning material 1 properties 
 material1.InitialConditions.setUnitWeight(float(df_mat.iat[0, 1])) # set unit wetight
 material1.Stiffness.Isotropic.setPoissonsRatio(float(df_mat.iat[0, 2])) # set poissons ratio
 material1.Strength.MohrCoulombStrength.setMaterialType(MaterialType.PLASTIC) # set material type to plastic
@@ -59,7 +59,6 @@ liner1 = model.getAllLinerProperties()[0] # get liner 1 properties
 #Assigning liner1 properties individually
 liner1.setLinerName(df_liner.iat[0, 0]) #set liner 1 name
 liner1.StandardBeam.setThickness(float(df_liner.iat[0,1])) #set liner thickness
-
 
 # Bolt Properties 
 df_bolt = pd.read_csv(rf"{current_dir}\bolts.csv") #read bolts csv file 
@@ -95,7 +94,7 @@ interpreter = RS2Interpreter(port=60055)
 model_results = interpreter.openFile(rf"{output_dir}\Anchored Sheet Pile Wall_scripting (Final).fez")
 
 # Results Part I: 
-# Extract total displacement data at stage 5 along the sheet pile wall (material queries)
+# Extract total displacement data at stage 5 along the sheet pile wall (material queries) 
 
 # Setting results to solid total displacement
 model_results.SetResultType(ExportResultType.SOLID_DISPLACEMENT_TOTAL_DISPLACEMENT)
@@ -111,7 +110,7 @@ model_results.SetActiveStage(stage_number)
 # Get material queries results at stage 5
 query_results = model_results.GetMaterialQueryResults()[0] # get the material query results at stage 5:
                                                                 # GetMaterialQueryResults() returns a list grouped by stages, since there is a defined active stage,
-                                                                # it is the only item contained in the list. Therefore GetMaterialQueryResults()[0]
+                                                                # it is the only item contained in the list. Therefore using the first index: GetMaterialQueryResults()[0]
 
 # Create an empty distionary for the material queries data frame
 mat_que_dict = {"X":[], "Y":[],"Distance":[], "Total Displacement (m)":[]}

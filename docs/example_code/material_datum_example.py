@@ -68,3 +68,5 @@ print("\nCohesion Datum Dependent Type:")
 print(f"Datum Type = {cohesion.getType()}, Datum Value = {cohesion.getDatum()}, Center = {cohesion.getCenter()}")
 print(f"Use Peak Cutoff = {cohesion.getUsePeakCutoff()}, Peak Change = {cohesion.getPeakChange()}, Peak Cutoff = {cohesion.getPeakCutoffValue()}")
 print(f"Use Residual Cutoff = {cohesion.getUseResidualCutoff()}, Residual Cutoff Value = {cohesion.getResidualCutoffValue()}\n")
+
+model.close()

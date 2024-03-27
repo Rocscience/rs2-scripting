@@ -30,3 +30,5 @@ for data in results_for_stage_1:
     y_coord = data.GetYCoordinate()
     horizontal_result = data.GetHorizontalAxisResult()
     vertical_result = data.GetVerticalAxisResult()
+
+modeler_model.close()
