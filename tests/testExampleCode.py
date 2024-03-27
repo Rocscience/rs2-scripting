@@ -5,7 +5,7 @@ import sys
 import subprocess
 
 class TestExampleFiles(unittest.TestCase):
-	pathToPythonExecutable = r"C:\Users\WilliamSati\source\repos\RS2\client\linerBugFix\env\Scripts\python.exe"
+	pathToPythonExecutable = None
 
 	@unittest.skipIf(not pathToPythonExecutable, "Requires path to the python executable to use to run the example files. ex: python or C:\env\Scripts\python.exe")  
 	def test_run_example_files(self):
