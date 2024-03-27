@@ -79,3 +79,5 @@ for stageNum, allStructuralResults in results.items():
         liner_result = singleStructuralResult.liner_result
         print(f"\tLiner Result for Structural with ID {structuralID}:\n")
         OutputLinerResult(liner_result)
+
+model.close()

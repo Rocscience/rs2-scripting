@@ -33,3 +33,5 @@ FEAGroundwater.setK1Angle(30)
 
 print(f"K2/K1 = {FEAGroundwater.getK2K1()}, K1 Definition = {FEAGroundwater.getK1Definition()}, K1 Angle = {FEAGroundwater.getK1Angle()}\n")
 
+staticGroundwaterModel.close()
+FEAGroundwaterModel.close()

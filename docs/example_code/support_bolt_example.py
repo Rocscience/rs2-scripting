@@ -43,3 +43,5 @@ for stageNum, allBoltResults in results.items():
             bolt_disp = dispResult.bolt_displacement
             print(f"\t\tLocation X = {loc_x}, Location Y = {loc_y}, Distance = {dist}, Axial Force = {axial_force}, Axial Stress = {axial_stress}")
             print(f"\t\tShear Force = {shear_force}, Rock Displacement = {rock_disp}, Bolt Displacement = {bolt_disp}\n")
+
+model.close()

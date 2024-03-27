@@ -81,3 +81,5 @@ thermal.setTransverseDispersivity(3)
 
 print(f"Thermal Expansion Coeff. = {thermal.getExpansionCoefficient()}")
 print(f"Longitudinal Dispersivity = {thermal.getLongitudinalDispersivity()}, Transverse Dispersivity = {thermal.getTransverseDispersivity()}\n")
+
+model.close()

@@ -13,3 +13,4 @@ structural.setPositiveJointPropertyByName("Joint 3")
 structural.setLinerPropertyByName("Liner 4")
 structural.setNegativeJointPropertyByName("Joint 5")
 
+model.close()

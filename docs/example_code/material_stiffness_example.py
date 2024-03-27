@@ -28,3 +28,5 @@ stiffness.setElasticType(MaterialElasticityTypes.CUSTOM)
 print(f"Loading Custom Table = {custom.getCustomStiffnessLoadingTable()}")
 print(f"Unloading Condition = {custom.getUnloadingCondition()}")
 print(f"Unloading Custom Table = {custom.getCustomStiffnessUnloadingTable()}")
+
+model.close()
