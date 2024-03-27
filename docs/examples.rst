@@ -15,6 +15,11 @@ Python Script Examples
    :language: python
    :caption: Code Snippet: Manipulation of Joint Properties
 
+.. _Joint Property Stage Factor Example:
+.. literalinclude:: example_code/joint_prop_stage_factor_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Joint Stage Factor Properties
+
 .. _Pile Example:
 .. literalinclude:: example_code/pile_prop_example.py
    :language: python
