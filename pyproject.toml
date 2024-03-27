@@ -4,9 +4,9 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "RS2Scripting"
-version = "11.23.0.dev4"
+version = "11.23.0rc1"
 dependencies = [
-  "rsmessages == 0.0.2.dev1"
+  "rsmessages == 0.0.2rc1"
 ]
 authors = [
   { name="Rocscience"},
