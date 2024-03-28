@@ -33,3 +33,5 @@ print(f"Hu Value = {huValue}")
 
 staticGroundwater.setStaticWaterMode(StaticWaterModes.GRID)
 staticGroundwater.setGridToUse("Default Grid")
+
+model.close()

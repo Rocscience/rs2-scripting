@@ -33,3 +33,5 @@ for stageNum, allJointResults in results.items():
             print(f"\tStart X-Coord = {start_x}, Start Y-Coord = {start_y}, End X-Coord = {end_x}, End Y-Coord = {end_y}")
             print(f"\tDistance = {distance}, Normal Stress = {normal_stress}, Shear Stress = {shear_stress}, Confining Stress = {confining_stress}")
             print(f"\tNormal Displacement = {normal_displacement}, Shear Displacement = {shear_displacement}, Yielded = {yieldedStatus}\n")
+
+model.close()

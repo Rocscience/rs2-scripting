@@ -30,6 +30,8 @@ model.RemoveTimeQueryPoint([id])
 model.save()
 model.compute()
 
+model.close()
+
 # Get Time Query Point Results
 interpreter = RS2Interpreter()
 interpreter_model = interpreter.openFile(filePath)
@@ -78,3 +80,5 @@ for stageNumber, stageData in line_results.items():
         print("\nEnd of Line Data\n")
     print("-----------------------")
     print(f"\nEnd of Stage {stageNumber} Data\n")
+
+interpreter_model.close()

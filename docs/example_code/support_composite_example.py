@@ -79,3 +79,5 @@ for stageNum, allCompositeResults in results.items():
         liner_result = singleCompositeResult.liner_result
         print(f"\tLiner Result for Composite with ID {compositeID}:\n")
         OutputLinerResult(liner_result)
+        
+model.close()

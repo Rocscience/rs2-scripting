@@ -101,3 +101,11 @@ print(waterContent.HydraulicModel.getFrozenTemperature())
 print(waterContent.HydraulicModel.getWCSat())
 print(waterContent.HydraulicModel.getSelectHydraulicModel())
 print(waterContent.HydraulicModel.GardnerWaterContent.getA())
+
+material.Strength.SofteningHardeningModel.setSHConeHardening([(0.1,0.2),(0.2,0.3)], [(0.4,0.5),(0.5,0.6)])
+material.Strength.SofteningHardeningModel.setSHCapMeanStress([(0.1,0.2),(0.2,0.3)])
+
+material.Strength.setFailureCriterion(StrengthCriteriaTypes.SOFTENING_HARDENING)
+material.Strength.SofteningHardeningModel.setConeHardeningType(ConeHardeningTypes.TABULAR)
+material.Strength.SofteningHardeningModel.setCapHardeningType(CapHardeningTypes.TABULAR)
+pass

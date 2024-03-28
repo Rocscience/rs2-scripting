@@ -19,6 +19,8 @@ class GeosyntheticHyperbolicMaterialStageFactor(ProxyObject):
 		return self._callFunction("getDoubleFactor", ["JP_FRICTION_ANGLE_RES_GEOSYN", self.propertyID], proxyArgumentIndices=[1])
 	def getDilationRatioFactor(self) -> float:
 		return self._callFunction("__getattribute__", ["m_dilation_ratio"])
+	def getJointPermeableFactor(self) -> bool:
+		return self._callFunction("__getattribute__", ["m_joint_permeable_factor"])
 class GeosyntheticHyperbolicMaterialDefinedStageFactor(GeosyntheticHyperbolicMaterialStageFactor):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID, propertyID)
@@ -32,6 +34,8 @@ class GeosyntheticHyperbolicMaterialDefinedStageFactor(GeosyntheticHyperbolicMat
 		return self._callFunction("setDoubleFactor", ["JP_FRICTION_ANGLE_RES_GEOSYN", value, self.propertyID], proxyArgumentIndices=[2])
 	def setDilationRatioFactor(self, dilationRatioFactor: float):
 		return self._callFunction("setDilationRatio", [dilationRatioFactor])
+	def setJointPermeableFactor(self, Permeable: bool):
+		return self._callFunction("setJointPermeableFactor", [Permeable])
 class GeosyntheticHyperbolicMaterial(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

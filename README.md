@@ -30,9 +30,9 @@ The current set of functionality exposed is limited. With this version of the li
 ## Getting Started
 
 **Getting started guide**  
-<!---TODO: add link-->
+https://www.rocscience.com/help/rs2/tutorials/scripting/getting-started-with-rs2-python-scripting  
 **First Tutorial**  
-<!---TODO: add link-->
+https://www.rocscience.com/help/rs2/tutorials/scripting/anchored-sheet-pile-wall
 
 # For Contributors:
 

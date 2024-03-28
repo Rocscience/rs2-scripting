@@ -42,3 +42,5 @@ snowdenAnisotripicFunction.setShearNormalFunctionWithResidual(normalStress=[1 , 
 print(f"Normal Stress = {snowdenAnisotripicFunction.getNormalStress()}")
 print(f"Shear Stress = {snowdenAnisotripicFunction.getShearStress()}")
 print(f"Residual Shear Stress = {snowdenAnisotripicFunction.getResidualShearStress()}\n")
+
+model.close()

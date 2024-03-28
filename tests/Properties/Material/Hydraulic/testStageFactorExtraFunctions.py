@@ -59,7 +59,7 @@ class TestStageFactorStaticGroundwaterExtraFunctions(unittest.TestCase):
         self.model._client.closeConnection()
         os.remove(self.copiedModelPath)
     def testSetGridStageFactor(self):
-        self.material.Hydraulic.StaticGroundwater.setStaticWaterMode(StaticWaterModes.SWM_GRID)
+        self.material.Hydraulic.StaticGroundwater.setStaticWaterMode(StaticWaterModes.GRID)
         sf1 = self.material.Hydraulic.StaticGroundwater.stageFactorInterface.getDefinedStageFactors()[1]
         sf1.setGridToUse("Grid 2")
         self.assertEqual(sf1.getGridToUse(), "Grid 2")
@@ -70,7 +70,7 @@ class TestStageFactorStaticGroundwaterExtraFunctions(unittest.TestCase):
         sf1.setGridToUse("Default Grid")
         self.assertEqual(sf1.getGridToUse(), "Default Grid")
     def testSetPiezoStageFactor(self):
-        self.material.Hydraulic.StaticGroundwater.setStaticWaterMode(StaticWaterModes.SWM_PIEZO)
+        self.material.Hydraulic.StaticGroundwater.setStaticWaterMode(StaticWaterModes.GRID)
         sf1 = self.material.Hydraulic.StaticGroundwater.stageFactorInterface.getDefinedStageFactors()[1]
         sf1.setPiezoToUse("1")
         self.assertEqual(sf1.getPiezoToUse(), "1")
