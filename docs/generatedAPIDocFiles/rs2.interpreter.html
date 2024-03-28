@@ -24,7 +24,7 @@
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="rs2.modeler package" href="rs2.modeler.html" />
+    <link rel="next" title="rs2.interpreter.queryResults package" href="rs2.interpreter.queryResults.html" />
     <link rel="prev" title="rs2 package" href="rs2.html" /> 
 </head>
 
@@ -50,7 +50,11 @@
               <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
 <ul class="current">
 <li class="toctree-l1 current"><a class="reference internal" href="rs2.html">rs2 package</a><ul class="current">
-<li class="toctree-l2 current"><a class="current reference internal" href="#">rs2.interpreter package</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">rs2.interpreter package</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.html">rs2.interpreter.queryResults package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.html">rs2.interpreter.supportResults package</a></li>
+</ul>
+</li>
 <li class="toctree-l2"><a class="reference internal" href="rs2.modeler.html">rs2.modeler package</a></li>
 <li class="toctree-l2"><a class="reference internal" href="rs2.utilities.html">rs2.utilities package</a></li>
 </ul>
@@ -85,117 +89,12 @@
              
   <section id="module-rs2.interpreter">
 <span id="rs2-interpreter-package"></span><h1>rs2.interpreter package<a class="headerlink" href="#module-rs2.interpreter" title="Link to this heading"></a></h1>
-<section id="module-rs2.interpreter.BoltResult">
-<span id="rs2-interpreter-boltresult-module"></span><h2>rs2.interpreter.BoltResult module<a class="headerlink" href="#module-rs2.interpreter.BoltResult" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.BoltResult.BoltElementYieldStatus">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.BoltResult.</span></span><span class="sig-name descname"><span class="pre">BoltElementYieldStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.BoltResult.BoltElementYieldStatus" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.interpreter.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED">
-<span class="sig-name descname"><span class="pre">BOLT_ELEMENT_NOT_YIELDED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#rs2.interpreter.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.interpreter.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_TYPE_UNKNOWN_YIELDED">
-<span class="sig-name descname"><span class="pre">BOLT_ELEMENT_TYPE_UNKNOWN_YIELDED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#rs2.interpreter.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_TYPE_UNKNOWN_YIELDED" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.interpreter.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_TENSION_YIELDED">
-<span class="sig-name descname"><span class="pre">BOLT_ELEMENT_TENSION_YIELDED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#rs2.interpreter.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_TENSION_YIELDED" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.interpreter.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_SHEAR_YIELDED">
-<span class="sig-name descname"><span class="pre">BOLT_ELEMENT_SHEAR_YIELDED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3</span></em><a class="headerlink" href="#rs2.interpreter.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_SHEAR_YIELDED" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.interpreter.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_TENSIONANDSHEAR_YIELDED">
-<span class="sig-name descname"><span class="pre">BOLT_ELEMENT_TENSIONANDSHEAR_YIELDED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#rs2.interpreter.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_TENSIONANDSHEAR_YIELDED" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.interpreter.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_UNDEFINED_YIELDED">
-<span class="sig-name descname"><span class="pre">BOLT_ELEMENT_UNDEFINED_YIELDED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-1</span></em><a class="headerlink" href="#rs2.interpreter.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_UNDEFINED_YIELDED" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.BoltResult.BoltYieldingResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.BoltResult.</span></span><span class="sig-name descname"><span class="pre">BoltYieldingResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yielding_flag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.BoltResult.BoltYieldingResult" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.BoltResult.BoltForceDisplacementResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.BoltResult.</span></span><span class="sig-name descname"><span class="pre">BoltForceDisplacementResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axial_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axial_stress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rock_displacement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bolt_displacement</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.BoltResult.BoltForceDisplacementResult" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.BoltResult.BoltResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.BoltResult.</span></span><span class="sig-name descname"><span class="pre">BoltResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yielding_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.BoltResult.BoltYieldingResult" title="rs2.interpreter.BoltResult.BoltYieldingResult"><span class="pre">BoltYieldingResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_displacement_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.BoltResult.BoltForceDisplacementResult" title="rs2.interpreter.BoltResult.BoltForceDisplacementResult"><span class="pre">BoltForceDisplacementResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.BoltResult.BoltResult" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-</section>
-<section id="module-rs2.interpreter.CompositeResult">
-<span id="rs2-interpreter-compositeresult-module"></span><h2>rs2.interpreter.CompositeResult module<a class="headerlink" href="#module-rs2.interpreter.CompositeResult" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.CompositeResult.PileResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.CompositeResult.</span></span><span class="sig-name descname"><span class="pre">PileResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.JointResult.JointResult" title="rs2.interpreter.JointResult.JointResult"><span class="pre">JointResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.LinerResult.LinerResult" title="rs2.interpreter.LinerResult.LinerResult"><span class="pre">LinerResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.CompositeResult.PileResult" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.CompositeResult.CompositeResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.CompositeResult.</span></span><span class="sig-name descname"><span class="pre">CompositeResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.JointResult.JointResult" title="rs2.interpreter.JointResult.JointResult"><span class="pre">JointResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.LinerResult.LinerResult" title="rs2.interpreter.LinerResult.LinerResult"><span class="pre">LinerResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.CompositeResult.CompositeResult" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.CompositeResult.StructuralResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.CompositeResult.</span></span><span class="sig-name descname"><span class="pre">StructuralResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.JointResult.JointResult" title="rs2.interpreter.JointResult.JointResult"><span class="pre">JointResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.LinerResult.LinerResult" title="rs2.interpreter.LinerResult.LinerResult"><span class="pre">LinerResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.CompositeResult.StructuralResult" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-</section>
-<section id="module-rs2.interpreter.HistoryQueryResults">
-<span id="rs2-interpreter-historyqueryresults-module"></span><h2>rs2.interpreter.HistoryQueryResults module<a class="headerlink" href="#module-rs2.interpreter.HistoryQueryResults" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.HistoryQueryResults.HistoryQueryResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.HistoryQueryResults.</span></span><span class="sig-name descname"><span class="pre">HistoryQueryResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">horizontal_axis_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertical_axis_result</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.HistoryQueryResults.HistoryQueryResult" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.HistoryQueryResults.HistoryQueryResult.GetXCoordinate">
-<span class="sig-name descname"><span class="pre">GetXCoordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.HistoryQueryResults.HistoryQueryResult.GetXCoordinate" title="Link to this definition"></a></dt>
-<dd><p>Returns the X-Coordinate of the point</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.HistoryQueryResults.HistoryQueryResult.GetYCoordinate">
-<span class="sig-name descname"><span class="pre">GetYCoordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.HistoryQueryResults.HistoryQueryResult.GetYCoordinate" title="Link to this definition"></a></dt>
-<dd><p>Returns the Y-Coordinate of the point</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.HistoryQueryResults.HistoryQueryResult.GetHorizontalAxisResult">
-<span class="sig-name descname"><span class="pre">GetHorizontalAxisResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.HistoryQueryResults.HistoryQueryResult.GetHorizontalAxisResult" title="Link to this definition"></a></dt>
-<dd><p>Returns the horizontal axis result for the specific stage</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.HistoryQueryResults.HistoryQueryResult.GetVerticalAxisResult">
-<span class="sig-name descname"><span class="pre">GetVerticalAxisResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.HistoryQueryResults.HistoryQueryResult.GetVerticalAxisResult" title="Link to this definition"></a></dt>
-<dd><p>Returns the vertical axis result for the specific stage</p>
-</dd></dl>
-
-</dd></dl>
-
-</section>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rs2.interpreter.queryResults.html">rs2.interpreter.queryResults package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rs2.interpreter.supportResults.html">rs2.interpreter.supportResults package</a></li>
+</ul>
+</div>
 <section id="module-rs2.interpreter.InterpreterEnums">
 <span id="rs2-interpreter-interpreterenums-module"></span><h2>rs2.interpreter.InterpreterEnums module<a class="headerlink" href="#module-rs2.interpreter.InterpreterEnums" title="Link to this heading"></a></h2>
 <dl class="py class">
@@ -883,17 +782,8 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.InterpreterModel.</span></span><span class="sig-name descname"><span class="pre">Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ProxyObject</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="rs2.html#rs2.BaseModel.BaseModel" title="rs2.BaseModel.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
 <p><a class="reference internal" href="../examples.html#model-example"><span class="std std-ref">Code Snippet: Model Manipulation</span></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model.close">
-<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.close" title="Link to this definition"></a></dt>
-<dd><p><a class="reference internal" href="../examples.html#model-example"><span class="std std-ref">Code Snippet: Model Manipulation</span></a></p>
-<div class="line-block">
-<div class="line">Closes the model</div>
-</div>
-</dd></dl>
-
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model.saveCopyAs">
 <span class="sig-name descname"><span class="pre">saveCopyAs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.saveCopyAs" title="Link to this definition"></a></dt>
@@ -901,15 +791,6 @@
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">saveCopyAs</span><span class="p">(</span><span class="s1">&#39;C:/simple_3_stage.fez&#39;</span><span class="p">)</span>
 </pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model.save">
-<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.save" title="Link to this definition"></a></dt>
-<dd><p><a class="reference internal" href="../examples.html#model-example"><span class="std std-ref">Code Snippet: Model Manipulation</span></a></p>
-<div class="line-block">
-<div class="line">Saves the model</div>
 </div>
 </dd></dl>
 
@@ -946,7 +827,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model.GetMeshResults">
-<span class="sig-name descname"><span class="pre">GetMeshResults</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="#rs2.interpreter.MeshResults.MeshResults" title="rs2.interpreter.MeshResults.MeshResults"><span class="pre">MeshResults</span></a></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetMeshResults" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GetMeshResults</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.interpreter.queryResults.html#rs2.interpreter.queryResults.MeshResults.MeshResults" title="rs2.interpreter.queryResults.MeshResults.MeshResults"><span class="pre">MeshResults</span></a></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetMeshResults" title="Link to this definition"></a></dt>
 <dd><p><a class="reference internal" href="../examples.html#get-mesh-results-example"><span class="std std-ref">Code Snippet: Get Model Mesh Results</span></a></p>
 <div class="line-block">
 <div class="line">Returns the mesh results at all nodes for your model.</div>
@@ -955,7 +836,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model.GetHistoryQueryResults">
-<span class="sig-name descname"><span class="pre">GetHistoryQueryResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hq_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">horizontal_axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.InterpreterGraphEnums.HistoryQueryGraphEnums.HorizontalAxisTypes" title="rs2.interpreter.InterpreterGraphEnums.HistoryQueryGraphEnums.HorizontalAxisTypes"><span class="pre">HorizontalAxisTypes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertical_axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.InterpreterGraphEnums.HistoryQueryGraphEnums.VerticalAxisTypes" title="rs2.interpreter.InterpreterGraphEnums.HistoryQueryGraphEnums.VerticalAxisTypes"><span class="pre">VerticalAxisTypes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.HistoryQueryResults.HistoryQueryResult" title="rs2.interpreter.HistoryQueryResults.HistoryQueryResult"><span class="pre">HistoryQueryResult</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetHistoryQueryResults" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GetHistoryQueryResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">hq_name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">horizontal_axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.InterpreterGraphEnums.HistoryQueryGraphEnums.HorizontalAxisTypes" title="rs2.interpreter.InterpreterGraphEnums.HistoryQueryGraphEnums.HorizontalAxisTypes"><span class="pre">HorizontalAxisTypes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertical_axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.InterpreterGraphEnums.HistoryQueryGraphEnums.VerticalAxisTypes" title="rs2.interpreter.InterpreterGraphEnums.HistoryQueryGraphEnums.VerticalAxisTypes"><span class="pre">VerticalAxisTypes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rs2.interpreter.queryResults.html#rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult" title="rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult"><span class="pre">HistoryQueryResult</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetHistoryQueryResults" title="Link to this definition"></a></dt>
 <dd><p><a class="reference internal" href="../examples.html#history-query-example"><span class="std std-ref">Code Snippet: Manipulation of History Query and its results</span></a></p>
 <div class="line-block">
 <div class="line">Returns a map of HistoryQueryResult for all input stages and history queries in your model.</div>
@@ -970,7 +851,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model.GetAllTimeQueryPointResults">
-<span class="sig-name descname"><span class="pre">GetAllTimeQueryPointResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertical_axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.InterpreterGraphEnums.TimeQueryGraphEnums.VerticalAxisTypes" title="rs2.interpreter.InterpreterGraphEnums.TimeQueryGraphEnums.VerticalAxisTypes"><span class="pre">VerticalAxisTypes</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.TimeQueryResults.TimeQueryPointResults" title="rs2.interpreter.TimeQueryResults.TimeQueryPointResults"><span class="pre">TimeQueryPointResults</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetAllTimeQueryPointResults" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GetAllTimeQueryPointResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertical_axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.InterpreterGraphEnums.TimeQueryGraphEnums.VerticalAxisTypes" title="rs2.interpreter.InterpreterGraphEnums.TimeQueryGraphEnums.VerticalAxisTypes"><span class="pre">VerticalAxisTypes</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rs2.interpreter.queryResults.html#rs2.interpreter.queryResults.TimeQueryResults.TimeQueryPointResults" title="rs2.interpreter.queryResults.TimeQueryResults.TimeQueryPointResults"><span class="pre">TimeQueryPointResults</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetAllTimeQueryPointResults" title="Link to this definition"></a></dt>
 <dd><p><a class="reference internal" href="../examples.html#time-query-example"><span class="std std-ref">Code Snippet: Manipulation of Time Query and its results</span></a></p>
 <div class="line-block">
 <div class="line">Returns a map of TimeQueryPointResults for all input stages and time query points in your model.</div>
@@ -987,7 +868,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model.GetAllTimeQueryLinesResults">
-<span class="sig-name descname"><span class="pre">GetAllTimeQueryLinesResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertical_axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.InterpreterGraphEnums.TimeQueryGraphEnums.VerticalAxisTypes" title="rs2.interpreter.InterpreterGraphEnums.TimeQueryGraphEnums.VerticalAxisTypes"><span class="pre">VerticalAxisTypes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_post_process_scaling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.TimeQueryResults.TimeQueryLineResults" title="rs2.interpreter.TimeQueryResults.TimeQueryLineResults"><span class="pre">TimeQueryLineResults</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetAllTimeQueryLinesResults" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GetAllTimeQueryLinesResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertical_axis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.InterpreterGraphEnums.TimeQueryGraphEnums.VerticalAxisTypes" title="rs2.interpreter.InterpreterGraphEnums.TimeQueryGraphEnums.VerticalAxisTypes"><span class="pre">VerticalAxisTypes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">apply_post_process_scaling</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rs2.interpreter.queryResults.html#rs2.interpreter.queryResults.TimeQueryResults.TimeQueryLineResults" title="rs2.interpreter.queryResults.TimeQueryResults.TimeQueryLineResults"><span class="pre">TimeQueryLineResults</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetAllTimeQueryLinesResults" title="Link to this definition"></a></dt>
 <dd><p><a class="reference internal" href="../examples.html#time-query-example"><span class="std std-ref">Code Snippet: Manipulation of Time Query and its results</span></a></p>
 <div class="line-block">
 <div class="line">Returns a map of TimeQueryLineResults for all input stages and time query lines in your model.</div>
@@ -1025,7 +906,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model.GetMaterialQueryResults">
-<span class="sig-name descname"><span class="pre">GetMaterialQueryResults</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.MaterialQueryResults.MaterialQueryResults" title="rs2.interpreter.MaterialQueryResults.MaterialQueryResults"><span class="pre">MaterialQueryResults</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetMaterialQueryResults" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GetMaterialQueryResults</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rs2.interpreter.queryResults.html#rs2.interpreter.queryResults.MaterialQueryResults.MaterialQueryResults" title="rs2.interpreter.queryResults.MaterialQueryResults.MaterialQueryResults"><span class="pre">MaterialQueryResults</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetMaterialQueryResults" title="Link to this definition"></a></dt>
 <dd><p><a class="reference internal" href="../examples.html#material-query-example"><span class="std std-ref">Code Snippet: Manipulation of Material Queries</span></a></p>
 <div class="line-block">
 <div class="line">Returns the results for all the material queries defined in your model for active model stage and result type.</div>
@@ -1040,7 +921,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model.GetBoltResults">
-<span class="sig-name descname"><span class="pre">GetBoltResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.BoltResult.BoltResult" title="rs2.interpreter.BoltResult.BoltResult"><span class="pre">BoltResult</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetBoltResults" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GetBoltResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rs2.interpreter.supportResults.html#rs2.interpreter.supportResults.BoltResult.BoltResult" title="rs2.interpreter.supportResults.BoltResult.BoltResult"><span class="pre">BoltResult</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetBoltResults" title="Link to this definition"></a></dt>
 <dd><p><a class="reference internal" href="../examples.html#support-bolt-results-example"><span class="std std-ref">Code Snippet: Get Support Bolt Results</span></a></p>
 <div class="line-block">
 <div class="line">Returns a map of BoltResult for all input stages and support bolt defined in your model.</div>
@@ -1049,7 +930,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model.GetJointResults">
-<span class="sig-name descname"><span class="pre">GetJointResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.JointResult.JointResult" title="rs2.interpreter.JointResult.JointResult"><span class="pre">JointResult</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetJointResults" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GetJointResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rs2.interpreter.supportResults.html#rs2.interpreter.supportResults.JointResult.JointResult" title="rs2.interpreter.supportResults.JointResult.JointResult"><span class="pre">JointResult</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetJointResults" title="Link to this definition"></a></dt>
 <dd><p><a class="reference internal" href="../examples.html#support-joint-results-example"><span class="std std-ref">Code Snippet: Get Support Joint Results</span></a></p>
 <div class="line-block">
 <div class="line">Returns a map of JointResult for all input stages and support joint defined in your model.</div>
@@ -1058,7 +939,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model.GetLinerResults">
-<span class="sig-name descname"><span class="pre">GetLinerResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.LinerResult.LinerResult" title="rs2.interpreter.LinerResult.LinerResult"><span class="pre">LinerResult</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetLinerResults" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GetLinerResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rs2.interpreter.supportResults.html#rs2.interpreter.supportResults.LinerResult.LinerResult" title="rs2.interpreter.supportResults.LinerResult.LinerResult"><span class="pre">LinerResult</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetLinerResults" title="Link to this definition"></a></dt>
 <dd><p><a class="reference internal" href="../examples.html#support-liner-results-example"><span class="std std-ref">Code Snippet: Get Support Liner Results</span></a></p>
 <div class="line-block">
 <div class="line">Returns a map of LinerResult for all input stages and support liner defined in your model.</div>
@@ -1067,7 +948,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model.GetPileResults">
-<span class="sig-name descname"><span class="pre">GetPileResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.CompositeResult.PileResult" title="rs2.interpreter.CompositeResult.PileResult"><span class="pre">PileResult</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetPileResults" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GetPileResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rs2.interpreter.supportResults.html#rs2.interpreter.supportResults.CompositeResult.PileResult" title="rs2.interpreter.supportResults.CompositeResult.PileResult"><span class="pre">PileResult</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetPileResults" title="Link to this definition"></a></dt>
 <dd><p><a class="reference internal" href="../examples.html#support-pile-results-example"><span class="std std-ref">Code Snippet: Get Support Pile Results</span></a></p>
 <div class="line-block">
 <div class="line">Returns a map of PileResult for all input stages and support pile defined in your model.</div>
@@ -1076,7 +957,7 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model.GetCompositeResults">
-<span class="sig-name descname"><span class="pre">GetCompositeResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.CompositeResult.CompositeResult" title="rs2.interpreter.CompositeResult.CompositeResult"><span class="pre">CompositeResult</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetCompositeResults" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GetCompositeResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rs2.interpreter.supportResults.html#rs2.interpreter.supportResults.CompositeResult.CompositeResult" title="rs2.interpreter.supportResults.CompositeResult.CompositeResult"><span class="pre">CompositeResult</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetCompositeResults" title="Link to this definition"></a></dt>
 <dd><p><a class="reference internal" href="../examples.html#support-composite-results-example"><span class="std std-ref">Code Snippet: Get Support Composite Results</span></a></p>
 <div class="line-block">
 <div class="line">Returns a map of CompositeResult for all input stages and support composite defined in your model.</div>
@@ -1085,19 +966,10 @@
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model.GetStructuralResults">
-<span class="sig-name descname"><span class="pre">GetStructuralResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.CompositeResult.StructuralResult" title="rs2.interpreter.CompositeResult.StructuralResult"><span class="pre">StructuralResult</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetStructuralResults" title="Link to this definition"></a></dt>
+<span class="sig-name descname"><span class="pre">GetStructuralResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stages</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rs2.interpreter.supportResults.html#rs2.interpreter.supportResults.CompositeResult.StructuralResult" title="rs2.interpreter.supportResults.CompositeResult.StructuralResult"><span class="pre">StructuralResult</span></a><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.GetStructuralResults" title="Link to this definition"></a></dt>
 <dd><p><a class="reference internal" href="../examples.html#support-structural-results-example"><span class="std std-ref">Code Snippet: Get Support Structural Results</span></a></p>
 <div class="line-block">
 <div class="line">Returns a map of StructuralResult for all input stages and support structural defined in your model.</div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.InterpreterModel.Model.getUnits">
-<span class="sig-name descname"><span class="pre">getUnits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Units</span></span></span><a class="headerlink" href="#rs2.interpreter.InterpreterModel.Model.getUnits" title="Link to this definition"></a></dt>
-<dd><p><a class="reference internal" href="../examples.html#get-model-units-example"><span class="std std-ref">Code Snippet: Get Model Units</span></a></p>
-<div class="line-block">
-<div class="line">Get Solid, Hydro and Thermal units for your model</div>
 </div>
 </dd></dl>
 
@@ -1108,131 +980,6 @@
 <div class="line">Get Critical SRF</div>
 </div>
 </dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-rs2.interpreter.JointResult">
-<span id="rs2-interpreter-jointresult-module"></span><h2>rs2.interpreter.JointResult module<a class="headerlink" href="#module-rs2.interpreter.JointResult" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.JointResult.JointElementResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.JointResult.</span></span><span class="sig-name descname"><span class="pre">JointElementResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normal_stress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear_stress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confining_stress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normal_displacement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear_displacement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yielded</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.JointResult.JointElementResult" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.JointResult.JointResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.JointResult.</span></span><span class="sig-name descname"><span class="pre">JointResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_element_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.JointResult.JointElementResult" title="rs2.interpreter.JointResult.JointElementResult"><span class="pre">JointElementResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.JointResult.JointResult" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-</section>
-<section id="module-rs2.interpreter.LinerResult">
-<span id="rs2-interpreter-linerresult-module"></span><h2>rs2.interpreter.LinerResult module<a class="headerlink" href="#module-rs2.interpreter.LinerResult" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.LinerResult.LinerElementResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.LinerResult.</span></span><span class="sig-name descname"><span class="pre">LinerElementResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">composite_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axial_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_total</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axi_sym_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axi_sym_moment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beam_yield</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.LinerResult.LinerElementResult" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.LinerResult.LinerResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.LinerResult.</span></span><span class="sig-name descname"><span class="pre">LinerResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_element_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.LinerResult.LinerElementResult" title="rs2.interpreter.LinerResult.LinerElementResult"><span class="pre">LinerElementResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.LinerResult.LinerResult" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-</dd></dl>
-
-</section>
-<section id="module-rs2.interpreter.MaterialQueryResults">
-<span id="rs2-interpreter-materialqueryresults-module"></span><h2>rs2.interpreter.MaterialQueryResults module<a class="headerlink" href="#module-rs2.interpreter.MaterialQueryResults" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.MaterialQueryResults.QueryResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.MaterialQueryResults.</span></span><span class="sig-name descname"><span class="pre">QueryResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.MaterialQueryResults.QueryResult" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.MaterialQueryResults.QueryResult.GetXCoordinate">
-<span class="sig-name descname"><span class="pre">GetXCoordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.MaterialQueryResults.QueryResult.GetXCoordinate" title="Link to this definition"></a></dt>
-<dd><p>Returns the X-Coordinate of the query</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.MaterialQueryResults.QueryResult.GetYCoordinate">
-<span class="sig-name descname"><span class="pre">GetYCoordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.MaterialQueryResults.QueryResult.GetYCoordinate" title="Link to this definition"></a></dt>
-<dd><p>Returns the Y-Coordinate of the query</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.MaterialQueryResults.QueryResult.GetDistance">
-<span class="sig-name descname"><span class="pre">GetDistance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.MaterialQueryResults.QueryResult.GetDistance" title="Link to this definition"></a></dt>
-<dd><p>Returns the distance of the query</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.MaterialQueryResults.QueryResult.GetValue">
-<span class="sig-name descname"><span class="pre">GetValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.MaterialQueryResults.QueryResult.GetValue" title="Link to this definition"></a></dt>
-<dd><p>Returns the value of the query based on model’s current result type</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.MaterialQueryResults.MaterialQueryResults">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.MaterialQueryResults.</span></span><span class="sig-name descname"><span class="pre">MaterialQueryResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.MaterialQueryResults.MaterialQueryResults" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.MaterialQueryResults.MaterialQueryResults.GetUniqueIdentifier">
-<span class="sig-name descname"><span class="pre">GetUniqueIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#rs2.interpreter.MaterialQueryResults.MaterialQueryResults.GetUniqueIdentifier" title="Link to this definition"></a></dt>
-<dd><p>Returns the unique identifier for the material query</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.MaterialQueryResults.MaterialQueryResults.GetMaterialID">
-<span class="sig-name descname"><span class="pre">GetMaterialID</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#rs2.interpreter.MaterialQueryResults.MaterialQueryResults.GetMaterialID" title="Link to this definition"></a></dt>
-<dd><p>Returns the material ID of the query</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.MaterialQueryResults.MaterialQueryResults.GetAllValues">
-<span class="sig-name descname"><span class="pre">GetAllValues</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.MaterialQueryResults.QueryResult" title="rs2.interpreter.MaterialQueryResults.QueryResult"><span class="pre">QueryResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.MaterialQueryResults.MaterialQueryResults.GetAllValues" title="Link to this definition"></a></dt>
-<dd><div class="line-block">
-<div class="line">Returns a list[QueryResult] representing result at all nodes of the material query</div>
-<div class="line">To get the x-coordinate, y-coordinate, distance, or value, please call the supporting class methods:</div>
-</div>
-<ul class="simple">
-<li><p>QueryResult.GetXCoordinate()</p></li>
-<li><p>QueryResult.GetYCoordinate()</p></li>
-<li><p>QueryResult.GetDistance()</p></li>
-<li><p>QueryResult.GetValue()</p></li>
-</ul>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-rs2.interpreter.MeshResults">
-<span id="rs2-interpreter-meshresults-module"></span><h2>rs2.interpreter.MeshResults module<a class="headerlink" href="#module-rs2.interpreter.MeshResults" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.MeshResults.MeshResults">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.MeshResults.</span></span><span class="sig-name descname"><span class="pre">MeshResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.MeshResults.MeshResults" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.interpreter.MeshResults.MeshResults.results">
-<span class="sig-name descname"><span class="pre">results</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#rs2.interpreter.MeshResults.MeshResults.results" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.MeshResults.MeshResults.getXCoordinate">
-<span class="sig-name descname"><span class="pre">getXCoordinate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.MeshResults.MeshResults.getXCoordinate" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.MeshResults.MeshResults.getYCoordinate">
-<span class="sig-name descname"><span class="pre">getYCoordinate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.MeshResults.MeshResults.getYCoordinate" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.MeshResults.MeshResults.getValue">
-<span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.MeshResults.MeshResults.getValue" title="Link to this definition"></a></dt>
-<dd></dd></dl>
 
 </dd></dl>
 
@@ -1291,143 +1038,6 @@
 </dd></dl>
 
 </section>
-<section id="module-rs2.interpreter.TimeQueryResults">
-<span id="rs2-interpreter-timequeryresults-module"></span><h2>rs2.interpreter.TimeQueryResults module<a class="headerlink" href="#module-rs2.interpreter.TimeQueryResults" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.TimeQueryResults.QueryPointResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.TimeQueryResults.</span></span><span class="sig-name descname"><span class="pre">QueryPointResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.TimeQueryResults.QueryPointResult" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.TimeQueryResults.QueryPointResult.GetXCoordinate">
-<span class="sig-name descname"><span class="pre">GetXCoordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.TimeQueryResults.QueryPointResult.GetXCoordinate" title="Link to this definition"></a></dt>
-<dd><p>Returns the X-Coordinate of the query point</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.TimeQueryResults.QueryPointResult.GetYCoordinate">
-<span class="sig-name descname"><span class="pre">GetYCoordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.TimeQueryResults.QueryPointResult.GetYCoordinate" title="Link to this definition"></a></dt>
-<dd><p>Returns the Y-Coordinate of the query point</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.TimeQueryResults.QueryPointResult.GetStageTime">
-<span class="sig-name descname"><span class="pre">GetStageTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.TimeQueryResults.QueryPointResult.GetStageTime" title="Link to this definition"></a></dt>
-<dd><p>Returns the dynamic stage time of the query point</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.TimeQueryResults.QueryPointResult.GetValue">
-<span class="sig-name descname"><span class="pre">GetValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.TimeQueryResults.QueryPointResult.GetValue" title="Link to this definition"></a></dt>
-<dd><p>Returns the value of the time query point</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.TimeQueryResults.QueryLineResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.TimeQueryResults.</span></span><span class="sig-name descname"><span class="pre">QueryLineResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_node_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.TimeQueryResults.QueryLineResult" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.TimeQueryResults.QueryLineResult.GetNodeValues">
-<span class="sig-name descname"><span class="pre">GetNodeValues</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.TimeQueryResults.QueryPointResult" title="rs2.interpreter.TimeQueryResults.QueryPointResult"><span class="pre">QueryPointResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.TimeQueryResults.QueryLineResult.GetNodeValues" title="Link to this definition"></a></dt>
-<dd><div class="line-block">
-<div class="line">Returns a list[QueryPointResult] representing result at this node part of the time query line</div>
-<div class="line">To get the x-coordinate, y-coordinate, dynamic stage time, or value, please call the supporting class methods:</div>
-</div>
-<ul class="simple">
-<li><p>QueryPointResult.GetXCoordinate()</p></li>
-<li><p>QueryPointResult.GetYCoordinate()</p></li>
-<li><p>QueryPointResult.GetStageTime()</p></li>
-<li><p>QueryPointResult.GetValue()</p></li>
-</ul>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.TimeQueryResults.TimeQueryPointResults">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.TimeQueryResults.</span></span><span class="sig-name descname"><span class="pre">TimeQueryPointResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_point_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.TimeQueryResults.TimeQueryPointResults" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.TimeQueryResults.TimeQueryPointResults.GetUniqueIdentifier">
-<span class="sig-name descname"><span class="pre">GetUniqueIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#rs2.interpreter.TimeQueryResults.TimeQueryPointResults.GetUniqueIdentifier" title="Link to this definition"></a></dt>
-<dd><p>Returns the unique identifier for the time query point</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.TimeQueryResults.TimeQueryPointResults.GetAllValues">
-<span class="sig-name descname"><span class="pre">GetAllValues</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.TimeQueryResults.QueryPointResult" title="rs2.interpreter.TimeQueryResults.QueryPointResult"><span class="pre">QueryPointResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.TimeQueryResults.TimeQueryPointResults.GetAllValues" title="Link to this definition"></a></dt>
-<dd><div class="line-block">
-<div class="line">Returns a list[QueryPointResult] representing result at all nodes of the time query point</div>
-<div class="line">To get the x-coordinate, y-coordinate, dynamic stage time, or value, please call the supporting class methods:</div>
-</div>
-<ul class="simple">
-<li><p>QueryPointResult.GetXCoordinate()</p></li>
-<li><p>QueryPointResult.GetYCoordinate()</p></li>
-<li><p>QueryPointResult.GetStageTime()</p></li>
-<li><p>QueryPointResult.GetValue()</p></li>
-</ul>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.TimeQueryResults.TimeQueryLineResults">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.TimeQueryResults.</span></span><span class="sig-name descname"><span class="pre">TimeQueryLineResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_query_line_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.TimeQueryResults.TimeQueryLineResults" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.TimeQueryResults.TimeQueryLineResults.GetUniqueIdentifier">
-<span class="sig-name descname"><span class="pre">GetUniqueIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#rs2.interpreter.TimeQueryResults.TimeQueryLineResults.GetUniqueIdentifier" title="Link to this definition"></a></dt>
-<dd><p>Returns the unique identifier for the time query point</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.TimeQueryResults.TimeQueryLineResults.GetAllNodeObjects">
-<span class="sig-name descname"><span class="pre">GetAllNodeObjects</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.TimeQueryResults.QueryLineResult" title="rs2.interpreter.TimeQueryResults.QueryLineResult"><span class="pre">QueryLineResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.TimeQueryResults.TimeQueryLineResults.GetAllNodeObjects" title="Link to this definition"></a></dt>
-<dd><p>Returns a list[QueryLineResult] representing nodes making up the time query line</p>
-<p>To get list of node values associated with a specific node, please call the supported class method:</p>
-<ul class="simple">
-<li><p>QueryLineResult.GetNodeValues()</p></li>
-</ul>
-<div class="line-block">
-<div class="line">The above returns a list[QueryPointResult] representing result at this node part of the time query line</div>
-<div class="line">To get the x-coordinate, y-coordinate, dynamic stage time, or value, please call the supporting class methods:</div>
-</div>
-<ul class="simple">
-<li><p>QueryPointResult.GetXCoordinate()</p></li>
-<li><p>QueryPointResult.GetYCoordinate()</p></li>
-<li><p>QueryPointResult.GetStageTime()</p></li>
-<li><p>QueryPointResult.GetValue()</p></li>
-</ul>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-rs2.interpreter.UtilityResult">
-<span id="rs2-interpreter-utilityresult-module"></span><h2>rs2.interpreter.UtilityResult module<a class="headerlink" href="#module-rs2.interpreter.UtilityResult" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.interpreter.UtilityResult.ResetInvalid">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.UtilityResult.</span></span><span class="sig-name descname"><span class="pre">ResetInvalid</span></span><a class="headerlink" href="#rs2.interpreter.UtilityResult.ResetInvalid" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.interpreter.UtilityResult.ResetInvalid.flt_max">
-<span class="sig-name descname"><span class="pre">flt_max</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">3.402823466e+38</span></em><a class="headerlink" href="#rs2.interpreter.UtilityResult.ResetInvalid.flt_max" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.UtilityResult.ResetInvalid.validate">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">self</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.UtilityResult.ResetInvalid.validate" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.interpreter.UtilityResult.ResetInvalid.validate_double">
-<em class="property"><span class="pre">static</span><span class="w"> </span></em><span class="sig-name descname"><span class="pre">validate_double</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.UtilityResult.ResetInvalid.validate_double" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</section>
 </section>
 
 
@@ -1435,7 +1045,7 @@
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="rs2.html" class="btn btn-neutral float-left" title="rs2 package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="rs2.modeler.html" class="btn btn-neutral float-right" title="rs2.modeler package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="rs2.interpreter.queryResults.html" class="btn btn-neutral float-right" title="rs2.interpreter.queryResults package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>

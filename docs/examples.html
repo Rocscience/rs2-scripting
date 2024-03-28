@@ -270,6 +270,7 @@
 <span class="n">pile</span><span class="o">.</span><span class="n">ForceDisplacement</span><span class="o">.</span><span class="n">setX</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
 <span class="n">pile</span><span class="o">.</span><span class="n">ForceDisplacement</span><span class="o">.</span><span class="n">setY</span><span class="p">(</span><span class="mf">0.6</span><span class="p">)</span>
 
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -290,6 +291,7 @@
 <span class="n">structural</span><span class="o">.</span><span class="n">setLinerPropertyByName</span><span class="p">(</span><span class="s2">&quot;Liner 4&quot;</span><span class="p">)</span>
 <span class="n">structural</span><span class="o">.</span><span class="n">setNegativeJointPropertyByName</span><span class="p">(</span><span class="s2">&quot;Joint 5&quot;</span><span class="p">)</span>
 
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -323,6 +325,8 @@
 <span class="n">composite</span><span class="o">.</span><span class="n">setJointApplied</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
 <span class="n">composite</span><span class="o">.</span><span class="n">setCompositeJointPropertyByName</span><span class="p">(</span><span class="s2">&quot;Joint 5&quot;</span><span class="p">)</span>
 <span class="n">composite</span><span class="o">.</span><span class="n">setJointPlacement</span><span class="p">(</span><span class="n">CompositeJointPlacementTypes</span><span class="o">.</span><span class="n">BETWEEN_THIRD_AND_FOURTH_LINER</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -349,7 +353,7 @@
 <span class="n">material</span><span class="o">.</span><span class="n">Hydraulic</span><span class="o">.</span><span class="n">StaticGroundwater</span><span class="o">.</span><span class="n">setStaticWaterMode</span><span class="p">(</span><span class="n">StaticWaterModes</span><span class="o">.</span><span class="n">PORE_WATER_PRESSURE</span><span class="p">)</span>
 <span class="n">material</span><span class="o">.</span><span class="n">Hydraulic</span><span class="o">.</span><span class="n">setMaterialBehaviour</span><span class="p">(</span><span class="n">MaterialBehaviours</span><span class="o">.</span><span class="n">UNDRAINED</span><span class="p">)</span>
 
-
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -390,6 +394,8 @@
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;K2/K1 = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">getK2K1</span><span class="p">()</span><span class="si">}</span><span class="s2">, K1 Definition = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">getK1Definition</span><span class="p">()</span><span class="si">}</span><span class="s2">, K1 Angle = </span><span class="si">{</span><span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">getK1Angle</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
 
+<span class="n">staticGroundwaterModel</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">FEAGroundwaterModel</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -430,6 +436,8 @@
 
 <span class="n">staticGroundwater</span><span class="o">.</span><span class="n">setStaticWaterMode</span><span class="p">(</span><span class="n">StaticWaterModes</span><span class="o">.</span><span class="n">GRID</span><span class="p">)</span>
 <span class="n">staticGroundwater</span><span class="o">.</span><span class="n">setGridToUse</span><span class="p">(</span><span class="s2">&quot;Default Grid&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -505,6 +513,8 @@
 <span class="n">userDefined</span> <span class="o">=</span> <span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">UserDefined</span>
 <span class="n">userDefined</span><span class="o">.</span><span class="n">setUserDefinedPermeabilityAndWaterContentFunction</span><span class="p">(</span><span class="s2">&quot;User Defined 1&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;User Defined Permeability And Water Content Function Name = </span><span class="si">{</span><span class="n">userDefined</span><span class="o">.</span><span class="n">getUserDefinedPermeabilityAndWaterContentFunction</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -580,6 +590,8 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Datum Type = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span><span class="si">}</span><span class="s2">, Datum Value = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getDatum</span><span class="p">()</span><span class="si">}</span><span class="s2">, Center = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getCenter</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use Peak Cutoff = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getUsePeakCutoff</span><span class="p">()</span><span class="si">}</span><span class="s2">, Peak Change = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getPeakChange</span><span class="p">()</span><span class="si">}</span><span class="s2">, Peak Cutoff = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getPeakCutoffValue</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use Residual Cutoff = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getUseResidualCutoff</span><span class="p">()</span><span class="si">}</span><span class="s2">, Residual Cutoff Value = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getResidualCutoffValue</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -615,6 +627,8 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Loading Custom Table = </span><span class="si">{</span><span class="n">custom</span><span class="o">.</span><span class="n">getCustomStiffnessLoadingTable</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unloading Condition = </span><span class="si">{</span><span class="n">custom</span><span class="o">.</span><span class="n">getUnloadingCondition</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Unloading Custom Table = </span><span class="si">{</span><span class="n">custom</span><span class="o">.</span><span class="n">getCustomStiffnessUnloadingTable</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -664,6 +678,8 @@
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Normal Stress = </span><span class="si">{</span><span class="n">snowdenAnisotripicFunction</span><span class="o">.</span><span class="n">getNormalStress</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Shear Stress = </span><span class="si">{</span><span class="n">snowdenAnisotripicFunction</span><span class="o">.</span><span class="n">getShearStress</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Residual Shear Stress = </span><span class="si">{</span><span class="n">snowdenAnisotripicFunction</span><span class="o">.</span><span class="n">getResidualShearStress</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -752,6 +768,8 @@
 
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Thermal Expansion Coeff. = </span><span class="si">{</span><span class="n">thermal</span><span class="o">.</span><span class="n">getExpansionCoefficient</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
 <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Longitudinal Dispersivity = </span><span class="si">{</span><span class="n">thermal</span><span class="o">.</span><span class="n">getLongitudinalDispersivity</span><span class="p">()</span><span class="si">}</span><span class="s2">, Transverse Dispersivity = </span><span class="si">{</span><span class="n">thermal</span><span class="o">.</span><span class="n">getTransverseDispersivity</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -793,6 +811,8 @@
 <span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
 <span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">()</span>
 <span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -814,6 +834,8 @@
 <span class="n">x_coord</span> <span class="o">=</span> <span class="n">exportResult1</span><span class="o">.</span><span class="n">getXCoordinate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">y_coord</span> <span class="o">=</span> <span class="n">exportResult1</span><span class="o">.</span><span class="n">getYCoordinate</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">value</span> <span class="o">=</span> <span class="n">exportResult1</span><span class="o">.</span><span class="n">getValue</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -851,6 +873,8 @@
     <span class="n">y_coord</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">GetYCoordinate</span><span class="p">()</span>
     <span class="n">horizontal_result</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">GetHorizontalAxisResult</span><span class="p">()</span>
     <span class="n">vertical_result</span> <span class="o">=</span> <span class="n">data</span><span class="o">.</span><span class="n">GetVerticalAxisResult</span><span class="p">()</span>
+
+<span class="n">modeler_model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -892,6 +916,8 @@
         <span class="n">distance</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">GetDistance</span><span class="p">()</span>
         <span class="n">value</span> <span class="o">=</span> <span class="n">result</span><span class="o">.</span><span class="n">GetValue</span><span class="p">()</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;X-Coord =</span><span class="si">{</span><span class="n">x</span><span class="si">}</span><span class="s2">, Y-Coordinate = </span><span class="si">{</span><span class="n">y</span><span class="si">}</span><span class="s2">, Distance = </span><span class="si">{</span><span class="n">distance</span><span class="si">}</span><span class="s2">, Result Type Node Value = </span><span class="si">{</span><span class="n">value</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -919,7 +945,7 @@
 <span class="n">joint</span><span class="o">.</span><span class="n">BartonBandisMaterial</span><span class="o">.</span><span class="n">setDilationAngle</span><span class="p">(</span><span class="mi">30</span><span class="p">)</span>
 <span class="n">joint</span><span class="o">.</span><span class="n">BartonBandisMaterial</span><span class="o">.</span><span class="n">setJCS</span><span class="p">(</span><span class="mf">2.2</span><span class="p">)</span>
 
-
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -956,6 +982,8 @@
 <span class="c1"># Make sure to save and compute model before opening interpreter model and getting results</span>
 <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
 <span class="n">model</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 <span class="c1"># Get Time Query Point Results</span>
 <span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">()</span>
@@ -1005,6 +1033,8 @@
         <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">End of Line Data</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;-----------------------&quot;</span><span class="p">)</span>
     <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">End of Stage </span><span class="si">{</span><span class="n">stageNumber</span><span class="si">}</span><span class="s2"> Data</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">interpreter_model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1055,6 +1085,8 @@
             <span class="n">bolt_disp</span> <span class="o">=</span> <span class="n">dispResult</span><span class="o">.</span><span class="n">bolt_displacement</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Location X = </span><span class="si">{</span><span class="n">loc_x</span><span class="si">}</span><span class="s2">, Location Y = </span><span class="si">{</span><span class="n">loc_y</span><span class="si">}</span><span class="s2">, Distance = </span><span class="si">{</span><span class="n">dist</span><span class="si">}</span><span class="s2">, Axial Force = </span><span class="si">{</span><span class="n">axial_force</span><span class="si">}</span><span class="s2">, Axial Stress = </span><span class="si">{</span><span class="n">axial_stress</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t\t</span><span class="s2">Shear Force = </span><span class="si">{</span><span class="n">shear_force</span><span class="si">}</span><span class="s2">, Rock Displacement = </span><span class="si">{</span><span class="n">rock_disp</span><span class="si">}</span><span class="s2">, Bolt Displacement = </span><span class="si">{</span><span class="n">bolt_disp</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1095,6 +1127,8 @@
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Start X-Coord = </span><span class="si">{</span><span class="n">start_x</span><span class="si">}</span><span class="s2">, Start Y-Coord = </span><span class="si">{</span><span class="n">start_y</span><span class="si">}</span><span class="s2">, End X-Coord = </span><span class="si">{</span><span class="n">end_x</span><span class="si">}</span><span class="s2">, End Y-Coord = </span><span class="si">{</span><span class="n">end_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Distance = </span><span class="si">{</span><span class="n">distance</span><span class="si">}</span><span class="s2">, Normal Stress = </span><span class="si">{</span><span class="n">normal_stress</span><span class="si">}</span><span class="s2">, Shear Stress = </span><span class="si">{</span><span class="n">shear_stress</span><span class="si">}</span><span class="s2">, Confining Stress = </span><span class="si">{</span><span class="n">confining_stress</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Normal Displacement = </span><span class="si">{</span><span class="n">normal_displacement</span><span class="si">}</span><span class="s2">, Shear Displacement = </span><span class="si">{</span><span class="n">shear_displacement</span><span class="si">}</span><span class="s2">, Yielded = </span><span class="si">{</span><span class="n">yieldedStatus</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1148,6 +1182,8 @@
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Displacement Total = </span><span class="si">{</span><span class="n">displacement_total</span><span class="si">}</span><span class="s2">, Displacement X = </span><span class="si">{</span><span class="n">displacemet_x</span><span class="si">}</span><span class="s2">, Displacement Y = </span><span class="si">{</span><span class="n">displacement_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Axial Symmetry Force = </span><span class="si">{</span><span class="n">axi_sym_force</span><span class="si">}</span><span class="s2">, Axial Symmetry Moment = </span><span class="si">{</span><span class="n">axi_sym_moment</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
             <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Beam Yield = </span><span class="si">{</span><span class="n">beam_yield</span><span class="si">}</span><span class="s2">, Temperature = </span><span class="si">{</span><span class="n">temperature</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1234,6 +1270,8 @@
         <span class="n">liner_result</span> <span class="o">=</span> <span class="n">singlePileResult</span><span class="o">.</span><span class="n">liner_result</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Liner Result for Pile with ID </span><span class="si">{</span><span class="n">pileID</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">OutputLinerResult</span><span class="p">(</span><span class="n">liner_result</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1320,6 +1358,8 @@
         <span class="n">liner_result</span> <span class="o">=</span> <span class="n">singleCompositeResult</span><span class="o">.</span><span class="n">liner_result</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Liner Result for Composite with ID </span><span class="si">{</span><span class="n">compositeID</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">OutputLinerResult</span><span class="p">(</span><span class="n">liner_result</span><span class="p">)</span>
+        
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>
@@ -1406,6 +1446,8 @@
         <span class="n">liner_result</span> <span class="o">=</span> <span class="n">singleStructuralResult</span><span class="o">.</span><span class="n">liner_result</span>
         <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Liner Result for Structural with ID </span><span class="si">{</span><span class="n">structuralID</span><span class="si">}</span><span class="s2">:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
         <span class="n">OutputLinerResult</span><span class="p">(</span><span class="n">liner_result</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 </pre></div>
 </div>
 </div>

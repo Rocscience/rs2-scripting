@@ -25,7 +25,7 @@
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="rs2.modeler.properties package" href="rs2.modeler.properties.html" />
-    <link rel="prev" title="rs2.interpreter package" href="rs2.interpreter.html" /> 
+    <link rel="prev" title="rs2.interpreter.supportResults package" href="rs2.interpreter.supportResults.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -98,7 +98,7 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.modeler.Model.Model">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.Model.</span></span><span class="sig-name descname"><span class="pre">Model</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.Model.Model" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ProxyObject</span></code></p>
+<dd><p>Bases: <a class="reference internal" href="rs2.html#rs2.BaseModel.BaseModel" title="rs2.BaseModel.BaseModel"><code class="xref py py-class docutils literal notranslate"><span class="pre">BaseModel</span></code></a></p>
 <p><a class="reference internal" href="../examples.html#model-example"><span class="std std-ref">Code Snippet: Model Manipulation</span></a></p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.Model.Model.getBoltPropertyByName">
@@ -379,15 +379,6 @@ If you have an interpreter model open, you should close, compute, and then re-op
 </dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.Model.Model.close">
-<span class="sig-name descname"><span class="pre">close</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.Model.Model.close" title="Link to this definition"></a></dt>
-<dd><p><a class="reference internal" href="../examples.html#model-example"><span class="std std-ref">Code Snippet: Model Manipulation</span></a></p>
-<div class="line-block">
-<div class="line">Closes the model</div>
-</div>
-</dd></dl>
-
-<dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.Model.Model.saveAs">
 <span class="sig-name descname"><span class="pre">saveAs</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">fileName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.Model.Model.saveAs" title="Link to this definition"></a></dt>
 <dd><div class="line-block">
@@ -396,15 +387,6 @@ If you have an interpreter model open, you should close, compute, and then re-op
 <p>Example:</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">model</span><span class="o">.</span><span class="n">saveAs</span><span class="p">(</span><span class="s1">&#39;C:/simple_3_stage.fez&#39;</span><span class="p">)</span>
 </pre></div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.Model.Model.save">
-<span class="sig-name descname"><span class="pre">save</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.Model.Model.save" title="Link to this definition"></a></dt>
-<dd><p><a class="reference internal" href="../examples.html#model-example"><span class="std std-ref">Code Snippet: Model Manipulation</span></a></p>
-<div class="line-block">
-<div class="line">Saves the model</div>
 </div>
 </dd></dl>
 
@@ -445,15 +427,6 @@ If you have an interpreter model open, you should close, compute, and then re-op
 <span class="sig-name descname"><span class="pre">renameDiscreteFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oldName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.Model.Model.renameDiscreteFunction" title="Link to this definition"></a></dt>
 <dd><div class="line-block">
 <div class="line">Renames a discrete function with the given name</div>
-</div>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.Model.Model.getUnits">
-<span class="sig-name descname"><span class="pre">getUnits</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.Model.Model.getUnits" title="Link to this definition"></a></dt>
-<dd><p><a class="reference internal" href="../examples.html#get-model-units-example"><span class="std std-ref">Code Snippet: Get Model Units</span></a></p>
-<div class="line-block">
-<div class="line">Get Solid, Hydro and Thermal units for your model</div>
 </div>
 </dd></dl>
 
@@ -530,7 +503,7 @@ If you have an interpreter model open, you should close, compute, and then re-op
            </div>
           </div>
           <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="rs2.interpreter.html" class="btn btn-neutral float-left" title="rs2.interpreter package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rs2.interpreter.supportResults.html" class="btn btn-neutral float-left" title="rs2.interpreter.supportResults package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="rs2.modeler.properties.html" class="btn btn-neutral float-right" title="rs2.modeler.properties package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 

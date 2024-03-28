@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rs2.interpreter.supportResults package &mdash; RS2 Scripting Reference Manual  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="rs2.modeler package" href="rs2.modeler.html" />
+    <link rel="prev" title="rs2.interpreter.queryResults package" href="rs2.interpreter.queryResults.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            RS2 Scripting Reference Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="rs2.html">rs2 package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="rs2.interpreter.html">rs2.interpreter package</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.html">rs2.interpreter.queryResults package</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">rs2.interpreter.supportResults package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.html">rs2.modeler package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.utilities.html">rs2.utilities package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Python Script Examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RS2 Scripting Reference Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="rs2.html">rs2 package</a></li>
+          <li class="breadcrumb-item"><a href="rs2.interpreter.html">rs2.interpreter package</a></li>
+      <li class="breadcrumb-item active">rs2.interpreter.supportResults package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generatedAPIDocFiles/rs2.interpreter.supportResults.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-rs2.interpreter.supportResults">
+<span id="rs2-interpreter-supportresults-package"></span><h1>rs2.interpreter.supportResults package<a class="headerlink" href="#module-rs2.interpreter.supportResults" title="Link to this heading"></a></h1>
+<section id="module-rs2.interpreter.supportResults.BoltResult">
+<span id="rs2-interpreter-supportresults-boltresult-module"></span><h2>rs2.interpreter.supportResults.BoltResult module<a class="headerlink" href="#module-rs2.interpreter.supportResults.BoltResult" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.BoltResult.BoltElementYieldStatus">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.BoltResult.</span></span><span class="sig-name descname"><span class="pre">BoltElementYieldStatus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="o"><span class="pre">*</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.BoltResult.BoltElementYieldStatus" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED">
+<span class="sig-name descname"><span class="pre">BOLT_ELEMENT_NOT_YIELDED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">0</span></em><a class="headerlink" href="#rs2.interpreter.supportResults.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_TYPE_UNKNOWN_YIELDED">
+<span class="sig-name descname"><span class="pre">BOLT_ELEMENT_TYPE_UNKNOWN_YIELDED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">1</span></em><a class="headerlink" href="#rs2.interpreter.supportResults.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_TYPE_UNKNOWN_YIELDED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_TENSION_YIELDED">
+<span class="sig-name descname"><span class="pre">BOLT_ELEMENT_TENSION_YIELDED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">2</span></em><a class="headerlink" href="#rs2.interpreter.supportResults.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_TENSION_YIELDED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_SHEAR_YIELDED">
+<span class="sig-name descname"><span class="pre">BOLT_ELEMENT_SHEAR_YIELDED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">4</span></em><a class="headerlink" href="#rs2.interpreter.supportResults.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_SHEAR_YIELDED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_TENSIONANDSHEAR_YIELDED">
+<span class="sig-name descname"><span class="pre">BOLT_ELEMENT_TENSIONANDSHEAR_YIELDED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">6</span></em><a class="headerlink" href="#rs2.interpreter.supportResults.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_TENSIONANDSHEAR_YIELDED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_UNDEFINED_YIELDED">
+<span class="sig-name descname"><span class="pre">BOLT_ELEMENT_UNDEFINED_YIELDED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">-1</span></em><a class="headerlink" href="#rs2.interpreter.supportResults.BoltResult.BoltElementYieldStatus.BOLT_ELEMENT_UNDEFINED_YIELDED" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.BoltResult.BoltYieldingResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.BoltResult.</span></span><span class="sig-name descname"><span class="pre">BoltYieldingResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yielding_flag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.BoltResult.BoltYieldingResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.BoltResult.BoltForceDisplacementResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.BoltResult.</span></span><span class="sig-name descname"><span class="pre">BoltForceDisplacementResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axial_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axial_stress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rock_displacement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bolt_displacement</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.BoltResult.BoltForceDisplacementResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.BoltResult.BoltResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.BoltResult.</span></span><span class="sig-name descname"><span class="pre">BoltResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yielding_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.BoltResult.BoltYieldingResult" title="rs2.interpreter.supportResults.BoltResult.BoltYieldingResult"><span class="pre">BoltYieldingResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_displacement_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.BoltResult.BoltForceDisplacementResult" title="rs2.interpreter.supportResults.BoltResult.BoltForceDisplacementResult"><span class="pre">BoltForceDisplacementResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.BoltResult.BoltResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-rs2.interpreter.supportResults.CompositeResult">
+<span id="rs2-interpreter-supportresults-compositeresult-module"></span><h2>rs2.interpreter.supportResults.CompositeResult module<a class="headerlink" href="#module-rs2.interpreter.supportResults.CompositeResult" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.CompositeResult.PileResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.CompositeResult.</span></span><span class="sig-name descname"><span class="pre">PileResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.JointResult.JointResult" title="rs2.interpreter.supportResults.JointResult.JointResult"><span class="pre">JointResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.LinerResult.LinerResult" title="rs2.interpreter.supportResults.LinerResult.LinerResult"><span class="pre">LinerResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.CompositeResult.PileResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.CompositeResult.CompositeResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.CompositeResult.</span></span><span class="sig-name descname"><span class="pre">CompositeResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.JointResult.JointResult" title="rs2.interpreter.supportResults.JointResult.JointResult"><span class="pre">JointResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.LinerResult.LinerResult" title="rs2.interpreter.supportResults.LinerResult.LinerResult"><span class="pre">LinerResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.CompositeResult.CompositeResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.CompositeResult.StructuralResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.CompositeResult.</span></span><span class="sig-name descname"><span class="pre">StructuralResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.JointResult.JointResult" title="rs2.interpreter.supportResults.JointResult.JointResult"><span class="pre">JointResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.LinerResult.LinerResult" title="rs2.interpreter.supportResults.LinerResult.LinerResult"><span class="pre">LinerResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.CompositeResult.StructuralResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-rs2.interpreter.supportResults.JointResult">
+<span id="rs2-interpreter-supportresults-jointresult-module"></span><h2>rs2.interpreter.supportResults.JointResult module<a class="headerlink" href="#module-rs2.interpreter.supportResults.JointResult" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.JointResult.JointElementResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.JointResult.</span></span><span class="sig-name descname"><span class="pre">JointElementResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normal_stress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear_stress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confining_stress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normal_displacement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear_displacement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yielded</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.JointResult.JointElementResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.JointResult.JointResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.JointResult.</span></span><span class="sig-name descname"><span class="pre">JointResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_element_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.JointResult.JointElementResult" title="rs2.interpreter.supportResults.JointResult.JointElementResult"><span class="pre">JointElementResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.JointResult.JointResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</section>
+<section id="module-rs2.interpreter.supportResults.LinerResult">
+<span id="rs2-interpreter-supportresults-linerresult-module"></span><h2>rs2.interpreter.supportResults.LinerResult module<a class="headerlink" href="#module-rs2.interpreter.supportResults.LinerResult" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.LinerResult.</span></span><span class="sig-name descname"><span class="pre">LinerElementResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">composite_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axial_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_total</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axi_sym_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axi_sym_moment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beam_yield</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.LinerResult.</span></span><span class="sig-name descname"><span class="pre">LinerResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_element_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult" title="rs2.interpreter.supportResults.LinerResult.LinerElementResult"><span class="pre">LinerElementResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rs2.interpreter.queryResults.html" class="btn btn-neutral float-left" title="rs2.interpreter.queryResults package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rs2.modeler.html" class="btn btn-neutral float-right" title="rs2.modeler package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Rocscience Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

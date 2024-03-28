@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>rs2.interpreter.queryResults package &mdash; RS2 Scripting Reference Manual  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+        <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="rs2.interpreter.supportResults package" href="rs2.interpreter.supportResults.html" />
+    <link rel="prev" title="rs2.interpreter package" href="rs2.interpreter.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            RS2 Scripting Reference Manual
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul class="current">
+<li class="toctree-l1 current"><a class="reference internal" href="rs2.html">rs2 package</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="rs2.interpreter.html">rs2.interpreter package</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">rs2.interpreter.queryResults package</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.html">rs2.interpreter.supportResults package</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.html">rs2.modeler package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.utilities.html">rs2.utilities package</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../examples.html">Python Script Examples</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">RS2 Scripting Reference Manual</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="rs2.html">rs2 package</a></li>
+          <li class="breadcrumb-item"><a href="rs2.interpreter.html">rs2.interpreter package</a></li>
+      <li class="breadcrumb-item active">rs2.interpreter.queryResults package</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/generatedAPIDocFiles/rs2.interpreter.queryResults.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="module-rs2.interpreter.queryResults">
+<span id="rs2-interpreter-queryresults-package"></span><h1>rs2.interpreter.queryResults package<a class="headerlink" href="#module-rs2.interpreter.queryResults" title="Link to this heading"></a></h1>
+<section id="module-rs2.interpreter.queryResults.HistoryQueryResults">
+<span id="rs2-interpreter-queryresults-historyqueryresults-module"></span><h2>rs2.interpreter.queryResults.HistoryQueryResults module<a class="headerlink" href="#module-rs2.interpreter.queryResults.HistoryQueryResults" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.HistoryQueryResults.</span></span><span class="sig-name descname"><span class="pre">HistoryQueryResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">horizontal_axis_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertical_axis_result</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult.GetXCoordinate">
+<span class="sig-name descname"><span class="pre">GetXCoordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult.GetXCoordinate" title="Link to this definition"></a></dt>
+<dd><p>Returns the X-Coordinate of the point</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult.GetYCoordinate">
+<span class="sig-name descname"><span class="pre">GetYCoordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult.GetYCoordinate" title="Link to this definition"></a></dt>
+<dd><p>Returns the Y-Coordinate of the point</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult.GetHorizontalAxisResult">
+<span class="sig-name descname"><span class="pre">GetHorizontalAxisResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult.GetHorizontalAxisResult" title="Link to this definition"></a></dt>
+<dd><p>Returns the horizontal axis result for the specific stage</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult.GetVerticalAxisResult">
+<span class="sig-name descname"><span class="pre">GetVerticalAxisResult</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult.GetVerticalAxisResult" title="Link to this definition"></a></dt>
+<dd><p>Returns the vertical axis result for the specific stage</p>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rs2.interpreter.queryResults.MaterialQueryResults">
+<span id="rs2-interpreter-queryresults-materialqueryresults-module"></span><h2>rs2.interpreter.queryResults.MaterialQueryResults module<a class="headerlink" href="#module-rs2.interpreter.queryResults.MaterialQueryResults" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.MaterialQueryResults.QueryResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.MaterialQueryResults.</span></span><span class="sig-name descname"><span class="pre">QueryResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.MaterialQueryResults.QueryResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.MaterialQueryResults.QueryResult.GetXCoordinate">
+<span class="sig-name descname"><span class="pre">GetXCoordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.MaterialQueryResults.QueryResult.GetXCoordinate" title="Link to this definition"></a></dt>
+<dd><p>Returns the X-Coordinate of the query</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.MaterialQueryResults.QueryResult.GetYCoordinate">
+<span class="sig-name descname"><span class="pre">GetYCoordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.MaterialQueryResults.QueryResult.GetYCoordinate" title="Link to this definition"></a></dt>
+<dd><p>Returns the Y-Coordinate of the query</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.MaterialQueryResults.QueryResult.GetDistance">
+<span class="sig-name descname"><span class="pre">GetDistance</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.MaterialQueryResults.QueryResult.GetDistance" title="Link to this definition"></a></dt>
+<dd><p>Returns the distance of the query</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.MaterialQueryResults.QueryResult.GetValue">
+<span class="sig-name descname"><span class="pre">GetValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.MaterialQueryResults.QueryResult.GetValue" title="Link to this definition"></a></dt>
+<dd><p>Returns the value of the query based on model’s current result type</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.MaterialQueryResults.MaterialQueryResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.MaterialQueryResults.</span></span><span class="sig-name descname"><span class="pre">MaterialQueryResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.MaterialQueryResults.MaterialQueryResults" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.MaterialQueryResults.MaterialQueryResults.GetUniqueIdentifier">
+<span class="sig-name descname"><span class="pre">GetUniqueIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.MaterialQueryResults.MaterialQueryResults.GetUniqueIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Returns the unique identifier for the material query</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.MaterialQueryResults.MaterialQueryResults.GetMaterialID">
+<span class="sig-name descname"><span class="pre">GetMaterialID</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.MaterialQueryResults.MaterialQueryResults.GetMaterialID" title="Link to this definition"></a></dt>
+<dd><p>Returns the material ID of the query</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.MaterialQueryResults.MaterialQueryResults.GetAllValues">
+<span class="sig-name descname"><span class="pre">GetAllValues</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.queryResults.MaterialQueryResults.QueryResult" title="rs2.interpreter.queryResults.MaterialQueryResults.QueryResult"><span class="pre">QueryResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.MaterialQueryResults.MaterialQueryResults.GetAllValues" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Returns a list[QueryResult] representing result at all nodes of the material query</div>
+<div class="line">To get the x-coordinate, y-coordinate, distance, or value, please call the supporting class methods:</div>
+</div>
+<ul class="simple">
+<li><p>QueryResult.GetXCoordinate()</p></li>
+<li><p>QueryResult.GetYCoordinate()</p></li>
+<li><p>QueryResult.GetDistance()</p></li>
+<li><p>QueryResult.GetValue()</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rs2.interpreter.queryResults.MeshResults">
+<span id="rs2-interpreter-queryresults-meshresults-module"></span><h2>rs2.interpreter.queryResults.MeshResults module<a class="headerlink" href="#module-rs2.interpreter.queryResults.MeshResults" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.MeshResults.MeshResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.MeshResults.</span></span><span class="sig-name descname"><span class="pre">MeshResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.MeshResults.MeshResults" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.MeshResults.MeshResults.results">
+<span class="sig-name descname"><span class="pre">results</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#rs2.interpreter.queryResults.MeshResults.MeshResults.results" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.MeshResults.MeshResults.getXCoordinate">
+<span class="sig-name descname"><span class="pre">getXCoordinate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.MeshResults.MeshResults.getXCoordinate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.MeshResults.MeshResults.getYCoordinate">
+<span class="sig-name descname"><span class="pre">getYCoordinate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.MeshResults.MeshResults.getYCoordinate" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.MeshResults.MeshResults.getValue">
+<span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.MeshResults.MeshResults.getValue" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+<section id="module-rs2.interpreter.queryResults.TimeQueryResults">
+<span id="rs2-interpreter-queryresults-timequeryresults-module"></span><h2>rs2.interpreter.queryResults.TimeQueryResults module<a class="headerlink" href="#module-rs2.interpreter.queryResults.TimeQueryResults" title="Link to this heading"></a></h2>
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.TimeQueryResults.</span></span><span class="sig-name descname"><span class="pre">QueryPointResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult.GetXCoordinate">
+<span class="sig-name descname"><span class="pre">GetXCoordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult.GetXCoordinate" title="Link to this definition"></a></dt>
+<dd><p>Returns the X-Coordinate of the query point</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult.GetYCoordinate">
+<span class="sig-name descname"><span class="pre">GetYCoordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult.GetYCoordinate" title="Link to this definition"></a></dt>
+<dd><p>Returns the Y-Coordinate of the query point</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult.GetStageTime">
+<span class="sig-name descname"><span class="pre">GetStageTime</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult.GetStageTime" title="Link to this definition"></a></dt>
+<dd><p>Returns the dynamic stage time of the query point</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult.GetValue">
+<span class="sig-name descname"><span class="pre">GetValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult.GetValue" title="Link to this definition"></a></dt>
+<dd><p>Returns the value of the time query point</p>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.QueryLineResult">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.TimeQueryResults.</span></span><span class="sig-name descname"><span class="pre">QueryLineResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_node_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.QueryLineResult" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.QueryLineResult.GetNodeValues">
+<span class="sig-name descname"><span class="pre">GetNodeValues</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult" title="rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult"><span class="pre">QueryPointResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.QueryLineResult.GetNodeValues" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Returns a list[QueryPointResult] representing result at this node part of the time query line</div>
+<div class="line">To get the x-coordinate, y-coordinate, dynamic stage time, or value, please call the supporting class methods:</div>
+</div>
+<ul class="simple">
+<li><p>QueryPointResult.GetXCoordinate()</p></li>
+<li><p>QueryPointResult.GetYCoordinate()</p></li>
+<li><p>QueryPointResult.GetStageTime()</p></li>
+<li><p>QueryPointResult.GetValue()</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.TimeQueryPointResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.TimeQueryResults.</span></span><span class="sig-name descname"><span class="pre">TimeQueryPointResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_point_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.TimeQueryPointResults" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.TimeQueryPointResults.GetUniqueIdentifier">
+<span class="sig-name descname"><span class="pre">GetUniqueIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.TimeQueryPointResults.GetUniqueIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Returns the unique identifier for the time query point</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.TimeQueryPointResults.GetAllValues">
+<span class="sig-name descname"><span class="pre">GetAllValues</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult" title="rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult"><span class="pre">QueryPointResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.TimeQueryPointResults.GetAllValues" title="Link to this definition"></a></dt>
+<dd><div class="line-block">
+<div class="line">Returns a list[QueryPointResult] representing result at all nodes of the time query point</div>
+<div class="line">To get the x-coordinate, y-coordinate, dynamic stage time, or value, please call the supporting class methods:</div>
+</div>
+<ul class="simple">
+<li><p>QueryPointResult.GetXCoordinate()</p></li>
+<li><p>QueryPointResult.GetYCoordinate()</p></li>
+<li><p>QueryPointResult.GetStageTime()</p></li>
+<li><p>QueryPointResult.GetValue()</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.TimeQueryLineResults">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.TimeQueryResults.</span></span><span class="sig-name descname"><span class="pre">TimeQueryLineResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_query_line_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.TimeQueryLineResults" title="Link to this definition"></a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.TimeQueryLineResults.GetUniqueIdentifier">
+<span class="sig-name descname"><span class="pre">GetUniqueIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.TimeQueryLineResults.GetUniqueIdentifier" title="Link to this definition"></a></dt>
+<dd><p>Returns the unique identifier for the time query point</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.TimeQueryLineResults.GetAllNodeObjects">
+<span class="sig-name descname"><span class="pre">GetAllNodeObjects</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.queryResults.TimeQueryResults.QueryLineResult" title="rs2.interpreter.queryResults.TimeQueryResults.QueryLineResult"><span class="pre">QueryLineResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.TimeQueryLineResults.GetAllNodeObjects" title="Link to this definition"></a></dt>
+<dd><p>Returns a list[QueryLineResult] representing nodes making up the time query line</p>
+<p>To get list of node values associated with a specific node, please call the supported class method:</p>
+<ul class="simple">
+<li><p>QueryLineResult.GetNodeValues()</p></li>
+</ul>
+<div class="line-block">
+<div class="line">The above returns a list[QueryPointResult] representing result at this node part of the time query line</div>
+<div class="line">To get the x-coordinate, y-coordinate, dynamic stage time, or value, please call the supporting class methods:</div>
+</div>
+<ul class="simple">
+<li><p>QueryPointResult.GetXCoordinate()</p></li>
+<li><p>QueryPointResult.GetYCoordinate()</p></li>
+<li><p>QueryPointResult.GetStageTime()</p></li>
+<li><p>QueryPointResult.GetValue()</p></li>
+</ul>
+</dd></dl>
+
+</dd></dl>
+
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="rs2.interpreter.html" class="btn btn-neutral float-left" title="rs2.interpreter package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="rs2.interpreter.supportResults.html" class="btn btn-neutral float-right" title="rs2.interpreter.supportResults package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2023, Rocscience Inc..</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
