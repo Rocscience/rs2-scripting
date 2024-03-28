@@ -12,19 +12,18 @@ points1 = [[5, -4.5], [5, 0]]
 points2 = [[-5, 2], [11, 2]]
 
 points_on_line = 8
-guid1 = model.AddTimeQueryLine(points1, points_on_line)
-guid2 = model.AddTimeQueryLine(points2, points_on_line)
+lineID_1 = model.AddTimeQueryLine(points1, points_on_line)
+lineID_2 = model.AddTimeQueryLine(points2, points_on_line)
 
-model.RemoveTimeQueryLine([guid1])
+model.RemoveTimeQueryLine([lineID_1])
 
-id = model.AddTimeQueryPoint(x=4.5, y=2.7)
-id2 = model.AddTimeQueryPoint(x=9, y=-2)
+pointID_1 = model.AddTimeQueryPoint(x=4.5, y=2.7)
+pointID_2 = model.AddTimeQueryPoint(x=9, y=-2)
 
-model.RemoveTimeQueryPoint([id])
+model.RemoveTimeQueryPoint([pointID_1])
 
 model.save()
 model.compute()
-model.close()
 
 interpreter = RS2Interpreter()
 interpreter_model = interpreter.openFile(filePath)
@@ -74,4 +73,9 @@ for stageNumber, stageData in line_results.items():
     print("-----------------------")
     print(f"\nEnd of Stage {stageNumber} Data\n")
 
+model.RemoveTimeQueryPoint(pointID_2)
+model.RemoveTimeQueryLine(lineID_2)
+model.save()
+
+model.close()
 interpreter_model.close()
