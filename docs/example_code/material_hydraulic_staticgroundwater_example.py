@@ -33,10 +33,14 @@ print(f"Hu Value = {huValue}")
 staticGroundwater.setStaticWaterMode(StaticWaterModes.GRID)
 staticGroundwater.setGridToUse("Default Grid")
 
-# Manipulation of StaticGroundwater Stage Factor Properties for stage 1
+# Manipulation of StaticGroundwater Stage Factor Properties for stage 2
 # Make sure to stage Hydraulic Stage Factor option before manipulating any factor properties
 material.StageFactors.setStageHydraulicStageFactor(True)
-staticGroundwaterStageFactor = material.Hydraulic.StaticGroundwater.stageFactorInterface.getDefinedStageFactors()[1]
+definedStageFactors = material.StageFactors.getDefinedStageFactors()
+newStageFactor = material.StageFactors.createStageFactor(2)
+definedStageFactors[2] = newStageFactor
+material.StageFactors.setDefinedStageFactors(definedStageFactors)
+staticGroundwaterStageFactor = material.Hydraulic.StaticGroundwater.stageFactorInterface.getDefinedStageFactors()[2]
 
 staticGroundwaterStageFactor.setGridToUse("Default Grid")
 staticGroundwaterStageFactor.setPiezoToUse("None")

@@ -43,10 +43,17 @@ print(f"Shear Stress = {snowdenAnisotripicFunction.getShearStress()}")
 print(f"Residual Shear Stress = {snowdenAnisotripicFunction.getResidualShearStress()}\n")
 
 
-# Manipulation of Strength Stage Factor Properties for stage 1
+# Manipulation of Strength Stage Factor Properties for stage 2
 # Make sure to your Stiffness Elastic Type isn't Custom before manipulating any factor values
 material.Stiffness.setElasticType(MaterialElasticityTypes.ISOTROPIC)
-strengthFactor = material.Strength.stageFactorInterface.getDefinedStageFactors()[1]
+material.StageFactors.setStageStrengthStiffnessStageFactors(True)
+
+definedStageFactors = material.StageFactors.getDefinedStageFactors()
+newStageFactor = material.StageFactors.createStageFactor(2)
+definedStageFactors[2] = newStageFactor
+material.StageFactors.setDefinedStageFactors(definedStageFactors)
+
+strengthFactor = material.Strength.stageFactorInterface.getDefinedStageFactors()[2]
 
 strengthFactor.setResetYield(True)
 strengthFactor.setAirEntryValueFactor(1.5)
@@ -55,9 +62,9 @@ strengthFactor.setUnsaturatedShearStrengthAngleFactor(3.9)
 print("\nStrength Stage Factor Values:")
 print(f"Reset Yield = {strengthFactor.getResetYield()}, Air Entry Value = {strengthFactor.getAirEntryValueFactor()}, Unsaturated Shear Strength Angle = {strengthFactor.getUnsaturatedShearStrengthAngleFactor()}")
 
-# Manipulation of Strength Basic Barcelona Model Stage 1 factors
+# Manipulation of Strength Basic Barcelona Model Stage 2 factors
 material.Strength.setFailureCriterion(StrengthCriteriaTypes.BARCELONA_BASIC)
-barcelonaFactors = material.Strength.BarcelonaBasic.stageFactorInterface.getDefinedStageFactors()[1]
+barcelonaFactors = material.Strength.BarcelonaBasic.stageFactorInterface.getDefinedStageFactors()[2]
 
 barcelonaFactors.setGammaFactor(3.3)
 barcelonaFactors.setLambdaFactor(2)
@@ -66,9 +73,9 @@ barcelonaFactors.setNParameterFactor(5)
 print("\nStrength Basic Barcelona Model Stage Factor Values")
 print(f"Gamma Factor = {barcelonaFactors.getGammaFactor()}, Lambda Factor = {barcelonaFactors.getLambdaFactor()},N Parameter Factor = {barcelonaFactors.getNParameterFactor()}")
 
-# Manipulation of Strength Hoek Brown Stage 1 factors
+# Manipulation of Strength Hoek Brown Stage 2 factors
 material.Strength.setFailureCriterion(StrengthCriteriaTypes.HOEK_BROWN)
-hoekBrownFactors = material.Strength.HoekBrown.stageFactorInterface.getDefinedStageFactors()[1]
+hoekBrownFactors = material.Strength.HoekBrown.stageFactorInterface.getDefinedStageFactors()[2]
 
 hoekBrownFactors.setDilationParameterFactor(2.2)
 hoekBrownFactors.setCompressiveStrengthFactor(5)

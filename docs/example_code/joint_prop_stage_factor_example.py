@@ -10,32 +10,35 @@ model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 joint = model.getJointPropertyByName("Joint 1")
 
 joint.setSlipCriterion(JointTypes.MOHR_COULOMB)
+definedStageFactors = joint.MohrCoulomb.stageFactorInterface.getDefinedStageFactors()
+newStageFactor = joint.MohrCoulomb.stageFactorInterface.createStageFactor(2)
+definedStageFactors[2] = newStageFactor
+joint.MohrCoulomb.stageFactorInterface.setDefinedStageFactors(definedStageFactors)
+
 mohrCoulombFactors = joint.MohrCoulomb.stageFactorInterface.getDefinedStageFactors()
-stage1mohrCoulombFactors = mohrCoulombFactors[1]
+stage2mohrCoulombFactors = mohrCoulombFactors[2]
 
-stage1mohrCoulombFactors.setNormalStiffnessFactor(3)
-stage1mohrCoulombFactors.setShearStiffnessFactor(3) 
-stage1mohrCoulombFactors.setTensileStrengthFactor(3) 
-stage1mohrCoulombFactors.setPeakCohesionFactor(3)
-stage1mohrCoulombFactors.setPeakFrictionAngleFactor(3) 
-stage1mohrCoulombFactors.setResCohesionFactor(3) 
-stage1mohrCoulombFactors.setResFrictionAngleFactor(3) 
-stage1mohrCoulombFactors.setResTensileStrengthFactor(3) 
-stage1mohrCoulombFactors.setAdditionalPressureInsideJointFactor(6)
-stage1mohrCoulombFactors.setGroundwaterPressureFactor(6)
-
+stage2mohrCoulombFactors.setNormalStiffnessFactor(3)
+stage2mohrCoulombFactors.setShearStiffnessFactor(3) 
+stage2mohrCoulombFactors.setTensileStrengthFactor(3) 
+stage2mohrCoulombFactors.setPeakCohesionFactor(3)
+stage2mohrCoulombFactors.setPeakFrictionAngleFactor(3) 
+stage2mohrCoulombFactors.setResCohesionFactor(3) 
+stage2mohrCoulombFactors.setResFrictionAngleFactor(3) 
+stage2mohrCoulombFactors.setResTensileStrengthFactor(3) 
+stage2mohrCoulombFactors.setAdditionalPressureInsideJointFactor(6)
+stage2mohrCoulombFactors.setGroundwaterPressureFactor(6)
 
 joint.setSlipCriterion(JointTypes.BARTON_BANDIS) 
 bartonBandisfactors = joint.BartonBandis.stageFactorInterface.getDefinedStageFactors()
+stage2bartonBandisFactors = bartonBandisfactors[2]
 
-stage1bartonBandisFactors = bartonBandisfactors[1]
-
-stage1bartonBandisFactors.setNormalStiffnessFactor(3)
-stage1bartonBandisFactors.setShearStiffnessFactor(3) 
-stage1bartonBandisFactors.setJRCFactor(3) 
-stage1bartonBandisFactors.setJCSFactor(3) 
-stage1bartonBandisFactors.setResidualFrictionAngleFactor(3)
-stage1bartonBandisFactors.setAdditionalPressureInsideJointFactor(6)
-stage1bartonBandisFactors.setGroundwaterPressureFactor(6)
+stage2bartonBandisFactors.setNormalStiffnessFactor(3)
+stage2bartonBandisFactors.setShearStiffnessFactor(3) 
+stage2bartonBandisFactors.setJRCFactor(3) 
+stage2bartonBandisFactors.setJCSFactor(3) 
+stage2bartonBandisFactors.setResidualFrictionAngleFactor(3)
+stage2bartonBandisFactors.setAdditionalPressureInsideJointFactor(6)
+stage2bartonBandisFactors.setGroundwaterPressureFactor(6)
 
 model.close()

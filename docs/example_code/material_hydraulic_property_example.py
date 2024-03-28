@@ -33,10 +33,14 @@ FEAGroundwater.setK1Angle(30)
 print("\nFEA Groundwater Properties\n")
 print(f"K2/K1 = {FEAGroundwater.getK2K1()}, K1 Definition = {FEAGroundwater.getK1Definition()}, K1 Angle = {FEAGroundwater.getK1Angle()}\n")
 
-# Manipulation of Hydraulic Stage Factor Properties for FEAGroundwater model for stage 1
+# Manipulation of Hydraulic Stage Factor Properties for FEAGroundwater model for stage 2
 # Make sure to stage Hydraulic Stage Factor option before manipulating any factor properties
 material.StageFactors.setStageHydraulicStageFactor(True)
-hydraulicStageFactor = material.Hydraulic.stageFactorInterface.getDefinedStageFactors()[1]
+definedStageFactors = material.StageFactors.getDefinedStageFactors()
+newStageFactor = material.StageFactors.createStageFactor(2)
+definedStageFactors[2] = newStageFactor
+material.StageFactors.setDefinedStageFactors(definedStageFactors)
+hydraulicStageFactor = material.Hydraulic.stageFactorInterface.getDefinedStageFactors()[2]
 
 hydraulicStageFactor.setMaterialBehaviourFactor(MaterialBehaviours.UNDRAINED)
 

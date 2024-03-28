@@ -78,8 +78,15 @@ thermal.setTransverseDispersivity(3)
 print(f"Thermal Expansion Coeff. = {thermal.getExpansionCoefficient()}")
 print(f"Longitudinal Dispersivity = {thermal.getLongitudinalDispersivity()}, Transverse Dispersivity = {thermal.getTransverseDispersivity()}\n")
 
-# Manipulation of Thermal Stage Factor Properties
-thermalStageFactors = material.Thermal.stageFactorInterface.getDefinedStageFactors()[1]
+# Manipulation of Thermal Stage Factor Properties for stage 1
+material.StageFactors.setStageThermalStageFactors(True)
+
+definedStageFactors = material.StageFactors.getDefinedStageFactors()
+newStageFactor = material.StageFactors.createStageFactor(2)
+definedStageFactors[2] = newStageFactor
+material.StageFactors.setDefinedStageFactors(definedStageFactors)
+
+thermalStageFactors = thermal.stageFactorInterface.getDefinedStageFactors()[2]
 
 thermalStageFactors.setThermalGridFactor("Default Grid")
 

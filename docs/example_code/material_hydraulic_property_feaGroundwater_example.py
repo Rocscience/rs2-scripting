@@ -62,11 +62,14 @@ userDefined = FEAGroundwater.UserDefined
 userDefined.setUserDefinedPermeabilityAndWaterContentFunction("User Defined 1")
 print(f"User Defined Permeability And Water Content Function Name = {userDefined.getUserDefinedPermeabilityAndWaterContentFunction()}\n")
 
-# Manipulation of FEAGroundwater Stage Factor Properties for stage 1
+# Manipulation of FEAGroundwater Stage Factor Properties for stage 2
 # Make sure to stage Hydraulic Stage Factor option before manipulating any factor properties
 material.StageFactors.setStageHydraulicStageFactor(True)
-
-feaGroundwaterStageFactor = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[1]
+definedStageFactors = material.StageFactors.getDefinedStageFactors()
+newStageFactor = material.StageFactors.createStageFactor(2)
+definedStageFactors[2] = newStageFactor
+material.StageFactors.setDefinedStageFactors(definedStageFactors)
+feaGroundwaterStageFactor = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[2]
 
 feaGroundwaterStageFactor.setK1AngleFactor(0.7)
 feaGroundwaterStageFactor.setK2K1Factor(2.2)
@@ -75,15 +78,15 @@ feaGroundwaterStageFactor.setMvFactor(5)
 print("\nFEAGroundwater Stage Factor Values") 
 print(f"K1 Angle Factor = {feaGroundwaterStageFactor.getK1AngleFactor()}, K2/K1 Factor = {feaGroundwaterStageFactor.getK2K1Factor()}, MV Factor = {feaGroundwaterStageFactor.getMvFactor()}")
 
-# Manipulation of FEAGroundwater Constant Model Stage Factor Properties for stage 1
-constantModelStageFactor = material.Hydraulic.FEAGroundwater.Constant.stageFactorInterface.getDefinedStageFactors()[1]
+# Manipulation of FEAGroundwater Constant Model Stage Factor Properties for stage 2
+constantModelStageFactor = material.Hydraulic.FEAGroundwater.Constant.stageFactorInterface.getDefinedStageFactors()[2]
 
 constantModelStageFactor.setWCCurveSlopeFactor(1.7)
 
 print("\nFEAGroundwater Constant Model Factor Values") 
 print(f"Curve Slope Factor = {constantModelStageFactor.getWCCurveSlopeFactor()}")
 
-fredlundModelStageFactor = material.Hydraulic.FEAGroundwater.Fredlund.stageFactorInterface.getDefinedStageFactors()[1]
+fredlundModelStageFactor = material.Hydraulic.FEAGroundwater.Fredlund.stageFactorInterface.getDefinedStageFactors()[2]
 
 fredlundModelStageFactor.setAFactor(0.7)
 fredlundModelStageFactor.setBFactor(2.2)

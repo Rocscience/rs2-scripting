@@ -10,9 +10,15 @@ model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 liner = model.getLinerPropertyByName("Liner 1")
 
 liner.setLinerType(LinerTypes.REINFORCED_CONCRETE)
+liner.ReinforcedConcrete.setStageConcreteProperties(True)
+definedStageFactors = liner.ReinforcedConcrete.stageFactorInterface.getDefinedStageFactors()
+newStageFactor = liner.ReinforcedConcrete.stageFactorInterface.createStageFactor(2)
+definedStageFactors[2] = newStageFactor
+liner.ReinforcedConcrete.stageFactorInterface.setDefinedStageFactors(StageFactorDefinitionMethod.RELATIVE_STAGE_FACTOR, definedStageFactors)
+
+# Get factors for stage 2
 reinforcedConcreteFactors = liner.ReinforcedConcrete.stageFactorInterface.getDefinedStageFactors()
-# Get factors for stage 1
-stageFactor = reinforcedConcreteFactors[1]
+stageFactor = reinforcedConcreteFactors[2]
 
 stageFactor.setThicknessFactor(3)
 stageFactor.setConcreteYoungsModulusFactor(2.2)
@@ -22,9 +28,9 @@ stageFactor.setAxialStrainExpansionFactor(0.8)
 stageFactor.setAreaFactor(1.1)
 
 liner.setLinerType(LinerTypes.STANDARD_BEAM)
+liner.StandardBeam.setStageLinerProperties(True)
 standardBeamFactors = liner.StandardBeam.stageFactorInterface.getDefinedStageFactors()
-# Get factors for stage 1
-linerStageFactors = standardBeamFactors[1]
+linerStageFactors = standardBeamFactors[2]
 
 linerStageFactors.setThicknessFactor(3)
 linerStageFactors.setYoungsModulusFactor(2)

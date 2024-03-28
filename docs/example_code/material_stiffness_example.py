@@ -28,11 +28,17 @@ print(f"Loading Custom Table = {custom.getCustomStiffnessLoadingTable()}")
 print(f"Unloading Condition = {custom.getUnloadingCondition()}")
 print(f"Unloading Custom Table = {custom.getCustomStiffnessUnloadingTable()}")
 
-# Manipulation of Stiffness Stage Factor Properties for stage 1
+# Manipulation of Stiffness Stage Factor Properties for stage 2
 # Make sure to your Stiffness Elastic Type isn't Custom before manipulating any stiffness related factor values
 material.Stiffness.setElasticType(MaterialElasticityTypes.ISOTROPIC)
+material.StageFactors.setStageStrengthStiffnessStageFactors(True)
 
-stiffnessStageFactor = material.Stiffness.Isotropic.stageFactorInterface.getDefinedStageFactors()[1]
+definedStageFactors = material.StageFactors.getDefinedStageFactors()
+newStageFactor = material.StageFactors.createStageFactor(2)
+definedStageFactors[2] = newStageFactor
+material.StageFactors.setDefinedStageFactors(definedStageFactors)
+
+stiffnessStageFactor = material.Stiffness.Isotropic.stageFactorInterface.getDefinedStageFactors()[2]
 
 stiffnessStageFactor.setPoissonsRatioFactor(3)
 stiffnessStageFactor.setResidualYoungsModulusFactor(2.2)
@@ -41,7 +47,7 @@ stiffnessStageFactor.setShearModulusFactor(1.9)
 print("\nIsotropic Stage Factor Values")
 print(f"Poisson Ratio Factor = {stiffnessStageFactor.getPoissonsRatioFactor()}, Res. Youngs Modulus Factor = {stiffnessStageFactor.getYoungsModulusFactor()}, Shear Modulus Factor = {stiffnessStageFactor.getShearModulusFactor()}")
 
-nonLinearHyperbolicFactors = material.Stiffness.NonLinearHyperbolic.stageFactorInterface.getDefinedStageFactors()[1]
+nonLinearHyperbolicFactors = material.Stiffness.NonLinearHyperbolic.stageFactorInterface.getDefinedStageFactors()[2]
 
 nonLinearHyperbolicFactors.setFailureRatioRfFactor(1)
 nonLinearHyperbolicFactors.setBulkModulusExpMFactor(2)

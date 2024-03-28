@@ -14,11 +14,16 @@ material.Stiffness.setElasticType(MaterialElasticityTypes.ISOTROPIC)
 # Make sure to stage Strength and Stiffness Stage Factor option before manipulating any factor properties
 material.StageFactors.setStageStrengthStiffnessStageFactors(True)
 
-initialConditionStage1Factor = material.InitialConditions.stageFactorInterface.getDefinedStageFactors()[1]
+definedStageFactors = material.StageFactors.getDefinedStageFactors()
+newStageFactor = material.StageFactors.createStageFactor(2)
+definedStageFactors[2] = newStageFactor
+material.StageFactors.setDefinedStageFactors(definedStageFactors)
 
-initialConditionStage1Factor.setUnitWeightFactor(3)
-initialConditionStage1Factor.setPorosityValueFactor(5)
+initialConditionStage2Factor = material.InitialConditions.stageFactorInterface.getDefinedStageFactors()[2]
 
-print(f"Unit Wegiht Factor = {initialConditionStage1Factor.getUnitWeightFactor()}, Porosity Value Factor = {initialConditionStage1Factor.getPorosityValueFactor()}")
+initialConditionStage2Factor.setUnitWeightFactor(3)
+initialConditionStage2Factor.setPorosityValueFactor(5)
+
+print(f"Unit Weight Factor = {initialConditionStage2Factor.getUnitWeightFactor()}, Porosity Value Factor = {initialConditionStage2Factor.getPorosityValueFactor()}")
 
 model.close()

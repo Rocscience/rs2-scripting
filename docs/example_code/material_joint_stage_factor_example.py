@@ -7,17 +7,19 @@ current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None)))
 modeler = RS2Modeler()
 model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
-# Manipulation of Material Joint Mohr Coulomb Stage Factor for stage 1
+# Manipulation of Material Joint Mohr Coulomb Stage Factor for stage 2
 material = model.getAllMaterialProperties()[0]
 material.Strength.setFailureCriterion(StrengthCriteriaTypes.JOINTED_MOHR_COULOMB)
 matJointOptions = material.Strength.JointedMohrCoulomb.getJointOptions()
 jointmaterial = matJointOptions.getJoint(0)
 jointmaterial.MohrCoulombMaterial.setApplyStageFactors(True)
 
-newStageFactor = jointmaterial.MohrCoulombMaterial.stageFactorInterface.createStageFactor(1)
-jointmaterial.MohrCoulombMaterial.stageFactorInterface.setDefinedStageFactors({ 1: newStageFactor })
+definedStageFactors = jointmaterial.MohrCoulombMaterial.stageFactorInterface.getDefinedStageFactors()
+newStageFactor = jointmaterial.MohrCoulombMaterial.stageFactorInterface.createStageFactor(2)
+definedStageFactors[2] = newStageFactor
+jointmaterial.MohrCoulombMaterial.stageFactorInterface.setDefinedStageFactors(definedStageFactors)
 
-stageFactor = jointmaterial.MohrCoulombMaterial.stageFactorInterface.getDefinedStageFactors()[1]
+stageFactor = jointmaterial.MohrCoulombMaterial.stageFactorInterface.getDefinedStageFactors()[2]
 stageFactor.setTensileStrengthFactor(25)
 stageFactor.setPeakFrictionAngleFactor(39)
 stageFactor.setPeakCohesionFactor(20)
@@ -28,7 +30,7 @@ stageFactor.setDilationAngleFactor(2.7)
 
 # Manipulation of Material Joint  Barton Bandis Stage Factor
 jointmaterial.BartonBandisMaterial.setApplyStageFactors(True)
-stageFactor = jointmaterial.BartonBandisMaterial.stageFactorInterface.getDefinedStageFactors()[1]
+stageFactor = jointmaterial.BartonBandisMaterial.stageFactorInterface.getDefinedStageFactors()[2]
 jointmaterial.BartonBandisMaterial.setJCS(36.5)
 jointmaterial.BartonBandisMaterial.setJRC(28.5)
 jointmaterial.BartonBandisMaterial.setResidualFrictionAngle(27.5)
@@ -38,7 +40,7 @@ jointmaterial.BartonBandisMaterial.setDilationAngle(2.3)
 
 # Manipulation of Material Joint Geosynthetic Hyperbolic Stage Factor
 jointmaterial.GeosyntheticHyperbolicMaterial.setApplyStageFactors(True)
-stageFactor = jointmaterial.GeosyntheticHyperbolicMaterial.stageFactorInterface.getDefinedStageFactors()[1]
+stageFactor = jointmaterial.GeosyntheticHyperbolicMaterial.stageFactorInterface.getDefinedStageFactors()[2]
 jointmaterial.GeosyntheticHyperbolicMaterial.setPeakAdhesionAtSigninf(37.5)
 jointmaterial.GeosyntheticHyperbolicMaterial.setPeakFrictionAngleAtSign0(28.5)
 jointmaterial.GeosyntheticHyperbolicMaterial.setResAdhesionAtSigninf(27.5)
