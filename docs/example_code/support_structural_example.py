@@ -60,10 +60,8 @@ current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None)))
 interpreter = RS2Interpreter()
 model = interpreter.openFile(rf"{current_dir}\example_models\SupportStructuralResults.fez")
 
-# Define stages to get support results for
 stages = [1, 2]
 
-# Get Structural Results
 results = model.GetStructuralResults(stages)
 
 for stageNum, allStructuralResults in results.items():

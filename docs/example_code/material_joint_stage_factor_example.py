@@ -7,12 +7,13 @@ current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None)))
 modeler = RS2Modeler()
 model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
-# Manipulation of Material Joint Mohr Coulomb Stage Factor
+# Manipulation of Material Joint Mohr Coulomb Stage Factor for stage 1
 material = model.getAllMaterialProperties()[0]
 material.Strength.setFailureCriterion(StrengthCriteriaTypes.JOINTED_MOHR_COULOMB)
 matJointOptions = material.Strength.JointedMohrCoulomb.getJointOptions()
 jointmaterial = matJointOptions.getJoint(0)
 jointmaterial.MohrCoulombMaterial.setApplyStageFactors(True)
+
 newStageFactor = jointmaterial.MohrCoulombMaterial.stageFactorInterface.createStageFactor(1)
 jointmaterial.MohrCoulombMaterial.stageFactorInterface.setDefinedStageFactors({ 1: newStageFactor })
 

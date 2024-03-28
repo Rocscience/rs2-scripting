@@ -6,7 +6,6 @@ current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None)))
 interpreter = RS2Interpreter()
 model = interpreter.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
-# Setting and Retrieving results for built-in type
 model.SetResultType(ExportResultType.SOLID_EFFECTIVE_STRESS_EFFECTIVE_SIGMA_Z)
 exportResult1 = model.GetMeshResults()
 

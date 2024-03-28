@@ -9,17 +9,16 @@ model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 material = model.getAllMaterialProperties()[0]
 
-# Get Stage Factor for stage 1
-
-# Make sure your material stiffness type isn't Custom changing factor values
+# Make sure your material stiffness type isn't Custom before changing factor values
 material.Stiffness.setElasticType(MaterialElasticityTypes.ISOTROPIC)
 # Make sure to stage Strength and Stiffness Stage Factor option before manipulating any factor properties
 material.StageFactors.setStageStrengthStiffnessStageFactors(True)
-initialConditionStageFactor = material.InitialConditions.stageFactorInterface.getDefinedStageFactors()[1]
-# Update the stage factor fields for the model
-initialConditionStageFactor.setUnitWeightFactor(3)
-initialConditionStageFactor.setPorosityValueFactor(5)
 
-print(f"Unit Wegiht Factor = {initialConditionStageFactor.getUnitWeightFactor()}, Porosity Value Factor = {initialConditionStageFactor.getPorosityValueFactor()}")
+initialConditionStage1Factor = material.InitialConditions.stageFactorInterface.getDefinedStageFactors()[1]
+
+initialConditionStage1Factor.setUnitWeightFactor(3)
+initialConditionStage1Factor.setPorosityValueFactor(5)
+
+print(f"Unit Wegiht Factor = {initialConditionStage1Factor.getUnitWeightFactor()}, Porosity Value Factor = {initialConditionStage1Factor.getPorosityValueFactor()}")
 
 model.close()

@@ -12,7 +12,6 @@ material.Hydraulic.setMaterialBehaviour(MaterialBehaviours.DRAINED)
 material.Hydraulic.setFluidBulkModulus(5)
 material.Hydraulic.setUseBiotsCoefficientForCalculatingEffectiveStress(True)
 
-# Manipulation of Static Groundwater Hydarulic Properties
 staticGroundwater = material.Hydraulic.StaticGroundwater
 staticGroundwater.setStaticWaterMode(StaticWaterModes.PORE_WATER_PRESSURE)
 staticGroundwater.setStaticPoreWaterPressure(5)
@@ -34,11 +33,9 @@ print(f"Hu Value = {huValue}")
 staticGroundwater.setStaticWaterMode(StaticWaterModes.GRID)
 staticGroundwater.setGridToUse("Default Grid")
 
-# Manipulation of StaticGroundwater Stage Factor Properties
-
+# Manipulation of StaticGroundwater Stage Factor Properties for stage 1
 # Make sure to stage Hydraulic Stage Factor option before manipulating any factor properties
 material.StageFactors.setStageHydraulicStageFactor(True)
-# Get Stage Factor for Stage 1
 staticGroundwaterStageFactor = material.Hydraulic.StaticGroundwater.stageFactorInterface.getDefinedStageFactors()[1]
 
 staticGroundwaterStageFactor.setGridToUse("Default Grid")

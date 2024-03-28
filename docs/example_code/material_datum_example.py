@@ -8,11 +8,10 @@ model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 material = model.getAllMaterialProperties()[0]
 
-# Make sure to set Material Stiffness Type is Isotropic to set Datum Dependency Properties
+# Make sure to set Material Stiffness Type to Isotropic before changing Datum Dependency Properties
 material.Stiffness.setElasticType(MaterialElasticityTypes.ISOTROPIC)
 material.Datum.setUsingDatum(True)
 
-# Youngs Modulus Datum properties
 youngDatum = material.Datum.getDatumYoungsModulus()
 youngDatum.setUsing(True)
 youngDatum.setType(DatumType.DATUM_TYPE_DEPTH)
@@ -32,7 +31,6 @@ print(f"Use Cutoff = {youngDatum.getUseCutoff()}, Datum Change = {youngDatum.get
 material.Strength.setFailureCriterion(StrengthCriteriaTypes.MOHR_COULOMB)
 material.Strength.MohrCoulombStrength.setMaterialType(MaterialType.PLASTIC)
 
-# Friction Datum properties
 frictionDatum = material.Datum.getDatumFrictionAngle()
 frictionDatum.setUsing(True)
 frictionDatum.setType(DatumType.DATUM_TYPE_DEPTH)
@@ -51,7 +49,6 @@ print(f"Datum Type = {frictionDatum.getType()}, Datum Value = {frictionDatum.get
 print(f"Use Peak Cutoff = {frictionDatum.getUsePeakCutoff()}, Peak Change = {frictionDatum.getPeakChange()}, Peak Cutoff = {frictionDatum.getPeakCutoffValue()}")
 print(f"Use Residual Cutoff = {frictionDatum.getUseResidualCutoff()}, Residual Cutoff Value = {frictionDatum.getResidualCutoffValue()}\n")
 
-# Cohesion Datum properties
 cohesion = material.Datum.getDatumCohesion()
 cohesion.setType(DatumType.DATUM_TYPE_DEPTH)
 cohesion.setDatum(5)
@@ -71,13 +68,11 @@ print(f"Use Residual Cutoff = {cohesion.getUseResidualCutoff()}, Residual Cutoff
 
 # Manipulation of Datum Stage Factor Properties for stage 1
 
-# Make sure to enable Stage Datum Stage Factor option before manipulating any factor properties
+# Make sure to stage Datum Stage Factor option before manipulating any factor properties
 material.StageFactors.setStageDatumStageFactor(True)
-
 datumStageFactor = material.Datum.stageFactorInterface.getDefinedStageFactors()[1]
-# Change Datum Young Stage Factor Properties
-datumYoungStageFactor = datumStageFactor.getDatumYoungsStageFactor()
 
+datumYoungStageFactor = datumStageFactor.getDatumYoungsStageFactor()
 datumYoungStageFactor.setChange(0.2)
 datumYoungStageFactor.setDatum(3)
 datumYoungStageFactor.setPeakCutoffValue(4.42)

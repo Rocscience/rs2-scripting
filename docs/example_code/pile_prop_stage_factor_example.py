@@ -9,12 +9,13 @@ model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 pile = model.getPilePropertyByName("Pile 1")
 
-# Get Defined Pile Force/Displacement factors
+# Manipulation of Pile Force/Displacement factors for stage 1
 forceDispFactors = pile.ForceDisplacement.stageFactorInterface.getDefinedStageFactors()
-# Get factors for stage 1
 stageFactors = forceDispFactors[1]
-# Update the stage factor fields for the model
+
 stageFactors.setXFactor(1.5)
 stageFactors.setYFactor(1.8)
 
 print(f"X Factor : {stageFactors.getXFactor()}, Y Factor : {stageFactors.getYFactor()}")
+
+model.close()

@@ -9,12 +9,11 @@ model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 liner = model.getLinerPropertyByName("Liner 1")
 
-# Get Defined Liner Reinforced Concrete Stage Factors
 liner.setLinerType(LinerTypes.REINFORCED_CONCRETE)
 reinforcedConcreteFactors = liner.ReinforcedConcrete.stageFactorInterface.getDefinedStageFactors()
 # Get factors for stage 1
 stageFactor = reinforcedConcreteFactors[1]
-# Update the stage factor fields for the model
+
 stageFactor.setThicknessFactor(3)
 stageFactor.setConcreteYoungsModulusFactor(2.2)
 stageFactor.setConcreteCompressiveStrengthFactor(4)
@@ -22,13 +21,14 @@ stageFactor.setConcreteTensileStrengthFactor(1.5)
 stageFactor.setAxialStrainExpansionFactor(0.8)
 stageFactor.setAreaFactor(1.1)
 
-# Get Defined Liner Standard Beam Stage Factors
 liner.setLinerType(LinerTypes.STANDARD_BEAM)
 standardBeamFactors = liner.StandardBeam.stageFactorInterface.getDefinedStageFactors()
 # Get factors for stage 1
 linerStageFactors = standardBeamFactors[1]
-# Update the stage factor fields for the model
+
 linerStageFactors.setThicknessFactor(3)
 linerStageFactors.setYoungsModulusFactor(2)
 linerStageFactors.setPoissonsRatioFactor(1.45)
 linerStageFactors.setAxialStrainExpansionFactor(0.8)
+
+model.close()

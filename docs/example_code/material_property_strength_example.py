@@ -15,7 +15,7 @@ strength.setUnsaturatedBehavior(UnsaturatedParameterType.SINGLE_EFFECTIVE_STRESS
 strength.setSingleEffectiveStressMethod(UnsaturatedSingleEffectiveStressMethod.TABULAR_VALUE)
 strength.setUseCutoff(True)
 strength.setCutoffValue(-0.8)
-# Manipulation of Mohr-Coulomb Failure Criterion
+
 mohr_coulomb = strength.MohrCoulombStrength
 mohr_coulomb.setPeakTensileStrength(1)
 mohr_coulomb.setPeakFrictionAngle(30)
@@ -30,7 +30,6 @@ print(f"Res Peak Tensile = {mohr_coulomb.getResidualTensileStrength()}, Res Peak
 tabularValueMethod = strength.setTabularValues(UnsaturatedTabularValueMethod.WITH_RESPECT_TO_SUCTION)
 strength.setUnsaturatedZoneTableWithRespectToSuction(coefficients=[1, 2], values=[5, 6])
 
-# Manipulation of Snowden Mod. Anisotropic Linear Strength Function
 snowdenAnisotripicFunction = material.Strength.SnowdenModAnisotropicLinear.getBeddingStrengthFunction()
 snowdenAnisotripicFunction.setDilationRatio(0.74)
 snowdenAnisotripicFunction.setPeakTensileStrength(5)
@@ -44,11 +43,9 @@ print(f"Shear Stress = {snowdenAnisotripicFunction.getShearStress()}")
 print(f"Residual Shear Stress = {snowdenAnisotripicFunction.getResidualShearStress()}\n")
 
 
-# Manipulation of Strength Stage Factor Properties
-
-# Make sure to your Stiffness Elastic Type isn't Custom before manipulating any stiffness related factor values
+# Manipulation of Strength Stage Factor Properties for stage 1
+# Make sure to your Stiffness Elastic Type isn't Custom before manipulating any factor values
 material.Stiffness.setElasticType(MaterialElasticityTypes.ISOTROPIC)
-# Get Strength Stage Factors for stage 1
 strengthFactor = material.Strength.stageFactorInterface.getDefinedStageFactors()[1]
 
 strengthFactor.setResetYield(True)
