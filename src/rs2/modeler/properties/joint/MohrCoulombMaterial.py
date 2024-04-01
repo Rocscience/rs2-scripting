@@ -49,7 +49,7 @@ class MohrCoulombMaterial(PropertyProxy):
 	:ref:`Material Joint Stage Factor Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorInterface) : Reference object for modifying joint stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorInterface[MohrCoulombMaterialDefinedStageFactor, MohrCoulombMaterialStageFactor]) : Reference object for modifying material joint mohr coulomb stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

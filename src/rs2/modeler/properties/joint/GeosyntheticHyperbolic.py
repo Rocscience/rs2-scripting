@@ -53,7 +53,7 @@ class GeosyntheticHyperbolic(PropertyProxy):
 	:ref:`Joint Stage Factor Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorInterface) : Reference object for modifying joint stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorInterface[GeosyntheticHyperbolicDefinedStageFactor, GeosyntheticHyperbolicStageFactor]) : Reference object for modifying joint geosynthetic hyberbolic stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

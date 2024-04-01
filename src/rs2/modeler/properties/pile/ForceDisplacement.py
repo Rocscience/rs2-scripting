@@ -25,7 +25,7 @@ class ForceDisplacement(PropertyProxy):
 	:ref:`Pile Stage Factor Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorInterface) : Reference object for modifying pile stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorInterface[ForceDisplacementDefinedStageFactor, ForceDisplacementStageFactor]) : Reference object for modifying pile force/displacement stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

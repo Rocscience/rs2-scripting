@@ -73,8 +73,8 @@ for stageNumber, stageData in line_results.items():
     print("-----------------------")
     print(f"\nEnd of Stage {stageNumber} Data\n")
 
-model.RemoveTimeQueryPoint(pointID_2)
-model.RemoveTimeQueryLine(lineID_2)
+model.RemoveTimeQueryPoint([pointID_2])
+model.RemoveTimeQueryLine([lineID_2])
 model.save()
 
 model.close()

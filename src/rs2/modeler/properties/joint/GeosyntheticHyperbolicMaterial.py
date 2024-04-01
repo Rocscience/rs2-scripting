@@ -41,7 +41,7 @@ class GeosyntheticHyperbolicMaterial(PropertyProxy):
 	:ref:`Material Joint Stage Factor Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorInterface) : Reference object for modifying joint stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorInterface[GeosyntheticHyperbolicMaterialDefinedStageFactor, GeosyntheticHyperbolicMaterialStageFactor]) : Reference object for modifying material joint geosynthetic hyberbolic stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

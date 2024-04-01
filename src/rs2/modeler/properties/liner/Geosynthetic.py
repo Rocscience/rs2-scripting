@@ -49,7 +49,7 @@ class Geosynthetic(PropertyProxy):
 	:ref:`Liner Stage Factor Example`
 	
 	Attributes:
-		stageFactorInterface (RelativeStageFactorInterface) : Reference object for modifying liner stage factor properties.
+		stageFactorInterface (RelativeStageFactorInterface[GeosyntheticDefinedStageFactor, GeosyntheticStageFactor]) : Reference object for modifying liner geosynthetic stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

@@ -41,7 +41,7 @@ class MaterialDependent(PropertyProxy):
 	:ref:`Joint Stage Factor Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorInterface) : Reference object for modifying joint stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorInterface[MaterialDependentDefinedStageFactor, MaterialDependentStageFactor]) : Reference object for modifying joint material dependent stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

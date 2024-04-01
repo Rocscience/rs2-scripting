@@ -73,7 +73,7 @@ class StandardBeam(PropertyProxy):
 	:ref:`Liner Stage Factor Example`
 	
 	Attributes:
-		stageFactorInterface (RelativeStageFactorInterface) : Reference object for modifying liner stage factor properties.
+		stageFactorInterface (RelativeStageFactorInterface[StandardBeamDefinedStageFactor, StandardBeamStageFactor]) : Reference object for modifying liner standard beam stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)
