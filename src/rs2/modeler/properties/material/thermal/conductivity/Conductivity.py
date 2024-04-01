@@ -6,7 +6,7 @@ from rs2.modeler.properties.PropertyEnums import *
 from rs2.modeler.properties.material.thermal.conductivity.ConstantConductivity import ConstantConductivity
 from rs2.modeler.properties.material.thermal.conductivity.Johansen import Johansen
 from rs2.modeler.properties.material.thermal.conductivity.JohansenLu import JohansenLu
-from rs2.modeler.properties.material.thermal.conductivity.Devries import Devries
+from rs2.modeler.properties.material.thermal.conductivity.Derives import Derives
 from rs2.modeler.properties.material.thermal.conductivity.CoteAndKonrad import CoteAndKonrad
 from rs2.modeler.properties.material.thermal.conductivity.Tabular import Tabular
 class Conductivity(PropertyProxy):
@@ -17,7 +17,7 @@ class Conductivity(PropertyProxy):
 		ConstantConductivity (ConstantConductivity) : Reference object for modifying constant conductivity properties
 		Johansen (Johansen) : Reference object for modifying johansen conductivity properties
 		JohansenLu (JohansenLu) : Reference object for modifying johansen lu conductivity properties
-		Devries (Devries) : Reference object for modifying devries conductivity properties
+		Derives (Derives) : Reference object for modifying derives conductivity properties
 		CoteAndKonrad (CoteAndKonrad) : Reference object for modifying cote and kondrad conductivity properties
 		Tabular (Tabular) : Reference object for modifying tabular conductivity properties
 
@@ -26,7 +26,7 @@ class Conductivity(PropertyProxy):
 		self.ConstantConductivity = ConstantConductivity(client, ID, documentProxyID)
 		self.Johansen = Johansen(client, ID, documentProxyID)
 		self.JohansenLu = JohansenLu(client, ID, documentProxyID)
-		self.Devries = Devries(client, ID, documentProxyID)
+		self.Derives = Derives(client, ID, documentProxyID)
 		self.CoteAndKonrad = CoteAndKonrad(client, ID, documentProxyID)
 		self.Tabular = Tabular(client, ID, documentProxyID)
 		super().__init__(client, ID, documentProxyID)

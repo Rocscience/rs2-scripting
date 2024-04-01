@@ -7,7 +7,7 @@ from rs2.modeler.properties.PropertyEnums import*
 
 parentDirectoryHelper.addParentDirectoryToPath()
 
-class TestDevries(unittest.TestCase):
+class TestDerives(unittest.TestCase):
     def setUp(self):
         parentDirectory = parentDirectoryHelper.getParentDirectory()
         blankModelPath = f"{parentDirectory}/resources/starterProject.fez"
@@ -19,12 +19,12 @@ class TestDevries(unittest.TestCase):
     def tearDown(self):
         self.model.close()
         os.remove(self.copiedModelPath)
-    def testDevriesroperty(self):
+    def testDerivesroperty(self):
         conductivity = self.material.Thermal.Conductivity
-        conductivity.Devries.setParticleConductivity(836.5)
+        conductivity.Derives.setParticleConductivity(836.5)
         self.model.save()
         self.model.close()
         self.model = self.modeler.openFile(self.copiedModelPath)
         self.material = self.model.getAllMaterialProperties()[0]
         conductivity = self.material.Thermal.Conductivity
-        self.assertEqual(conductivity.Devries.getParticleConductivity(), 836.5)
+        self.assertEqual(conductivity.Derives.getParticleConductivity(), 836.5)
