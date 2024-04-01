@@ -19,7 +19,7 @@ class TestDerives(unittest.TestCase):
     def tearDown(self):
         self.model.close()
         os.remove(self.copiedModelPath)
-    def testDerivesroperty(self):
+    def testDerivesProperty(self):
         conductivity = self.material.Thermal.Conductivity
         conductivity.Derives.setParticleConductivity(836.5)
         self.model.save()
