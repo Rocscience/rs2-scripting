@@ -94,7 +94,12 @@ Python Script Examples
 .. literalinclude:: example_code/material_property_thermal_example.py
    :language: python
    :caption: Code Snippet: Manipulation of Thermal Properties
-   
+
+.. _Stage Factors Example:
+.. literalinclude:: example_code/stage_factor_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Stage Factors for various properties
+
 .. _Model Example:
 .. literalinclude:: example_code/model_example.py
    :language: python
