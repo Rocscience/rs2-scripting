@@ -9,6 +9,12 @@ from rs2.modeler.properties.material.thermal.heatcapacity.CustomHeatCapacity imp
 class HeatCapacity(PropertyProxy):
 	"""
 	:ref:`Material Property Thermal Example`
+
+	Attributes:
+		ConstantHeatCapacity (ConstantHeatCapacity) : Reference object for modifying constant heat capacity properties
+		JameNewman (JameNewman) : Reference object for modifying jame newman heat capacity properties
+		CustomHeatCapacity (CustomHeatCapacity) : Reference object for modifying custom heat capacity properties
+
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.ConstantHeatCapacity = ConstantHeatCapacity(client, ID, documentProxyID)

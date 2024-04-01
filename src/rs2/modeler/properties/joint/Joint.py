@@ -13,6 +13,16 @@ from rs2.modeler.properties.joint.DisplacementDependent import DisplacementDepen
 class JointProperty(PropertyProxy):
 	"""
 	:ref:`Joint Example`
+
+	Attributes:
+		NoneSlip (NoneSlip): Reference object for modifying joint none slip properties
+		MohrCoulomb (MohrCoulomb): Reference object for modifying joint mohr coulomb properties
+		BartonBandis (BartonBandis): Reference object for modifying joint barton bandis cable properties
+		GeosyntheticHyperbolic (GeosyntheticHyperbolic): Reference object for modifying joint geosynthetic hyperbolic properties
+		HyperbolicSoftening (HyperbolicSoftening): Reference object for modifying joint hyperbolic softening properties
+		MaterialDependent (MaterialDependent): Reference object for modifying joint material dependent properties
+		DisplacementDependent (DisplacementDependent): Reference object for modifying joint displacement dependent properties
+
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.NoneSlip = NoneSlip(client, ID, documentProxyID)

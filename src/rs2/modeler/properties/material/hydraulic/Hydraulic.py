@@ -21,9 +21,12 @@ class HydraulicDefinedStageFactor(HydraulicStageFactor):
 class Hydraulic(PropertyProxy):
 	"""
 	:ref:`Hydraulic Property Example`
-	
+
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[HydraulicDefinedStageFactor, HydraulicStageFactor]) : Reference object for modifying hydraulic stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[HydraulicDefinedStageFactor, HydraulicStageFactor]) : Reference object for modifying hydraulic stage factor properties
+		StaticGroundwater (StaticGroundwater) : Reference object for modifying static ground water hydraulic properties
+		FEAGroundwater (FEAGroundwater) : Reference object for modifying fea groundwater hydraulic properties
+
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

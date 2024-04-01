@@ -13,6 +13,16 @@ from rs2.modeler.properties.material.StageFactors import StageFactors
 class MaterialProperty(PropertyProxy):
 	"""
 	:ref:`Material Example`
+
+	Attributes:
+		StageFactors (StageFactors): Reference object for modifying material stage factors properties
+		InitialConditions (InitialConditions): Reference object for modifying material initial conditions properties
+		Stiffness (Stiffness): Reference object for modifying material stiffness properties
+		Strength (Strength): Reference object for modifying material strength properties
+		Hydraulic (Hydraulic): Reference object for modifying material hydraulic properties
+		Thermal (Thermal): Reference object for modifying material thermal properties
+		Datum (Datum): Reference object for modifying material datum properties
+
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

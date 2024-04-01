@@ -3,7 +3,7 @@ from rs2._common.Client import Client
 from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
-class Derives(PropertyProxy):
+class Devries(PropertyProxy):
 	def getParticleConductivity(self) -> float:
 		return self._getDoubleProperty("MP_THERMAL_PARTICLE_CONDUCTIVITY")
 	def setParticleConductivity(self, value: float):

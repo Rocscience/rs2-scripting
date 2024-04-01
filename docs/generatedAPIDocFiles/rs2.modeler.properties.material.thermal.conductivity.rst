@@ -31,10 +31,10 @@ rs2.modeler.properties.material.thermal.conductivity.CoteAndKonrad module
    :undoc-members:
    :show-inheritance:
 
-rs2.modeler.properties.material.thermal.conductivity.Derives module
+rs2.modeler.properties.material.thermal.conductivity.Devries module
 -------------------------------------------------------------------
 
-.. automodule:: rs2.modeler.properties.material.thermal.conductivity.Derives
+.. automodule:: rs2.modeler.properties.material.thermal.conductivity.Devries
    :members:
    :undoc-members:
    :show-inheritance:
