@@ -45,7 +45,7 @@ class Brooks(PropertyProxy):
 	:ref:`Hydraulic Property FEAGroundwater Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[BrooksDefinedStageFactor, BrooksStageFactor]) : Reference object for modifying FEAGroundwater Brooks model stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[BrooksDefinedStageFactor, BrooksStageFactor]) : Reference object for modifying fea groundwater brooks model stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

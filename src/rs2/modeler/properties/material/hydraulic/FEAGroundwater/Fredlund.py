@@ -49,7 +49,7 @@ class Fredlund(PropertyProxy):
 	:ref:`Hydraulic Property FEAGroundwater Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[FredlundDefinedStageFactor, FredlundStageFactor]) : Reference object for modifying FEAGroundwater Fredlund model stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[FredlundDefinedStageFactor, FredlundStageFactor]) : Reference object for modifying fea groundwater fredlund model stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

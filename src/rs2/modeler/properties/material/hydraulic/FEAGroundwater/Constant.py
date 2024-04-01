@@ -21,7 +21,7 @@ class Constant(PropertyProxy):
 	:ref:`Hydraulic Property FEAGroundwater Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[ConstantDefinedStageFactor, ConstantStageFactor]) : Reference object for modifying FEAGroundwater Constant model stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[ConstantDefinedStageFactor, ConstantStageFactor]) : Reference object for modifying fea groundwater constant model stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

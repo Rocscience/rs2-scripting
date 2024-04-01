@@ -33,7 +33,7 @@ class Isotropic(PropertyProxy):
 	:ref:`Material Property Stiffness Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[IsotropicDefinedStageFactor, IsotropicStageFactor]) : Reference object for modifying Stiffness Isotropic stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[IsotropicDefinedStageFactor, IsotropicStageFactor]) : Reference object for modifying stiffness isotropic stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

@@ -57,7 +57,7 @@ class GeneralizedHoekBrown(PropertyProxy):
 	:ref:`Material Property Strength Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[GeneralizedHoekBrownDefinedStageFactor, GeneralizedHoekBrownStageFactor]) : Reference object for modifying Strength Generalized Hoek Brown stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[GeneralizedHoekBrownDefinedStageFactor, GeneralizedHoekBrownStageFactor]) : Reference object for modifying strength generalized hoek brown stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

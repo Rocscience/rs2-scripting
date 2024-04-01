@@ -45,7 +45,7 @@ class MohrCoulombStrength(PropertyProxy):
 	:ref:`Material Property Strength Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[MohrCoulombStrengthDefinedStageFactor, MohrCoulombStrengthStageFactor]) : Reference object for modifying Strength Mohr Coulomb stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[MohrCoulombStrengthDefinedStageFactor, MohrCoulombStrengthStageFactor]) : Reference object for modifying strength mohr coulomb stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

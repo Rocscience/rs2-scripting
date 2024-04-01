@@ -23,7 +23,7 @@ class Hydraulic(PropertyProxy):
 	:ref:`Hydraulic Property Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[HydraulicDefinedStageFactor, HydraulicStageFactor]) : Reference object for modifying material's hydraulic stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[HydraulicDefinedStageFactor, HydraulicStageFactor]) : Reference object for modifying hydraulic stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

@@ -45,7 +45,7 @@ class ModifiedCamClay(PropertyProxy):
 	:ref:`Material Property Strength Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[ModifiedCamClayDefinedStageFactor, ModifiedCamClayStageFactor]) : Reference object for modifying Strength Modified Cam Clay stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[ModifiedCamClayDefinedStageFactor, ModifiedCamClayStageFactor]) : Reference object for modifying strength modified cam clay stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

@@ -64,7 +64,7 @@ class Strength(PropertyProxy):
 	:ref:`Material Property Strength Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[StrengthDefinedStageFactor, StrengthStageFactor]) : Reference object for modifying material's strength stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[StrengthDefinedStageFactor, StrengthStageFactor]) : Reference object for modifying strength stage factor properties.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
