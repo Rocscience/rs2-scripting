@@ -13,7 +13,8 @@ from rs2.modeler.properties.pile.Beam import Beam
 from rs2.modeler.properties.pile.ForceDisplacement import ForceDisplacement
 class PileProperty(PropertyProxy):
 	"""
-	:ref:`Pile Example`
+	Examples:
+		:ref:`Pile Example`
 
 	Attributes:
 		Elastic (Elastic): Reference object for modifying pile elastic properties
@@ -22,7 +23,6 @@ class PileProperty(PropertyProxy):
 		MaterialDependentPile (MaterialDependentPile): Reference object for modifying pile material dependent properties
 		Beam (Beam): Reference object for modifying pile beam properties
 		ForceDisplacement (ForceDisplacement): Reference object for modifying pile force displacement properties
-
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.Elastic = Elastic(client, ID, documentProxyID)

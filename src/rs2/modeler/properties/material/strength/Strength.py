@@ -61,7 +61,8 @@ class StrengthDefinedStageFactor(StrengthStageFactor):
 		return self._callFunction("setResetYield", [resetYield])
 class Strength(PropertyProxy):
 	"""
-	:ref:`Material Property Strength Example`
+	Examples:
+		:ref:`Material Property Strength Example`
 
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[StrengthDefinedStageFactor, StrengthStageFactor]) : Reference object for modifying strength stage factor properties
@@ -100,7 +101,6 @@ class Strength(PropertyProxy):
 		SoftSoilStrength (SoftSoilStrength) : Reference object for modifying soft soil strength properties
 		SoftSoilCreepStrength (SoftSoilCreepStrength) : Reference object for modifying soft soil creep strength properties
 		SwellingRockStrength (SwellingRockStrength) : Reference object for modifying swelling rock strength properties
-
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

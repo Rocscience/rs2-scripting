@@ -38,7 +38,8 @@ class MohrCoulombWithCapDefinedStageFactor(MohrCoulombWithCapStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_PEAK_TENSILE_STRENGTH", value, self.propertyID], proxyArgumentIndices=[2])
 class MohrCoulombWithCap(PropertyProxy):
 	"""
-	:ref:`Material Property Strength Example`
+	Examples:
+		:ref:`Material Property Strength Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[MohrCoulombWithCapDefinedStageFactor, MohrCoulombWithCapStageFactor]) : Reference object for modifying strength mohr coulomb with cap stage factor properties.

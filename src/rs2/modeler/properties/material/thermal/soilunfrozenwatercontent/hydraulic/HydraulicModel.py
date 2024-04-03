@@ -10,7 +10,8 @@ from rs2.modeler.properties.material.thermal.soilunfrozenwatercontent.hydraulic.
 from rs2.modeler.properties.material.thermal.soilunfrozenwatercontent.hydraulic.GardnerWaterContent import GardnerWaterContent
 class HydraulicModel(PropertyProxy):
 	"""
-	:ref:`Material Property Thermal Example`
+	Examples:
+		:ref:`Material Property Thermal Example`
 
 	Attributes:
 		SimpleWaterContent (SimpleWaterContent) : Reference object for modifying hydraulic simple model properties
@@ -18,7 +19,6 @@ class HydraulicModel(PropertyProxy):
 		GenuchtenWaterContent (GenuchtenWaterContent) : Reference object for modifying hydraulic genuchten model properties
 		BrooksWaterContent (BrooksWaterContent) : Reference object for modifying hydraulic brooks model properties
 		GardnerWaterContent (GardnerWaterContent) : Reference object for modifying hydraulic gardner model properties
-
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.SimpleWaterContent = SimpleWaterContent(client, ID, documentProxyID)
