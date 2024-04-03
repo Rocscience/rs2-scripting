@@ -39,7 +39,6 @@ class FEAGroundwater(PropertyProxy):
 	"""
 	Examples:
 		:ref:`Hydraulic Property FEAGroundwater Example`
-	
 
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[FEAGroundwaterDefinedStageFactor, FEAGroundwaterStageFactor]): Reference object for modifying fea groundwater stage factor properties
