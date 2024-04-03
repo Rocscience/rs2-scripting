@@ -18,7 +18,7 @@ class Conductivity(PropertyProxy):
 		ConstantConductivity (ConstantConductivity) : Reference object for modifying constant conductivity properties
 		Johansen (Johansen) : Reference object for modifying johansen conductivity properties
 		JohansenLu (JohansenLu) : Reference object for modifying johansen lu conductivity properties
-		Derives (Derives) : Reference object for modifying devries conductivity properties
+		Derives (Derives) : Reference object for modifying derives conductivity properties
 		CoteAndKonrad (CoteAndKonrad) : Reference object for modifying cote and kondrad conductivity properties
 		Tabular (Tabular) : Reference object for modifying tabular conductivity properties
 	"""
