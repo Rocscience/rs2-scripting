@@ -54,7 +54,8 @@ class GeneralizedHoekBrownDefinedStageFactor(GeneralizedHoekBrownStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_UD_TENSION_CUTOFF", value, self.propertyID], proxyArgumentIndices=[2])
 class GeneralizedHoekBrown(PropertyProxy):
 	"""
-	:ref:`Material Property Strength Example`
+	Examples:
+		:ref:`Material Property Strength Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[GeneralizedHoekBrownDefinedStageFactor, GeneralizedHoekBrownStageFactor]) : Reference object for modifying strength generalized hoek brown stage factor properties.

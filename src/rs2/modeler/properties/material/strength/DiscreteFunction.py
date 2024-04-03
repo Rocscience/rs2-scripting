@@ -22,7 +22,8 @@ class DiscreteFunctionDefinedStageFactor(DiscreteFunctionStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_TENSILE_STRENGTH_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class DiscreteFunction(PropertyProxy):
 	"""
-	:ref:`Material Property Strength Example`
+	Examples:
+		:ref:`Material Property Strength Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[DiscreteFunctionDefinedStageFactor, DiscreteFunctionStageFactor]) : Reference object for modifying strength discrete function stage factor properties.

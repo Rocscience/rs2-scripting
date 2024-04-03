@@ -24,7 +24,8 @@ from rs2.modeler.properties.material.stiffness.Pm4Sand import Pm4Sand
 from rs2.modeler.properties.material.stiffness.Pm4Silt import Pm4Silt
 class Stiffness(PropertyProxy):
 	"""
-	:ref:`Material Property Stiffness Example`
+	Examples:
+		:ref:`Material Property Stiffness Example`
 
 	Attributes:
 		Isotropic (Isotropic) : Reference object for modifying isotropic stiffness properties
@@ -46,7 +47,6 @@ class Stiffness(PropertyProxy):
 		Norsand (Norsand) : Reference object for modifying nor sand stiffness properties
 		Pm4Sand (Pm4Sand) : Reference object for modifying pm4 sand stiffness properties
 		Pm4Silt (Pm4Silt) : Reference object for modifying pm4 silt stiffness properties
-
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

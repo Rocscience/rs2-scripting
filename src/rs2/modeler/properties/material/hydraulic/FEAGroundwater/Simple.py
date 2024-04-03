@@ -34,7 +34,8 @@ class SimpleDefinedStageFactor(SimpleStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_DOS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Simple(PropertyProxy):
 	"""
-	:ref:`Hydraulic Property FEAGroundwater Example`
+	Examples:
+		:ref:`Hydraulic Property FEAGroundwater Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[SimpleDefinedStageFactor, SimpleStageFactor]) : Reference object for modifying fea groundwater simple model stage factor properties.

@@ -58,7 +58,8 @@ class ReinforcedConcreteDefinedStageFactor(ReinforcedConcreteStageFactor):
 		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_EXPANSION_ALPHA", value, self.propertyID], proxyArgumentIndices=[2])
 class ReinforcedConcrete(PropertyProxy):
 	"""
-	:ref:`Liner Stage Factor Example`
+	Examples:
+		:ref:`Liner Stage Factor Example`
 	
 	Attributes:
 		stageFactorInterface (RelativeStageFactorInterface[ReinforcedConcreteDefinedStageFactor, ReinforcedConcreteStageFactor]) : Reference object for modifying liner reinforced concrete stage factor properties.

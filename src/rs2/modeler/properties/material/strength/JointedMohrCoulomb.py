@@ -43,7 +43,8 @@ class JointedMohrCoulombDefinedStageFactor(JointedMohrCoulombStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_TENSILE_STRENGTH_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class JointedMohrCoulomb(PropertyProxy):
 	"""
-	:ref:`Material Property Strength Example`
+	Examples:
+		:ref:`Material Property Strength Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[JointedMohrCoulombDefinedStageFactor, JointedMohrCoulombStageFactor]) : Reference object for modifying strength jointed mohr coulomb stage factor properties.

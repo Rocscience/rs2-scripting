@@ -38,7 +38,8 @@ class HoekBrownDefinedStageFactor(HoekBrownStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_S_PARAMETER_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class HoekBrown(PropertyProxy):
 	"""
-	:ref:`Material Property Strength Example`
+	Examples:
+		:ref:`Material Property Strength Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[HoekBrownDefinedStageFactor, HoekBrownStageFactor]) : Reference object for modifying strength hoek brown stage factor properties.

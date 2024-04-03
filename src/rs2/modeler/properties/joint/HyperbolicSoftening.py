@@ -70,7 +70,8 @@ class HyperbolicSofteningDefinedStageFactor(HyperbolicSofteningStageFactor):
 		return self._callFunction("setJointPermeableFactor", [Permeable])
 class HyperbolicSoftening(PropertyProxy):
 	"""
-	:ref:`Joint Stage Factor Example`
+	Examples:
+		:ref:`Joint Stage Factor Example`
 	
 	Attributes:
 		stageFactorInterface AbsoluteStageFactorInterface[HyperbolicSofteningDefinedStageFactor, HyperbolicSofteningStageFactor]) : Reference object for modifying joint hyperbolic softening stage factor properties.

@@ -34,7 +34,8 @@ class NoneSlipDefinedStageFactor(NoneSlipStageFactor):
 		return self._callFunction("setJointPermeableFactor", [Permeable])
 class NoneSlip(PropertyProxy):
 	"""
-	:ref:`Joint Stage Factor Example`
+	Examples:
+		:ref:`Joint Stage Factor Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorInterface[NoneSlipDefinedStageFactor, NoneSlipStageFactor]) : Reference object for modifying joint none slip stage factor properties.

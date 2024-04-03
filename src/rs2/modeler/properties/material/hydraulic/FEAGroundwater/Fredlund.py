@@ -46,7 +46,8 @@ class FredlundDefinedStageFactor(FredlundStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_DOS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Fredlund(PropertyProxy):
 	"""
-	:ref:`Hydraulic Property FEAGroundwater Example`
+	Examples:
+		:ref:`Hydraulic Property FEAGroundwater Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[FredlundDefinedStageFactor, FredlundStageFactor]) : Reference object for modifying fea groundwater fredlund model stage factor properties.

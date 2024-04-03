@@ -30,7 +30,8 @@ class IsotropicDefinedStageFactor(IsotropicStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Isotropic(PropertyProxy):
 	"""
-	:ref:`Material Property Stiffness Example`
+	Examples:
+		:ref:`Material Property Stiffness Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[IsotropicDefinedStageFactor, IsotropicStageFactor]) : Reference object for modifying stiffness isotropic stage factor properties.

@@ -46,7 +46,8 @@ class GeosyntheticDefinedStageFactor(GeosyntheticStageFactor):
 		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_EXPANSION_ALPHA", value, self.propertyID], proxyArgumentIndices=[2])
 class Geosynthetic(PropertyProxy):
 	"""
-	:ref:`Liner Stage Factor Example`
+	Examples:
+		:ref:`Liner Stage Factor Example`
 	
 	Attributes:
 		stageFactorInterface (RelativeStageFactorInterface[GeosyntheticDefinedStageFactor, GeosyntheticStageFactor]) : Reference object for modifying liner geosynthetic stage factor properties.

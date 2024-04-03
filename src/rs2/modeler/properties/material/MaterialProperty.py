@@ -12,7 +12,8 @@ from rs2.modeler.properties.material.datum.Datum import Datum
 from rs2.modeler.properties.material.StageFactors import StageFactors
 class MaterialProperty(PropertyProxy):
 	"""
-	:ref:`Material Example`
+	Examples:
+		:ref:`Material Example`
 
 	Attributes:
 		StageFactors (StageFactors): Reference object for modifying material stage factors properties
@@ -22,7 +23,6 @@ class MaterialProperty(PropertyProxy):
 		Hydraulic (Hydraulic): Reference object for modifying material hydraulic properties
 		Thermal (Thermal): Reference object for modifying material thermal properties
 		Datum (Datum): Reference object for modifying material datum properties
-
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

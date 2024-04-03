@@ -18,7 +18,8 @@ class ConstantDefinedStageFactor(ConstantStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_WC_SLOPE", value, self.propertyID], proxyArgumentIndices=[2])
 class Constant(PropertyProxy):
 	"""
-	:ref:`Hydraulic Property FEAGroundwater Example`
+	Examples:
+		:ref:`Hydraulic Property FEAGroundwater Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[ConstantDefinedStageFactor, ConstantStageFactor]) : Reference object for modifying fea groundwater constant model stage factor properties.

@@ -70,7 +70,8 @@ class StandardBeamDefinedStageFactor(StandardBeamStageFactor):
 		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_EXPANSION_ALPHA", value, self.propertyID], proxyArgumentIndices=[2])
 class StandardBeam(PropertyProxy):
 	"""
-	:ref:`Liner Stage Factor Example`
+	Examples:
+		:ref:`Liner Stage Factor Example`
 	
 	Attributes:
 		stageFactorInterface (RelativeStageFactorInterface[StandardBeamDefinedStageFactor, StandardBeamStageFactor]) : Reference object for modifying liner standard beam stage factor properties.

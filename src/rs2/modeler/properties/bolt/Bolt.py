@@ -10,7 +10,8 @@ from rs2.modeler.properties.bolt.Swellex import Swellex
 from rs2.modeler.properties.bolt.Tieback import Tieback
 class BoltProperty(PropertyProxy):
 	"""
-	:ref:`Bolt Example`
+	Examples:
+		:ref:`Bolt Example`
 
 	Attributes:
 		EndAnchored (EndAnchored): Reference object for modifying bolt end anchored properties
@@ -18,7 +19,6 @@ class BoltProperty(PropertyProxy):
 		PlainStrandCable (PlainStrandCable): Reference object for modifying bolt plain strand cable properties
 		Swellex (Swellex): Reference object for modifying bolt swellex properties
 		Tieback (Tieback): Reference object for modifying bolt tieback properties
-
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.EndAnchored = EndAnchored(client, ID, documentProxyID)

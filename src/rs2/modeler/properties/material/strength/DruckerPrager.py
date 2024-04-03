@@ -42,7 +42,8 @@ class DruckerPragerDefinedStageFactor(DruckerPragerStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_TENSILE_STRENGTH_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class DruckerPrager(PropertyProxy):
 	"""
-	:ref:`Material Property Strength Example`
+	Examples:
+		:ref:`Material Property Strength Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[DruckerPragerDefinedStageFactor, DruckerPragerStageFactor]) : Reference object for modifying strength drucker prager stage factor properties.

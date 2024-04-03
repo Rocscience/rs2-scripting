@@ -58,7 +58,8 @@ class NonLinearIsotropicDefinedStageFactor(NonLinearIsotropicStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class NonLinearIsotropic(PropertyProxy):
 	"""
-	:ref:`Material Property Stiffness Example`
+	Examples:
+		:ref:`Material Property Stiffness Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[NonLinearIsotropicDefinedStageFactor, NonLinearIsotropicStageFactor]) : Reference object for modifying stiffness non-linear isotropic stage factor properties.

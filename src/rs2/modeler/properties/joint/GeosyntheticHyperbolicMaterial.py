@@ -38,7 +38,8 @@ class GeosyntheticHyperbolicMaterialDefinedStageFactor(GeosyntheticHyperbolicMat
 		return self._callFunction("setJointPermeableFactor", [Permeable])
 class GeosyntheticHyperbolicMaterial(PropertyProxy):
 	"""
-	:ref:`Material Joint Stage Factor Example`
+	Examples:
+		:ref:`Material Joint Stage Factor Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorInterface[GeosyntheticHyperbolicMaterialDefinedStageFactor, GeosyntheticHyperbolicMaterialStageFactor]) : Reference object for modifying material joint geosynthetic hyberbolic stage factor properties.

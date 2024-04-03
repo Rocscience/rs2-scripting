@@ -42,7 +42,8 @@ class CamClayDefinedStageFactor(CamClayStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_PRECONSOLIDATION_STRESS", value, self.propertyID], proxyArgumentIndices=[2])
 class CamClay(PropertyProxy):
 	"""
-	:ref:`Material Property Strength Example`
+	Examples:
+		:ref:`Material Property Strength Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[CamClayDefinedStageFactor, CamClayStageFactor]) : Reference object for modifying strength cam clay stage factor properties.

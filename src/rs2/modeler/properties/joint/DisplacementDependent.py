@@ -50,7 +50,8 @@ class DisplacementDependentDefinedStageFactor(DisplacementDependentStageFactor):
 		return self._callFunction("setJointPermeableFactor", [Permeable])
 class DisplacementDependent(PropertyProxy):
 	"""
-	:ref:`Joint Stage Factor Example`
+	Examples:
+		:ref:`Joint Stage Factor Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorInterface[DisplacementDependentDefinedStageFactor, DisplacementDependentStageFactor]) : Reference object for modifying joint displacement dependent stage factor properties.

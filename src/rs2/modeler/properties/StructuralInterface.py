@@ -5,7 +5,8 @@ from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 class StructuralInterfaceProperty(PropertyProxy):
 	"""
-	:ref:`Structural Interface Example`
+	Examples:
+		:ref:`Structural Interface Example`
 	"""
 	def getStructuralInterfaceName(self) -> str:
 		"""

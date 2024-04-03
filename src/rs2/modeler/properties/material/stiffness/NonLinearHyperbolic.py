@@ -46,7 +46,8 @@ class NonLinearHyperbolicDefinedStageFactor(NonLinearHyperbolicStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_UNLOADING_MODULUS_NUMBER", value, self.propertyID], proxyArgumentIndices=[2])
 class NonLinearHyperbolic(PropertyProxy):
 	"""
-	:ref:`Material Property Stiffness Example`
+	Examples:
+		:ref:`Material Property Stiffness Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[NonLinearHyperbolicDefinedStageFactor, NonLinearHyperbolicStageFactor]) : Reference object for modifying stiffness non-linear hyperbolic stage factor properties.

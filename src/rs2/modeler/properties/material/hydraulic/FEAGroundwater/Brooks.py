@@ -42,7 +42,8 @@ class BrooksDefinedStageFactor(BrooksStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_DOS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Brooks(PropertyProxy):
 	"""
-	:ref:`Hydraulic Property FEAGroundwater Example`
+	Examples:
+		:ref:`Hydraulic Property FEAGroundwater Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[BrooksDefinedStageFactor, BrooksStageFactor]) : Reference object for modifying fea groundwater brooks model stage factor properties.

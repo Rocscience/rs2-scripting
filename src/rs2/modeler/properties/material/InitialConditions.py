@@ -22,7 +22,8 @@ class InitialConditionsDefinedStageFactor(InitialConditionsStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_POROSITY_VALUE", value, self.propertyID], proxyArgumentIndices=[2])
 class InitialConditions(PropertyProxy):
 	"""
-	:ref:`Initial Condition Stage Factor Example`
+	Examples:
+		:ref:`Initial Condition Stage Factor Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[InitialConditionsDefinedStageFactor, InitialConditionsStageFactor]): Reference object for modifying material's initial condition stage factor properties.

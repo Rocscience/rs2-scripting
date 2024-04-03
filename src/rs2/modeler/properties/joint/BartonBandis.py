@@ -46,7 +46,8 @@ class BartonBandisDefinedStageFactor(BartonBandisStageFactor):
 		return self._callFunction("setJointPermeableFactor", [Permeable])
 class BartonBandis(PropertyProxy):
 	"""
-	:ref:`Joint Stage Factor Example`
+	Examples:
+		:ref:`Joint Stage Factor Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorInterface[BartonBandisDefinedStageFactor, BartonBandisStageFactor]) : Reference object for modifying joint barton bandis stage factor properties.

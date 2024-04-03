@@ -37,7 +37,8 @@ class FEAGroundwaterDefinedStageFactor(FEAGroundwaterStageFactor):
 		return self._callFunction("setSurfaceFactor", [surfaceName, self.propertyID], proxyArgumentIndices=[1])
 class FEAGroundwater(PropertyProxy):
 	"""
-	:ref:`Hydraulic Property FEAGroundwater Example`
+	Examples:
+		:ref:`Hydraulic Property FEAGroundwater Example`
 	
 
 	Attributes:
@@ -49,7 +50,6 @@ class FEAGroundwater(PropertyProxy):
 		Gardner (Gardner) : Reference object for modifying fea groundwater gardner properties
 		Constant (Constant) : Reference object for modifying fea groundwater constant model properties
 		UserDefined (UserDefined) : Reference object for modifying fea groundwater user defined model properties
-
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

@@ -38,7 +38,8 @@ class MaterialDependentDefinedStageFactor(MaterialDependentStageFactor):
 		return self._callFunction("setJointPermeableFactor", [Permeable])
 class MaterialDependent(PropertyProxy):
 	"""
-	:ref:`Joint Stage Factor Example`
+	Examples:
+		:ref:`Joint Stage Factor Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorInterface[MaterialDependentDefinedStageFactor, MaterialDependentStageFactor]) : Reference object for modifying joint material dependent stage factor properties.

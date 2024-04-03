@@ -9,14 +9,14 @@ from rs2.modeler.properties.liner.ReinforcedConcrete import ReinforcedConcrete
 from rs2.modeler.properties.liner.CableTruss import CableTruss
 class LinerProperty(PropertyProxy):
 	"""
-	:ref:`Liner Example`
+	Examples:
+		:ref:`Liner Example`
 
 	Attributes:
 		StandardBeam (StandardBeam): Reference object for modifying liner standard beam properties
 		Geosynthetic (Geosynthetic): Reference object for modifying liner geosynthetic properties
 		ReinforcedConcrete (ReinforcedConcrete): Reference object for modifying liner reinforced concrete properties
 		CableTruss (CableTruss): Reference object for modifying liner cable truss properties
-
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.StandardBeam = StandardBeam(client, ID, documentProxyID)

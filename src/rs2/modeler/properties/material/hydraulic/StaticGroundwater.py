@@ -22,7 +22,8 @@ class StaticGroundwaterDefinedStageFactor(StaticGroundwaterStageFactor):
 		return self._callFunction("setGridToUse", [gridName, self.propertyID], proxyArgumentIndices=[1])
 class StaticGroundwater(PropertyProxy):
 	"""
-	:ref:`Hydraulic Property Static Groundwater Example`
+	Examples:
+		:ref:`Hydraulic Property Static Groundwater Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[StaticGroundwaterDefinedStageFactor, StaticGroundwaterStageFactor]) : Reference object for modifying static groundwater stage factor properties.

@@ -46,7 +46,8 @@ class OrthotropicDefinedStageFactor(OrthotropicStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_EZ", value, self.propertyID], proxyArgumentIndices=[2])
 class Orthotropic(PropertyProxy):
 	"""
-	:ref:`Material Property Stiffness Example`
+	Examples:
+		:ref:`Material Property Stiffness Example`
 	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[OrthotropicDefinedStageFactor, OrthotropicStageFactor]) : Reference object for modifying stiffness orthotropic stage factor properties.
