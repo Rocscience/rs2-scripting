@@ -16,13 +16,13 @@ class MaterialProperty(PropertyProxy):
 		:ref:`Material Example`
 
 	Attributes:
-		StageFactors (StageFactors): Reference object for modifying material stage factors properties
-		InitialConditions (InitialConditions): Reference object for modifying material initial conditions properties
-		Stiffness (Stiffness): Reference object for modifying material stiffness properties
-		Strength (Strength): Reference object for modifying material strength properties
-		Hydraulic (Hydraulic): Reference object for modifying material hydraulic properties
-		Thermal (Thermal): Reference object for modifying material thermal properties
-		Datum (Datum): Reference object for modifying material datum properties
+		StageFactors (StageFactors): Reference object for modifying property.
+		InitialConditions (InitialConditions): Reference object for modifying property.
+		Stiffness (Stiffness): Reference object for modifying property.
+		Strength (Strength): Reference object for modifying property.
+		Hydraulic (Hydraulic): Reference object for modifying property.
+		Thermal (Thermal): Reference object for modifying property.
+		Datum (Datum): Reference object for modifying property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

@@ -16,13 +16,13 @@ class JointProperty(PropertyProxy):
 		:ref:`Joint Example`
 
 	Attributes:
-		NoneSlip (NoneSlip): Reference object for modifying joint none slip properties
-		MohrCoulomb (MohrCoulomb): Reference object for modifying joint mohr coulomb properties
-		BartonBandis (BartonBandis): Reference object for modifying joint barton bandis cable properties
-		GeosyntheticHyperbolic (GeosyntheticHyperbolic): Reference object for modifying joint geosynthetic hyperbolic properties
-		HyperbolicSoftening (HyperbolicSoftening): Reference object for modifying joint hyperbolic softening properties
-		MaterialDependent (MaterialDependent): Reference object for modifying joint material dependent properties
-		DisplacementDependent (DisplacementDependent): Reference object for modifying joint displacement dependent properties
+		NoneSlip (NoneSlip): Reference object for modifying property.
+		MohrCoulomb (MohrCoulomb): Reference object for modifying property.
+		BartonBandis (BartonBandis): Reference object for modifying property.
+		GeosyntheticHyperbolic (GeosyntheticHyperbolic): Reference object for modifying property.
+		HyperbolicSoftening (HyperbolicSoftening): Reference object for modifying property.
+		MaterialDependent (MaterialDependent): Reference object for modifying property.
+		DisplacementDependent (DisplacementDependent): Reference object for modifying property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.NoneSlip = NoneSlip(client, ID, documentProxyID)

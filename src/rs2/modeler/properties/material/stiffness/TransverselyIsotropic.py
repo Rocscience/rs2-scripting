@@ -43,7 +43,7 @@ class TransverselyIsotropic(PropertyProxy):
 		:ref:`Material Property Stiffness Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[TransverselyIsotropicDefinedStageFactor, TransverselyIsotropicStageFactor]) : Reference object for modifying stiffness transversely isotropic stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[TransverselyIsotropicDefinedStageFactor, TransverselyIsotropicStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

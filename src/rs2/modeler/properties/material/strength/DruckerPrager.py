@@ -46,7 +46,7 @@ class DruckerPrager(PropertyProxy):
 		:ref:`Material Property Strength Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[DruckerPragerDefinedStageFactor, DruckerPragerStageFactor]) : Reference object for modifying strength drucker prager stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[DruckerPragerDefinedStageFactor, DruckerPragerStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

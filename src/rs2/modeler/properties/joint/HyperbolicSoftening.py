@@ -74,7 +74,7 @@ class HyperbolicSoftening(PropertyProxy):
 		:ref:`Joint Stage Factor Example`
 	
 	Attributes:
-		stageFactorInterface AbsoluteStageFactorInterface[HyperbolicSofteningDefinedStageFactor, HyperbolicSofteningStageFactor]) : Reference object for modifying joint hyperbolic softening stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorInterface[HyperbolicSofteningDefinedStageFactor, HyperbolicSofteningStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

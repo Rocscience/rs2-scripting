@@ -62,7 +62,7 @@ class NonLinearIsotropic(PropertyProxy):
 		:ref:`Material Property Stiffness Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[NonLinearIsotropicDefinedStageFactor, NonLinearIsotropicStageFactor]) : Reference object for modifying stiffness non-linear isotropic stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[NonLinearIsotropicDefinedStageFactor, NonLinearIsotropicStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

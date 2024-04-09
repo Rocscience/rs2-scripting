@@ -38,7 +38,7 @@ class BartonBandisMaterial(PropertyProxy):
 		:ref:`Material Joint Stage Factor Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorInterface[BartonBandisMaterialDefinedStageFactor, BartonBandisMaterialStageFactor]) : Reference object for modifying material joint barton bandis stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorInterface[BartonBandisMaterialDefinedStageFactor, BartonBandisMaterialStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

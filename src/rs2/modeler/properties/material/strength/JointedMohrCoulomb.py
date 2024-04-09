@@ -47,7 +47,7 @@ class JointedMohrCoulomb(PropertyProxy):
 		:ref:`Material Property Strength Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[JointedMohrCoulombDefinedStageFactor, JointedMohrCoulombStageFactor]) : Reference object for modifying strength jointed mohr coulomb stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[JointedMohrCoulombDefinedStageFactor, JointedMohrCoulombStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

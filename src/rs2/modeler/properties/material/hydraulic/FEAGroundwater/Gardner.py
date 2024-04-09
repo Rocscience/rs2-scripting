@@ -46,7 +46,7 @@ class Gardner(PropertyProxy):
 		:ref:`Hydraulic Property FEAGroundwater Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[GardnerDefinedStageFactor, GardnerStageFactor]) : Reference object for modifying fea groundwater gardner model stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[GardnerDefinedStageFactor, GardnerStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

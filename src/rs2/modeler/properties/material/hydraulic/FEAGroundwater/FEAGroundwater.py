@@ -41,14 +41,14 @@ class FEAGroundwater(PropertyProxy):
 		:ref:`Hydraulic Property FEAGroundwater Example`
 
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[FEAGroundwaterDefinedStageFactor, FEAGroundwaterStageFactor]): Reference object for modifying fea groundwater stage factor properties
-		Simple (Simple) : Reference object for modifying fea groundwater simple model properties
-		Fredlund (Fredlund) : Reference object for modifying fea groundwater fredlund model properties
-		Genuchten (Genuchten) : Reference object for modifying fea groundwater genuchten model properties
-		Brooks (Brooks) : Reference object for modifying fea groundwater brooks model properties
-		Gardner (Gardner) : Reference object for modifying fea groundwater gardner properties
-		Constant (Constant) : Reference object for modifying fea groundwater constant model properties
-		UserDefined (UserDefined) : Reference object for modifying fea groundwater user defined model properties
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[FEAGroundwaterDefinedStageFactor, FEAGroundwaterStageFactor]): Reference object for modifying stage factor property.
+		Simple (Simple): Reference object for modifying property.
+		Fredlund (Fredlund): Reference object for modifying property.
+		Genuchten (Genuchten): Reference object for modifying property.
+		Brooks (Brooks): Reference object for modifying property.
+		Gardner (Gardner): Reference object for modifying property.
+		Constant (Constant): Reference object for modifying property.
+		UserDefined (UserDefined): Reference object for modifying property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

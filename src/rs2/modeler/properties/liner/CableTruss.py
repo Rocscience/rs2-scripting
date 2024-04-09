@@ -54,7 +54,7 @@ class CableTruss(PropertyProxy):
 		:ref:`Liner Stage Factor Example`
 	
 	Attributes:
-		stageFactorInterface (RelativeStageFactorInterface[CableTrussDefinedStageFactor, CableTrussStageFactor]) : Reference object for modifying liner cable truss stage factor properties.
+		stageFactorInterface (RelativeStageFactorInterface[CableTrussDefinedStageFactor, CableTrussStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

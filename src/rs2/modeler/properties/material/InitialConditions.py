@@ -26,7 +26,7 @@ class InitialConditions(PropertyProxy):
 		:ref:`Initial Condition Stage Factor Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[InitialConditionsDefinedStageFactor, InitialConditionsStageFactor]): Reference object for modifying material's initial condition stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[InitialConditionsDefinedStageFactor, InitialConditionsStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

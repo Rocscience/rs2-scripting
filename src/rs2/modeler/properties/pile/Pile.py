@@ -17,12 +17,13 @@ class PileProperty(PropertyProxy):
 		:ref:`Pile Example`
 
 	Attributes:
-		Elastic (Elastic): Reference object for modifying pile elastic properties
-		MohrCoulombPile (MohrCoulombPile): Reference object for modifying pile mohr coulomb properties
-		Linear (Linear): Reference object for modifying pile linear properties
-		MaterialDependentPile (MaterialDependentPile): Reference object for modifying pile material dependent properties
-		Beam (Beam): Reference object for modifying pile beam properties
-		ForceDisplacement (ForceDisplacement): Reference object for modifying pile force displacement properties
+		Elastic (Elastic): Reference object for modifying property.
+		MohrCoulombPile (MohrCoulombPile): Reference object for modifying property.
+		Linear (Linear): Reference object for modifying property.
+		MultiLinear (MultiLinear): Reference object for modifying property.
+		MaterialDependentPile (MaterialDependentPile): Reference object for modifying property.
+		Beam (Beam): Reference object for modifying property.
+		ForceDisplacement (ForceDisplacement): Reference object for modifying property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.Elastic = Elastic(client, ID, documentProxyID)

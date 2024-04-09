@@ -50,7 +50,7 @@ class NonLinearHyperbolic(PropertyProxy):
 		:ref:`Material Property Stiffness Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[NonLinearHyperbolicDefinedStageFactor, NonLinearHyperbolicStageFactor]) : Reference object for modifying stiffness non-linear hyperbolic stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[NonLinearHyperbolicDefinedStageFactor, NonLinearHyperbolicStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

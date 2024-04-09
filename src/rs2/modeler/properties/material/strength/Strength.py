@@ -65,42 +65,42 @@ class Strength(PropertyProxy):
 		:ref:`Material Property Strength Example`
 
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[StrengthDefinedStageFactor, StrengthStageFactor]) : Reference object for modifying strength stage factor properties
-		MohrCoulombStrength (MohrCoulombStrength) : Reference object for modifying mohr coulomb strength properties
-		HoekBrown (HoekBrown) : Reference object for modifying hoek brown strength properties
-		DruckerPrager (DruckerPrager) : Reference object for modifying drucker prager strength properties
-		GeneralizedHoekBrown (GeneralizedHoekBrown) : Reference object for modifying generalized hoek brown strength properties
-		DiscreteFunction (DiscreteFunction) : Reference object for modifying discrete function strength properties
-		CamClay (CamClay) : Reference object for modifying cam clay strength properties
-		ModifiedCamClay (ModifiedCamClay) : Reference object for modifying modified cam clay strength properties
-		MohrCoulombWithCap (MohrCoulombWithCap) : Reference object for modifying mohr coulomb with cap strength properties
-		SofteningHardeningModel (SofteningHardeningModel) : Reference object for modifying softening hardening model strength properties
-		BarcelonaBasic (BarcelonaBasic) : Reference object for modifying barcelona basic strength properties
-		NorSandStrength (NorSandStrength) : Reference object for modifying nor sand strength properties
-		BoundingSurfacePlasticity (BoundingSurfacePlasticity) : Reference object for modifying bounding surface plasticity strength properties
-		ManzariAndDafaliasStrength (ManzariAndDafaliasStrength) : Reference object for modifying manzari and dafalias strength properties
-		PM4SandStrength (PM4SandStrength) : Reference object for modifying pm4 sand strength properties
-		PM4SiltStrength (PM4SiltStrength) : Reference object for modifying pm4 silt strength properties
-		Finn (Finn) : Reference object for modifying finn strength properties
-		BartonBandisStrength (BartonBandisStrength) : Reference object for modifying barton bandis strength properties
-		Hyperbolic (Hyperbolic) : Reference object for modifying hyperbolic strength properties
-		PowerCurve (PowerCurve) : Reference object for modifying power curve strength properties
-		ShearNormalFunction (ShearNormalFunction) : Reference object for modifying shear normal function strength properties
-		Shansep (Shansep) : Reference object for modifying shansep strength properties
-		VerticalStressRatio (VerticalStressRatio) : Reference object for modifying vertical stress ratio properties
-		SnowdenModAnisotropicLinear (SnowdenModAnisotropicLinear) : Reference object for modifying snowden mod anisotropic linear strength properties
-		AnisotropicLinear (AnisotropicLinear) : Reference object for modifying anisotropic linear strength properties
-		GeneralizedAnisotropic (GeneralizedAnisotropic) : Reference object for modifying generalized anisotropic strength properties
-		JointedMohrCoulomb (JointedMohrCoulomb) : Reference object for modifying jointed mohr coulomb strength properties
-		JointedGeneralizedHoekBrown (JointedGeneralizedHoekBrown) : Reference object for modifying jointed generalized hoek brown strength properties
-		ChSoilStrength (ChSoilStrength) : Reference object for modifying ch soil strength properties
-		CySoilStrength (CySoilStrength) : Reference object for modifying cy soil properties
-		DoubleYieldStrength (DoubleYieldStrength) : Reference object for modifying double yield strength properties
-		HardeningSoilStrength (HardeningSoilStrength) : Reference object for modifying hardening soil strength properties
-		HardeningSoilWithSmallStrainStiffness (HardeningSoilWithSmallStrainStiffness) : Reference object for modifying hardening soil with small strain stiffness strength properties
-		SoftSoilStrength (SoftSoilStrength) : Reference object for modifying soft soil strength properties
-		SoftSoilCreepStrength (SoftSoilCreepStrength) : Reference object for modifying soft soil creep strength properties
-		SwellingRockStrength (SwellingRockStrength) : Reference object for modifying swelling rock strength properties
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[StrengthDefinedStageFactor, StrengthStageFactor]): Reference object for modifying stage factor property.
+		MohrCoulombStrength (MohrCoulombStrength): Reference object for modifying property.
+		HoekBrown (HoekBrown): Reference object for modifying property.
+		DruckerPrager (DruckerPrager): Reference object for modifying property.
+		GeneralizedHoekBrown (GeneralizedHoekBrown): Reference object for modifying property.
+		DiscreteFunction (DiscreteFunction): Reference object for modifying property.
+		CamClay (CamClay): Reference object for modifying property.
+		ModifiedCamClay (ModifiedCamClay): Reference object for modifying property.
+		MohrCoulombWithCap (MohrCoulombWithCap): Reference object for modifying property.
+		SofteningHardeningModel (SofteningHardeningModel): Reference object for modifying property.
+		BarcelonaBasic (BarcelonaBasic): Reference object for modifying property.
+		NorSandStrength (NorSandStrength): Reference object for modifying property.
+		BoundingSurfacePlasticity (BoundingSurfacePlasticity): Reference object for modifying property.
+		ManzariAndDafaliasStrength (ManzariAndDafaliasStrength): Reference object for modifying property.
+		PM4SandStrength (PM4SandStrength): Reference object for modifying property.
+		PM4SiltStrength (PM4SiltStrength): Reference object for modifying property.
+		Finn (Finn): Reference object for modifying property.
+		BartonBandisStrength (BartonBandisStrength): Reference object for modifying property.
+		Hyperbolic (Hyperbolic): Reference object for modifying property.
+		PowerCurve (PowerCurve): Reference object for modifying property.
+		ShearNormalFunction (ShearNormalFunction): Reference object for modifying property.
+		Shansep (Shansep): Reference object for modifying property.
+		VerticalStressRatio (VerticalStressRatio): Reference object for modifying property.
+		SnowdenModAnisotropicLinear (SnowdenModAnisotropicLinear): Reference object for modifying property.
+		AnisotropicLinear (AnisotropicLinear): Reference object for modifying property.
+		GeneralizedAnisotropic (GeneralizedAnisotropic): Reference object for modifying property.
+		JointedMohrCoulomb (JointedMohrCoulomb): Reference object for modifying property.
+		JointedGeneralizedHoekBrown (JointedGeneralizedHoekBrown): Reference object for modifying property.
+		ChSoilStrength (ChSoilStrength): Reference object for modifying property.
+		CySoilStrength (CySoilStrength): Reference object for modifying property.
+		DoubleYieldStrength (DoubleYieldStrength): Reference object for modifying property.
+		HardeningSoilStrength (HardeningSoilStrength): Reference object for modifying property.
+		HardeningSoilWithSmallStrainStiffness (HardeningSoilWithSmallStrainStiffness): Reference object for modifying property.
+		SoftSoilStrength (SoftSoilStrength): Reference object for modifying property.
+		SoftSoilCreepStrength (SoftSoilCreepStrength): Reference object for modifying property.
+		SwellingRockStrength (SwellingRockStrength): Reference object for modifying property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

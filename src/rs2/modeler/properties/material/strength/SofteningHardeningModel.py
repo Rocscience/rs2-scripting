@@ -46,7 +46,7 @@ class SofteningHardeningModel(PropertyProxy):
 		:ref:`Material Property Strength Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[SofteningHardeningModelDefinedStageFactor, SofteningHardeningModelStageFactor]) : Reference object for modifying strength softening hardening stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[SofteningHardeningModelDefinedStageFactor, SofteningHardeningModelStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

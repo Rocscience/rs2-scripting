@@ -38,7 +38,7 @@ class NoneSlip(PropertyProxy):
 		:ref:`Joint Stage Factor Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorInterface[NoneSlipDefinedStageFactor, NoneSlipStageFactor]) : Reference object for modifying joint none slip stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorInterface[NoneSlipDefinedStageFactor, NoneSlipStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

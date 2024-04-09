@@ -13,10 +13,10 @@ class SoilUnfrozenWaterContent(PropertyProxy):
 		:ref:`Material Property Thermal Example`
 
 	Attributes:
-		Konrad (Konrad) : Reference object for modifying soil unfrozen water content konrad properties
-		TiceAnderson (TiceAnderson) : Reference object for modifying soil unfrozen water content tice-anderson properties
-		CustomWaterContent (CustomWaterContent) : Reference object for modifying soil unfrozen water content custom water properties
-		HydraulicModel (HydraulicModel) : Reference object for modifying soil unfrozen water content hydraulic model properties
+		Konrad (Konrad): Reference object for modifying property.
+		TiceAnderson (TiceAnderson): Reference object for modifying property.
+		CustomWaterContent (CustomWaterContent): Reference object for modifying property.
+		HydraulicModel (HydraulicModel): Reference object for modifying property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.Konrad = Konrad(client, ID, documentProxyID)

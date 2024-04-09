@@ -50,7 +50,7 @@ class Orthotropic(PropertyProxy):
 		:ref:`Material Property Stiffness Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[OrthotropicDefinedStageFactor, OrthotropicStageFactor]) : Reference object for modifying stiffness orthotropic stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[OrthotropicDefinedStageFactor, OrthotropicStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

@@ -25,10 +25,10 @@ class Thermal(PropertyProxy):
 		:ref:`Material Property Thermal Example`
 
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[ThermalDefinedStageFactor, ThermalStageFactor]) : Reference object for modifying thermal stage factor properties
-		Conductivity (Conductivity): Reference object for modifying thermal conductivity properties
-		HeatCapacity (HeatCapacity): Reference object for modifying thermal heat capacity properties
-		SoilUnfrozenWaterContent (SoilUnfrozenWaterContent): Reference object for modifying thermal soil unfrozen water content properties
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[ThermalDefinedStageFactor, ThermalStageFactor]): Reference object for modifying stage factor property.
+		Conductivity (Conductivity): Reference object for modifying property.
+		HeatCapacity (HeatCapacity): Reference object for modifying property.
+		SoilUnfrozenWaterContent (SoilUnfrozenWaterContent): Reference object for modifying property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

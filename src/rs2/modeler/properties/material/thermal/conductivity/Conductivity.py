@@ -15,12 +15,12 @@ class Conductivity(PropertyProxy):
 		:ref:`Material Property Thermal Example`
 
 	Attributes:
-		ConstantConductivity (ConstantConductivity) : Reference object for modifying constant conductivity properties
-		Johansen (Johansen) : Reference object for modifying johansen conductivity properties
-		JohansenLu (JohansenLu) : Reference object for modifying johansen lu conductivity properties
-		Derives (Derives) : Reference object for modifying derives conductivity properties
-		CoteAndKonrad (CoteAndKonrad) : Reference object for modifying cote and kondrad conductivity properties
-		Tabular (Tabular) : Reference object for modifying tabular conductivity properties
+		ConstantConductivity (ConstantConductivity): Reference object for modifying property.
+		Johansen (Johansen): Reference object for modifying property.
+		JohansenLu (JohansenLu): Reference object for modifying property.
+		Derives (Derives): Reference object for modifying property.
+		CoteAndKonrad (CoteAndKonrad): Reference object for modifying property.
+		Tabular (Tabular): Reference object for modifying property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.ConstantConductivity = ConstantConductivity(client, ID, documentProxyID)

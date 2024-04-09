@@ -62,7 +62,7 @@ class ReinforcedConcrete(PropertyProxy):
 		:ref:`Liner Stage Factor Example`
 	
 	Attributes:
-		stageFactorInterface (RelativeStageFactorInterface[ReinforcedConcreteDefinedStageFactor, ReinforcedConcreteStageFactor]) : Reference object for modifying liner reinforced concrete stage factor properties.
+		stageFactorInterface (RelativeStageFactorInterface[ReinforcedConcreteDefinedStageFactor, ReinforcedConcreteStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

@@ -50,7 +50,7 @@ class Genuchten(PropertyProxy):
 		:ref:`Hydraulic Property FEAGroundwater Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[GenuchtenDefinedStageFactor, GenuchtenStageFactor]) : Reference object for modifying fea groundwater genuchten model stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[GenuchtenDefinedStageFactor, GenuchtenStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

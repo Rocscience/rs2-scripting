@@ -8,8 +8,8 @@ StageFactor = TypeVar('StageFactor', bound=ProxyObject)
 
 class AbsoluteStageFactorInterface(ProxyObject, Generic[DefinedStageFactor, StageFactor]):
 	"""
-	:ref:`Stage Factors Example`
-
+	Examples:
+		:ref:`Stage Factors Example`
 	"""
 	def __init__(self, client, proxyId, propertyID, definedFactorClass, factorClass):
 		super().__init__(client, proxyId)

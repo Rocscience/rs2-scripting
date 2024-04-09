@@ -28,25 +28,25 @@ class Stiffness(PropertyProxy):
 		:ref:`Material Property Stiffness Example`
 
 	Attributes:
-		Isotropic (Isotropic) : Reference object for modifying isotropic stiffness properties
-		TransverselyIsotropic (TransverselyIsotropic) : Reference object for modifying transversely isotropic stiffness properties
-		Orthotropic (Orthotropic) : Reference object for modifying orthotropic stiffness properties
-		NonLinearHyperbolic (NonLinearHyperbolic) : Reference object for modifying non liner hyperbolic stiffness properties
-		NonLinearIsotropic (NonLinearIsotropic) : Reference object for modifying non linear isotropic stiffness properties
-		ViscoElastic (ViscoElastic) : Reference object for modifying visco elastic stiffness properties
-		Custom (Custom) : Reference object for modifying custom stiffness properties
-		ChSoil (ChSoil) : Reference object for ch soil stiffness properties
-		CySoil (CySoil) : Reference object for modifying cy soil stiffness properties
-		DoubleYield (DoubleYield) : Reference object for modifying double yield stiffness properties
-		HardeningSoil (HardeningSoil) : Reference object for modifying hardening soil stiffness properties
-		HardeningSoilSmallStrainStiffness (HardeningSoilSmallStrainStiffness) : Reference object for modifying hardening soil small strain stiffness properties
-		SoftSoil (SoftSoil) : Reference object for modifying soft soil stiffness properties
-		SoftSoilCreep (SoftSoilCreep) : Reference object for modifying soft soil creep stiffness properties
-		SwellingRock (SwellingRock) : Reference object for modifying swelling rock stiffness properties
-		ManzariAndDafalias (ManzariAndDafalias) : Reference object for modifying manzari and dafalias stiffness properties
-		Norsand (Norsand) : Reference object for modifying nor sand stiffness properties
-		Pm4Sand (Pm4Sand) : Reference object for modifying pm4 sand stiffness properties
-		Pm4Silt (Pm4Silt) : Reference object for modifying pm4 silt stiffness properties
+		Isotropic (Isotropic): Reference object for modifying property.
+		TransverselyIsotropic (TransverselyIsotropic): Reference object for modifying property.
+		Orthotropic (Orthotropic): Reference object for modifying property.
+		NonLinearHyperbolic (NonLinearHyperbolic): Reference object for modifying property.
+		NonLinearIsotropic (NonLinearIsotropic): Reference object for modifying property.
+		ViscoElastic (ViscoElastic): Reference object for modifying property.
+		Custom (Custom): Reference object for modifying property.
+		ChSoil (ChSoil): Reference object for modifying property.
+		CySoil (CySoil): Reference object for modifying property.
+		DoubleYield (DoubleYield): Reference object for modifying property.
+		HardeningSoil (HardeningSoil): Reference object for modifying property.
+		HardeningSoilSmallStrainStiffness (HardeningSoilSmallStrainStiffness): Reference object for modifying property.
+		SoftSoil (SoftSoil): Reference object for modifying property.
+		SoftSoilCreep (SoftSoilCreep): Reference object for modifying property.
+		SwellingRock (SwellingRock): Reference object for modifying property.
+		ManzariAndDafalias (ManzariAndDafalias): Reference object for modifying property.
+		Norsand (Norsand): Reference object for modifying property.
+		Pm4Sand (Pm4Sand): Reference object for modifying property.
+		Pm4Silt (Pm4Silt): Reference object for modifying property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

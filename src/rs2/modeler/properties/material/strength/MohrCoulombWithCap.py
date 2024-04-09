@@ -42,7 +42,7 @@ class MohrCoulombWithCap(PropertyProxy):
 		:ref:`Material Property Strength Example`
 	
 	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[MohrCoulombWithCapDefinedStageFactor, MohrCoulombWithCapStageFactor]) : Reference object for modifying strength mohr coulomb with cap stage factor properties.
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[MohrCoulombWithCapDefinedStageFactor, MohrCoulombWithCapStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
