@@ -56,7 +56,7 @@ class DatumDefinedStageFactor(ProxyObject):
 class Datum(PropertyProxy):
 	"""
 	Examples:
-		:ref: `Material Property Datum Example`
+		:ref:`Material Property Datum Example`
 
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorInterface[DatumDefinedStageFactor, DatumStageFactor]): Reference object for modifying stage factor property.
