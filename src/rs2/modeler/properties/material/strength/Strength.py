@@ -70,7 +70,7 @@ class Strength(PropertyProxy):
 		HoekBrown (HoekBrown): Reference object for modifying property.
 		DruckerPrager (DruckerPrager): Reference object for modifying property.
 		GeneralizedHoekBrown (GeneralizedHoekBrown): Reference object for modifying property.
-		DiscreteFunction (DiscreteFunction): Reference object for modifying property.
+		DiscreteFunction (Strength.DiscreteFunction): Reference object for modifying property.
 		CamClay (CamClay): Reference object for modifying property.
 		ModifiedCamClay (ModifiedCamClay): Reference object for modifying property.
 		MohrCoulombWithCap (MohrCoulombWithCap): Reference object for modifying property.
@@ -85,7 +85,7 @@ class Strength(PropertyProxy):
 		BartonBandisStrength (BartonBandisStrength): Reference object for modifying property.
 		Hyperbolic (Hyperbolic): Reference object for modifying property.
 		PowerCurve (PowerCurve): Reference object for modifying property.
-		ShearNormalFunction (ShearNormalFunction): Reference object for modifying property.
+		ShearNormalFunction (Strength.ShearNormalFunction): Reference object for modifying property.
 		Shansep (Shansep): Reference object for modifying property.
 		VerticalStressRatio (VerticalStressRatio): Reference object for modifying property.
 		SnowdenModAnisotropicLinear (SnowdenModAnisotropicLinear): Reference object for modifying property.

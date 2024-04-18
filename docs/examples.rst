@@ -31,7 +31,7 @@ Python Script Examples
    :caption: Code Snippet: Manipulation of Pile Properties
 
 .. _Pile Stage Factor Example:
-.. literalinclude:: example_code/pile_prop_stage_factorexample.py
+.. literalinclude:: example_code/pile_prop_stage_factor_example.py
    :language: python
    :caption: Code Snippet: Manipulation of Pile Stage Factor Properties
 
@@ -51,7 +51,7 @@ Python Script Examples
    :caption: Code Snippet: Manipulation of Material Properties
 
 .. _Initial Condition Stage Factor Example:
-.. literalinclude:: example_code/material_initial_condition_stage_factor_example.py
+.. literalinclude:: example_code/mat_initial_condition_stage_factor_example.py
    :language: python
    :caption: Code Snippet: Manipulation of Material Initial Condition Stage Factor Properties
 
