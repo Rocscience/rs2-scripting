@@ -7,8 +7,8 @@ class LinerElementResult:
 	
 	Attributes:
         composite_layer (int): Integer representing composite layer for support liner.
-        node_start (int): Start Node for support liner.
-        node_end (int): End Node for support liner.
+        node_start (int): Integer representing start node for support liner.
+        node_end (int): Integer representing end node for support liner.
         start_x (double): Start X-Coordinate for support liner.
         start_y (double): Start Y-Coordinate for support liner.
         end_x (double): End X-Coordinate for support liner.

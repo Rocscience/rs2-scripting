@@ -67,8 +67,8 @@ class BoltResult:
         start_y (double): Start Y-Coordinate for support bolt.
         end_x (double): End X-Coordinate for support bolt.
         end_y (double): End Y-Coordinate for support bolt.
-        yielding_results (List[BoltYieldingResult]): List of bolt yielding result for support bolt.
-        force_displacement_results (List[BoltForceDisplacementResult]): List of bolt force displacement result for support bolt.
+        yielding_results (list[BoltYieldingResult]): List of bolt yielding result for support bolt.
+        force_displacement_results (list[BoltForceDisplacementResult]): List of bolt force displacement result for support bolt.
 	"""
     def __init__(self, entity_id, entity_data, yielding_results: list[BoltYieldingResult], force_displacement_results: list[BoltForceDisplacementResult]):
         if len(entity_data) == 0 or len(entity_data[0]) == 0:

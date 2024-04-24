@@ -6,7 +6,7 @@ class QueryPointResult:
 	Attributes:
         x_location (double): X-Coordinate for time query point.
         y_location (double): Y-Coordinate for time query point.
-        time (int): Dynamic stage time for time query point.
+        time (double): Dynamic stage time for time query point.
         value (double): Value for time query point.
 	"""
     def __init__(self, x_location, y_location, time, value):
@@ -45,7 +45,7 @@ class QueryLineResult:
 		:ref:`Time Query Example`
 	
 	Attributes:
-        query_values (List[QueryPointResult]): List of QueryPointResult objects making up the result for the time query line.
+        query_values (list[QueryPointResult]): List of QueryPointResult objects making up the result for the time query line.
 	"""
     def __init__(self, list_node_values):
         list_node_value_obj = []
@@ -72,7 +72,7 @@ class TimeQueryPointResults:
 	
 	Attributes:
         entity_ID (str): Unique Identifier for time query point.
-        query_values (List[QueryPointResult]): List of QueryPointResult object for time query point.
+        query_values (list[QueryPointResult]): List of QueryPointResult object for time query point.
 	"""
     # Stores all time query points result for specific stage
     def __init__(self, entity_ID, query_point_values):
@@ -108,7 +108,7 @@ class TimeQueryLineResults:
 	
 	Attributes:
         entity_ID (str): Unique Identifier for time query line.
-        line_data (List[QueryLineResult]): List of QueryLineResult object for time query line.
+        line_data (list[QueryLineResult]): List of QueryLineResult object for time query line.
 	"""
     # Stores all time query line result for specific stage
     def __init__(self, entity_ID, list_query_line_data):
