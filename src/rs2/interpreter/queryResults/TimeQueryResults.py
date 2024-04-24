@@ -73,8 +73,6 @@ class TimeQueryPointResults:
 	Attributes:
         entity_ID (str): Unique Identifier for time query point.
         query_values (List[QueryPointResult]): List of QueryPointResult object for time query point.
-        time (int): Dynamic stage time for time query point.
-        value (double): Value for time query point.
 	"""
     # Stores all time query points result for specific stage
     def __init__(self, entity_ID, query_point_values):
@@ -111,8 +109,6 @@ class TimeQueryLineResults:
 	Attributes:
         entity_ID (str): Unique Identifier for time query line.
         line_data (List[QueryLineResult]): List of QueryLineResult object for time query line.
-        time (int): Dynamic stage time for time query line.
-        value (double): Value for time query line.
 	"""
     # Stores all time query line result for specific stage
     def __init__(self, entity_ID, list_query_line_data):
