@@ -1,6 +1,32 @@
 from rs2.interpreter._UtilityResult import *
 
 class LinerElementResult:
+    """
+	Examples:
+		:ref:`Support Liner Results Example`
+	
+	Attributes:
+        composite_layer (int): Integer representing composite layer for support liner.
+        node_start (int): Start Node for support liner.
+        node_end (int): End Node for support liner.
+        start_x (double): Start X-Coordinate for support liner.
+        start_y (double): Start Y-Coordinate for support liner.
+        end_x (double): End X-Coordinate for support liner.
+        end_y (double): End Y-Coordinate for support liner.
+        distance (double): Distance of support liner.
+        axial_force (double): Axial Force for support liner.
+        moment1 (double): First Moment for support liner.
+        moment_mid (double): Mid Moment for support liner.
+        moment2 (double): Second Moment for support liner.
+        shear_force (double): Shear Force for support liner.
+        displacement_total (double): Total Displacement for support liner.
+        displacement_x (double): Horizontal Displacement for support liner.
+        displacement_y (double): Vertical Displacement for support liner.
+        axi_sym_force (double): Axial Symmetry Force for support liner.
+        axi_sym_moment (double): Axial Symmetry Moment for support liner.
+        beam_yield (bool): Boolean representing yielded status for support liner.
+        temperature (double): Temperature for support liner.
+	"""
     def __init__(self,composite_layer, node_start, node_end, start_x, start_y, end_x, end_y, distance,axial_force, moment1, moment_mid, moment2, shear_force, displacement_total, displacement_x, displacement_y,
                  axi_sym_force, axi_sym_moment,beam_yield,temperature):
 
@@ -28,6 +54,14 @@ class LinerElementResult:
         ResetInvalid.validate(self)
 
 class LinerResult:
-    def __init__(self, entity_id, liner_element_results: LinerElementResult):
+    """
+	Examples:
+		:ref:`Support Liner Results Example`
+	
+	Attributes:
+        entity_id (str): Unique Identifier for support liner.
+        liner_element_results (list[LinerElementResult]): List of liner element result for support liner.
+	"""
+    def __init__(self, entity_id, liner_element_results: list[LinerElementResult]):
         self.entity_id = entity_id
-        self.liner_element_results: LinerElementResult = liner_element_results
+        self.liner_element_results: list[LinerElementResult] = liner_element_results

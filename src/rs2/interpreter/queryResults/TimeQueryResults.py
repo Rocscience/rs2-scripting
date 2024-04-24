@@ -1,35 +1,52 @@
 class QueryPointResult:
-        def __init__(self, x_location, y_location, time, value):
-            self.x_location = x_location
-            self.y_location = y_location
-            self.time = time
-            self.value = value
-        
-        def GetXCoordinate(self) -> float:
-            '''
-            Returns the X-Coordinate of the query point
-            '''
-            return self.x_location
+    """
+	Examples:
+		:ref:`Time Query Example`
+	
+	Attributes:
+        x_location (double): X-Coordinate for time query point.
+        y_location (double): Y-Coordinate for time query point.
+        time (int): Dynamic stage time for time query point.
+        value (double): Value for time query point.
+	"""
+    def __init__(self, x_location, y_location, time, value):
+        self.x_location = x_location
+        self.y_location = y_location
+        self.time = time
+        self.value = value
     
-        def GetYCoordinate(self) -> float:
-            '''
-            Returns the Y-Coordinate of the query point
-            '''
-            return self.y_location
+    def GetXCoordinate(self) -> float:
+        '''
+        Returns the X-Coordinate of the query point
+        '''
+        return self.x_location
 
-        def GetStageTime(self) -> float:
-            '''
-            Returns the dynamic stage time of the query point
-            '''
-            return self.time
-        
-        def GetValue(self) -> float:
-            '''
-            Returns the value of the time query point
-            '''
-            return self.value
+    def GetYCoordinate(self) -> float:
+        '''
+        Returns the Y-Coordinate of the query point
+        '''
+        return self.y_location
+
+    def GetStageTime(self) -> float:
+        '''
+        Returns the dynamic stage time of the query point
+        '''
+        return self.time
+    
+    def GetValue(self) -> float:
+        '''
+        Returns the value of the time query point
+        '''
+        return self.value
 
 class QueryLineResult:
+    """
+	Examples:
+		:ref:`Time Query Example`
+	
+	Attributes:
+        query_values (List[QueryPointResult]): List of QueryPointResult objects making up the result for the time query line.
+	"""
     def __init__(self, list_node_values):
         list_node_value_obj = []
         for node_value in list_node_values:
@@ -49,6 +66,16 @@ class QueryLineResult:
         return self.query_values
 
 class TimeQueryPointResults:
+    """
+	Examples:
+		:ref:`Time Query Example`
+	
+	Attributes:
+        entity_ID (str): Unique Identifier for time query point.
+        query_values (List[QueryPointResult]): List of QueryPointResult object for time query point.
+        time (int): Dynamic stage time for time query point.
+        value (double): Value for time query point.
+	"""
     # Stores all time query points result for specific stage
     def __init__(self, entity_ID, query_point_values):
         self.entity_ID = entity_ID
@@ -77,6 +104,16 @@ class TimeQueryPointResults:
         return self.query_values
 
 class TimeQueryLineResults:
+    """
+	Examples:
+		:ref:`Time Query Example`
+	
+	Attributes:
+        entity_ID (str): Unique Identifier for time query line.
+        line_data (List[QueryLineResult]): List of QueryLineResult object for time query line.
+        time (int): Dynamic stage time for time query line.
+        value (double): Value for time query line.
+	"""
     # Stores all time query line result for specific stage
     def __init__(self, entity_ID, list_query_line_data):
         self.entity_ID = entity_ID

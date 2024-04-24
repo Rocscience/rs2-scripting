@@ -10,6 +10,17 @@ class BoltElementYieldStatus(Enum):
     BOLT_ELEMENT_UNDEFINED_YIELDED = -1
   
 class BoltYieldingResult:
+    """
+	Examples:
+		:ref:`Support Bolt Results Example`
+	
+	Attributes:
+        start_x (double): Start X-Coordinate for support bolt.
+        start_y (double): Start Y-Coordinate for support bolt.
+        end_x (double): End X-Coordinate for support bolt.
+        end_y (double): End Y-Coordinate for support bolt.
+        yielding_flag (BoltElementYieldStatus): Enum representing bolt yielded status.
+	"""
     def __init__(self, start_x, start_y, end_x, end_y, yielding_flag):
         self.start_x = start_x #0
         self.start_y = start_y #1
@@ -20,6 +31,20 @@ class BoltYieldingResult:
 
 
 class BoltForceDisplacementResult:
+    """
+	Examples:
+		:ref:`Support Bolt Results Example`
+	
+	Attributes:
+        location_x (double): Start X-Coordinate for support bolt.
+        location_y (double): Start Y-Coordinate for support bolt.
+        distance (double): Distance of support bolt.
+        axial_force (double): Axial Force for support bolt.
+        axial_stress (double): Axial Stress for support bolt.
+        shear_force (double): Shear Force for support bolt.
+        rock_displacement (double): Rock Displacement for support bolt.
+        bolt_displacement (double): Bolt Displacement for support bolt.
+	"""
     def __init__(self, location_x, location_y, distance, axial_force, axial_stress, shear_force, rock_displacement, bolt_displacement):
         self.location_x = location_x #0
         self.location_y = location_y #1
@@ -32,7 +57,20 @@ class BoltForceDisplacementResult:
         ResetInvalid.validate(self)
 
 class BoltResult:
-    def __init__(self, entity_id, entity_data, yielding_results: BoltYieldingResult, force_displacement_results: BoltForceDisplacementResult):
+    """
+	Examples:
+		:ref:`Support Bolt Results Example`
+	
+	Attributes:
+        entity_id (str): Unique Identifier for support bolt.
+        start_x (double): Start X-Coordinate for support bolt.
+        start_y (double): Start Y-Coordinate for support bolt.
+        end_x (double): End X-Coordinate for support bolt.
+        end_y (double): End Y-Coordinate for support bolt.
+        yielding_results (List[BoltYieldingResult]): List of bolt yielding result for support bolt.
+        force_displacement_results (List[BoltForceDisplacementResult]): List of bolt force displacement result for support bolt.
+	"""
+    def __init__(self, entity_id, entity_data, yielding_results: list[BoltYieldingResult], force_displacement_results: list[BoltForceDisplacementResult]):
         if len(entity_data) == 0 or len(entity_data[0]) == 0:
             assert False, 'location not defined'
             return
@@ -44,6 +82,6 @@ class BoltResult:
         self.start_y = start_y
         self.end_x = end_x
         self.end_y = end_y
-        self.yielding_results: BoltYieldingResult = yielding_results
-        self.force_displacement_results: BoltForceDisplacementResult = force_displacement_results
+        self.yielding_results: list[BoltYieldingResult] = yielding_results
+        self.force_displacement_results: list[BoltForceDisplacementResult] = force_displacement_results
 
