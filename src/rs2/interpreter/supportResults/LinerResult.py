@@ -86,7 +86,7 @@ class LinerElementResult:
         end_y,  # 6
         distance,  # 7
         axial_force1,  # 8
-        axial_mid,  # 9
+        axial_force_mid,  # 9
         axial_force2,  # 10
         moment1,  # 9
         moment_mid,  # 10
