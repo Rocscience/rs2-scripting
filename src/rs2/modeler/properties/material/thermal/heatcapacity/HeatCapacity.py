@@ -8,7 +8,13 @@ from rs2.modeler.properties.material.thermal.heatcapacity.JameNewman import Jame
 from rs2.modeler.properties.material.thermal.heatcapacity.CustomHeatCapacity import CustomHeatCapacity
 class HeatCapacity(PropertyProxy):
 	"""
-	:ref:`Material Property Thermal Example`
+	Examples:
+		:ref:`Material Property Thermal Example`
+
+	Attributes:
+		ConstantHeatCapacity (ConstantHeatCapacity): Reference object for modifying property.
+		JameNewman (JameNewman): Reference object for modifying property.
+		CustomHeatCapacity (CustomHeatCapacity): Reference object for modifying property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.ConstantHeatCapacity = ConstantHeatCapacity(client, ID, documentProxyID)

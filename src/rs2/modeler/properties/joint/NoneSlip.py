@@ -33,6 +33,13 @@ class NoneSlipDefinedStageFactor(NoneSlipStageFactor):
 	def setJointPermeableFactor(self, Permeable: bool):
 		return self._callFunction("setJointPermeableFactor", [Permeable])
 class NoneSlip(PropertyProxy):
+	"""
+	Examples:
+		:ref:`Joint Stage Factor Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorInterface[NoneSlipDefinedStageFactor, NoneSlipStageFactor]): Reference object for modifying stage factor property.
+	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)
 		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)

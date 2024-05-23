@@ -24,7 +24,6 @@ pile.MultiLinear.setUseBaseResistance(False)
 pile.Beam.setApplication(PileApplicationType.DEFINE_BEAM_SEGMENT_BY_LENGTH)
 pile.Beam.defineBeamSegment([3,6], ["Liner 4", "Liner 5"])
 
-
 pile.ForceDisplacement.setApply(PileEndCondition.FORCE)
 pile.ForceDisplacement.setX(0.5)
 pile.ForceDisplacement.setY(0.6)

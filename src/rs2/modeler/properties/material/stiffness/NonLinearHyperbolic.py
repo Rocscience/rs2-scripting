@@ -45,6 +45,13 @@ class NonLinearHyperbolicDefinedStageFactor(NonLinearHyperbolicStageFactor):
 	def setUnloadingModulusNumberFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_UNLOADING_MODULUS_NUMBER", value, self.propertyID], proxyArgumentIndices=[2])
 class NonLinearHyperbolic(PropertyProxy):
+	"""
+	Examples:
+		:ref:`Material Property Stiffness Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[NonLinearHyperbolicDefinedStageFactor, NonLinearHyperbolicStageFactor]): Reference object for modifying stage factor property.
+	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[NonLinearHyperbolicDefinedStageFactor, NonLinearHyperbolicStageFactor](self._client, stageFactorInterfaceID, ID, NonLinearHyperbolicDefinedStageFactor, NonLinearHyperbolicStageFactor)
