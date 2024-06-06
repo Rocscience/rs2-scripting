@@ -2,10 +2,10 @@ from rs2.interpreter._UtilityResult import *
 
 class LinerElementResult:
     """
-	Examples:
-		:ref:`Support Liner Results Example`
-	
-	Attributes:
+    Examples:
+        :ref:`Support Liner Results Example`
+
+    Attributes:
         composite_layer (int): Integer representing composite layer for support liner.
         node_start (int): Integer representing start node for support liner.
         node_end (int): Integer representing end node for support liner.
@@ -14,18 +14,46 @@ class LinerElementResult:
         end_x (double): End X-Coordinate for support liner.
         end_y (double): End Y-Coordinate for support liner.
         distance (double): Distance of support liner.
-        axial_force (double): Axial Force for support liner.
+        axial_force1 (double): Axial Force at the first position for support liner.
+        axial_force_mid (double): Axial Force at the mid position for support liner.
+        axial_force2 (double): Axial Force at the second position for support liner.
         moment1 (double): First Moment for support liner.
         moment_mid (double): Mid Moment for support liner.
         moment2 (double): Second Moment for support liner.
-        shear_force (double): Shear Force for support liner.
-        displacement_total (double): Total Displacement for support liner.
-        displacement_x (double): Horizontal Displacement for support liner.
-        displacement_y (double): Vertical Displacement for support liner.
-        axi_sym_force (double): Axial Symmetry Force for support liner.
-        axi_sym_moment (double): Axial Symmetry Moment for support liner.
+        shear_force1 (double): Shear Force at the first position for support liner.
+        shear_force_mid (double): Shear Force at the mid position for support liner.
+        shear_force2 (double): Shear Force at the second position for support liner.
+        axi_sym_force1 (double): Axial Symmetry Force at the first position for support liner.
+        axi_sym_force_mid (double): Axial Symmetry Force at the mid position for support liner.
+        axi_sym_force2 (double): Axial Symmetry Force at the second position for support liner.
+        axi_sym_moment1 (double): Axial Symmetry Moment at the first position for support liner.
+        axi_sym_moment_mid (double): Axial Symmetry Moment at the mid position for support liner.
+        axi_sym_moment2 (double): Axial Symmetry Moment at the second position for support liner.
+        displacement_total1 (double): Total Displacement at the first position for support liner.
+        displacement_total_mid (double): Total Displacement at the mid position for support liner.
+        displacement_total2 (double): Total Displacement at the second position for support liner.
+        displacement_x1 (double): Horizontal Displacement at the first position for support liner.
+        displacement_x_mid (double): Horizontal Displacement at the mid position for support liner.
+        displacement_x2 (double): Horizontal Displacement at the second position for support liner.
+        displacement_y1 (double): Vertical Displacement at the first position for support liner.
+        displacement_y_mid (double): Vertical Displacement at the mid position for support liner.
+        displacement_y2 (double): Vertical Displacement at the second position for support liner.
+        temperature1 (double): Temperature at the first position for support liner.
+        temperature_mid (double): Temperature at the mid position for support liner.
+        temperature2 (double): Temperature at the second position for support liner.
+        curvature1 (double): Curvature at the first position for support liner.
+        curvature_mid (double): Curvature at the mid position for support liner.
+        curvature2 (double): Curvature at the second position for support liner.
+        axial_strain1 (double): Axial Strain at the first position for support liner.
+        axial_strain_mid (double): Axial Strain at the mid position for support liner.
+        axial_strain2 (double): Axial Strain at the second position for support liner.
+        hoop_curvature_strain1 (double): Hoop Curvature Strain at the first position for support liner.
+        hoop_curvature_strain_mid (double): Hoop Curvature Strain at the mid position for support liner.
+        hoop_curvature_strain2 (double): Hoop Curvature Strain at the second position for support liner.
+        hoop_axial_strain1 (double): Hoop Axial Strain at the first position for support liner.
+        hoop_axial_strain_mid (double): Hoop Axial Strain at the mid position for support liner.
+        hoop_axial_strain2 (double): Hoop Axial Strain at the second position for support liner.
         beam_yield (bool): Boolean representing yielded status for support liner.
-        temperature (double): Temperature for support liner.
 	"""
 
     def __init__(
