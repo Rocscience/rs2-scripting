@@ -185,4 +185,5 @@ class LinerResult:
 	"""
     def __init__(self, entity_id, liner_element_results: list[LinerElementResult]):
         self.entity_id = entity_id
-        self.liner_element_results: LinerElementResult = liner_element_results
+        self.liner_element_results: list[LinerElementResult] = liner_element_results
+
