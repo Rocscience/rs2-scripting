@@ -8,31 +8,23 @@ modeler = RS2Modeler()
 filePath = rf"{current_dir}\example_models\DynamicModel.fez"
 model = modeler.openFile(filePath)
 
-# Add Time Query Line to Model
 points1 = [[5, -4.5], [5, 0]]
 points2 = [[-5, 2], [11, 2]]
-# Pleae note that the number of points on line must be between 1 and 10 inclusive
+
 points_on_line = 8
-guid1 = model.AddTimeQueryLine(points1, points_on_line)
-guid2 = model.AddTimeQueryLine(points2, points_on_line)
+lineID_1 = model.AddTimeQueryLine(points1, points_on_line)
+lineID_2 = model.AddTimeQueryLine(points2, points_on_line)
 
-# Remove Time Query Line by ID
-model.RemoveTimeQueryLine([guid1])
+model.RemoveTimeQueryLine([lineID_1])
 
-# Add Time Query Point(s) to Model
-id = model.AddTimeQueryPoint(x=4.5, y=2.7)
-id2 = model.AddTimeQueryPoint(x=9, y=-2)
+pointID_1 = model.AddTimeQueryPoint(x=4.5, y=2.7)
+pointID_2 = model.AddTimeQueryPoint(x=9, y=-2)
 
-# Remove Time Query Point by ID
-model.RemoveTimeQueryPoint([id])
+model.RemoveTimeQueryPoint([pointID_1])
 
-# Make sure to save and compute model before opening interpreter model and getting results
 model.save()
 model.compute()
 
-model.close()
-
-# Get Time Query Point Results
 interpreter = RS2Interpreter()
 interpreter_model = interpreter.openFile(filePath)
 result = interpreter_model.GetAllTimeQueryPointResults(
@@ -53,7 +45,7 @@ for stageNumber, stageData in result.items():
         print("-----------------------")
     print(f"\nEnd of Stage {stageNumber} Data\n")
 
-# Time Query Line Results
+
 print("\n Time Query Line Results")
       
 line_results = interpreter_model.GetAllTimeQueryLinesResults(
@@ -81,4 +73,9 @@ for stageNumber, stageData in line_results.items():
     print("-----------------------")
     print(f"\nEnd of Stage {stageNumber} Data\n")
 
+model.RemoveTimeQueryPoint([pointID_2])
+model.RemoveTimeQueryLine([lineID_2])
+model.save()
+
+model.close()
 interpreter_model.close()

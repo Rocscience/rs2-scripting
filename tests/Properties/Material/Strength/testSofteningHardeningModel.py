@@ -30,6 +30,7 @@ class TestSofteningHardeningModel(unittest.TestCase):
         strength.SofteningHardeningModel.setDilationAngle(762.9)
         strength.SofteningHardeningModel.setConeDilationType(DilationTypes.DILATION_ONLY)
         strength.SofteningHardeningModel.setCapType(CapTypes.VERTICAL)
+        strength.SofteningHardeningModel.setCapHardeningType(CapHardeningTypes.TABULAR)
         strength.SofteningHardeningModel.setInitialMeanStress(1413.6)
         strength.SofteningHardeningModel.setLambdaKappa(468.3)
         self.model.save()
@@ -45,6 +46,7 @@ class TestSofteningHardeningModel(unittest.TestCase):
         self.assertEqual(strength.SofteningHardeningModel.getDilationAngle(), 762.9)
         self.assertEqual(strength.SofteningHardeningModel.getConeDilationType(), DilationTypes.DILATION_ONLY)
         self.assertEqual(strength.SofteningHardeningModel.getCapType(), CapTypes.VERTICAL)
+        self.assertEqual(strength.SofteningHardeningModel.getCapHardeningType(), CapHardeningTypes.TABULAR)
         self.assertEqual(strength.SofteningHardeningModel.getInitialMeanStress(), 1413.6)
         self.assertEqual(strength.SofteningHardeningModel.getLambdaKappa(), 468.3)
     def testSofteningHardeningModelStageFactors(self):

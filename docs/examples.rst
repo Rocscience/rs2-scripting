@@ -10,15 +10,30 @@ Python Script Examples
    :language: python
    :caption: Code Snippet: Manipulation of Liner Properties
 
+.. _Liner Stage Factor Example:
+.. literalinclude:: example_code/liner_prop_stage_factor_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Liner Stage Factor Properties
+
 .. _Joint Example:
 .. literalinclude:: example_code/joint_prop_example.py
    :language: python
    :caption: Code Snippet: Manipulation of Joint Properties
 
+.. _Joint Stage Factor Example:
+.. literalinclude:: example_code/joint_prop_stage_factor_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Joint Stage Factor Properties
+
 .. _Pile Example:
 .. literalinclude:: example_code/pile_prop_example.py
    :language: python
    :caption: Code Snippet: Manipulation of Pile Properties
+
+.. _Pile Stage Factor Example:
+.. literalinclude:: example_code/pile_prop_stage_factor_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Pile Stage Factor Properties
 
 .. _Structural Interface Example:
 .. literalinclude:: example_code/structural_prop_example.py
@@ -34,6 +49,16 @@ Python Script Examples
 .. literalinclude:: example_code/material_prop_example.py
    :language: python
    :caption: Code Snippet: Manipulation of Material Properties
+
+.. _Initial Condition Stage Factor Example:
+.. literalinclude:: example_code/mat_initial_condition_stage_factor_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Material Initial Condition Stage Factor Properties
+
+.. _Material Joint Stage Factor Example:
+.. literalinclude:: example_code/material_joint_stage_factor_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Material Joint Stage Factor Properties
 
 .. _hydraulic property example:
 .. literalinclude:: example_code/material_hydraulic_property_example.py
@@ -69,7 +94,12 @@ Python Script Examples
 .. literalinclude:: example_code/material_property_thermal_example.py
    :language: python
    :caption: Code Snippet: Manipulation of Thermal Properties
-   
+
+.. _Stage Factors Example:
+.. literalinclude:: example_code/stage_factor_example.py
+   :language: python
+   :caption: Code Snippet: Manipulation of Stage Factors for various properties
+
 .. _Model Example:
 .. literalinclude:: example_code/model_example.py
    :language: python

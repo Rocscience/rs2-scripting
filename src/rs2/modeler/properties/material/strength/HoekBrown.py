@@ -37,6 +37,13 @@ class HoekBrownDefinedStageFactor(HoekBrownStageFactor):
 	def setResidualSParameterFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_S_PARAMETER_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class HoekBrown(PropertyProxy):
+	"""
+	Examples:
+		:ref:`Material Property Strength Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[HoekBrownDefinedStageFactor, HoekBrownStageFactor]): Reference object for modifying stage factor property.
+	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[HoekBrownDefinedStageFactor, HoekBrownStageFactor](self._client, stageFactorInterfaceID, ID, HoekBrownDefinedStageFactor, HoekBrownStageFactor)

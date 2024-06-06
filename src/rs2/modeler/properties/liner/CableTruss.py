@@ -49,6 +49,13 @@ class CableTrussDefinedStageFactor(CableTrussStageFactor):
 	def setExpansionCoefficientFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_EXPANSION_ALPHA", value, self.propertyID], proxyArgumentIndices=[2])
 class CableTruss(PropertyProxy):
+	"""
+	Examples:
+		:ref:`Liner Stage Factor Example`
+	
+	Attributes:
+		stageFactorInterface (RelativeStageFactorInterface[CableTrussDefinedStageFactor, CableTrussStageFactor]): Reference object for modifying stage factor property.
+	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)
 		stageFactorInterfaceID = self._callFunction("getStageFactorInterface", [], keepReturnValueReference=True)

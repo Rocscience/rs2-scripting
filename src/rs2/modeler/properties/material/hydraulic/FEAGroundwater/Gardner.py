@@ -41,6 +41,13 @@ class GardnerDefinedStageFactor(GardnerStageFactor):
 	def setDoSResFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_DOS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Gardner(PropertyProxy):
+	"""
+	Examples:
+		:ref:`Hydraulic Property FEAGroundwater Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[GardnerDefinedStageFactor, GardnerStageFactor]): Reference object for modifying stage factor property.
+	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[GardnerDefinedStageFactor, GardnerStageFactor](self._client, stageFactorInterfaceID, ID, GardnerDefinedStageFactor, GardnerStageFactor)

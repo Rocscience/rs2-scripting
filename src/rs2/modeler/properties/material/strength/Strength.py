@@ -61,7 +61,46 @@ class StrengthDefinedStageFactor(StrengthStageFactor):
 		return self._callFunction("setResetYield", [resetYield])
 class Strength(PropertyProxy):
 	"""
-	:ref:`Material Property Strength Example`
+	Examples:
+		:ref:`Material Property Strength Example`
+
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[StrengthDefinedStageFactor, StrengthStageFactor]): Reference object for modifying stage factor property.
+		MohrCoulombStrength (MohrCoulombStrength): Reference object for modifying property.
+		HoekBrown (HoekBrown): Reference object for modifying property.
+		DruckerPrager (DruckerPrager): Reference object for modifying property.
+		GeneralizedHoekBrown (GeneralizedHoekBrown): Reference object for modifying property.
+		DiscreteFunction (Strength.DiscreteFunction): Reference object for modifying property.
+		CamClay (CamClay): Reference object for modifying property.
+		ModifiedCamClay (ModifiedCamClay): Reference object for modifying property.
+		MohrCoulombWithCap (MohrCoulombWithCap): Reference object for modifying property.
+		SofteningHardeningModel (SofteningHardeningModel): Reference object for modifying property.
+		BarcelonaBasic (BarcelonaBasic): Reference object for modifying property.
+		NorSandStrength (NorSandStrength): Reference object for modifying property.
+		BoundingSurfacePlasticity (BoundingSurfacePlasticity): Reference object for modifying property.
+		ManzariAndDafaliasStrength (ManzariAndDafaliasStrength): Reference object for modifying property.
+		PM4SandStrength (PM4SandStrength): Reference object for modifying property.
+		PM4SiltStrength (PM4SiltStrength): Reference object for modifying property.
+		Finn (Finn): Reference object for modifying property.
+		BartonBandisStrength (BartonBandisStrength): Reference object for modifying property.
+		Hyperbolic (Hyperbolic): Reference object for modifying property.
+		PowerCurve (PowerCurve): Reference object for modifying property.
+		ShearNormalFunction (Strength.ShearNormalFunction): Reference object for modifying property.
+		Shansep (Shansep): Reference object for modifying property.
+		VerticalStressRatio (VerticalStressRatio): Reference object for modifying property.
+		SnowdenModAnisotropicLinear (SnowdenModAnisotropicLinear): Reference object for modifying property.
+		AnisotropicLinear (AnisotropicLinear): Reference object for modifying property.
+		GeneralizedAnisotropic (GeneralizedAnisotropic): Reference object for modifying property.
+		JointedMohrCoulomb (JointedMohrCoulomb): Reference object for modifying property.
+		JointedGeneralizedHoekBrown (JointedGeneralizedHoekBrown): Reference object for modifying property.
+		ChSoilStrength (ChSoilStrength): Reference object for modifying property.
+		CySoilStrength (CySoilStrength): Reference object for modifying property.
+		DoubleYieldStrength (DoubleYieldStrength): Reference object for modifying property.
+		HardeningSoilStrength (HardeningSoilStrength): Reference object for modifying property.
+		HardeningSoilWithSmallStrainStiffness (HardeningSoilWithSmallStrainStiffness): Reference object for modifying property.
+		SoftSoilStrength (SoftSoilStrength): Reference object for modifying property.
+		SoftSoilCreepStrength (SoftSoilCreepStrength): Reference object for modifying property.
+		SwellingRockStrength (SwellingRockStrength): Reference object for modifying property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

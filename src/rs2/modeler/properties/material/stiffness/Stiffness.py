@@ -24,7 +24,29 @@ from rs2.modeler.properties.material.stiffness.Pm4Sand import Pm4Sand
 from rs2.modeler.properties.material.stiffness.Pm4Silt import Pm4Silt
 class Stiffness(PropertyProxy):
 	"""
-	:ref:`Material Property Stiffness Example`
+	Examples:
+		:ref:`Material Property Stiffness Example`
+
+	Attributes:
+		Isotropic (Isotropic): Reference object for modifying property.
+		TransverselyIsotropic (TransverselyIsotropic): Reference object for modifying property.
+		Orthotropic (Orthotropic): Reference object for modifying property.
+		NonLinearHyperbolic (NonLinearHyperbolic): Reference object for modifying property.
+		NonLinearIsotropic (NonLinearIsotropic): Reference object for modifying property.
+		ViscoElastic (ViscoElastic): Reference object for modifying property.
+		Custom (Custom): Reference object for modifying property.
+		ChSoil (ChSoil): Reference object for modifying property.
+		CySoil (CySoil): Reference object for modifying property.
+		DoubleYield (DoubleYield): Reference object for modifying property.
+		HardeningSoil (HardeningSoil): Reference object for modifying property.
+		HardeningSoilSmallStrainStiffness (HardeningSoilSmallStrainStiffness): Reference object for modifying property.
+		SoftSoil (SoftSoil): Reference object for modifying property.
+		SoftSoilCreep (SoftSoilCreep): Reference object for modifying property.
+		SwellingRock (SwellingRock): Reference object for modifying property.
+		ManzariAndDafalias (ManzariAndDafalias): Reference object for modifying property.
+		Norsand (Norsand): Reference object for modifying property.
+		Pm4Sand (Pm4Sand): Reference object for modifying property.
+		Pm4Silt (Pm4Silt): Reference object for modifying property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

@@ -21,7 +21,14 @@ from rs2.modeler.properties.material.thermal.heatcapacity.HeatCapacity import He
 from rs2.modeler.properties.material.thermal.soilunfrozenwatercontent.SoilUnfrozenWaterContent import SoilUnfrozenWaterContent
 class Thermal(PropertyProxy):
 	"""
-	:ref:`Material Property Thermal Example`
+	Examples:
+		:ref:`Material Property Thermal Example`
+
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[ThermalDefinedStageFactor, ThermalStageFactor]): Reference object for modifying stage factor property.
+		Conductivity (Conductivity): Reference object for modifying property.
+		HeatCapacity (HeatCapacity): Reference object for modifying property.
+		SoilUnfrozenWaterContent (SoilUnfrozenWaterContent): Reference object for modifying property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

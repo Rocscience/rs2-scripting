@@ -17,6 +17,13 @@ class ConstantDefinedStageFactor(ConstantStageFactor):
 	def setWCCurveSlopeFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_WC_SLOPE", value, self.propertyID], proxyArgumentIndices=[2])
 class Constant(PropertyProxy):
+	"""
+	Examples:
+		:ref:`Hydraulic Property FEAGroundwater Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[ConstantDefinedStageFactor, ConstantStageFactor]): Reference object for modifying stage factor property.
+	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[ConstantDefinedStageFactor, ConstantStageFactor](self._client, stageFactorInterfaceID, ID, ConstantDefinedStageFactor, ConstantStageFactor)

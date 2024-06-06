@@ -5,7 +5,8 @@ from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 class CompositeProperty(PropertyProxy):
 	"""
-	:ref:`Composite Liner Example`
+	Examples:
+		:ref:`Composite Liner Example`
 	"""
 	def getCompositeName(self) -> str:
 		return self._getCStringProperty("CLP_NAME")
