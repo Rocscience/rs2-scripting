@@ -500,6 +500,8 @@
     <Folder Include="src\rs2" />
     <Folder Include="src\rs2.egg-info" />
     <Folder Include="src\rs2\interpreter" />
+    <Folder Include="src\rs2\interpreter\queryResults\" />
+    <Folder Include="src\rs2\interpreter\supportResults\" />
     <Folder Include="src\rs2\modeler" />
     <Folder Include="src\rs2\modeler\properties" />
     <Folder Include="src\rs2\modeler\properties\bolt" />
