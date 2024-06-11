@@ -118,7 +118,7 @@ class LinerElementResult:
         self.distance = distance
 
         self.axial_force1 = axial_force1
-        self.axial_mid = axial_force_mid
+        self.axial_force_mid = axial_force_mid
         self.axial_force2 = axial_force2
 
         self.moment1 = moment1
