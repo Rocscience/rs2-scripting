@@ -66,6 +66,8 @@ model.saveAs(output_path)
 
 # Using Pandas csv reader #######################################################
 # Pandas is a powerful library for data manipulation and analysis
+# NOTE: Also check out their support to read other data formats:
+#       xlsx, json, html, xml, sql, and many more
 import pandas as pd
 
 # Open model
@@ -78,18 +80,19 @@ df_mat = pd.read_csv(mat_data_file_path, skiprows=3)
 mats = model.getAllMaterialProperties() # get a list of all materials in model
 for row in df_mat.itertuples():
     # Get material in order
-    mat = mats[row[0]] # or row.index
+    mat = mats[row.Index] # or row[0] 
     # set properties from data
-    mat.InitialConditions.setUnitWeight(float(row[2])) # or row.unit_weight
-    mat.Stiffness.Isotropic.setPoissonsRatio(float(row[3])) # or row.poissons_ratio
-    mat.Stiffness.Isotropic.setYoungsModulus(float(row[4])) # or row.youngs_modulus
+    mat.setMaterialName(row.name) # or row['name'] or row[1]
+    mat.InitialConditions.setUnitWeight(float(row.unit_weight)) # or row['unit_weight'] or row[2]
+    mat.Stiffness.Isotropic.setPoissonsRatio(float(row.poissons_ratio)) # or row['poissons_ratio'] or row[3]
+    mat.Stiffness.Isotropic.setYoungsModulus(float(row.youngs_modulus)) # or row['youngs_modulus'] or row[4]
     # assume a Mohr-Coulomb material 
     mat.Strength.setFailureCriterion(StrengthCriteriaTypes.MOHR_COULOMB)
     mat.Strength.MohrCoulombStrength.setMaterialType(MaterialType.PLASTIC)
-    mat.Strength.MohrCoulombStrength.setPeakCohesion(float(row[5])) # or row.cohesion
-    mat.Strength.MohrCoulombStrength.setResidualCohesion(float(row[5])) # or row.cohesion
-    mat.Strength.MohrCoulombStrength.setPeakFrictionAngle(float(row[6])) # or row.friction_angle
-    mat.Strength.MohrCoulombStrength.setResidualFrictionAngle(float(row[6])) # or row.friction_angle
+    mat.Strength.MohrCoulombStrength.setPeakCohesion(float(row.cohesion)) # or row['cohesion'] or row[5]
+    mat.Strength.MohrCoulombStrength.setResidualCohesion(float(row.cohesion)) # or row['cohesion'] or row[5]
+    mat.Strength.MohrCoulombStrength.setPeakFrictionAngle(float(row.friction_angle)) # or row['friction_angle'] or row[6]
+    mat.Strength.MohrCoulombStrength.setResidualFrictionAngle(float(row.friction_angle)) # or row['friction_angle'] or row[6]
 
 output_path = rf'{output_dir}\import {mat_data_file_name_no_path_no_ext} using pandas set in order.fez'
 model.saveAs(output_path)
