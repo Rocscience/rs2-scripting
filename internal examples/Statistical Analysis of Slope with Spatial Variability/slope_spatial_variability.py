@@ -43,6 +43,8 @@ compute_models = False
 extract_data = True
 analyze_results = True
 
+runShortExample = True
+
 # Create models
 if create_models:
     # Start RS2 Modeler
@@ -54,13 +56,19 @@ if create_models:
     base_file_path = rf'{current_dir}\{base_file_name}'
 
     # Output folder
-    #output_dir = rf'{current_dir}\samples 5'
-    output_dir = rf'{current_dir}\samples'
+    if runShortExample:
+        output_dir = rf'{current_dir}\samples 5'
+    else:
+        output_dir = rf'{current_dir}\samples'
+
     os.makedirs(output_dir, exist_ok=True) 
 
     # Discrete function files
-    #discrete_function_file_extensions = 'fn6' # make this a tuple to find more
-    discrete_function_file_extensions = 'txt' 
+    if runShortExample:
+        discrete_function_file_extensions = 'fn6' # make this a tuple to find more
+    else:
+        discrete_function_file_extensions = 'txt' 
+
     data_dir = rf'{current_dir}\data'
     discrete_function_file_paths = FileUtil.findFilesWithExtension(data_dir, discrete_function_file_extensions)
 
@@ -71,8 +79,11 @@ if create_models:
 srf_data = []
 if extract_data:
     # Result folder
-    output_dir = rf'{current_dir}\sample results 5'
-    #output_dir = rf'{current_dir}\sample results'
+    if runShortExample:
+        output_dir = rf'{current_dir}\sample results 5'
+    else: 
+        output_dir = rf'{current_dir}\sample results'
+
     # Open RS2 interpreter
     RS2Interpreter.startApplication(port=60055)
     interpreter = RS2Interpreter(port=60055)
