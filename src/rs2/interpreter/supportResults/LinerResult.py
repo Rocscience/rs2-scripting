@@ -47,9 +47,9 @@ class LinerElementResult:
         axial_strain1 (double): Axial Strain at the first position for support liner.
         axial_strain_mid (double): Axial Strain at the mid position for support liner.
         axial_strain2 (double): Axial Strain at the second position for support liner.
-        hoop_curvature_strain1 (double): Hoop Curvature Strain at the first position for support liner.
-        hoop_curvature_strain_mid (double): Hoop Curvature Strain at the mid position for support liner.
-        hoop_curvature_strain2 (double): Hoop Curvature Strain at the second position for support liner.
+        hoop_strain1 (double): Hoop Curvature at the first position for support liner.
+        hoop_strain_mid (double): Hoop Curvature at the mid position for support liner.
+        hoop_strain2 (double): Hoop Curvature at the second position for support liner.
         hoop_axial_strain1 (double): Hoop Axial Strain at the first position for support liner.
         hoop_axial_strain_mid (double): Hoop Axial Strain at the mid position for support liner.
         hoop_axial_strain2 (double): Hoop Axial Strain at the second position for support liner.
