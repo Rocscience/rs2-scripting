@@ -45,3 +45,7 @@ class Hydraulic(PropertyProxy):
 		return self._getBoolProperty("MP_USE_ALPHA_BIOT")
 	def setUseBiotsCoefficientForCalculatingEffectiveStress(self, value: bool):
 		return self._setBoolProperty("MP_USE_ALPHA_BIOT", value)
+	def getAccountForWaterContentInCompressibility(self) -> bool:
+		return self._getBoolProperty("MP_USE_WC_IN_COMP_COUPLED")
+	def setAccountForWaterContentInCompressibility(self, value: bool):
+		return self._setBoolProperty("MP_USE_WC_IN_COMP_COUPLED", value)
