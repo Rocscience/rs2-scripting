@@ -1,4 +1,14 @@
 class HistoryQueryResult:
+    """
+	Examples:
+		:ref:`History Query Example`
+	
+	Attributes:
+		horizontal_axis_result (double): Horizontal Axis Result for history query point.
+        vertical_axis_result (double): Vertical Axis Result for history query point.
+        location_x (double): X-Coordinate for history query point.
+        location_y (double): Y-Coordinate for history query point.
+	"""
     def __init__(self, x_location, y_location, horizontal_axis_result, vertical_axis_result):
         self.horizontal_axis_result = horizontal_axis_result
         self.vertical_axis_result = vertical_axis_result

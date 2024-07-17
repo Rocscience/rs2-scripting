@@ -45,6 +45,13 @@ class GenuchtenDefinedStageFactor(GenuchtenStageFactor):
 	def setDoSResFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_DOS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Genuchten(PropertyProxy):
+	"""
+	Examples:
+		:ref:`Hydraulic Property FEAGroundwater Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[GenuchtenDefinedStageFactor, GenuchtenStageFactor]): Reference object for modifying stage factor property.
+	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[GenuchtenDefinedStageFactor, GenuchtenStageFactor](self._client, stageFactorInterfaceID, ID, GenuchtenDefinedStageFactor, GenuchtenStageFactor)

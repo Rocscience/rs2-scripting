@@ -5,7 +5,7 @@ from multiprocessing.connection import Client as multiProcessingClient
 
 class Client:
 	def __init__(self, host, port):
-		self.compatibleProgramVersion = "11.023"
+		self.compatibleProgramVersion = "11.024"
 		self.connection = self.establishConnection(host, port)
 		if self.connection == None:
 			raise RuntimeError("Could not establish connection with the server. Make sure the server is started on the application.")

@@ -7,7 +7,10 @@ DefinedStageFactor = TypeVar('DefinedStageFactor', bound=ProxyObject)
 StageFactor = TypeVar('StageFactor', bound=ProxyObject)
 
 class AbsoluteStageFactorGettersInterface(ProxyObject, Generic[DefinedStageFactor, StageFactor]):
-	
+	"""
+	Examples:
+		:ref:`Stage Factors Example`
+	"""
 	def __init__(self, client, proxyId, propertyID, definedFactorClass, factorClass):
 		super().__init__(client, proxyId)
 		self._definedStageFactorType = definedFactorClass

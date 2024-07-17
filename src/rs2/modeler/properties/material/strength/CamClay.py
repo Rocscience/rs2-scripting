@@ -41,6 +41,13 @@ class CamClayDefinedStageFactor(CamClayStageFactor):
 	def setPreconsolidationStressFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_PRECONSOLIDATION_STRESS", value, self.propertyID], proxyArgumentIndices=[2])
 class CamClay(PropertyProxy):
+	"""
+	Examples:
+		:ref:`Material Property Strength Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[CamClayDefinedStageFactor, CamClayStageFactor]): Reference object for modifying stage factor property.
+	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[CamClayDefinedStageFactor, CamClayStageFactor](self._client, stageFactorInterfaceID, ID, CamClayDefinedStageFactor, CamClayStageFactor)

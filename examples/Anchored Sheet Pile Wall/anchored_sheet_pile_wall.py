@@ -8,7 +8,7 @@ import os
 import pandas as pd
 import matplotlib.pyplot as plt
 
-# Start RS2 Modeler
+# Start RS2 Modeler and Interpreter
 RS2Modeler.startApplication(port=60054)
 modeler = RS2Modeler(port=60054)
 
@@ -27,7 +27,7 @@ df_mat = pd.read_csv(rf"{current_dir}\material properties.csv") #read material p
 material1 = model.getAllMaterialProperties()[0] # get material 1 properties
 material2 = model.getAllMaterialProperties()[1] # get material 2 properties
 
-# Assigning material 1 properties 
+# Assigning material 1 properties individually
 material1.InitialConditions.setUnitWeight(float(df_mat.iat[0, 1])) # set unit wetight
 material1.Stiffness.Isotropic.setPoissonsRatio(float(df_mat.iat[0, 2])) # set poissons ratio
 material1.Strength.MohrCoulombStrength.setMaterialType(MaterialType.PLASTIC) # set material type to plastic
@@ -94,7 +94,7 @@ interpreter = RS2Interpreter(port=60055)
 model_results = interpreter.openFile(rf"{output_dir}\Anchored Sheet Pile Wall_scripting (Final).fez")
 
 # Results Part I: 
-# Extract total displacement data at stage 5 along the sheet pile wall (material queries) 
+# Extract total displacement data at stage 5 along the sheet pile wall (material queries)
 
 # Setting results to solid total displacement
 model_results.SetResultType(ExportResultType.SOLID_DISPLACEMENT_TOTAL_DISPLACEMENT)
@@ -110,7 +110,7 @@ model_results.SetActiveStage(stage_number)
 # Get material queries results at stage 5
 query_results = model_results.GetMaterialQueryResults()[0] # get the material query results at stage 5:
                                                                 # GetMaterialQueryResults() returns a list grouped by stages, since there is a defined active stage,
-                                                                # it is the only item contained in the list. Therefore using the first index: GetMaterialQueryResults()[0]
+                                                                # it is the only item contained in the list. Therefore GetMaterialQueryResults()[0]
 
 # Create an empty distionary for the material queries data frame
 mat_que_dict = {"X":[], "Y":[],"Distance":[], "Total Displacement (m)":[]}
@@ -139,28 +139,19 @@ liner_results = model_results.GetLinerResults(stages =[stage_number]) # output l
 
 stage_liner_results = liner_results[stage_number][0] #output the first liner results at stage 5
 
-# Create an empty distionary for the data frame
-liner_dict = {"Start Node":[], "End Node":[],"Start Node X":[], "Start Node Y":[], 
-                "End Node X":[], "End Node Y":[], "Distance (m)":[], "Axial Force (kN)":[],
-                "Shear Force (kN)":[], "Bending Moment Start (kNm)":[], "Bending Moment Mid (kNm)":[],
-                "Bending Moment End (kNm)":[]}
+# Create a dictionary for the data frame and fill with first node data
+liner_first_node = stage_liner_results.liner_element_results[0] # extrat first node data
+liner_dict = {"Depth (m)":[18 - liner_first_node.start_y], # calculate depth from top of wall
+                 "Axial Force (kN)":[liner_first_node.axial_force1], 
+                 "Shear Force (kN)":[liner_first_node.shear_force1], 
+                 "Bending Moment (kNm)":[liner_first_node.moment1]}
 
 for liner_node in stage_liner_results.liner_element_results:
-    # Add data to the liner results dictionary
-    liner_dict["Start Node"].append(liner_node.node_start)
-    liner_dict["End Node"].append(liner_node.node_end)
-    liner_dict["Start Node X"].append(liner_node.start_x)
-    liner_dict["Start Node Y"].append(liner_node.start_y)
-    liner_dict["End Node X"].append(liner_node.end_x)
-    liner_dict["End Node Y"].append(liner_node.end_y)
-    liner_dict["Distance (m)"].append(liner_node.distance)
-
-    # Add axial force, shear force, and bending moment results for each node
-    liner_dict["Axial Force (kN)"].append(liner_node.axial_force)
-    liner_dict["Shear Force (kN)"].append(liner_node.shear_force)
-    liner_dict["Bending Moment Start (kNm)"].append(liner_node.moment1)
-    liner_dict["Bending Moment Mid (kNm)"].append(liner_node.moment_mid)
-    liner_dict["Bending Moment End (kNm)"].append(liner_node.moment2)
+    # Add remaining data to the liner results dictionary
+    liner_dict["Depth (m)"].append(18 - liner_node.end_y) # calculate depth from top of wall
+    liner_dict["Axial Force (kN)"].append(liner_node.axial_force2)
+    liner_dict["Shear Force (kN)"].append(liner_node.shear_force2)
+    liner_dict["Bending Moment (kNm)"].append(liner_node.moment2)
 
 # Convert the dictionary to data frame
 liner_results_df = pd.DataFrame(liner_dict) 
@@ -179,7 +170,7 @@ def format_plot():
 
 # Plot Liner Axial Force Diagram
 plt.figure()
-plt.plot(liner_results_df["Axial Force (kN)"], liner_results_df["Distance (m)"])
+plt.plot(liner_results_df["Axial Force (kN)"], liner_results_df["Depth (m)"])
 plt.xlabel("Axial Force (kN)")
 plt.ylabel("Depth (m)")
 plt.title("Liner Axial Force at Stage 5")
@@ -191,7 +182,7 @@ plt.savefig(rf"{output_dir}\liner axial force at stage 5.png")
 
 # Plot Liner Shear Force Diagram
 plt.figure()
-plt.plot(liner_results_df["Shear Force (kN)"], liner_results_df["Distance (m)"])
+plt.plot(liner_results_df["Shear Force (kN)"], liner_results_df["Depth (m)"])
 plt.xlabel("Shear Force (kN)")
 plt.ylabel("Depth (m)")
 plt.title("Liner Shear Force at Stage 5")
@@ -201,36 +192,9 @@ plt.gca().yaxis.set_label_position('right')
 # save plot
 plt.savefig(rf"{output_dir}\liner shear force at stage 5.png")
 
-# Extract data for Liner Bending Moment Diagram
-
-moment_dist = [] # x-axis data (depth)
-moment_value = [] # y-axis data (bending moment)
-
-distance_col = liner_results_df["Distance (m)"]
-moment1_col = liner_results_df["Bending Moment Start (kNm)"]
-moment_mid_col = liner_results_df["Bending Moment Mid (kNm)"]
-moment2_col = liner_results_df["Bending Moment End (kNm)"]
-
-# Moment data has three points: moment 1 at start node, moment mid at midpoint and moment 2 at end node
-# Let's get distance and moment values at the start, mid and end points
-moment_dist.append(0)
-for index in distance_col.index:
-    # Get distance to start, mid and end point of each liner element
-    distance_to_start_node = moment_dist[-1]
-    distance_to_midpoint = distance_col[index]
-    distance_to_endpoint = distance_to_midpoint + (distance_to_midpoint - distance_to_start_node)
-    moment_dist.append(distance_to_midpoint)
-    moment_dist.append(distance_to_endpoint)
-    # Get start and mid moments of each liner element, the end moment is the start moment of the next element
-    moment_value.append(moment1_col[index])
-    moment_value.append(moment_mid_col[index])
-
-# Append end moment of very last element
-moment_value.append(moment2_col.iloc[-1])
-
 # Plot Liner Bending Moment
 plt.figure()
-plt.plot(moment_value, moment_dist)
+plt.plot(liner_results_df["Bending Moment (kNm)"], liner_results_df["Depth (m)"])
 plt.xlabel("Bending Moment (kNm)")
 plt.ylabel("Depth (m)")
 plt.title("Liner Bending Moment at Stage 5")

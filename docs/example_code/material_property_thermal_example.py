@@ -4,14 +4,13 @@ import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
 modeler = RS2Modeler()
-model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
+model = modeler.openFile(rf"{current_dir}\example_models\TransientGroundwaterAndThermal.fez")
 
 material = model.getAllMaterialProperties()[0]
 thermal = material.Thermal
 thermal.setWaterContent(ThermalWaterContentMethodType.DEFINE)
 thermal.setWaterContentValue(0.35)
 
-# Manipulation of Thermal Conductivity Properties
 conductivity = thermal.Conductivity
 conductivity.setMethod(ThermalType.JOHANSEN_LU)
 johansenLu = conductivity.JohansenLu
@@ -25,7 +24,6 @@ conductivity.Tabular.setThermalConductivityTemperatureFunction(temperature=[1, 2
                                                                conductivity=[1.5, 3.3, 4.8])
 print(f"\nThermal Temp. Vs Conductivity Table Values = {conductivity.Tabular.getThermalConductivityTemperatureFunction()}")
 
-# Manipulation of Thermal Heat Capacity Properties
 heatCapacity = thermal.HeatCapacity
 heatCapacity.setType(ThermalHeatCapacityType.JAME_NEWMAN)
 jameNewman = thermal.HeatCapacity.JameNewman
@@ -39,7 +37,6 @@ custom.setVolumetricHeatCapacityVsWaterContentTable(volumetricHeatCapacity=[1, 2
                                                     waterContent=[7, 8.5])
 print("Volumetric Heat Capacity VS Water Content Table", custom.getVolumetricHeatCapacityVsWaterContentTable())
 
-# Manipulation of Thermal Soil Unfrozen Water Content Properties
 soilUnfrozenWaterContent = thermal.SoilUnfrozenWaterContent
 ticeAnderson = soilUnfrozenWaterContent.TiceAnderson
 ticeAnderson.setFrozenTemperature(-0.05)
@@ -53,7 +50,6 @@ soilUnfrozenWaterContent.CustomWaterContent.setTemperatureVsUnfrozenWaterContent
 print("\nThermal Temperature vs Soil Unfrozen Water Content Table Values",
       soilUnfrozenWaterContent.CustomWaterContent.getTemperatureVsUnfrozenWaterContentValues())
 
-# Manipulation of Thermal Hydraulic Model Soil Unfrozen Water Content Properties
 soilUnfrozenWC = thermal.SoilUnfrozenWaterContent
 # Make sure to set Soil Unfrozen Water Content type to Hydraulic Properties
 soilUnfrozenWC.setType(ThermalWaterContentType.SOIL_WATER_CONTENT_IN_HYDRAULIC_PROPERTIES)
@@ -63,7 +59,7 @@ hydraulic_soilUnfrozenWC.setSelectHydraulicModel(GroundWaterModes.GARDNER)
 hydraulic_soilUnfrozenWC.setFrozenTemperature(-0.015)
 hydraulic_soilUnfrozenWC.setWCSat(0.34)
 hydraulic_soilUnfrozenWC.setWCRes(0.01)
-# Set properties for Gardener Hydraulic Model
+
 gardenerWaterContent = hydraulic_soilUnfrozenWC.GardnerWaterContent
 gardenerWaterContent.setA(8)
 gardenerWaterContent.setN(3)
@@ -81,5 +77,19 @@ thermal.setTransverseDispersivity(3)
 
 print(f"Thermal Expansion Coeff. = {thermal.getExpansionCoefficient()}")
 print(f"Longitudinal Dispersivity = {thermal.getLongitudinalDispersivity()}, Transverse Dispersivity = {thermal.getTransverseDispersivity()}\n")
+
+# Manipulation of Thermal Stage Factor Properties for stage 1
+material.StageFactors.setStageThermalStageFactors(True)
+
+definedStageFactors = material.StageFactors.getDefinedStageFactors()
+newStageFactor = material.StageFactors.createStageFactor(2)
+definedStageFactors[2] = newStageFactor
+material.StageFactors.setDefinedStageFactors(definedStageFactors)
+
+thermalStageFactors = thermal.stageFactorInterface.getDefinedStageFactors()[2]
+
+thermalStageFactors.setThermalGridFactor("Default Grid")
+
+print(f"Thermal Stage Factor Grid To Use = {thermalStageFactors.getThermalGridFactor()}")
 
 model.close()

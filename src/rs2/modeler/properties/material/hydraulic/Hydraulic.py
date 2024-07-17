@@ -20,7 +20,13 @@ class HydraulicDefinedStageFactor(HydraulicStageFactor):
 		return self._callFunction("setMaterialBehaviourFactor", [materialBehavior.value])
 class Hydraulic(PropertyProxy):
 	"""
-	:ref:`Hydraulic Property Example`
+	Examples:
+		:ref:`Hydraulic Property Example`
+
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[HydraulicDefinedStageFactor, HydraulicStageFactor]): Reference object for modifying stage factor property.
+		StaticGroundwater (StaticGroundwater): Reference object for modifying property.
+		FEAGroundwater (FEAGroundwater): Reference object for modifying property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
@@ -39,3 +45,7 @@ class Hydraulic(PropertyProxy):
 		return self._getBoolProperty("MP_USE_ALPHA_BIOT")
 	def setUseBiotsCoefficientForCalculatingEffectiveStress(self, value: bool):
 		return self._setBoolProperty("MP_USE_ALPHA_BIOT", value)
+	def getAccountForWaterContentInCompressibility(self) -> bool:
+		return self._getBoolProperty("MP_USE_WC_IN_COMP_COUPLED")
+	def setAccountForWaterContentInCompressibility(self, value: bool):
+		return self._setBoolProperty("MP_USE_WC_IN_COMP_COUPLED", value)

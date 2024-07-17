@@ -5,10 +5,8 @@ current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None)))
 interpreter = RS2Interpreter()
 model = interpreter.openFile(rf"{current_dir}\example_models\SupportResults.fez")
 
-# Define stages to get support results for
 stages = [1, 2]
 
-# Get Liner Results
 results = model.GetLinerResults(stages)
 
 for stageNum, allLinerResults in results.items():

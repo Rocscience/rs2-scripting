@@ -21,6 +21,13 @@ class InitialConditionsDefinedStageFactor(InitialConditionsStageFactor):
 	def setPorosityValueFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["MP_POROSITY_VALUE", value, self.propertyID], proxyArgumentIndices=[2])
 class InitialConditions(PropertyProxy):
+	"""
+	Examples:
+		:ref:`Initial Condition Stage Factor Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[InitialConditionsDefinedStageFactor, InitialConditionsStageFactor]): Reference object for modifying stage factor property.
+	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[InitialConditionsDefinedStageFactor, InitialConditionsStageFactor](self._client, stageFactorInterfaceID, ID, InitialConditionsDefinedStageFactor, InitialConditionsStageFactor)
