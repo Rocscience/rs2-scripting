@@ -17,7 +17,7 @@
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -131,7 +131,41 @@
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.hydraulic.Hydraulic.</span></span><span class="sig-name descname"><span class="pre">Hydraulic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentProxyID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stageFactorInterfaceID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PropertyProxy</span></code></p>
+<p class="rubric">Examples</p>
 <p><a class="reference internal" href="../examples.html#hydraulic-property-example"><span class="std std-ref">Code Snippet: Manipulation of Hydraulic Properties</span></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.stageFactorInterface">
+<span class="sig-name descname"><span class="pre">stageFactorInterface</span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.stageFactorInterface" title="Link to this definition"></a></dt>
+<dd><p>Reference object for modifying stage factor property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.AbsoluteStageFactorGettersInterface.AbsoluteStageFactorGettersInterface" title="rs2.modeler.properties.AbsoluteStageFactorGettersInterface.AbsoluteStageFactorGettersInterface">AbsoluteStageFactorGettersInterface</a>[<a class="reference internal" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicDefinedStageFactor" title="rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicDefinedStageFactor">HydraulicDefinedStageFactor</a>, <a class="reference internal" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicStageFactor" title="rs2.modeler.properties.material.hydraulic.Hydraulic.HydraulicStageFactor">HydraulicStageFactor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.StaticGroundwater">
+<span class="sig-name descname"><span class="pre">StaticGroundwater</span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.StaticGroundwater" title="Link to this definition"></a></dt>
+<dd><p>Reference object for modifying property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater" title="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater">StaticGroundwater</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.FEAGroundwater">
+<span class="sig-name descname"><span class="pre">FEAGroundwater</span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.FEAGroundwater" title="Link to this definition"></a></dt>
+<dd><p>Reference object for modifying property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.FEAGroundwater.html#rs2.modeler.properties.material.hydraulic.FEAGroundwater.FEAGroundwater.FEAGroundwater" title="rs2.modeler.properties.material.hydraulic.FEAGroundwater.FEAGroundwater.FEAGroundwater">FEAGroundwater</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.getMaterialBehaviour">
 <span class="sig-name descname"><span class="pre">getMaterialBehaviour</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.MaterialBehaviours" title="rs2.modeler.properties.PropertyEnums.MaterialBehaviours"><span class="pre">MaterialBehaviours</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.getMaterialBehaviour" title="Link to this definition"></a></dt>
@@ -160,6 +194,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.setUseBiotsCoefficientForCalculatingEffectiveStress">
 <span class="sig-name descname"><span class="pre">setUseBiotsCoefficientForCalculatingEffectiveStress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.setUseBiotsCoefficientForCalculatingEffectiveStress" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.getAccountForWaterContentInCompressibility">
+<span class="sig-name descname"><span class="pre">getAccountForWaterContentInCompressibility</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.getAccountForWaterContentInCompressibility" title="Link to this definition"></a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.setAccountForWaterContentInCompressibility">
+<span class="sig-name descname"><span class="pre">setAccountForWaterContentInCompressibility</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic.setAccountForWaterContentInCompressibility" title="Link to this definition"></a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -203,7 +247,19 @@
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.hydraulic.StaticGroundwater.</span></span><span class="sig-name descname"><span class="pre">StaticGroundwater</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentProxyID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stageFactorInterfaceID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PropertyProxy</span></code></p>
+<p class="rubric">Examples</p>
 <p><a class="reference internal" href="../examples.html#hydraulic-property-static-groundwater-example"><span class="std std-ref">Code Snippet: Manipulation of Hydraulic Static Groundwater Properties</span></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.stageFactorInterface">
+<span class="sig-name descname"><span class="pre">stageFactorInterface</span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.stageFactorInterface" title="Link to this definition"></a></dt>
+<dd><p>Reference object for modifying stage factor property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.AbsoluteStageFactorGettersInterface.AbsoluteStageFactorGettersInterface" title="rs2.modeler.properties.AbsoluteStageFactorGettersInterface.AbsoluteStageFactorGettersInterface">AbsoluteStageFactorGettersInterface</a>[<a class="reference internal" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterDefinedStageFactor" title="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterDefinedStageFactor">StaticGroundwaterDefinedStageFactor</a>, <a class="reference internal" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterStageFactor" title="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwaterStageFactor">StaticGroundwaterStageFactor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getStaticWaterMode">
 <span class="sig-name descname"><span class="pre">getStaticWaterMode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.hydraulic.StaticGroundwater.StaticGroundwater.getStaticWaterMode" title="Link to this definition"></a></dt>

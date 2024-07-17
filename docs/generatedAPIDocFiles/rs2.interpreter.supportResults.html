@@ -17,7 +17,7 @@
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -132,18 +132,47 @@
 <dt class="sig sig-object py" id="rs2.interpreter.supportResults.BoltResult.BoltYieldingResult">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.BoltResult.</span></span><span class="sig-name descname"><span class="pre">BoltYieldingResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yielding_flag</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.BoltResult.BoltYieldingResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#support-bolt-results-example"><span class="std std-ref">Code Snippet: Get Support Bolt Results</span></a></p>
+<p>Attributes:
+start_x (double): Start X-Coordinate for support bolt.
+start_y (double): Start Y-Coordinate for support bolt.
+end_x (double): End X-Coordinate for support bolt.
+end_y (double): End Y-Coordinate for support bolt.
+yielding_flag (BoltElementYieldStatus): Enum representing bolt yielded status.</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.interpreter.supportResults.BoltResult.BoltForceDisplacementResult">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.BoltResult.</span></span><span class="sig-name descname"><span class="pre">BoltForceDisplacementResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">location_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">location_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axial_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axial_stress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">rock_displacement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">bolt_displacement</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.BoltResult.BoltForceDisplacementResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#support-bolt-results-example"><span class="std std-ref">Code Snippet: Get Support Bolt Results</span></a></p>
+<p>Attributes:
+location_x (double): Start X-Coordinate for support bolt.
+location_y (double): Start Y-Coordinate for support bolt.
+distance (double): Distance of support bolt.
+axial_force (double): Axial Force for support bolt.
+axial_stress (double): Axial Stress for support bolt.
+shear_force (double): Shear Force for support bolt.
+rock_displacement (double): Rock Displacement for support bolt.
+bolt_displacement (double): Bolt Displacement for support bolt.</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.interpreter.supportResults.BoltResult.BoltResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.BoltResult.</span></span><span class="sig-name descname"><span class="pre">BoltResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yielding_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.BoltResult.BoltYieldingResult" title="rs2.interpreter.supportResults.BoltResult.BoltYieldingResult"><span class="pre">BoltYieldingResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_displacement_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.BoltResult.BoltForceDisplacementResult" title="rs2.interpreter.supportResults.BoltResult.BoltForceDisplacementResult"><span class="pre">BoltForceDisplacementResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.BoltResult.BoltResult" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.BoltResult.</span></span><span class="sig-name descname"><span class="pre">BoltResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">entity_data</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yielding_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.supportResults.BoltResult.BoltYieldingResult" title="rs2.interpreter.supportResults.BoltResult.BoltYieldingResult"><span class="pre">BoltYieldingResult</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">force_displacement_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.supportResults.BoltResult.BoltForceDisplacementResult" title="rs2.interpreter.supportResults.BoltResult.BoltForceDisplacementResult"><span class="pre">BoltForceDisplacementResult</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.BoltResult.BoltResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#support-bolt-results-example"><span class="std std-ref">Code Snippet: Get Support Bolt Results</span></a></p>
+<p>Attributes:
+entity_id (str): Unique Identifier for support bolt.
+start_x (double): Start X-Coordinate for support bolt.
+start_y (double): Start Y-Coordinate for support bolt.
+end_x (double): End X-Coordinate for support bolt.
+end_y (double): End Y-Coordinate for support bolt.
+yielding_results (list[BoltYieldingResult]): List of bolt yielding result for support bolt.
+force_displacement_results (list[BoltForceDisplacementResult]): List of bolt force displacement result for support bolt.</p>
 </dd></dl>
 
 </section>
@@ -151,20 +180,38 @@
 <span id="rs2-interpreter-supportresults-compositeresult-module"></span><h2>rs2.interpreter.supportResults.CompositeResult module<a class="headerlink" href="#module-rs2.interpreter.supportResults.CompositeResult" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.interpreter.supportResults.CompositeResult.PileResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.CompositeResult.</span></span><span class="sig-name descname"><span class="pre">PileResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.JointResult.JointResult" title="rs2.interpreter.supportResults.JointResult.JointResult"><span class="pre">JointResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.LinerResult.LinerResult" title="rs2.interpreter.supportResults.LinerResult.LinerResult"><span class="pre">LinerResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.CompositeResult.PileResult" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.CompositeResult.</span></span><span class="sig-name descname"><span class="pre">PileResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.supportResults.JointResult.JointResult" title="rs2.interpreter.supportResults.JointResult.JointResult"><span class="pre">JointResult</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.supportResults.LinerResult.LinerResult" title="rs2.interpreter.supportResults.LinerResult.LinerResult"><span class="pre">LinerResult</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.CompositeResult.PileResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#support-pile-results-example"><span class="std std-ref">Code Snippet: Get Support Pile Results</span></a></p>
+<p>Attributes:
+entity_id (str): Unique Identifier for support pile.
+joint_result (list[JointResult]): List of all joint results for support pile.
+liner_result (list[LinerResult]): List of all liner results for support pile.</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.interpreter.supportResults.CompositeResult.CompositeResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.CompositeResult.</span></span><span class="sig-name descname"><span class="pre">CompositeResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.JointResult.JointResult" title="rs2.interpreter.supportResults.JointResult.JointResult"><span class="pre">JointResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.LinerResult.LinerResult" title="rs2.interpreter.supportResults.LinerResult.LinerResult"><span class="pre">LinerResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.CompositeResult.CompositeResult" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.CompositeResult.</span></span><span class="sig-name descname"><span class="pre">CompositeResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.supportResults.JointResult.JointResult" title="rs2.interpreter.supportResults.JointResult.JointResult"><span class="pre">JointResult</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.supportResults.LinerResult.LinerResult" title="rs2.interpreter.supportResults.LinerResult.LinerResult"><span class="pre">LinerResult</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.CompositeResult.CompositeResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#support-composite-results-example"><span class="std std-ref">Code Snippet: Get Support Composite Results</span></a></p>
+<p>Attributes:
+entity_id (str): Unique Identifier for support composite.
+joint_result (list[JointResult]): List of all joint results for support composite.
+liner_result (list[LinerResult]): List of all liner results for support composite.</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.interpreter.supportResults.CompositeResult.StructuralResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.CompositeResult.</span></span><span class="sig-name descname"><span class="pre">StructuralResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.JointResult.JointResult" title="rs2.interpreter.supportResults.JointResult.JointResult"><span class="pre">JointResult</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.LinerResult.LinerResult" title="rs2.interpreter.supportResults.LinerResult.LinerResult"><span class="pre">LinerResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.CompositeResult.StructuralResult" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.CompositeResult.</span></span><span class="sig-name descname"><span class="pre">StructuralResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.supportResults.JointResult.JointResult" title="rs2.interpreter.supportResults.JointResult.JointResult"><span class="pre">JointResult</span></a><span class="p"><span class="pre">]</span></span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_result</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.supportResults.LinerResult.LinerResult" title="rs2.interpreter.supportResults.LinerResult.LinerResult"><span class="pre">LinerResult</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.CompositeResult.StructuralResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#support-structural-results-example"><span class="std std-ref">Code Snippet: Get Support Structural Results</span></a></p>
+<p>Attributes:
+entity_id (str): Unique Identifier for support structural.
+joint_result (list[JointResult]): List of all joint results for support structural.
+liner_result (list[LinerResult]): List of all liner results for support structural.</p>
 </dd></dl>
 
 </section>
@@ -174,12 +221,31 @@
 <dt class="sig sig-object py" id="rs2.interpreter.supportResults.JointResult.JointElementResult">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.JointResult.</span></span><span class="sig-name descname"><span class="pre">JointElementResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normal_stress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear_stress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">confining_stress</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">normal_displacement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear_displacement</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">yielded</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.JointResult.JointElementResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#support-joint-results-example"><span class="std std-ref">Code Snippet: Get Support Joint Results</span></a></p>
+<p>Attributes:
+start_x (double): Start X-Coordinate for support joint.
+start_y (double): Start Y-Coordinate for support joint.
+end_x (double): End X-Coordinate for support joint.
+end_y (double): End Y-Coordinate for support joint.
+distance (double): Distance of support joint.
+normal_stress (double): Normal Stress for support joint.
+shear_stress (double): Shear Stress for support joint.
+confining_stress (double): Confining Stress for support joint.
+normal_displacement (double): Normal Displacement for support joint.
+shear_displacement (double): Shear Displacement for support joint.
+yielded (bool): Boolean representing yielded status for support joint.</p>
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.interpreter.supportResults.JointResult.JointResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.JointResult.</span></span><span class="sig-name descname"><span class="pre">JointResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_element_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.JointResult.JointElementResult" title="rs2.interpreter.supportResults.JointResult.JointElementResult"><span class="pre">JointElementResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.JointResult.JointResult" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.JointResult.</span></span><span class="sig-name descname"><span class="pre">JointResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">joint_element_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.supportResults.JointResult.JointElementResult" title="rs2.interpreter.supportResults.JointResult.JointElementResult"><span class="pre">JointElementResult</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.JointResult.JointResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#support-joint-results-example"><span class="std std-ref">Code Snippet: Get Support Joint Results</span></a></p>
+<p>Attributes:
+entity_id (str): Unique Identifier for support joint.
+joint_element_results (list[JointElementResult]): List of all joint element result for support joint.</p>
 </dd></dl>
 
 </section>
@@ -187,14 +253,549 @@
 <span id="rs2-interpreter-supportresults-linerresult-module"></span><h2>rs2.interpreter.supportResults.LinerResult module<a class="headerlink" href="#module-rs2.interpreter.supportResults.LinerResult" title="Link to this heading"></a></h2>
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.LinerResult.</span></span><span class="sig-name descname"><span class="pre">LinerElementResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">composite_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axial_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_total</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axi_sym_force</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axi_sym_moment</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beam_yield</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.LinerResult.</span></span><span class="sig-name descname"><span class="pre">LinerElementResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">composite_layer</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_start</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">node_end</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_x</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">end_y</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axial_force1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axial_force_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axial_force2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">moment2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear_force1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear_force_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">shear_force2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axi_sym_force1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axi_sym_force_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axi_sym_force2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axi_sym_moment1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axi_sym_moment_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axi_sym_moment2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_total1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_total_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_total2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_x1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_x_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_x2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_y1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_y_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">displacement_y2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">temperature2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curvature1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curvature_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">curvature2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axial_strain1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axial_strain_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">axial_strain2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hoop_curvature1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hoop_curvature_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hoop_curvature2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hoop_axial_strain1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hoop_axial_strain_mid</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">hoop_axial_strain2</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">beam_yield</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#support-liner-results-example"><span class="std std-ref">Code Snippet: Get Support Liner Results</span></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.composite_layer">
+<span class="sig-name descname"><span class="pre">composite_layer</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.composite_layer" title="Link to this definition"></a></dt>
+<dd><p>Integer representing composite layer for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.node_start">
+<span class="sig-name descname"><span class="pre">node_start</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.node_start" title="Link to this definition"></a></dt>
+<dd><p>Integer representing start node for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.node_end">
+<span class="sig-name descname"><span class="pre">node_end</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.node_end" title="Link to this definition"></a></dt>
+<dd><p>Integer representing end node for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>int</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.start_x">
+<span class="sig-name descname"><span class="pre">start_x</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.start_x" title="Link to this definition"></a></dt>
+<dd><p>Start X-Coordinate for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.start_y">
+<span class="sig-name descname"><span class="pre">start_y</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.start_y" title="Link to this definition"></a></dt>
+<dd><p>Start Y-Coordinate for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.end_x">
+<span class="sig-name descname"><span class="pre">end_x</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.end_x" title="Link to this definition"></a></dt>
+<dd><p>End X-Coordinate for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.end_y">
+<span class="sig-name descname"><span class="pre">end_y</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.end_y" title="Link to this definition"></a></dt>
+<dd><p>End Y-Coordinate for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.distance">
+<span class="sig-name descname"><span class="pre">distance</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.distance" title="Link to this definition"></a></dt>
+<dd><p>Distance of support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.axial_force1">
+<span class="sig-name descname"><span class="pre">axial_force1</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.axial_force1" title="Link to this definition"></a></dt>
+<dd><p>Axial Force at the first position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.axial_force_mid">
+<span class="sig-name descname"><span class="pre">axial_force_mid</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.axial_force_mid" title="Link to this definition"></a></dt>
+<dd><p>Axial Force at the mid position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.axial_force2">
+<span class="sig-name descname"><span class="pre">axial_force2</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.axial_force2" title="Link to this definition"></a></dt>
+<dd><p>Axial Force at the second position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.moment1">
+<span class="sig-name descname"><span class="pre">moment1</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.moment1" title="Link to this definition"></a></dt>
+<dd><p>First Moment for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.moment_mid">
+<span class="sig-name descname"><span class="pre">moment_mid</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.moment_mid" title="Link to this definition"></a></dt>
+<dd><p>Mid Moment for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.moment2">
+<span class="sig-name descname"><span class="pre">moment2</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.moment2" title="Link to this definition"></a></dt>
+<dd><p>Second Moment for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.shear_force1">
+<span class="sig-name descname"><span class="pre">shear_force1</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.shear_force1" title="Link to this definition"></a></dt>
+<dd><p>Shear Force at the first position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.shear_force_mid">
+<span class="sig-name descname"><span class="pre">shear_force_mid</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.shear_force_mid" title="Link to this definition"></a></dt>
+<dd><p>Shear Force at the mid position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.shear_force2">
+<span class="sig-name descname"><span class="pre">shear_force2</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.shear_force2" title="Link to this definition"></a></dt>
+<dd><p>Shear Force at the second position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.axi_sym_force1">
+<span class="sig-name descname"><span class="pre">axi_sym_force1</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.axi_sym_force1" title="Link to this definition"></a></dt>
+<dd><p>Axial Symmetry Force at the first position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.axi_sym_force_mid">
+<span class="sig-name descname"><span class="pre">axi_sym_force_mid</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.axi_sym_force_mid" title="Link to this definition"></a></dt>
+<dd><p>Axial Symmetry Force at the mid position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.axi_sym_force2">
+<span class="sig-name descname"><span class="pre">axi_sym_force2</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.axi_sym_force2" title="Link to this definition"></a></dt>
+<dd><p>Axial Symmetry Force at the second position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.axi_sym_moment1">
+<span class="sig-name descname"><span class="pre">axi_sym_moment1</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.axi_sym_moment1" title="Link to this definition"></a></dt>
+<dd><p>Axial Symmetry Moment at the first position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.axi_sym_moment_mid">
+<span class="sig-name descname"><span class="pre">axi_sym_moment_mid</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.axi_sym_moment_mid" title="Link to this definition"></a></dt>
+<dd><p>Axial Symmetry Moment at the mid position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.axi_sym_moment2">
+<span class="sig-name descname"><span class="pre">axi_sym_moment2</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.axi_sym_moment2" title="Link to this definition"></a></dt>
+<dd><p>Axial Symmetry Moment at the second position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_total1">
+<span class="sig-name descname"><span class="pre">displacement_total1</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_total1" title="Link to this definition"></a></dt>
+<dd><p>Total Displacement at the first position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_total_mid">
+<span class="sig-name descname"><span class="pre">displacement_total_mid</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_total_mid" title="Link to this definition"></a></dt>
+<dd><p>Total Displacement at the mid position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_total2">
+<span class="sig-name descname"><span class="pre">displacement_total2</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_total2" title="Link to this definition"></a></dt>
+<dd><p>Total Displacement at the second position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_x1">
+<span class="sig-name descname"><span class="pre">displacement_x1</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_x1" title="Link to this definition"></a></dt>
+<dd><p>Horizontal Displacement at the first position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_x_mid">
+<span class="sig-name descname"><span class="pre">displacement_x_mid</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_x_mid" title="Link to this definition"></a></dt>
+<dd><p>Horizontal Displacement at the mid position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_x2">
+<span class="sig-name descname"><span class="pre">displacement_x2</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_x2" title="Link to this definition"></a></dt>
+<dd><p>Horizontal Displacement at the second position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_y1">
+<span class="sig-name descname"><span class="pre">displacement_y1</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_y1" title="Link to this definition"></a></dt>
+<dd><p>Vertical Displacement at the first position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_y_mid">
+<span class="sig-name descname"><span class="pre">displacement_y_mid</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_y_mid" title="Link to this definition"></a></dt>
+<dd><p>Vertical Displacement at the mid position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_y2">
+<span class="sig-name descname"><span class="pre">displacement_y2</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.displacement_y2" title="Link to this definition"></a></dt>
+<dd><p>Vertical Displacement at the second position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.temperature1">
+<span class="sig-name descname"><span class="pre">temperature1</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.temperature1" title="Link to this definition"></a></dt>
+<dd><p>Temperature at the first position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.temperature_mid">
+<span class="sig-name descname"><span class="pre">temperature_mid</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.temperature_mid" title="Link to this definition"></a></dt>
+<dd><p>Temperature at the mid position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.temperature2">
+<span class="sig-name descname"><span class="pre">temperature2</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.temperature2" title="Link to this definition"></a></dt>
+<dd><p>Temperature at the second position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.curvature1">
+<span class="sig-name descname"><span class="pre">curvature1</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.curvature1" title="Link to this definition"></a></dt>
+<dd><p>Curvature at the first position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.curvature_mid">
+<span class="sig-name descname"><span class="pre">curvature_mid</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.curvature_mid" title="Link to this definition"></a></dt>
+<dd><p>Curvature at the mid position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.curvature2">
+<span class="sig-name descname"><span class="pre">curvature2</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.curvature2" title="Link to this definition"></a></dt>
+<dd><p>Curvature at the second position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.axial_strain1">
+<span class="sig-name descname"><span class="pre">axial_strain1</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.axial_strain1" title="Link to this definition"></a></dt>
+<dd><p>Axial Strain at the first position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.axial_strain_mid">
+<span class="sig-name descname"><span class="pre">axial_strain_mid</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.axial_strain_mid" title="Link to this definition"></a></dt>
+<dd><p>Axial Strain at the mid position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.axial_strain2">
+<span class="sig-name descname"><span class="pre">axial_strain2</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.axial_strain2" title="Link to this definition"></a></dt>
+<dd><p>Axial Strain at the second position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.hoop_strain1">
+<span class="sig-name descname"><span class="pre">hoop_strain1</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.hoop_strain1" title="Link to this definition"></a></dt>
+<dd><p>Hoop Curvature at the first position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.hoop_strain_mid">
+<span class="sig-name descname"><span class="pre">hoop_strain_mid</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.hoop_strain_mid" title="Link to this definition"></a></dt>
+<dd><p>Hoop Curvature at the mid position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.hoop_strain2">
+<span class="sig-name descname"><span class="pre">hoop_strain2</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.hoop_strain2" title="Link to this definition"></a></dt>
+<dd><p>Hoop Curvature at the second position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.hoop_axial_strain1">
+<span class="sig-name descname"><span class="pre">hoop_axial_strain1</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.hoop_axial_strain1" title="Link to this definition"></a></dt>
+<dd><p>Hoop Axial Strain at the first position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.hoop_axial_strain_mid">
+<span class="sig-name descname"><span class="pre">hoop_axial_strain_mid</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.hoop_axial_strain_mid" title="Link to this definition"></a></dt>
+<dd><p>Hoop Axial Strain at the mid position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.hoop_axial_strain2">
+<span class="sig-name descname"><span class="pre">hoop_axial_strain2</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.hoop_axial_strain2" title="Link to this definition"></a></dt>
+<dd><p>Hoop Axial Strain at the second position for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerElementResult.beam_yield">
+<span class="sig-name descname"><span class="pre">beam_yield</span></span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult.beam_yield" title="Link to this definition"></a></dt>
+<dd><p>Boolean representing yielded status for support liner.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>bool</p>
+</dd>
+</dl>
+</dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
 <dt class="sig sig-object py" id="rs2.interpreter.supportResults.LinerResult.LinerResult">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.LinerResult.</span></span><span class="sig-name descname"><span class="pre">LinerResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_element_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult" title="rs2.interpreter.supportResults.LinerResult.LinerElementResult"><span class="pre">LinerElementResult</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerResult" title="Link to this definition"></a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.supportResults.LinerResult.</span></span><span class="sig-name descname"><span class="pre">LinerResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">liner_element_results</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.supportResults.LinerResult.LinerElementResult" title="rs2.interpreter.supportResults.LinerResult.LinerElementResult"><span class="pre">LinerElementResult</span></a><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.supportResults.LinerResult.LinerResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#support-liner-results-example"><span class="std std-ref">Code Snippet: Get Support Liner Results</span></a></p>
+<p>Attributes:
+entity_id (str): Unique Identifier for support liner.
+liner_element_results (list[LinerElementResult]): List of liner element result for support liner.</p>
 </dd></dl>
 
 </section>

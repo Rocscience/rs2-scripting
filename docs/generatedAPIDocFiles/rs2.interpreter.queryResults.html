@@ -17,7 +17,7 @@
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -96,6 +96,22 @@
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.HistoryQueryResults.</span></span><span class="sig-name descname"><span class="pre">HistoryQueryResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">horizontal_axis_result</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">vertical_axis_result</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#history-query-example"><span class="std std-ref">Code Snippet: Manipulation of History Query and its results</span></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult.horizontal_axis_result">
+<span class="sig-name descname"><span class="pre">horizontal_axis_result</span></span><a class="headerlink" href="#rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult.horizontal_axis_result" title="Link to this definition"></a></dt>
+<dd><p>Horizontal Axis Result for history query point.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p>double</p>
+</dd>
+</dl>
+</dd></dl>
+
+<p>vertical_axis_result (double): Vertical Axis Result for history query point.
+location_x (double): X-Coordinate for history query point.
+location_y (double): Y-Coordinate for history query point.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult.GetXCoordinate">
 <span class="sig-name descname"><span class="pre">GetXCoordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.HistoryQueryResults.HistoryQueryResult.GetXCoordinate" title="Link to this definition"></a></dt>
@@ -129,6 +145,13 @@
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.MaterialQueryResults.QueryResult">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.MaterialQueryResults.</span></span><span class="sig-name descname"><span class="pre">QueryResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distance</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.MaterialQueryResults.QueryResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#material-query-example"><span class="std std-ref">Code Snippet: Manipulation of Material Queries</span></a></p>
+<p>Attributes:
+x_location (double): X-Coordinate for material query point.
+y_location (double): Y-Coordinate for material query point.
+distance (double): Distance for material query point.
+value (double): Result type value for material query point.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.MaterialQueryResults.QueryResult.GetXCoordinate">
 <span class="sig-name descname"><span class="pre">GetXCoordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.MaterialQueryResults.QueryResult.GetXCoordinate" title="Link to this definition"></a></dt>
@@ -159,6 +182,12 @@
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.MaterialQueryResults.MaterialQueryResults">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.MaterialQueryResults.</span></span><span class="sig-name descname"><span class="pre">MaterialQueryResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">material_id</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.MaterialQueryResults.MaterialQueryResults" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#material-query-example"><span class="std std-ref">Code Snippet: Manipulation of Material Queries</span></a></p>
+<p>Attributes:
+entity_ID (str): Unique Identifier for material query.
+material_id (int): Material Identifier for material query.
+query_values (list[QueryResult]): List of QueryResult point objects making up the material query.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.MaterialQueryResults.MaterialQueryResults.GetUniqueIdentifier">
 <span class="sig-name descname"><span class="pre">GetUniqueIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.MaterialQueryResults.MaterialQueryResults.GetUniqueIdentifier" title="Link to this definition"></a></dt>
@@ -195,6 +224,10 @@
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.MeshResults.MeshResults">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.MeshResults.</span></span><span class="sig-name descname"><span class="pre">MeshResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">results</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.MeshResults.MeshResults" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#get-mesh-results-example"><span class="std std-ref">Code Snippet: Get Model Mesh Results</span></a></p>
+<p>Attributes:
+results (list[list[double]]): Mesh results containing x-coordinate, y-coordinate and result type value for each node in your model.</p>
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.MeshResults.MeshResults.results">
 <span class="sig-name descname"><span class="pre">results</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">None</span></em><a class="headerlink" href="#rs2.interpreter.queryResults.MeshResults.MeshResults.results" title="Link to this definition"></a></dt>
@@ -203,17 +236,20 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.MeshResults.MeshResults.getXCoordinate">
 <span class="sig-name descname"><span class="pre">getXCoordinate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.MeshResults.MeshResults.getXCoordinate" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the X-Coordinate of the mesh node for specified index</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.MeshResults.MeshResults.getYCoordinate">
 <span class="sig-name descname"><span class="pre">getYCoordinate</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.MeshResults.MeshResults.getYCoordinate" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the Y-Coordinate of the mesh node for specified index</p>
+</dd></dl>
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.MeshResults.MeshResults.getValue">
 <span class="sig-name descname"><span class="pre">getValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">index</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.MeshResults.MeshResults.getValue" title="Link to this definition"></a></dt>
-<dd></dd></dl>
+<dd><p>Returns the value of the mesh node based on model’s current result type and specified index</p>
+</dd></dl>
 
 </dd></dl>
 
@@ -224,6 +260,13 @@
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.TimeQueryResults.</span></span><span class="sig-name descname"><span class="pre">QueryPointResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">x_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">y_location</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">time</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">value</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#time-query-example"><span class="std std-ref">Code Snippet: Manipulation of Time Query and its results</span></a></p>
+<p>Attributes:
+x_location (double): X-Coordinate for time query point.
+y_location (double): Y-Coordinate for time query point.
+time (double): Dynamic stage time for time query point.
+value (double): Value for time query point.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult.GetXCoordinate">
 <span class="sig-name descname"><span class="pre">GetXCoordinate</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult.GetXCoordinate" title="Link to this definition"></a></dt>
@@ -254,6 +297,10 @@
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.QueryLineResult">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.TimeQueryResults.</span></span><span class="sig-name descname"><span class="pre">QueryLineResult</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">list_node_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.QueryLineResult" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#time-query-example"><span class="std std-ref">Code Snippet: Manipulation of Time Query and its results</span></a></p>
+<p>Attributes:
+query_values (list[QueryPointResult]): List of QueryPointResult objects making up the result for the time query line.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.QueryLineResult.GetNodeValues">
 <span class="sig-name descname"><span class="pre">GetNodeValues</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="#rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult" title="rs2.interpreter.queryResults.TimeQueryResults.QueryPointResult"><span class="pre">QueryPointResult</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.QueryLineResult.GetNodeValues" title="Link to this definition"></a></dt>
@@ -275,6 +322,11 @@
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.TimeQueryPointResults">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.TimeQueryResults.</span></span><span class="sig-name descname"><span class="pre">TimeQueryPointResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">query_point_values</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.TimeQueryPointResults" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#time-query-example"><span class="std std-ref">Code Snippet: Manipulation of Time Query and its results</span></a></p>
+<p>Attributes:
+entity_ID (str): Unique Identifier for time query point.
+query_values (list[QueryPointResult]): List of QueryPointResult object for time query point.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.TimeQueryPointResults.GetUniqueIdentifier">
 <span class="sig-name descname"><span class="pre">GetUniqueIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.TimeQueryPointResults.GetUniqueIdentifier" title="Link to this definition"></a></dt>
@@ -302,6 +354,11 @@
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.TimeQueryLineResults">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.interpreter.queryResults.TimeQueryResults.</span></span><span class="sig-name descname"><span class="pre">TimeQueryLineResults</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">entity_ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">list_query_line_data</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.TimeQueryLineResults" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">object</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#time-query-example"><span class="std std-ref">Code Snippet: Manipulation of Time Query and its results</span></a></p>
+<p>Attributes:
+entity_ID (str): Unique Identifier for time query line.
+line_data (list[QueryLineResult]): List of QueryLineResult object for time query line.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.interpreter.queryResults.TimeQueryResults.TimeQueryLineResults.GetUniqueIdentifier">
 <span class="sig-name descname"><span class="pre">GetUniqueIdentifier</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#rs2.interpreter.queryResults.TimeQueryResults.TimeQueryLineResults.GetUniqueIdentifier" title="Link to this definition"></a></dt>

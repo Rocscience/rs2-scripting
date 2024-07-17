@@ -17,7 +17,7 @@
         <script src="../_static/jquery.js?v=5d32c60e"></script>
         <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
         <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/doctools.js?v=9a2dae69"></script>
         <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
         <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
         <script src="../_static/copybutton.js?v=f281be69"></script>
@@ -144,6 +144,19 @@
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.InitialConditions.</span></span><span class="sig-name descname"><span class="pre">InitialConditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentProxyID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stageFactorInterfaceID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PropertyProxy</span></code></p>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples.html#initial-condition-stage-factor-example"><span class="std std-ref">Code Snippet: Manipulation of Material Initial Condition Stage Factor Properties</span></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.stageFactorInterface">
+<span class="sig-name descname"><span class="pre">stageFactorInterface</span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.stageFactorInterface" title="Link to this definition"></a></dt>
+<dd><p>Reference object for modifying stage factor property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.AbsoluteStageFactorGettersInterface.AbsoluteStageFactorGettersInterface" title="rs2.modeler.properties.AbsoluteStageFactorGettersInterface.AbsoluteStageFactorGettersInterface">AbsoluteStageFactorGettersInterface</a>[<a class="reference internal" href="#rs2.modeler.properties.material.InitialConditions.InitialConditionsDefinedStageFactor" title="rs2.modeler.properties.material.InitialConditions.InitialConditionsDefinedStageFactor">InitialConditionsDefinedStageFactor</a>, <a class="reference internal" href="#rs2.modeler.properties.material.InitialConditions.InitialConditionsStageFactor" title="rs2.modeler.properties.material.InitialConditions.InitialConditionsStageFactor">InitialConditionsStageFactor</a>]</p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialElementLoading">
 <span class="sig-name descname"><span class="pre">getInitialElementLoading</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.InitialElementLoadingType" title="rs2.modeler.properties.PropertyEnums.InitialElementLoadingType"><span class="pre">InitialElementLoadingType</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialElementLoading" title="Link to this definition"></a></dt>
@@ -337,7 +350,85 @@
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.MaterialProperty.</span></span><span class="sig-name descname"><span class="pre">MaterialProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentProxyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty" title="Link to this definition"></a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PropertyProxy</span></code></p>
+<p class="rubric">Examples</p>
 <p><a class="reference internal" href="../examples.html#material-example"><span class="std std-ref">Code Snippet: Manipulation of Material Properties</span></a></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.StageFactors">
+<span class="sig-name descname"><span class="pre">StageFactors</span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.StageFactors" title="Link to this definition"></a></dt>
+<dd><p>Reference object for modifying property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#rs2.modeler.properties.material.StageFactors.StageFactors" title="rs2.modeler.properties.material.StageFactors.StageFactors">StageFactors</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.InitialConditions">
+<span class="sig-name descname"><span class="pre">InitialConditions</span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.InitialConditions" title="Link to this definition"></a></dt>
+<dd><p>Reference object for modifying property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions" title="rs2.modeler.properties.material.InitialConditions.InitialConditions">InitialConditions</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Stiffness">
+<span class="sig-name descname"><span class="pre">Stiffness</span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Stiffness" title="Link to this definition"></a></dt>
+<dd><p>Reference object for modifying property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="rs2.modeler.properties.material.stiffness.html#rs2.modeler.properties.material.stiffness.Stiffness.Stiffness" title="rs2.modeler.properties.material.stiffness.Stiffness.Stiffness">Stiffness</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Strength">
+<span class="sig-name descname"><span class="pre">Strength</span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Strength" title="Link to this definition"></a></dt>
+<dd><p>Reference object for modifying property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="rs2.modeler.properties.material.strength.html#rs2.modeler.properties.material.strength.Strength.Strength" title="rs2.modeler.properties.material.strength.Strength.Strength">Strength</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Hydraulic">
+<span class="sig-name descname"><span class="pre">Hydraulic</span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Hydraulic" title="Link to this definition"></a></dt>
+<dd><p>Reference object for modifying property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.html#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic" title="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic">Hydraulic</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Thermal">
+<span class="sig-name descname"><span class="pre">Thermal</span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Thermal" title="Link to this definition"></a></dt>
+<dd><p>Reference object for modifying property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="rs2.modeler.properties.material.thermal.html#rs2.modeler.properties.material.thermal.Thermal.Thermal" title="rs2.modeler.properties.material.thermal.Thermal.Thermal">Thermal</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Datum">
+<span class="sig-name descname"><span class="pre">Datum</span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Datum" title="Link to this definition"></a></dt>
+<dd><p>Reference object for modifying property.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Type<span class="colon">:</span></dt>
+<dd class="field-odd"><p><a class="reference internal" href="rs2.modeler.properties.material.datum.html#rs2.modeler.properties.material.datum.Datum.Datum" title="rs2.modeler.properties.material.datum.Datum.Datum">Datum</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getMaterialName">
 <span class="sig-name descname"><span class="pre">getMaterialName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getMaterialName" title="Link to this definition"></a></dt>
