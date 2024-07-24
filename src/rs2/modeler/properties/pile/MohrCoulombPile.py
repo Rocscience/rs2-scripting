@@ -4,6 +4,14 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 class MohrCoulombPile(PropertyProxy):
+	"""
+	If pile skin resistance type is Mohr Coulomb, pile interface properties can be set as in RS2.
+	
+	.. figure:: ../pictures/pile_resis_MC.png
+
+	   RS2 pile interface properties
+	
+	"""
 	def getShearStiffness(self) -> float:
 		return self._getDoubleProperty("PFP_SHEAR_STIFFNESS")
 	def setShearStiffness(self, value: float):

@@ -1,10 +1,14 @@
 class MeshResults:
     """
-	Examples:
-		:ref:`Get Mesh Results Example`
 	
-	Attributes:
+    Attributes:
         results (list[list[double]]): Mesh results containing x-coordinate, y-coordinate and result type value for each node in your model.
+        
+        
+    Examples:
+    
+		:ref:`Get Mesh Results Example`
+        
 	"""
     results = None
 

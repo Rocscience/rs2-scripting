@@ -18,11 +18,10 @@ class Model(BaseModel):
 		'''
 		Saves the model using the given file name.
 
-		Example:
-
-		.. code-block:: python
+		Examples:
+			.. code-block:: python
 			
-			model.saveCopyAs('C:/simple_3_stage.fez')
+				model.saveCopyAs('C:/simple_3_stage.fez')
 		'''
 		formattedFileName = fileName.replace('/', '\\')
 		self._enforceFeaFezEnding(formattedFileName)

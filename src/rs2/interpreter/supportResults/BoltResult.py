@@ -2,6 +2,29 @@ from enum import Enum
 from rs2.interpreter._UtilityResult import *
 
 class BoltElementYieldStatus(Enum):
+    """
+    Bolt elements can have following yield status.
+    
+    +-------------------------------------------------------------+
+    | Data Types                                                  |
+    +=============================================================+
+    | BOLT_ELEMENT_NOT_YIELDED                                    |
+    +-------------------------------------------------------------+
+    | BOLT_ELEMENT_TYPE_UNKNOWN_YIELDED                           |
+    +-------------------------------------------------------------+
+    | BOLT_ELEMENT_TENSION_YIELDED                                |
+    +-------------------------------------------------------------+
+    | BOLT_ELEMENT_SHEAR_YIELDED                                  |
+    +-------------------------------------------------------------+
+    | BOLT_ELEMENT_TENSIONANDSHEAR_YIELDED                        |
+    +-------------------------------------------------------------+
+    | BOLT_ELEMENT_UNDEFINED_YIELDED                              |
+    +-------------------------------------------------------------+
+
+    
+    
+    """
+
     BOLT_ELEMENT_NOT_YIELDED = 0
     BOLT_ELEMENT_TYPE_UNKNOWN_YIELDED  = 1
     BOLT_ELEMENT_TENSION_YIELDED = 2
@@ -11,15 +34,16 @@ class BoltElementYieldStatus(Enum):
   
 class BoltYieldingResult:
     """
-	Examples:
-		:ref:`Support Bolt Results Example`
-	
-	Attributes:
+    Attributes:
         start_x (double): Start X-Coordinate for support bolt.
         start_y (double): Start Y-Coordinate for support bolt.
         end_x (double): End X-Coordinate for support bolt.
         end_y (double): End Y-Coordinate for support bolt.
         yielding_flag (BoltElementYieldStatus): Enum representing bolt yielded status.
+
+    Examples:
+		:ref:`Support Bolt Results Example`
+        
 	"""
     def __init__(self, start_x, start_y, end_x, end_y, yielding_flag):
         self.start_x = start_x #0
@@ -32,10 +56,8 @@ class BoltYieldingResult:
 
 class BoltForceDisplacementResult:
     """
-	Examples:
-		:ref:`Support Bolt Results Example`
-	
-	Attributes:
+
+    Attributes:
         location_x (double): Start X-Coordinate for support bolt.
         location_y (double): Start Y-Coordinate for support bolt.
         distance (double): Distance of support bolt.
@@ -44,6 +66,9 @@ class BoltForceDisplacementResult:
         shear_force (double): Shear Force for support bolt.
         rock_displacement (double): Rock Displacement for support bolt.
         bolt_displacement (double): Bolt Displacement for support bolt.
+        
+    Examples:
+		:ref:`Support Bolt Results Example`
 	"""
     def __init__(self, location_x, location_y, distance, axial_force, axial_stress, shear_force, rock_displacement, bolt_displacement):
         self.location_x = location_x #0
@@ -58,10 +83,8 @@ class BoltForceDisplacementResult:
 
 class BoltResult:
     """
-	Examples:
-		:ref:`Support Bolt Results Example`
 	
-	Attributes:
+    Attributes: 
         entity_id (str): Unique Identifier for support bolt.
         start_x (double): Start X-Coordinate for support bolt.
         start_y (double): Start Y-Coordinate for support bolt.
@@ -69,7 +92,11 @@ class BoltResult:
         end_y (double): End Y-Coordinate for support bolt.
         yielding_results (list[BoltYieldingResult]): List of bolt yielding result for support bolt.
         force_displacement_results (list[BoltForceDisplacementResult]): List of bolt force displacement result for support bolt.
-	"""
+	
+    Examples:
+		:ref:`Support Bolt Results Example`
+        
+    """
     def __init__(self, entity_id, entity_data, yielding_results: list[BoltYieldingResult], force_displacement_results: list[BoltForceDisplacementResult]):
         if len(entity_data) == 0 or len(entity_data[0]) == 0:
             assert False, 'location not defined'

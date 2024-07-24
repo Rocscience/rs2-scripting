@@ -4,6 +4,14 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 class Swellex(PropertyProxy):
+	"""
+	If bolt type is Swellex, bolt properties can be set as in RS2.
+	
+	.. figure:: ../pictures/bolt_swellex.png
+
+	   RS2 bolt properties
+	
+	"""
 	def getTensileCapacity(self) -> float:
 		return self._getDoubleProperty("BP_TENSILE_END")
 	def setTensileCapacity(self, value: float):

@@ -48,10 +48,61 @@ class ColorPicker():
         """
         Returns the RGB representation of a color from its int value
 
-            Params:
-                color (int) : int representing the color
+        Attributes:
+            color (int) : int representing the color
 
-            Returns: tuple containing red, green and blue values of the color. Each of red, green and blue are between 0 and 255 inclusive
+        Returns: 
+            tuple containing red, green and blue values of the color. Each of red, green and blue are between 0 and 255 inclusive
+        
+        Color Code: 
+            +--------------------+------------+--------------------+------------+
+            | Color Name         | Hex Code   | Color Name         | Hex Code   |
+            +====================+============+====================+============+
+            | Black              | 0x000000   | Brown              | 0x002AA5   |
+            +--------------------+------------+--------------------+------------+
+            | Dark_Red           | 0x00008B   | Orange             | 0x2068FF   |
+            +--------------------+------------+--------------------+------------+
+            | Red                | 0x0000FF   | Light_Orange       | 0x5BADFF   |
+            +--------------------+------------+--------------------+------------+
+            | Pink               | 0xCBC0FF   | Gold               | 0x00D7FF   |
+            +--------------------+------------+--------------------+------------+
+            | Rose               | 0xE1E4FF   | Tan                | 0x8CB4D2   |
+            +--------------------+------------+--------------------+------------+
+            +--------------------+------------+--------------------+------------+
+            | Dark_Olive_Green   | 0x404000   | Dark_Green         | 0x005500   |
+            +--------------------+------------+--------------------+------------+
+            | Dark_Yellow        | 0x008B8B   | Green              | 0x009300   |
+            +--------------------+------------+--------------------+------------+
+            | Lime               | 0x32CD32   | Sea_Green          | 0x71B33C   |
+            +--------------------+------------+--------------------+------------+
+            | Yellow             | 0x00FFFF   | Bright_Green       | 0x00FF00   |
+            +--------------------+------------+--------------------+------------+
+            | Light_Yellow       | 0xE0FFFF   | Pale_Green         | 0x98FB98   |
+            +--------------------+------------+--------------------+------------+
+            +--------------------+------------+--------------------+------------+
+            | Dark_Teal          | 0x5E0000   | Dark_Blue          | 0x8B0000   |
+            +--------------------+------------+--------------------+------------+
+            | Teal               | 0x8E8E38   | Blue               | 0xFF0000   |
+            +--------------------+------------+--------------------+------------+
+            | Aqua               | 0xD4FF7F   | Light_Blue         | 0xC09E7D   |
+            +--------------------+------------+--------------------+------------+
+            | Turquoise          | 0xD0E040   | Skyblue            | 0xFFFFC0   |
+            +--------------------+------------+--------------------+------------+
+            | Pale_Turquoise     | 0xEEEEAF   | Pale_Blue          | 0x8B8368   |
+            +--------------------+------------+--------------------+------------+
+            +--------------------+------------+--------------------+------------+
+            | Indigo             | 0x82004B   | Dark_Grey          | 0x282828   |
+            +--------------------+------------+--------------------+------------+
+            | Blue_Grey          | 0xC07B7B   | Grey_40            | 0x666666   |
+            +--------------------+------------+--------------------+------------+
+            | Violet             | 0x800080   | Grey_50            | 0x7F7F7F   |
+            +--------------------+------------+--------------------+------------+
+            | Plum               | 0x480048   | Light_Grey         | 0xC0C0C0   |
+            +--------------------+------------+--------------------+------------+
+            | Lavender           | 0xFAE6E6   | White              | 0xFFFFFF   |
+            +--------------------+------------+--------------------+------------+
+
+            
         """
         # Internally MSFT COLORREF stores the byte ordering of RGB Color as BGR: 0x00bbggrr
         blue = (color >> 16) & 0xFF
@@ -64,7 +115,7 @@ class ColorPicker():
         """
         Returns the int representation of a color from its R, G, B values
         
-            Params:
+        Attributes:
                 red (int) : int representing red value of the color. Must be between 0 and 255 inclusive
                 green (int) : int representing green value of the color. Must be between 0 and 255 inclusive
                 blue (int) : int representing blue value of the color. Must be between 0 and 255 inclusive

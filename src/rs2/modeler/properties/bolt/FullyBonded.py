@@ -4,6 +4,14 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 class FullyBonded(PropertyProxy):
+	"""
+	If bolt type is Fully Bonded, bolt properties can be set as in RS2.
+	
+	.. figure:: ../pictures/bolt_fully_bonded.png
+
+	   RS2 bolt properties
+	
+	"""
 	def getBoltDiameter(self) -> float:
 		return self._getDoubleProperty("BP_BOLT_DIAMETER")
 	def setBoltDiameter(self, value: float):

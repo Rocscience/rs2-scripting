@@ -4,6 +4,7 @@ from rs2._common.Client import Client
 from multiprocessing.connection import Listener
 
 class ApplicationManager:
+
     minimumPort = 49152
     maximumPort = 65535
     defaultTimeout = 30
@@ -13,10 +14,15 @@ class ApplicationManager:
         Returns when the server is ready to accept requests.
         Throws TimeoutError exception if the server is not ready within that time.
 
-        Args:
-            pathToExecutable: the full path to the executable of the application you want to start.
-            port: the port number you want the python server to bind to.
-            timeout: time in seconds before we stop trying to start the application
+        Attributes:
+            pathToExecutable (str): the full path to the executable of the application you want to start.  
+            port (int): the port number you want the python server to bind to.
+                
+                * minimumPort = 49152
+                * maximumPort = 65535           
+            timeout (int): time in seconds before we stop trying to start the application 
+                
+                * defaultTimeout = 30
         
         Raises:
         	ValueError: Port range must be between 49152 and 65535, otherwise ValueError is raised

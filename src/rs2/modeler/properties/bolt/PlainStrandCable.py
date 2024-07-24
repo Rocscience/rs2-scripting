@@ -4,6 +4,14 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 class PlainStrandCable(PropertyProxy):
+	"""
+	If bolt type is Plain Strand Cable, bolt properties can be set as in RS2.
+	
+	.. figure:: ../pictures/bolt_plain_strand_cable.png
+
+	   RS2 bolt properties
+	
+	"""
 	def getBoreholeDiameter(self) -> float:
 		return self._getDoubleProperty("BP_BOREHOLE_DIAMETER_CABLE")
 	def setBoreholeDiameter(self, value: float):

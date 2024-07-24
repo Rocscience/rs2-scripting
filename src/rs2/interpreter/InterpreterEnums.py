@@ -1,5 +1,215 @@
 from enum import Enum, auto
 class ExportResultType(Enum):
+	"""
+	Interpretor Data Types:
+		Similar to RS2 interpretor, results can be exported by the following data types:
+		
+		Solid Effective Stress:
+			+-------------------------------------------------------------+
+			| SOLID_EFFECTIVE_STRESS_EFFECTIVE_SIGMA_ONE                  |
+			+-------------------------------------------------------------+
+			| SOLID_EFFECTIVE_STRESS_EFFECTIVE_SIGMA_THREE                |
+			+-------------------------------------------------------------+
+			| SOLID_EFFECTIVE_STRESS_EFFECTIVE_SIGMA_Z                    |
+			+-------------------------------------------------------------+
+			| SOLID_EFFECTIVE_STRESS_EFFECTIVE_MEAN_STRESS                |
+			+-------------------------------------------------------------+
+			| SOLID_EFFECTIVE_STRESS_EFFECTIVE_VON_MISES_STRESS           |
+			+-------------------------------------------------------------+
+			| SOLID_EFFECTIVE_STRESS_EFFECTIVE_SIGMA_XX                   |
+			+-------------------------------------------------------------+
+			| SOLID_EFFECTIVE_STRESS_EFFECTIVE_SIGMA_YY                   |
+			+-------------------------------------------------------------+
+			| SOLID_EFFECTIVE_STRESS_EFFECTIVE_SIGMA_XY                   |
+			+-------------------------------------------------------------+
+
+		Solid Total Stress:
+			+-----------------------------------------------------+
+			| SOLID_TOTAL_STRESS_SIGMA_ONE                        |
+			+-----------------------------------------------------+
+			| SOLID_TOTAL_STRESS_SIGMA_THREE                      |
+			+-----------------------------------------------------+
+			| SOLID_TOTAL_STRESS_SIGMA_Z                          |
+			+-----------------------------------------------------+
+			| SOLID_TOTAL_STRESS_MEAN_STRESS                      |
+			+-----------------------------------------------------+
+			| SOLID_TOTAL_STRESS_VON_MISES_STRESS                 |
+			+-----------------------------------------------------+
+			| SOLID_TOTAL_STRESS_SIGMA_XX                         |
+			+-----------------------------------------------------+
+			| SOLID_TOTAL_STRESS_SIGMA_YY                         |
+			+-----------------------------------------------------+
+			| SOLID_TOTAL_STRESS_SIGMA_XY                         |
+			+-----------------------------------------------------+
+			| SOLID_TOTAL_STRESS_DIFFERENTIAL_STRESS              |
+			+-----------------------------------------------------+
+		
+		Solid Displacement:
+			+-----------------------------------------------------+
+			| SOLID_DISPLACEMENT_HORIZONTAL_DISPLACEMENT          |
+			+-----------------------------------------------------+
+			| SOLID_DISPLACEMENT_VERTICAL_DISPLACEMENT            |
+			+-----------------------------------------------------+
+			| SOLID_DISPLACEMENT_HORIZONTAL_DISPLACEMENT_ABS      |
+			+-----------------------------------------------------+
+			| SOLID_DISPLACEMENT_VERTICAL_DISPLACEMENT_ABS        |
+			+-----------------------------------------------------+
+			| SOLID_DISPLACEMENT_TOTAL_DISPLACEMENT               |
+			+-----------------------------------------------------+
+
+		Strength Factor:
+			+-----------------------------------------------------+
+			| STRENGTH_FACTOR                                     |
+			+-----------------------------------------------------+
+			| STRENGTH_FACTOR_WITH_UBIQUITOUS_JOINTS              |
+			+-----------------------------------------------------+
+
+		Solid Strain:
+			+-----------------------------------------------------+
+			| SOLID_STRAIN_VOLUMETRIC_STRAIN                      |
+			+-----------------------------------------------------+
+			| SOLID_STRAIN_MAX_SHEAR_STRAIN                       |
+			+-----------------------------------------------------+
+			| SOLID_STRAIN_STRAIN_XX                              |
+			+-----------------------------------------------------+
+			| SOLID_STRAIN_STRAIN_YY                              |
+			+-----------------------------------------------------+
+			| SOLID_STRAIN_STRAIN_ZZ                              |
+			+-----------------------------------------------------+
+			| SOLID_STRAIN_STRAIN_XY                              |
+			+-----------------------------------------------------+
+			| SOLID_STRAIN_MAJOR_PRINCIPAL_STRAIN                 |
+			+-----------------------------------------------------+
+			| SOLID_STRAIN_MEAN_PRINCIPAL_STRAIN                  |
+			+-----------------------------------------------------+
+			| SOLID_STRAIN_MINOR_PRINCIPAL_STRAIN                 |
+			+-----------------------------------------------------+
+		
+		Plastic Strain:
+			+-----------------------------------------------------+
+			| PLASTIC_STRAIN_XX                                   |
+			+-----------------------------------------------------+
+			| PLASTIC_STRAIN_YY                                   |
+			+-----------------------------------------------------+
+			| PLASTIC_STRAIN_ZZ                                   |
+			+-----------------------------------------------------+
+			| PLASTIC_STRAIN_XY                                   |
+			+-----------------------------------------------------+
+			| PLASTIC_STRAIN_MAJOR_PRINCIPAL_PLASTIC_STRAIN       |
+			+-----------------------------------------------------+
+			| PLASTIC_STRAIN_MEAN_PRINCIPAL_PLASTIC_STRAIN        |
+			+-----------------------------------------------------+
+			| PLASTIC_STRAIN_MINOR_PRINCIPAL_PLASTIC_STRAIN       |
+			+-----------------------------------------------------+
+			| PLASTIC_STRAIN_VOLUMETRIC_PLASTIC_STRAIN            |
+			+-----------------------------------------------------+
+			| PLASTIC_STRAIN_MAX_SHEAR_PLASTIC_STRAIN             |
+			+-----------------------------------------------------+
+		
+		Seepage:
+			+-----------------------------------------------------+
+			| SEEPAGE_PORE_PRESSURE                               |
+			+-----------------------------------------------------+
+			| SEEPAGE_EXCESS_PORE_PRESSURE                        |
+			+-----------------------------------------------------+
+			| SEEPAGE_DEGREE_OF_SATURATION                        |
+			+-----------------------------------------------------+
+			| SEEPAGE_PRESSURE_HEAD                               |
+			+-----------------------------------------------------+
+			| SEEPAGE_TOTAL_HEAD                                  |
+			+-----------------------------------------------------+
+			| SEEPAGE_HORIZONTAL_DISCHARGE_VELOCITY               |
+			+-----------------------------------------------------+
+			| SEEPAGE_VERTICAL_DISCHARGE_VELOCITY                 |
+			+-----------------------------------------------------+
+			| SEEPAGE_HORIZONTAL_DISCHARGE_VELOCITY_ABS           |
+			+-----------------------------------------------------+
+			| SEEPAGE_VERTICAL_DISCHARGE_VELOCITY_ABS             |
+			+-----------------------------------------------------+
+			| SEEPAGE_TOTAL_DISCHARGE_VELOCITY                    |
+			+-----------------------------------------------------+
+			| SEEPAGE_HORIZONTAL_HYDRAULIC_GRADIENT_ABS           |
+			+-----------------------------------------------------+
+			| SEEPAGE_VERTICAL_HYDRAULIC_GRADIENT_ABS             |
+			+-----------------------------------------------------+
+			| SEEPAGE_HORIZONTAL_HYDRAULIC_GRADIENT               |
+			+-----------------------------------------------------+
+			| SEEPAGE_VERTICAL_HYDRAULIC_GRADIENT                 |
+			+-----------------------------------------------------+
+			| SEEPAGE_TOTAL_HYDRAULIC_GRADIENT                    |
+			+-----------------------------------------------------+
+			| SEEPAGE_HORIZONTAL_PERMEABILITY                     |
+			+-----------------------------------------------------+
+			| SEEPAGE_VERTICAL_PERMEABILITY                       |
+			+-----------------------------------------------------+
+			| SEEPAGE_YIELDED_ELEMENTS                            |
+			+-----------------------------------------------------+
+
+
+		Thermal:
+			+-----------------------------------------------------+
+			| THERMAL_TEMPERATURE                                 |
+			+-----------------------------------------------------+
+			| THERMAL_HORIZONTAL_FLUX                             |
+			+-----------------------------------------------------+
+			| THERMAL_VERTICAL_FLUX                               |
+			+-----------------------------------------------------+
+			| THERMAL_TOTAL_FLUX                                  |
+			+-----------------------------------------------------+
+			| THERMAL_HORIZONTAL_GRADIENT                         |
+			+-----------------------------------------------------+
+			| THERMAL_VERTICAL_GRADIENT                           |
+			+-----------------------------------------------------+
+			| THERMAL_TOTAL_GRADIENT                              |
+			+-----------------------------------------------------+
+			| THERMAL_HORIZONTAL_CONDUCTIVITY                     |
+			+-----------------------------------------------------+
+			| THERMAL_VERTICAL_CONDUCTIVITY                       |
+			+-----------------------------------------------------+
+			| THERMAL_TOTAL_CONDUCTIVITY                          |
+			+-----------------------------------------------------+
+			| THERMAL_SPECIFIC_HEAT                               |
+			+-----------------------------------------------------+
+			| THERMAL_UNFROZEN_WATER_CONTENT                      |
+			+-----------------------------------------------------+
+
+		
+		Dynamics:
+			+-----------------------------------------------------+
+			| DYNAMIC_MINIMUM_X_DISPLACEMENT                      |
+			+-----------------------------------------------------+
+			| DYNAMIC_MAXIMUM_X_DISPLACEMENT                      |
+			+-----------------------------------------------------+
+			| DYNAMIC_MINIMUM_Y_DISPLACEMENT                      |
+			+-----------------------------------------------------+
+			| DYNAMIC_MAXIMUM_Y_DISPLACEMENT                      |
+			+-----------------------------------------------------+
+			| DYNAMIC_MINIMUM_X_VELOCITY                          |
+			+-----------------------------------------------------+
+			| DYNAMIC_MAXIMUM_X_VELOCITY                          |
+			+-----------------------------------------------------+
+			| DYNAMIC_MINIMUM_Y_VELOCITY                          |
+			+-----------------------------------------------------+
+			| DYNAMIC_MAXIMUM_Y_VELOCITY                          |
+			+-----------------------------------------------------+
+			| DYNAMIC_MINIMUM_X_ACCELERATION                      |
+			+-----------------------------------------------------+
+			| DYNAMIC_MAXIMUM_X_ACCELERATION                      |
+			+-----------------------------------------------------+
+			| DYNAMIC_MINIMUM_Y_ACCELERATION                      |
+			+-----------------------------------------------------+
+			| DYNAMIC_MAXIMUM_Y_ACCELERATION                      |
+			+-----------------------------------------------------+
+
+	Examples:
+	
+		.. code-block:: python
+			
+		   rs2.interpreter.InterpreterEnums.ExportResultType.SOLID_EFFECTIVE_STRESS_EFFECTIVE_SIGMA_ONE 
+	
+	"""
+
+
 	SOLID_TOTAL_STRESS_SIGMA_ONE = "INTERPRET_SIGMA_ONE"
 	SOLID_TOTAL_STRESS_SIGMA_THREE = "INTERPRET_SIGMA_THREE"
 	SOLID_TOTAL_STRESS_SIGMA_Z = "INTERPRET_SIGMA_ZED"

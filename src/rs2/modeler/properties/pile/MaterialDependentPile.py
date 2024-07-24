@@ -4,6 +4,14 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 class MaterialDependentPile(PropertyProxy):
+	"""
+	If pile skin resistance type is Material Dependent, pile interface properties can be set as in RS2.
+	
+	.. figure:: ../pictures/pile_resis_mat_dep.png
+
+	   RS2 pile interface properties
+	
+	"""
 	def getInterfaceCoefficient(self) -> float:
 		return self._getDoubleProperty("PFP_INTERFACE_COEFFICIENT")
 	def setInterfaceCoefficient(self, value: float):

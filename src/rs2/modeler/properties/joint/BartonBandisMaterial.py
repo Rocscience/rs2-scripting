@@ -33,12 +33,14 @@ class BartonBandisMaterialDefinedStageFactor(BartonBandisMaterialStageFactor):
 	def setJointPermeableFactor(self, Permeable: bool):
 		return self._callFunction("setJointPermeableFactor", [Permeable])
 class BartonBandisMaterial(PropertyProxy):
-	"""
-	Examples:
-		:ref:`Material Joint Stage Factor Example`
-	
+	"""	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorInterface[BartonBandisMaterialDefinedStageFactor, BartonBandisMaterialStageFactor]): Reference object for modifying stage factor property.
+	
+	Examples:
+	
+		:ref:`Material Joint Stage Factor Example`
+		
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

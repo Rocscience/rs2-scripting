@@ -1,14 +1,14 @@
 rs2.modeler.properties package
 ==============================
 
-.. automodule:: rs2.modeler.properties
-   :members:
-   :undoc-members:
-   :show-inheritance:
+RS2 modeler properties package corresponding to "Properties" tab in RS2.
 
+.. figure:: ../pictures/modeler_properties.png
+
+   RS2 modeler properties
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    rs2.modeler.properties.bolt
    rs2.modeler.properties.joint
@@ -16,99 +16,25 @@ rs2.modeler.properties package
    rs2.modeler.properties.material
    rs2.modeler.properties.pile
 
+.. toctree::
+   :maxdepth: 1
 
-rs2.modeler.properties.AbsoluteStageFactorGettersInterface module
------------------------------------------------------------------
+   rs2.modeler.properties.AbsoluteStageFactorGettersInterface
+   rs2.modeler.properties.AbsoluteStageFactorInterface
+   rs2.modeler.properties.CompositeProperty
+   rs2.modeler.properties.DiscreteFunction
+   rs2.modeler.properties.MaterialJoint
+   rs2.modeler.properties.MaterialJointOptions
+   rs2.modeler.properties.PropertyEnums
+   rs2.modeler.properties.RelativeStageFactorInterface
+   rs2.modeler.properties.ShearNormalFunction
+   rs2.modeler.properties.SnowdenAnisotropicFunction
+   rs2.modeler.properties.StructuralInterface
+   rs2.modeler.properties.UserDefinedWaterMode
+   rs2.modeler.properties.propertyProxy
 
-.. automodule:: rs2.modeler.properties.AbsoluteStageFactorGettersInterface
-   :members:
-   :undoc-members:
-   :show-inheritance:
 
-rs2.modeler.properties.AbsoluteStageFactorInterface module
-----------------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.AbsoluteStageFactorInterface
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.CompositeProperty module
------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.CompositeProperty
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.DiscreteFunction module
-----------------------------------------------
-
-.. automodule:: rs2.modeler.properties.DiscreteFunction
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.MaterialJoint module
--------------------------------------------
-
-.. automodule:: rs2.modeler.properties.MaterialJoint
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.MaterialJointOptions module
---------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.MaterialJointOptions
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.PropertyEnums module
--------------------------------------------
-
-.. automodule:: rs2.modeler.properties.PropertyEnums
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.RelativeStageFactorInterface module
-----------------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.RelativeStageFactorInterface
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.ShearNormalFunction module
--------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.ShearNormalFunction
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.SnowdenAnisotropicFunction module
---------------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.SnowdenAnisotropicFunction
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.StructuralInterface module
--------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.StructuralInterface
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.UserDefinedWaterMode module
---------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.UserDefinedWaterMode
+.. automodule:: rs2.modeler.properties
    :members:
    :undoc-members:
    :show-inheritance:
