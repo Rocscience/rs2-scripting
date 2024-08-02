@@ -1,11 +1,11 @@
 rs2.modeler.properties.pile package
 ===================================
 
-Pile package provides users a full access to setting pile properties.
 
-.. figure:: ../pictures/pile_resis_type.png
-
-   RS2 modeler pile properties
+.. automodule:: rs2.modeler.properties.pile
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 .. toctree::
    :maxdepth: 1
@@ -20,7 +20,3 @@ Pile package provides users a full access to setting pile properties.
    rs2.modeler.properties.pile.Pile
 
 
-.. automodule:: rs2.modeler.properties.pile
-   :members:
-   :undoc-members:
-   :show-inheritance:

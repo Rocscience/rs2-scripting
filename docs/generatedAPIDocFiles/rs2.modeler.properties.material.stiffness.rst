@@ -1,11 +1,11 @@
 rs2.modeler.properties.material.stiffness package
 =================================================
 
-Material stiffness properties can be defined here.
-	
-.. figure:: ../pictures/mat_stiffness.png
 
-	RS2 material properties
+.. automodule:: rs2.modeler.properties.material.stiffness
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 .. toctree::
    :maxdepth: 1
@@ -31,7 +31,4 @@ Material stiffness properties can be defined here.
    rs2.modeler.properties.material.stiffness.TransverselyIsotropic
    rs2.modeler.properties.material.stiffness.ViscoElastic
 
-.. automodule:: rs2.modeler.properties.material.stiffness
-   :members:
-   :undoc-members:
-   :show-inheritance:
+

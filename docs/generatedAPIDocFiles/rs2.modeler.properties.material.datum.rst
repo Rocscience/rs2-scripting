@@ -11,7 +11,6 @@ rs2.modeler.properties.material.datum package
    rs2.modeler.properties.material.datum.SimpleDatum
 
 
-
 .. automodule:: rs2.modeler.properties.material.datum
    :members:
    :undoc-members:

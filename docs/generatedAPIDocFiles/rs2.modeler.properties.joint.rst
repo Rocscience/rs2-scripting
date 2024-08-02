@@ -1,11 +1,11 @@
 rs2.modeler.properties.joint package
 ====================================
 
-Joint package provides users a full access to setting joint properties based on the joint type.
 
-.. figure:: ../pictures/joint_properties.png
-
-   RS2 modeler joint properties
+.. automodule:: rs2.modeler.properties.joint
+   :members:
+   :undoc-members:
+   :show-inheritance:
 
 .. toctree::
    :maxdepth: 1
@@ -23,7 +23,3 @@ Joint package provides users a full access to setting joint properties based on 
    rs2.modeler.properties.joint.NoneSlip
 
 
-.. automodule:: rs2.modeler.properties.joint
-   :members:
-   :undoc-members:
-   :show-inheritance:

@@ -1,11 +1,12 @@
 rs2.modeler.properties.material.strength package
 ================================================
 
-Material strength properties can be defined here.
-	
-.. figure:: ../pictures/mat_strength.png
 
-	RS2 material properties
+.. automodule:: rs2.modeler.properties.material.strength
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 
 .. toctree::
    :maxdepth: 1
@@ -48,7 +49,3 @@ Material strength properties can be defined here.
    rs2.modeler.properties.material.strength.VerticalStressRatio
 
 
-.. automodule:: rs2.modeler.properties.material.strength
-   :members:
-   :undoc-members:
-   :show-inheritance:
