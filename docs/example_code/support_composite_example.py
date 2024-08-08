@@ -60,7 +60,8 @@ current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None)))
 interpreter = RS2Interpreter()
 model = interpreter.openFile(rf"{current_dir}\example_models\SupportResults.fez")
 
-stages = [1, 2]
+# Composite is removed in stage 2
+stages = [1]
 
 results = model.GetCompositeResults(stages)
 
@@ -68,7 +69,7 @@ for stageNum, allCompositeResults in results.items():
     print(f"Stage {stageNum} Composite Results\n")
     for singleCompositeResult in allCompositeResults:
         compositeID = singleCompositeResult.entity_id
-        print(f"\Composite Unique ID = {compositeID}")
+        print(f"\tComposite Unique ID = {compositeID}")
 
         joint_result = singleCompositeResult.joint_result
         print(f"\tJoint Result for Composite with ID {compositeID}:\n")

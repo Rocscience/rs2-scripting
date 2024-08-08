@@ -68,7 +68,7 @@ for stageNum, allStructuralResults in results.items():
     print(f"Stage {stageNum} Structural Results\n")
     for singleStructuralResult in allStructuralResults:
         structuralID = singleStructuralResult.entity_id
-        print(f"\Structural Unique ID = {structuralID}")
+        print(f"\tStructural Unique ID = {structuralID}")
 
         joint_result = singleStructuralResult.joint_result
         print(f"\tJoint Result for Structural with ID {structuralID}:\n")
