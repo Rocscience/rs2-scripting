@@ -5,7 +5,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>{cf16b438-0272-4178-b87c-f3c8fed7ab40}</ProjectGuid>
     <ProjectHome />
-    <StartupFile>tests\zach\test_StageFactors.py</StartupFile>
+    <StartupFile>sampleClientScripts\SampleDiscreteFunction.py</StartupFile>
     <SearchPath>.;tests</SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
     <OutputPath>.</OutputPath>
@@ -65,6 +65,7 @@
     <Compile Include="sampleClientScripts\SampleComputeWithoutSave.py" />
     <Compile Include="sampleClientScripts\SampleCriticalSRF.py" />
     <Compile Include="sampleClientScripts\SampleDatum.py" />
+    <Compile Include="sampleClientScripts\SampleDiscreteFunction.py" />
     <Compile Include="sampleClientScripts\SampleError.py" />
     <Compile Include="sampleClientScripts\sampleGetAllBoltsLinersProxyClient.py" />
     <Compile Include="sampleClientScripts\SampleGetMeshResults.py" />
