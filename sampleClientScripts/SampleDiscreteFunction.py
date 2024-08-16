@@ -18,13 +18,16 @@ model = modeler.openFile(relative_path)
 
 material = model.getMaterialPropertyByName("Material 1")
 
+fun1_name = "func1"
+fun2_name = "func2"
+
 # Create 2 new discrete function
-model.createNewDiscreteFunction("func1")
-model.createNewDiscreteFunction("func2")
+model.createNewDiscreteFunction(fun1_name)
+model.createNewDiscreteFunction(fun2_name)
 assert len(model.getDiscreteFunctions()) == 2
 
 
-fun1 = model.getDiscreteFunctionByName("func1")
+fun1 = model.getDiscreteFunctionByName(fun1_name)
 # Set some points on the discrete function
 POINTLOCATIONS = [(1, 1), (2, 2), (3, 3)]
 fun1.setPointLocations(POINTLOCATIONS)
@@ -36,22 +39,24 @@ assert fun1.getPointsC() == POINTSC
 
 # Assign the new created discrete function to Material 1
 df = material.Strength.DiscreteFunction
-df.setSelectedDiscreteFunctionByName("func1")
-assert df.getSelectedDiscreteFunctionName() == "func1"
+df.setSelectedDiscreteFunctionByName(fun1_name)
+assert df.getSelectedDiscreteFunctionName() == fun1_name
 
 # Set the failure criterion to be discrete function
 strength = material.Strength
-strength.setFailureCriterion(StrengthCriteriaTypes.DISCRETE_FUNCTION)
-assert strength.getFailureCriterion() == StrengthCriteriaTypes.DISCRETE_FUNCTION
+df_type = StrengthCriteriaTypes.DISCRETE_FUNCTION
+strength.setFailureCriterion(df_type)
+assert strength.getFailureCriterion() == df_type
 
 # Delete one of the new discrete functions
-model.deleteDiscreteFunction("func2")
+model.deleteDiscreteFunction(fun2_name)
 assert len(model.getDiscreteFunctions()) == 1
 
 # Set the failure criterion to be Mohr Coulomb
-strength.setFailureCriterion(StrengthCriteriaTypes.MOHR_COULOMB)
-assert strength.getFailureCriterion() == StrengthCriteriaTypes.MOHR_COULOMB
+mc_type = StrengthCriteriaTypes.MOHR_COULOMB
+strength.setFailureCriterion(mc_type)
+assert strength.getFailureCriterion() == mc_type
 
 # Delete another discrete function
-model.deleteDiscreteFunction("func1")
+model.deleteDiscreteFunction(fun1_name)
 assert len(model.getDiscreteFunctions()) == 0
