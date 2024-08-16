@@ -4,3 +4,7 @@ Sphinx==7.4.7
 pydata-sphinx-theme==0.15.4
 sphinx-copybutton==0.5.2
 sphinx-rtd-theme==2.0.0
+pywin32==306
+pygetwindow==0.0.9
+pillow==10.4.0
+pywinauto==0.6.8
