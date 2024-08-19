@@ -72,6 +72,16 @@ Result
    examples/result/composite_result
 
 
+Webinar
+--------------------
+.. toctree::
+   :maxdepth: 2
+
+   examples/webinar/20240709_bolt_spacing_study
+   examples/webinar/20240709_slope_spatial_variability
+
+
+
 
 
 

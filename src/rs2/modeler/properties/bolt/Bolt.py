@@ -19,7 +19,7 @@ class BoltProperty(PropertyProxy):
 	
 	Examples:
 	
-		:ref:`Bolt Example`
+		:ref:`Bolt Script Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.EndAnchored = EndAnchored(client, ID, documentProxyID)

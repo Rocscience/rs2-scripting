@@ -57,3 +57,4 @@ Table of Contents
 
    generatedAPIDocFiles/rs2
    examples
+   webinars

@@ -27,7 +27,8 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.autosummary',
               'sphinx_copybutton', 
               'sphinx.ext.napoleon',
-              'sphinx_rtd_theme']
+              'sphinx_rtd_theme',
+              'sphinxcontrib.youtube']
 
 autodoc_default_options = {
     'member-order': 'bysource',
