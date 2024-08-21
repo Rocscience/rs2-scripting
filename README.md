@@ -85,9 +85,11 @@ To run a sub-folder of tests, navigate to the 'tests' folder, and run:
 ## Documentation
 The following steps can be taken to regenerate the RS2 Scripting Documentation:
 1. Create python a virtual environment. Navigate to the root directory of your workspace and run the commands below:  
-```python -m venv venv```
-```venv/Scripts/activate```
-2. To generate the documentation run the following:  
+```python -m venv myenv```
+```myenv\Scripts\activate```
+2. Install the documentation requirement packages.
+```pip install -r docs/requirements.txt```
+3. To generate the documentation run the following:  
 ```python generateAndBuildDocumentation.py```  
 
 "examples.rst" and "index.rst" files are manually written and should be manually modified. "generateAndBuildDocumentation.py" will not overwrite them.

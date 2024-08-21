@@ -23,6 +23,9 @@ There are two methods to run a script, which differ in the Python environment us
 	* Requires downloading the **RS2 Python API library**
 	* For advanced users
 
+Please refer to `Getting Started with RS2 Python Scripting <https://www.rocscience.com/help/rs2/tutorials/scripting/getting-started-with-rs2-python-scripting>`_
+for more information.
+
 Install RS2 Python API Library
 -----------------------------------
 pip installation

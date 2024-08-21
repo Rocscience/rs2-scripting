@@ -1,4 +1,8 @@
 class ColorPicker():
+    """
+    RS2 can change color of an object by hex color codes or RGB. 
+    """
+
     Black = 0x000000
     Brown = 0x002AA5
     Dark_Olive_Green = 0x404000

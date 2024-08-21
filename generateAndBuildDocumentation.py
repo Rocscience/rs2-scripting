@@ -79,7 +79,8 @@ def remove_undoc_members_from_specific_files():
     rstFilesFolder = "docs/generatedAPIDocFiles"
     files_to_modify = ['rs2.interpreter.InterpreterEnums.rst',
                        'rs2.interpreter.InterpreterGraphEnums.rst',
-                       'rs2.interpreter.supportResults.BoltResult.rst',]
+                       'rs2.interpreter.supportResults.BoltResult.rst',
+                       'rs2.utilities.ColorPicker.rst']
 
     for filename in files_to_modify:
         filepath = os.path.join(rstFilesFolder, filename)
@@ -178,5 +179,4 @@ if __name__ == "__main__":
     remove_undoc_members_from_specific_files()
     reorder_rst_files()
     add_line_to_file("docs/generatedAPIDocFiles/rs2.utilities.ApplicationManager.rst", "   :exclude-members: minimumPort, maximumPort, defaultTimeout")
-    add_line_to_file("docs/generatedAPIDocFiles/rs2.utilities.ColorPicker.rst", "   :exclude-members: Black, Brown, Dark_Olive_Green, Dark_Green, Dark_Teal, Dark_Blue, Indigo, Dark_Grey, Dark_Red, Orange, Dark_Yellow, Green, Teal, Blue, Blue_Grey, Grey_40, Red, Light_Orange, Lime, Sea_Green, Aqua, Light_Blue, Violet, Grey_50, Pink, Gold, Yellow, Bright_Green, Turquoise, Skyblue, Plum, Light_Grey, Rose, Tan, Light_Yellow, Pale_Green, Pale_Turquoise, Pale_Blue, Lavender, White")
     run_sphinx_build()
