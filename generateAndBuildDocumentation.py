@@ -178,5 +178,4 @@ if __name__ == "__main__":
     remove_subpackage_submodule_headers()
     remove_undoc_members_from_specific_files()
     reorder_rst_files()
-    add_line_to_file("docs/generatedAPIDocFiles/rs2.utilities.ApplicationManager.rst", "   :exclude-members: minimumPort, maximumPort, defaultTimeout")
     run_sphinx_build()

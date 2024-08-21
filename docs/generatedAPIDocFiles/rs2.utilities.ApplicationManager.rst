@@ -5,4 +5,3 @@ rs2.utilities.ApplicationManager module
    :members:
    :undoc-members:
    :show-inheritance:
-   :exclude-members: minimumPort, maximumPort, defaultTimeout
