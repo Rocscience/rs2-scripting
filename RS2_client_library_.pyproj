@@ -25,6 +25,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Content Include=".vs\RS2_client_library_\v17\HierarchyCache.v1.txt" />
+    <Content Include="docs\requirements.txt" />
     <Content Include="docs\_static\logo.png" />
     <Content Include="requirements.txt" />
     <Content Include="src\rs2.egg-info\dependency_links.txt" />
