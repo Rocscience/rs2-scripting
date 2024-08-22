@@ -9,6 +9,10 @@ from rs2.modeler.properties.material.MaterialProperty import MaterialProperty
 from rs2.modeler.properties.ShearNormalFunction import ShearNormalFunction
 from rs2.modeler.properties.UserDefinedWaterMode import UserDefinedWaterMode
 from rs2.modeler.properties.DiscreteFunction import DiscreteFunction
+from rs2.modeler.properties.HydroDistributionFunction import HydroDistributionFunction
+from rs2.modeler.properties.PropertyEnums import HydraulicVariableTypes, HydraulicDistributionTypes
+
+from rs2.modeler import properties
 
 from rs2.BaseModel import BaseModel
 
@@ -336,6 +340,21 @@ class Model(BaseModel):
 		|  Renames a discrete function with the given name
 		'''
 		return self._callFunction('renameDiscreteFunction', [oldName, newName])	
+	
+	def getHydroDistributionFunctions(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes) -> list[HydroDistributionFunction]:
+		pass
+	
+	def getHydroDistributionFunctionByName(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, HydroDistributionFunctionName : str) -> HydroDistributionFunction:
+		pass
+	
+	def createNewHydroDistributionFunction(self, functionName, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes):
+		pass
+	
+	def deleteHydroDistributionFunction(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, functionName):
+		pass
+	
+	def renameHydroDistributionFunction(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, oldName, newName):
+		pass
 	
 
 

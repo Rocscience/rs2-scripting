@@ -70,6 +70,7 @@
     <Compile Include="sampleClientScripts\sampleGetAllBoltsLinersProxyClient.py" />
     <Compile Include="sampleClientScripts\SampleGetMeshResults.py" />
     <Compile Include="sampleClientScripts\SampleHistoryQuery.py" />
+    <Compile Include="sampleClientScripts\SampleHydroDistributionFunction.py" />
     <Compile Include="sampleClientScripts\sampleJointBeamResults.py" />
     <Compile Include="sampleClientScripts\SampleJointStageFactors.py" />
     <Compile Include="sampleClientScripts\SampleMaterial.py" />
@@ -109,6 +110,7 @@
     <Compile Include="src\rs2\modeler\properties\bolt\Tieback.py" />
     <Compile Include="src\rs2\modeler\properties\bolt\__init__.py" />
     <Compile Include="src\rs2\modeler\properties\CompositeProperty.py" />
+    <Compile Include="src\rs2\modeler\properties\HydroDistributionFunction.py" />
     <Compile Include="src\rs2\modeler\properties\joint\BartonBandis.py" />
     <Compile Include="src\rs2\modeler\properties\joint\BartonBandisMaterial.py" />
     <Compile Include="src\rs2\modeler\properties\joint\DisplacementDependent.py" />
@@ -143,6 +145,7 @@
     <Compile Include="src\rs2\modeler\properties\material\hydraulic\FEAGroundwater\UserDefined.py" />
     <Compile Include="src\rs2\modeler\properties\material\hydraulic\FEAGroundwater\__init__.py" />
     <Compile Include="src\rs2\modeler\properties\material\hydraulic\Hydraulic.py" />
+    <Compile Include="src\rs2\modeler\properties\material\hydraulic\HydroDistribution.py" />
     <Compile Include="src\rs2\modeler\properties\material\hydraulic\StaticGroundwater.py" />
     <Compile Include="src\rs2\modeler\properties\material\hydraulic\__init__.py" />
     <Compile Include="src\rs2\modeler\properties\material\InitialConditions.py" />
