@@ -44,8 +44,8 @@ assert fun1.getPointsParameter() == POINTKS1
 fun2 = model.getHydroDistributionFunctionByName(hydro_var_1, hydro_type_2, fun2_name)
 # Set the parameter values based on the hydro distribution
 POINTKS2 = [(1, 1, 1), (2, 2, 2), (3, 3, 3)]
-fun2.setPointsCoordinates(POINTKS2)
-assert fun2.getPointsCoordinates() == POINTKS2
+fun2.setPointsParameter(POINTKS2)
+assert fun2.getPointsParameter() == POINTKS2
 
 # Assign the new created hydro distribution function to Material 1
 mh = material.Hydraulic.HydroDistribution
