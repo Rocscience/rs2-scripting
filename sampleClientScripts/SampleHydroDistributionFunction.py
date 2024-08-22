@@ -49,8 +49,8 @@ assert fun2.getPointsParameter() == POINTKS2
 
 # Assign the new created hydro distribution function to Material 1
 mh = material.Hydraulic.HydroDistribution
-mh.setSelectedHydroDistributionFunction(hydro_var_1, hydro_type_1, fun1_name)
-assert mh.getSelectedHydroDistributionFunctionVal(hydro_var_1, hydro_type_1) == fun1_name
+mh.setHydroDistribution(hydro_var_1, hydro_type_1, fun1_name)
+assert mh.getSelectedHydroDistributionVal(hydro_var_1, hydro_type_1) == fun1_name
 
 # Set new distribution type to constant
 hydro_type_3 = HydraulicDistributionTypes.HORIZONTAL_STRESS_DIST
@@ -60,9 +60,9 @@ assert mh.getHydroDistribution(hydro_var_1) == hydro_type_3
 # Set the constant value of the new constant distribution
 hydro_type_4 = HydraulicDistributionTypes.CONSTANT_DIST
 constant_val = 0.5
-mh.setSelectedHydroDistributionFunction(hydro_var_1, hydro_type_4, constant_val)
+mh.setHydroDistribution(hydro_var_1, hydro_type_4, constant_val)
 assert mh.getHydroDistribution(hydro_var_1) == hydro_type_4
-assert mh.getSelectedHydroDistributionFunctionVal(hydro_var_1, hydro_type_4) == constant_val
+assert mh.getSelectedHydroDistributionVal(hydro_var_1, hydro_type_4) == constant_val
 
 # Delete one of the new hydro distribution functions
 model.deleteHydroDistributionFunction(hydro_var_1, hydro_type_2, fun2_name)
