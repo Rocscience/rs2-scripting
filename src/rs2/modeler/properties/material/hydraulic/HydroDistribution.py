@@ -9,11 +9,15 @@ from enum import Enum, auto
 class HydroDistribution(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		pass
-	def setSelectedHydroDistributionFunctionByName(self, variable:HydraulicVariableTypes, distribution: HydraulicDistributionTypes, name: str):
+	def setSelectedHydroDistributionFunction(self, variable:HydraulicVariableTypes, distribution: HydraulicDistributionTypes, value: str):
 		pass
-	def getSelectedHydroDistributionFunctionName(self, variable:HydraulicVariableTypes, distribution: HydraulicDistributionTypes) -> str:
+	def getSelectedHydroDistributionFunctionVal(self, variable:HydraulicVariableTypes, distribution: HydraulicDistributionTypes) -> str:
 		pass
-	def setNewHydroDistribution(self, variable:HydraulicVariableTypes, oldDistribution: HydraulicDistributionTypes, newDistribution: HydraulicDistributionTypes):
+	def setSelectedHydroDistributionFunction(self, variable:HydraulicVariableTypes, distribution: HydraulicDistributionTypes, value: float):
+		pass
+	def getSelectedHydroDistributionFunctionVal(self, variable:HydraulicVariableTypes, distribution: HydraulicDistributionTypes) -> float:
+		pass
+	def setNewHydroDistribution(self, variable:HydraulicVariableTypes, newDistribution: HydraulicDistributionTypes):
 		pass
 	def getHydroDistribution(self, variable: HydraulicVariableTypes) -> HydraulicDistributionTypes:
 		pass
