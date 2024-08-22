@@ -4,6 +4,6 @@ from rs2.modeler.properties.PropertyEnums import *
 class HydroDistributionFunction(ProxyObject):
     def setPointsParameter(self, param : list[list[float]]):
         pass
-    def getPointsParameter(self):
+    def getPointsParameter(self) -> list[list[float]]:
         pass
 

@@ -36,14 +36,14 @@ assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_2)) == 1
 
 fun1 = model.getHydroDistributionFunctionByName(hydro_var_1, hydro_type_1, fun1_name)
 # Set the parameter values based on the hydro distribution
-POINTKS1 = [(0.1, 0.1), (0.2, 0.2), (0.3, 0.3)]
+POINTKS1 = [[0.1, 0.1], [0.2, 0.2], [0.3, 0.3]]
 fun1.setPointsParameter(POINTKS1)
 assert fun1.getPointsParameter() == POINTKS1
 
 
 fun2 = model.getHydroDistributionFunctionByName(hydro_var_1, hydro_type_2, fun2_name)
 # Set the parameter values based on the hydro distribution
-POINTKS2 = [(1, 1, 1), (2, 2, 2), (3, 3, 3)]
+POINTKS2 = [[1, 1, 1], [2, 2, 2], [3, 3, 3]]
 fun2.setPointsParameter(POINTKS2)
 assert fun2.getPointsParameter() == POINTKS2
 
