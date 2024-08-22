@@ -1,10 +1,10 @@
 from rs2.modeler import properties
-from rs2.modeler.properties.HydroDistributionFunction import *
+from rs2.modeler.properties.PropertyEnums import *
 from rs2.modeler.RS2Modeler import RS2Modeler
 from rs2.modeler.properties import *
-from rs2.modeler.properties.PropertyEnums import HydraulicVariableTypes, HydraulicDistributionTypes
-from rs2.modeler.properties.material import *
 import os
+
+
 
 """
 1 create new hydro distribution function with new points
@@ -35,30 +35,27 @@ assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_2)) == 1
 
 
 fun1 = model.getHydroDistributionFunctionByName(hydro_var_1, hydro_type_1, fun1_name)
-# Set the Distribution values for those points
-POINTDIST = [0.5, 1, 0.2]
-fun1.setPointsDist(POINTDIST)
 # Set the parameter values based on the hydro distribution
-POINTKS1 = [0.1, 0.2, 0.3]
+POINTKS1 = [(0.1, 0.1), (0.2, 0.2), (0.3, 0.3)]
 fun1.setPointsParameter(POINTKS1)
-assert fun1.getPointsDist() == POINTDIST
 assert fun1.getPointsParameter() == POINTKS1
 
 
 fun2 = model.getHydroDistributionFunctionByName(hydro_var_1, hydro_type_2, fun2_name)
-# Set some points on the hydro coordinate distribution function
-POINTCOORDS = [(1, 1), (2, 2), (3, 3)]
-fun2.setPointCoordinates(POINTCOORDS)
 # Set the parameter values based on the hydro distribution
-POINTKS2 = [0.5, 1.1, 2.3]
-fun2.setPointsParameter(POINTKS2)
-assert fun2.getPointsDist() == POINTCOORDS
-assert fun2.getPointsParameter() == POINTKS2
+POINTKS2 = [(1, 1, 1), (2, 2, 2), (3, 3, 3)]
+fun2.setPointsCoordinates(POINTKS2)
+assert fun2.getPointsCoordinates() == POINTKS2
 
 # Assign the new created hydro distribution function to Material 1
 mh = material.Hydraulic.HydroDistribution
 mh.setSelectedHydroDistributionFunctionByName(hydro_var_1, hydro_type_1, fun1_name)
 assert mh.getSelectedHydroDistributionFunctionName(hydro_var_1, hydro_type_1) == fun1_name
+
+# Set new distribution type
+hydro_type_3 = HydraulicDistributionTypes.CONSTANT_DIST
+mh.setNewHydroDistribution(hydro_var_1, hydro_type_1, hydro_type_3)
+assert mh.getHydroDistribution(hydro_var_1) == hydro_type_3
 
 # Delete one of the new hydro distribution functions
 model.deleteHydroDistributionFunction(hydro_var_1, hydro_type_2, fun2_name)
