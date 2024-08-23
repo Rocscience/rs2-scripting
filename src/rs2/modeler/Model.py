@@ -342,19 +342,40 @@ class Model(BaseModel):
 		return self._callFunction('renameDiscreteFunction', [oldName, newName])	
 	
 	def getHydroDistributionFunctions(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes) -> list[HydroDistributionFunction]:
-		pass
+		'''
+		|  Returns a list of all hydro distribution functions
+		'''
+		activeHydroDistributionFunctionProperties = []
+		hydroDistributionFunctionIDList = self._callFunction('getHydroDistributionFunctions', [variable, distribution], keepReturnValueReference=True)
+		for hydroDistributionFunctionObjectID in hydroDistributionFunctionIDList:
+			activeHydroDistributionFunctionProperties.append(HydroDistributionFunction(self._client, hydroDistributionFunctionObjectID))
+		return activeHydroDistributionFunctionProperties
+		
 	
 	def getHydroDistributionFunctionByName(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, HydroDistributionFunctionName : str) -> HydroDistributionFunction:
-		pass
+		'''
+		|  Returns a hydro distribution function object based on its name.
+		'''
+		hydroDistributionFunctionObjectID = self._callFunction('getHydroDistributionFunctionByName', [variable, distribution, HydroDistributionFunctionName], keepReturnValueReference=True)
+		return HydroDistributionFunction(self._client, hydroDistributionFunctionObjectID)
 	
 	def createNewHydroDistributionFunction(self, functionName, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes):
-		pass
+		'''
+		|  Creates a new hydro distribution function with the given name
+		'''
+		return self._callFunction('createNewHydroDistributionFunction', [functionName, variable, distribution])
 	
 	def deleteHydroDistributionFunction(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, functionName):
-		pass
+		'''
+		|  Deletes a hydro discrete function with the given name
+		'''
+		return self._callFunction('deleteHydroDistributionFunction', [variable, distribution, functionName])
 	
 	def renameHydroDistributionFunction(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, oldName, newName):
-		pass
+		'''
+		|  Renames a hydro distribution function with the given name
+		'''
+		return self._callFunction('renameHydroDistributionFunction', [variable, distribution, oldName, newName])	
 	
 
 

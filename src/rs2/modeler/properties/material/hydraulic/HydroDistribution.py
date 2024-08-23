@@ -8,16 +8,17 @@ from enum import Enum, auto
 
 class HydroDistribution(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
-		pass
+		super().__init__(client, ID, documentProxyID)
+
 	def setHydroDistribution(self, variable:HydraulicVariableTypes, distribution: HydraulicDistributionTypes, value: str):
-		pass
+		return self._callFunction("setHydroDistribution", [variable, distribution, value])
 	def getSelectedHydroDistributionVal(self, variable:HydraulicVariableTypes, distribution: HydraulicDistributionTypes) -> str:
-		pass
+		return self._callFunction("getSelectedHydroDistributionVal", [variable, distribution])
 	def setHydroDistribution(self, variable:HydraulicVariableTypes, distribution: HydraulicDistributionTypes, value: float):
-		pass
+		return self._callFunction("setHydroDistribution", [variable, distribution, value])
 	def getSelectedHydroDistributionVal(self, variable:HydraulicVariableTypes, distribution: HydraulicDistributionTypes) -> float:
-		pass
+		return self._callFunction("getSelectedHydroDistributionVal", [variable, distribution])
 	def setNewHydroDistribution(self, variable:HydraulicVariableTypes, newDistribution: HydraulicDistributionTypes):
-		pass
+		return self._callFunction("setNewHydroDistribution", [variable, newDistribution])
 	def getHydroDistribution(self, variable: HydraulicVariableTypes) -> HydraulicDistributionTypes:
-		pass
+		return self._callFunction("getHydroDistribution", [variable])
