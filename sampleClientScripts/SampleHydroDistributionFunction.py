@@ -13,7 +13,7 @@ import os
 """
 
 
-modeler = RS2Modeler()
+modeler = RS2Modeler(port=60054)
 
 # relative_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../tests/resources/starterProject.fez")
 path = r"C:\Users\GraceHu\Documents\dummy_model.fez"
@@ -50,8 +50,8 @@ hydro_var_1 = HydraulicVariableTypes.KS
 
 # Assign the new created hydro distribution function to Material 1
 mh = material.Hydraulic.HydroDistribution
-mh.setHydroDistribution(hydro_var_1, fun1_name)
-assert mh.getSelectedHydroDistributionVal(hydro_var_1) == fun1_name
+mh.setSelectedHydroDistributionFunctionByName(hydro_var_1, fun1_name)
+assert mh.getSelectedHydroDistributionFunctionByName(hydro_var_1) == fun1_name
 
 # # Set new distribution type to constant
 # hydro_type_3 = HydraulicDistributionTypes.HORIZONTAL_STRESS_DIST
