@@ -10,14 +10,14 @@ class HydroDistribution(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 
-	def setHydroDistribution(self, variable:HydraulicVariableTypes, distribution: HydraulicDistributionTypes, value: str):
-		return self._callFunction("setHydroDistribution", [variable, distribution, value])
-	def getSelectedHydroDistributionVal(self, variable:HydraulicVariableTypes, distribution: HydraulicDistributionTypes) -> str:
-		return self._callFunction("getSelectedHydroDistributionVal", [variable, distribution])
-	def setHydroDistribution(self, variable:HydraulicVariableTypes, distribution: HydraulicDistributionTypes, value: float):
-		return self._callFunction("setHydroDistribution", [variable, distribution, value])
-	def getSelectedHydroDistributionVal(self, variable:HydraulicVariableTypes, distribution: HydraulicDistributionTypes) -> float:
-		return self._callFunction("getSelectedHydroDistributionVal", [variable, distribution])
+	def setHydroDistribution(self, variable:HydraulicVariableTypes, value: str):
+		return self._callFunction("setHydroDistribution", [variable.value, value])
+	def getSelectedHydroDistributionVal(self, variable:HydraulicVariableTypes) -> str:
+		return self._callFunction("getSelectedHydroDistributionVal", [variable.value])
+	def setHydroDistribution(self, variable:HydraulicVariableTypes, value: float):
+		return self._callFunction("setHydroDistribution", [variable, value])
+	def getSelectedHydroDistributionVal(self, variable:HydraulicVariableTypes) -> float:
+		return self._callFunction("getSelectedHydroDistributionVal", [variable])
 	def setNewHydroDistribution(self, variable:HydraulicVariableTypes, newDistribution: HydraulicDistributionTypes):
 		return self._callFunction("setNewHydroDistribution", [variable, newDistribution])
 	def getHydroDistribution(self, variable: HydraulicVariableTypes) -> HydraulicDistributionTypes:
