@@ -50,8 +50,9 @@ hydro_var_1 = HydraulicVariableTypes.KS
 
 # Assign the new created hydro distribution function to Material 1
 mh = material.Hydraulic.HydroDistribution
-mh.setSelectedHydroDistributionFunctionByName(hydro_var_1, fun1_name)
-assert mh.getSelectedHydroDistributionFunctionByName(hydro_var_1) == fun1_name
+mh.setHydroDistribution(hydro_var_1, fun1_name)
+print(mh.getHydroDistributionVal(hydro_var_1))
+assert mh.getHydroDistribution(hydro_var_1) == fun1_name
 
 # # Set new distribution type to constant
 # hydro_type_3 = HydraulicDistributionTypes.HORIZONTAL_STRESS_DIST
