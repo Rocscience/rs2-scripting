@@ -24,7 +24,8 @@ material = model.getMaterialPropertyByName("Material 1")
 fun1_name = "Function 3"
 # fun2_name = "func2"
 
-hydro_var_1 = HydraulicVariableTypes.KS
+hydro_var_1 = HydraulicVariableTypes.KS_FUNC
+hydro_var_2 = HydraulicVariableTypes.K2K1
 # hydro_type_1 = HydraulicDistributionTypes.MEAN_STRESS_DIST
 # hydro_type_2 = HydraulicDistributionTypes.COORDINATE_DIST
 
@@ -48,11 +49,11 @@ hydro_var_1 = HydraulicVariableTypes.KS
 # fun2.setPointsParameter(POINTKS2)
 # assert fun2.getPointsParameter() == POINTKS2
 
-# Assign the new created hydro distribution function to Material 1
+# # Assign the new created hydro distribution function to Material 1
 mh = material.Hydraulic.HydroDistribution
-mh.setHydroDistribution(hydro_var_1, fun1_name)
-print(mh.getHydroDistributionVal(hydro_var_1))
-assert mh.getHydroDistribution(hydro_var_1) == fun1_name
+# mh.setHydroDistribution(hydro_var_1, fun1_name)
+# print(mh.getHydroDistributionVal(hydro_var_1))
+# assert mh.getHydroDistribution(hydro_var_1) == fun1_name
 
 # # Set new distribution type to constant
 # hydro_type_3 = HydraulicDistributionTypes.HORIZONTAL_STRESS_DIST
@@ -60,11 +61,12 @@ assert mh.getHydroDistribution(hydro_var_1) == fun1_name
 # assert mh.getHydroDistribution(hydro_var_1) == hydro_type_3
 
 # # Set the constant value of the new constant distribution
-# hydro_type_4 = HydraulicDistributionTypes.CONSTANT_DIST
-# constant_val = 0.5
-# mh.setHydroDistribution(hydro_var_1, hydro_type_4, constant_val)
-# assert mh.getHydroDistribution(hydro_var_1) == hydro_type_4
-# assert mh.getSelectedHydroDistributionVal(hydro_var_1, hydro_type_4) == constant_val
+hydro_type_4 = HydraulicDistributionTypes.CONSTANT_DIST
+constant_val = 0.5
+mh.setHydroDistribution(hydro_var_2, constant_val)
+print(mh.getHydroDistributionVal(hydro_var_2))
+assert mh.getHydroDistribution(hydro_var_1) == hydro_type_4
+assert mh.getSelectedHydroDistributionVal(hydro_var_1, hydro_type_4) == constant_val
 
 # # Delete one of the new hydro distribution functions
 # model.deleteHydroDistributionFunction(hydro_var_1, hydro_type_2, fun2_name)

@@ -14,12 +14,12 @@ class HydroDistribution(PropertyProxy):
 		return self._callFunction("setHydroDistribution", [variable.value, value])
 	def getHydroDistributionVal(self, variable:HydraulicVariableTypes) -> str:
 		return self._callFunction("getHydroDistributionVal", [variable.value])
-	"""
+
 	def setHydroDistribution(self, variable:HydraulicVariableTypes, value: float):
-		return self._callFunction("setHydroDistribution", [variable, value])
-	def getHydroDistribution(self, variable:HydraulicVariableTypes) -> float:
-		return self._callFunction("getHydroDistribution", [variable])
-	"""
+		return self._setDoubleProperty(variable.value, value)
+	def getHydroDistributionVal(self, variable:HydraulicVariableTypes) -> float:
+		return self._getDoubleProperty(variable.value)
+
 	def setNewHydroDistribution(self, variable:HydraulicVariableTypes, newDistribution: HydraulicDistributionTypes):
 		return self._callFunction("setNewHydroDistribution", [variable, newDistribution])
 	def getHydroDistribution(self, variable: HydraulicVariableTypes) -> HydraulicDistributionTypes:
