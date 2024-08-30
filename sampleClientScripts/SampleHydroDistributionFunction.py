@@ -21,13 +21,14 @@ model = modeler.openFile(path)
 
 material = model.getMaterialPropertyByName("Material 1")
 
-fun1_name = "Function 3"
+fun1_name = "Function 2"
 # fun2_name = "func2"
 
-hydro_var_1 = HydraulicVariableTypes.KS_FUNC
-hydro_var_2 = HydraulicVariableTypes.K2K1
-# hydro_type_1 = HydraulicDistributionTypes.MEAN_STRESS_DIST
-# hydro_type_2 = HydraulicDistributionTypes.COORDINATE_DIST
+hydro_var_1 = HydraulicVariableTypes.DOS_RES_FUNC
+hydro_var_2 = HydraulicVariableTypes.DOS_SAT_FUNC
+hydro_type_1 = HydraulicDistributionTypes.MEAN_STRESS_DIST
+hydro_type_2 = HydraulicDistributionTypes.COORDINATE_DIST
+hydro_type_3 = HydraulicDistributionTypes.VERTICAL_STRESS_DIST
 
 # # Create 2 new hydro distribution functions
 # model.createNewHydroDistributionFunction(fun1_name, hydro_var_1, hydro_type_1)
@@ -51,8 +52,9 @@ hydro_var_2 = HydraulicVariableTypes.K2K1
 
 # # Assign the new created hydro distribution function to Material 1
 mh = material.Hydraulic.HydroDistribution
-# mh.setHydroDistribution(hydro_var_1, fun1_name)
-# print(mh.getHydroDistributionVal(hydro_var_1))
+# # material.Strength.getFailureCriterion()
+mh.setHydroDistribution(hydro_var_1, hydro_type_3, fun1_name)
+print(mh.getHydroDistributionVal(hydro_var_1))
 # assert mh.getHydroDistribution(hydro_var_1) == fun1_name
 
 # # Set new distribution type to constant
@@ -62,11 +64,11 @@ mh = material.Hydraulic.HydroDistribution
 
 # # Set the constant value of the new constant distribution
 hydro_type_4 = HydraulicDistributionTypes.CONSTANT_DIST
-constant_val = 0.5
-mh.setHydroDistribution(hydro_var_2, constant_val)
-print(mh.getHydroDistributionVal(hydro_var_2))
-assert mh.getHydroDistribution(hydro_var_1) == hydro_type_4
-assert mh.getSelectedHydroDistributionVal(hydro_var_1, hydro_type_4) == constant_val
+constant_val = 0.1
+mh.setHydroDistribution(hydro_var_2, hydro_type_4, constant_val)
+print(mh.getHydroDistributionConstantVal(hydro_var_2))
+# assert mh.getHydroDistribution(hydro_var_1) == hydro_type_4
+# assert mh.getSelectedHydroDistributionVal(hydro_var_1, hydro_type_4) == constant_val
 
 # # Delete one of the new hydro distribution functions
 # model.deleteHydroDistributionFunction(hydro_var_1, hydro_type_2, fun2_name)
