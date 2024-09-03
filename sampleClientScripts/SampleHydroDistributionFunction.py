@@ -24,7 +24,7 @@ material = model.getMaterialPropertyByName("Material 1")
 fun1_name = "Function 2"
 # fun2_name = "func2"
 
-hydro_var_1 = HydraulicVariableTypes.DOS_RES_FUNC
+hydro_var_1 = HydraulicVariableTypes.KS_FUNC
 hydro_var_2 = HydraulicVariableTypes.DOS_SAT_FUNC
 hydro_type_1 = HydraulicDistributionTypes.MEAN_STRESS_DIST
 hydro_type_2 = HydraulicDistributionTypes.COORDINATE_DIST
@@ -65,8 +65,8 @@ print(mh.getHydroDistributionVal(hydro_var_1))
 # # Set the constant value of the new constant distribution
 hydro_type_4 = HydraulicDistributionTypes.CONSTANT_DIST
 constant_val = 0.1
-mh.setHydroDistribution(hydro_var_2, hydro_type_4, constant_val)
-print(mh.getHydroDistributionConstantVal(hydro_var_2))
+mh.setHydroDistribution(hydro_var_1, hydro_type_4, constant_val)
+print(mh.getHydroDistributionConstantVal(hydro_var_1))
 # assert mh.getHydroDistribution(hydro_var_1) == hydro_type_4
 # assert mh.getSelectedHydroDistributionVal(hydro_var_1, hydro_type_4) == constant_val
 
