@@ -66,6 +66,7 @@ hydro_type_4 = HydraulicDistributionTypes.CONSTANT_DIST
 constant_val = 0.1
 mh.setHydroDistribution(hydro_var_2, hydro_type_4, constant_val)
 print(mh.getHydroDistributionConstantVal(hydro_var_2))
+print(mh.getHydroDistribution(hydro_var_1))
 # assert mh.getHydroDistribution(hydro_var_1) == hydro_type_4
 # assert mh.getSelectedHydroDistributionVal(hydro_var_1, hydro_type_4) == constant_val
 

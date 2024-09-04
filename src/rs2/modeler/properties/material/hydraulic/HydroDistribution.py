@@ -23,9 +23,5 @@ class HydroDistribution(PropertyProxy):
 		return self._callFunction("getHydroDistributionFunctionName", [variable.value])
 	def getHydroDistributionConstantVal(self, variable: HydraulicVariableTypes) -> float:
 		return self._callFunction("getHydroDistributionConstantVal", [variable.value])
-
-
-	def setNewHydroDistribution(self, variable:HydraulicVariableTypes, newDistribution: HydraulicDistributionTypes):
-		return self._callFunction("setNewHydroDistribution", [variable, newDistribution])
 	def getHydroDistribution(self, variable: HydraulicVariableTypes) -> HydraulicDistributionTypes:
-		return self._callFunction("getHydroDistribution", [variable])
+		return HydraulicDistributionTypes(self._callFunction("getHydroDistribution", [variable.value]))
