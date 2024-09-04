@@ -19,8 +19,8 @@ class HydroDistribution(PropertyProxy):
 		else:
 			warnings.warn(f"Please input a valid value for {dist}")
 
-	def getHydroDistributionVal(self, variable: HydraulicVariableTypes) -> str:
-		return self._callFunction("getHydroDistributionVal", [variable.value])
+	def getHydroDistributionFunctionName(self, variable: HydraulicVariableTypes) -> str:
+		return self._callFunction("getHydroDistributionFunctionName", [variable.value])
 	def getHydroDistributionConstantVal(self, variable: HydraulicVariableTypes) -> float:
 		return self._callFunction("getHydroDistributionConstantVal", [variable.value])
 

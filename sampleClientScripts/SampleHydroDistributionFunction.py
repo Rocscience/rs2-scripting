@@ -52,9 +52,8 @@ hydro_type_3 = HydraulicDistributionTypes.VERTICAL_STRESS_DIST
 
 # # Assign the new created hydro distribution function to Material 1
 mh = material.Hydraulic.HydroDistribution
-# # material.Strength.getFailureCriterion()
-mh.setHydroDistribution(hydro_var_1, hydro_type_3, fun1_name)
-print(mh.getHydroDistributionVal(hydro_var_1))
+# mh.setHydroDistribution(hydro_var_1, hydro_type_3, fun1_name)
+# print(mh.getHydroDistributionFunctionName(hydro_var_1))
 # assert mh.getHydroDistribution(hydro_var_1) == fun1_name
 
 # # Set new distribution type to constant
@@ -65,8 +64,8 @@ print(mh.getHydroDistributionVal(hydro_var_1))
 # # Set the constant value of the new constant distribution
 hydro_type_4 = HydraulicDistributionTypes.CONSTANT_DIST
 constant_val = 0.1
-mh.setHydroDistribution(hydro_var_1, hydro_type_4, constant_val)
-print(mh.getHydroDistributionConstantVal(hydro_var_1))
+mh.setHydroDistribution(hydro_var_2, hydro_type_4, constant_val)
+print(mh.getHydroDistributionConstantVal(hydro_var_2))
 # assert mh.getHydroDistribution(hydro_var_1) == hydro_type_4
 # assert mh.getSelectedHydroDistributionVal(hydro_var_1, hydro_type_4) == constant_val
 
