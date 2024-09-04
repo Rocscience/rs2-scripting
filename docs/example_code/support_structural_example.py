@@ -77,8 +77,9 @@ def OutputLinerResult(singleLinerResult):
         print(f"\tAxial Symmetry Moment2 = {axi_sym_moment2}, Beam Yield = {beam_yield}, Temperature 1 = {temperature1}")
         print(f"\tTemperature-Mid = {temperature_mid}, Temperature 2 = {temperature2}\n")
 
+RS2Interpreter.startApplication(port=60055)
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
-interpreter = RS2Interpreter()
+interpreter = RS2Interpreter(port=60055)
 model = interpreter.openFile(rf"{current_dir}\example_models\SupportStructuralResults.fez")
 
 stages = [1, 2]

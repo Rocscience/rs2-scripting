@@ -1,8 +1,9 @@
 from rs2.interpreter.RS2Interpreter import RS2Interpreter
 import os, inspect
 
+RS2Interpreter.startApplication(port=60055)
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
-interpreter = RS2Interpreter()
+interpreter = RS2Interpreter(port=60055)
 model = interpreter.openFile(rf"{current_dir}\example_models\SupportResults.fez")
 
 stages = [1, 2]
