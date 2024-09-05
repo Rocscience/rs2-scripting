@@ -5,8 +5,10 @@ from rs2.interpreter.InterpreterGraphEnums import *
 import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
-modeler = RS2Modeler()
-interpreter = RS2Interpreter()
+RS2Modeler.startApplication(port=60058)
+modeler = RS2Modeler(port=60058)
+RS2Interpreter.startApplication(port=60059)
+interpreter = RS2Interpreter(port=60059)
 modelPath = rf"{current_dir}\example_models\ExampleModel.fez"
 modeler_model = modeler.openFile(modelPath)
 

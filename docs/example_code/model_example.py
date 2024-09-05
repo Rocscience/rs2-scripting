@@ -4,7 +4,8 @@ from rs2.modeler.properties.PropertyEnums import *
 import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
-modeler = RS2Modeler()
+RS2Modeler.startApplication(port=60077)
+modeler = RS2Modeler(port=60077)
 model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 bolt = model.getAllBoltProperties()[0]
@@ -19,7 +20,8 @@ model.save()
 model.compute()
 model.close()
 
-interpreter = RS2Interpreter()
+RS2Interpreter.startApplication(port=60078)
+interpreter = RS2Interpreter(port=60078)
 interpreterModel = interpreter.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 interpreterModel.save()
 interpreterModel.close()

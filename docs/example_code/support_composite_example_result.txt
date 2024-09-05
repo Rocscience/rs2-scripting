@@ -1,0 +1,21 @@
+Stage 1 Composite Results
+
+	Composite Unique ID = External boundary0
+	Joint Result for Composite with ID External boundary0:
+
+		Joint Unique ID = External boundary0
+		Joint Element Results:
+
+		Start X-Coord = 11.949843172111, Start Y-Coord = 16.8602900357032, End X-Coord = 7.66165679261041, End Y-Coord = 16.0080637205343
+		Distance = 2.186025624140804, Normal Stress = 4.0118, Shear Stress = 0.06408, Confining Stress = None
+		Normal Displacement = 3.98454459388709e-05, Shear Displacement = 9.518369020371651e-07, Yielded = False
+
+		Start X-Coord = 7.66165679261041, Start Y-Coord = 16.0080637205343, End X-Coord = 3.37347041310981, End Y-Coord = 15.1558374053654
+		Distance = 6.558076872422411, Normal Stress = 5.5995, Shear Stress = -0.064085, Confining Stress = None
+		Normal Displacement = 3.567238008880944e-05, Shear Displacement = -9.650382373340867e-07, Yielded = False
+
+	Liner Result for Composite with ID External boundary0:
+
+		Liner Unique ID = External boundary0
+		Liner Element Results:
+

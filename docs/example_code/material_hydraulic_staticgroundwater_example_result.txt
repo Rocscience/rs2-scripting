@@ -1,0 +1,4 @@
+Static Pore Water Pressure = 5.0
+Ru Value = 5.0
+Hu Value = 5.0
+StaticGroundwater Factor Grid To Use = Default Grid, Static Groundwater Piezo To Use = None

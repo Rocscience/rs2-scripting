@@ -3,7 +3,8 @@ from rs2.interpreter.InterpreterEnums import *
 import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
-interpreter = RS2Interpreter()
+RS2Interpreter.startApplication(port=60073)
+interpreter = RS2Interpreter(port=60073)
 model = interpreter.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 pointID = model.AddMaterialQuery(points=[[3.3, -2.2]])

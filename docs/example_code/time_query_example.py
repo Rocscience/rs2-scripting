@@ -4,7 +4,8 @@ from rs2.interpreter.InterpreterGraphEnums import *
 import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
-modeler = RS2Modeler()
+RS2Modeler.startApplication(port=60091)
+modeler = RS2Modeler(port=60091)
 filePath = rf"{current_dir}\example_models\DynamicModel.fez"
 model = modeler.openFile(filePath)
 
@@ -25,7 +26,8 @@ model.RemoveTimeQueryPoint([pointID_1])
 model.save()
 model.compute()
 
-interpreter = RS2Interpreter()
+RS2Interpreter.startApplication(port=60055)
+interpreter = RS2Interpreter(port=60055)
 interpreter_model = interpreter.openFile(filePath)
 result = interpreter_model.GetAllTimeQueryPointResults(
     stages=[1, 2, 3, 4], 

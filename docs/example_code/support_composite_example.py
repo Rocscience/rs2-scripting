@@ -56,8 +56,9 @@ def OutputLinerResult(singleLinerResult):
         print(f"\t\tAxial Symmetry Force = {axi_sym_force}, Axial Symmetry Moment = {axi_sym_moment}")
         print(f"\t\tBeam Yield = {beam_yield}, Temperature = {temperature}\n")
 
+RS2Interpreter.startApplication(port=60086)
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
-interpreter = RS2Interpreter()
+interpreter = RS2Interpreter(port=60086)
 model = interpreter.openFile(rf"{current_dir}\example_models\SupportResults.fez")
 
 # Composite is removed in stage 2
