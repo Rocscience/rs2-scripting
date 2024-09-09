@@ -359,23 +359,23 @@ class Model(BaseModel):
 		hydroDistributionFunctionObjectID = self._callFunction('getHydroDistributionFunctionByName', [variable, distribution, HydroDistributionFunctionName], keepReturnValueReference=True)
 		return HydroDistributionFunction(self._client, hydroDistributionFunctionObjectID)
 	
-	def createNewHydroDistributionFunction(self, functionName, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes):
+	def createNewHydroDistributionFunction(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, functionName):
 		'''
 		|  Creates a new hydro distribution function with the given name
 		'''
-		return self._callFunction('createNewHydroDistributionFunction', [functionName, variable, distribution])
+		return self._callFunction('createNewHydroDistributionFunction', [variable.value, distribution.value, functionName])
 	
 	def deleteHydroDistributionFunction(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, functionName):
 		'''
 		|  Deletes a hydro discrete function with the given name
 		'''
-		return self._callFunction('deleteHydroDistributionFunction', [variable, distribution, functionName])
+		return self._callFunction('deleteHydroDistributionFunction', [variable.value, distribution.value, functionName])
 	
 	def renameHydroDistributionFunction(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, oldName, newName):
 		'''
 		|  Renames a hydro distribution function with the given name
 		'''
-		return self._callFunction('renameHydroDistributionFunction', [variable, distribution, oldName, newName])	
+		return self._callFunction('renameHydroDistributionFunction', [variable.value, distribution.value, oldName, newName])	
 	
 
 

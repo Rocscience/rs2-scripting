@@ -22,7 +22,7 @@ model = modeler.openFile(path)
 material = model.getMaterialPropertyByName("Material 1")
 
 fun1_name = "Function 2"
-# fun2_name = "func2"
+fun2_name = "func2"
 
 hydro_var_1 = HydraulicVariableTypes.KS_FUNC
 hydro_var_2 = HydraulicVariableTypes.DOS_SAT_FUNC
@@ -30,9 +30,10 @@ hydro_type_1 = HydraulicDistributionTypes.MEAN_STRESS_DIST
 hydro_type_2 = HydraulicDistributionTypes.COORDINATE_DIST
 hydro_type_3 = HydraulicDistributionTypes.VERTICAL_STRESS_DIST
 
-# # Create 2 new hydro distribution functions
-# model.createNewHydroDistributionFunction(fun1_name, hydro_var_1, hydro_type_1)
-# model.createNewHydroDistributionFunction(fun2_name, hydro_var_1, hydro_type_2)
+# Create 2 new hydro distribution functions
+model.createNewHydroDistributionFunction(hydro_var_1, hydro_type_2, fun1_name)
+# model.createNewHydroDistributionFunction(hydro_var_1, hydro_type_3, fun2_name)
+model.deleteHydroDistributionFunction(hydro_var_1, hydro_type_2, fun1_name);
 # assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_1)) == 1
 # assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_2)) == 1
 
@@ -52,8 +53,8 @@ hydro_type_3 = HydraulicDistributionTypes.VERTICAL_STRESS_DIST
 
 # # Assign the new created hydro distribution function to Material 1
 mh = material.Hydraulic.HydroDistribution
-# mh.setHydroDistribution(hydro_var_1, hydro_type_3, fun1_name)
-# print(mh.getHydroDistributionFunctionName(hydro_var_1))
+mh.setHydroDistribution(hydro_var_1, hydro_type_3, fun1_name)
+print(mh.getHydroDistributionFunctionName(hydro_var_1))
 # assert mh.getHydroDistribution(hydro_var_1) == fun1_name
 
 # # Set new distribution type to constant
