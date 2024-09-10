@@ -19,8 +19,7 @@ Pile Stage Factor Example
    :language: python
    :caption: Code Snippet: Manipulation of Pile Stage Factor Properties
 
-Output:
-
-.. code::
-
-	X Factor : 1.5, Y Factor : 1.8
+Output
+------------------
+.. literalinclude:: ../../example_code/pile_prop_stage_factor_example_result.txt
+   :language: python

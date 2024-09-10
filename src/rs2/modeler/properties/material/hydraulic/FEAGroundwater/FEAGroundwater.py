@@ -91,3 +91,4 @@ class FEAGroundwater(PropertyProxy):
 		return self._callFunction("setK1SurfaceToUseByName", [surfaceName])
 	def getK1SurfaceToUse(self) -> str:
 		return self._callFunction("getK1SurfaceToUse", [])
+	

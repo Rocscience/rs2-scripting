@@ -26,8 +26,8 @@ model.RemoveTimeQueryPoint([pointID_1])
 model.save()
 model.compute()
 
-RS2Interpreter.startApplication(port=60055)
-interpreter = RS2Interpreter(port=60055)
+RS2Interpreter.startApplication(port=60092)
+interpreter = RS2Interpreter(port=60092)
 interpreter_model = interpreter.openFile(filePath)
 result = interpreter_model.GetAllTimeQueryPointResults(
     stages=[1, 2, 3, 4], 

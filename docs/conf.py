@@ -28,7 +28,8 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx_copybutton', 
               'sphinx.ext.napoleon',
               'sphinx_rtd_theme',
-              'sphinxcontrib.youtube']
+              'sphinxcontrib.youtube',
+              'sphinx.ext.doctest']
 
 autodoc_default_options = {
     'member-order': 'bysource',
