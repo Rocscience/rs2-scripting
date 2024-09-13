@@ -1,6 +1,7 @@
 from rs2.modeler.properties.bolt.Bolt import BoltProperty
 from rs2.modeler.properties.liner.Liner import LinerProperty
 from rs2.modeler.properties.joint.Joint import JointProperty
+from rs2.modeler.properties.material.hydraulic.HydroDistribution import HydroDistribution
 from rs2.modeler.properties.pile.Pile import PileProperty
 from rs2.modeler.properties.StructuralInterface import StructuralInterfaceProperty
 from rs2.modeler.properties.CompositeProperty import CompositeProperty
@@ -346,17 +347,17 @@ class Model(BaseModel):
 		|  Returns a list of all hydro distribution functions
 		'''
 		activeHydroDistributionFunctionProperties = []
-		hydroDistributionFunctionIDList = self._callFunction('getHydroDistributionFunctions', [variable, distribution], keepReturnValueReference=True)
+		hydroDistributionFunctionIDList = self._callFunction('getHydroDistributionFunctions', [variable.value, distribution.value], keepReturnValueReference=True)
 		for hydroDistributionFunctionObjectID in hydroDistributionFunctionIDList:
 			activeHydroDistributionFunctionProperties.append(HydroDistributionFunction(self._client, hydroDistributionFunctionObjectID))
-		return activeHydroDistributionFunctionProperties
-		
-	
+		return activeHydroDistributionFunctionProperties		
+
+
 	def getHydroDistributionFunctionByName(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, HydroDistributionFunctionName : str) -> HydroDistributionFunction:
 		'''
 		|  Returns a hydro distribution function object based on its name.
 		'''
-		hydroDistributionFunctionObjectID = self._callFunction('getHydroDistributionFunctionByName', [variable, distribution, HydroDistributionFunctionName], keepReturnValueReference=True)
+		hydroDistributionFunctionObjectID = self._callFunction('getHydroDistributionFunctionByName', [variable.value, distribution.value, HydroDistributionFunctionName], keepReturnValueReference=True)
 		return HydroDistributionFunction(self._client, hydroDistributionFunctionObjectID)
 	
 	def createNewHydroDistributionFunction(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, functionName):
