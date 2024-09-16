@@ -21,60 +21,52 @@ model = modeler.openFile(path)
 
 material = model.getMaterialPropertyByName("Material 1")
 
-fun1_name = "Function 2"
-fun2_name = "func2"
+fun1_name = "New Function 1"
+fun2_name = "New Function 2"
 
 hydro_var_1 = HydraulicVariableTypes.KS_FUNC
-hydro_var_2 = HydraulicVariableTypes.DOS_SAT_FUNC
+hydro_var_2 = HydraulicVariableTypes.K2K1_FUNC
 hydro_type_1 = HydraulicDistributionTypes.MEAN_STRESS_DIST
 hydro_type_2 = HydraulicDistributionTypes.COORDINATE_DIST
-hydro_type_3 = HydraulicDistributionTypes.VERTICAL_STRESS_DIST
+hydro_type_n = None
 
 # Create 2 new hydro distribution functions
+model.createNewHydroDistributionFunction(hydro_var_1, hydro_type_1, fun1_name)
 model.createNewHydroDistributionFunction(hydro_var_1, hydro_type_2, fun1_name)
-# model.createNewHydroDistributionFunction(hydro_var_1, hydro_type_3, fun2_name)
-model.deleteHydroDistributionFunction(hydro_var_1, hydro_type_2, fun1_name);
-# assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_1)) == 1
-# assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_2)) == 1
+assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_1)) == 1
+assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_2)) == 1
 
+fun1 = model.getHydroDistributionFunctionByName(hydro_var_1, hydro_type_1, fun1_name)
+# Set the parameter values based on the hydro distribution
+POINTKS1 = [[0.1, 0.1], [0.2, 0.2], [0.3, 0.3]]
+fun1.setPointsParameter(POINTKS1)
+assert fun1.getPointsParameter() == POINTKS1
 
-# fun1 = model.getHydroDistributionFunctionByName(hydro_var_1, hydro_type_1, fun1_name)
-# # Set the parameter values based on the hydro distribution
-# POINTKS1 = [[0.1, 0.1], [0.2, 0.2], [0.3, 0.3]]
-# fun1.setPointsParameter(POINTKS1)
-# assert fun1.getPointsParameter() == POINTKS1
+# Rename the function to a new name
+model.renameHydroDistributionFunction(hydro_var_1, hydro_type_2, fun1_name, fun2_name)
 
+fun2 = model.getHydroDistributionFunctionByName(hydro_var_1, hydro_type_2, fun2_name)
+# Set the parameter values based on the hydro distribution
+POINTKS2 = [[1, 1, 1], [2, 2, 2], [3, 3, 3]]
+fun2.setPointsParameter(POINTKS2)
+assert fun2.getPointsParameter() == POINTKS2
 
-# fun2 = model.getHydroDistributionFunctionByName(hydro_var_1, hydro_type_2, fun2_name)
-# # Set the parameter values based on the hydro distribution
-# POINTKS2 = [[1, 1, 1], [2, 2, 2], [3, 3, 3]]
-# fun2.setPointsParameter(POINTKS2)
-# assert fun2.getPointsParameter() == POINTKS2
-
-# # Assign the new created hydro distribution function to Material 1
+# Assign the new created hydro distribution function to Material 1
 mh = material.Hydraulic.HydroDistribution
-mh.setHydroDistribution(hydro_var_1, hydro_type_3, fun1_name)
-print(mh.getHydroDistributionFunctionName(hydro_var_1))
-# assert mh.getHydroDistribution(hydro_var_1) == fun1_name
+mh.setHydroDistribution(hydro_var_1, hydro_type_2, fun2_name)
+assert mh.getHydroDistributionFunctionName(hydro_var_1) == fun2_name
 
-# # Set new distribution type to constant
-# hydro_type_3 = HydraulicDistributionTypes.HORIZONTAL_STRESS_DIST
-# mh.setNewHydroDistribution(hydro_var_1, hydro_type_3)
-# assert mh.getHydroDistribution(hydro_var_1) == hydro_type_3
-
-# # Set the constant value of the new constant distribution
+# Set the constant value of the new constant distribution
 hydro_type_4 = HydraulicDistributionTypes.CONSTANT_DIST
 constant_val = 0.1
-mh.setHydroDistribution(hydro_var_2, hydro_type_4, constant_val)
-print(mh.getHydroDistributionConstantVal(hydro_var_2))
-print(mh.getHydroDistribution(hydro_var_1))
-# assert mh.getHydroDistribution(hydro_var_1) == hydro_type_4
-# assert mh.getSelectedHydroDistributionVal(hydro_var_1, hydro_type_4) == constant_val
+mh.setHydroDistribution(hydro_var_1, hydro_type_4, constant_val)
+assert mh.getHydroDistribution(hydro_var_1) == hydro_type_4
+assert mh.getHydroDistributionConstantVal(hydro_var_1) == constant_val
 
-# # Delete one of the new hydro distribution functions
-# model.deleteHydroDistributionFunction(hydro_var_1, hydro_type_2, fun2_name)
-# assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_2)) == 0
+# Delete one of the new hydro distribution functions
+model.deleteHydroDistributionFunction(hydro_var_1, hydro_type_2, fun2_name)
+assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_2)) == 0
 
-# # Delete another hydro distribution function
-# model.deleteHydroDistributionFunction(hydro_var_1, hydro_type_1, fun1_name)
-# assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_1)) == 0
+# Delete another hydro distribution function
+model.deleteHydroDistributionFunction(hydro_var_1, hydro_type_1, fun1_name)
+assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_1)) == 0
