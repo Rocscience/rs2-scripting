@@ -38,18 +38,18 @@ assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_2)) == 1
 
 fun1 = model.getHydroDistributionFunctionByName(hydro_var_1, hydro_type_1, fun1_name)
 # Set the parameter values based on the hydro distribution
-POINTKS1 = [[0.1, 0.1], [0.2, 0.2], [0.3, 0.3]]
-fun1.setPointsParameter(POINTKS1)
-assert fun1.getPointsParameter() == POINTKS1
+point_ks1 = [[0.1, 0.2], [0.3, 0.4], [0.5, 0.6]]
+fun1.setPointsParameter(point_ks1)
+assert fun1.getPointsParameter() == point_ks1
 
 # Rename the function to a new name
 model.renameHydroDistributionFunction(hydro_var_1, hydro_type_2, fun1_name, fun2_name)
 
 fun2 = model.getHydroDistributionFunctionByName(hydro_var_1, hydro_type_2, fun2_name)
 # Set the parameter values based on the hydro distribution
-POINTKS2 = [[1, 1, 1], [2, 2, 2], [3, 3, 3]]
-fun2.setPointsParameter(POINTKS2)
-assert fun2.getPointsParameter() == POINTKS2
+point_ks2 = [[1.123, 2.123, 3.123], [2.234, 3.235, 4.456], [3.324, 1.256, 3.456]]
+fun2.setPointsParameter(point_ks2)
+assert fun2.getPointsParameter() == point_ks2
 
 # Assign the new created hydro distribution function to Material 1
 mh = material.Hydraulic.HydroDistribution
