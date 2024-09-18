@@ -344,7 +344,7 @@ class Model(BaseModel):
 	
 	def getHydroDistributionFunctions(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes) -> list[HydroDistributionFunction]:
 		'''
-		|  Returns a list of all hydro distribution functions
+		|  Returns a list of all hydraulic distribution functions
 		'''
 		activeHydroDistributionFunctionProperties = []
 		hydroDistributionFunctionIDList = self._callFunction('getHydroDistributionFunctions', [variable.value, distribution.value], keepReturnValueReference=True)
@@ -355,26 +355,26 @@ class Model(BaseModel):
 
 	def getHydroDistributionFunctionByName(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, HydroDistributionFunctionName : str) -> HydroDistributionFunction:
 		'''
-		|  Returns a hydro distribution function object based on its name.
+		|  Returns a hydraulic distribution function object based on its name.
 		'''
 		hydroDistributionFunctionObjectID = self._callFunction('getHydroDistributionFunctionByName', [variable.value, distribution.value, HydroDistributionFunctionName], keepReturnValueReference=True)
 		return HydroDistributionFunction(self._client, hydroDistributionFunctionObjectID)
 	
 	def createNewHydroDistributionFunction(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, functionName):
 		'''
-		|  Creates a new hydro distribution function with the given name
+		|  Creates a new hydraulic distribution function with the given name
 		'''
 		return self._callFunction('createNewHydroDistributionFunction', [variable.value, distribution.value, functionName])
 	
 	def deleteHydroDistributionFunction(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, functionName):
 		'''
-		|  Deletes a hydro discrete function with the given name
+		|  Deletes a hydraulic discrete function with the given name
 		'''
 		return self._callFunction('deleteHydroDistributionFunction', [variable.value, distribution.value, functionName])
 	
 	def renameHydroDistributionFunction(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, oldName, newName):
 		'''
-		|  Renames a hydro distribution function with the given name
+		|  Renames a hydraulic distribution function with the given name
 		'''
 		return self._callFunction('renameHydroDistributionFunction', [variable.value, distribution.value, oldName, newName])	
 	

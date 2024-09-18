@@ -15,6 +15,9 @@ class HydroDistributionFunctionStageFactor(ProxyObject):
 		super().__init__(client, ID)
 		self.propertyID = propertyID
 	def getHydroDistributionStagedFunction(self, variable: HydraulicVariableTypes) -> list[HydraulicDistributionTypes, str]:
+		"""
+		Return a list with HydraulicDistributionType and the assigned function name.
+		"""
 		distribution, funcName = self._callFunction("getHydroDistributionStagedFunction", [variable.value, self.propertyID], proxyArgumentIndices=[1])
 		return [HydraulicDistributionTypes(distribution), funcName]
 
@@ -25,6 +28,9 @@ class HydroDistributionFunctionDefinedStageFactor(HydroDistributionFunctionStage
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID, propertyID)
 	def setHydroDistributionStagedFunction(self, variable: HydraulicVariableTypes, dist: HydraulicDistributionTypes, value: str):
+		"""
+		Set the hydraulic distribution function for a specific stage.
+		"""
 		return self._callFunction("setHydroDistributionStagedFunction", [variable.value, dist.value, value, self.propertyID], proxyArgumentIndices=[3])
 
 class HydroDistribution(PropertyProxy):
@@ -33,6 +39,9 @@ class HydroDistribution(PropertyProxy):
 		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[HydroDistributionFunctionDefinedStageFactor, HydroDistributionFunctionStageFactor](self._client, stageFactorInterfaceID, ID, HydroDistributionFunctionDefinedStageFactor, HydroDistributionFunctionStageFactor)
 
 	def setHydroDistribution(self, variable: HydraulicVariableTypes, dist: HydraulicDistributionTypes, value):
+		"""
+		Set the given variable with selected non-constant hydraulic distribution with a defined hydraulic distribution function or with a constant hydraulic distribution with a constant value. 
+		"""
 		if(isinstance(value, str) and dist != HydraulicDistributionTypes.CONSTANT_DIST):
 			return self._callFunction("setHydroDistribution", [variable.value, dist.value, value])
 		elif(isinstance(value, float) and dist == HydraulicDistributionTypes.CONSTANT_DIST):
@@ -41,8 +50,17 @@ class HydroDistribution(PropertyProxy):
 			warnings.warn(f"Please input a valid value for {dist}")
 
 	def getHydroDistributionFunctionName(self, variable: HydraulicVariableTypes) -> str:
+		"""
+		Get the hydraulic distribution function name. See getHydroDistributionConstantVal to access constant value of constant distribution.
+		"""
 		return self._callFunction("getHydroDistributionFunctionName", [variable.value])
 	def getHydroDistributionConstantVal(self, variable: HydraulicVariableTypes) -> float:
+		"""
+		Get the hydraulic distribution constant value. See getHydroDistributionFunctionName to access the function name of a non-constant distribution.
+		"""
 		return self._callFunction("getHydroDistributionConstantVal", [variable.value])
 	def getHydroDistribution(self, variable: HydraulicVariableTypes) -> HydraulicDistributionTypes:
+		"""
+		Get the distribution function of the selected variable
+		"""
 		return HydraulicDistributionTypes(self._callFunction("getHydroDistribution", [variable.value]))

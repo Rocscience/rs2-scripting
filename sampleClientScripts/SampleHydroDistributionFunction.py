@@ -29,8 +29,6 @@ hydro_var_2 = HydraulicVariableTypes.K2K1_FUNC
 hydro_type_1 = HydraulicDistributionTypes.VERTICAL_STRESS_DIST
 hydro_type_2 = HydraulicDistributionTypes.COORDINATE_DIST
 hydro_type_3 = HydraulicDistributionTypes.CONSTANT_DIST
-hydro_type_n = None
-
 
 # Create 2 new hydro distribution functions
 model.createNewHydroDistributionFunction(hydro_var_1, hydro_type_1, fun1_name)
