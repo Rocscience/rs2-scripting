@@ -21,18 +21,21 @@ model = modeler.openFile(path)
 
 material = model.getMaterialPropertyByName("Material 1")
 
-fun1_name = "New Function 1"
+fun1_name = "Function 1"
 fun2_name = "New Function 2"
 
 hydro_var_1 = HydraulicVariableTypes.KS_FUNC
 hydro_var_2 = HydraulicVariableTypes.K2K1_FUNC
-hydro_type_1 = HydraulicDistributionTypes.MEAN_STRESS_DIST
+hydro_type_1 = HydraulicDistributionTypes.VERTICAL_STRESS_DIST
 hydro_type_2 = HydraulicDistributionTypes.COORDINATE_DIST
+hydro_type_3 = HydraulicDistributionTypes.CONSTANT_DIST
 hydro_type_n = None
+
 
 # Create 2 new hydro distribution functions
 model.createNewHydroDistributionFunction(hydro_var_1, hydro_type_1, fun1_name)
 model.createNewHydroDistributionFunction(hydro_var_1, hydro_type_2, fun1_name)
+# Check the list of available function for each variable
 assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_1)) == 1
 assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_2)) == 1
 
@@ -56,11 +59,44 @@ mh = material.Hydraulic.HydroDistribution
 mh.setHydroDistribution(hydro_var_1, hydro_type_2, fun2_name)
 assert mh.getHydroDistributionFunctionName(hydro_var_1) == fun2_name
 
+# Apply Stage Hydraulic Properties and Stage Hydraulic Distribution
+material.StageFactors.setStageHydraulicStageFactor(True)
+material.StageFactors.setStageHydroDistributionStageFactor(True)
+assert material.StageFactors.getStageHydroDistributionStageFactor() == True
+
+# Define Stage Factors
+definedStageFactors = material.StageFactors.getDefinedStageFactors()
+stage = 2
+newStageFactor = material.StageFactors.createStageFactor(stage)
+definedStageFactors[2] = newStageFactor
+material.StageFactors.setDefinedStageFactors(definedStageFactors)
+
+# Define stage factors at stage 2
+feaGroundwaterStageFactor = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[stage]
+hydroDistributionGroundwaterStageFactor = material.Hydraulic.HydroDistribution.stageFactorInterface.getDefinedStageFactors()[stage]
+
+# Set stage factors for different parameters
+feaGroundwaterStageFactor.setK1AngleFactor(0.7)
+feaGroundwaterStageFactor.setK2K1Factor(2.2)
+feaGroundwaterStageFactor.setMvFactor(5)
+
+# Get and Set Hydraulic Distribution Function in Stage Factor
+hydroDistributionGroundwaterStageFactor.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_1, fun1_name)
+hydroDistributionProp = hydroDistributionGroundwaterStageFactor.getHydroDistributionStagedFunction(hydro_var_1)
+# Check assigned Hydraulic Distribution Type
+assert hydroDistributionProp[0] == hydro_type_1
+# Check assigned Hydraulic Distribution Function Name
+assert hydroDistributionProp[1] == fun1_name
+
+# Apply Stage Hydraulic Properties and Stage Hydraulic Distribution
+material.StageFactors.setStageHydroDistributionStageFactor(False)
+assert material.StageFactors.getStageHydroDistributionStageFactor() == False
+material.StageFactors.setStageHydraulicStageFactor(False)
+
 # Set the constant value of the new constant distribution
-hydro_type_4 = HydraulicDistributionTypes.CONSTANT_DIST
 constant_val = 0.1
-mh.setHydroDistribution(hydro_var_1, hydro_type_4, constant_val)
-assert mh.getHydroDistribution(hydro_var_1) == hydro_type_4
+mh.setHydroDistribution(hydro_var_1, hydro_type_3, constant_val)
+assert mh.getHydroDistribution(hydro_var_1) == hydro_type_3
 assert mh.getHydroDistributionConstantVal(hydro_var_1) == constant_val
 
 # Delete one of the new hydro distribution functions
