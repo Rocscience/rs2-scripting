@@ -16,7 +16,7 @@ import os
 modeler = RS2Modeler(port=60054)
 
 # relative_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../tests/resources/starterProject.fez")
-path = r"C:\Users\GraceHu\Documents\dummy_model.fez"
+path = r"C:\dev_python\dummy_model.fez"
 model = modeler.openFile(path)
 
 material = model.getMaterialPropertyByName("Material 1")
@@ -93,7 +93,7 @@ hydroDistributionGroundwaterStageFactor = material.Hydraulic.HydroDistribution.s
 # Set stage factors for different parameters
 feaGroundwaterStageFactor.setK1AngleFactor(0.7)
 feaGroundwaterStageFactor.setK2K1Factor(2.2)
-feaGroundwaterStageFactor.setMvFactor(5)
+
 
 # Get and Set Hydraulic Distribution Function in Stage Factor
 hydroDistributionGroundwaterStageFactor.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_1, fun1_name)
@@ -118,6 +118,16 @@ hydroDistributionProp = hydroDistributionGroundwaterStageFactor.getHydroDistribu
 assert hydroDistributionProp[0] == hydro_type_5
 # Check assigned Hydraulic Distribution Function Name
 assert hydroDistributionProp[1] == fun4_name
+
+
+# Run compute
+# Open Interpretor
+# Add material query
+# Access Spatial Distribution Results
+# Compare results
+
+
+
 
 
 # Apply Stage Hydraulic Properties and Stage Hydraulic Distribution
