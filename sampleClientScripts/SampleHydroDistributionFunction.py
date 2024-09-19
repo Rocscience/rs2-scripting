@@ -16,7 +16,7 @@ import os
 modeler = RS2Modeler(port=60054)
 
 # relative_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../tests/resources/starterProject.fez")
-path = r"C:\dev_python\dummy_model.fez"
+path = r"C:\Users\GraceHu\Documents\dummy_model.fez"
 model = modeler.openFile(path)
 
 material = model.getMaterialPropertyByName("Material 1")
@@ -31,8 +31,10 @@ hydro_var_2 = HydraulicVariableTypes.K2K1_FUNC
 hydro_var_3 = HydraulicVariableTypes.K1_ANGLE_FUNC
 hydro_var_4 = HydraulicVariableTypes.WC_SAT_FUNC
 hydro_var_5 = HydraulicVariableTypes.WC_RES_FUNC
-hydro_var_7 = HydraulicVariableTypes.DOS_SAT_FUNC
-hydro_var_8 = HydraulicVariableTypes.DOS_RES_FUNC
+hydro_var_6 = HydraulicVariableTypes.DOS_SAT_FUNC
+hydro_var_7 = HydraulicVariableTypes.DOS_RES_FUNC
+hydro_var_8 = HydraulicVariableTypes.RELATIVE_KS_FUNC
+hydro_var_9 = HydraulicVariableTypes.RELATIVE_WC_FUNC
 hydro_type_1 = HydraulicDistributionTypes.MEAN_STRESS_DIST
 hydro_type_2 = HydraulicDistributionTypes.COORDINATE_DIST
 hydro_type_3 = HydraulicDistributionTypes.CONSTANT_DIST
@@ -48,8 +50,10 @@ model.createNewHydroDistributionFunction(hydro_var_2, hydro_type_4, fun3_name)
 model.createNewHydroDistributionFunction(hydro_var_3, hydro_type_5, fun3_name)
 model.createNewHydroDistributionFunction(hydro_var_4, hydro_type_6, fun3_name)
 model.createNewHydroDistributionFunction(hydro_var_5, hydro_type_2, fun4_name)
-model.createNewHydroDistributionFunction(hydro_var_7, hydro_type_5, fun4_name)
-model.createNewHydroDistributionFunction(hydro_var_8, hydro_type_6, fun4_name)
+model.createNewHydroDistributionFunction(hydro_var_6, hydro_type_5, fun4_name)
+model.createNewHydroDistributionFunction(hydro_var_7, hydro_type_6, fun4_name)
+model.createNewHydroDistributionFunction(hydro_var_8, hydro_type_4, fun4_name)
+model.createNewHydroDistributionFunction(hydro_var_9, hydro_type_1, fun4_name)
 # Check the list of available function for each variable
 assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_1)) == 1
 assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_2)) == 1
@@ -81,54 +85,71 @@ assert material.StageFactors.getStageHydroDistributionStageFactor() == True
 
 # Define Stage Factors
 definedStageFactors = material.StageFactors.getDefinedStageFactors()
-stage = 2
-newStageFactor = material.StageFactors.createStageFactor(stage)
-definedStageFactors[2] = newStageFactor
+stage_1 = 1
+stage_2 = 2
+# Create 2 stages with stage factor of initial values
+newStageFactor_1 = material.StageFactors.createStageFactor(stage_1)
+newStageFactor_2 = material.StageFactors.createStageFactor(stage_2)
+
+# Add Stage 1
+definedStageFactors[stage_1] = newStageFactor_1
 material.StageFactors.setDefinedStageFactors(definedStageFactors)
 
-# Define stage factors at stage 2
-feaGroundwaterStageFactor = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[stage]
-hydroDistributionGroundwaterStageFactor = material.Hydraulic.HydroDistribution.stageFactorInterface.getDefinedStageFactors()[stage]
+# Define stage factors at stage 1
+feaGroundwaterStageFactor_1 = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[stage_1]
+hydroDistributionGroundwaterStageFactor_1 = material.Hydraulic.HydroDistribution.stageFactorInterface.getDefinedStageFactors()[stage_1]
 
 # Set stage factors for different parameters
-feaGroundwaterStageFactor.setK1AngleFactor(0.7)
-feaGroundwaterStageFactor.setK2K1Factor(2.2)
-
-
-# Get and Set Hydraulic Distribution Function in Stage Factor
-hydroDistributionGroundwaterStageFactor.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_1, fun1_name)
-hydroDistributionProp = hydroDistributionGroundwaterStageFactor.getHydroDistributionStagedFunction(hydro_var_1)
-# Check assigned Hydraulic Distribution Type
-assert hydroDistributionProp[0] == hydro_type_1
-# Check assigned Hydraulic Distribution Function Name
-assert hydroDistributionProp[1] == fun1_name
+feaGroundwaterStageFactor_1.setK1AngleFactor(0.5)
 
 # Switch stage hydraulic distribution function to a volumetric strain distribution
-hydroDistributionGroundwaterStageFactor.setHydroDistributionStagedFunction(hydro_var_4, hydro_type_6, fun3_name)
-hydroDistributionProp = hydroDistributionGroundwaterStageFactor.getHydroDistributionStagedFunction(hydro_var_4)
+hydroDistributionGroundwaterStageFactor_1.setHydroDistributionStagedFunction(hydro_var_4, hydro_type_6, fun3_name)
+hydroDistributionProp = hydroDistributionGroundwaterStageFactor_1.getHydroDistributionStagedFunction(hydro_var_4)
 # Check assigned Hydraulic Distribution Type
 assert hydroDistributionProp[0] == hydro_type_6
 # Check assigned Hydraulic Distribution Function Name
 assert hydroDistributionProp[1] == fun3_name
 
+# Add a new stage 2
+definedStageFactors[stage_2] = newStageFactor_2
+material.StageFactors.setDefinedStageFactors(definedStageFactors)
+
+# Define stage factors at stage 2
+feaGroundwaterStageFactor_2 = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[stage_2]
+hydroDistributionGroundwaterStageFactor_2 = material.Hydraulic.HydroDistribution.stageFactorInterface.getDefinedStageFactors()[stage_2]
+
+# Set stage factors for different parameters
+feaGroundwaterStageFactor_2.setK2K1Factor(2.2)
+
+# Get and Set Hydraulic Distribution Function in Stage Factor
+hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_1, fun1_name)
+hydroDistributionProp = hydroDistributionGroundwaterStageFactor_2.getHydroDistributionStagedFunction(hydro_var_1)
+# Check assigned Hydraulic Distribution Type
+assert hydroDistributionProp[0] == hydro_type_1
+# Check assigned Hydraulic Distribution Function Name
+assert hydroDistributionProp[1] == fun1_name
+
+# Switch stage hydraulic distribution function to a coordinate distribution
+hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_2, fun2_name)
+hydroDistributionProp = hydroDistributionGroundwaterStageFactor_2.getHydroDistributionStagedFunction(hydro_var_1)
+# Check assigned Hydraulic Distribution Type
+assert hydroDistributionProp[0] == hydro_type_2
+# Check assigned Hydraulic Distribution Function Name
+assert hydroDistributionProp[1] == fun2_name
+
 # Switch stage hydraulic distribution function to a vertical stress distribution
-hydroDistributionGroundwaterStageFactor.setHydroDistributionStagedFunction(hydro_var_7, hydro_type_5, fun4_name)
-hydroDistributionProp = hydroDistributionGroundwaterStageFactor.getHydroDistributionStagedFunction(hydro_var_7)
+hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(hydro_var_6, hydro_type_5, fun4_name)
+hydroDistributionProp = hydroDistributionGroundwaterStageFactor_2.getHydroDistributionStagedFunction(hydro_var_6)
 # Check assigned Hydraulic Distribution Type
 assert hydroDistributionProp[0] == hydro_type_5
 # Check assigned Hydraulic Distribution Function Name
 assert hydroDistributionProp[1] == fun4_name
-
 
 # Run compute
 # Open Interpretor
 # Add material query
 # Access Spatial Distribution Results
 # Compare results
-
-
-
-
 
 # Apply Stage Hydraulic Properties and Stage Hydraulic Distribution
 material.StageFactors.setStageHydroDistributionStageFactor(False)
