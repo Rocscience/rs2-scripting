@@ -2,6 +2,8 @@ from rs2.modeler import properties
 from rs2.modeler.properties.PropertyEnums import *
 from rs2.modeler.RS2Modeler import RS2Modeler
 from rs2.modeler.properties import *
+from rs2.interpreter.RS2Interpreter import RS2Interpreter
+from rs2.interpreter.InterpreterEnums import *
 import os
 
 
@@ -16,7 +18,7 @@ import os
 modeler = RS2Modeler(port=60054)
 
 # relative_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../tests/resources/starterProject.fez")
-path = r"C:\Users\GraceHu\Documents\dummy_model.fez"
+path = r"C:\Users\GraceHu\Documents\interpreter_dummy_model.fez"
 model = modeler.openFile(path)
 
 material = model.getMaterialPropertyByName("Material 1")
@@ -145,11 +147,37 @@ assert hydroDistributionProp[0] == hydro_type_5
 # Check assigned Hydraulic Distribution Function Name
 assert hydroDistributionProp[1] == fun4_name
 
-# Run compute
+# Save model and run compute
+model.save()
+model.compute()
+
 # Open Interpretor
+interpreter = RS2Interpreter()
+model = interpreter.openFile(path)
+
 # Add material query
-# Access Spatial Distribution Results
+pointID = model.AddMaterialQuery(points=[[3.3, -2.2]])
+points_making_line = [[4.5, 4.5], [-2.5, 4.5], [-2.5, 2.5], [-6, 2.5]]
+lineID = model.AddMaterialQuery(points=points_making_line)
+
+# # Access Spatial Distribution Results
+# model.RemoveMaterialQuery([pointID])
+# model.SetActiveStage(2)
+
 # Compare results
+results = model.GetMaterialQueryResults()
+for mat_query_data in results:
+    unique_ID = mat_query_data.GetUniqueIdentifier()
+    material_ID = mat_query_data.GetMaterialID()
+    print(f"Query Unique ID = {unique_ID}, MaterialID = {material_ID}")
+    print("----------------")
+    query_results = mat_query_data.GetAllValues()
+    for result in query_results:
+        x = result.GetXCoordinate()
+        y = result.GetYCoordinate()
+        distance = result.GetDistance()
+        value = result.GetValue()
+        print(f"X-Coord ={x}, Y-Coordinate = {y}, Distance = {distance}, Result Type Node Value = {value}")
 
 # Apply Stage Hydraulic Properties and Stage Hydraulic Distribution
 material.StageFactors.setStageHydroDistributionStageFactor(False)
@@ -169,3 +197,6 @@ assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_2)) == 0
 # Delete another hydro distribution function
 model.deleteHydroDistributionFunction(hydro_var_1, hydro_type_1, fun1_name)
 assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_1)) == 0
+
+
+
