@@ -6,18 +6,8 @@ from rs2.interpreter.RS2Interpreter import RS2Interpreter
 from rs2.interpreter.InterpreterEnums import *
 import os
 
-
-
-"""
-1 create new hydro distribution function with new points
-2 assign hydro distribution function to material 1.
-3 delete hydro distribution function
-"""
-
-
 modeler = RS2Modeler(port=60054)
 
-# relative_path = os.path.join(os.path.dirname(os.path.abspath(__file__)), "../tests/resources/starterProject.fez")
 path = r"C:\Users\GraceHu\Documents\interpreter_dummy_model.fez"
 model = modeler.openFile(path)
 
@@ -135,11 +125,11 @@ definedStageFactors[stage_4] = newStageFactor_4
 material.StageFactors.setDefinedStageFactors(definedStageFactors)
 
 # Define stage factors at stage 2
-feaGroundwaterStageFactor_2 = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[stage_4]
+feaGroundwaterStageFactor_4 = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[stage_4]
 hydroDistributionGroundwaterStageFactor_4 = material.Hydraulic.HydroDistribution.stageFactorInterface.getDefinedStageFactors()[stage_4]
 
 # Set stage factors for different parameters
-feaGroundwaterStageFactor_2.setK2K1Factor(2.2)
+feaGroundwaterStageFactor_4.setK2K1Factor(2.2)
 
 # Get and Set Hydraulic Distribution Function in Stage Factor
 hydroDistributionGroundwaterStageFactor_4.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_1, fun1_name)
@@ -181,8 +171,9 @@ assert mh.getHydroDistributionFunctionName(hydro_var_3) == fun3_name
 
 fun7 = model.getHydroDistributionFunctionByName(hydro_var_5, hydro_type_2, fun4_name)
 # Set the parameter values based on the hydro distribution
-fun7.setPointsParameter(point_ks2)
-assert fun7.getPointsParameter() == point_ks2
+point_wc2 = [[1.123, 2.123, 0.123], [2.234, 3.235, 0.456], [3.324, 1.256, 0.456]]
+fun7.setPointsParameter(point_wc2)
+assert fun7.getPointsParameter() == point_wc2
 
 mh.setHydroDistribution(hydro_var_5, hydro_type_2, fun4_name)
 assert mh.getHydroDistributionFunctionName(hydro_var_5) == fun4_name
@@ -213,7 +204,7 @@ seepageTypes = [ExportResultType.SEEPAGE_HORIZONTAL_PERMEABILITY,
 
 
 for stageNum in range(1, 4):
-    print(f"Stage {stageNum} Structural Results\n")
+    print(f"Stage {stageNum} Results\n")
     # Show result at stage 1 to 3
     interpretModel.SetActiveStage(stageNum)
 
@@ -236,10 +227,28 @@ for stageNum in range(1, 4):
                 value = result.GetValue()
                 print(f"X-Coord ={x}, Y-Coordinate = {y}, Distance = {distance}, Result Type Node Value = {value}")
 
+# Delete stage factors
+stage_4 = 4
+definedStageFactors.pop(stage_4)
+material.StageFactors.setDefinedStageFactors(definedStageFactors)
+
 # Apply Stage Hydraulic Properties and Stage Hydraulic Distribution
 material.StageFactors.setStageHydroDistributionStageFactor(False)
 assert material.StageFactors.getStageHydroDistributionStageFactor() == False
-material.StageFactors.setStageHydraulicStageFactor(False)
+
+variable_list = [HydraulicVariableTypes.KS_FUNC,
+                 HydraulicVariableTypes.K2K1_FUNC,
+                 HydraulicVariableTypes.K1_ANGLE_FUNC,
+                 HydraulicVariableTypes.WC_SAT_FUNC,
+                 HydraulicVariableTypes.WC_RES_FUNC,  
+                ]
+
+for stage in range(2,3):
+    print("Stage", stage)
+    for variable in variable_list:
+        print(variable)
+        print(material.Hydraulic.HydroDistribution.stageFactorInterface.getStageFactor(stage).getHydroDistributionStagedFunction(variable))
+    print()
 
 # Set the constant value of the new constant distribution
 constant_val = 0.1
