@@ -44,7 +44,6 @@ hydro_type_4 = HydraulicDistributionTypes.HORIZONTAL_STRESS_DIST
 hydro_type_5 = HydraulicDistributionTypes.VERTICAL_STRESS_DIST
 hydro_type_6 = HydraulicDistributionTypes.VOLUMETRIC_STRAIN_DIST
 
-
 # Create 2 new hydro distribution functions
 model.createNewHydroDistributionFunction(hydro_var_1, hydro_type_1, fun1_name)
 model.createNewHydroDistributionFunction(hydro_var_1, hydro_type_2, fun1_name)
@@ -62,7 +61,7 @@ assert len(model.getHydroDistributionFunctions(hydro_var_1, hydro_type_2)) == 1
 
 fun1 = model.getHydroDistributionFunctionByName(hydro_var_1, hydro_type_1, fun1_name)
 # Set the parameter values based on the hydro distribution
-point_ks1 = [[0.1, 0.2], [0.3, 0.4], [0.5, 0.6]]
+point_ks1 = [[0.1, 12.2], [0.3, 14.4], [0.5, 14.6]]
 fun1.setPointsParameter(point_ks1)
 assert fun1.getPointsParameter() == point_ks1
 
@@ -87,41 +86,40 @@ assert material.StageFactors.getStageHydroDistributionStageFactor() == True
 
 # Define Stage Factors
 definedStageFactors = material.StageFactors.getDefinedStageFactors()
-stage_1 = 1
 stage_2 = 2
+stage_4 = 4
 # Create 2 stages with stage factor of initial values
-newStageFactor_1 = material.StageFactors.createStageFactor(stage_1)
 newStageFactor_2 = material.StageFactors.createStageFactor(stage_2)
-
 # Add Stage 1
-definedStageFactors[stage_1] = newStageFactor_1
+definedStageFactors[stage_2] = newStageFactor_2
 material.StageFactors.setDefinedStageFactors(definedStageFactors)
 
 # Define stage factors at stage 1
-feaGroundwaterStageFactor_1 = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[stage_1]
-hydroDistributionGroundwaterStageFactor_1 = material.Hydraulic.HydroDistribution.stageFactorInterface.getDefinedStageFactors()[stage_1]
+feaGroundwaterStageFactor_2 = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[stage_2]
+hydroDistributionGroundwaterStageFactor_2 = material.Hydraulic.HydroDistribution.stageFactorInterface.getDefinedStageFactors()[stage_2]
 
 # Set stage factors for different parameters
-feaGroundwaterStageFactor_1.setK1AngleFactor(0.5)
+feaGroundwaterStageFactor_2.setK1AngleFactor(0.5)
+
+fun3 = model.getHydroDistributionFunctionByName(hydro_var_4, hydro_type_6, fun3_name)
+# Set the parameter values based on the hydro distribution
+point_wc_sat3 = [[1.123, 0.01], [2.234, 0.05], [3.324, 0.15]]
+fun3.setPointsParameter(point_wc_sat3)
+assert fun3.getPointsParameter() == point_wc_sat3
 
 # Switch stage hydraulic distribution function to a volumetric strain distribution
-hydroDistributionGroundwaterStageFactor_1.setHydroDistributionStagedFunction(hydro_var_4, hydro_type_6, fun3_name)
-hydroDistributionProp = hydroDistributionGroundwaterStageFactor_1.getHydroDistributionStagedFunction(hydro_var_4)
+hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(hydro_var_4, hydro_type_6, fun3_name)
+hydroDistributionProp = hydroDistributionGroundwaterStageFactor_2.getHydroDistributionStagedFunction(hydro_var_4)
 # Check assigned Hydraulic Distribution Type
 assert hydroDistributionProp[0] == hydro_type_6
 # Check assigned Hydraulic Distribution Function Name
 assert hydroDistributionProp[1] == fun3_name
 
-# Add a new stage 2
-definedStageFactors[stage_2] = newStageFactor_2
-material.StageFactors.setDefinedStageFactors(definedStageFactors)
-
-# Define stage factors at stage 2
-feaGroundwaterStageFactor_2 = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[stage_2]
-hydroDistributionGroundwaterStageFactor_2 = material.Hydraulic.HydroDistribution.stageFactorInterface.getDefinedStageFactors()[stage_2]
-
-# Set stage factors for different parameters
-feaGroundwaterStageFactor_2.setK2K1Factor(2.2)
+fun4 = model.getHydroDistributionFunctionByName(hydro_var_1, hydro_type_1, fun1_name)
+# Set the parameter values based on the hydro distribution
+point_ks4 = [[1.123, 1.23], [2.234, 2.34], [3.324, 3.45]]
+fun4.setPointsParameter(point_ks4)
+assert fun4.getPointsParameter() == point_ks4
 
 # Get and Set Hydraulic Distribution Function in Stage Factor
 hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_1, fun1_name)
@@ -131,53 +129,112 @@ assert hydroDistributionProp[0] == hydro_type_1
 # Check assigned Hydraulic Distribution Function Name
 assert hydroDistributionProp[1] == fun1_name
 
+# Add a new stage 4
+newStageFactor_4 = material.StageFactors.createStageFactor(stage_4)
+definedStageFactors[stage_4] = newStageFactor_4
+material.StageFactors.setDefinedStageFactors(definedStageFactors)
+
+# Define stage factors at stage 2
+feaGroundwaterStageFactor_2 = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[stage_4]
+hydroDistributionGroundwaterStageFactor_4 = material.Hydraulic.HydroDistribution.stageFactorInterface.getDefinedStageFactors()[stage_4]
+
+# Set stage factors for different parameters
+feaGroundwaterStageFactor_2.setK2K1Factor(2.2)
+
+# Get and Set Hydraulic Distribution Function in Stage Factor
+hydroDistributionGroundwaterStageFactor_4.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_1, fun1_name)
+hydroDistributionProp = hydroDistributionGroundwaterStageFactor_4.getHydroDistributionStagedFunction(hydro_var_1)
+# Check assigned Hydraulic Distribution Type
+assert hydroDistributionProp[0] == hydro_type_1
+# Check assigned Hydraulic Distribution Function Name
+assert hydroDistributionProp[1] == fun1_name
+
 # Switch stage hydraulic distribution function to a coordinate distribution
-hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_2, fun2_name)
-hydroDistributionProp = hydroDistributionGroundwaterStageFactor_2.getHydroDistributionStagedFunction(hydro_var_1)
+hydroDistributionGroundwaterStageFactor_4.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_2, fun2_name)
+hydroDistributionProp = hydroDistributionGroundwaterStageFactor_4.getHydroDistributionStagedFunction(hydro_var_1)
 # Check assigned Hydraulic Distribution Type
 assert hydroDistributionProp[0] == hydro_type_2
 # Check assigned Hydraulic Distribution Function Name
 assert hydroDistributionProp[1] == fun2_name
 
+fun5 = model.getHydroDistributionFunctionByName(hydro_var_6, hydro_type_5, fun4_name)
+# Set the parameter values based on the hydro distribution
+point_dos5 = [[15.2, 0.1], [34.2, 0.15], [35.1, 0.25]]
+fun5.setPointsParameter(point_dos5)
+assert fun5.getPointsParameter() == point_dos5
+
 # Switch stage hydraulic distribution function to a vertical stress distribution
-hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(hydro_var_6, hydro_type_5, fun4_name)
-hydroDistributionProp = hydroDistributionGroundwaterStageFactor_2.getHydroDistributionStagedFunction(hydro_var_6)
+hydroDistributionGroundwaterStageFactor_4.setHydroDistributionStagedFunction(hydro_var_6, hydro_type_5, fun4_name)
+hydroDistributionProp = hydroDistributionGroundwaterStageFactor_4.getHydroDistributionStagedFunction(hydro_var_6)
 # Check assigned Hydraulic Distribution Type
 assert hydroDistributionProp[0] == hydro_type_5
 # Check assigned Hydraulic Distribution Function Name
 assert hydroDistributionProp[1] == fun4_name
 
+fun6 = model.getHydroDistributionFunctionByName(hydro_var_3, hydro_type_5, fun3_name)
+# Set the parameter values based on the hydro distribution
+fun6.setPointsParameter(point_ks1)
+assert fun6.getPointsParameter() == point_ks1
+
+mh.setHydroDistribution(hydro_var_3, hydro_type_5, fun3_name)
+assert mh.getHydroDistributionFunctionName(hydro_var_3) == fun3_name
+
+fun7 = model.getHydroDistributionFunctionByName(hydro_var_5, hydro_type_2, fun4_name)
+# Set the parameter values based on the hydro distribution
+fun7.setPointsParameter(point_ks2)
+assert fun7.getPointsParameter() == point_ks2
+
+mh.setHydroDistribution(hydro_var_5, hydro_type_2, fun4_name)
+assert mh.getHydroDistributionFunctionName(hydro_var_5) == fun4_name
+
 # Save model and run compute
-model.save()
+model_path = r'C:\Users\GraceHu\Documents\post_modeling_dummy_model.fez'
+model.saveAs(model_path)
 model.compute()
 
 # Open Interpretor
-interpreter = RS2Interpreter()
-model = interpreter.openFile(path)
+interpreter = RS2Interpreter(port=60055)
+interpretModel = interpreter.openFile(model_path)
 
 # Add material query
-pointID = model.AddMaterialQuery(points=[[3.3, -2.2]])
-points_making_line = [[4.5, 4.5], [-2.5, 4.5], [-2.5, 2.5], [-6, 2.5]]
-lineID = model.AddMaterialQuery(points=points_making_line)
+pointID = interpretModel.AddMaterialQuery(points=[[3.3, -2.2]])
+points_making_line = [[40.52, 4.5], [-10.23, 4.5], [-10.23, -40.892], [-37.723, -40.892]]
+lineID = interpretModel.AddMaterialQuery(points=points_making_line)
 
 # # Access Spatial Distribution Results
-# model.RemoveMaterialQuery([pointID])
-# model.SetActiveStage(2)
+seepageTypes = [ExportResultType.SEEPAGE_HORIZONTAL_PERMEABILITY,
+                ExportResultType.SEEPAGE_VERTICAL_PERMEABILITY,
+                ExportResultType.SEEPAGE_SPATIAL_PERM,
+                ExportResultType.SEEPAGE_SPATIAL_WC,
+                ExportResultType.SEEPAGE_SPATIAL_WC_R,
+                ExportResultType.SEEPAGE_SPATIAL_CONDY,
+                ExportResultType.SEEPAGE_SPATIAL_ANGLE,
+                ]
 
-# Compare results
-results = model.GetMaterialQueryResults()
-for mat_query_data in results:
-    unique_ID = mat_query_data.GetUniqueIdentifier()
-    material_ID = mat_query_data.GetMaterialID()
-    print(f"Query Unique ID = {unique_ID}, MaterialID = {material_ID}")
-    print("----------------")
-    query_results = mat_query_data.GetAllValues()
-    for result in query_results:
-        x = result.GetXCoordinate()
-        y = result.GetYCoordinate()
-        distance = result.GetDistance()
-        value = result.GetValue()
-        print(f"X-Coord ={x}, Y-Coordinate = {y}, Distance = {distance}, Result Type Node Value = {value}")
+
+for stageNum in range(1, 4):
+    print(f"Stage {stageNum} Structural Results\n")
+    # Show result at stage 1 to 3
+    interpretModel.SetActiveStage(stageNum)
+
+    # Compare results
+    for seepageType in seepageTypes:
+        interpretModel.SetResultType(seepageType)
+        results = interpretModel.GetMaterialQueryResults()
+        print(f"\nSeepage Result Type = {seepageType}")
+        print("=============================================================")
+        for mat_query_data in results:
+            unique_ID = mat_query_data.GetUniqueIdentifier()
+            material_ID = mat_query_data.GetMaterialID()
+            print(f"Query Unique ID = {unique_ID}, MaterialID = {material_ID}")
+            print("----------------")
+            query_results = mat_query_data.GetAllValues()
+            for result in query_results:
+                x = result.GetXCoordinate()
+                y = result.GetYCoordinate()
+                distance = result.GetDistance()
+                value = result.GetValue()
+                print(f"X-Coord ={x}, Y-Coordinate = {y}, Distance = {distance}, Result Type Node Value = {value}")
 
 # Apply Stage Hydraulic Properties and Stage Hydraulic Distribution
 material.StageFactors.setStageHydroDistributionStageFactor(False)
