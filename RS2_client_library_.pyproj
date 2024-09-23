@@ -71,6 +71,7 @@
     <Compile Include="sampleClientScripts\SampleGetMeshResults.py" />
     <Compile Include="sampleClientScripts\SampleHistoryQuery.py" />
     <Compile Include="sampleClientScripts\SampleHydroDistributionFunction.py" />
+    <Compile Include="sampleClientScripts\SampleHydroDistributionFunction2.py" />
     <Compile Include="sampleClientScripts\sampleJointBeamResults.py" />
     <Compile Include="sampleClientScripts\SampleJointStageFactors.py" />
     <Compile Include="sampleClientScripts\SampleMaterial.py" />
