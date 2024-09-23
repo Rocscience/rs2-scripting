@@ -197,7 +197,7 @@ seepageTypes = [ExportResultType.SEEPAGE_HORIZONTAL_PERMEABILITY,
                 ExportResultType.SEEPAGE_VERTICAL_PERMEABILITY,
                 ExportResultType.SEEPAGE_SPATIAL_PERM,
                 ExportResultType.SEEPAGE_SPATIAL_WC,
-                ExportResultType.SEEPAGE_SPATIAL_WC_R,
+                ExportResultType.SEEPAGE_SPATIAL_WC_RES,
                 ExportResultType.SEEPAGE_SPATIAL_CONDY,
                 ExportResultType.SEEPAGE_SPATIAL_ANGLE,
                 ]
