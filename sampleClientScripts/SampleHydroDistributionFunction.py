@@ -84,7 +84,7 @@ newStageFactor_2 = material.StageFactors.createStageFactor(stage_2)
 definedStageFactors[stage_2] = newStageFactor_2
 material.StageFactors.setDefinedStageFactors(definedStageFactors)
 
-# Define stage factors at stage 1
+# Define stage factors at stage 2
 feaGroundwaterStageFactor_2 = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[stage_2]
 hydroDistributionGroundwaterStageFactor_2 = material.Hydraulic.HydroDistribution.stageFactorInterface.getDefinedStageFactors()[stage_2]
 
@@ -124,7 +124,7 @@ newStageFactor_4 = material.StageFactors.createStageFactor(stage_4)
 definedStageFactors[stage_4] = newStageFactor_4
 material.StageFactors.setDefinedStageFactors(definedStageFactors)
 
-# Define stage factors at stage 2
+# Define stage factors at stage 4
 feaGroundwaterStageFactor_4 = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[stage_4]
 hydroDistributionGroundwaterStageFactor_4 = material.Hydraulic.HydroDistribution.stageFactorInterface.getDefinedStageFactors()[stage_4]
 
@@ -182,6 +182,8 @@ assert mh.getHydroDistributionFunctionName(hydro_var_5) == fun4_name
 model_path = r'C:\Users\GraceHu\Documents\post_modeling_dummy_model.fez'
 model.saveAs(model_path)
 model.compute()
+
+# ---------------------------------------- Interpreter ------------------------------------------
 
 # Open Interpretor
 interpreter = RS2Interpreter(port=60055)
