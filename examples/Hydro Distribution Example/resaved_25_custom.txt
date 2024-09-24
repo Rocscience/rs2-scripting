@@ -1,0 +1,112 @@
+
+ExportResultType.SEEPAGE_HORIZONTAL_PERMEABILITY
+	Stage 	Stages 	Material_Query_ID 	Point_x 	Point_y 	Distance 	Value
+	1 	2 	1 	0.5 	-9.2 	0.0 	0.03
+	1 	2 	1 	0.5 	-7.2 	1.9999999999999991 	0.03
+	1 	2 	1 	0.5 	-5.5 	3.6999999999999993 	0.03
+	1 	2 	1 	0.5 	-3.5 	5.699999999999999 	0.03
+	1 	2 	1 	0.5 	-1.5 	7.699999999999999 	0.03
+
+ExportResultType.SEEPAGE_HORIZONTAL_PERMEABILITY
+	Stage 	Stages 	Material_Query_ID 	Point_x 	Point_y 	Distance 	Value
+	2 	2 	1 	0.5 	-9.2 	0.0 	0.024098399999999996
+	2 	2 	1 	0.5 	-7.2 	1.9999999999999991 	0.0221582
+	2 	2 	1 	0.5 	-5.5 	3.6999999999999993 	0.020490500000000005
+	2 	2 	1 	0.5 	-3.5 	5.699999999999999 	0.01854666666666667
+	2 	2 	1 	0.5 	-1.5 	7.699999999999999 	0.01654833333333333
+
+ExportResultType.SEEPAGE_VERTICAL_PERMEABILITY
+	Stage 	Stages 	Material_Query_ID 	Point_x 	Point_y 	Distance 	Value
+	1 	2 	1 	0.5 	-9.2 	0.0 	0.03
+	1 	2 	1 	0.5 	-7.2 	1.9999999999999991 	0.03
+	1 	2 	1 	0.5 	-5.5 	3.6999999999999993 	0.03
+	1 	2 	1 	0.5 	-3.5 	5.699999999999999 	0.03
+	1 	2 	1 	0.5 	-1.5 	7.699999999999999 	0.03
+
+ExportResultType.SEEPAGE_VERTICAL_PERMEABILITY
+	Stage 	Stages 	Material_Query_ID 	Point_x 	Point_y 	Distance 	Value
+	2 	2 	1 	0.5 	-9.2 	0.0 	0.024098399999999996
+	2 	2 	1 	0.5 	-7.2 	1.9999999999999991 	0.0221582
+	2 	2 	1 	0.5 	-5.5 	3.6999999999999993 	0.020490500000000005
+	2 	2 	1 	0.5 	-3.5 	5.699999999999999 	0.01854666666666667
+	2 	2 	1 	0.5 	-1.5 	7.699999999999999 	0.01654833333333333
+
+ExportResultType.SEEPAGE_SPATIAL_PERM
+	Stage 	Stages 	Material_Query_ID 	Point_x 	Point_y 	Distance 	Value
+	1 	2 	1 	0.5 	-9.2 	0.0 	0.000385802469136
+	1 	2 	1 	0.5 	-7.2 	1.9999999999999991 	0.000385802469136
+	1 	2 	1 	0.5 	-5.5 	3.6999999999999993 	0.000385802469136
+	1 	2 	1 	0.5 	-3.5 	5.699999999999999 	0.000385802469136
+	1 	2 	1 	0.5 	-1.5 	7.699999999999999 	0.000385802469136
+
+ExportResultType.SEEPAGE_SPATIAL_PERM
+	Stage 	Stages 	Material_Query_ID 	Point_x 	Point_y 	Distance 	Value
+	2 	2 	1 	0.5 	-9.2 	0.0 	0.00048040676682894004
+	2 	2 	1 	0.5 	-7.2 	1.9999999999999991 	0.0005227539755019899
+	2 	2 	1 	0.5 	-5.5 	3.6999999999999993 	0.00056539792673095
+	2 	2 	1 	0.5 	-3.5 	5.699999999999999 	0.0006249585826926666
+	2 	2 	1 	0.5 	-1.5 	7.699999999999999 	0.0007006509295714668
+
+ExportResultType.SEEPAGE_SPATIAL_WC
+	Stage 	Stages 	Material_Query_ID 	Point_x 	Point_y 	Distance 	Value
+	1 	2 	1 	0.5 	-9.2 	0.0 	5.0
+	1 	2 	1 	0.5 	-7.2 	1.9999999999999991 	5.0
+	1 	2 	1 	0.5 	-5.5 	3.6999999999999993 	5.0
+	1 	2 	1 	0.5 	-3.5 	5.699999999999999 	5.0
+	1 	2 	1 	0.5 	-1.5 	7.699999999999999 	5.0
+
+ExportResultType.SEEPAGE_SPATIAL_WC
+	Stage 	Stages 	Material_Query_ID 	Point_x 	Point_y 	Distance 	Value
+	2 	2 	1 	0.5 	-9.2 	0.0 	6.547717361806401
+	2 	2 	1 	0.5 	-7.2 	1.9999999999999991 	7.2948849739652
+	2 	2 	1 	0.5 	-5.5 	3.6999999999999993 	8.083250321490999
+	2 	2 	1 	0.5 	-3.5 	5.699999999999999 	9.252695857826332
+	2 	2 	1 	0.5 	-1.5 	7.699999999999999 	10.863372764330004
+
+ExportResultType.SEEPAGE_SPATIAL_WC_RES
+	Stage 	Stages 	Material_Query_ID 	Point_x 	Point_y 	Distance 	Value
+	1 	2 	1 	0.5 	-9.2 	0.0 	2.5
+	1 	2 	1 	0.5 	-7.2 	1.9999999999999991 	2.5
+	1 	2 	1 	0.5 	-5.5 	3.6999999999999993 	2.5
+	1 	2 	1 	0.5 	-3.5 	5.699999999999999 	2.5
+	1 	2 	1 	0.5 	-1.5 	7.699999999999999 	2.5
+
+ExportResultType.SEEPAGE_SPATIAL_WC_RES
+	Stage 	Stages 	Material_Query_ID 	Point_x 	Point_y 	Distance 	Value
+	2 	2 	1 	0.5 	-9.2 	0.0 	2.5
+	2 	2 	1 	0.5 	-7.2 	1.9999999999999991 	2.5
+	2 	2 	1 	0.5 	-5.5 	3.6999999999999993 	2.5
+	2 	2 	1 	0.5 	-3.5 	5.699999999999999 	2.5
+	2 	2 	1 	0.5 	-1.5 	7.699999999999999 	2.5
+
+ExportResultType.SEEPAGE_SPATIAL_CONDY
+	Stage 	Stages 	Material_Query_ID 	Point_x 	Point_y 	Distance 	Value
+	1 	2 	1 	0.5 	-9.2 	0.0 	1.0
+	1 	2 	1 	0.5 	-7.2 	1.9999999999999991 	1.0
+	1 	2 	1 	0.5 	-5.5 	3.6999999999999993 	1.0
+	1 	2 	1 	0.5 	-3.5 	5.699999999999999 	1.0
+	1 	2 	1 	0.5 	-1.5 	7.699999999999999 	1.0
+
+ExportResultType.SEEPAGE_SPATIAL_CONDY
+	Stage 	Stages 	Material_Query_ID 	Point_x 	Point_y 	Distance 	Value
+	2 	2 	1 	0.5 	-9.2 	0.0 	1.0
+	2 	2 	1 	0.5 	-7.2 	1.9999999999999991 	1.0
+	2 	2 	1 	0.5 	-5.5 	3.6999999999999993 	1.0
+	2 	2 	1 	0.5 	-3.5 	5.699999999999999 	1.0
+	2 	2 	1 	0.5 	-1.5 	7.699999999999999 	1.0
+
+ExportResultType.SEEPAGE_SPATIAL_ANGLE
+	Stage 	Stages 	Material_Query_ID 	Point_x 	Point_y 	Distance 	Value
+	1 	2 	1 	0.5 	-9.2 	0.0 	0.0
+	1 	2 	1 	0.5 	-7.2 	1.9999999999999991 	0.0
+	1 	2 	1 	0.5 	-5.5 	3.6999999999999993 	0.0
+	1 	2 	1 	0.5 	-3.5 	5.699999999999999 	0.0
+	1 	2 	1 	0.5 	-1.5 	7.699999999999999 	0.0
+
+ExportResultType.SEEPAGE_SPATIAL_ANGLE
+	Stage 	Stages 	Material_Query_ID 	Point_x 	Point_y 	Distance 	Value
+	2 	2 	1 	0.5 	-9.2 	0.0 	0.0
+	2 	2 	1 	0.5 	-7.2 	1.9999999999999991 	0.0
+	2 	2 	1 	0.5 	-5.5 	3.6999999999999993 	0.0
+	2 	2 	1 	0.5 	-3.5 	5.699999999999999 	0.0
+	2 	2 	1 	0.5 	-1.5 	7.699999999999999 	0.0
