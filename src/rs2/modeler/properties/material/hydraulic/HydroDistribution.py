@@ -27,11 +27,14 @@ class HydroDistributionFunctionDefinedStageFactor(HydroDistributionFunctionStage
 	"""
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID, propertyID)
-	def setHydroDistributionStagedFunction(self, variable: HydraulicVariableTypes, dist: HydraulicDistributionTypes, value: str):
+	def setHydroDistributionStagedFunction(self, variable: HydraulicVariableTypes, dist: HydraulicDistributionTypes, value: str = None):
 		"""
 		Set the hydraulic distribution function for a specific stage.
 		"""
-		return self._callFunction("setHydroDistributionStagedFunction", [variable.value, dist.value, value, self.propertyID], proxyArgumentIndices=[3])
+		if value == None:
+			return self._callFunction("setHydroDistributionStagedFunction", [variable.value, dist.value, self.propertyID], proxyArgumentIndices=[2])
+		else:
+			return self._callFunction("setHydroDistributionStagedFunction", [variable.value, dist.value, value, self.propertyID], proxyArgumentIndices=[3])
 
 class HydroDistribution(PropertyProxy):
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
