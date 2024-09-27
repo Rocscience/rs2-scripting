@@ -6,14 +6,6 @@ from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
 from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
 class HyperbolicSofteningStageFactor(ProxyObject):
-	"""
-	If joint type is Hyperbolic Softening, joint properties can be set as in RS2.
-	
-	.. figure:: ../pictures/joint_softening.png
-
-	   RS2 joint properties
-	
-	"""
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
 		self.propertyID = propertyID
@@ -77,12 +69,12 @@ class HyperbolicSofteningDefinedStageFactor(HyperbolicSofteningStageFactor):
 	def setJointPermeableFactor(self, Permeable: bool):
 		return self._callFunction("setJointPermeableFactor", [Permeable])
 class HyperbolicSoftening(PropertyProxy):
-	"""	
+	"""
+	Examples:
+		:ref:`Joint Stage Factor Example`
+	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorInterface[HyperbolicSofteningDefinedStageFactor, HyperbolicSofteningStageFactor]): Reference object for modifying stage factor property.
-	
-	Examples:
-		:ref:`Joint Stage Factor Example`	
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

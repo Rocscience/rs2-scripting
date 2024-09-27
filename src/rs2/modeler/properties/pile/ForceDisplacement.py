@@ -21,12 +21,12 @@ class ForceDisplacementDefinedStageFactor(ForceDisplacementStageFactor):
 	def setYFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["PFP_FORCE_DISPLACEMENT_Y", value, self.propertyID], proxyArgumentIndices=[2])
 class ForceDisplacement(PropertyProxy):
-	"""	
+	"""
+	Examples:
+		:ref:`Pile Stage Factor Example`
+	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorInterface[ForceDisplacementDefinedStageFactor, ForceDisplacementStageFactor]): Reference object for modifying stage factor property.
-	
-	Examples:
-		:ref:`Pile Stage Factor Example`			
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

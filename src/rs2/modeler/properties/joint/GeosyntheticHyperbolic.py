@@ -6,14 +6,6 @@ from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
 from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
 class GeosyntheticHyperbolicStageFactor(ProxyObject):
-	"""
-	If joint type is Geosynthetic Hyperbolic, joint properties can be set as in RS2.
-	
-	.. figure:: ../pictures/joint_geo.png
-
-	   RS2 joint properties
-	
-	"""
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
 		self.propertyID = propertyID
@@ -58,11 +50,11 @@ class GeosyntheticHyperbolicDefinedStageFactor(GeosyntheticHyperbolicStageFactor
 		return self._callFunction("setJointPermeableFactor", [Permeable])
 class GeosyntheticHyperbolic(PropertyProxy):
 	"""
+	Examples:
+		:ref:`Joint Stage Factor Example`
+	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorInterface[GeosyntheticHyperbolicDefinedStageFactor, GeosyntheticHyperbolicStageFactor]): Reference object for modifying stage factor property.
-	
-	Examples:
-		:ref:`Joint Stage Factor Example`	
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

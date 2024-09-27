@@ -6,14 +6,6 @@ from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
 from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
 class MaterialDependentStageFactor(ProxyObject):
-	"""
-	If joint type is Material Dependent, joint properties can be set as in RS2.
-	
-	.. figure:: ../pictures/joint_mat_dep.png
-
-	   RS2 joint properties
-	
-	"""
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
 		self.propertyID = propertyID
@@ -46,11 +38,11 @@ class MaterialDependentDefinedStageFactor(MaterialDependentStageFactor):
 		return self._callFunction("setJointPermeableFactor", [Permeable])
 class MaterialDependent(PropertyProxy):
 	"""
-	Attributes:
-		stageFactorInterface (AbsoluteStageFactorInterface[MaterialDependentDefinedStageFactor, MaterialDependentStageFactor]): Reference object for modifying stage factor property.
-	
 	Examples:
 		:ref:`Joint Stage Factor Example`
+	
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorInterface[MaterialDependentDefinedStageFactor, MaterialDependentStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

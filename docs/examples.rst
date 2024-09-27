@@ -6,7 +6,7 @@ RS2 models included in the examples can be found here: `example_models <https://
 Model
 -----------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    examples/model/model
    examples/model/modeler
@@ -19,7 +19,7 @@ Model
 Material
 -----------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    examples/material/mat
    examples/material/mat_init_cond
@@ -33,7 +33,7 @@ Material
 Hydraulic
 ------------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    examples/hydraulic/hydra_prop
    examples/hydraulic/hydra_static
@@ -44,7 +44,7 @@ Hydraulic
 Support
 ------------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    examples/support/bolt
    examples/support/joint
@@ -59,7 +59,7 @@ Support
 Result
 --------------------
 .. toctree::
-   :maxdepth: 3
+   :maxdepth: 1
 
    examples/result/history_query
    examples/result/time_query
@@ -75,7 +75,7 @@ Result
 Webinar
 --------------------
 .. toctree::
-   :maxdepth: 2
+   :maxdepth: 1
 
    examples/webinar/20240709_bolt_spacing_study
    examples/webinar/20240709_slope_spatial_variability

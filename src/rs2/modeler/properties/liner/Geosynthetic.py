@@ -6,14 +6,6 @@ from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
 from rs2.modeler.properties.RelativeStageFactorInterface import RelativeStageFactorInterface
 class GeosyntheticStageFactor(ProxyObject):
-	"""
-	If liner type is Geosynthetic, liner properties can be set as in RS2.
-	
-	.. figure:: ../pictures/liner_geo.png
-
-	   RS2 liner properties
-	
-	"""
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
 		self.propertyID = propertyID
@@ -53,13 +45,12 @@ class GeosyntheticDefinedStageFactor(GeosyntheticStageFactor):
 	def setExpansionCoefficientFactor(self, value: float):
 		return self._callFunction("setDoubleFactor", ["LNP_THERAMAL_EXPANSION_ALPHA", value, self.propertyID], proxyArgumentIndices=[2])
 class Geosynthetic(PropertyProxy):
-	"""	
+	"""
+	Examples:
+		:ref:`Liner Stage Factor Example`
+	
 	Attributes:
 		stageFactorInterface (RelativeStageFactorInterface[GeosyntheticDefinedStageFactor, GeosyntheticStageFactor]): Reference object for modifying stage factor property.
-	
-	Examples:
-	
-		:ref:`Liner Stage Factor Example`		
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

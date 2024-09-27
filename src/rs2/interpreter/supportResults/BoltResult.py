@@ -2,29 +2,6 @@ from enum import Enum
 from rs2.interpreter._UtilityResult import *
 
 class BoltElementYieldStatus(Enum):
-    """
-    Bolt elements can have following yield status.
-    
-    +-------------------------------------------------------------+
-    | Data Types                                                  |
-    +=============================================================+
-    | BOLT_ELEMENT_NOT_YIELDED                                    |
-    +-------------------------------------------------------------+
-    | BOLT_ELEMENT_TYPE_UNKNOWN_YIELDED                           |
-    +-------------------------------------------------------------+
-    | BOLT_ELEMENT_TENSION_YIELDED                                |
-    +-------------------------------------------------------------+
-    | BOLT_ELEMENT_SHEAR_YIELDED                                  |
-    +-------------------------------------------------------------+
-    | BOLT_ELEMENT_TENSIONANDSHEAR_YIELDED                        |
-    +-------------------------------------------------------------+
-    | BOLT_ELEMENT_UNDEFINED_YIELDED                              |
-    +-------------------------------------------------------------+
-
-    
-    
-    """
-
     BOLT_ELEMENT_NOT_YIELDED = 0
     BOLT_ELEMENT_TYPE_UNKNOWN_YIELDED  = 1
     BOLT_ELEMENT_TENSION_YIELDED = 2

@@ -12,6 +12,9 @@ from rs2.modeler.properties.joint.MaterialDependent import MaterialDependent
 from rs2.modeler.properties.joint.DisplacementDependent import DisplacementDependent
 class JointProperty(PropertyProxy):
 	"""
+	Examples:
+		:ref:`Joint Example`
+
 	Attributes:
 		NoneSlip (NoneSlip): Reference object for modifying property.
 		MohrCoulomb (MohrCoulomb): Reference object for modifying property.
@@ -20,9 +23,6 @@ class JointProperty(PropertyProxy):
 		HyperbolicSoftening (HyperbolicSoftening): Reference object for modifying property.
 		MaterialDependent (MaterialDependent): Reference object for modifying property.
 		DisplacementDependent (DisplacementDependent): Reference object for modifying property.
-	
-	Examples:
-		:ref:`Joint Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.NoneSlip = NoneSlip(client, ID, documentProxyID)

@@ -24,7 +24,6 @@ author = 'Rocscience Inc.'
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
 extensions = ['sphinx.ext.autodoc',
-              'sphinx.ext.autosummary',
               'sphinx_copybutton', 
               'sphinx.ext.napoleon',
               'sphinx_rtd_theme',

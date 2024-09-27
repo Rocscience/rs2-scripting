@@ -6,14 +6,6 @@ from rs2.modeler.properties.PropertyEnums import *
 from rs2._common.ProxyObject import ProxyObject
 from rs2.modeler.properties.AbsoluteStageFactorInterface import AbsoluteStageFactorInterface
 class GeosyntheticHyperbolicMaterialStageFactor(ProxyObject):
-	"""
-	Under Properties > Define Materials > Strength > Failure Criterion: Jointed Mohr Coulomb, joint can be defined separately.
-
-	.. figure:: ../pictures/joint_mat_geo.png
-
-	   RS2 joint material properties
-	
-	"""
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
 		self.propertyID = propertyID
@@ -45,12 +37,12 @@ class GeosyntheticHyperbolicMaterialDefinedStageFactor(GeosyntheticHyperbolicMat
 	def setJointPermeableFactor(self, Permeable: bool):
 		return self._callFunction("setJointPermeableFactor", [Permeable])
 class GeosyntheticHyperbolicMaterial(PropertyProxy):
-	"""	
+	"""
+	Examples:
+		:ref:`Material Joint Stage Factor Example`
+	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorInterface[GeosyntheticHyperbolicMaterialDefinedStageFactor, GeosyntheticHyperbolicMaterialStageFactor]): Reference object for modifying stage factor property.
-	
-	Examples:
-		:ref:`Material Joint Stage Factor Example`	
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

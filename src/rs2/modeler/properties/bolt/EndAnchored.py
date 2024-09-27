@@ -4,15 +4,6 @@ from enum import Enum, auto
 from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 class EndAnchored(PropertyProxy):
-	"""
-	If bolt type is End Anchored, bolt properties can be set as in RS2.
-	
-	.. figure:: ../pictures/bolt_properties.png
-
-	   RS2 bolt properties
-	
-	"""
-
 	def getBoltDiameter(self) -> float:
 		return self._getDoubleProperty("BP_BOLT_DIAMETER")
 	def setBoltDiameter(self, value: float):

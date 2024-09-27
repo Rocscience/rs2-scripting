@@ -1,6 +1,7 @@
 import subprocess
 import os
 import shutil
+
 """
 sphinx-apidoc Documentation: https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html
 sphinx-build Documentation: https://www.sphinx-doc.org/en/master/man/sphinx-build.html
@@ -77,10 +78,7 @@ def remove_subpackage_submodule_headers():
 
 def remove_undoc_members_from_specific_files():
     rstFilesFolder = "docs/generatedAPIDocFiles"
-    files_to_modify = ['rs2.interpreter.InterpreterEnums.rst',
-                       'rs2.interpreter.InterpreterGraphEnums.rst',
-                       'rs2.interpreter.supportResults.BoltResult.rst',
-                       'rs2.utilities.ColorPicker.rst']
+    files_to_modify = ['rs2.utilities.ColorPicker.rst']
 
     for filename in files_to_modify:
         filepath = os.path.join(rstFilesFolder, filename)
@@ -135,18 +133,6 @@ def reorder_rst_files():
 
         with open(filepath, 'w') as file:
             file.writelines(new_content)
-
-def add_line_to_file(file_path, line):
-    try:
-        # Open the file in append mode
-        with open(file_path, 'a') as file:
-            # Write the new line to the file
-            file.write(line + '\n')
-        print(f"Line added to '{file_path}' successfully.")
-    except FileNotFoundError:
-        print(f"File '{file_path}' does not exist.")
-    except IOError as e:
-        print(f"An error occurred while writing to '{file_path}': {e}")
 
 def run_sphinx_build():
     # Command to run sphinx-build
