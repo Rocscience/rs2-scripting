@@ -21,3 +21,5 @@ material.Hydraulic.StaticGroundwater.setStaticWaterMode(StaticWaterModes.PORE_WA
 material.Hydraulic.setMaterialBehaviour(MaterialBehaviours.UNDRAINED)
 
 model.close()
+
+modeler.closeProgram()

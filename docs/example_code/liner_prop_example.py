@@ -41,3 +41,4 @@ print(liner3.ReinforcedConcrete.getProperties())
 print(liner3.ReinforcedConcrete.getStaticTemperatureGridToUse())
 
 model.close()
+modeler.closeProgram()

@@ -101,3 +101,5 @@ for stageNum, allPileResults in results.items():
         OutputLinerResult(liner_result)
 
 model.close()
+
+interpreter.closeProgram()

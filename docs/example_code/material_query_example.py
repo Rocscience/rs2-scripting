@@ -32,3 +32,5 @@ for mat_query_data in results:
         print(f"X-Coord ={x}, Y-Coordinate = {y}, Distance = {distance}, Result Type Node Value = {value}")
 
 model.close()
+
+interpreter.closeProgram()

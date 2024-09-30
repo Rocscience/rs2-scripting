@@ -42,3 +42,4 @@ print(joint3.DisplacementDependent.getProperties())
 print(joint3.DisplacementDependent.getDisplacementDependentTable())
 
 model.close()
+modeler.closeProgram()

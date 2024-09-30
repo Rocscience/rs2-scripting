@@ -39,3 +39,4 @@ linerStageFactors.setPoissonsRatioFactor(1.45)
 linerStageFactors.setAxialStrainExpansionFactor(0.8)
 
 model.close()
+modeler.closeProgram()

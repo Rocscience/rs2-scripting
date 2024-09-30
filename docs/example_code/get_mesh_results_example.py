@@ -26,3 +26,5 @@ print(f"Vertex 0 : (x-coord, y-coord, result type value) = ({x_coord, y_coord, v
 
 model.close()
 interpretModel.close()
+modeler.closeProgram()
+interpreter.closeProgram()

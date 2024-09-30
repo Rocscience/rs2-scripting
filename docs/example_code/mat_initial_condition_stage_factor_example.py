@@ -28,3 +28,5 @@ initialConditionStage2Factor.setPorosityValueFactor(5)
 print(f"Unit Weight Factor = {initialConditionStage2Factor.getUnitWeightFactor()}, Porosity Value Factor = {initialConditionStage2Factor.getPorosityValueFactor()}")
 
 model.close()
+
+modeler.closeProgram()

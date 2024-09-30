@@ -68,3 +68,5 @@ for stageNum, allLinerResults in results.items():
             print(f"\tTemperature-Mid = {temperature_mid}, Temperature 2 = {temperature2}\n")
 
 model.close()
+
+interpreter.closeProgram()

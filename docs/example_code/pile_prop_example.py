@@ -30,3 +30,5 @@ pile.ForceDisplacement.setX(0.5)
 pile.ForceDisplacement.setY(0.6)
 
 model.close()
+
+modeler.closeProgram()

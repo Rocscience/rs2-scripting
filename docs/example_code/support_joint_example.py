@@ -34,3 +34,5 @@ for stageNum, allJointResults in results.items():
             print(f"\tNormal Displacement = {normal_displacement}, Shear Displacement = {shear_displacement}, Yielded = {yieldedStatus}\n")
 
 model.close()
+
+interpreter.closeProgram()

@@ -29,3 +29,4 @@ composite.setCompositeJointPropertyByName("Joint 5")
 composite.setJointPlacement(CompositeJointPlacementTypes.BETWEEN_THIRD_AND_FOURTH_LINER)
 
 model.close()
+modeler.closeProgram()

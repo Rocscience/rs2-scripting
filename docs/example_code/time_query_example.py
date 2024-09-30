@@ -81,3 +81,6 @@ model.save()
 
 model.close()
 interpreter_model.close()
+
+modeler.closeProgram()
+interpreter.closeProgram()

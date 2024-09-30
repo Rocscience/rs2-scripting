@@ -57,3 +57,5 @@ strengthFactor.setAirEntryValueFactor(1.5)
 strengthFactor.setUnsaturatedShearStrengthAngleFactor(3.9)
 
 model.close()
+
+modeler.closeProgram()

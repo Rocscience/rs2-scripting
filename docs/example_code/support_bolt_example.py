@@ -44,3 +44,5 @@ for stageNum, allBoltResults in results.items():
             print(f"\t\tShear Force = {shear_force}, Rock Displacement = {rock_disp}, Bolt Displacement = {bolt_disp}\n")
 
 model.close()
+
+interpreter.closeProgram()

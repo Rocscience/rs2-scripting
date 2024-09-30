@@ -42,3 +42,4 @@ print(bolt3.PlainStrandCable.getProperties())
 print(bolt3.PlainStrandCable.getBulgeLocations())
 
 model.close()
+modeler.closeProgram()

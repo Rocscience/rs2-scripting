@@ -49,3 +49,5 @@ staticGroundwaterStageFactor.setPiezoToUse("None")
 print(f"StaticGroundwater Factor Grid To Use = {staticGroundwaterStageFactor.getGridToUse()}, Static Groundwater Piezo To Use = {staticGroundwaterStageFactor.getPiezoToUse()}")
 
 model.close()
+
+modeler.closeProgram()

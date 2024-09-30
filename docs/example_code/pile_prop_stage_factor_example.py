@@ -25,3 +25,5 @@ stageFactors.setYFactor(1.8)
 print(f"X Factor : {stageFactors.getXFactor()}, Y Factor : {stageFactors.getYFactor()}")
 
 model.close()
+
+modeler.closeProgram()

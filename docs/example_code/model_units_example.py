@@ -35,3 +35,6 @@ model.ResetProperties()
 
 model.close()
 interpreterModel.close()
+
+modeler.closeProgram()
+interpreter.closeProgram()

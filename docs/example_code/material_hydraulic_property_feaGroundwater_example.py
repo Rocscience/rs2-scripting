@@ -98,3 +98,4 @@ print("\nFEAGroundwater Fredlund Model Factor Values")
 print(f"A Factor = {fredlundModelStageFactor.getAFactor()}, B Factor = {fredlundModelStageFactor.getBFactor()}, C Factor = {fredlundModelStageFactor.getCFactor()}, Ks Factor = {fredlundModelStageFactor.getKsFactor()}")
 
 model.close()
+modeler.closeProgram()

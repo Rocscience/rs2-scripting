@@ -43,3 +43,4 @@ stage2bartonBandisFactors.setAdditionalPressureInsideJointFactor(6)
 stage2bartonBandisFactors.setGroundwaterPressureFactor(6)
 
 model.close()
+modeler.closeProgram()

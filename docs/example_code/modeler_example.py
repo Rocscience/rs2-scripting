@@ -7,3 +7,5 @@ modeler = RS2Modeler(port=60076)
 model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 model.close()
+
+modeler.closeProgram()

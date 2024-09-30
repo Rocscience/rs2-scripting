@@ -49,3 +49,5 @@ print(f"Hydraulic Material Behaviour Stage Factor Value = {hydraulicStageFactor.
 
 staticGroundwaterModel.close()
 FEAGroundwaterModel.close()
+
+modeler.closeProgram()

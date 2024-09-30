@@ -85,3 +85,4 @@ datumYoungStageFactor.setPeakCutoffValue(4.42)
 print(f"Change Factor = {datumYoungStageFactor.getChange()}, Datum Factor Value= {datumYoungStageFactor.getDatum()}, Peak Cutoff Value Factor = {datumYoungStageFactor.getPeakCutoffValue()}")
 
 model.close()
+modeler.closeProgram()

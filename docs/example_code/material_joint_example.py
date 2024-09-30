@@ -22,3 +22,5 @@ joint.BartonBandisMaterial.setDilationAngle(30)
 joint.BartonBandisMaterial.setJCS(2.2)
 
 model.close()
+
+modeler.closeProgram()

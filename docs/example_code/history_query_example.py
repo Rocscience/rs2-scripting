@@ -33,3 +33,5 @@ for data in results_for_stage_1:
 
 modeler_model.close()
 interpreter_model.close()
+modeler.closeProgram()
+interpreter.closeProgram()

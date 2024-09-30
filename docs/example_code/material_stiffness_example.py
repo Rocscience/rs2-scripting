@@ -58,3 +58,5 @@ print("\nNonLinear Hyperbolic Stage Factor Values")
 print(f"Failure Ratio of RF = {nonLinearHyperbolicFactors.getFailureRatioRfFactor()}, Bulk Modulus ExpM = {nonLinearHyperbolicFactors.getBulkModulusExpMFactor()}, Atmospheric Pressure = {nonLinearHyperbolicFactors.getAtmosphericPressureFactor()}")
 
 model.close()
+
+modeler.closeProgram()

@@ -51,3 +51,4 @@ jointmaterial.GeosyntheticHyperbolicMaterial.setTensileStrength(14.6)
 jointmaterial.GeosyntheticHyperbolicMaterial.setDilationRatio(2.2)
 
 model.close()
+modeler.closeProgram()

@@ -94,3 +94,5 @@ thermalStageFactors.setThermalGridFactor("Default Grid")
 print(f"Thermal Stage Factor Grid To Use = {thermalStageFactors.getThermalGridFactor()}")
 
 model.close()
+
+modeler.closeProgram()

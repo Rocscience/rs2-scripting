@@ -25,3 +25,6 @@ interpreter = RS2Interpreter(port=60078)
 interpreterModel = interpreter.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 interpreterModel.save()
 interpreterModel.close()
+
+modeler.closeProgram()
+interpreter.closeProgram()

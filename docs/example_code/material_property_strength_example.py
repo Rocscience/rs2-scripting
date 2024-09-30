@@ -86,3 +86,5 @@ print("\nHoek Brown Stage Factor Values")
 print(f"Dilation Parameter = {hoekBrownFactors.getDilationParameterFactor()}, Compressive Strength = {hoekBrownFactors.getCompressiveStrengthFactor()}, MB Parameter = {hoekBrownFactors.getMbParameterFactor()}")
 
 model.close()
+
+modeler.closeProgram()
