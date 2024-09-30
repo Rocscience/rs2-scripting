@@ -2,11 +2,6 @@ rs2.modeler.properties.material.stiffness package
 =================================================
 
 
-.. automodule:: rs2.modeler.properties.material.stiffness
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 .. toctree::
    :maxdepth: 1
 
@@ -32,3 +27,7 @@ rs2.modeler.properties.material.stiffness package
    rs2.modeler.properties.material.stiffness.ViscoElastic
 
 
+.. automodule:: rs2.modeler.properties.material.stiffness
+   :members:
+   :undoc-members:
+   :show-inheritance:

@@ -2,11 +2,6 @@ rs2.modeler.properties.joint package
 ====================================
 
 
-.. automodule:: rs2.modeler.properties.joint
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 .. toctree::
    :maxdepth: 1
 
@@ -23,3 +18,7 @@ rs2.modeler.properties.joint package
    rs2.modeler.properties.joint.NoneSlip
 
 
+.. automodule:: rs2.modeler.properties.joint
+   :members:
+   :undoc-members:
+   :show-inheritance:

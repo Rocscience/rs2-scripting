@@ -2,11 +2,6 @@ rs2.modeler package
 ===================
 
 
-.. automodule:: rs2.modeler
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 .. toctree::
    :maxdepth: 2
 
@@ -20,3 +15,7 @@ rs2.modeler package
    rs2.modeler.RS2Modeler
 
 
+.. automodule:: rs2.modeler
+   :members:
+   :undoc-members:
+   :show-inheritance:

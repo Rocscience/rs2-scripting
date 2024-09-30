@@ -2,12 +2,6 @@ rs2.modeler.properties.material.strength package
 ================================================
 
 
-.. automodule:: rs2.modeler.properties.material.strength
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-
 .. toctree::
    :maxdepth: 1
 
@@ -49,3 +43,7 @@ rs2.modeler.properties.material.strength package
    rs2.modeler.properties.material.strength.VerticalStressRatio
 
 
+.. automodule:: rs2.modeler.properties.material.strength
+   :members:
+   :undoc-members:
+   :show-inheritance:

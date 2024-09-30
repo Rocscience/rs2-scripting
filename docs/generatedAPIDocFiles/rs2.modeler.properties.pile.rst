@@ -2,11 +2,6 @@ rs2.modeler.properties.pile package
 ===================================
 
 
-.. automodule:: rs2.modeler.properties.pile
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 .. toctree::
    :maxdepth: 1
 
@@ -20,3 +15,7 @@ rs2.modeler.properties.pile package
    rs2.modeler.properties.pile.Pile
 
 
+.. automodule:: rs2.modeler.properties.pile
+   :members:
+   :undoc-members:
+   :show-inheritance:

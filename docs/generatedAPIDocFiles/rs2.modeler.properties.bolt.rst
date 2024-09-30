@@ -2,11 +2,6 @@ rs2.modeler.properties.bolt package
 ===================================
 
 
-.. automodule:: rs2.modeler.properties.bolt
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 .. toctree::
    :maxdepth: 1
 
@@ -18,3 +13,7 @@ rs2.modeler.properties.bolt package
    rs2.modeler.properties.bolt.Tieback
 
 
+.. automodule:: rs2.modeler.properties.bolt
+   :members:
+   :undoc-members:
+   :show-inheritance:

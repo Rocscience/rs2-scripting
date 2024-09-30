@@ -2,11 +2,6 @@ rs2.modeler.properties package
 ==============================
 
 
-.. automodule:: rs2.modeler.properties
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 .. toctree::
    :maxdepth: 2
 
@@ -34,3 +29,7 @@ rs2.modeler.properties package
    rs2.modeler.properties.UserDefinedWaterMode
 
 
+.. automodule:: rs2.modeler.properties
+   :members:
+   :undoc-members:
+   :show-inheritance:

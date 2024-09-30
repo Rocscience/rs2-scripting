@@ -76,22 +76,6 @@ def remove_subpackage_submodule_headers():
         with open(filepath, "w") as file:
             file.writelines(lines)
 
-def remove_undoc_members_from_specific_files():
-    rstFilesFolder = "docs/generatedAPIDocFiles"
-    files_to_modify = ['rs2.utilities.ColorPicker.rst']
-
-    for filename in files_to_modify:
-        filepath = os.path.join(rstFilesFolder, filename)
-        if os.path.isfile(filepath):
-            with open(filepath, "r") as file:
-                lines = file.readlines()
-
-            # Remove :undoc-members: if present
-            with open(filepath, "w") as file:
-                for line in lines:
-                    if ":undoc-members:" not in line:
-                        file.write(line) 
-
 def run_sphinx_build():
     # Command to run sphinx-build
     # sphinx-build [options] <sourcedir> <outputdir> [filenames …]
@@ -120,5 +104,4 @@ if __name__ == "__main__":
     clear_generated_docs()
     run_sphinx_apidoc()
     remove_subpackage_submodule_headers()
-    remove_undoc_members_from_specific_files()
     run_sphinx_build()

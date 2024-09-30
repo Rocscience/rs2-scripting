@@ -2,11 +2,6 @@ rs2.interpreter package
 =======================
 
 
-.. automodule:: rs2.interpreter
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 .. toctree::
    :maxdepth: 2
 
@@ -23,3 +18,7 @@ rs2.interpreter package
    rs2.interpreter.RS2Interpreter
 
 
+.. automodule:: rs2.interpreter
+   :members:
+   :undoc-members:
+   :show-inheritance:
