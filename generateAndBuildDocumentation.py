@@ -92,48 +92,6 @@ def remove_undoc_members_from_specific_files():
                     if ":undoc-members:" not in line:
                         file.write(line) 
 
-def reorder_rst_files():
-    rstFilesFolder = "docs/generatedAPIDocFiles"
-    files_to_modify = ['rs2.interpreter.rst',
-                       'rs2.modeler.properties.bolt.rst',
-                       'rs2.modeler.properties.joint.rst',
-                       'rs2.modeler.properties.material.hydraulic.rst',
-                       'rs2.modeler.properties.material.stiffness.rst',
-                       'rs2.modeler.properties.material.strength.rst',
-                       'rs2.modeler.properties.material.strength.rst',
-                       'rs2.modeler.properties.pile.rst',
-                       'rs2.modeler.properties.rst',
-                       'rs2.modeler.rst',
-                       'rs2.rst',]
-
-    for filename in files_to_modify:
-        filepath = os.path.join(rstFilesFolder, filename)
-        
-        with open(filepath, 'r') as file:
-            lines = file.readlines()
-
-        automodule_section = []
-        toctree_section = []
-        other_sections = []
-
-        current_section = other_sections
-        automodule_directive = ".. automodule:: "
-        toctree_directive = ".. toctree::"
-
-        for line in lines:
-            stripped_line = line.strip()
-            if stripped_line.startswith(automodule_directive):
-                current_section = automodule_section
-            elif stripped_line.startswith(toctree_directive):
-                current_section = toctree_section
-            current_section.append(line)
-
-        # Concatenate the sections in the desired order
-        new_content = other_sections + automodule_section + ["\n"] + toctree_section
-
-        with open(filepath, 'w') as file:
-            file.writelines(new_content)
-
 def run_sphinx_build():
     # Command to run sphinx-build
     # sphinx-build [options] <sourcedir> <outputdir> [filenames …]
@@ -163,5 +121,4 @@ if __name__ == "__main__":
     run_sphinx_apidoc()
     remove_subpackage_submodule_headers()
     remove_undoc_members_from_specific_files()
-    reorder_rst_files()
     run_sphinx_build()

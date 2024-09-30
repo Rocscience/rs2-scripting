@@ -90,7 +90,7 @@ The following steps can be taken to regenerate the RS2 Scripting Documentation:
 2. Rebuild the RS2 library in your virtual environment by following the [Build](#build) section.
 3. Install the documentation requirement packages.
 ```pip install -r docs/requirements.txt```
-4. Run docs/example_code/runAllExamples.bat file in the folder to update example results.
+4. Run docs/example_code/runAllExamples.bat file in the folder to update example results. This will run the examples using the version of RS2 you have installed on your machine.
 5. To generate the documentation run the following:  
 ```python generateAndBuildDocumentation.py```  
 

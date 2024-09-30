@@ -17,6 +17,9 @@ class TestExampleFiles(unittest.TestCase):
 			if os.path.isdir(filePath):
 				continue
 
+			if not filePath.endswith('.py'):
+				continue
+
 			print(f"Running: {filename}...")
 			subprocess.run([self.pathToPythonExecutable, filePath], check=True)
 			print("Finished:" + filename)

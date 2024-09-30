@@ -28,17 +28,16 @@ extensions = ['sphinx.ext.autodoc',
               'sphinx.ext.napoleon',
               'sphinx_rtd_theme',
               'sphinxcontrib.youtube',
-              'sphinx.ext.doctest']
+              ]
 
 autodoc_default_options = {
     'member-order': 'bysource',
 }
 
+# Explicitly state the format of documentation
 napoleon_google_docstring = True
 napoleon_use_param = True
 napoleon_use_ivar = True
-
-autosummary_generate = True
 
 exclude_patterns = ['generatedAPIDocFiles/modules.rst']
 
