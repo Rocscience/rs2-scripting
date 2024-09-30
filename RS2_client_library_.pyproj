@@ -66,6 +66,7 @@
     <Compile Include="sampleClientScripts\SampleComputeWithoutSave.py" />
     <Compile Include="sampleClientScripts\SampleCriticalSRF.py" />
     <Compile Include="sampleClientScripts\SampleDatum.py" />
+    <Compile Include="sampleClientScripts\SampleDiscreteFunction.py" />
     <Compile Include="sampleClientScripts\SampleError.py" />
     <Compile Include="sampleClientScripts\sampleGetAllBoltsLinersProxyClient.py" />
     <Compile Include="sampleClientScripts\SampleGetMeshResults.py" />
