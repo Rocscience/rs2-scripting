@@ -22,11 +22,12 @@ class StaticGroundwaterDefinedStageFactor(StaticGroundwaterStageFactor):
 		return self._callFunction("setGridToUse", [gridName, self.propertyID], proxyArgumentIndices=[1])
 class StaticGroundwater(PropertyProxy):
 	"""
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[StaticGroundwaterDefinedStageFactor, StaticGroundwaterStageFactor]): Reference object for modifying stage factor property.
+
 	Examples:
 		:ref:`Hydraulic Property Static Groundwater Example`
 	
-	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[StaticGroundwaterDefinedStageFactor, StaticGroundwaterStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

@@ -46,11 +46,12 @@ class FredlundDefinedStageFactor(FredlundStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_DOS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Fredlund(PropertyProxy):
 	"""
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[FredlundDefinedStageFactor, FredlundStageFactor]): Reference object for modifying stage factor property.
+
 	Examples:
 		:ref:`Hydraulic Property FEAGroundwater Example`
 	
-	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[FredlundDefinedStageFactor, FredlundStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

@@ -38,11 +38,12 @@ class MaterialDependentDefinedStageFactor(MaterialDependentStageFactor):
 		return self._callFunction("setJointPermeableFactor", [Permeable])
 class MaterialDependent(PropertyProxy):
 	"""
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorInterface[MaterialDependentDefinedStageFactor, MaterialDependentStageFactor]): Reference object for modifying stage factor property.
+
 	Examples:
 		:ref:`Joint Stage Factor Example`
 	
-	Attributes:
-		stageFactorInterface (AbsoluteStageFactorInterface[MaterialDependentDefinedStageFactor, MaterialDependentStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

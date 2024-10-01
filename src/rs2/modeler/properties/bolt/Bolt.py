@@ -10,15 +10,15 @@ from rs2.modeler.properties.bolt.Swellex import Swellex
 from rs2.modeler.properties.bolt.Tieback import Tieback
 class BoltProperty(PropertyProxy):
 	"""
-	Examples:
-		:ref:`Bolt Script Example`
-
 	Attributes:
 		EndAnchored (EndAnchored): Reference object for modifying property.
 		FullyBonded (FullyBonded): Reference object for modifying property.
 		PlainStrandCable (PlainStrandCable): Reference object for modifying property.
 		Swellex (Swellex): Reference object for modifying property.
 		Tieback (Tieback): Reference object for modifying property.
+
+	Examples:
+		:ref:`Bolt Script Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.EndAnchored = EndAnchored(client, ID, documentProxyID)

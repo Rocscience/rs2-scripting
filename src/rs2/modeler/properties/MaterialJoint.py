@@ -8,13 +8,13 @@ from rs2.modeler.properties.joint.BartonBandisMaterial import BartonBandisMateri
 from rs2.modeler.properties.joint.GeosyntheticHyperbolicMaterial import GeosyntheticHyperbolicMaterial
 class MaterialJoint(PropertyProxy):
 	"""
-	Examples:
-		:ref:`Material Joint Example`
-
 	Attributes:
 		MohrCoulombMaterial (MohrCoulombMaterial): Reference object for modifying property.
 		BartonBandisMaterial (BartonBandisMaterial): Reference object for modifying property.
 		GeosyntheticHyperbolicMaterial (GeosyntheticHyperbolicMaterial): Reference object for modifying property.
+
+	Examples:
+		:ref:`Material Joint Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		self.MohrCoulombMaterial = MohrCoulombMaterial(client, ID, documentProxyID)
