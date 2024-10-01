@@ -1,48 +1,18 @@
 rs2.modeler.properties.liner package
 ====================================
 
+
+.. toctree::
+   :maxdepth: 1
+
+   rs2.modeler.properties.liner.CableTruss
+   rs2.modeler.properties.liner.Geosynthetic
+   rs2.modeler.properties.liner.Liner
+   rs2.modeler.properties.liner.ReinforcedConcrete
+   rs2.modeler.properties.liner.StandardBeam
+
+
 .. automodule:: rs2.modeler.properties.liner
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-
-rs2.modeler.properties.liner.CableTruss module
-----------------------------------------------
-
-.. automodule:: rs2.modeler.properties.liner.CableTruss
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.liner.Geosynthetic module
-------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.liner.Geosynthetic
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.liner.Liner module
------------------------------------------
-
-.. automodule:: rs2.modeler.properties.liner.Liner
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.liner.ReinforcedConcrete module
-------------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.liner.ReinforcedConcrete
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.liner.StandardBeam module
-------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.liner.StandardBeam
    :members:
    :undoc-members:
    :show-inheritance:

@@ -2,14 +2,17 @@ from rs2.interpreter._UtilityResult import *
 
 class QueryResult:
     """
-	Examples:
-		:ref:`Material Query Example`
-	
-	Attributes:
-        x_location (double): X-Coordinate for material query point.
-        y_location (double): Y-Coordinate for material query point.
-        distance (double): Distance for material query point.
+
+    Attributes:
+        x_location (double): X-Coordinate for material query point.           
+        y_location (double): Y-Coordinate for material query point.            
+        distance (double): Distance for material query point.           
         value (double): Result type value for material query point.
+    
+    Examples:
+    
+		:ref:`Material Query Example`
+        
 	"""
     def __init__(self, x_location, y_location, distance, value):
         self.x_location = x_location
@@ -44,13 +47,15 @@ class QueryResult:
 
 class MaterialQueryResults:
     """
-	Examples:
-		:ref:`Material Query Example`
-	
-	Attributes:
+    Attributes:
         entity_ID (str): Unique Identifier for material query.
         material_id (int): Material Identifier for material query.
         query_values (list[QueryResult]): List of QueryResult point objects making up the material query.
+     
+        
+    Examples:
+    
+		:ref:`Material Query Example`
 	"""
     def __init__(self, entity_ID, material_id, query_values):
         self.entity_ID = entity_ID

@@ -42,11 +42,12 @@ class SofteningHardeningModelDefinedStageFactor(SofteningHardeningModelStageFact
 		return self._callFunction("setDoubleFactor", ["MP_SOFT_HARD_DILATION_ANGLE", value, self.propertyID], proxyArgumentIndices=[2])
 class SofteningHardeningModel(PropertyProxy):
 	"""
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[SofteningHardeningModelDefinedStageFactor, SofteningHardeningModelStageFactor]): Reference object for modifying stage factor property.
+
 	Examples:
 		:ref:`Material Property Strength Example`
 	
-	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[SofteningHardeningModelDefinedStageFactor, SofteningHardeningModelStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

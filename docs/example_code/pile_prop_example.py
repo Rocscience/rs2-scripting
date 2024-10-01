@@ -3,7 +3,8 @@ from rs2.modeler.properties.PropertyEnums import *
 import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
-modeler = RS2Modeler()
+RS2Modeler.startApplication(port=60081)
+modeler = RS2Modeler(port=60081)
 model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 pile = model.getAllPileProperties()[0]
@@ -29,3 +30,5 @@ pile.ForceDisplacement.setX(0.5)
 pile.ForceDisplacement.setY(0.6)
 
 model.close()
+
+modeler.closeProgram()

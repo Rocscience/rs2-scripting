@@ -1,0 +1,59 @@
+Stage 1 Joint Results
+
+	Joint Unique ID = External boundary0
+	Joint Element Results:
+
+	Start X-Coord = 11.949843172111, Start Y-Coord = 16.8602900357032, End X-Coord = 7.66165679261041, End Y-Coord = 16.0080637205343
+	Distance = 2.186025624140804, Normal Stress = 4.0118, Shear Stress = 0.06408, Confining Stress = None
+	Normal Displacement = 3.98454459388709e-05, Shear Displacement = 9.518369020371651e-07, Yielded = False
+
+	Start X-Coord = 7.66165679261041, Start Y-Coord = 16.0080637205343, End X-Coord = 3.37347041310981, End Y-Coord = 15.1558374053654
+	Distance = 6.558076872422411, Normal Stress = 5.5995, Shear Stress = -0.064085, Confining Stress = None
+	Normal Displacement = 3.567238008880944e-05, Shear Displacement = -9.650382373340867e-07, Yielded = False
+
+	Joint Unique ID = Joint boundary0
+	Joint Element Results:
+
+	Start X-Coord = 2.917735202249, Start Y-Coord = 13.0941781181379, End X-Coord = 6.48770615356857, End Y-Coord = 13.767303954077
+	Distance = 1.8164382032066397, Normal Stress = 301.5, Shear Stress = 18.694, Confining Stress = None
+	Normal Displacement = 0.0003597035162463307, Shear Displacement = 0.00034176638278219496, Yielded = False
+
+	Start X-Coord = 6.48770615356857, Start Y-Coord = 13.767303954077, End X-Coord = 9.38694273650449, End Y-Coord = 14.3139613569202
+	Distance = 5.108038014502138, Normal Stress = 286.85, Shear Stress = 70.918, Confining Stress = None
+	Normal Displacement = 0.00042772133456998217, Shear Displacement = 0.001089937591138087, Yielded = False
+
+	Start X-Coord = 9.38694273650449, Start Y-Coord = 14.3139613569202, End X-Coord = 12.2861793194404, End Y-Coord = 14.8606187597633
+	Distance = 8.05836123067984, Normal Stress = 248.94, Shear Stress = 68.214, Confining Stress = None
+	Normal Displacement = 0.00029805069143089665, Shear Displacement = 0.000887685823484493, Yielded = False
+
+	Joint Unique ID = Pile0
+	Joint Element Results:
+
+	Start X-Coord = 9.00086957359009, Start Y-Coord = 11.5846033227529, End X-Coord = 9.00086957359009, End Y-Coord = 7.79916982912479
+	Distance = 1.8927167468140547, Normal Stress = -0.92443, Shear Stress = 0.28125, Confining Stress = 1021.4
+	Normal Displacement = -4.6221e-05, Shear Displacement = 0.00010601666666666666, Yielded = False
+
+Stage 2 Joint Results
+
+	Joint Unique ID = Joint boundary0
+	Joint Element Results:
+
+	Start X-Coord = 2.917735202249, Start Y-Coord = 13.0941781181379, End X-Coord = 6.48770615356857, End Y-Coord = 13.767303954077
+	Distance = 1.8164382032066397, Normal Stress = 51.711, Shear Stress = 26.07, Confining Stress = None
+	Normal Displacement = 1.737090431927168e-05, Shear Displacement = 0.00039828176446499885, Yielded = False
+
+	Start X-Coord = 6.48770615356857, Start Y-Coord = 13.767303954077, End X-Coord = 9.38694273650449, End Y-Coord = 14.3139613569202
+	Distance = 5.108038014502138, Normal Stress = None, Shear Stress = None, Confining Stress = None
+	Normal Displacement = None, Shear Displacement = None, Yielded = False
+
+	Start X-Coord = 9.38694273650449, Start Y-Coord = 14.3139613569202, End X-Coord = 12.2861793194404, End Y-Coord = 14.8606187597633
+	Distance = 8.05836123067984, Normal Stress = None, Shear Stress = None, Confining Stress = None
+	Normal Displacement = None, Shear Displacement = None, Yielded = False
+
+	Joint Unique ID = Pile0
+	Joint Element Results:
+
+	Start X-Coord = 9.00086957359009, Start Y-Coord = 11.5846033227529, End X-Coord = 9.00086957359009, End Y-Coord = 7.79916982912479
+	Distance = 1.8927167468140547, Normal Stress = -0.69699, Shear Stress = 0.12483, Confining Stress = 930.99
+	Normal Displacement = -3.484973333333334e-05, Shear Displacement = 6.241666666666667e-05, Yielded = False
+

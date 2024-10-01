@@ -42,11 +42,12 @@ class MohrCoulombStrengthDefinedStageFactor(MohrCoulombStrengthStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_TENSILE_STRENGTH_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class MohrCoulombStrength(PropertyProxy):
 	"""
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[MohrCoulombStrengthDefinedStageFactor, MohrCoulombStrengthStageFactor]): Reference object for modifying stage factor property.
+
 	Examples:
 		:ref:`Material Property Strength Example`
 	
-	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[MohrCoulombStrengthDefinedStageFactor, MohrCoulombStrengthStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

@@ -1,72 +1,21 @@
 rs2.modeler.properties.material.hydraulic.FEAGroundwater package
 ================================================================
 
+
+.. toctree::
+   :maxdepth: 1
+
+   rs2.modeler.properties.material.hydraulic.FEAGroundwater.Brooks
+   rs2.modeler.properties.material.hydraulic.FEAGroundwater.Constant
+   rs2.modeler.properties.material.hydraulic.FEAGroundwater.FEAGroundwater
+   rs2.modeler.properties.material.hydraulic.FEAGroundwater.Fredlund
+   rs2.modeler.properties.material.hydraulic.FEAGroundwater.Gardner
+   rs2.modeler.properties.material.hydraulic.FEAGroundwater.Genuchten
+   rs2.modeler.properties.material.hydraulic.FEAGroundwater.Simple
+   rs2.modeler.properties.material.hydraulic.FEAGroundwater.UserDefined
+
+
 .. automodule:: rs2.modeler.properties.material.hydraulic.FEAGroundwater
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-
-rs2.modeler.properties.material.hydraulic.FEAGroundwater.Brooks module
-----------------------------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.material.hydraulic.FEAGroundwater.Brooks
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.material.hydraulic.FEAGroundwater.Constant module
-------------------------------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.material.hydraulic.FEAGroundwater.Constant
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.material.hydraulic.FEAGroundwater.FEAGroundwater module
-------------------------------------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.material.hydraulic.FEAGroundwater.FEAGroundwater
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.material.hydraulic.FEAGroundwater.Fredlund module
-------------------------------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.material.hydraulic.FEAGroundwater.Fredlund
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.material.hydraulic.FEAGroundwater.Gardner module
------------------------------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.material.hydraulic.FEAGroundwater.Gardner
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.material.hydraulic.FEAGroundwater.Genuchten module
--------------------------------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.material.hydraulic.FEAGroundwater.Genuchten
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.material.hydraulic.FEAGroundwater.Simple module
-----------------------------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.material.hydraulic.FEAGroundwater.Simple
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.material.hydraulic.FEAGroundwater.UserDefined module
----------------------------------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.material.hydraulic.FEAGroundwater.UserDefined
    :members:
    :undoc-members:
    :show-inheritance:

@@ -4,7 +4,8 @@ import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
 
-modeler = RS2Modeler()
+RS2Modeler.startApplication(port=60082)
+modeler = RS2Modeler(port=60082)
 model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 pile = model.getPilePropertyByName("Pile 1")
@@ -24,3 +25,5 @@ stageFactors.setYFactor(1.8)
 print(f"X Factor : {stageFactors.getXFactor()}, Y Factor : {stageFactors.getYFactor()}")
 
 model.close()
+
+modeler.closeProgram()

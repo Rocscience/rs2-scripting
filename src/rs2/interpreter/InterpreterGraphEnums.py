@@ -1,5 +1,11 @@
 from enum import Enum, auto
 class HistoryQueryGraphEnums():
+    """
+    Set the history query graph.
+    
+    """
+
+
     class VerticalAxisTypes(Enum):
         HORIZONTAL_DISPLACEMENT = 4070
         VERTICAL_DISPLACEMENT = 4071
@@ -14,8 +20,8 @@ class HistoryQueryGraphEnums():
         STRAIN_XX = 4080
         STRAIN_YY = 4081
         STRAIN_XY = 4082
-        EXCESS_PORE_PRESSURE = 4083
         # Water
+        EXCESS_PORE_PRESSURE = 4083
         PORE_PRESSURE = 4084
         HORIZONTAL_HYDRAULIC_VELOCITY = 4085
         VERTICAL_HYDRAULIC_VELOCITY = 4086
@@ -33,6 +39,10 @@ class HistoryQueryGraphEnums():
         STAGE_LOAD_PERCENTAGE = 9096
 
 class TimeQueryGraphEnums():
+    """
+    Set the time query graph.
+    
+    """
     class VerticalAxisTypes(Enum):
         X_VELOCITY = 4041
         X_DISPLACEMENT = 4042

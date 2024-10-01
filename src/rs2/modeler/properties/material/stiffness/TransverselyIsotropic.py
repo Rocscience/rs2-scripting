@@ -39,11 +39,12 @@ class TransverselyIsotropicDefinedStageFactor(TransverselyIsotropicStageFactor):
 		self._callFunction("setDoubleFactor", ["MP_YOUNGS_MODULUS_EZ", value, self.propertyID], proxyArgumentIndices = [2])
 class TransverselyIsotropic(PropertyProxy):
 	"""
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[TransverselyIsotropicDefinedStageFactor, TransverselyIsotropicStageFactor]): Reference object for modifying stage factor property.
+
 	Examples:
 		:ref:`Material Property Stiffness Example`
 	
-	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[TransverselyIsotropicDefinedStageFactor, TransverselyIsotropicStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

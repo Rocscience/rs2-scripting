@@ -13,11 +13,10 @@ class RS2Interpreter:
 		'''
 		Takes in the absolute path to an rs2 file to be opened in the modeler.
 
-		Example:
-
-		.. code-block:: python
+		Examples:
+			.. code-block:: python
 			
-			model = modeler.openFile('C:/simple_3_stage.fez')
+				model = modeler.openFile('C:/simple_3_stage.fez')
 		'''
 		request = functionRequest('open_file', [fileName], keepReturnValueReference=True)
 		modelObjectId = self.client.callFunction(request)
@@ -56,15 +55,14 @@ class RS2Interpreter:
 		'''
 		Closes the modeler program. All unsaved models are saved by default.
 
-		Example:
-
-		.. code-block:: python
+		Examples:
+			.. code-block:: python
 			
-			#Saves all models before closing
-			modeler.closeProgram(True)
+				#Saves all models before closing
+				modeler.closeProgram(True)
 
-			#Closes without saving any models
-			modeler.closeProgram(False)
+				#Closes without saving any models
+				modeler.closeProgram(False)
 		'''
 		request = functionRequest('closeProgram', [saveModels])
 		portUsed = self.client.callFunction(request)

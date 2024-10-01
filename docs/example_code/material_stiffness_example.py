@@ -3,7 +3,8 @@ from rs2.modeler.properties.PropertyEnums import *
 import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
-modeler = RS2Modeler()
+RS2Modeler.startApplication(port=60074)
+modeler = RS2Modeler(port=60074)
 model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 material = model.getAllMaterialProperties()[0]
@@ -57,3 +58,5 @@ print("\nNonLinear Hyperbolic Stage Factor Values")
 print(f"Failure Ratio of RF = {nonLinearHyperbolicFactors.getFailureRatioRfFactor()}, Bulk Modulus ExpM = {nonLinearHyperbolicFactors.getBulkModulusExpMFactor()}, Atmospheric Pressure = {nonLinearHyperbolicFactors.getAtmosphericPressureFactor()}")
 
 model.close()
+
+modeler.closeProgram()

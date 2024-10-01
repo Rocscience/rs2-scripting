@@ -1,0 +1,94 @@
+
+Interpreter Model Units
+
+Solid Units :
+[('Very Small Area', 'in2'),
+ ('Very Small Length ', 'in'),
+ ('Small Length ', 'in'),
+ ('Length ', 'ft'),
+ ('One Over Length ', '1/ft'),
+ ('Volume ', 'ft3'),
+ ('Area ', 'ft2'),
+ ('Force ', 'lbs'),
+ ('Weight ', 'lbs'),
+ ('Pressure ', 'psf'),
+ ('Shear Strength ', 'psf'),
+ ('Bond Strength ', 'lbs/ft'),
+ ('Joint Stiffness ', 'psf/ft'),
+ ('Unit Weight ', 'lbs/ft3'),
+ ('Moment ', 'lbsft'),
+ ('Hoop Moment ', 'lbsft/ft'),
+ ('Time ', 's'),
+ ('Stiffness ', 'lbs/ft'),
+ ('Velocity ', 'ft/s'),
+ ('Acceleration ', 'ft/s2'),
+ ('Sigma ', 'psf'),
+ ('Stress ', 'psf'),
+ ('Mass ', 'lbs')]
+
+Hydro Units :
+[('Pore Pressure ', 'psf'),
+ ('Pressure Head ', 'ft'),
+ ('Flow Rate ', 'ft3/s'),
+ ('Discharge Velocity ', 'ft/s'),
+ ('Permeability ', 'ft/s'),
+ ('Water Content ', 'ft3/ft3'),
+ ('MV ', 'ft3/ft3/psf')]
+
+Thermal Units :
+[('Heat', 'J'),
+ ('Specific Heat Capacity', 'J/lbs/C'),
+ ('Temperature', 'C'),
+ ('Latent Heat', 'J/ft3'),
+ ('Conductivity', 'W/ft/C'),
+ ('Volumetric Heat Capacity', 'J/ft3/C'),
+ ('Total Thermal Flux', 'W/ft'),
+ ('Unit Heat Flux', 'W/ft2'),
+ ('Heat Transfer', 'J/s/ft2/C')]
+
+Modeler Units
+
+Solid Units :
+[('Very Small Area', 'mm2'),
+ ('Very Small Length ', 'mm'),
+ ('Small Length ', 'cm'),
+ ('Length ', 'm'),
+ ('One Over Length ', '1/m'),
+ ('Volume ', 'm3'),
+ ('Area ', 'm2'),
+ ('Force ', 'MN'),
+ ('Weight ', 'MN'),
+ ('Pressure ', 'MPa'),
+ ('Shear Strength ', 'MPa'),
+ ('Bond Strength ', 'MN/m'),
+ ('Joint Stiffness ', 'MPa/m'),
+ ('Unit Weight ', 'MN/m3'),
+ ('Moment ', 'MNm'),
+ ('Hoop Moment ', 'MNm/m'),
+ ('Time ', 's'),
+ ('Stiffness ', 'MN/m'),
+ ('Velocity ', 'm/s'),
+ ('Acceleration ', 'm/s2'),
+ ('Sigma ', 'MPa'),
+ ('Stress ', 'MPa'),
+ ('Mass ', 'kt')]
+
+Hydro Units :
+[('Pore Pressure ', 'MPa'),
+ ('Pressure Head ', 'm'),
+ ('Flow Rate ', 'm3/s'),
+ ('Discharge Velocity ', 'm/s'),
+ ('Permeability ', 'm/s'),
+ ('Water Content ', 'm3/m3'),
+ ('MV ', 'm3/m3/MPa')]
+
+Thermal Units :
+[('Heat', 'J'),
+ ('Specific Heat Capacity', 'J/kt/C'),
+ ('Temperature', 'C'),
+ ('Latent Heat', 'J/m3'),
+ ('Conductivity', 'W/m/C'),
+ ('Volumetric Heat Capacity', 'J/m3/C'),
+ ('Total Thermal Flux', 'W/m'),
+ ('Unit Heat Flux', 'W/m2'),
+ ('Heat Transfer', 'J/s/m2/C')]
