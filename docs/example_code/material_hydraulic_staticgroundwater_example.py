@@ -3,7 +3,8 @@ from rs2.modeler.properties.PropertyEnums import *
 import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
-modeler = RS2Modeler()
+RS2Modeler.startApplication(port=60067)
+modeler = RS2Modeler(port=60067)
 model = modeler.openFile(rf"{current_dir}\example_models\StaticGroundwater.fez")
 
 material = model.getAllMaterialProperties()[0]
@@ -48,3 +49,5 @@ staticGroundwaterStageFactor.setPiezoToUse("None")
 print(f"StaticGroundwater Factor Grid To Use = {staticGroundwaterStageFactor.getGridToUse()}, Static Groundwater Piezo To Use = {staticGroundwaterStageFactor.getPiezoToUse()}")
 
 model.close()
+
+modeler.closeProgram()

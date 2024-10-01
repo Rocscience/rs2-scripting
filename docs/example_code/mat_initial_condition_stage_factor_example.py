@@ -4,7 +4,8 @@ import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
 
-modeler = RS2Modeler()
+RS2Modeler.startApplication(port=60075)
+modeler = RS2Modeler(port=60075)
 model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 material = model.getAllMaterialProperties()[0]
@@ -27,3 +28,5 @@ initialConditionStage2Factor.setPorosityValueFactor(5)
 print(f"Unit Weight Factor = {initialConditionStage2Factor.getUnitWeightFactor()}, Porosity Value Factor = {initialConditionStage2Factor.getPorosityValueFactor()}")
 
 model.close()
+
+modeler.closeProgram()

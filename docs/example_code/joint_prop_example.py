@@ -3,7 +3,8 @@ from rs2.modeler.properties.PropertyEnums import *
 import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
-modeler = RS2Modeler()
+RS2Modeler.startApplication(port=60060)
+modeler = RS2Modeler(port=60060)
 
 model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
@@ -41,3 +42,4 @@ print(joint3.DisplacementDependent.getProperties())
 print(joint3.DisplacementDependent.getDisplacementDependentTable())
 
 model.close()
+modeler.closeProgram()

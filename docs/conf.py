@@ -7,7 +7,7 @@ import os
 import sys
 
 # Specify the directory path
-directory_path = os.path.abspath('..')
+directory_path = os.path.abspath(os.path.join('..', 'src'))
 
 
 # Add the directory path to sys.path
@@ -17,17 +17,27 @@ sys.path.insert(0, directory_path)
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'RS2 Scripting Reference Manual'
-copyright = '2023, Rocscience Inc.'
+copyright = '2024, Rocscience Inc.'
 author = 'Rocscience Inc.'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
-extensions = ['sphinx.ext.autodoc', 'sphinx_copybutton', 'sphinx.ext.napoleon', 'sphinx_rtd_theme']
+extensions = ['sphinx.ext.autodoc',
+              'sphinx_copybutton', 
+              'sphinx.ext.napoleon',
+              'sphinx_rtd_theme',
+              'sphinxcontrib.youtube',
+              ]
 
 autodoc_default_options = {
     'member-order': 'bysource',
 }
+
+# Explicitly state the format of documentation
+napoleon_google_docstring = True
+napoleon_use_param = True
+napoleon_use_ivar = True
 
 exclude_patterns = ['generatedAPIDocFiles/modules.rst']
 
@@ -39,6 +49,7 @@ latex_elements = {
     'figure_align' : 'htbp'
 }
 
-latex_logo = '_static/logo.png'
+html_logo = '_static/logo.png'
 
-html_theme = "sphinx_rtd_theme"
+# html_theme = "sphinx_rtd_theme"
+html_theme = 'pydata_sphinx_theme'

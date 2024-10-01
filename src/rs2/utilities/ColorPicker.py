@@ -1,4 +1,8 @@
 class ColorPicker():
+    """
+    RS2 can change color of an object by hex color codes or RGB. 
+    """
+
     Black = 0x000000
     Brown = 0x002AA5
     Dark_Olive_Green = 0x404000
@@ -48,10 +52,12 @@ class ColorPicker():
         """
         Returns the RGB representation of a color from its int value
 
-            Params:
-                color (int) : int representing the color
+        Parameters:
+            color (int) : int representing the color
 
-            Returns: tuple containing red, green and blue values of the color. Each of red, green and blue are between 0 and 255 inclusive
+        Returns: 
+            tuple containing red, green and blue values of the color. Each of red, green and blue are between 0 and 255 inclusive
+                    
         """
         # Internally MSFT COLORREF stores the byte ordering of RGB Color as BGR: 0x00bbggrr
         blue = (color >> 16) & 0xFF
@@ -64,7 +70,7 @@ class ColorPicker():
         """
         Returns the int representation of a color from its R, G, B values
         
-            Params:
+        Parameters:
                 red (int) : int representing red value of the color. Must be between 0 and 255 inclusive
                 green (int) : int representing green value of the color. Must be between 0 and 255 inclusive
                 blue (int) : int representing blue value of the color. Must be between 0 and 255 inclusive

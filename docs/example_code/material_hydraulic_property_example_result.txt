@@ -1,0 +1,11 @@
+Piezo To Use = None
+
+Static Groundwater Properties
+
+Static Water Mode = StaticWaterModes.RU, RU Value = 4.0
+
+FEA Groundwater Properties
+
+K2/K1 = 2.0, K1 Definition = AnisotropyDefinitions.ANGLE, K1 Angle = 30.0
+
+Hydraulic Material Behaviour Stage Factor Value = MaterialBehaviours.UNDRAINED

@@ -2,9 +2,6 @@ from rs2.interpreter._UtilityResult import *
 
 class LinerElementResult:
     """
-    Examples:
-        :ref:`Support Liner Results Example`
-
     Attributes:
         composite_layer (int): Integer representing composite layer for support liner.
         node_start (int): Integer representing start node for support liner.
@@ -54,6 +51,11 @@ class LinerElementResult:
         hoop_axial_strain_mid (double): Hoop Axial Strain at the mid position for support liner.
         hoop_axial_strain2 (double): Hoop Axial Strain at the second position for support liner.
         beam_yield (bool): Boolean representing yielded status for support liner.
+    
+    Examples:
+    
+        :ref:`Support Liner Results Example`
+        
 	"""
 
     def __init__(
@@ -176,12 +178,13 @@ class LinerElementResult:
 
 class LinerResult:
     """
-	Examples:
-		:ref:`Support Liner Results Example`
-	
-	Attributes:
+    Attributes:
         entity_id (str): Unique Identifier for support liner.
         liner_element_results (list[LinerElementResult]): List of liner element result for support liner.
+
+    Examples:
+		:ref:`Support Liner Results Example`
+        
 	"""
     def __init__(self, entity_id, liner_element_results: list[LinerElementResult]):
         self.entity_id = entity_id

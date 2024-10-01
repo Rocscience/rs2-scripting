@@ -5,7 +5,8 @@ from pprint import pprint
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None)))
 
-interpreter = RS2Interpreter()
+RS2Interpreter.startApplication(port=60079)
+interpreter = RS2Interpreter(port=60079)
 interpreterModel = interpreter.openFile(rf"{current_dir}\example_models\SupportResults.fez")
 interpreterModelUnits = interpreterModel.getUnits()
 
@@ -17,7 +18,8 @@ pprint(interpreterModelUnits.hydro_units)
 print("\nThermal Units :")
 pprint(interpreterModelUnits.thermal_units)
 
-modeler = RS2Modeler()
+RS2Modeler.startApplication(port=60080)
+modeler = RS2Modeler(port=60080)
 model = modeler.openFile(rf"{current_dir}\example_models\SupportStructuralResults.fez")
 modelerUnits = model.getUnits()
 
@@ -33,3 +35,6 @@ model.ResetProperties()
 
 model.close()
 interpreterModel.close()
+
+modeler.closeProgram()
+interpreter.closeProgram()

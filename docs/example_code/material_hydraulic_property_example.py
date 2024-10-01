@@ -3,7 +3,8 @@ from rs2.modeler.properties.PropertyEnums import *
 import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
-modeler = RS2Modeler()
+RS2Modeler.startApplication(port=60065)
+modeler = RS2Modeler(port=60065)
 staticGroundwaterModel = modeler.openFile(rf"{current_dir}\example_models\StaticGroundwater.fez")
 FEAGroundwaterModel = modeler.openFile(rf"{current_dir}\example_models\FEAGroundwater.fez")
 
@@ -48,3 +49,5 @@ print(f"Hydraulic Material Behaviour Stage Factor Value = {hydraulicStageFactor.
 
 staticGroundwaterModel.close()
 FEAGroundwaterModel.close()
+
+modeler.closeProgram()

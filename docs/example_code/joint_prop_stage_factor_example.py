@@ -4,7 +4,8 @@ import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
 
-modeler = RS2Modeler()
+RS2Modeler.startApplication(port=60061)
+modeler = RS2Modeler(port=60061)
 model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 joint = model.getJointPropertyByName("Joint 1")
@@ -42,3 +43,4 @@ stage2bartonBandisFactors.setAdditionalPressureInsideJointFactor(6)
 stage2bartonBandisFactors.setGroundwaterPressureFactor(6)
 
 model.close()
+modeler.closeProgram()

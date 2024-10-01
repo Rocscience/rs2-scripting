@@ -3,7 +3,8 @@ from rs2.modeler.properties.PropertyEnums import *
 import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
-modeler = RS2Modeler()
+RS2Modeler.startApplication(port=60066)
+modeler = RS2Modeler(port=60066)
 model = modeler.openFile(rf"{current_dir}\example_models\FEAGroundwater.fez")
 
 material = model.getAllMaterialProperties()[0]
@@ -97,3 +98,4 @@ print("\nFEAGroundwater Fredlund Model Factor Values")
 print(f"A Factor = {fredlundModelStageFactor.getAFactor()}, B Factor = {fredlundModelStageFactor.getBFactor()}, C Factor = {fredlundModelStageFactor.getCFactor()}, Ks Factor = {fredlundModelStageFactor.getKsFactor()}")
 
 model.close()
+modeler.closeProgram()

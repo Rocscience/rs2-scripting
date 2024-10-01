@@ -1,6 +1,7 @@
 import subprocess
 import os
 import shutil
+
 """
 sphinx-apidoc Documentation: https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html
 sphinx-build Documentation: https://www.sphinx-doc.org/en/master/man/sphinx-build.html
@@ -28,31 +29,52 @@ def run_sphinx_apidoc():
     cmd = [
         "sphinx-apidoc",
         "--force",
-        "--module-first",
         "-o",
         "docs/generatedAPIDocFiles",
-        "-d",
-        "1",
-        "src/rs2",
+        "-d", # maximum depth
+        "2",
+        "src/rs2", # exclude the following files
         "src/rs2/_common/Client.py",
         "src/rs2/_common/documentProxy.py",
         "src/rs2/modeler/properties/propertyProxy.py",
-        "src/rs2/_common/ProxyObject.py"
+        "src/rs2/_common/ProxyObject.py",
+        "-e" # put each module on its own page
     ]
     subprocess.run(cmd, check=True)
 
+def update_toctree(lines):
+    updated_lines = []
+    in_submodule_section = False
+    for line in lines:
+        if line.strip() == "Submodules":
+            in_submodule_section = True
+        elif line.strip() == "Subpackages":
+            in_submodule_section = False
+
+        if in_submodule_section and "   :maxdepth: 2" in line:
+            updated_lines.append(line.replace("   :maxdepth: 2", "   :maxdepth: 1"))
+        else:
+            updated_lines.append(line)
+
+    return updated_lines
+
 def remove_subpackage_submodule_headers():
     rstFilesFolder = "docs/generatedAPIDocFiles"
-    linesToRemove = ["Submodules\n", "----------\n", "Subpackages\n", "-----------\n"]
+    linesToRemove = ["Submodules\n", "----------\n", "Subpackages\n", "-----------\n", "Module contents\n", "---------------\n"]
+    
     for listedFile in os.listdir(rstFilesFolder):
         filepath = os.path.join(rstFilesFolder, listedFile)
         with open(filepath, "r") as file:
             lines = file.readlines()
+
+        # Update toctree maxdepth for submodules
+        lines = update_toctree(lines)
+
+        # Remove unwanted headers
+        lines = [line for line in lines if line not in linesToRemove]
+
         with open(filepath, "w") as file:
-            for line in lines:
-                if line not in linesToRemove:
-                    file.write(line)
-    
+            file.writelines(lines)
 
 def run_sphinx_build():
     # Command to run sphinx-build
