@@ -52,7 +52,7 @@ class ColorPicker():
         """
         Returns the RGB representation of a color from its int value
 
-        Attributes:
+        Parameters:
             color (int) : int representing the color
 
         Returns: 
@@ -70,7 +70,7 @@ class ColorPicker():
         """
         Returns the int representation of a color from its R, G, B values
         
-        Attributes:
+        Parameters:
                 red (int) : int representing red value of the color. Must be between 0 and 255 inclusive
                 green (int) : int representing green value of the color. Must be between 0 and 255 inclusive
                 blue (int) : int representing blue value of the color. Must be between 0 and 255 inclusive

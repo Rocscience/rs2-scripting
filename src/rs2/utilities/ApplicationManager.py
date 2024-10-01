@@ -14,7 +14,7 @@ class ApplicationManager:
         Returns when the server is ready to accept requests.
         Throws TimeoutError exception if the server is not ready within that time.
 
-        Attributes:
+        Parameters:
             pathToExecutable (str): the full path to the executable of the application you want to start.  
             port (int): the port number you want the python server to bind to.
                 
