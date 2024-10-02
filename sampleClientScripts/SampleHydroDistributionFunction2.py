@@ -8,7 +8,7 @@ import os
 
 modeler = RS2Modeler(port=60054)
 
-path = r"C:\Users\GraceHu\Documents\interpreter_dummy_model.fez"
+path = r"C:\scriptingModels\HydroDistributionFunction.fez"
 model = modeler.openFile(path)
 
 material = model.getMaterialPropertyByName("Material 1")
@@ -44,7 +44,7 @@ mh.setHydroDistribution(hydro_var_1, hydro_type_1, fun1_name)
 assert mh.getHydroDistributionFunctionName(hydro_var_1) == fun1_name
 
 # End of Model 1
-model_path = r'C:\Users\GraceHu\Documents\post_modeling_dummy_model_1.fez'
+model_path = r'C:\scriptingModels\post_HydroDistributionFunction_1.fez'
 model.saveAs(model_path)
 
 # Apply Stage Hydraulic Properties and Stage Hydraulic Distribution
@@ -110,11 +110,11 @@ assert hydroDistributionProp[0] == hydro_type_2
 assert hydroDistributionProp[1] == fun1_name
 
 # End of Model 2
-model_path = r'C:\Users\GraceHu\Documents\post_modeling_dummy_model_2.fez'
+model_path = r'C:\scriptingModels\post_HydroDistributionFunction_2.fez'
 model.saveAs(model_path)
 
 print("Model 2")
-for stage in [2, 4]:
+for stage in [1, 2, 3, 4]:
     print("Stage", stage)
     for variable in variable_list:
         print(variable)
@@ -125,7 +125,7 @@ material.StageFactors.setStageHydroDistributionStageFactor(False)
 assert material.StageFactors.getStageHydroDistributionStageFactor() == False
 
 print("Model 2")
-for stage in [2, 4]:
+for stage in [1, 2, 3, 4]:
     print("Stage", stage)
     for variable in variable_list:
         print(variable)

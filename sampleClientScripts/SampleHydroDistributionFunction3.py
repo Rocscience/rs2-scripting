@@ -8,7 +8,7 @@ import os
 
 modeler = RS2Modeler(port=60054)
 
-path = r"C:\Users\GraceHu\Documents\interpreter_dummy_model.fez"
+path = r"C:\scriptingModels\HydroDistributionFunction.fez"
 model = modeler.openFile(path)
 
 material = model.getMaterialPropertyByName("Material 1")
@@ -109,7 +109,7 @@ for stage in [2, 4]:
 
 
 # Save model and run compute
-model_path = r'C:\Users\GraceHu\Documents\post_modeling_dummy_model.fez'
+model_path = r'C:\scriptingModels\post_HydroDistributionFunction.fez'
 model.saveAs(model_path)
 model.compute()
 

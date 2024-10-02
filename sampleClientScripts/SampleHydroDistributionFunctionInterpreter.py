@@ -12,8 +12,8 @@ end_stage = 2
 
 modeler = RS2Modeler(port=60054)
 
-path = r"C:\Users\GraceHu\source\repos\RS2_Python_Client_Library\examples\Hydro Distribution Example\resaved_25_custom.fez"
-txt_path = r"C:\Users\GraceHu\source\repos\RS2_Python_Client_Library\examples\Hydro Distribution Example\resaved_25_custom.txt"
+path = r"C:\scriptingModels\HydroDistributionFunction.fez"
+txt_path = r"C:\scriptingModels\HydroDistributionFunction.txt"
 model = modeler.openFile(path)
 
 # Save model and run compute

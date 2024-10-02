@@ -5,7 +5,7 @@ from typing import List
 from rs2.modeler.properties.PropertyEnums import *
 from rs2.modeler.properties.material.hydraulic.FEAGroundwater.FEAGroundwater import FEAGroundwater
 from rs2.modeler.properties.material.hydraulic.StaticGroundwater import StaticGroundwater
-from rs2.modeler.properties.material.hydraulic.HydroDistribution import	HydroDistribution
+from rs2.modeler.properties.material.hydraulic.HydroDistribution import HydroDistribution
 from rs2._common.ProxyObject import ProxyObject
 from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 class HydraulicStageFactor(ProxyObject):
@@ -21,20 +21,21 @@ class HydraulicDefinedStageFactor(HydraulicStageFactor):
 		return self._callFunction("setMaterialBehaviourFactor", [materialBehavior.value])
 class Hydraulic(PropertyProxy):
 	"""
+	Examples:
+		:ref:`Hydraulic Property Example`
+
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[HydraulicDefinedStageFactor, HydraulicStageFactor]): Reference object for modifying stage factor property.
 		StaticGroundwater (StaticGroundwater): Reference object for modifying property.
+		HydroDistribution (HydroDistribution): Reference object for modifying property.
 		FEAGroundwater (FEAGroundwater): Reference object for modifying property.
-
-	Examples:
-		:ref:`Hydraulic Property Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
 		self.stageFactorInterface = AbsoluteStageFactorGettersInterface[HydraulicDefinedStageFactor, HydraulicStageFactor](self._client, stageFactorInterfaceID, ID, HydraulicDefinedStageFactor, HydraulicStageFactor)
 		self.StaticGroundwater = StaticGroundwater(client, ID, documentProxyID, stageFactorInterfaceID)
-		self.FEAGroundwater = FEAGroundwater(client, ID, documentProxyID, stageFactorInterfaceID)
 		self.HydroDistribution = HydroDistribution(client, ID, documentProxyID, stageFactorInterfaceID)
+		self.FEAGroundwater = FEAGroundwater(client, ID, documentProxyID, stageFactorInterfaceID)
 	def getMaterialBehaviour(self) -> MaterialBehaviours:
 		return MaterialBehaviours(self._getEnumEMaterialBehavioursProperty("MP_MATERIAL_BEHAVIOUR"))
 	def setMaterialBehaviour(self, value: MaterialBehaviours):
