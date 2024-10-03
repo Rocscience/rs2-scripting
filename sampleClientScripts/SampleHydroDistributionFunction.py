@@ -123,8 +123,6 @@ hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(hyd
 hydroDistributionProp = hydroDistributionGroundwaterStageFactor_2.getHydroDistributionStagedFunction(hydro_var_1)
 # Check assigned Hydraulic Distribution Type
 assert hydroDistributionProp[0] == hydro_type_3
-# Check assigned Hydraulic Distribution Function Name
-assert hydroDistributionProp[1] == "None"
 
 # Add a new stage 4
 newStageFactor_4 = material.StageFactors.createStageFactor(stage_4)

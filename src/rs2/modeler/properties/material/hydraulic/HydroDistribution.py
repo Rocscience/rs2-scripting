@@ -1,3 +1,4 @@
+from importlib.metadata import distribution
 from rs2.modeler.properties.PropertyEnums import *
 from rs2.modeler.properties.propertyProxy import PropertyProxy
 from rs2._common.Client import Client
@@ -14,12 +15,18 @@ class HydroDistributionFunctionStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
 		self.propertyID = propertyID
-	def getHydroDistributionStagedFunction(self, variable: HydraulicVariableTypes) -> list[HydraulicDistributionTypes, str]:
+	def getHydroDistributionStagedFunction(self, variable: HydraulicVariableTypes) -> list:
 		"""
 		Return a list with HydraulicDistributionType and the assigned function name.
 		"""
-		distribution, funcName = self._callFunction("getHydroDistributionStagedFunction", [variable.value, self.propertyID], proxyArgumentIndices=[1])
-		return [HydraulicDistributionTypes(distribution), funcName]
+		distribution_info = self._callFunction("getHydroDistributionStagedFunction", [variable.value, self.propertyID], proxyArgumentIndices=[1])
+		if len(distribution_info) == 1:
+			return [HydraulicDistributionTypes(distribution_info[0])]
+		elif len(distribution_info) == 2:
+			return [HydraulicDistributionTypes(distribution_info[0]), distribution_info[1]]
+		else:
+			warnings.warn("Unexpected return length.")
+
 
 class HydroDistributionFunctionDefinedStageFactor(HydroDistributionFunctionStageFactor):
 	"""
