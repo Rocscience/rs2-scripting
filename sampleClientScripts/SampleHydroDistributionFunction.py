@@ -101,9 +101,9 @@ assert fun3.getPointsParameter() == point_wc_sat3
 hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(hydro_var_4, hydro_type_6, fun3_name)
 hydroDistributionProp = hydroDistributionGroundwaterStageFactor_2.getHydroDistributionStagedFunction(hydro_var_4)
 # Check assigned Hydraulic Distribution Type
-assert hydroDistributionProp[0] == hydro_type_6
+assert hydroDistributionProp.distribution_type == hydro_type_6
 # Check assigned Hydraulic Distribution Function Name
-assert hydroDistributionProp[1] == fun3_name
+assert hydroDistributionProp.function_name == fun3_name
 
 fun4 = model.getHydroDistributionFunctionByName(hydro_var_1, hydro_type_1, fun1_name)
 # Set the parameter values based on the hydro distribution
@@ -115,14 +115,14 @@ assert fun4.getPointsParameter() == point_ks4
 hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_1, fun1_name)
 hydroDistributionProp = hydroDistributionGroundwaterStageFactor_2.getHydroDistributionStagedFunction(hydro_var_1)
 # Check assigned Hydraulic Distribution Type
-assert hydroDistributionProp[0] == hydro_type_1
+assert hydroDistributionProp.distribution_type == hydro_type_1
 # Check assigned Hydraulic Distribution Function Name
-assert hydroDistributionProp[1] == fun1_name
+assert hydroDistributionProp.function_name == fun1_name
 
 hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_3)
 hydroDistributionProp = hydroDistributionGroundwaterStageFactor_2.getHydroDistributionStagedFunction(hydro_var_1)
 # Check assigned Hydraulic Distribution Type
-assert hydroDistributionProp[0] == hydro_type_3
+assert hydroDistributionProp.distribution_type == hydro_type_3
 
 # Add a new stage 4
 newStageFactor_4 = material.StageFactors.createStageFactor(stage_4)
@@ -140,17 +140,17 @@ feaGroundwaterStageFactor_4.setK2K1Factor(2.2)
 hydroDistributionGroundwaterStageFactor_4.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_1, fun1_name)
 hydroDistributionProp = hydroDistributionGroundwaterStageFactor_4.getHydroDistributionStagedFunction(hydro_var_1)
 # Check assigned Hydraulic Distribution Type
-assert hydroDistributionProp[0] == hydro_type_1
+assert hydroDistributionProp.distribution_type == hydro_type_1
 # Check assigned Hydraulic Distribution Function Name
-assert hydroDistributionProp[1] == fun1_name
+assert hydroDistributionProp.function_name == fun1_name
 
 # Switch stage hydraulic distribution function to a coordinate distribution
 hydroDistributionGroundwaterStageFactor_4.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_2, fun2_name)
 hydroDistributionProp = hydroDistributionGroundwaterStageFactor_4.getHydroDistributionStagedFunction(hydro_var_1)
 # Check assigned Hydraulic Distribution Type
-assert hydroDistributionProp[0] == hydro_type_2
+assert hydroDistributionProp.distribution_type == hydro_type_2
 # Check assigned Hydraulic Distribution Function Name
-assert hydroDistributionProp[1] == fun2_name
+assert hydroDistributionProp.function_name == fun2_name
 
 fun5 = model.getHydroDistributionFunctionByName(hydro_var_6, hydro_type_5, fun4_name)
 # Set the parameter values based on the hydro distribution
@@ -162,9 +162,9 @@ assert fun5.getPointsParameter() == point_dos5
 hydroDistributionGroundwaterStageFactor_4.setHydroDistributionStagedFunction(hydro_var_6, hydro_type_5, fun4_name)
 hydroDistributionProp = hydroDistributionGroundwaterStageFactor_4.getHydroDistributionStagedFunction(hydro_var_6)
 # Check assigned Hydraulic Distribution Type
-assert hydroDistributionProp[0] == hydro_type_5
+assert hydroDistributionProp.distribution_type == hydro_type_5
 # Check assigned Hydraulic Distribution Function Name
-assert hydroDistributionProp[1] == fun4_name
+assert hydroDistributionProp.function_name == fun4_name
 
 fun6 = model.getHydroDistributionFunctionByName(hydro_var_3, hydro_type_5, fun3_name)
 # Set the parameter values based on the hydro distribution

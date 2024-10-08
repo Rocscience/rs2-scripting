@@ -89,9 +89,9 @@ hydroDistributionGroundwaterStageFactor_2 = material.Hydraulic.HydroDistribution
 hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_1, fun1_name)
 hydroDistributionProp = hydroDistributionGroundwaterStageFactor_2.getHydroDistributionStagedFunction(hydro_var_1)
 # Check assigned Hydraulic Distribution Type
-assert hydroDistributionProp[0] == hydro_type_1
+assert hydroDistributionProp.distribution_type == hydro_type_1
 # Check assigned Hydraulic Distribution Function Name
-assert hydroDistributionProp[1] == fun1_name
+assert hydroDistributionProp.function_name == fun1_name
 
 # Add a new stage 4
 newStageFactor_4 = material.StageFactors.createStageFactor(stage_4)
@@ -105,9 +105,9 @@ hydroDistributionGroundwaterStageFactor_4 = material.Hydraulic.HydroDistribution
 hydroDistributionGroundwaterStageFactor_4.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_2, fun1_name)
 hydroDistributionProp = hydroDistributionGroundwaterStageFactor_4.getHydroDistributionStagedFunction(hydro_var_1)
 # Check assigned Hydraulic Distribution Type
-assert hydroDistributionProp[0] == hydro_type_2
+assert hydroDistributionProp.distribution_type == hydro_type_2
 # Check assigned Hydraulic Distribution Function Name
-assert hydroDistributionProp[1] == fun1_name
+assert hydroDistributionProp.function_name == fun1_name
 
 # End of Model 2
 model_path = r'C:\scriptingModels\post_HydroDistributionFunction_2.fez'

@@ -47,8 +47,8 @@ material.StageFactors.setDefinedStageFactors(definedStageFactors)
 hydroDistributionGroundwaterStageFactor_2 = material.Hydraulic.HydroDistribution.stageFactorInterface.getDefinedStageFactors()[stage_2]
 hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(variable_type, distribution_type, function_name_2)
 hydroDistributionProp = hydroDistributionGroundwaterStageFactor_2.getHydroDistributionStagedFunction(variable_type)
-print(f"The stage hydraulic distribution of {variable_type} at stage {stage_2} is {hydroDistributionProp[0]}")
-print(f"The stage hydraulic distribution function of {variable_type} at stage {stage_2} is {hydroDistributionProp[1]}")
+print(f"The stage hydraulic distribution of {variable_type} at stage {stage_2} is {hydroDistributionProp.distribution_type}")
+print(f"The stage hydraulic distribution function of {variable_type} at stage {stage_2} is {hydroDistributionProp.function_name}")
 
 modeler_model.save()
 modeler_model.compute()

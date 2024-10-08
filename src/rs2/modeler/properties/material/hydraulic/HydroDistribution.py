@@ -7,6 +7,13 @@ from distutils.dist import Distribution
 from enum import Enum, auto
 from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
 import warnings
+from dataclasses import dataclass
+from typing import Optional
+
+@dataclass
+class HydroDistributionResult:
+	distribution_type: HydraulicDistributionTypes
+	function_name: Optional[str] = None
 
 class HydroDistributionFunctionStageFactor(ProxyObject):
 	"""
@@ -15,17 +22,18 @@ class HydroDistributionFunctionStageFactor(ProxyObject):
 	def __init__(self, client : Client, ID, propertyID):
 		super().__init__(client, ID)
 		self.propertyID = propertyID
-	def getHydroDistributionStagedFunction(self, variable: HydraulicVariableTypes) -> list:
+	def getHydroDistributionStagedFunction(self, variable: HydraulicVariableTypes) -> HydroDistributionResult:
 		"""
 		Return a list with HydraulicDistributionType and the assigned function name.
 		"""
 		distribution_info = self._callFunction("getHydroDistributionStagedFunction", [variable.value, self.propertyID], proxyArgumentIndices=[1])
+		
 		if len(distribution_info) == 1:
-			return [HydraulicDistributionTypes(distribution_info[0])]
+			return HydroDistributionResult(distribution_type=HydraulicDistributionTypes(distribution_info[0]))
 		elif len(distribution_info) == 2:
-			return [HydraulicDistributionTypes(distribution_info[0]), distribution_info[1]]
+			return HydroDistributionResult(distribution_type=HydraulicDistributionTypes(distribution_info[0]), function_name=distribution_info[1])
 		else:
-			warnings.warn("Unexpected return length.")
+			raise ValueError("Unexpected return length from 'getHydroDistributionStagedFunction'.")
 
 
 class HydroDistributionFunctionDefinedStageFactor(HydroDistributionFunctionStageFactor):
@@ -64,7 +72,8 @@ class HydroDistribution(PropertyProxy):
 		elif(isinstance(value, float) and dist == HydraulicDistributionTypes.CONSTANT_DIST):
 			return self._callFunction("setHydroDistribution", [variable.value, dist.value, value])
 		else:
-			warnings.warn(f"Please input a valid value for {dist}")
+			raise ValueError(f"Please input a valid value for {dist}")
+			
 
 	def getHydroDistributionFunctionName(self, variable: HydraulicVariableTypes) -> str:
 		"""

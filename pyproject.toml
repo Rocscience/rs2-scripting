@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "RS2Scripting"
-version = "11.25.0.rc1"
+version = "11.25.0rc1"
 dependencies = [
   "rsmessages == 0.0.2"
 ]
