@@ -21,14 +21,14 @@ class HydraulicDefinedStageFactor(HydraulicStageFactor):
 		return self._callFunction("setMaterialBehaviourFactor", [materialBehavior.value])
 class Hydraulic(PropertyProxy):
 	"""
-	Examples:
-		:ref:`Hydraulic Property Example`
-
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[HydraulicDefinedStageFactor, HydraulicStageFactor]): Reference object for modifying stage factor property.
 		StaticGroundwater (StaticGroundwater): Reference object for modifying property.
 		HydroDistribution (HydroDistribution): Reference object for modifying property.
 		FEAGroundwater (FEAGroundwater): Reference object for modifying property.
+
+	Examples:
+		:ref:`Hydraulic Property Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

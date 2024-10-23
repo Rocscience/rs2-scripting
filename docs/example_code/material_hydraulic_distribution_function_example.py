@@ -18,8 +18,8 @@ material = modeler_model.getMaterialPropertyByName("Dense Sand")
 function_name_1 = "Example Function 1"
 function_name_2 = "Function 1 New Name"
 
-variable_type = HydraulicVariableTypes.KS_FUNC
-distribution_type = HydraulicDistributionTypes.MEAN_STRESS_DIST
+variable_type = HydraulicVariableTypes.KS_FUNCTION
+distribution_type = HydraulicDistributionTypes.MEAN_STRESS_DISTRIBUTION
 
 modeler_model.createNewHydroDistributionFunction(variable_type, distribution_type, function_name_1)
 function1 = modeler_model.getHydroDistributionFunctionByName(variable_type, distribution_type, function_name_1)
@@ -97,7 +97,7 @@ for stageNum in range(first_stage, last_stage + 1):
 
 
 constant_val = 0.1
-constant_distribution_type = HydraulicDistributionTypes.CONSTANT_DIST
+constant_distribution_type = HydraulicDistributionTypes.CONSTANT_DISTRIBUTION
 hydroDistribution.setHydroDistribution(variable_type, constant_distribution_type, constant_val)
 current_distribution = hydroDistribution.getHydroDistribution(variable_type)
 current_val = hydroDistribution.getHydroDistributionConstantVal(variable_type)

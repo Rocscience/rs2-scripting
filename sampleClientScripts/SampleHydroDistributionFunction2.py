@@ -14,9 +14,9 @@ model = modeler.openFile(path)
 material = model.getMaterialPropertyByName("Material 1")
 
 fun1_name = "Function 1"
-hydro_var_1 = HydraulicVariableTypes.RELATIVE_KS_FUNC
-hydro_type_1 = HydraulicDistributionTypes.MEAN_STRESS_DIST
-hydro_type_2 = HydraulicDistributionTypes.COORDINATE_DIST
+hydro_var_1 = HydraulicVariableTypes.RELATIVE_KS_FUNCTION
+hydro_type_1 = HydraulicDistributionTypes.MEAN_STRESS_DISTRIBUTION
+hydro_type_2 = HydraulicDistributionTypes.COORDINATE_DISTRIBUTION
 
 
 model.createNewHydroDistributionFunction(hydro_var_1, hydro_type_1, fun1_name)
@@ -50,15 +50,15 @@ model.saveAs(model_path)
 # Apply Stage Hydraulic Properties and Stage Hydraulic Distribution
 material.StageFactors.setStageHydraulicStageFactor(True)
 
-variable_list = [HydraulicVariableTypes.KS_FUNC,
-                 HydraulicVariableTypes.RELATIVE_KS_FUNC,
-                 HydraulicVariableTypes.K2K1_FUNC,
-                 HydraulicVariableTypes.K1_ANGLE_FUNC,
-                 HydraulicVariableTypes.WC_SAT_FUNC,
-                 HydraulicVariableTypes.WC_RES_FUNC,  
-                 HydraulicVariableTypes.RELATIVE_WC_FUNC,
-                 HydraulicVariableTypes.DOS_SAT_FUNC,
-                 HydraulicVariableTypes.DOS_RES_FUNC,
+variable_list = [HydraulicVariableTypes.KS_FUNCTION,
+                 HydraulicVariableTypes.RELATIVE_KS_FUNCTION,
+                 HydraulicVariableTypes.K2K1_FUNCTION,
+                 HydraulicVariableTypes.K1_ANGLE_FUNCTION,
+                 HydraulicVariableTypes.WC_SAT_FUNCTION,
+                 HydraulicVariableTypes.WC_RES_FUNCTION,  
+                 HydraulicVariableTypes.RELATIVE_WC_DOS_FUNCTION,
+                 HydraulicVariableTypes.DOS_SAT_FUNCTION,
+                 HydraulicVariableTypes.DOS_RES_FUNCTION,
                 ]
 
 print("Model 1")

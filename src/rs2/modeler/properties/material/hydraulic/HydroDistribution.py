@@ -53,11 +53,11 @@ class HydroDistributionFunctionDefinedStageFactor(HydroDistributionFunctionStage
 
 class HydroDistribution(PropertyProxy):
 	"""
-	Examples:
-		:ref:`Hydraulic Distribution Function Example`
-	
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorGettersInterface[HydroDistributionFunctionDefinedStageFactor, HydroDistributionFunctionStageFactor]): Reference object for modifying stage factor property.
+	
+	Examples:
+		:ref:`Hydraulic Distribution Function Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
@@ -67,9 +67,9 @@ class HydroDistribution(PropertyProxy):
 		"""
 		Set the given variable with selected non-constant hydraulic distribution with a defined hydraulic distribution function or with a constant hydraulic distribution with a constant value. 
 		"""
-		if(isinstance(value, str) and dist != HydraulicDistributionTypes.CONSTANT_DIST):
+		if(isinstance(value, str) and dist != HydraulicDistributionTypes.CONSTANT_DISTRIBUTION):
 			return self._callFunction("setHydroDistribution", [variable.value, dist.value, value])
-		elif(isinstance(value, float) and dist == HydraulicDistributionTypes.CONSTANT_DIST):
+		elif(isinstance(value, float) and dist == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION):
 			return self._callFunction("setHydroDistribution", [variable.value, dist.value, value])
 		else:
 			raise ValueError(f"Please input a valid value for {dist}")

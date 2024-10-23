@@ -17,8 +17,8 @@ fun1_name = "Function 1"
 fun2_name = "Function 2"
 fun1_new_name = "New Function 1"
 
-hydro_var_1 = HydraulicVariableTypes.DOS_SAT_FUNC
-hydro_type_1 = HydraulicDistributionTypes.VOLUMETRIC_STRAIN_DIST
+hydro_var_1 = HydraulicVariableTypes.DOS_SAT_FUNCTION
+hydro_type_1 = HydraulicDistributionTypes.VOLUMETRIC_STRAIN_DISTRIBUTION
 
 model.createNewHydroDistributionFunction(hydro_var_1, hydro_type_1, fun1_name)
 model.createNewHydroDistributionFunction(hydro_var_1, hydro_type_1, fun2_name)
@@ -88,15 +88,15 @@ assert hydroDistributionProp.distribution_type == hydro_type_1
 # Check assigned Hydraulic Distribution Function Name
 assert hydroDistributionProp.function_name == fun1_new_name
 
-variable_list = [HydraulicVariableTypes.KS_FUNC,
-                 HydraulicVariableTypes.RELATIVE_KS_FUNC,
-                 HydraulicVariableTypes.K2K1_FUNC,
-                 HydraulicVariableTypes.K1_ANGLE_FUNC,
-                 HydraulicVariableTypes.WC_SAT_FUNC,
-                 HydraulicVariableTypes.WC_RES_FUNC,  
-                 HydraulicVariableTypes.RELATIVE_WC_FUNC,
-                 HydraulicVariableTypes.DOS_SAT_FUNC,
-                 HydraulicVariableTypes.DOS_RES_FUNC,
+variable_list = [HydraulicVariableTypes.KS_FUNCTION,
+                 HydraulicVariableTypes.RELATIVE_KS_FUNCTION,
+                 HydraulicVariableTypes.K2K1_FUNCTION,
+                 HydraulicVariableTypes.K1_ANGLE_FUNCTION,
+                 HydraulicVariableTypes.WC_SAT_FUNCTION,
+                 HydraulicVariableTypes.WC_RES_FUNCTION,  
+                 HydraulicVariableTypes.RELATIVE_WC_DOS_FUNCTION,
+                 HydraulicVariableTypes.DOS_SAT_FUNCTION,
+                 HydraulicVariableTypes.DOS_RES_FUNCTION,
                 ]
 
 print("Model 1")
@@ -182,7 +182,7 @@ for stage in [2, 4]:
 
 # Set the constant value of the new constant distribution
 constant_val = 0.1
-hydro_type_2 = HydraulicDistributionTypes.CONSTANT_DIST
+hydro_type_2 = HydraulicDistributionTypes.CONSTANT_DISTRIBUTION
 mh.setHydroDistribution(hydro_var_1, hydro_type_2, constant_val)
 assert mh.getHydroDistribution(hydro_var_1) == hydro_type_2
 assert mh.getHydroDistributionConstantVal(hydro_var_1) == constant_val

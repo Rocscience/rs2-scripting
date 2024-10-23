@@ -18,21 +18,21 @@ fun2_name = "New Function 2"
 fun3_name = "Dummy Function"
 fun4_name = "Dummy Function 2"
 
-hydro_var_1 = HydraulicVariableTypes.KS_FUNC
-hydro_var_2 = HydraulicVariableTypes.K2K1_FUNC
-hydro_var_3 = HydraulicVariableTypes.K1_ANGLE_FUNC
-hydro_var_4 = HydraulicVariableTypes.WC_SAT_FUNC
-hydro_var_5 = HydraulicVariableTypes.WC_RES_FUNC
-hydro_var_6 = HydraulicVariableTypes.DOS_SAT_FUNC
-hydro_var_7 = HydraulicVariableTypes.DOS_RES_FUNC
-hydro_var_8 = HydraulicVariableTypes.RELATIVE_KS_FUNC
-hydro_var_9 = HydraulicVariableTypes.RELATIVE_WC_FUNC
-hydro_type_1 = HydraulicDistributionTypes.MEAN_STRESS_DIST
-hydro_type_2 = HydraulicDistributionTypes.COORDINATE_DIST
-hydro_type_3 = HydraulicDistributionTypes.CONSTANT_DIST
-hydro_type_4 = HydraulicDistributionTypes.HORIZONTAL_STRESS_DIST
-hydro_type_5 = HydraulicDistributionTypes.VERTICAL_STRESS_DIST
-hydro_type_6 = HydraulicDistributionTypes.VOLUMETRIC_STRAIN_DIST
+hydro_var_1 = HydraulicVariableTypes.KS_FUNCTION
+hydro_var_2 = HydraulicVariableTypes.K2K1_FUNCTION
+hydro_var_3 = HydraulicVariableTypes.K1_ANGLE_FUNCTION
+hydro_var_4 = HydraulicVariableTypes.WC_SAT_FUNCTION
+hydro_var_5 = HydraulicVariableTypes.WC_RES_FUNCTION
+hydro_var_6 = HydraulicVariableTypes.DOS_SAT_FUNCTION
+hydro_var_7 = HydraulicVariableTypes.DOS_RES_FUNCTION
+hydro_var_8 = HydraulicVariableTypes.RELATIVE_KS_FUNCTION
+hydro_var_9 = HydraulicVariableTypes.RELATIVE_WC_DOS_FUNCTION
+hydro_type_1 = HydraulicDistributionTypes.MEAN_STRESS_DISTRIBUTION
+hydro_type_2 = HydraulicDistributionTypes.COORDINATE_DISTRIBUTION
+hydro_type_3 = HydraulicDistributionTypes.CONSTANT_DISTRIBUTION
+hydro_type_4 = HydraulicDistributionTypes.HORIZONTAL_STRESS_DISTRIBUTION
+hydro_type_5 = HydraulicDistributionTypes.VERTICAL_STRESS_DISTRIBUTION
+hydro_type_6 = HydraulicDistributionTypes.VOLUMETRIC_STRAIN_DISTRIBUTION
 
 # Create 2 new hydro distribution functions
 model.createNewHydroDistributionFunction(hydro_var_1, hydro_type_1, fun1_name)
@@ -119,10 +119,12 @@ assert hydroDistributionProp.distribution_type == hydro_type_1
 # Check assigned Hydraulic Distribution Function Name
 assert hydroDistributionProp.function_name == fun1_name
 
-hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_3)
+hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(hydro_var_1, hydro_type_2, fun2_name)
 hydroDistributionProp = hydroDistributionGroundwaterStageFactor_2.getHydroDistributionStagedFunction(hydro_var_1)
 # Check assigned Hydraulic Distribution Type
-assert hydroDistributionProp.distribution_type == hydro_type_3
+assert hydroDistributionProp.distribution_type == hydro_type_2
+# Check assigned Hydraulic Distribution Function Name
+assert hydroDistributionProp.function_name == fun2_name
 
 # Add a new stage 4
 newStageFactor_4 = material.StageFactors.createStageFactor(stage_4)
@@ -243,11 +245,11 @@ material.StageFactors.setDefinedStageFactors(definedStageFactors)
 material.StageFactors.setStageHydroDistributionStageFactor(False)
 assert material.StageFactors.getStageHydroDistributionStageFactor() == False
 
-variable_list = [HydraulicVariableTypes.KS_FUNC,
-                 HydraulicVariableTypes.K2K1_FUNC,
-                 HydraulicVariableTypes.K1_ANGLE_FUNC,
-                 HydraulicVariableTypes.WC_SAT_FUNC,
-                 HydraulicVariableTypes.WC_RES_FUNC,  
+variable_list = [HydraulicVariableTypes.KS_FUNCTION,
+                 HydraulicVariableTypes.K2K1_FUNCTION,
+                 HydraulicVariableTypes.K1_ANGLE_FUNCTION,
+                 HydraulicVariableTypes.WC_SAT_FUNCTION,
+                 HydraulicVariableTypes.WC_RES_FUNCTION,  
                 ]
 
 for stage in range(2,3):
