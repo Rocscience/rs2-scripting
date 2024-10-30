@@ -7,3 +7,8 @@ Download the `ExampleModel.fez <https://github.com/Rocscience/rs2-scripting/blob
 .. literalinclude:: ../../example_code/import_export_prop_example.py
    :language: python
    :caption: Code Snippet: Import Export Properties
+
+Output
+------------------
+.. literalinclude:: ../../example_code/import_export_prop_example_result.txt
+   :language: python
