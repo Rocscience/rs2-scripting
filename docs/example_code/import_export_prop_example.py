@@ -2,6 +2,7 @@ from rs2.modeler.properties.PropertyEnums import *
 from rs2.modeler.RS2Modeler import RS2Modeler
 from rs2.modeler.properties import *
 import os, inspect
+import csv
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
 RS2Modeler.startApplication(port=60095)
@@ -98,6 +99,45 @@ print("\nModel 2 Pile Interface Properties")
 print(model2_pile.MohrCoulombPile.getProperties())
 print("\nModel 2 Pile Force Displacement Properties")
 print(model2_pile.ForceDisplacement.getProperties())
+
+combined_material_data = {
+    "initial_conditions": model1_initial_conditions,
+    "stiffness": model1_stiffness,
+    "strength": model1_strength,
+    "hydraulic": model1_hydraulic,
+    "thermal_conductivity": model1_thermal_conductivity,
+    "thermal_heat_capacity": model1_thermal_heat_capacity,
+}
+
+combined_support_data = {
+    "bolt": model1_bolt_properties,
+    "liner": model1_liner_properties,
+    "joint": model1_joint_properties,
+    "pile_interface_properties": model1_pile_interface_properties,
+    "pile_force_displacement_properties": model1_pile_force_displacement_properties,
+}
+
+flattened_material_data = {}
+for category, properties in combined_material_data.items():
+    for key, value in properties.items():
+        flattened_material_data[f"{category}_{key}"] = value
+
+with open(rf"{current_dir}\combined_material_properties.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerow(["Key", "Value"])
+    for key, value in flattened_material_data.items():
+        writer.writerow([key, value])
+
+flattened_support_data = {}
+for category, properties in combined_support_data.items():
+    for key, value in properties.items():
+        flattened_support_data[f"{category}_{key}"] = value
+
+with open(rf"{current_dir}\combined_support_properties.csv", "w", newline="") as file:
+    writer = csv.writer(file)
+    writer.writerow(["Key", "Value"])
+    for key, value in flattened_support_data.items():
+        writer.writerow([key, value])
 
 model2.saveAs(model2FileSavePath)
 modeler.closeProgram()

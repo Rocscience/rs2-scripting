@@ -10,5 +10,7 @@ Download the `ExampleModel.fez <https://github.com/Rocscience/rs2-scripting/blob
 
 Output
 ------------------
+Download .csv results at `combined_material_properties.csv <https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/combined_material_properties.csv>`_ and `combined_support_properties.csv <https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/combined_support_properties.csv>`_.
+
 .. literalinclude:: ../../example_code/import_export_prop_example_result.txt
    :language: python
