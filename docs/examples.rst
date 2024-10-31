@@ -35,9 +35,10 @@ Hydraulic
 .. toctree::
    :maxdepth: 1
 
-   examples/hydraulic/hydra_prop
-   examples/hydraulic/hydra_static
-   examples/hydraulic/hydra_gw
+   examples/hydraulic/hydro_prop
+   examples/hydraulic/hydro_static
+   examples/hydraulic/hydro_gw
+   examples/hydraulic/hydro_distribution_functions
 
 
 

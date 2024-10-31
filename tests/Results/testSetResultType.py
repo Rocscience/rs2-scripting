@@ -54,34 +54,34 @@ class TestSetResultType(unittest.TestCase):
 
     def testSetResultTypeSpatialPermFailure(self):
         try:
-            self.model.SetResultType(ExportResultType.INTERPRET_SPATIAL_PERM)
+            self.model.SetResultType(ExportResultType.SEEPAGE_SPATIAL_PERM)
             self.fail("Expected exception")
         except:
             pass
 
     def testSetResultTypeSpatial_WC_Failure(self):
         try:
-            self.model.SetResultType(ExportResultType.INTERPRET_SPATIAL_WC)
+            self.model.SetResultType(ExportResultType.SEEPAGE_SPATIAL_WC)
             self.fail("Expected exception")
         except:
             pass
             
     def testSetResultTypeSpatial_WC_R_Failure(self):
         try:
-            self.model.SetResultType(ExportResultType.INTERPRET_SPATIAL_WC_R)
+            self.model.SetResultType(ExportResultType.SEEPAGE_SPATIAL_WC_R)
             self.fail("Expected exception")
         except:
             pass
 
     def testSetResultTypeSpatialCondyFailure(self):
         try:
-            self.model.SetResultType(ExportResultType.INTERPRET_SPATIAL_CONDY)
+            self.model.SetResultType(ExportResultType.SEEPAGE_SPATIAL_CONDY)
             self.fail("Expected exception")
         except:
             pass
     def testSetResultTypeSpatialAngleFailure(self):
         try:
-            self.model.SetResultType(ExportResultType.INTERPRET_SPATIAL_ANGLE)
+            self.model.SetResultType(ExportResultType.SEEPAGE_SPATIAL_ANGLE)
             self.fail("Expected exception")
         except:
             pass
