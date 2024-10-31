@@ -109,115 +109,56 @@ class HydroDistribution(PropertyProxy):
 				   RelativeKsDistribution : HydraulicDistributionTypes = None, RelativeKs : float = None, RelativeKsFunction : str = None,
 				   RelativeWCDOSDistribution : HydraulicDistributionTypes = None, RelativeWCDOS : float = None, RelativeWCDOSFunction : str = None,
 				   ):
-		if (KsDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (Ks is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.KS_FUNCTION, KsDistribution, Ks)
-		if (KsDistribution != HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (KsFunction is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.KS_FUNCTION, KsDistribution, KsFunction)
 
-		if (K2K1Distribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (K2K1 is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.K2K1_FUNCTION, K2K1Distribution, K2K1)
-		if (K2K1Distribution != HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (K2K1Function is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.K2K1_FUNCTION, K2K1Distribution, K2K1Function)
-
-		if (K1AngleDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (K1Angle is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.K1_ANGLE_FUNCTION, K1AngleDistribution, K1Angle)
-		if (K1AngleDistribution != HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (K1AngleFunction is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.K1_ANGLE_FUNCTION, K1AngleDistribution, K1AngleFunction)
-
-		if (WcSatDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (WcSat is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.WC_SAT_FUNCTION, WcSatDistribution, WcSat)
-		if (WcSatDistribution != HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (WcSatFunction is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.WC_SAT_FUNCTION, WcSatDistribution, WcSatFunction)
-
-		if (WcResDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (WcRes is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.WC_RES_FUNCTION, WcResDistribution, WcRes)
-		if (WcResDistribution != HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (WcResFunction is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.WC_RES_FUNCTION, WcResDistribution, WcResFunction)
-
-		if (DosSatDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (DosSat is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.DOS_SAT_FUNCTION, DosSatDistribution, DosSat)
-		if (DosSatDistribution != HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (DosSatFunction is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.DOS_SAT_FUNCTION, DosSatDistribution, DosSatFunction)
-
-		if (DosResDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (DosRes is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.DOS_RES_FUNCTION, DosResDistribution, DosRes)
-		if (DosResDistribution != HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (DosResFunction is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.DOS_RES_FUNCTION, DosResDistribution, DosResFunction)
-
-		if (RelativeKsDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (RelativeKs is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.RELATIVE_KS_FUNCTION, RelativeKsDistribution, RelativeKs)
-		if (RelativeKsDistribution != HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (RelativeKsFunction is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.RELATIVE_KS_FUNCTION, RelativeKsDistribution, RelativeKsFunction)
-
-		if (RelativeWCDOSDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (RelativeWCDOS is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.RELATIVE_WC_DOS_FUNCTION, RelativeWCDOSDistribution, RelativeWCDOS)
-		if (RelativeWCDOSDistribution != HydraulicDistributionTypes.CONSTANT_DISTRIBUTION) and (RelativeWCDOSFunction is not None):
-			self.setHydroDistribution(HydraulicVariableTypes.RELATIVE_WC_DOS_FUNCTION, RelativeWCDOSDistribution, RelativeWCDOSFunction)
+		params = {
+			HydraulicVariableTypes.KS_FUNCTION: (KsDistribution, Ks, KsFunction),
+			HydraulicVariableTypes.K2K1_FUNCTION: (K2K1Distribution, K2K1, K2K1Function),
+			HydraulicVariableTypes.K1_ANGLE_FUNCTION: (K1AngleDistribution, K1Angle, K1AngleFunction),
+			HydraulicVariableTypes.WC_SAT_FUNCTION: (WcSatDistribution, WcSat, WcSatFunction),
+			HydraulicVariableTypes.WC_RES_FUNCTION: (WcResDistribution, WcRes, WcResFunction),
+			HydraulicVariableTypes.DOS_SAT_FUNCTION: (DosSatDistribution, DosSat, DosSatFunction),
+			HydraulicVariableTypes.DOS_RES_FUNCTION: (DosResDistribution, DosRes, DosResFunction),
+			HydraulicVariableTypes.RELATIVE_KS_FUNCTION: (RelativeKsDistribution, RelativeKs, RelativeKsFunction),
+			HydraulicVariableTypes.RELATIVE_WC_DOS_FUNCTION: (RelativeWCDOSDistribution, RelativeWCDOS, RelativeWCDOSFunction)
+		}
+    
+		for variable_type, (distribution, value, function) in params.items():
+			if distribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION and value is not None:
+				self.setHydroDistribution(variable_type, distribution, value)
+			elif distribution != HydraulicDistributionTypes.CONSTANT_DISTRIBUTION and function is not None:
+				self.setHydroDistribution(variable_type, distribution, function)
 
 	def getProperties(self):
 		properties = {}
 		applicableVariables = self.getApplicableHydroDistributionVariables()
 		
+		hydraulic_distribution_property_map = {
+			HydraulicVariableTypes.KS_FUNCTION: "Ks",
+			HydraulicVariableTypes.K2K1_FUNCTION: "K2K1",
+			HydraulicVariableTypes.K1_ANGLE_FUNCTION: "K1Angle",
+			HydraulicVariableTypes.WC_SAT_FUNCTION: "WcSat",
+			HydraulicVariableTypes.WC_RES_FUNCTION: "WcRes",
+			HydraulicVariableTypes.DOS_SAT_FUNCTION: "DosSat",
+			HydraulicVariableTypes.DOS_RES_FUNCTION: "DosRes",
+			HydraulicVariableTypes.RELATIVE_KS_FUNCTION: "RelativeKs",
+			HydraulicVariableTypes.RELATIVE_WC_DOS_FUNCTION: "RelativeWCDOS"
+		}
+
 		for applicableVariable in applicableVariables:
 			hydroDistribution = self.getHydroDistribution(applicableVariable)
-			if hydroDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION:
-				hydroDistributionValue = self.getHydroDistributionConstantVal(applicableVariable)
-			else:
-				hydroDistributionValue = self.getHydroDistributionFunctionName(applicableVariable)
+			hydroDistributionValue = (
+				self.getHydroDistributionConstantVal(applicableVariable) 
+				if hydroDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION 
+				else self.getHydroDistributionFunctionName(applicableVariable)
+			)
 
-			if applicableVariable == HydraulicVariableTypes.KS_FUNCTION:
-				properties["KsDistribution"] = hydroDistribution
+			hydraulic_distribution_property = hydraulic_distribution_property_map.get(applicableVariable)
+			if hydraulic_distribution_property:
+				properties[f"{hydraulic_distribution_property}Distribution"] = hydroDistribution
 				if hydroDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION:
-					properties["Ks"] = hydroDistributionValue
+					properties[hydraulic_distribution_property] = hydroDistributionValue
 				else:
-					properties["KsFunction"] = hydroDistributionValue
-			elif applicableVariable == HydraulicVariableTypes.K2K1_FUNCTION:
-				properties["K2K1Distribution"] = hydroDistribution
-				if hydroDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION:
-					properties["K2K1"] = hydroDistributionValue
-				else:
-					properties["K2K1Function"] = hydroDistributionValue
-			elif applicableVariable == HydraulicVariableTypes.K1_ANGLE_FUNCTION:
-				properties["K1AngleDistribution"] = hydroDistribution
-				if hydroDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION:
-					properties["K1Angle"] = hydroDistributionValue
-				else:
-					properties["K1AngleFunction"] = hydroDistributionValue
-			elif applicableVariable == HydraulicVariableTypes.WC_SAT_FUNCTION:
-				properties["WcSatDistribution"] = hydroDistribution
-				if hydroDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION:
-					properties["K1Angle"] = hydroDistributionValue
-				else:
-					properties["K1AngleFunction"] = hydroDistributionValue
-			elif applicableVariable == HydraulicVariableTypes.WC_RES_FUNCTION:
-				properties["WcResDistribution"] = hydroDistribution
-				if hydroDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION:
-					properties["WcRes"] = hydroDistributionValue
-				else:
-					properties["WcResFunction"] = hydroDistributionValue
-			elif applicableVariable == HydraulicVariableTypes.DOS_SAT_FUNCTION:
-				properties["DosSatDistribution"] = hydroDistribution
-				if hydroDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION:
-					properties["DosSat"] = hydroDistributionValue
-				else:
-					properties["DosSatFunction"] = hydroDistributionValue
-			elif applicableVariable == HydraulicVariableTypes.DOS_RES_FUNCTION:
-				properties["DosResDistribution"] = hydroDistribution
-				if hydroDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION:
-					properties["DosRes"] = hydroDistributionValue
-				else:
-					properties["DosResFunction"] = hydroDistributionValue
-			elif applicableVariable == HydraulicVariableTypes.RELATIVE_KS_FUNCTION:
-				properties["RelativeKsDistribution"] = hydroDistribution
-				if hydroDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION:
-					properties["RelativeKs"] = hydroDistributionValue
-				else:
-					properties["RelativeKsFunction"] = hydroDistributionValue
-			elif applicableVariable == HydraulicVariableTypes.RELATIVE_WC_DOS_FUNCTION:
-				properties["RelativeWCDOSDistribution"] = hydroDistribution
-				if hydroDistribution == HydraulicDistributionTypes.CONSTANT_DISTRIBUTION:
-					properties["RelativeWCDOS"] = hydroDistributionValue
-				else:
-					properties["RelativeWCDOSFunction"] = hydroDistributionValue
+					properties[f"{hydraulic_distribution_property}Function"] = hydroDistributionValue
+
 
 		return properties
