@@ -19,6 +19,7 @@ rs2.modeler.properties package
    rs2.modeler.properties.AbsoluteStageFactorInterface
    rs2.modeler.properties.CompositeProperty
    rs2.modeler.properties.DiscreteFunction
+   rs2.modeler.properties.HydroDistributionFunction
    rs2.modeler.properties.MaterialJoint
    rs2.modeler.properties.MaterialJointOptions
    rs2.modeler.properties.PropertyEnums

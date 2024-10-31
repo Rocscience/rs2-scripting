@@ -12,6 +12,7 @@ rs2.modeler.properties.material.hydraulic package
    :maxdepth: 1
 
    rs2.modeler.properties.material.hydraulic.Hydraulic
+   rs2.modeler.properties.material.hydraulic.HydroDistribution
    rs2.modeler.properties.material.hydraulic.StaticGroundwater
 
 

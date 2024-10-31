@@ -23,6 +23,10 @@ class StageFactors(ProxyObject):
 		return self._callFunction("setApplyHydraulicStageFactor", [value])
 	def getStageHydraulicStageFactor(self) -> bool:
 		return self._callFunction("getApplyHydraulicStageFactor")
+	def setStageHydroDistributionStageFactor(self, value: bool):
+		return self._callFunction("setApplyHydroDistributionStageFactor", [value])
+	def getStageHydroDistributionStageFactor(self) -> bool:
+		return self._callFunction("getApplyHydroDistributionStageFactor")
 	def setStageDatumStageFactor(self, value: bool):
 		return self._callFunction("setApplyDatumStageFactor", [value])
 	def getStageDatumStageFactor(self) -> bool:
