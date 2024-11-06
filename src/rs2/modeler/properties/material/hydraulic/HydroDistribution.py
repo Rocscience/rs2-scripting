@@ -95,7 +95,8 @@ class HydroDistribution(PropertyProxy):
 		applicationHydroDistributionVariables = []
 		applicationHydroDistributionVariableNameList = self._callFunction("getApplicableHydroDistributionVariables", [])
 		for variable in applicationHydroDistributionVariableNameList:
-			applicationHydroDistributionVariables.append(HydraulicVariableTypes(variable))		
+			if variable != "MP_DISTRIBUTION_WC_SLOPE_FUNCTION":
+				applicationHydroDistributionVariables.append(HydraulicVariableTypes(variable))		
 		return applicationHydroDistributionVariables
 
 	def setProperties(self, 
