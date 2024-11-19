@@ -52,9 +52,9 @@ class MohrCoulombWithCap(PropertyProxy):
 		return self._getDoubleProperty("MP_PEAK_TENSILE_STRENGTH")
 	def setPeakTensileStrength(self, value: float):
 		return self._setDoubleProperty("MP_PEAK_TENSILE_STRENGTH", value)
-	def getResidualFrictionAngle(self) -> float:
+	def getPeakFrictionAngle(self) -> float:
 		return self._getDoubleProperty("MP_FRICTION_ANGLE_RES")
-	def setResidualFrictionAngle(self, value: float):
+	def setPeakFrictionAngle(self, value: float):
 		return self._setDoubleProperty("MP_FRICTION_ANGLE_RES", value)
 	def getPeakCohesion(self) -> float:
 		return self._getDoubleProperty("MP_PEAK_COHESION")
@@ -90,11 +90,11 @@ class MohrCoulombWithCap(PropertyProxy):
 		returns a list of (x,y) tuples.
 		"""
 		return self._callFunction("getMohrCoulombCapMeanStress", [])
-	def setProperties(self, PeakTensileStrength : float = None, ResidualFrictionAngle : float = None, PeakCohesion : float = None, DilationAngle : float = None, CapType : MCCapType = None, CapHardeningType : CapHardeningTypes = None, InitialMeanStress : float = None, LambdaKappa : float = None):
+	def setProperties(self, PeakTensileStrength : float = None, PeakFrictionAngle : float = None, PeakCohesion : float = None, DilationAngle : float = None, CapType : MCCapType = None, CapHardeningType : CapHardeningTypes = None, InitialMeanStress : float = None, LambdaKappa : float = None):
 		if PeakTensileStrength is not None:
 			self._setDoubleProperty("MP_PEAK_TENSILE_STRENGTH", PeakTensileStrength)
-		if ResidualFrictionAngle is not None:
-			self._setDoubleProperty("MP_FRICTION_ANGLE_RES", ResidualFrictionAngle)
+		if PeakFrictionAngle is not None:
+			self._setDoubleProperty("MP_FRICTION_ANGLE_RES", PeakFrictionAngle)
 		if PeakCohesion is not None:
 			self._setDoubleProperty("MP_PEAK_COHESION", PeakCohesion)
 		if DilationAngle is not None:
