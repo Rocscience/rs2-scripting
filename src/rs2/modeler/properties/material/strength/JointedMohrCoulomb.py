@@ -14,7 +14,7 @@ class JointedMohrCoulombStageFactor(ProxyObject):
 		return self._callFunction("getDoubleFactor", ["MP_COHESION_RES", self.propertyID], proxyArgumentIndices=[1])
 	def getDilationAngleFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["MP_DILATION_ANGLE", self.propertyID], proxyArgumentIndices=[1])
-	def getResidualFrictionAngleFactor(self) -> float:
+	def getPeakFrictionAngleFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["MP_FRICTION_ANGLE_RES", self.propertyID], proxyArgumentIndices=[1])
 	def getPeakCohesionFactor(self) -> float:
 		return self._callFunction("getDoubleFactor", ["MP_PEAK_COHESION", self.propertyID], proxyArgumentIndices=[1])

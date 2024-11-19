@@ -8,9 +8,9 @@ class BartonBandisStrength(PropertyProxy):
 		return MaterialType(self._getEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE"))
 	def setMaterialType(self, value: MaterialType):
 		return self._setEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE", value)
-	def getPhiR(self) -> float:
+	def getResidualFrictionAngle(self) -> float:
 		return self._getDoubleProperty("MP_FRICTION_ANGLE_RES")
-	def setPhiR(self, value: float):
+	def setResidualFrictionAngle(self, value: float):
 		return self._setDoubleProperty("MP_FRICTION_ANGLE_RES", value)
 	def getJRC(self) -> float:
 		return self._getDoubleProperty("MP_JRC")
@@ -32,11 +32,11 @@ class BartonBandisStrength(PropertyProxy):
 		return self._getBoolProperty("MP_APPLY_SSR")
 	def setApplySSRShearStrengthReduction(self, value: bool):
 		return self._setBoolProperty("MP_APPLY_SSR", value)
-	def setProperties(self, MaterialType : MaterialType = None, PhiR : float = None, JRC : float = None, JCS : float = None, DilationRatio : float = None, ResidualStrength : bool = None, ApplySSRShearStrengthReduction : bool = None):
+	def setProperties(self, MaterialType : MaterialType = None, ResidualFrictionAngle : float = None, JRC : float = None, JCS : float = None, DilationAngle : float = None, ResidualStrength : bool = None, ApplySSRShearStrengthReduction : bool = None):
 		if MaterialType is not None:
 			self._setEnumEMaterialAnalysisTypesProperty("MP_MATERIAL_TYPE", MaterialType)
-		if PhiR is not None:
-			self._setDoubleProperty("MP_PHI_R", PhiR)
+		if ResidualFrictionAngle is not None:
+			self._setDoubleProperty("MP_FRICTION_ANGLE_RES", ResidualFrictionAngle)
 		if JRC is not None:
 			self._setDoubleProperty("MP_JRC", JRC)
 		if JCS is not None:
@@ -50,7 +50,7 @@ class BartonBandisStrength(PropertyProxy):
 	def getProperties(self):
 		return {
 		"MaterialType" : self.getMaterialType(), 
-		"PhiR" : self.getPhiR(), 
+		"ResidualFrictionAngle" : self.getResidualFrictionAngle(), 
 		"JRC" : self.getJRC(), 
 		"JCS" : self.getJCS(), 
 		"DilationAngle" : self.getDilationAngle(), 
