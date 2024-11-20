@@ -14,6 +14,7 @@ Model
    examples/model/unit
    examples/model/material_joint
    examples/model/stage_factor
+   examples/model/import_export_prop
 
 
 Material
@@ -28,6 +29,7 @@ Material
    examples/material/mat_prop_stiffness
    examples/material/mat_prop_strength
    examples/material/mat_prop_thermal
+   
 
 
 Hydraulic
