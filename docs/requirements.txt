@@ -17,7 +17,7 @@ pydata-sphinx-theme==0.15.4
 PyGetWindow==0.0.9
 Pygments==2.18.0
 PyRect==0.2.0
-pywin32==306
+pywin32==308
 pywinauto==0.6.8
 requests==2.32.3
 rsmessages==0.0.2
