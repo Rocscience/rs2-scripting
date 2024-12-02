@@ -1,24 +1,22 @@
 rs2.modeler.properties.material.thermal package
 ===============================================
 
-.. automodule:: rs2.modeler.properties.material.thermal
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    rs2.modeler.properties.material.thermal.conductivity
    rs2.modeler.properties.material.thermal.heatcapacity
    rs2.modeler.properties.material.thermal.soilunfrozenwatercontent
 
 
-rs2.modeler.properties.material.thermal.Thermal module
-------------------------------------------------------
+.. toctree::
+   :maxdepth: 1
 
-.. automodule:: rs2.modeler.properties.material.thermal.Thermal
+   rs2.modeler.properties.material.thermal.Thermal
+
+
+.. automodule:: rs2.modeler.properties.material.thermal
    :members:
    :undoc-members:
    :show-inheritance:

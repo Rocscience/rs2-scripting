@@ -1,640 +1,672 @@
+
 <!DOCTYPE html>
-<html class="writer-html5" lang="en" data-content_root="../">
-<head>
-  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>rs2.modeler.properties.material package &mdash; RS2 Scripting Reference Manual  documentation</title>
-      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
-      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
-      <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>rs2.modeler.properties.material package &#8212; RS2 Scripting Reference Manual  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
 
   
-  <!--[if lt IE 9]>
-    <script src="../_static/js/html5shiv.min.js"></script>
-  <![endif]-->
+  <link href="../_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="../_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
   
-        <script src="../_static/jquery.js?v=5d32c60e"></script>
-        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
-        <script src="../_static/documentation_options.js?v=5929fcd5"></script>
-        <script src="../_static/doctools.js?v=9a2dae69"></script>
-        <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
-        <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
-        <script src="../_static/copybutton.js?v=f281be69"></script>
-    <script src="../_static/js/theme.js"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="../_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generatedAPIDocFiles/rs2.modeler.properties.material';</script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="rs2.modeler.properties.material.datum package" href="rs2.modeler.properties.material.datum.html" />
-    <link rel="prev" title="rs2.modeler.properties.liner package" href="rs2.modeler.properties.liner.html" /> 
-</head>
+    <link rel="prev" title="rs2.modeler.properties.liner.StandardBeam module" href="rs2.modeler.properties.liner.StandardBeam.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
 
-<body class="wy-body-for-nav"> 
-  <div class="wy-grid-for-nav">
-    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
-      <div class="wy-side-scroll">
-        <div class="wy-side-nav-search" >
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
 
-          
-          
-          <a href="../index.html" class="icon icon-home">
-            RS2 Scripting Reference Manual
-          </a>
-<div role="search">
-  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
-    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
-    <input type="hidden" name="check_keywords" value="yes" />
-    <input type="hidden" name="area" value="default" />
-  </form>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
 </div>
-        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
-              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="reference internal" href="rs2.html">rs2 package</a><ul class="current">
-<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.html">rs2.interpreter package</a></li>
-<li class="toctree-l2 current"><a class="reference internal" href="rs2.modeler.html">rs2.modeler package</a><ul class="current">
-<li class="toctree-l3 current"><a class="reference internal" href="rs2.modeler.properties.html">rs2.modeler.properties package</a><ul class="current">
-<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.html">rs2.modeler.properties.bolt package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.html">rs2.modeler.properties.joint package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.html">rs2.modeler.properties.liner package</a></li>
-<li class="toctree-l4 current"><a class="current reference internal" href="#">rs2.modeler.properties.material package</a></li>
-<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.html">rs2.modeler.properties.pile package</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="rs2.utilities.html">rs2.utilities package</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="../examples.html">Python Script Examples</a></li>
-</ul>
 
-        </div>
-      </div>
-    </nav>
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
-          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">RS2 Scripting Reference Manual</a>
-      </nav>
+  
+    
+  
 
-      <div class="wy-nav-content">
-        <div class="rst-content">
-          <div role="navigation" aria-label="Page navigation">
-  <ul class="wy-breadcrumbs">
-      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-          <li class="breadcrumb-item"><a href="rs2.html">rs2 package</a></li>
-          <li class="breadcrumb-item"><a href="rs2.modeler.html">rs2.modeler package</a></li>
-          <li class="breadcrumb-item"><a href="rs2.modeler.properties.html">rs2.modeler.properties package</a></li>
-      <li class="breadcrumb-item active">rs2.modeler.properties.material package</li>
-      <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/generatedAPIDocFiles/rs2.modeler.properties.material.rst.txt" rel="nofollow"> View page source</a>
-      </li>
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+    <script>document.write(`<img src="../_static/logo.png" class="logo__image only-dark" alt="RS2 Scripting Reference Manual  documentation - Home"/>`);</script>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
   </ul>
-  <hr/>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
 </div>
-          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
-           <div itemprop="articleBody">
-             
-  <section id="module-rs2.modeler.properties.material">
-<span id="rs2-modeler-properties-material-package"></span><h1>rs2.modeler.properties.material package<a class="headerlink" href="#module-rs2.modeler.properties.material" title="Link to this heading"></a></h1>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="rs2.interpreter.html">rs2.interpreter package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="rs2.interpreter.queryResults.html">rs2.interpreter.queryResults package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.HistoryQueryResults.html">rs2.interpreter.queryResults.HistoryQueryResults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.MaterialQueryResults.html">rs2.interpreter.queryResults.MaterialQueryResults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.MeshResults.html">rs2.interpreter.queryResults.MeshResults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.TimeQueryResults.html">rs2.interpreter.queryResults.TimeQueryResults module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="rs2.interpreter.supportResults.html">rs2.interpreter.supportResults package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.BoltResult.html">rs2.interpreter.supportResults.BoltResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.CompositeResult.html">rs2.interpreter.supportResults.CompositeResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.JointResult.html">rs2.interpreter.supportResults.JointResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.LinerResult.html">rs2.interpreter.supportResults.LinerResult module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.InterpreterEnums.html">rs2.interpreter.InterpreterEnums module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.InterpreterGraphEnums.html">rs2.interpreter.InterpreterGraphEnums module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.InterpreterModel.html">rs2.interpreter.InterpreterModel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.RS2Interpreter.html">rs2.interpreter.RS2Interpreter module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="rs2.modeler.html">rs2.modeler package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="rs2.modeler.properties.html">rs2.modeler.properties package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.bolt.html">rs2.modeler.properties.bolt package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Bolt.html">rs2.modeler.properties.bolt.Bolt module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.EndAnchored.html">rs2.modeler.properties.bolt.EndAnchored module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.FullyBonded.html">rs2.modeler.properties.bolt.FullyBonded module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.PlainStrandCable.html">rs2.modeler.properties.bolt.PlainStrandCable module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Swellex.html">rs2.modeler.properties.bolt.Swellex module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Tieback.html">rs2.modeler.properties.bolt.Tieback module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.joint.html">rs2.modeler.properties.joint package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandis.html">rs2.modeler.properties.joint.BartonBandis module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandisMaterial.html">rs2.modeler.properties.joint.BartonBandisMaterial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.DisplacementDependent.html">rs2.modeler.properties.joint.DisplacementDependent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.GeosyntheticHyperbolic.html">rs2.modeler.properties.joint.GeosyntheticHyperbolic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.GeosyntheticHyperbolicMaterial.html">rs2.modeler.properties.joint.GeosyntheticHyperbolicMaterial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.HyperbolicSoftening.html">rs2.modeler.properties.joint.HyperbolicSoftening module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.Joint.html">rs2.modeler.properties.joint.Joint module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.MaterialDependent.html">rs2.modeler.properties.joint.MaterialDependent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.MohrCoulomb.html">rs2.modeler.properties.joint.MohrCoulomb module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.MohrCoulombMaterial.html">rs2.modeler.properties.joint.MohrCoulombMaterial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.NoneSlip.html">rs2.modeler.properties.joint.NoneSlip module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.liner.html">rs2.modeler.properties.liner package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.CableTruss.html">rs2.modeler.properties.liner.CableTruss module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.Geosynthetic.html">rs2.modeler.properties.liner.Geosynthetic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.Liner.html">rs2.modeler.properties.liner.Liner module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.ReinforcedConcrete.html">rs2.modeler.properties.liner.ReinforcedConcrete module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.StandardBeam.html">rs2.modeler.properties.liner.StandardBeam module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="current reference internal" href="#">rs2.modeler.properties.material package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.datum.html">rs2.modeler.properties.material.datum package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.html">rs2.modeler.properties.material.hydraulic package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.html">rs2.modeler.properties.material.stiffness package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.strength.html">rs2.modeler.properties.material.strength package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.thermal.html">rs2.modeler.properties.material.thermal package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.InitialConditions.html">rs2.modeler.properties.material.InitialConditions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.MaterialProperty.html">rs2.modeler.properties.material.MaterialProperty module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.StageFactors.html">rs2.modeler.properties.material.StageFactors module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.pile.html">rs2.modeler.properties.pile package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Beam.html">rs2.modeler.properties.pile.Beam module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Elastic.html">rs2.modeler.properties.pile.Elastic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.ForceDisplacement.html">rs2.modeler.properties.pile.ForceDisplacement module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Linear.html">rs2.modeler.properties.pile.Linear module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.MaterialDependentPile.html">rs2.modeler.properties.pile.MaterialDependentPile module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.MohrCoulombPile.html">rs2.modeler.properties.pile.MohrCoulombPile module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.MultiLinear.html">rs2.modeler.properties.pile.MultiLinear module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Pile.html">rs2.modeler.properties.pile.Pile module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.AbsoluteStageFactorGettersInterface.html">rs2.modeler.properties.AbsoluteStageFactorGettersInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.AbsoluteStageFactorInterface.html">rs2.modeler.properties.AbsoluteStageFactorInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.CompositeProperty.html">rs2.modeler.properties.CompositeProperty module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.DiscreteFunction.html">rs2.modeler.properties.DiscreteFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.HydroDistributionFunction.html">rs2.modeler.properties.HydroDistributionFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.MaterialJoint.html">rs2.modeler.properties.MaterialJoint module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.MaterialJointOptions.html">rs2.modeler.properties.MaterialJointOptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html">rs2.modeler.properties.PropertyEnums module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.RelativeStageFactorInterface.html">rs2.modeler.properties.RelativeStageFactorInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.ShearNormalFunction.html">rs2.modeler.properties.ShearNormalFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.SnowdenAnisotropicFunction.html">rs2.modeler.properties.SnowdenAnisotropicFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.StructuralInterface.html">rs2.modeler.properties.StructuralInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.UserDefinedWaterMode.html">rs2.modeler.properties.UserDefinedWaterMode module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.Model.html">rs2.modeler.Model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.RS2Modeler.html">rs2.modeler.RS2Modeler module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="rs2.utilities.html">rs2.utilities package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rs2.utilities.ApplicationManager.html">rs2.utilities.ApplicationManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.utilities.ColorPicker.html">rs2.utilities.ColorPicker module</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rs2.BaseModel.html">rs2.BaseModel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rs2.Units.html">rs2.Units module</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+
+
+
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="rs2.html" class="nav-link">rs2 package</a></li>
+    
+    
+    <li class="breadcrumb-item"><i class="fa-solid fa-ellipsis"></i></li>
+    
+    
+    <li class="breadcrumb-item"><a href="rs2.modeler.properties.html" class="nav-link">rs2.modeler.properties package</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page">rs2.modeler....</li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="rs2-modeler-properties-material-package">
+<h1>rs2.modeler.properties.material package<a class="headerlink" href="#rs2-modeler-properties-material-package" title="Link to this heading">#</a></h1>
 <div class="toctree-wrapper compound">
 <ul>
-<li class="toctree-l1"><a class="reference internal" href="rs2.modeler.properties.material.datum.html">rs2.modeler.properties.material.datum package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.html">rs2.modeler.properties.material.hydraulic package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.html">rs2.modeler.properties.material.stiffness package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rs2.modeler.properties.material.strength.html">rs2.modeler.properties.material.strength package</a></li>
-<li class="toctree-l1"><a class="reference internal" href="rs2.modeler.properties.material.thermal.html">rs2.modeler.properties.material.thermal package</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rs2.modeler.properties.material.datum.html">rs2.modeler.properties.material.datum package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.datum.BaseDatum.html">rs2.modeler.properties.material.datum.BaseDatum module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.datum.Datum.html">rs2.modeler.properties.material.datum.Datum module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.datum.PeakResidualDatum.html">rs2.modeler.properties.material.datum.PeakResidualDatum module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.datum.SimpleDatum.html">rs2.modeler.properties.material.datum.SimpleDatum module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.html">rs2.modeler.properties.material.hydraulic package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.FEAGroundwater.html">rs2.modeler.properties.material.hydraulic.FEAGroundwater package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.Hydraulic.html">rs2.modeler.properties.material.hydraulic.Hydraulic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.HydroDistribution.html">rs2.modeler.properties.material.hydraulic.HydroDistribution module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.StaticGroundwater.html">rs2.modeler.properties.material.hydraulic.StaticGroundwater module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.html">rs2.modeler.properties.material.stiffness package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.ChSoil.html">rs2.modeler.properties.material.stiffness.ChSoil module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.Custom.html">rs2.modeler.properties.material.stiffness.Custom module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.CySoil.html">rs2.modeler.properties.material.stiffness.CySoil module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.DoubleYield.html">rs2.modeler.properties.material.stiffness.DoubleYield module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.HardeningSoil.html">rs2.modeler.properties.material.stiffness.HardeningSoil module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.HardeningSoilSmallStrainStiffness.html">rs2.modeler.properties.material.stiffness.HardeningSoilSmallStrainStiffness module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.Isotropic.html">rs2.modeler.properties.material.stiffness.Isotropic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.ManzariAndDafalias.html">rs2.modeler.properties.material.stiffness.ManzariAndDafalias module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.NonLinearHyperbolic.html">rs2.modeler.properties.material.stiffness.NonLinearHyperbolic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.NonLinearIsotropic.html">rs2.modeler.properties.material.stiffness.NonLinearIsotropic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.Norsand.html">rs2.modeler.properties.material.stiffness.Norsand module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.Orthotropic.html">rs2.modeler.properties.material.stiffness.Orthotropic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.Pm4Sand.html">rs2.modeler.properties.material.stiffness.Pm4Sand module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.Pm4Silt.html">rs2.modeler.properties.material.stiffness.Pm4Silt module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.SoftSoil.html">rs2.modeler.properties.material.stiffness.SoftSoil module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.SoftSoilCreep.html">rs2.modeler.properties.material.stiffness.SoftSoilCreep module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.Stiffness.html">rs2.modeler.properties.material.stiffness.Stiffness module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.SwellingRock.html">rs2.modeler.properties.material.stiffness.SwellingRock module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.TransverselyIsotropic.html">rs2.modeler.properties.material.stiffness.TransverselyIsotropic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.ViscoElastic.html">rs2.modeler.properties.material.stiffness.ViscoElastic module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rs2.modeler.properties.material.strength.html">rs2.modeler.properties.material.strength package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.AnisotropicLinear.html">rs2.modeler.properties.material.strength.AnisotropicLinear module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.BarcelonaBasic.html">rs2.modeler.properties.material.strength.BarcelonaBasic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.BartonBandisStrength.html">rs2.modeler.properties.material.strength.BartonBandisStrength module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.BoundingSurfacePlasticity.html">rs2.modeler.properties.material.strength.BoundingSurfacePlasticity module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.CamClay.html">rs2.modeler.properties.material.strength.CamClay module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.ChSoilStrength.html">rs2.modeler.properties.material.strength.ChSoilStrength module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.CySoilStrength.html">rs2.modeler.properties.material.strength.CySoilStrength module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.DiscreteFunction.html">rs2.modeler.properties.material.strength.DiscreteFunction module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.DoubleYieldStrength.html">rs2.modeler.properties.material.strength.DoubleYieldStrength module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.DruckerPrager.html">rs2.modeler.properties.material.strength.DruckerPrager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.Finn.html">rs2.modeler.properties.material.strength.Finn module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.html">rs2.modeler.properties.material.strength.GeneralizedAnisotropic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.html">rs2.modeler.properties.material.strength.GeneralizedHoekBrown module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.HardeningSoilStrength.html">rs2.modeler.properties.material.strength.HardeningSoilStrength module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.HardeningSoilWithSmallStrainStiffness.html">rs2.modeler.properties.material.strength.HardeningSoilWithSmallStrainStiffness module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.HoekBrown.html">rs2.modeler.properties.material.strength.HoekBrown module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.Hyperbolic.html">rs2.modeler.properties.material.strength.Hyperbolic module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.JointedGeneralizedHoekBrown.html">rs2.modeler.properties.material.strength.JointedGeneralizedHoekBrown module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.JointedMohrCoulomb.html">rs2.modeler.properties.material.strength.JointedMohrCoulomb module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.ManzariAndDafaliasStrength.html">rs2.modeler.properties.material.strength.ManzariAndDafaliasStrength module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.ModifiedCamClay.html">rs2.modeler.properties.material.strength.ModifiedCamClay module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.MohrCoulombStrength.html">rs2.modeler.properties.material.strength.MohrCoulombStrength module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.MohrCoulombWithCap.html">rs2.modeler.properties.material.strength.MohrCoulombWithCap module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.NorSandStrength.html">rs2.modeler.properties.material.strength.NorSandStrength module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.PM4SandStrength.html">rs2.modeler.properties.material.strength.PM4SandStrength module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.PM4SiltStrength.html">rs2.modeler.properties.material.strength.PM4SiltStrength module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.PowerCurve.html">rs2.modeler.properties.material.strength.PowerCurve module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.Shansep.html">rs2.modeler.properties.material.strength.Shansep module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.ShearNormalFunction.html">rs2.modeler.properties.material.strength.ShearNormalFunction module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.SnowdenModAnisotropicLinear.html">rs2.modeler.properties.material.strength.SnowdenModAnisotropicLinear module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.SoftSoilCreepStrength.html">rs2.modeler.properties.material.strength.SoftSoilCreepStrength module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.SoftSoilStrength.html">rs2.modeler.properties.material.strength.SoftSoilStrength module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.SofteningHardeningModel.html">rs2.modeler.properties.material.strength.SofteningHardeningModel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.Strength.html">rs2.modeler.properties.material.strength.Strength module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.SwellingRockStrength.html">rs2.modeler.properties.material.strength.SwellingRockStrength module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.strength.VerticalStressRatio.html">rs2.modeler.properties.material.strength.VerticalStressRatio module</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="rs2.modeler.properties.material.thermal.html">rs2.modeler.properties.material.thermal package</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.thermal.conductivity.html">rs2.modeler.properties.material.thermal.conductivity package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.thermal.heatcapacity.html">rs2.modeler.properties.material.thermal.heatcapacity package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.thermal.soilunfrozenwatercontent.html">rs2.modeler.properties.material.thermal.soilunfrozenwatercontent package</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.properties.material.thermal.Thermal.html">rs2.modeler.properties.material.thermal.Thermal module</a></li>
+</ul>
+</li>
 </ul>
 </div>
-<section id="module-rs2.modeler.properties.material.InitialConditions">
-<span id="rs2-modeler-properties-material-initialconditions-module"></span><h2>rs2.modeler.properties.material.InitialConditions module<a class="headerlink" href="#module-rs2.modeler.properties.material.InitialConditions" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditionsStageFactor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.InitialConditions.</span></span><span class="sig-name descname"><span class="pre">InitialConditionsStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditionsStageFactor" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ProxyObject</span></code></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditionsStageFactor.getUnitWeightFactor">
-<span class="sig-name descname"><span class="pre">getUnitWeightFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditionsStageFactor.getUnitWeightFactor" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditionsStageFactor.getPorosityValueFactor">
-<span class="sig-name descname"><span class="pre">getPorosityValueFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditionsStageFactor.getPorosityValueFactor" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditionsDefinedStageFactor">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.InitialConditions.</span></span><span class="sig-name descname"><span class="pre">InitialConditionsDefinedStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditionsDefinedStageFactor" title="Link to this definition"></a></dt>
-<dd><p>Bases: <a class="reference internal" href="#rs2.modeler.properties.material.InitialConditions.InitialConditionsStageFactor" title="rs2.modeler.properties.material.InitialConditions.InitialConditionsStageFactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">InitialConditionsStageFactor</span></code></a></p>
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditionsDefinedStageFactor.setUnitWeightFactor">
-<span class="sig-name descname"><span class="pre">setUnitWeightFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditionsDefinedStageFactor.setUnitWeightFactor" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditionsDefinedStageFactor.setPorosityValueFactor">
-<span class="sig-name descname"><span class="pre">setPorosityValueFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditionsDefinedStageFactor.setPorosityValueFactor" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.InitialConditions.</span></span><span class="sig-name descname"><span class="pre">InitialConditions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentProxyID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stageFactorInterfaceID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PropertyProxy</span></code></p>
-<p class="rubric">Examples</p>
-<p><a class="reference internal" href="../examples.html#initial-condition-stage-factor-example"><span class="std std-ref">Code Snippet: Manipulation of Material Initial Condition Stage Factor Properties</span></a></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.stageFactorInterface">
-<span class="sig-name descname"><span class="pre">stageFactorInterface</span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.stageFactorInterface" title="Link to this definition"></a></dt>
-<dd><p>Reference object for modifying stage factor property.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.AbsoluteStageFactorGettersInterface.AbsoluteStageFactorGettersInterface" title="rs2.modeler.properties.AbsoluteStageFactorGettersInterface.AbsoluteStageFactorGettersInterface">AbsoluteStageFactorGettersInterface</a>[<a class="reference internal" href="#rs2.modeler.properties.material.InitialConditions.InitialConditionsDefinedStageFactor" title="rs2.modeler.properties.material.InitialConditions.InitialConditionsDefinedStageFactor">InitialConditionsDefinedStageFactor</a>, <a class="reference internal" href="#rs2.modeler.properties.material.InitialConditions.InitialConditionsStageFactor" title="rs2.modeler.properties.material.InitialConditions.InitialConditionsStageFactor">InitialConditionsStageFactor</a>]</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialElementLoading">
-<span class="sig-name descname"><span class="pre">getInitialElementLoading</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.InitialElementLoadingType" title="rs2.modeler.properties.PropertyEnums.InitialElementLoadingType"><span class="pre">InitialElementLoadingType</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialElementLoading" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialElementLoading">
-<span class="sig-name descname"><span class="pre">setInitialElementLoading</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.InitialElementLoadingType" title="rs2.modeler.properties.PropertyEnums.InitialElementLoadingType"><span class="pre">InitialElementLoadingType</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialElementLoading" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getAccountForMoistureContentInUnitWeight">
-<span class="sig-name descname"><span class="pre">getAccountForMoistureContentInUnitWeight</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getAccountForMoistureContentInUnitWeight" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setAccountForMoistureContentInUnitWeight">
-<span class="sig-name descname"><span class="pre">setAccountForMoistureContentInUnitWeight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setAccountForMoistureContentInUnitWeight" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getDryUnitWeight">
-<span class="sig-name descname"><span class="pre">getDryUnitWeight</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getDryUnitWeight" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setDryUnitWeight">
-<span class="sig-name descname"><span class="pre">setDryUnitWeight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setDryUnitWeight" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getMoistUnitWeight">
-<span class="sig-name descname"><span class="pre">getMoistUnitWeight</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getMoistUnitWeight" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setMoistUnitWeight">
-<span class="sig-name descname"><span class="pre">setMoistUnitWeight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setMoistUnitWeight" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getSaturatedUnitWeight">
-<span class="sig-name descname"><span class="pre">getSaturatedUnitWeight</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getSaturatedUnitWeight" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setSaturatedUnitWeight">
-<span class="sig-name descname"><span class="pre">setSaturatedUnitWeight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setSaturatedUnitWeight" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getUnitWeight">
-<span class="sig-name descname"><span class="pre">getUnitWeight</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getUnitWeight" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setUnitWeight">
-<span class="sig-name descname"><span class="pre">setUnitWeight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setUnitWeight" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getPorosityValue">
-<span class="sig-name descname"><span class="pre">getPorosityValue</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getPorosityValue" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setPorosityValue">
-<span class="sig-name descname"><span class="pre">setPorosityValue</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setPorosityValue" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialWaterCondition">
-<span class="sig-name descname"><span class="pre">getInitialWaterCondition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialWaterCondition" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialWaterCondition">
-<span class="sig-name descname"><span class="pre">setInitialWaterCondition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialWaterCondition" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialPoreWaterPressure">
-<span class="sig-name descname"><span class="pre">getInitialPoreWaterPressure</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialPoreWaterPressure" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialPoreWaterPressure">
-<span class="sig-name descname"><span class="pre">setInitialPoreWaterPressure</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialPoreWaterPressure" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialRu">
-<span class="sig-name descname"><span class="pre">getInitialRu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialRu" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialRu">
-<span class="sig-name descname"><span class="pre">setInitialRu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialRu" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialHuType">
-<span class="sig-name descname"><span class="pre">getInitialHuType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.HuTypes" title="rs2.modeler.properties.PropertyEnums.HuTypes"><span class="pre">HuTypes</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialHuType" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialHuType">
-<span class="sig-name descname"><span class="pre">setInitialHuType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.HuTypes" title="rs2.modeler.properties.PropertyEnums.HuTypes"><span class="pre">HuTypes</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialHuType" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialHu">
-<span class="sig-name descname"><span class="pre">getInitialHu</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialHu" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialHu">
-<span class="sig-name descname"><span class="pre">setInitialHu</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialHu" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialTemperatureCondition">
-<span class="sig-name descname"><span class="pre">getInitialTemperatureCondition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialTemperatureCondition" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialTemperatureCondition">
-<span class="sig-name descname"><span class="pre">setInitialTemperatureCondition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialTemperatureCondition" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialTemperature">
-<span class="sig-name descname"><span class="pre">getInitialTemperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialTemperature" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialTemperature">
-<span class="sig-name descname"><span class="pre">setInitialTemperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialTemperature" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialPiezoByName">
-<span class="sig-name descname"><span class="pre">setInitialPiezoByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">piezoName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialPiezoByName" title="Link to this definition"></a></dt>
-<dd><p>piezoName is the id of the piezo line to be used or “None”.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialPiezoName">
-<span class="sig-name descname"><span class="pre">getInitialPiezoName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialPiezoName" title="Link to this definition"></a></dt>
-<dd><p>Returns the id of the selected initial piezoLine or “None”.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialGridByName">
-<span class="sig-name descname"><span class="pre">setInitialGridByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gridName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialGridByName" title="Link to this definition"></a></dt>
-<dd><p>gridName is the name of the grid to be used. “None” and “Default Grid” are available by default.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialGridName">
-<span class="sig-name descname"><span class="pre">getInitialGridName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialGridName" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialTemperatureGridByName">
-<span class="sig-name descname"><span class="pre">setInitialTemperatureGridByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gridName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setInitialTemperatureGridByName" title="Link to this definition"></a></dt>
-<dd><p>gridName is the name of the grid to be used. “None” and “Default Grid” are available by default.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialTemperatureGridName">
-<span class="sig-name descname"><span class="pre">getInitialTemperatureGridName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getInitialTemperatureGridName" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.setProperties">
-<span class="sig-name descname"><span class="pre">setProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">InitialElementLoading</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.InitialElementLoadingType" title="rs2.modeler.properties.PropertyEnums.InitialElementLoadingType"><span class="pre">InitialElementLoadingType</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AccountForMoistureContentInUnitWeight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DryUnitWeight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MoistUnitWeight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SaturatedUnitWeight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">UnitWeight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PorosityValue</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">InitialWaterCondition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">InitialPoreWaterPressure</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">InitialRu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">InitialHuType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.HuTypes" title="rs2.modeler.properties.PropertyEnums.HuTypes"><span class="pre">HuTypes</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">InitialHu</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">InitialTemperatureCondition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">InitialTemperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.setProperties" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.InitialConditions.InitialConditions.getProperties">
-<span class="sig-name descname"><span class="pre">getProperties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions.getProperties" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-rs2.modeler.properties.material.MaterialProperty">
-<span id="rs2-modeler-properties-material-materialproperty-module"></span><h2>rs2.modeler.properties.material.MaterialProperty module<a class="headerlink" href="#module-rs2.modeler.properties.material.MaterialProperty" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.MaterialProperty.</span></span><span class="sig-name descname"><span class="pre">MaterialProperty</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentProxyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PropertyProxy</span></code></p>
-<p class="rubric">Examples</p>
-<p><a class="reference internal" href="../examples.html#material-example"><span class="std std-ref">Code Snippet: Manipulation of Material Properties</span></a></p>
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.StageFactors">
-<span class="sig-name descname"><span class="pre">StageFactors</span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.StageFactors" title="Link to this definition"></a></dt>
-<dd><p>Reference object for modifying property.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rs2.modeler.properties.material.StageFactors.StageFactors" title="rs2.modeler.properties.material.StageFactors.StageFactors">StageFactors</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.InitialConditions">
-<span class="sig-name descname"><span class="pre">InitialConditions</span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.InitialConditions" title="Link to this definition"></a></dt>
-<dd><p>Reference object for modifying property.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="#rs2.modeler.properties.material.InitialConditions.InitialConditions" title="rs2.modeler.properties.material.InitialConditions.InitialConditions">InitialConditions</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Stiffness">
-<span class="sig-name descname"><span class="pre">Stiffness</span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Stiffness" title="Link to this definition"></a></dt>
-<dd><p>Reference object for modifying property.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="rs2.modeler.properties.material.stiffness.html#rs2.modeler.properties.material.stiffness.Stiffness.Stiffness" title="rs2.modeler.properties.material.stiffness.Stiffness.Stiffness">Stiffness</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Strength">
-<span class="sig-name descname"><span class="pre">Strength</span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Strength" title="Link to this definition"></a></dt>
-<dd><p>Reference object for modifying property.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="rs2.modeler.properties.material.strength.html#rs2.modeler.properties.material.strength.Strength.Strength" title="rs2.modeler.properties.material.strength.Strength.Strength">Strength</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Hydraulic">
-<span class="sig-name descname"><span class="pre">Hydraulic</span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Hydraulic" title="Link to this definition"></a></dt>
-<dd><p>Reference object for modifying property.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.html#rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic" title="rs2.modeler.properties.material.hydraulic.Hydraulic.Hydraulic">Hydraulic</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Thermal">
-<span class="sig-name descname"><span class="pre">Thermal</span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Thermal" title="Link to this definition"></a></dt>
-<dd><p>Reference object for modifying property.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="rs2.modeler.properties.material.thermal.html#rs2.modeler.properties.material.thermal.Thermal.Thermal" title="rs2.modeler.properties.material.thermal.Thermal.Thermal">Thermal</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py attribute">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Datum">
-<span class="sig-name descname"><span class="pre">Datum</span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.Datum" title="Link to this definition"></a></dt>
-<dd><p>Reference object for modifying property.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Type<span class="colon">:</span></dt>
-<dd class="field-odd"><p><a class="reference internal" href="rs2.modeler.properties.material.datum.html#rs2.modeler.properties.material.datum.Datum.Datum" title="rs2.modeler.properties.material.datum.Datum.Datum">Datum</a></p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getMaterialName">
-<span class="sig-name descname"><span class="pre">getMaterialName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getMaterialName" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setMaterialName">
-<span class="sig-name descname"><span class="pre">setMaterialName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setMaterialName" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getMaterialColor">
-<span class="sig-name descname"><span class="pre">getMaterialColor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getMaterialColor" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setMaterialColor">
-<span class="sig-name descname"><span class="pre">setMaterialColor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setMaterialColor" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getHatch">
-<span class="sig-name descname"><span class="pre">getHatch</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getHatch" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setHatch">
-<span class="sig-name descname"><span class="pre">setHatch</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setHatch" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getHatchStyle">
-<span class="sig-name descname"><span class="pre">getHatchStyle</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.HatchStyle" title="rs2.modeler.properties.PropertyEnums.HatchStyle"><span class="pre">HatchStyle</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getHatchStyle" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setHatchStyle">
-<span class="sig-name descname"><span class="pre">setHatchStyle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.html#rs2.modeler.properties.PropertyEnums.HatchStyle" title="rs2.modeler.properties.PropertyEnums.HatchStyle"><span class="pre">HatchStyle</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setHatchStyle" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getHatchColour">
-<span class="sig-name descname"><span class="pre">getHatchColour</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">int</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getHatchColour" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setHatchColour">
-<span class="sig-name descname"><span class="pre">setHatchColour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setHatchColour" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-</dd></dl>
-
-</section>
-<section id="module-rs2.modeler.properties.material.StageFactors">
-<span id="rs2-modeler-properties-material-stagefactors-module"></span><h2>rs2.modeler.properties.material.StageFactors module<a class="headerlink" href="#module-rs2.modeler.properties.material.StageFactors" title="Link to this heading"></a></h2>
-<dl class="py class">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.StageFactors.StageFactors">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.StageFactors.</span></span><span class="sig-name descname"><span class="pre">StageFactors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.StageFactors.StageFactors" title="Link to this definition"></a></dt>
-<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ProxyObject</span></code></p>
-<p>This interface is specifically for managing the table of stage factors (create, enable/disable, etc…)
-If you would like to modify specific stage factor values, you must get the stage factors through the stage factor interface present in the
-property’s module.
-Ex:
-stageFactor = strength.HoekBrown.stageFactorInterface.getDefinedStageFactors()[1]
-stageFactor.setCompressiveStrengthFactor(2)</p>
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.StageFactors.StageFactors.setStageStrengthStiffnessStageFactors">
-<span class="sig-name descname"><span class="pre">setStageStrengthStiffnessStageFactors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.StageFactors.StageFactors.setStageStrengthStiffnessStageFactors" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.StageFactors.StageFactors.getStageStrengthStiffnessStageFactors">
-<span class="sig-name descname"><span class="pre">getStageStrengthStiffnessStageFactors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.StageFactors.StageFactors.getStageStrengthStiffnessStageFactors" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.StageFactors.StageFactors.setStageThermalStageFactors">
-<span class="sig-name descname"><span class="pre">setStageThermalStageFactors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.StageFactors.StageFactors.setStageThermalStageFactors" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.StageFactors.StageFactors.getStageThermalStageFactors">
-<span class="sig-name descname"><span class="pre">getStageThermalStageFactors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.StageFactors.StageFactors.getStageThermalStageFactors" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.StageFactors.StageFactors.setStageHydraulicStageFactor">
-<span class="sig-name descname"><span class="pre">setStageHydraulicStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.StageFactors.StageFactors.setStageHydraulicStageFactor" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.StageFactors.StageFactors.getStageHydraulicStageFactor">
-<span class="sig-name descname"><span class="pre">getStageHydraulicStageFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.StageFactors.StageFactors.getStageHydraulicStageFactor" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.StageFactors.StageFactors.setStageDatumStageFactor">
-<span class="sig-name descname"><span class="pre">setStageDatumStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.StageFactors.StageFactors.setStageDatumStageFactor" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.StageFactors.StageFactors.getStageDatumStageFactor">
-<span class="sig-name descname"><span class="pre">getStageDatumStageFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.StageFactors.StageFactors.getStageDatumStageFactor" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.StageFactors.StageFactors.setResetStress">
-<span class="sig-name descname"><span class="pre">setResetStress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.StageFactors.StageFactors.setResetStress" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.StageFactors.StageFactors.getResetStress">
-<span class="sig-name descname"><span class="pre">getResetStress</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.StageFactors.StageFactors.getResetStress" title="Link to this definition"></a></dt>
-<dd></dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.StageFactors.StageFactors.getDefinedStageFactors">
-<span class="sig-name descname"><span class="pre">getDefinedStageFactors</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ProxyObject</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ProxyObject</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ProxyObject</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.StageFactors.StageFactors.getDefinedStageFactors" title="Link to this definition"></a></dt>
-<dd><p>returns a dictionary of the defined stage factors.
-The key is the stage number and the value is a tuple of stage factors defined for that stage (strengthStiffnessAndDatum, hydraulic, thermal)
-If a stage factor is not enabled, the values for that type will be None.
-Datum and Strength/Stiffness factors are combined and must be managed together.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Returns<span class="colon">:</span></dt>
-<dd class="field-odd"><p>dictionary of defined stage factors (strengthStiffnessAndDatum, hydraulic, thermal)</p>
-</dd>
-<dt class="field-even">Return type<span class="colon">:</span></dt>
-<dd class="field-even"><p>dict[int, (ObjectReferenceId, ObjectReferenceId, ObjectReferenceId)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.StageFactors.StageFactors.getStageFactor">
-<span class="sig-name descname"><span class="pre">getStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ProxyObject</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ProxyObject</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ProxyObject</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.StageFactors.StageFactors.getStageFactor" title="Link to this definition"></a></dt>
-<dd><p>returns the stage factors for the given stage.
-If a stage factor is not enabled, the values for that type will be None.
-Datum and Strength/Stiffness factors are combined and must be managed together.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>stage</strong> (<em>int</em>) – stage number</p>
-</dd>
-<dt class="field-even">Returns<span class="colon">:</span></dt>
-<dd class="field-even"><p>tuple of stage factors (strengthStiffnessAndDatum, hydraulic, thermal)</p>
-</dd>
-<dt class="field-odd">Return type<span class="colon">:</span></dt>
-<dd class="field-odd"><p>(ObjectReferenceId, ObjectReferenceId, ObjectReferenceId)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.StageFactors.StageFactors.setDefinedStageFactors">
-<span class="sig-name descname"><span class="pre">setDefinedStageFactors</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stageFactors</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">dict</span><span class="p"><span class="pre">[</span></span><span class="pre">int</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">ProxyObject</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ProxyObject</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">ProxyObject</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.StageFactors.StageFactors.setDefinedStageFactors" title="Link to this definition"></a></dt>
-<dd><p>sets the stage factor table for the material.
-The key is the stage number and the value is a tuple of stage factors defined for that stage (strengthStiffnessAndDatum, hydraulic, thermal)
-If a type of stage factor is not enabled, the values for that type should be None.
-If a tuple of stage factors is provided, a value for all enabled types must be provided.
-Datum and Strength/Stiffness factors are combined and must be managed together.</p>
-<dl class="field-list simple">
-<dt class="field-odd">Parameters<span class="colon">:</span></dt>
-<dd class="field-odd"><p><strong>stageFactors</strong> (<em>dict</em><em>[</em><em>int</em><em>, </em><em>(</em><em>ObjectReferenceId</em><em>, </em><em>ObjectReferenceId</em><em>, </em><em>ObjectReferenceId</em><em>)</em><em>]</em>) – dictionary of defined stage factors (strengthStiffnessAndDatum, hydraulic, thermal)</p>
-</dd>
-</dl>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.StageFactors.StageFactors.createStageFactor">
-<span class="sig-name descname"><span class="pre">createStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">stage</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.StageFactors.StageFactors.createStageFactor" title="Link to this definition"></a></dt>
-<dd><p>creates a stage factor for the material. A factor must be provided for all enabled types.</p>
-</dd></dl>
-
-</dd></dl>
-
-</section>
-</section>
-
-
-           </div>
-          </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="rs2.modeler.properties.liner.html" class="btn btn-neutral float-left" title="rs2.modeler.properties.liner package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="rs2.modeler.properties.material.datum.html" class="btn btn-neutral float-right" title="rs2.modeler.properties.material.datum package" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
-
-  <hr/>
-
-  <div role="contentinfo">
-    <p>&#169; Copyright 2023, Rocscience Inc..</p>
-  </div>
-
-  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    provided by <a href="https://readthedocs.org">Read the Docs</a>.
-   
-
-</footer>
-        </div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="rs2.modeler.properties.material.InitialConditions.html">rs2.modeler.properties.material.InitialConditions module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rs2.modeler.properties.material.MaterialProperty.html">rs2.modeler.properties.material.MaterialProperty module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rs2.modeler.properties.material.StageFactors.html">rs2.modeler.properties.material.StageFactors module</a></li>
+</ul>
+</div>
+<span class="target" id="module-rs2.modeler.properties.material"></span></section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rs2.modeler.properties.liner.StandardBeam.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">rs2.modeler.properties.liner.StandardBeam module</p>
       </div>
-    </section>
-  </div>
-  <script>
-      jQuery(function () {
-          SphinxRtdTheme.Navigation.enable(true);
-      });
-  </script> 
+    </a>
+    <a class="right-next"
+       href="rs2.modeler.properties.material.datum.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">rs2.modeler.properties.material.datum package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
 
-</body>
+
+  <div class="sidebar-secondary-item">
+
+  <div class="tocsection sourcelink">
+    <a href="../_sources/generatedAPIDocFiles/rs2.modeler.properties.material.rst.txt">
+      <i class="fa-solid fa-file-lines"></i> Show Source
+    </a>
+  </div>
+</div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="../_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="../_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2024, Rocscience Inc..
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 7.4.7.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.15.4.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
 </html>
