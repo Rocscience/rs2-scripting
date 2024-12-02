@@ -4,8 +4,10 @@ from rs2.interpreter.InterpreterEnums import *
 import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
-modeler = RS2Modeler()
-interpreter = RS2Interpreter()
+RS2Modeler.startApplication(port=60056)
+modeler = RS2Modeler(port=60056)
+RS2Interpreter.startApplication(port=60057)
+interpreter = RS2Interpreter(port=60057)
 
 model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 model.compute()
@@ -24,3 +26,5 @@ print(f"Vertex 0 : (x-coord, y-coord, result type value) = ({x_coord, y_coord, v
 
 model.close()
 interpretModel.close()
+modeler.closeProgram()
+interpreter.closeProgram()

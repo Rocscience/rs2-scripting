@@ -42,11 +42,12 @@ class BrooksDefinedStageFactor(BrooksStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_DOS_RES", value, self.propertyID], proxyArgumentIndices=[2])
 class Brooks(PropertyProxy):
 	"""
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[BrooksDefinedStageFactor, BrooksStageFactor]): Reference object for modifying stage factor property.
+
 	Examples:
 		:ref:`Hydraulic Property FEAGroundwater Example`
 	
-	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[BrooksDefinedStageFactor, BrooksStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

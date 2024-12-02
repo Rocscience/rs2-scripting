@@ -4,7 +4,8 @@ import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
 
-modeler = RS2Modeler()
+RS2Modeler.startApplication(port=60069)
+modeler = RS2Modeler(port=60069)
 model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 # Manipulation of Material Joint Mohr Coulomb Stage Factor for stage 2
@@ -50,3 +51,4 @@ jointmaterial.GeosyntheticHyperbolicMaterial.setTensileStrength(14.6)
 jointmaterial.GeosyntheticHyperbolicMaterial.setDilationRatio(2.2)
 
 model.close()
+modeler.closeProgram()

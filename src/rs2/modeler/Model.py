@@ -1,6 +1,7 @@
 from rs2.modeler.properties.bolt.Bolt import BoltProperty
 from rs2.modeler.properties.liner.Liner import LinerProperty
 from rs2.modeler.properties.joint.Joint import JointProperty
+from rs2.modeler.properties.material.hydraulic.HydroDistribution import HydroDistribution
 from rs2.modeler.properties.pile.Pile import PileProperty
 from rs2.modeler.properties.StructuralInterface import StructuralInterfaceProperty
 from rs2.modeler.properties.CompositeProperty import CompositeProperty
@@ -9,6 +10,10 @@ from rs2.modeler.properties.material.MaterialProperty import MaterialProperty
 from rs2.modeler.properties.ShearNormalFunction import ShearNormalFunction
 from rs2.modeler.properties.UserDefinedWaterMode import UserDefinedWaterMode
 from rs2.modeler.properties.DiscreteFunction import DiscreteFunction
+from rs2.modeler.properties.HydroDistributionFunction import HydroDistributionFunction
+from rs2.modeler.properties.PropertyEnums import HydraulicVariableTypes, HydraulicDistributionTypes
+
+from rs2.modeler import properties
 
 from rs2.BaseModel import BaseModel
 
@@ -336,6 +341,42 @@ class Model(BaseModel):
 		|  Renames a discrete function with the given name
 		'''
 		return self._callFunction('renameDiscreteFunction', [oldName, newName])	
+	
+	def getHydroDistributionFunctions(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes) -> list[HydroDistributionFunction]:
+		'''
+		|  Returns a list of all hydraulic distribution functions
+		'''
+		activeHydroDistributionFunctionProperties = []
+		hydroDistributionFunctionIDList = self._callFunction('getHydroDistributionFunctions', [variable.value, distribution.value], keepReturnValueReference=True)
+		for hydroDistributionFunctionObjectID in hydroDistributionFunctionIDList:
+			activeHydroDistributionFunctionProperties.append(HydroDistributionFunction(self._client, hydroDistributionFunctionObjectID))
+		return activeHydroDistributionFunctionProperties		
+
+
+	def getHydroDistributionFunctionByName(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, HydroDistributionFunctionName : str) -> HydroDistributionFunction:
+		'''
+		|  Returns a hydraulic distribution function object based on its name.
+		'''
+		hydroDistributionFunctionObjectID = self._callFunction('getHydroDistributionFunctionByName', [variable.value, distribution.value, HydroDistributionFunctionName], keepReturnValueReference=True)
+		return HydroDistributionFunction(self._client, hydroDistributionFunctionObjectID)
+	
+	def createNewHydroDistributionFunction(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, functionName):
+		'''
+		|  Creates a new hydraulic distribution function with the given name
+		'''
+		return self._callFunction('createNewHydroDistributionFunction', [variable.value, distribution.value, functionName])
+	
+	def deleteHydroDistributionFunction(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, functionName):
+		'''
+		|  Deletes a hydraulic discrete function with the given name
+		'''
+		return self._callFunction('deleteHydroDistributionFunction', [variable.value, distribution.value, functionName])
+	
+	def renameHydroDistributionFunction(self, variable: HydraulicVariableTypes, distribution: HydraulicDistributionTypes, oldName, newName):
+		'''
+		|  Renames a hydraulic distribution function with the given name
+		'''
+		return self._callFunction('renameHydroDistributionFunction', [variable.value, distribution.value, oldName, newName])	
 	
 
 

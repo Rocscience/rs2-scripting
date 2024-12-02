@@ -1,14 +1,9 @@
 rs2.modeler.properties.material package
 =======================================
 
-.. automodule:: rs2.modeler.properties.material
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    rs2.modeler.properties.material.datum
    rs2.modeler.properties.material.hydraulic
@@ -17,26 +12,15 @@ rs2.modeler.properties.material package
    rs2.modeler.properties.material.thermal
 
 
-rs2.modeler.properties.material.InitialConditions module
---------------------------------------------------------
+.. toctree::
+   :maxdepth: 1
 
-.. automodule:: rs2.modeler.properties.material.InitialConditions
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   rs2.modeler.properties.material.InitialConditions
+   rs2.modeler.properties.material.MaterialProperty
+   rs2.modeler.properties.material.StageFactors
 
-rs2.modeler.properties.material.MaterialProperty module
--------------------------------------------------------
 
-.. automodule:: rs2.modeler.properties.material.MaterialProperty
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
-rs2.modeler.properties.material.StageFactors module
----------------------------------------------------
-
-.. automodule:: rs2.modeler.properties.material.StageFactors
+.. automodule:: rs2.modeler.properties.material
    :members:
    :undoc-members:
    :show-inheritance:

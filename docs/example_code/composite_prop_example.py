@@ -3,7 +3,8 @@ from rs2.modeler.properties.PropertyEnums import *
 import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
-modeler = RS2Modeler()
+RS2Modeler.startApplication(port=60055)
+modeler = RS2Modeler(port=60055)
 
 model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
@@ -28,3 +29,4 @@ composite.setCompositeJointPropertyByName("Joint 5")
 composite.setJointPlacement(CompositeJointPlacementTypes.BETWEEN_THIRD_AND_FOURTH_LINER)
 
 model.close()
+modeler.closeProgram()

@@ -1,32 +1,23 @@
 rs2 package
 ===========
 
-.. automodule:: rs2
-   :members:
-   :undoc-members:
-   :show-inheritance:
-
 
 .. toctree::
-   :maxdepth: 1
+   :maxdepth: 2
 
    rs2.interpreter
    rs2.modeler
    rs2.utilities
 
 
-rs2.BaseModel module
---------------------
+.. toctree::
+   :maxdepth: 1
 
-.. automodule:: rs2.BaseModel
-   :members:
-   :undoc-members:
-   :show-inheritance:
+   rs2.BaseModel
+   rs2.Units
 
-rs2.Units module
-----------------
 
-.. automodule:: rs2.Units
+.. automodule:: rs2
    :members:
    :undoc-members:
    :show-inheritance:

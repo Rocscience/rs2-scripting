@@ -4,7 +4,8 @@ import os, inspect
 
 current_dir = os.path.dirname(os.path.abspath(inspect.getfile(lambda: None))) 
 
-modeler = RS2Modeler()
+RS2Modeler.startApplication(port=60063)
+modeler = RS2Modeler(port=60063)
 model = modeler.openFile(rf"{current_dir}\example_models\ExampleModel.fez")
 
 liner = model.getLinerPropertyByName("Liner 1")
@@ -38,3 +39,4 @@ linerStageFactors.setPoissonsRatioFactor(1.45)
 linerStageFactors.setAxialStrainExpansionFactor(0.8)
 
 model.close()
+modeler.closeProgram()

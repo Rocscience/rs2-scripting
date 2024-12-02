@@ -38,11 +38,12 @@ class MohrCoulombWithCapDefinedStageFactor(MohrCoulombWithCapStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_PEAK_TENSILE_STRENGTH", value, self.propertyID], proxyArgumentIndices=[2])
 class MohrCoulombWithCap(PropertyProxy):
 	"""
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[MohrCoulombWithCapDefinedStageFactor, MohrCoulombWithCapStageFactor]): Reference object for modifying stage factor property.
+
 	Examples:
 		:ref:`Material Property Strength Example`
 	
-	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[MohrCoulombWithCapDefinedStageFactor, MohrCoulombWithCapStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
@@ -52,9 +53,9 @@ class MohrCoulombWithCap(PropertyProxy):
 	def setPeakTensileStrength(self, value: float):
 		return self._setDoubleProperty("MP_PEAK_TENSILE_STRENGTH", value)
 	def getPeakFrictionAngle(self) -> float:
-		return self._getDoubleProperty("MP_PEAK_FRICTION_ANGLE")
+		return self._getDoubleProperty("MP_FRICTION_ANGLE_RES")
 	def setPeakFrictionAngle(self, value: float):
-		return self._setDoubleProperty("MP_PEAK_FRICTION_ANGLE", value)
+		return self._setDoubleProperty("MP_FRICTION_ANGLE_RES", value)
 	def getPeakCohesion(self) -> float:
 		return self._getDoubleProperty("MP_PEAK_COHESION")
 	def setPeakCohesion(self, value: float):
@@ -93,7 +94,7 @@ class MohrCoulombWithCap(PropertyProxy):
 		if PeakTensileStrength is not None:
 			self._setDoubleProperty("MP_PEAK_TENSILE_STRENGTH", PeakTensileStrength)
 		if PeakFrictionAngle is not None:
-			self._setDoubleProperty("MP_PEAK_FRICTION_ANGLE", PeakFrictionAngle)
+			self._setDoubleProperty("MP_FRICTION_ANGLE_RES", PeakFrictionAngle)
 		if PeakCohesion is not None:
 			self._setDoubleProperty("MP_PEAK_COHESION", PeakCohesion)
 		if DilationAngle is not None:

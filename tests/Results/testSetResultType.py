@@ -52,12 +52,47 @@ class TestSetResultType(unittest.TestCase):
         except:
             pass
 
+    def testSetResultTypeSpatialPermFailure(self):
+        try:
+            self.model.SetResultType(ExportResultType.SEEPAGE_SPATIAL_PERM)
+            self.fail("Expected exception")
+        except:
+            pass
+
+    def testSetResultTypeSpatial_WC_Failure(self):
+        try:
+            self.model.SetResultType(ExportResultType.SEEPAGE_SPATIAL_WC)
+            self.fail("Expected exception")
+        except:
+            pass
+            
+    def testSetResultTypeSpatial_WC_R_Failure(self):
+        try:
+            self.model.SetResultType(ExportResultType.SEEPAGE_SPATIAL_WC_R)
+            self.fail("Expected exception")
+        except:
+            pass
+
+    def testSetResultTypeSpatialCondyFailure(self):
+        try:
+            self.model.SetResultType(ExportResultType.SEEPAGE_SPATIAL_CONDY)
+            self.fail("Expected exception")
+        except:
+            pass
+    def testSetResultTypeSpatialAngleFailure(self):
+        try:
+            self.model.SetResultType(ExportResultType.SEEPAGE_SPATIAL_ANGLE)
+            self.fail("Expected exception")
+        except:
+            pass
+
     def testSetResultTypeFailure(self):
         try:
             self.model.SetResultType(CompositeJointPlacementTypes.BETWEEN_FIRST_AND_SECOND_LINER)
             self.fail("Expected exception")
         except:
             pass
+
     
     # def testSetUserDefinedResultTypeSuccess(self):
     #     self.model.SetUserDefinedResultType("Sin(dy)")

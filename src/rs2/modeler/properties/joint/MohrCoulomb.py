@@ -58,11 +58,12 @@ class MohrCoulombDefinedStageFactor(MohrCoulombStageFactor):
 		return self._callFunction("setJointPermeableFactor", [Permeable])
 class MohrCoulomb(PropertyProxy):
 	"""
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorInterface[MohrCoulombDefinedStageFactor, MohrCoulombStageFactor]): Reference object for modifying stage factor property.
+
 	Examples:
 		:ref:`Joint Stage Factor Example`
 	
-	Attributes:
-		stageFactorInterface (AbsoluteStageFactorInterface[MohrCoulombDefinedStageFactor, MohrCoulombStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

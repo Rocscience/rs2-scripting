@@ -3,13 +3,61 @@
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
-Welcome to the RS2 Scripting Reference Manual!
+RS2 Scripting Reference Manual
 ========================================================
 
+
+Prerequisites
+--------------------
+Before you begin, ensure you have the RS2 program installed. You must have at minimum Version 11.023 in order to use this feature.
+
+
+Python Environment
+--------------------
+There are two methods to run a script, which differ in the Python environment used:
+
+1. Running on RocScript Editor
+	* Comes pre-installed with RS2 and includes the **RS2 Python API library**
+	* For all-level users
+2. Running on your own Python environment
+	* Requires downloading the **RS2 Python API library**
+	* For advanced users
+
+Please refer to `Getting Started with RS2 Python Scripting <https://www.rocscience.com/help/rs2/tutorials/scripting/getting-started-with-rs2-python-scripting>`_
+for more information.
+
+Install RS2 Python API Library
+-----------------------------------
+pip installation
+
+.. code-block::
+   
+   pip install RS2Scripting
+
+If you are not using the latest release of RS2, you need to specify a library version that matches your RS2 version. For example:
+
+.. code-block::
+
+	pip install "RS2Scripting==11.23.0"
+
+RS2 Scripting Tutorials
+------------------------------
+Please visit RS2 tutorial website for more detailed tutorials.
+
+
+
+1. `Getting Started with RS2 Python Scripting <https://www.rocscience.com/help/rs2/tutorials/scripting/getting-started-with-rs2-python-scripting>`_
+2. `Anchored Sheet Pile Wall <https://www.rocscience.com/help/rs2/tutorials/scripting/anchored-sheet-pile-wall>`_
+
+.. image:: pictures/cover.png
+
+
+Table of Contents
+-------------------------
 .. toctree::
    :titlesonly:
-   :maxdepth: 4
-   :caption: Contents:
+   :maxdepth: 2
 
    generatedAPIDocFiles/rs2
    examples
+   webinars

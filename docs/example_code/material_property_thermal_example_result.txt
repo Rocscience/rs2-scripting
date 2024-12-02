@@ -1,0 +1,16 @@
+Soil Type = ThermalSoilType.CRUSHED_ROCK, Quartz Content = 0.88
+
+Thermal Temp. Vs Conductivity Table Values = ([1.0, 2.0, 3.0], [1.5, 3.3, 4.8])
+Heat Capacity Type = ThermalHeatCapacityType.JAME_NEWMAN, Include Latent = True, Specific Heat Capacity = 890.0
+Volumetric Heat Capacity VS Water Content Table ([1.0, 2.4], [7.0, 8.5])
+Input Alpha = 0.009, Input Beta = 0.0085, Frozen Temp = -0.05
+
+Thermal Temperature vs Soil Unfrozen Water Content Table Values ([1.0, 2.0, 3.0], [4.0, 5.0, 6.0])
+
+ Thermal Soil Unfrozen Water Content Type = ThermalWaterContentType.SOIL_WATER_CONTENT_IN_HYDRAULIC_PROPERTIES, Hydraulic Model Type = GroundWaterModes.GARDNER
+Frozen Temperature = -0.015, WC Sat = 0.34, WC Res = 0.01
+Gardener Parameter A = 8.0, Gardener Parameter N = 3.0
+Thermal Expansion Coeff. = 0.0005
+Longitudinal Dispersivity = 2.0, Transverse Dispersivity = 3.0
+
+Thermal Stage Factor Grid To Use = Default Grid

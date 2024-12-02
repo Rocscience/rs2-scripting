@@ -22,11 +22,12 @@ class InitialConditionsDefinedStageFactor(InitialConditionsStageFactor):
 		return self._callFunction("setDoubleFactor", ["MP_POROSITY_VALUE", value, self.propertyID], proxyArgumentIndices=[2])
 class InitialConditions(PropertyProxy):
 	"""
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorGettersInterface[InitialConditionsDefinedStageFactor, InitialConditionsStageFactor]): Reference object for modifying stage factor property.
+
 	Examples:
 		:ref:`Initial Condition Stage Factor Example`
 	
-	Attributes:
-		stageFactorInterface (AbsoluteStageFactorGettersInterface[InitialConditionsDefinedStageFactor, InitialConditionsStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)

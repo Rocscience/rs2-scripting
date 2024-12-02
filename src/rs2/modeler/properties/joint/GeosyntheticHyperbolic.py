@@ -50,11 +50,12 @@ class GeosyntheticHyperbolicDefinedStageFactor(GeosyntheticHyperbolicStageFactor
 		return self._callFunction("setJointPermeableFactor", [Permeable])
 class GeosyntheticHyperbolic(PropertyProxy):
 	"""
+	Attributes:
+		stageFactorInterface (AbsoluteStageFactorInterface[GeosyntheticHyperbolicDefinedStageFactor, GeosyntheticHyperbolicStageFactor]): Reference object for modifying stage factor property.
+
 	Examples:
 		:ref:`Joint Stage Factor Example`
 	
-	Attributes:
-		stageFactorInterface (AbsoluteStageFactorInterface[GeosyntheticHyperbolicDefinedStageFactor, GeosyntheticHyperbolicStageFactor]): Reference object for modifying stage factor property.
 	"""
 	def __init__(self, client : Client, ID, documentProxyID):
 		super().__init__(client, ID, documentProxyID)

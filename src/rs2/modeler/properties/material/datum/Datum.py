@@ -55,11 +55,11 @@ class DatumDefinedStageFactor(ProxyObject):
 	
 class Datum(PropertyProxy):
 	"""
-	Examples:
-		:ref:`Material Property Datum Example`
-
 	Attributes:
 		stageFactorInterface (AbsoluteStageFactorInterface[DatumDefinedStageFactor, DatumStageFactor]): Reference object for modifying stage factor property.
+	
+	Examples:
+		:ref:`Material Property Datum Example`
 	"""
 	def __init__(self, client : Client, ID, documentProxyID, stageFactorInterfaceID):
 		super().__init__(client, ID, documentProxyID)
