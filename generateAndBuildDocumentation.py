@@ -124,6 +124,7 @@ def update_documentation_version():
         for i, line in enumerate(lines):
             if "**Version: " in line:
                 lines[i] = f"**Version: {version}**\n"
+                break
 
     with open(index_file_path, 'w') as index_file:
         index_file.writelines(lines)
