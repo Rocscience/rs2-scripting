@@ -20,6 +20,8 @@ class TestMaterialJointOptions(unittest.TestCase):
 
     def tearDown(self):
         os.remove(self.copiedModelPath)
+        self.modeler.client.closeConnection()
+        self.interpreter.client.closeConnection()
         shutil.rmtree(f"{self.parentDirectory}/resources/fea")
 
     def testSaveAsModeler(self):
