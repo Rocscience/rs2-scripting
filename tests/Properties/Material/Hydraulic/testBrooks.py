@@ -19,6 +19,7 @@ class TestBrooks(unittest.TestCase):
         self.material.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.BROOKS_AND_COREY)
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testBrooksProperty(self):
         feagroundwater = self.material.Hydraulic.FEAGroundwater

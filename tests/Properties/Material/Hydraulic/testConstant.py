@@ -19,6 +19,7 @@ class TestConstant(unittest.TestCase):
         self.material.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.CUSTOM)
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testConstantProperty(self):
         feagroundwater = self.material.Hydraulic.FEAGroundwater

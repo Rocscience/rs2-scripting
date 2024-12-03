@@ -19,6 +19,7 @@ class TestSofteningHardeningModel(unittest.TestCase):
         self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.SOFTENING_HARDENING)
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testSofteningHardeningModelProperty(self):
         strength = self.material.Strength

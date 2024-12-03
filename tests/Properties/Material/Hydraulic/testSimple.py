@@ -19,6 +19,7 @@ class TestSimple(unittest.TestCase):
         self.material.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.SIMPLE)
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testSimpleProperty(self):
         feagroundwater = self.material.Hydraulic.FEAGroundwater

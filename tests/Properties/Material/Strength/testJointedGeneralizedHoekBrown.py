@@ -19,6 +19,7 @@ class TestJointedGeneralizedHoekBrown(unittest.TestCase):
         self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.JOINTED_GENERALIZED_HOEK_BROWN)
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testJointedGeneralizedHoekBrownProperty(self):
         strength = self.material.Strength

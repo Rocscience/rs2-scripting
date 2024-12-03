@@ -19,6 +19,7 @@ class TestPm4Silt(unittest.TestCase):
         self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.PM4_SILT)
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testPm4SiltProperty(self):
         stiffness = self.material.Stiffness

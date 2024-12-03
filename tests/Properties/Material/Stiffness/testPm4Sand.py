@@ -19,6 +19,7 @@ class TestPm4Sand(unittest.TestCase):
         self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.PM4_SAND)
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testPm4SandProperty(self):
         stiffness = self.material.Stiffness

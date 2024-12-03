@@ -20,6 +20,7 @@ class TestMaterialHydraulicMVModel(unittest.TestCase):
     @classmethod
     def tearDownClass(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testMaterialHydraulicMV_ModelSuccess(self):
         material = self.material

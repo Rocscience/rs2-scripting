@@ -19,6 +19,7 @@ class TestManzariAndDafalias(unittest.TestCase):
         self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.MANZARI_AND_DAFALIAS)
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testManzariAndDafaliasProperty(self):
         stiffness = self.material.Stiffness

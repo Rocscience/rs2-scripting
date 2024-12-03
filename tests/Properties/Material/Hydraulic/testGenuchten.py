@@ -19,6 +19,7 @@ class TestGenuchten(unittest.TestCase):
         self.material.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.VAN_GENUCHTEN)
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testGenuchtenProperty(self):
         feagroundwater = self.material.Hydraulic.FEAGroundwater

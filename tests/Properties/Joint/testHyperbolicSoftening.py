@@ -18,6 +18,7 @@ class TestHyperbolicSoftening(unittest.TestCase):
         self.joint = self.model.getAllJointProperties()[0]
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testHyperbolicSofteningProperty(self):
         joint = self.joint
