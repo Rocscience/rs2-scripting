@@ -1,6 +1,7 @@
 import subprocess
 import os
 import shutil
+import toml
 
 """
 sphinx-apidoc Documentation: https://www.sphinx-doc.org/en/master/man/sphinx-apidoc.html
@@ -100,7 +101,36 @@ def clear_generated_docs():
         print(f"Folder '{folder_path}' and its contents deleted successfully.")
     else:
         print(f"Folder '{folder_path}' does not exist.")
+
+def get_version_from_toml(toml_file_path):
+    with open(toml_file_path, 'r') as toml_file:
+        data = toml.load(toml_file)
+        
+    version = data.get('project', {}).get('version')
+    
+    if not version:
+        raise ValueError("Version not found in TOML file.")
+    
+    return version
+
+def update_documentation_version():
+    file_path = 'pyproject.toml'
+    version = get_version_from_toml(file_path)
+    
+    index_file_path = 'docs/index.rst'
+    
+    with open(index_file_path, 'r') as index_file:
+        lines = index_file.readlines()
+        for i, line in enumerate(lines):
+            if "**Version: " in line:
+                lines[i] = f"**Version: {version}**\n"
+                break
+
+    with open(index_file_path, 'w') as index_file:
+        index_file.writelines(lines)
+
 if __name__ == "__main__":
+    update_documentation_version()
     clear_generated_docs()
     run_sphinx_apidoc()
     remove_subpackage_submodule_headers()
