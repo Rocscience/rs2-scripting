@@ -37,3 +37,4 @@ sphinxcontrib-serializinghtml==2.0.0
 sphinxcontrib-youtube==1.4.1
 typing_extensions==4.12.2
 urllib3==2.2.2
+toml==0.10.2
