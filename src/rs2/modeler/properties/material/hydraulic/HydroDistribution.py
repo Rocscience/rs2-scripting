@@ -1,12 +1,12 @@
-from importlib.metadata import distribution
+
 from rs2.modeler.properties.PropertyEnums import *
 from rs2.modeler.properties.propertyProxy import PropertyProxy
 from rs2._common.Client import Client
 from rs2._common.ProxyObject import ProxyObject
-from distutils.dist import Distribution
+
 from enum import Enum, auto
 from rs2.modeler.properties.AbsoluteStageFactorGettersInterface import AbsoluteStageFactorGettersInterface
-import warnings
+
 from dataclasses import dataclass
 from typing import Optional
 
