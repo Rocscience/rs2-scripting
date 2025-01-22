@@ -18,6 +18,7 @@ class TestBartonBandisStrength(unittest.TestCase):
         self.material = self.model.getAllMaterialProperties()[0]
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testBartonBandisStrengthProperty(self):
         strength = self.material.Strength

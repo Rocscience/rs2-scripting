@@ -18,6 +18,7 @@ class TestGetAllLinerProperties(unittest.TestCase):
 
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     
     def testLinerListSize(self):

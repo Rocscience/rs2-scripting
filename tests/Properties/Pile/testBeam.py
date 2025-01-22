@@ -18,6 +18,7 @@ class TestBeam(unittest.TestCase):
         self.pile = self.model.getAllPileProperties()[0]
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testBeamProperty(self):
         pile = self.pile

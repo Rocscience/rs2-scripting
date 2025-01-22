@@ -19,6 +19,7 @@ class TestFredlund(unittest.TestCase):
         self.material.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.FREDLUND_AND_XING)
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testFredlundProperty(self):
         feagroundwater = self.material.Hydraulic.FEAGroundwater
