@@ -1,6 +1,6 @@
 model description:
 version:
-11.025
+11.026
 title: 
 analysis:  solid
 method:  initial stiffness
@@ -7720,7 +7720,7 @@ interface:
 Version 2.0
 
 program version:
-11.025
+11.026
 
 discretized: 1
 
