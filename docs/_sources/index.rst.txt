@@ -6,7 +6,7 @@
 RS2 Scripting Reference Manual
 ========================================================
 
-**Version: 11.25.0**
+**Version: 11.26.0**
 
 Prerequisites
 --------------------
