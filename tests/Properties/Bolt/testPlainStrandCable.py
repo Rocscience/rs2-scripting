@@ -18,6 +18,7 @@ class TestPlainStrandCable(unittest.TestCase):
         self.bolt = self.model.getAllBoltProperties()[0]
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testPlainStrandCableProperty(self):
         bolt = self.bolt

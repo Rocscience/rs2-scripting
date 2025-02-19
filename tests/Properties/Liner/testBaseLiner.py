@@ -18,6 +18,7 @@ class TestBaseLiner(unittest.TestCase):
         self.liner = self.model.getAllLinerProperties()[0]
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testBaseLinerProperty(self):
         liner = self.liner

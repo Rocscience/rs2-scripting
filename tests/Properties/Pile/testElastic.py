@@ -18,6 +18,7 @@ class TestElastic(unittest.TestCase):
         self.pile = self.model.getAllPileProperties()[0]
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testElasticProperty(self):
         pile = self.pile

@@ -18,6 +18,7 @@ class TestBrooksWaterContent(unittest.TestCase):
         self.material = self.model.getAllMaterialProperties()[0]
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testBrooksWaterContentProperty(self):
         hydraulicmodel = self.material.Thermal.SoilUnfrozenWaterContent.HydraulicModel

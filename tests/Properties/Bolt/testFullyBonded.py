@@ -18,6 +18,7 @@ class TestFullyBonded(unittest.TestCase):
         self.bolt = self.model.getAllBoltProperties()[0]
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testFullyBondedProperty(self):
         bolt = self.bolt

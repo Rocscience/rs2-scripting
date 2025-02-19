@@ -18,6 +18,7 @@ class TestCompositeLiner(unittest.TestCase):
         self.compositeliner = self.model.getAllCompositeLinerProperties()[0]
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testCompositeLinerProperty(self):
         compositeliner = self.compositeliner

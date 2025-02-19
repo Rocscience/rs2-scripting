@@ -19,6 +19,7 @@ class TestGardner(unittest.TestCase):
         self.material.Hydraulic.FEAGroundwater.setModel(GroundWaterModes.GARDNER)
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testGardnerProperty(self):
         feagroundwater = self.material.Hydraulic.FEAGroundwater

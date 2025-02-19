@@ -19,6 +19,7 @@ class TestHoekBrown(unittest.TestCase):
         self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.HOEK_BROWN)
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testHoekBrownProperty(self):
         strength = self.material.Strength

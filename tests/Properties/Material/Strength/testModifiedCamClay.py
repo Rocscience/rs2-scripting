@@ -18,6 +18,7 @@ class TestModifiedCamClay(unittest.TestCase):
         self.material = self.model.getAllMaterialProperties()[0]
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testModifiedCamClayProperty(self):
         strength = self.material.Strength

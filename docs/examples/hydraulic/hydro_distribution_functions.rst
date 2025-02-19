@@ -1,4 +1,4 @@
-Hydraulic Distirbution Functions Script Examples
+Hydraulic Distribution Functions Script Examples
 ==================================================================================
 
 Download the `HydroDistribution.fez <https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/HydroDistribution.fez>`_ for this example.

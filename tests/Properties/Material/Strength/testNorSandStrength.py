@@ -18,6 +18,7 @@ class TestNorSandStrength(unittest.TestCase):
         self.material = self.model.getAllMaterialProperties()[0]
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testNorSandStrengthProperty(self):
         strength = self.material.Strength

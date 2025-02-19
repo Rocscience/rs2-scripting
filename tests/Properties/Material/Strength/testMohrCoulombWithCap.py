@@ -19,6 +19,7 @@ class TestMohrCoulombWithCap(unittest.TestCase):
         self.material.Strength.setFailureCriterion(StrengthCriteriaTypes.MOHR_COULOMB_CAP)
     def tearDown(self):
         self.model.close()
+        self.modeler.client.closeConnection()
         os.remove(self.copiedModelPath)
     def testMohrCoulombWithCapProperty(self):
         strength = self.material.Strength

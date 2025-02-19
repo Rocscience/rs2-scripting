@@ -38,17 +38,17 @@ print(f"The current function name of {variable_type} is {current_function_name}"
 material.StageFactors.setStageHydraulicStageFactor(True)
 material.StageFactors.setStageHydroDistributionStageFactor(True)
 
-stage_2 = 2
+stage_1 = 1
 definedStageFactors = material.StageFactors.getDefinedStageFactors()
-newStageFactor_2 = material.StageFactors.createStageFactor(stage_2)
-definedStageFactors[stage_2] = newStageFactor_2
+newStageFactor_1 = material.StageFactors.createStageFactor(stage_1)
+definedStageFactors[stage_1] = newStageFactor_1
 material.StageFactors.setDefinedStageFactors(definedStageFactors)
 
-hydroDistributionGroundwaterStageFactor_2 = material.Hydraulic.HydroDistribution.stageFactorInterface.getDefinedStageFactors()[stage_2]
-hydroDistributionGroundwaterStageFactor_2.setHydroDistributionStagedFunction(variable_type, distribution_type, function_name_2)
-hydroDistributionProp = hydroDistributionGroundwaterStageFactor_2.getHydroDistributionStagedFunction(variable_type)
-print(f"The stage hydraulic distribution of {variable_type} at stage {stage_2} is {hydroDistributionProp.distribution_type}")
-print(f"The stage hydraulic distribution function of {variable_type} at stage {stage_2} is {hydroDistributionProp.function_name}")
+hydroDistributionGroundwaterStageFactor_1 = material.Hydraulic.HydroDistribution.stageFactorInterface.getDefinedStageFactors()[stage_1]
+hydroDistributionGroundwaterStageFactor_1.setHydroDistributionStagedFunction(variable_type, distribution_type, function_name_2)
+hydroDistributionProp = hydroDistributionGroundwaterStageFactor_1.getHydroDistributionStagedFunction(variable_type)
+print(f"The stage hydraulic distribution of {variable_type} at stage {stage_1} is {hydroDistributionProp.distribution_type}")
+print(f"The stage hydraulic distribution function of {variable_type} at stage {stage_1} is {hydroDistributionProp.function_name}")
 
 modeler_model.save()
 modeler_model.compute()
