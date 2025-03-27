@@ -1,0 +1,1111 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>rs2.modeler.properties.liner.StandardBeam module &#8212; RS2 Scripting Reference Manual  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generatedAPIDocFiles/rs2.modeler.properties.liner.StandardBeam';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="rs2.modeler.properties.material package" href="rs2.modeler.properties.material.html" />
+    <link rel="prev" title="rs2.modeler.properties.liner.ReinforcedConcrete module" href="rs2.modeler.properties.liner.ReinforcedConcrete.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="rs2.interpreter.html">rs2.interpreter package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="rs2.interpreter.queryResults.html">rs2.interpreter.queryResults package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.HistoryQueryResults.html">rs2.interpreter.queryResults.HistoryQueryResults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.MaterialQueryResults.html">rs2.interpreter.queryResults.MaterialQueryResults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.MeshResults.html">rs2.interpreter.queryResults.MeshResults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.TimeQueryResults.html">rs2.interpreter.queryResults.TimeQueryResults module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="rs2.interpreter.supportResults.html">rs2.interpreter.supportResults package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.BoltResult.html">rs2.interpreter.supportResults.BoltResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.CompositeResult.html">rs2.interpreter.supportResults.CompositeResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.JointResult.html">rs2.interpreter.supportResults.JointResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.LinerResult.html">rs2.interpreter.supportResults.LinerResult module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.InterpreterEnums.html">rs2.interpreter.InterpreterEnums module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.InterpreterGraphEnums.html">rs2.interpreter.InterpreterGraphEnums module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.InterpreterModel.html">rs2.interpreter.InterpreterModel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.RS2Interpreter.html">rs2.interpreter.RS2Interpreter module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="rs2.modeler.html">rs2.modeler package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="rs2.modeler.properties.html">rs2.modeler.properties package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.bolt.html">rs2.modeler.properties.bolt package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Bolt.html">rs2.modeler.properties.bolt.Bolt module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.EndAnchored.html">rs2.modeler.properties.bolt.EndAnchored module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.FullyBonded.html">rs2.modeler.properties.bolt.FullyBonded module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.PlainStrandCable.html">rs2.modeler.properties.bolt.PlainStrandCable module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Swellex.html">rs2.modeler.properties.bolt.Swellex module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Tieback.html">rs2.modeler.properties.bolt.Tieback module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.joint.html">rs2.modeler.properties.joint package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandis.html">rs2.modeler.properties.joint.BartonBandis module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandisMaterial.html">rs2.modeler.properties.joint.BartonBandisMaterial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.DisplacementDependent.html">rs2.modeler.properties.joint.DisplacementDependent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.GeosyntheticHyperbolic.html">rs2.modeler.properties.joint.GeosyntheticHyperbolic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.GeosyntheticHyperbolicMaterial.html">rs2.modeler.properties.joint.GeosyntheticHyperbolicMaterial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.HyperbolicSoftening.html">rs2.modeler.properties.joint.HyperbolicSoftening module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.Joint.html">rs2.modeler.properties.joint.Joint module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.MaterialDependent.html">rs2.modeler.properties.joint.MaterialDependent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.MohrCoulomb.html">rs2.modeler.properties.joint.MohrCoulomb module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.MohrCoulombMaterial.html">rs2.modeler.properties.joint.MohrCoulombMaterial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.NoneSlip.html">rs2.modeler.properties.joint.NoneSlip module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="rs2.modeler.properties.liner.html">rs2.modeler.properties.liner package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.CableTruss.html">rs2.modeler.properties.liner.CableTruss module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.Geosynthetic.html">rs2.modeler.properties.liner.Geosynthetic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.Liner.html">rs2.modeler.properties.liner.Liner module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.ReinforcedConcrete.html">rs2.modeler.properties.liner.ReinforcedConcrete module</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">rs2.modeler.properties.liner.StandardBeam module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.material.html">rs2.modeler.properties.material package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.datum.html">rs2.modeler.properties.material.datum package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.html">rs2.modeler.properties.material.hydraulic package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.html">rs2.modeler.properties.material.stiffness package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.strength.html">rs2.modeler.properties.material.strength package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.thermal.html">rs2.modeler.properties.material.thermal package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.InitialConditions.html">rs2.modeler.properties.material.InitialConditions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.MaterialProperty.html">rs2.modeler.properties.material.MaterialProperty module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.StageFactors.html">rs2.modeler.properties.material.StageFactors module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.pile.html">rs2.modeler.properties.pile package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Beam.html">rs2.modeler.properties.pile.Beam module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Elastic.html">rs2.modeler.properties.pile.Elastic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.ForceDisplacement.html">rs2.modeler.properties.pile.ForceDisplacement module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Linear.html">rs2.modeler.properties.pile.Linear module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.MaterialDependentPile.html">rs2.modeler.properties.pile.MaterialDependentPile module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.MohrCoulombPile.html">rs2.modeler.properties.pile.MohrCoulombPile module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.MultiLinear.html">rs2.modeler.properties.pile.MultiLinear module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Pile.html">rs2.modeler.properties.pile.Pile module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.AbsoluteStageFactorGettersInterface.html">rs2.modeler.properties.AbsoluteStageFactorGettersInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.AbsoluteStageFactorInterface.html">rs2.modeler.properties.AbsoluteStageFactorInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.CompositeProperty.html">rs2.modeler.properties.CompositeProperty module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.DiscreteFunction.html">rs2.modeler.properties.DiscreteFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.HydroDistributionFunction.html">rs2.modeler.properties.HydroDistributionFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.MaterialJoint.html">rs2.modeler.properties.MaterialJoint module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.MaterialJointOptions.html">rs2.modeler.properties.MaterialJointOptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html">rs2.modeler.properties.PropertyEnums module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.RelativeStageFactorInterface.html">rs2.modeler.properties.RelativeStageFactorInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.ShearNormalFunction.html">rs2.modeler.properties.ShearNormalFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.SnowdenAnisotropicFunction.html">rs2.modeler.properties.SnowdenAnisotropicFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.StructuralInterface.html">rs2.modeler.properties.StructuralInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.UserDefinedWaterMode.html">rs2.modeler.properties.UserDefinedWaterMode module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.Model.html">rs2.modeler.Model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.RS2Modeler.html">rs2.modeler.RS2Modeler module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="rs2.utilities.html">rs2.utilities package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rs2.utilities.ApplicationManager.html">rs2.utilities.ApplicationManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.utilities.ColorPicker.html">rs2.utilities.ColorPicker module</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rs2.BaseModel.html">rs2.BaseModel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rs2.Units.html">rs2.Units module</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="rs2.html" class="nav-link">rs2 package</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="rs2.modeler.html" class="nav-link">rs2.modeler package</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="rs2.modeler.properties.html" class="nav-link">rs2.modeler.properties package</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="rs2.modeler.properties.liner.html" class="nav-link">rs2.modeler.properties.liner package</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">rs2.modeler.properties.liner.StandardBeam module</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-rs2.modeler.properties.liner.StandardBeam">
+<span id="rs2-modeler-properties-liner-standardbeam-module"></span><h1>rs2.modeler.properties.liner.StandardBeam module<a class="headerlink" href="#module-rs2.modeler.properties.liner.StandardBeam" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.liner.StandardBeam.</span></span><span class="sig-name descname"><span class="pre">StandardBeamStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ProxyObject</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getUnitWeightFactor">
+<span class="sig-name descname"><span class="pre">getUnitWeightFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getUnitWeightFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getThicknessFactor">
+<span class="sig-name descname"><span class="pre">getThicknessFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getThicknessFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getAreaFactor">
+<span class="sig-name descname"><span class="pre">getAreaFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getAreaFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getMomentOfInertiaFactor">
+<span class="sig-name descname"><span class="pre">getMomentOfInertiaFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getMomentOfInertiaFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getYoungsModulusFactor">
+<span class="sig-name descname"><span class="pre">getYoungsModulusFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getYoungsModulusFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getPoissonsRatioFactor">
+<span class="sig-name descname"><span class="pre">getPoissonsRatioFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getPoissonsRatioFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getAxialStrainExpansionFactor">
+<span class="sig-name descname"><span class="pre">getAxialStrainExpansionFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getAxialStrainExpansionFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getCompressiveStrengthPeakFactor">
+<span class="sig-name descname"><span class="pre">getCompressiveStrengthPeakFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getCompressiveStrengthPeakFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getCompressiveStrengthResidualFactor">
+<span class="sig-name descname"><span class="pre">getCompressiveStrengthResidualFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getCompressiveStrengthResidualFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getTensileStrengthPeakFactor">
+<span class="sig-name descname"><span class="pre">getTensileStrengthPeakFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getTensileStrengthPeakFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getTensileStrengthResidualFactor">
+<span class="sig-name descname"><span class="pre">getTensileStrengthResidualFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getTensileStrengthResidualFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getConductivityFactor">
+<span class="sig-name descname"><span class="pre">getConductivityFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getConductivityFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getSpecificHeatCapacityFactor">
+<span class="sig-name descname"><span class="pre">getSpecificHeatCapacityFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getSpecificHeatCapacityFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getExpansionCoefficientFactor">
+<span class="sig-name descname"><span class="pre">getExpansionCoefficientFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getExpansionCoefficientFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.liner.StandardBeam.</span></span><span class="sig-name descname"><span class="pre">StandardBeamDefinedStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor" title="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">StandardBeamStageFactor</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setUnitWeightFactor">
+<span class="sig-name descname"><span class="pre">setUnitWeightFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setUnitWeightFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setThicknessFactor">
+<span class="sig-name descname"><span class="pre">setThicknessFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setThicknessFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setAreaFactor">
+<span class="sig-name descname"><span class="pre">setAreaFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setAreaFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setMomentOfInertiaFactor">
+<span class="sig-name descname"><span class="pre">setMomentOfInertiaFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setMomentOfInertiaFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setYoungsModulusFactor">
+<span class="sig-name descname"><span class="pre">setYoungsModulusFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setYoungsModulusFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setPoissonsRatioFactor">
+<span class="sig-name descname"><span class="pre">setPoissonsRatioFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setPoissonsRatioFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setAxialStrainExpansionFactor">
+<span class="sig-name descname"><span class="pre">setAxialStrainExpansionFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setAxialStrainExpansionFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setCompressiveStrengthPeakFactor">
+<span class="sig-name descname"><span class="pre">setCompressiveStrengthPeakFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setCompressiveStrengthPeakFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setCompressiveStrengthResidualFactor">
+<span class="sig-name descname"><span class="pre">setCompressiveStrengthResidualFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setCompressiveStrengthResidualFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setTensileStrengthPeakFactor">
+<span class="sig-name descname"><span class="pre">setTensileStrengthPeakFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setTensileStrengthPeakFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setTensileStrengthResidualFactor">
+<span class="sig-name descname"><span class="pre">setTensileStrengthResidualFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setTensileStrengthResidualFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setConductivityFactor">
+<span class="sig-name descname"><span class="pre">setConductivityFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setConductivityFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setSpecificHeatCapacityFactor">
+<span class="sig-name descname"><span class="pre">setSpecificHeatCapacityFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setSpecificHeatCapacityFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setExpansionCoefficientFactor">
+<span class="sig-name descname"><span class="pre">setExpansionCoefficientFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setExpansionCoefficientFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.liner.StandardBeam.</span></span><span class="sig-name descname"><span class="pre">StandardBeam</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentProxyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PropertyProxy</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stageFactorInterface</strong> (<a class="reference internal" href="rs2.modeler.properties.RelativeStageFactorInterface.html#rs2.modeler.properties.RelativeStageFactorInterface.RelativeStageFactorInterface" title="rs2.modeler.properties.RelativeStageFactorInterface.RelativeStageFactorInterface"><em>RelativeStageFactorInterface</em></a><em>[</em><a class="reference internal" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor" title="rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor"><em>StandardBeamDefinedStageFactor</em></a><em>, </em><a class="reference internal" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor" title="rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor"><em>StandardBeamStageFactor</em></a><em>]</em>) – Reference object for modifying stage factor property.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples/support/liner.html#liner-stage-factor-example"><span class="std std-ref">Code Snippet: Manipulation of Liner Stage Factor Properties</span></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getUnitWeight">
+<span class="sig-name descname"><span class="pre">getUnitWeight</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getUnitWeight" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setUnitWeight">
+<span class="sig-name descname"><span class="pre">setUnitWeight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setUnitWeight" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getIncludeWeightInStressAnalysis">
+<span class="sig-name descname"><span class="pre">getIncludeWeightInStressAnalysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getIncludeWeightInStressAnalysis" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setIncludeWeightInStressAnalysis">
+<span class="sig-name descname"><span class="pre">setIncludeWeightInStressAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setIncludeWeightInStressAnalysis" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getInitialTemperature">
+<span class="sig-name descname"><span class="pre">getInitialTemperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getInitialTemperature" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setInitialTemperature">
+<span class="sig-name descname"><span class="pre">setInitialTemperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setInitialTemperature" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getMethod">
+<span class="sig-name descname"><span class="pre">getMethod</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.GeometryChoice" title="rs2.modeler.properties.PropertyEnums.GeometryChoice"><span class="pre">GeometryChoice</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getMethod" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setMethod">
+<span class="sig-name descname"><span class="pre">setMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.GeometryChoice" title="rs2.modeler.properties.PropertyEnums.GeometryChoice"><span class="pre">GeometryChoice</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setMethod" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getThickness">
+<span class="sig-name descname"><span class="pre">getThickness</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getThickness" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setThickness">
+<span class="sig-name descname"><span class="pre">setThickness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setThickness" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getArea">
+<span class="sig-name descname"><span class="pre">getArea</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getArea" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setArea">
+<span class="sig-name descname"><span class="pre">setArea</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setArea" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getMomentOfInertia">
+<span class="sig-name descname"><span class="pre">getMomentOfInertia</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getMomentOfInertia" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setMomentOfInertia">
+<span class="sig-name descname"><span class="pre">setMomentOfInertia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setMomentOfInertia" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getYoungsModulus">
+<span class="sig-name descname"><span class="pre">getYoungsModulus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getYoungsModulus" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setYoungsModulus">
+<span class="sig-name descname"><span class="pre">setYoungsModulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setYoungsModulus" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getPoissonsRatio">
+<span class="sig-name descname"><span class="pre">getPoissonsRatio</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getPoissonsRatio" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setPoissonsRatio">
+<span class="sig-name descname"><span class="pre">setPoissonsRatio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setPoissonsRatio" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getMaterialType">
+<span class="sig-name descname"><span class="pre">getMaterialType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.MaterialType" title="rs2.modeler.properties.PropertyEnums.MaterialType"><span class="pre">MaterialType</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getMaterialType" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setMaterialType">
+<span class="sig-name descname"><span class="pre">setMaterialType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.MaterialType" title="rs2.modeler.properties.PropertyEnums.MaterialType"><span class="pre">MaterialType</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setMaterialType" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getCompressiveStrengthPeak">
+<span class="sig-name descname"><span class="pre">getCompressiveStrengthPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getCompressiveStrengthPeak" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setCompressiveStrengthPeak">
+<span class="sig-name descname"><span class="pre">setCompressiveStrengthPeak</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setCompressiveStrengthPeak" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getCompressiveStrengthResidual">
+<span class="sig-name descname"><span class="pre">getCompressiveStrengthResidual</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getCompressiveStrengthResidual" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setCompressiveStrengthResidual">
+<span class="sig-name descname"><span class="pre">setCompressiveStrengthResidual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setCompressiveStrengthResidual" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getTensileStrengthPeak">
+<span class="sig-name descname"><span class="pre">getTensileStrengthPeak</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getTensileStrengthPeak" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setTensileStrengthPeak">
+<span class="sig-name descname"><span class="pre">setTensileStrengthPeak</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setTensileStrengthPeak" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getTensileStrengthResidual">
+<span class="sig-name descname"><span class="pre">getTensileStrengthResidual</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getTensileStrengthResidual" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setTensileStrengthResidual">
+<span class="sig-name descname"><span class="pre">setTensileStrengthResidual</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setTensileStrengthResidual" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getSlidingGap">
+<span class="sig-name descname"><span class="pre">getSlidingGap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getSlidingGap" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setSlidingGap">
+<span class="sig-name descname"><span class="pre">setSlidingGap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setSlidingGap" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getStrainAtLocking">
+<span class="sig-name descname"><span class="pre">getStrainAtLocking</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getStrainAtLocking" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setStrainAtLocking">
+<span class="sig-name descname"><span class="pre">setStrainAtLocking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setStrainAtLocking" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getBeamElementFormulation">
+<span class="sig-name descname"><span class="pre">getBeamElementFormulation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.LinerFormulation" title="rs2.modeler.properties.PropertyEnums.LinerFormulation"><span class="pre">LinerFormulation</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getBeamElementFormulation" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setBeamElementFormulation">
+<span class="sig-name descname"><span class="pre">setBeamElementFormulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.LinerFormulation" title="rs2.modeler.properties.PropertyEnums.LinerFormulation"><span class="pre">LinerFormulation</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setBeamElementFormulation" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getAxialStrainExpansion">
+<span class="sig-name descname"><span class="pre">getAxialStrainExpansion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getAxialStrainExpansion" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setAxialStrainExpansion">
+<span class="sig-name descname"><span class="pre">setAxialStrainExpansion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setAxialStrainExpansion" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getActivateThermal">
+<span class="sig-name descname"><span class="pre">getActivateThermal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getActivateThermal" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setActivateThermal">
+<span class="sig-name descname"><span class="pre">setActivateThermal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setActivateThermal" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getStaticTemperatureMode">
+<span class="sig-name descname"><span class="pre">getStaticTemperatureMode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getStaticTemperatureMode" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setStaticTemperatureMode">
+<span class="sig-name descname"><span class="pre">setStaticTemperatureMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setStaticTemperatureMode" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getStaticTemperature">
+<span class="sig-name descname"><span class="pre">getStaticTemperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getStaticTemperature" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setStaticTemperature">
+<span class="sig-name descname"><span class="pre">setStaticTemperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setStaticTemperature" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getConductivity">
+<span class="sig-name descname"><span class="pre">getConductivity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getConductivity" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setConductivity">
+<span class="sig-name descname"><span class="pre">setConductivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setConductivity" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getSpecificHeatCapacity">
+<span class="sig-name descname"><span class="pre">getSpecificHeatCapacity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getSpecificHeatCapacity" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setSpecificHeatCapacity">
+<span class="sig-name descname"><span class="pre">setSpecificHeatCapacity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setSpecificHeatCapacity" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getThermalExpansion">
+<span class="sig-name descname"><span class="pre">getThermalExpansion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getThermalExpansion" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setThermalExpansion">
+<span class="sig-name descname"><span class="pre">setThermalExpansion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setThermalExpansion" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getExpansionCoefficient">
+<span class="sig-name descname"><span class="pre">getExpansionCoefficient</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getExpansionCoefficient" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setExpansionCoefficient">
+<span class="sig-name descname"><span class="pre">setExpansionCoefficient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setExpansionCoefficient" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getStageLinerProperties">
+<span class="sig-name descname"><span class="pre">getStageLinerProperties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getStageLinerProperties" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setStageLinerProperties">
+<span class="sig-name descname"><span class="pre">setStageLinerProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setStageLinerProperties" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getStaticTemperatureGridToUse">
+<span class="sig-name descname"><span class="pre">getStaticTemperatureGridToUse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getStaticTemperatureGridToUse" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setStaticTemperatureGridToUse">
+<span class="sig-name descname"><span class="pre">setStaticTemperatureGridToUse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gridName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setStaticTemperatureGridToUse" title="Link to this definition">#</a></dt>
+<dd><p>Grids “None” and “Default Grid” available by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.setProperties">
+<span class="sig-name descname"><span class="pre">setProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">UnitWeight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IncludeWeightInStressAnalysis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">InitialTemperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Method</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.GeometryChoice" title="rs2.modeler.properties.PropertyEnums.GeometryChoice"><span class="pre">GeometryChoice</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Thickness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Area</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MomentOfInertia</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YoungsModulus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PoissonsRatio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MaterialType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.MaterialType" title="rs2.modeler.properties.PropertyEnums.MaterialType"><span class="pre">MaterialType</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CompressiveStrengthPeak</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CompressiveStrengthResidual</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TensileStrengthPeak</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TensileStrengthResidual</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SlidingGap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">StrainAtLocking</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BeamElementFormulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.LinerFormulation" title="rs2.modeler.properties.PropertyEnums.LinerFormulation"><span class="pre">LinerFormulation</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AxialStrainExpansion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ActivateThermal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">StaticTemperatureMode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">StaticTemperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Conductivity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SpecificHeatCapacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ThermalExpansion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ExpansionCoefficient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">StageLinerProperties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setProperties" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.StandardBeam.StandardBeam.getProperties">
+<span class="sig-name descname"><span class="pre">getProperties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getProperties" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rs2.modeler.properties.liner.ReinforcedConcrete.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">rs2.modeler.properties.liner.ReinforcedConcrete module</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rs2.modeler.properties.material.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">rs2.modeler.properties.material package</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamStageFactor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getUnitWeightFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamStageFactor.getUnitWeightFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getThicknessFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamStageFactor.getThicknessFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getAreaFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamStageFactor.getAreaFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getMomentOfInertiaFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamStageFactor.getMomentOfInertiaFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getYoungsModulusFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamStageFactor.getYoungsModulusFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getPoissonsRatioFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamStageFactor.getPoissonsRatioFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getAxialStrainExpansionFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamStageFactor.getAxialStrainExpansionFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getCompressiveStrengthPeakFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamStageFactor.getCompressiveStrengthPeakFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getCompressiveStrengthResidualFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamStageFactor.getCompressiveStrengthResidualFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getTensileStrengthPeakFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamStageFactor.getTensileStrengthPeakFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getTensileStrengthResidualFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamStageFactor.getTensileStrengthResidualFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getConductivityFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamStageFactor.getConductivityFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getSpecificHeatCapacityFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamStageFactor.getSpecificHeatCapacityFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamStageFactor.getExpansionCoefficientFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamStageFactor.getExpansionCoefficientFactor()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamDefinedStageFactor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setUnitWeightFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamDefinedStageFactor.setUnitWeightFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setThicknessFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamDefinedStageFactor.setThicknessFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setAreaFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamDefinedStageFactor.setAreaFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setMomentOfInertiaFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamDefinedStageFactor.setMomentOfInertiaFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setYoungsModulusFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamDefinedStageFactor.setYoungsModulusFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setPoissonsRatioFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamDefinedStageFactor.setPoissonsRatioFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setAxialStrainExpansionFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamDefinedStageFactor.setAxialStrainExpansionFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setCompressiveStrengthPeakFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamDefinedStageFactor.setCompressiveStrengthPeakFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setCompressiveStrengthResidualFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamDefinedStageFactor.setCompressiveStrengthResidualFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setTensileStrengthPeakFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamDefinedStageFactor.setTensileStrengthPeakFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setTensileStrengthResidualFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamDefinedStageFactor.setTensileStrengthResidualFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setConductivityFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamDefinedStageFactor.setConductivityFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setSpecificHeatCapacityFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamDefinedStageFactor.setSpecificHeatCapacityFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeamDefinedStageFactor.setExpansionCoefficientFactor"><code class="docutils literal notranslate"><span class="pre">StandardBeamDefinedStageFactor.setExpansionCoefficientFactor()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam"><code class="docutils literal notranslate"><span class="pre">StandardBeam</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getUnitWeight"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getUnitWeight()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setUnitWeight"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setUnitWeight()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getIncludeWeightInStressAnalysis"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getIncludeWeightInStressAnalysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setIncludeWeightInStressAnalysis"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setIncludeWeightInStressAnalysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getInitialTemperature"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getInitialTemperature()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setInitialTemperature"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setInitialTemperature()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getMethod"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getMethod()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setMethod"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setMethod()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getThickness"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getThickness()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setThickness"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setThickness()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getArea"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getArea()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setArea"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setArea()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getMomentOfInertia"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getMomentOfInertia()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setMomentOfInertia"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setMomentOfInertia()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getYoungsModulus"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getYoungsModulus()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setYoungsModulus"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setYoungsModulus()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getPoissonsRatio"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getPoissonsRatio()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setPoissonsRatio"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setPoissonsRatio()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getMaterialType"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getMaterialType()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setMaterialType"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setMaterialType()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getCompressiveStrengthPeak"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getCompressiveStrengthPeak()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setCompressiveStrengthPeak"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setCompressiveStrengthPeak()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getCompressiveStrengthResidual"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getCompressiveStrengthResidual()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setCompressiveStrengthResidual"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setCompressiveStrengthResidual()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getTensileStrengthPeak"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getTensileStrengthPeak()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setTensileStrengthPeak"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setTensileStrengthPeak()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getTensileStrengthResidual"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getTensileStrengthResidual()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setTensileStrengthResidual"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setTensileStrengthResidual()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getSlidingGap"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getSlidingGap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setSlidingGap"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setSlidingGap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getStrainAtLocking"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getStrainAtLocking()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setStrainAtLocking"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setStrainAtLocking()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getBeamElementFormulation"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getBeamElementFormulation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setBeamElementFormulation"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setBeamElementFormulation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getAxialStrainExpansion"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getAxialStrainExpansion()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setAxialStrainExpansion"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setAxialStrainExpansion()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getActivateThermal"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getActivateThermal()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setActivateThermal"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setActivateThermal()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getStaticTemperatureMode"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getStaticTemperatureMode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setStaticTemperatureMode"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setStaticTemperatureMode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getStaticTemperature"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getStaticTemperature()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setStaticTemperature"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setStaticTemperature()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getConductivity"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getConductivity()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setConductivity"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setConductivity()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getSpecificHeatCapacity"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getSpecificHeatCapacity()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setSpecificHeatCapacity"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setSpecificHeatCapacity()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getThermalExpansion"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getThermalExpansion()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setThermalExpansion"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setThermalExpansion()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getExpansionCoefficient"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getExpansionCoefficient()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setExpansionCoefficient"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setExpansionCoefficient()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getStageLinerProperties"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getStageLinerProperties()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setStageLinerProperties"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setStageLinerProperties()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getStaticTemperatureGridToUse"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getStaticTemperatureGridToUse()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setStaticTemperatureGridToUse"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setStaticTemperatureGridToUse()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.setProperties"><code class="docutils literal notranslate"><span class="pre">StandardBeam.setProperties()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.StandardBeam.StandardBeam.getProperties"><code class="docutils literal notranslate"><span class="pre">StandardBeam.getProperties()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/generatedAPIDocFiles/rs2.modeler.properties.liner.StandardBeam.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Rocscience Inc..
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

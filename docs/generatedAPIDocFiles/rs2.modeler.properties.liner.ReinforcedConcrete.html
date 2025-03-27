@@ -1,0 +1,1135 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>rs2.modeler.properties.liner.ReinforcedConcrete module &#8212; RS2 Scripting Reference Manual  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generatedAPIDocFiles/rs2.modeler.properties.liner.ReinforcedConcrete';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="rs2.modeler.properties.liner.StandardBeam module" href="rs2.modeler.properties.liner.StandardBeam.html" />
+    <link rel="prev" title="rs2.modeler.properties.liner.Liner module" href="rs2.modeler.properties.liner.Liner.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="rs2.interpreter.html">rs2.interpreter package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="rs2.interpreter.queryResults.html">rs2.interpreter.queryResults package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.HistoryQueryResults.html">rs2.interpreter.queryResults.HistoryQueryResults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.MaterialQueryResults.html">rs2.interpreter.queryResults.MaterialQueryResults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.MeshResults.html">rs2.interpreter.queryResults.MeshResults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.TimeQueryResults.html">rs2.interpreter.queryResults.TimeQueryResults module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="rs2.interpreter.supportResults.html">rs2.interpreter.supportResults package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.BoltResult.html">rs2.interpreter.supportResults.BoltResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.CompositeResult.html">rs2.interpreter.supportResults.CompositeResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.JointResult.html">rs2.interpreter.supportResults.JointResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.LinerResult.html">rs2.interpreter.supportResults.LinerResult module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.InterpreterEnums.html">rs2.interpreter.InterpreterEnums module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.InterpreterGraphEnums.html">rs2.interpreter.InterpreterGraphEnums module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.InterpreterModel.html">rs2.interpreter.InterpreterModel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.RS2Interpreter.html">rs2.interpreter.RS2Interpreter module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="rs2.modeler.html">rs2.modeler package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="rs2.modeler.properties.html">rs2.modeler.properties package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.bolt.html">rs2.modeler.properties.bolt package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Bolt.html">rs2.modeler.properties.bolt.Bolt module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.EndAnchored.html">rs2.modeler.properties.bolt.EndAnchored module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.FullyBonded.html">rs2.modeler.properties.bolt.FullyBonded module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.PlainStrandCable.html">rs2.modeler.properties.bolt.PlainStrandCable module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Swellex.html">rs2.modeler.properties.bolt.Swellex module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Tieback.html">rs2.modeler.properties.bolt.Tieback module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.joint.html">rs2.modeler.properties.joint package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandis.html">rs2.modeler.properties.joint.BartonBandis module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandisMaterial.html">rs2.modeler.properties.joint.BartonBandisMaterial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.DisplacementDependent.html">rs2.modeler.properties.joint.DisplacementDependent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.GeosyntheticHyperbolic.html">rs2.modeler.properties.joint.GeosyntheticHyperbolic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.GeosyntheticHyperbolicMaterial.html">rs2.modeler.properties.joint.GeosyntheticHyperbolicMaterial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.HyperbolicSoftening.html">rs2.modeler.properties.joint.HyperbolicSoftening module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.Joint.html">rs2.modeler.properties.joint.Joint module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.MaterialDependent.html">rs2.modeler.properties.joint.MaterialDependent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.MohrCoulomb.html">rs2.modeler.properties.joint.MohrCoulomb module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.MohrCoulombMaterial.html">rs2.modeler.properties.joint.MohrCoulombMaterial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.NoneSlip.html">rs2.modeler.properties.joint.NoneSlip module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="rs2.modeler.properties.liner.html">rs2.modeler.properties.liner package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.CableTruss.html">rs2.modeler.properties.liner.CableTruss module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.Geosynthetic.html">rs2.modeler.properties.liner.Geosynthetic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.Liner.html">rs2.modeler.properties.liner.Liner module</a></li>
+<li class="toctree-l4 current active"><a class="current reference internal" href="#">rs2.modeler.properties.liner.ReinforcedConcrete module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.StandardBeam.html">rs2.modeler.properties.liner.StandardBeam module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.material.html">rs2.modeler.properties.material package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.datum.html">rs2.modeler.properties.material.datum package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.html">rs2.modeler.properties.material.hydraulic package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.html">rs2.modeler.properties.material.stiffness package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.strength.html">rs2.modeler.properties.material.strength package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.thermal.html">rs2.modeler.properties.material.thermal package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.InitialConditions.html">rs2.modeler.properties.material.InitialConditions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.MaterialProperty.html">rs2.modeler.properties.material.MaterialProperty module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.StageFactors.html">rs2.modeler.properties.material.StageFactors module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.pile.html">rs2.modeler.properties.pile package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Beam.html">rs2.modeler.properties.pile.Beam module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Elastic.html">rs2.modeler.properties.pile.Elastic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.ForceDisplacement.html">rs2.modeler.properties.pile.ForceDisplacement module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Linear.html">rs2.modeler.properties.pile.Linear module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.MaterialDependentPile.html">rs2.modeler.properties.pile.MaterialDependentPile module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.MohrCoulombPile.html">rs2.modeler.properties.pile.MohrCoulombPile module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.MultiLinear.html">rs2.modeler.properties.pile.MultiLinear module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Pile.html">rs2.modeler.properties.pile.Pile module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.AbsoluteStageFactorGettersInterface.html">rs2.modeler.properties.AbsoluteStageFactorGettersInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.AbsoluteStageFactorInterface.html">rs2.modeler.properties.AbsoluteStageFactorInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.CompositeProperty.html">rs2.modeler.properties.CompositeProperty module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.DiscreteFunction.html">rs2.modeler.properties.DiscreteFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.HydroDistributionFunction.html">rs2.modeler.properties.HydroDistributionFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.MaterialJoint.html">rs2.modeler.properties.MaterialJoint module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.MaterialJointOptions.html">rs2.modeler.properties.MaterialJointOptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html">rs2.modeler.properties.PropertyEnums module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.RelativeStageFactorInterface.html">rs2.modeler.properties.RelativeStageFactorInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.ShearNormalFunction.html">rs2.modeler.properties.ShearNormalFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.SnowdenAnisotropicFunction.html">rs2.modeler.properties.SnowdenAnisotropicFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.StructuralInterface.html">rs2.modeler.properties.StructuralInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.UserDefinedWaterMode.html">rs2.modeler.properties.UserDefinedWaterMode module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.Model.html">rs2.modeler.Model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.RS2Modeler.html">rs2.modeler.RS2Modeler module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="rs2.utilities.html">rs2.utilities package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rs2.utilities.ApplicationManager.html">rs2.utilities.ApplicationManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.utilities.ColorPicker.html">rs2.utilities.ColorPicker module</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rs2.BaseModel.html">rs2.BaseModel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rs2.Units.html">rs2.Units module</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="rs2.html" class="nav-link">rs2 package</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="rs2.modeler.html" class="nav-link">rs2.modeler package</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="rs2.modeler.properties.html" class="nav-link">rs2.modeler.properties package</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="rs2.modeler.properties.liner.html" class="nav-link">rs2.modeler.properties.liner package</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">rs2.modeler.properties.liner.ReinforcedConcrete module</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-rs2.modeler.properties.liner.ReinforcedConcrete">
+<span id="rs2-modeler-properties-liner-reinforcedconcrete-module"></span><h1>rs2.modeler.properties.liner.ReinforcedConcrete module<a class="headerlink" href="#module-rs2.modeler.properties.liner.ReinforcedConcrete" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.liner.ReinforcedConcrete.</span></span><span class="sig-name descname"><span class="pre">ReinforcedConcreteStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ProxyObject</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getConcreteUnitWeightFactor">
+<span class="sig-name descname"><span class="pre">getConcreteUnitWeightFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getConcreteUnitWeightFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getAreaFactor">
+<span class="sig-name descname"><span class="pre">getAreaFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getAreaFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getWeightFactor">
+<span class="sig-name descname"><span class="pre">getWeightFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getWeightFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getThicknessFactor">
+<span class="sig-name descname"><span class="pre">getThicknessFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getThicknessFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getConcreteYoungsModulusFactor">
+<span class="sig-name descname"><span class="pre">getConcreteYoungsModulusFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getConcreteYoungsModulusFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getConcreteCompressiveStrengthFactor">
+<span class="sig-name descname"><span class="pre">getConcreteCompressiveStrengthFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getConcreteCompressiveStrengthFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getConcreteTensileStrengthFactor">
+<span class="sig-name descname"><span class="pre">getConcreteTensileStrengthFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getConcreteTensileStrengthFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getAxialStrainExpansionFactor">
+<span class="sig-name descname"><span class="pre">getAxialStrainExpansionFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getAxialStrainExpansionFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getConductivityFactor">
+<span class="sig-name descname"><span class="pre">getConductivityFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getConductivityFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getSpecificHeatCapacityFactor">
+<span class="sig-name descname"><span class="pre">getSpecificHeatCapacityFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getSpecificHeatCapacityFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getExpansionCoefficientFactor">
+<span class="sig-name descname"><span class="pre">getExpansionCoefficientFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getExpansionCoefficientFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.liner.ReinforcedConcrete.</span></span><span class="sig-name descname"><span class="pre">ReinforcedConcreteDefinedStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor" title="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">ReinforcedConcreteStageFactor</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setConcreteUnitWeightFactor">
+<span class="sig-name descname"><span class="pre">setConcreteUnitWeightFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setConcreteUnitWeightFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setAreaFactor">
+<span class="sig-name descname"><span class="pre">setAreaFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setAreaFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setWeightFactor">
+<span class="sig-name descname"><span class="pre">setWeightFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setWeightFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setThicknessFactor">
+<span class="sig-name descname"><span class="pre">setThicknessFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setThicknessFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setConcreteYoungsModulusFactor">
+<span class="sig-name descname"><span class="pre">setConcreteYoungsModulusFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setConcreteYoungsModulusFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setConcreteCompressiveStrengthFactor">
+<span class="sig-name descname"><span class="pre">setConcreteCompressiveStrengthFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setConcreteCompressiveStrengthFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setConcreteTensileStrengthFactor">
+<span class="sig-name descname"><span class="pre">setConcreteTensileStrengthFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setConcreteTensileStrengthFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setAxialStrainExpansionFactor">
+<span class="sig-name descname"><span class="pre">setAxialStrainExpansionFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setAxialStrainExpansionFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setConductivityFactor">
+<span class="sig-name descname"><span class="pre">setConductivityFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setConductivityFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setSpecificHeatCapacityFactor">
+<span class="sig-name descname"><span class="pre">setSpecificHeatCapacityFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setSpecificHeatCapacityFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setExpansionCoefficientFactor">
+<span class="sig-name descname"><span class="pre">setExpansionCoefficientFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setExpansionCoefficientFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.liner.ReinforcedConcrete.</span></span><span class="sig-name descname"><span class="pre">ReinforcedConcrete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentProxyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PropertyProxy</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stageFactorInterface</strong> (<a class="reference internal" href="rs2.modeler.properties.RelativeStageFactorInterface.html#rs2.modeler.properties.RelativeStageFactorInterface.RelativeStageFactorInterface" title="rs2.modeler.properties.RelativeStageFactorInterface.RelativeStageFactorInterface"><em>RelativeStageFactorInterface</em></a><em>[</em><a class="reference internal" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor" title="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor"><em>ReinforcedConcreteDefinedStageFactor</em></a><em>, </em><a class="reference internal" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor" title="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor"><em>ReinforcedConcreteStageFactor</em></a><em>]</em>) – Reference object for modifying stage factor property.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples/support/liner.html#liner-stage-factor-example"><span class="std std-ref">Code Snippet: Manipulation of Liner Stage Factor Properties</span></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConcreteUnitWeight">
+<span class="sig-name descname"><span class="pre">getConcreteUnitWeight</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConcreteUnitWeight" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConcreteUnitWeight">
+<span class="sig-name descname"><span class="pre">setConcreteUnitWeight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConcreteUnitWeight" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getIncludeWeightInStressAnalysis">
+<span class="sig-name descname"><span class="pre">getIncludeWeightInStressAnalysis</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getIncludeWeightInStressAnalysis" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setIncludeWeightInStressAnalysis">
+<span class="sig-name descname"><span class="pre">setIncludeWeightInStressAnalysis</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setIncludeWeightInStressAnalysis" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getInitialTemperature">
+<span class="sig-name descname"><span class="pre">getInitialTemperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getInitialTemperature" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setInitialTemperature">
+<span class="sig-name descname"><span class="pre">setInitialTemperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setInitialTemperature" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getReinforcement">
+<span class="sig-name descname"><span class="pre">getReinforcement</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getReinforcement" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setReinforcement">
+<span class="sig-name descname"><span class="pre">setReinforcement</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setReinforcement" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getSpacing">
+<span class="sig-name descname"><span class="pre">getSpacing</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getSpacing" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setSpacing">
+<span class="sig-name descname"><span class="pre">setSpacing</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setSpacing" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getSectionDepth">
+<span class="sig-name descname"><span class="pre">getSectionDepth</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getSectionDepth" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setSectionDepth">
+<span class="sig-name descname"><span class="pre">setSectionDepth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setSectionDepth" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getArea">
+<span class="sig-name descname"><span class="pre">getArea</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getArea" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setArea">
+<span class="sig-name descname"><span class="pre">setArea</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setArea" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getMomentOfInertia">
+<span class="sig-name descname"><span class="pre">getMomentOfInertia</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getMomentOfInertia" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setMomentOfInertia">
+<span class="sig-name descname"><span class="pre">setMomentOfInertia</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setMomentOfInertia" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getYoungsModulus">
+<span class="sig-name descname"><span class="pre">getYoungsModulus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getYoungsModulus" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setYoungsModulus">
+<span class="sig-name descname"><span class="pre">setYoungsModulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setYoungsModulus" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getCompressiveStrength">
+<span class="sig-name descname"><span class="pre">getCompressiveStrength</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getCompressiveStrength" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setCompressiveStrength">
+<span class="sig-name descname"><span class="pre">setCompressiveStrength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setCompressiveStrength" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getTensileStrength">
+<span class="sig-name descname"><span class="pre">getTensileStrength</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getTensileStrength" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setTensileStrength">
+<span class="sig-name descname"><span class="pre">setTensileStrength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setTensileStrength" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getWeight">
+<span class="sig-name descname"><span class="pre">getWeight</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getWeight" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setWeight">
+<span class="sig-name descname"><span class="pre">setWeight</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setWeight" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConcrete">
+<span class="sig-name descname"><span class="pre">getConcrete</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConcrete" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConcrete">
+<span class="sig-name descname"><span class="pre">setConcrete</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConcrete" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getThickness">
+<span class="sig-name descname"><span class="pre">getThickness</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getThickness" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setThickness">
+<span class="sig-name descname"><span class="pre">setThickness</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setThickness" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConcreteYoungsModulus">
+<span class="sig-name descname"><span class="pre">getConcreteYoungsModulus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConcreteYoungsModulus" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConcreteYoungsModulus">
+<span class="sig-name descname"><span class="pre">setConcreteYoungsModulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConcreteYoungsModulus" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getPoissonRatio">
+<span class="sig-name descname"><span class="pre">getPoissonRatio</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getPoissonRatio" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setPoissonRatio">
+<span class="sig-name descname"><span class="pre">setPoissonRatio</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setPoissonRatio" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConcreteCompressiveStrength">
+<span class="sig-name descname"><span class="pre">getConcreteCompressiveStrength</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConcreteCompressiveStrength" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConcreteCompressiveStrength">
+<span class="sig-name descname"><span class="pre">setConcreteCompressiveStrength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConcreteCompressiveStrength" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConcreteTensileStrength">
+<span class="sig-name descname"><span class="pre">getConcreteTensileStrength</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConcreteTensileStrength" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConcreteTensileStrength">
+<span class="sig-name descname"><span class="pre">setConcreteTensileStrength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConcreteTensileStrength" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getMaterialType">
+<span class="sig-name descname"><span class="pre">getMaterialType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.MaterialType" title="rs2.modeler.properties.PropertyEnums.MaterialType"><span class="pre">MaterialType</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getMaterialType" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setMaterialType">
+<span class="sig-name descname"><span class="pre">setMaterialType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.MaterialType" title="rs2.modeler.properties.PropertyEnums.MaterialType"><span class="pre">MaterialType</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setMaterialType" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getSlidingGap">
+<span class="sig-name descname"><span class="pre">getSlidingGap</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getSlidingGap" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setSlidingGap">
+<span class="sig-name descname"><span class="pre">setSlidingGap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setSlidingGap" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getStrainAtLocking">
+<span class="sig-name descname"><span class="pre">getStrainAtLocking</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getStrainAtLocking" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setStrainAtLocking">
+<span class="sig-name descname"><span class="pre">setStrainAtLocking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setStrainAtLocking" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getBeamElementFormulation">
+<span class="sig-name descname"><span class="pre">getBeamElementFormulation</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.LinerFormulation" title="rs2.modeler.properties.PropertyEnums.LinerFormulation"><span class="pre">LinerFormulation</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getBeamElementFormulation" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setBeamElementFormulation">
+<span class="sig-name descname"><span class="pre">setBeamElementFormulation</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.LinerFormulation" title="rs2.modeler.properties.PropertyEnums.LinerFormulation"><span class="pre">LinerFormulation</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setBeamElementFormulation" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getAxialStrainExpansion">
+<span class="sig-name descname"><span class="pre">getAxialStrainExpansion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getAxialStrainExpansion" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setAxialStrainExpansion">
+<span class="sig-name descname"><span class="pre">setAxialStrainExpansion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setAxialStrainExpansion" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getActivateThermal">
+<span class="sig-name descname"><span class="pre">getActivateThermal</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getActivateThermal" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setActivateThermal">
+<span class="sig-name descname"><span class="pre">setActivateThermal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setActivateThermal" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getStaticTemperatureMode">
+<span class="sig-name descname"><span class="pre">getStaticTemperatureMode</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getStaticTemperatureMode" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setStaticTemperatureMode">
+<span class="sig-name descname"><span class="pre">setStaticTemperatureMode</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setStaticTemperatureMode" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getStaticTemperature">
+<span class="sig-name descname"><span class="pre">getStaticTemperature</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getStaticTemperature" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setStaticTemperature">
+<span class="sig-name descname"><span class="pre">setStaticTemperature</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setStaticTemperature" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConductivity">
+<span class="sig-name descname"><span class="pre">getConductivity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConductivity" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConductivity">
+<span class="sig-name descname"><span class="pre">setConductivity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConductivity" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getSpecificHeatCapacity">
+<span class="sig-name descname"><span class="pre">getSpecificHeatCapacity</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getSpecificHeatCapacity" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setSpecificHeatCapacity">
+<span class="sig-name descname"><span class="pre">setSpecificHeatCapacity</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setSpecificHeatCapacity" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getThermalExpansion">
+<span class="sig-name descname"><span class="pre">getThermalExpansion</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getThermalExpansion" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setThermalExpansion">
+<span class="sig-name descname"><span class="pre">setThermalExpansion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setThermalExpansion" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getExpansionCoefficient">
+<span class="sig-name descname"><span class="pre">getExpansionCoefficient</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getExpansionCoefficient" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setExpansionCoefficient">
+<span class="sig-name descname"><span class="pre">setExpansionCoefficient</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setExpansionCoefficient" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getStageConcreteProperties">
+<span class="sig-name descname"><span class="pre">getStageConcreteProperties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getStageConcreteProperties" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setStageConcreteProperties">
+<span class="sig-name descname"><span class="pre">setStageConcreteProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setStageConcreteProperties" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getStaticTemperatureGridToUse">
+<span class="sig-name descname"><span class="pre">getStaticTemperatureGridToUse</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getStaticTemperatureGridToUse" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setStaticTemperatureGridToUse">
+<span class="sig-name descname"><span class="pre">setStaticTemperatureGridToUse</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">gridName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setStaticTemperatureGridToUse" title="Link to this definition">#</a></dt>
+<dd><p>Grids “None” and “Default Grid” available by default.</p>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setProperties">
+<span class="sig-name descname"><span class="pre">setProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">ConcreteUnitWeight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">IncludeWeightInStressAnalysis</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">InitialTemperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Reinforcement</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Spacing</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SectionDepth</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Area</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MomentOfInertia</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YoungsModulus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CompressiveStrength</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TensileStrength</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Weight</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Concrete</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Thickness</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ConcreteYoungsModulus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PoissonRatio</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ConcreteCompressiveStrength</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ConcreteTensileStrength</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MaterialType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.MaterialType" title="rs2.modeler.properties.PropertyEnums.MaterialType"><span class="pre">MaterialType</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SlidingGap</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">StrainAtLocking</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">BeamElementFormulation</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.LinerFormulation" title="rs2.modeler.properties.PropertyEnums.LinerFormulation"><span class="pre">LinerFormulation</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AxialStrainExpansion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ActivateThermal</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">StaticTemperatureMode</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.StaticWaterModes" title="rs2.modeler.properties.PropertyEnums.StaticWaterModes"><span class="pre">StaticWaterModes</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">StaticTemperature</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">Conductivity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SpecificHeatCapacity</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ThermalExpansion</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ExpansionCoefficient</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">StageConcreteProperties</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setProperties" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getProperties">
+<span class="sig-name descname"><span class="pre">getProperties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getProperties" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rs2.modeler.properties.liner.Liner.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">rs2.modeler.properties.liner.Liner module</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rs2.modeler.properties.liner.StandardBeam.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">rs2.modeler.properties.liner.StandardBeam module</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteStageFactor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getConcreteUnitWeightFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteStageFactor.getConcreteUnitWeightFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getAreaFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteStageFactor.getAreaFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getWeightFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteStageFactor.getWeightFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getThicknessFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteStageFactor.getThicknessFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getConcreteYoungsModulusFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteStageFactor.getConcreteYoungsModulusFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getConcreteCompressiveStrengthFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteStageFactor.getConcreteCompressiveStrengthFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getConcreteTensileStrengthFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteStageFactor.getConcreteTensileStrengthFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getAxialStrainExpansionFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteStageFactor.getAxialStrainExpansionFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getConductivityFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteStageFactor.getConductivityFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getSpecificHeatCapacityFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteStageFactor.getSpecificHeatCapacityFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteStageFactor.getExpansionCoefficientFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteStageFactor.getExpansionCoefficientFactor()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteDefinedStageFactor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setConcreteUnitWeightFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteDefinedStageFactor.setConcreteUnitWeightFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setAreaFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteDefinedStageFactor.setAreaFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setWeightFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteDefinedStageFactor.setWeightFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setThicknessFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteDefinedStageFactor.setThicknessFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setConcreteYoungsModulusFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteDefinedStageFactor.setConcreteYoungsModulusFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setConcreteCompressiveStrengthFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteDefinedStageFactor.setConcreteCompressiveStrengthFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setConcreteTensileStrengthFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteDefinedStageFactor.setConcreteTensileStrengthFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setAxialStrainExpansionFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteDefinedStageFactor.setAxialStrainExpansionFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setConductivityFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteDefinedStageFactor.setConductivityFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setSpecificHeatCapacityFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteDefinedStageFactor.setSpecificHeatCapacityFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcreteDefinedStageFactor.setExpansionCoefficientFactor"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcreteDefinedStageFactor.setExpansionCoefficientFactor()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConcreteUnitWeight"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getConcreteUnitWeight()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConcreteUnitWeight"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setConcreteUnitWeight()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getIncludeWeightInStressAnalysis"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getIncludeWeightInStressAnalysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setIncludeWeightInStressAnalysis"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setIncludeWeightInStressAnalysis()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getInitialTemperature"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getInitialTemperature()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setInitialTemperature"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setInitialTemperature()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getReinforcement"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getReinforcement()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setReinforcement"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setReinforcement()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getSpacing"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getSpacing()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setSpacing"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setSpacing()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getSectionDepth"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getSectionDepth()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setSectionDepth"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setSectionDepth()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getArea"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getArea()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setArea"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setArea()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getMomentOfInertia"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getMomentOfInertia()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setMomentOfInertia"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setMomentOfInertia()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getYoungsModulus"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getYoungsModulus()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setYoungsModulus"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setYoungsModulus()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getCompressiveStrength"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getCompressiveStrength()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setCompressiveStrength"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setCompressiveStrength()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getTensileStrength"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getTensileStrength()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setTensileStrength"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setTensileStrength()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getWeight"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getWeight()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setWeight"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setWeight()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConcrete"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getConcrete()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConcrete"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setConcrete()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getThickness"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getThickness()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setThickness"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setThickness()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConcreteYoungsModulus"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getConcreteYoungsModulus()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConcreteYoungsModulus"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setConcreteYoungsModulus()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getPoissonRatio"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getPoissonRatio()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setPoissonRatio"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setPoissonRatio()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConcreteCompressiveStrength"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getConcreteCompressiveStrength()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConcreteCompressiveStrength"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setConcreteCompressiveStrength()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConcreteTensileStrength"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getConcreteTensileStrength()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConcreteTensileStrength"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setConcreteTensileStrength()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getMaterialType"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getMaterialType()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setMaterialType"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setMaterialType()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getSlidingGap"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getSlidingGap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setSlidingGap"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setSlidingGap()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getStrainAtLocking"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getStrainAtLocking()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setStrainAtLocking"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setStrainAtLocking()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getBeamElementFormulation"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getBeamElementFormulation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setBeamElementFormulation"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setBeamElementFormulation()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getAxialStrainExpansion"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getAxialStrainExpansion()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setAxialStrainExpansion"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setAxialStrainExpansion()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getActivateThermal"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getActivateThermal()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setActivateThermal"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setActivateThermal()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getStaticTemperatureMode"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getStaticTemperatureMode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setStaticTemperatureMode"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setStaticTemperatureMode()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getStaticTemperature"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getStaticTemperature()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setStaticTemperature"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setStaticTemperature()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getConductivity"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getConductivity()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setConductivity"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setConductivity()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getSpecificHeatCapacity"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getSpecificHeatCapacity()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setSpecificHeatCapacity"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setSpecificHeatCapacity()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getThermalExpansion"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getThermalExpansion()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setThermalExpansion"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setThermalExpansion()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getExpansionCoefficient"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getExpansionCoefficient()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setExpansionCoefficient"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setExpansionCoefficient()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getStageConcreteProperties"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getStageConcreteProperties()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setStageConcreteProperties"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setStageConcreteProperties()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getStaticTemperatureGridToUse"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getStaticTemperatureGridToUse()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setStaticTemperatureGridToUse"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setStaticTemperatureGridToUse()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.setProperties"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.setProperties()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.liner.ReinforcedConcrete.ReinforcedConcrete.getProperties"><code class="docutils literal notranslate"><span class="pre">ReinforcedConcrete.getProperties()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/generatedAPIDocFiles/rs2.modeler.properties.liner.ReinforcedConcrete.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Rocscience Inc..
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

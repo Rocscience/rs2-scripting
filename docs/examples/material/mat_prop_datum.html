@@ -1,0 +1,627 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Material Properties Datum Script Examples &#8212; RS2 Scripting Reference Manual  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/material/mat_prop_datum';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Material Stiffness Properties Script Examples" href="mat_prop_stiffness.html" />
+    <link rel="prev" title="Material Joint Stage Factor Script Examples" href="mat_joint_stage.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../generatedAPIDocFiles/rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../generatedAPIDocFiles/rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../model/model.html">Model Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/modeler.html">Modeler Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/mesh.html">Mesh Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/unit.html">Unit Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/material_joint.html">Material Joint Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/stage_factor.html">Stage Factor Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/import_export_prop.html">Import Export Properties Script Examples</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="mat.html">Material Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mat_init_cond.html">Material Initial Condition Stage Factor Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mat_joint_stage.html">Material Joint Stage Factor Script Examples</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Material Properties Datum Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mat_prop_stiffness.html">Material Stiffness Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mat_prop_strength.html">Material Strength Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mat_prop_thermal.html">Material Thermal Properties Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_prop.html">Hydraulic Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_static.html">Static Groundwater Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_gw.html">FEA Groundwater Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_distribution_functions.html">Hydraulic Distribution Functions Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../support/bolt.html">Bolt Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/joint.html">Joint Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/liner.html">Liner Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/pile.html">Pile Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/structural_interface.html">Structural Interface Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/composite_liner.html">Composite Liner Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/support_stage_factor.html">Support Stage Factor Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../result/history_query.html">History Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/time_query.html">Time Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/material_query.html">Material Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/bolt_result.html">Bolt Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/joint_result.html">Joint Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/liner_result.html">Liner Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/pile_result.html">Pile Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/structural_result.html">Structural Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/composite_result.html">Composite Result Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../support_functions/extract_log_files.html">Extract Log File Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support_functions/check_convergence.html">Check Convergence Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../webinar/20240709_bolt_spacing_study.html">Bolt Spacing Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webinar/20240709_slope_spatial_variability.html">Statistical Analysis of Slope with Spatial Variability</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../examples.html" class="nav-link">Python Script Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Material Properties Datum Script Examples</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="material-properties-datum-script-examples">
+<h1>Material Properties Datum Script Examples<a class="headerlink" href="#material-properties-datum-script-examples" title="Link to this heading">#</a></h1>
+<p>Download the <a class="reference external" href="https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/ExampleModel.fez">ExampleModel.fez</a> for this example.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<span id="material-property-datum-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Datum Properties</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">RS2Modeler</span><span class="o">.</span><span class="n">startApplication</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60064</span><span class="p">)</span>
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60064</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+
+<span class="n">material</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllMaterialProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Make sure to set Material Stiffness Type to Isotropic before changing Datum Dependency Properties</span>
+<span class="n">material</span><span class="o">.</span><span class="n">Stiffness</span><span class="o">.</span><span class="n">setElasticType</span><span class="p">(</span><span class="n">MaterialElasticityTypes</span><span class="o">.</span><span class="n">ISOTROPIC</span><span class="p">)</span>
+<span class="n">material</span><span class="o">.</span><span class="n">Datum</span><span class="o">.</span><span class="n">setUsingDatum</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">youngDatum</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Datum</span><span class="o">.</span><span class="n">getDatumYoungsModulus</span><span class="p">()</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setUsing</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">DatumType</span><span class="o">.</span><span class="n">DATUM_TYPE_DEPTH</span><span class="p">)</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setDatum</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">DatumType</span><span class="o">.</span><span class="n">DATUM_TYPE_RADIAL</span><span class="p">)</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setCenter</span><span class="p">(</span><span class="mf">3.5</span><span class="p">,</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setUseCutoff</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setChange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">youngDatum</span><span class="o">.</span><span class="n">setCutoff</span><span class="p">(</span><span class="mf">0.8</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Youngs Modulus Datum Dependent Type:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Datum Type = </span><span class="si">{</span><span class="n">youngDatum</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span><span class="si">}</span><span class="s2">, Datum Value = </span><span class="si">{</span><span class="n">youngDatum</span><span class="o">.</span><span class="n">getDatum</span><span class="p">()</span><span class="si">}</span><span class="s2">, Center = </span><span class="si">{</span><span class="n">youngDatum</span><span class="o">.</span><span class="n">getCenter</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use Cutoff = </span><span class="si">{</span><span class="n">youngDatum</span><span class="o">.</span><span class="n">getUseCutoff</span><span class="p">()</span><span class="si">}</span><span class="s2">, Datum Change = </span><span class="si">{</span><span class="n">youngDatum</span><span class="o">.</span><span class="n">getChange</span><span class="p">()</span><span class="si">}</span><span class="s2">, Cutoff = </span><span class="si">{</span><span class="n">youngDatum</span><span class="o">.</span><span class="n">getCutoff</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Set Material Strength failure criterion to Mohr-Coulomb and material type to Plastic</span>
+<span class="c1"># This allows to specify properties for Friction and Cohesion Datum Dependent Types</span>
+<span class="n">material</span><span class="o">.</span><span class="n">Strength</span><span class="o">.</span><span class="n">setFailureCriterion</span><span class="p">(</span><span class="n">StrengthCriteriaTypes</span><span class="o">.</span><span class="n">MOHR_COULOMB</span><span class="p">)</span>
+<span class="n">material</span><span class="o">.</span><span class="n">Strength</span><span class="o">.</span><span class="n">MohrCoulombStrength</span><span class="o">.</span><span class="n">setMaterialType</span><span class="p">(</span><span class="n">MaterialType</span><span class="o">.</span><span class="n">PLASTIC</span><span class="p">)</span>
+
+<span class="n">frictionDatum</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Datum</span><span class="o">.</span><span class="n">getDatumFrictionAngle</span><span class="p">()</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setUsing</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">DatumType</span><span class="o">.</span><span class="n">DATUM_TYPE_DEPTH</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setDatum</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">DatumType</span><span class="o">.</span><span class="n">DATUM_TYPE_DEPTH</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setCenter</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setPeakChange</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setUsePeakCutoff</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setPeakCutoffValue</span><span class="p">(</span><span class="mi">44</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setResidualChange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setUseResidualCutoff</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">frictionDatum</span><span class="o">.</span><span class="n">setResidualCutoffValue</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Friction Datum Dependent Type:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Datum Type = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span><span class="si">}</span><span class="s2">, Datum Value = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getDatum</span><span class="p">()</span><span class="si">}</span><span class="s2">, Center = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getCenter</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use Peak Cutoff = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getUsePeakCutoff</span><span class="p">()</span><span class="si">}</span><span class="s2">, Peak Change = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getPeakChange</span><span class="p">()</span><span class="si">}</span><span class="s2">, Peak Cutoff = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getPeakCutoffValue</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use Residual Cutoff = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getUseResidualCutoff</span><span class="p">()</span><span class="si">}</span><span class="s2">, Residual Cutoff Value = </span><span class="si">{</span><span class="n">frictionDatum</span><span class="o">.</span><span class="n">getResidualCutoffValue</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">cohesion</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Datum</span><span class="o">.</span><span class="n">getDatumCohesion</span><span class="p">()</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">DatumType</span><span class="o">.</span><span class="n">DATUM_TYPE_DEPTH</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setDatum</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">DatumType</span><span class="o">.</span><span class="n">DATUM_TYPE_RADIAL</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setCenter</span><span class="p">(</span><span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setPeakChange</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setUsePeakCutoff</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setPeakCutoffValue</span><span class="p">(</span><span class="mi">44</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setResidualChange</span><span class="p">(</span><span class="mf">0.5</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setUseResidualCutoff</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">cohesion</span><span class="o">.</span><span class="n">setResidualCutoffValue</span><span class="p">(</span><span class="mi">45</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Cohesion Datum Dependent Type:&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Datum Type = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span><span class="si">}</span><span class="s2">, Datum Value = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getDatum</span><span class="p">()</span><span class="si">}</span><span class="s2">, Center = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getCenter</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use Peak Cutoff = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getUsePeakCutoff</span><span class="p">()</span><span class="si">}</span><span class="s2">, Peak Change = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getPeakChange</span><span class="p">()</span><span class="si">}</span><span class="s2">, Peak Cutoff = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getPeakCutoffValue</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Use Residual Cutoff = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getUseResidualCutoff</span><span class="p">()</span><span class="si">}</span><span class="s2">, Residual Cutoff Value = </span><span class="si">{</span><span class="n">cohesion</span><span class="o">.</span><span class="n">getResidualCutoffValue</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Manipulation of Datum Stage Factor Properties for stage 2</span>
+
+<span class="c1"># Make sure to stage Datum Stage Factor option before manipulating any factor properties</span>
+<span class="n">material</span><span class="o">.</span><span class="n">StageFactors</span><span class="o">.</span><span class="n">setStageDatumStageFactor</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">definedStageFactors</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">StageFactors</span><span class="o">.</span><span class="n">getDefinedStageFactors</span><span class="p">()</span>
+<span class="n">newStageFactor</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">StageFactors</span><span class="o">.</span><span class="n">createStageFactor</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">definedStageFactors</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">newStageFactor</span>
+<span class="n">material</span><span class="o">.</span><span class="n">StageFactors</span><span class="o">.</span><span class="n">setDefinedStageFactors</span><span class="p">(</span><span class="n">definedStageFactors</span><span class="p">)</span>
+<span class="n">datumStageFactor</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Datum</span><span class="o">.</span><span class="n">stageFactorInterface</span><span class="o">.</span><span class="n">getDefinedStageFactors</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">datumYoungStageFactor</span> <span class="o">=</span> <span class="n">datumStageFactor</span><span class="o">.</span><span class="n">getDatumYoungsStageFactor</span><span class="p">()</span>
+<span class="n">datumYoungStageFactor</span><span class="o">.</span><span class="n">setChange</span><span class="p">(</span><span class="mf">0.2</span><span class="p">)</span>
+<span class="n">datumYoungStageFactor</span><span class="o">.</span><span class="n">setDatum</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">datumYoungStageFactor</span><span class="o">.</span><span class="n">setPeakCutoffValue</span><span class="p">(</span><span class="mf">4.42</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Change Factor = </span><span class="si">{</span><span class="n">datumYoungStageFactor</span><span class="o">.</span><span class="n">getChange</span><span class="p">()</span><span class="si">}</span><span class="s2">, Datum Factor Value= </span><span class="si">{</span><span class="n">datumYoungStageFactor</span><span class="o">.</span><span class="n">getDatum</span><span class="p">()</span><span class="si">}</span><span class="s2">, Peak Cutoff Value Factor = </span><span class="si">{</span><span class="n">datumYoungStageFactor</span><span class="o">.</span><span class="n">getPeakCutoffValue</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+<span class="n">modeler</span><span class="o">.</span><span class="n">closeProgram</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<section id="output">
+<h2>Output<a class="headerlink" href="#output" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="n">Youngs</span> <span class="n">Modulus</span> <span class="n">Datum</span> <span class="n">Dependent</span> <span class="n">Type</span><span class="p">:</span>
+<span class="n">Datum</span> <span class="n">Type</span> <span class="o">=</span> <span class="n">DatumType</span><span class="o">.</span><span class="n">DATUM_TYPE_RADIAL</span><span class="p">,</span> <span class="n">Datum</span> <span class="n">Value</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="n">Center</span> <span class="o">=</span> <span class="p">(</span><span class="mf">3.5</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">)</span>
+<span class="n">Use</span> <span class="n">Cutoff</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">Datum</span> <span class="n">Change</span> <span class="o">=</span> <span class="mf">0.5</span><span class="p">,</span> <span class="n">Cutoff</span> <span class="o">=</span> <span class="mf">0.8</span>
+
+
+<span class="n">Friction</span> <span class="n">Datum</span> <span class="n">Dependent</span> <span class="n">Type</span><span class="p">:</span>
+<span class="n">Datum</span> <span class="n">Type</span> <span class="o">=</span> <span class="n">DatumType</span><span class="o">.</span><span class="n">DATUM_TYPE_DEPTH</span><span class="p">,</span> <span class="n">Datum</span> <span class="n">Value</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="n">Center</span> <span class="o">=</span> <span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">)</span>
+<span class="n">Use</span> <span class="n">Peak</span> <span class="n">Cutoff</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">Peak</span> <span class="n">Change</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">Peak</span> <span class="n">Cutoff</span> <span class="o">=</span> <span class="mf">44.0</span>
+<span class="n">Use</span> <span class="n">Residual</span> <span class="n">Cutoff</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">Residual</span> <span class="n">Cutoff</span> <span class="n">Value</span> <span class="o">=</span> <span class="mf">45.0</span>
+
+
+<span class="n">Cohesion</span> <span class="n">Datum</span> <span class="n">Dependent</span> <span class="n">Type</span><span class="p">:</span>
+<span class="n">Datum</span> <span class="n">Type</span> <span class="o">=</span> <span class="n">DatumType</span><span class="o">.</span><span class="n">DATUM_TYPE_RADIAL</span><span class="p">,</span> <span class="n">Datum</span> <span class="n">Value</span> <span class="o">=</span> <span class="mf">5.0</span><span class="p">,</span> <span class="n">Center</span> <span class="o">=</span> <span class="p">(</span><span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">)</span>
+<span class="n">Use</span> <span class="n">Peak</span> <span class="n">Cutoff</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">Peak</span> <span class="n">Change</span> <span class="o">=</span> <span class="mf">1.0</span><span class="p">,</span> <span class="n">Peak</span> <span class="n">Cutoff</span> <span class="o">=</span> <span class="mf">44.0</span>
+<span class="n">Use</span> <span class="n">Residual</span> <span class="n">Cutoff</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">Residual</span> <span class="n">Cutoff</span> <span class="n">Value</span> <span class="o">=</span> <span class="mf">45.0</span>
+
+<span class="n">Change</span> <span class="n">Factor</span> <span class="o">=</span> <span class="mf">0.2</span><span class="p">,</span> <span class="n">Datum</span> <span class="n">Factor</span> <span class="n">Value</span><span class="o">=</span> <span class="mf">3.0</span><span class="p">,</span> <span class="n">Peak</span> <span class="n">Cutoff</span> <span class="n">Value</span> <span class="n">Factor</span> <span class="o">=</span> <span class="mf">4.42</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="mat_joint_stage.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Material Joint Stage Factor Script Examples</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="mat_prop_stiffness.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Material Stiffness Properties Script Examples</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/examples/material/mat_prop_datum.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Rocscience Inc..
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

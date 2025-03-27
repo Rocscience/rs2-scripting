@@ -1,0 +1,933 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>rs2.modeler.properties.material.stiffness.Orthotropic module &#8212; RS2 Scripting Reference Manual  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generatedAPIDocFiles/rs2.modeler.properties.material.stiffness.Orthotropic';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="rs2.modeler.properties.material.stiffness.Pm4Sand module" href="rs2.modeler.properties.material.stiffness.Pm4Sand.html" />
+    <link rel="prev" title="rs2.modeler.properties.material.stiffness.Norsand module" href="rs2.modeler.properties.material.stiffness.Norsand.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="rs2.interpreter.html">rs2.interpreter package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="rs2.interpreter.queryResults.html">rs2.interpreter.queryResults package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.HistoryQueryResults.html">rs2.interpreter.queryResults.HistoryQueryResults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.MaterialQueryResults.html">rs2.interpreter.queryResults.MaterialQueryResults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.MeshResults.html">rs2.interpreter.queryResults.MeshResults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.TimeQueryResults.html">rs2.interpreter.queryResults.TimeQueryResults module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="rs2.interpreter.supportResults.html">rs2.interpreter.supportResults package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.BoltResult.html">rs2.interpreter.supportResults.BoltResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.CompositeResult.html">rs2.interpreter.supportResults.CompositeResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.JointResult.html">rs2.interpreter.supportResults.JointResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.LinerResult.html">rs2.interpreter.supportResults.LinerResult module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.InterpreterEnums.html">rs2.interpreter.InterpreterEnums module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.InterpreterGraphEnums.html">rs2.interpreter.InterpreterGraphEnums module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.InterpreterModel.html">rs2.interpreter.InterpreterModel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.RS2Interpreter.html">rs2.interpreter.RS2Interpreter module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="rs2.modeler.html">rs2.modeler package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="rs2.modeler.properties.html">rs2.modeler.properties package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.bolt.html">rs2.modeler.properties.bolt package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Bolt.html">rs2.modeler.properties.bolt.Bolt module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.EndAnchored.html">rs2.modeler.properties.bolt.EndAnchored module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.FullyBonded.html">rs2.modeler.properties.bolt.FullyBonded module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.PlainStrandCable.html">rs2.modeler.properties.bolt.PlainStrandCable module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Swellex.html">rs2.modeler.properties.bolt.Swellex module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Tieback.html">rs2.modeler.properties.bolt.Tieback module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.joint.html">rs2.modeler.properties.joint package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandis.html">rs2.modeler.properties.joint.BartonBandis module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandisMaterial.html">rs2.modeler.properties.joint.BartonBandisMaterial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.DisplacementDependent.html">rs2.modeler.properties.joint.DisplacementDependent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.GeosyntheticHyperbolic.html">rs2.modeler.properties.joint.GeosyntheticHyperbolic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.GeosyntheticHyperbolicMaterial.html">rs2.modeler.properties.joint.GeosyntheticHyperbolicMaterial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.HyperbolicSoftening.html">rs2.modeler.properties.joint.HyperbolicSoftening module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.Joint.html">rs2.modeler.properties.joint.Joint module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.MaterialDependent.html">rs2.modeler.properties.joint.MaterialDependent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.MohrCoulomb.html">rs2.modeler.properties.joint.MohrCoulomb module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.MohrCoulombMaterial.html">rs2.modeler.properties.joint.MohrCoulombMaterial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.NoneSlip.html">rs2.modeler.properties.joint.NoneSlip module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.liner.html">rs2.modeler.properties.liner package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.CableTruss.html">rs2.modeler.properties.liner.CableTruss module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.Geosynthetic.html">rs2.modeler.properties.liner.Geosynthetic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.Liner.html">rs2.modeler.properties.liner.Liner module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.ReinforcedConcrete.html">rs2.modeler.properties.liner.ReinforcedConcrete module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.StandardBeam.html">rs2.modeler.properties.liner.StandardBeam module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="rs2.modeler.properties.material.html">rs2.modeler.properties.material package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.datum.html">rs2.modeler.properties.material.datum package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.html">rs2.modeler.properties.material.hydraulic package</a></li>
+<li class="toctree-l4 current active"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.html">rs2.modeler.properties.material.stiffness package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.strength.html">rs2.modeler.properties.material.strength package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.thermal.html">rs2.modeler.properties.material.thermal package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.InitialConditions.html">rs2.modeler.properties.material.InitialConditions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.MaterialProperty.html">rs2.modeler.properties.material.MaterialProperty module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.StageFactors.html">rs2.modeler.properties.material.StageFactors module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.pile.html">rs2.modeler.properties.pile package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Beam.html">rs2.modeler.properties.pile.Beam module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Elastic.html">rs2.modeler.properties.pile.Elastic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.ForceDisplacement.html">rs2.modeler.properties.pile.ForceDisplacement module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Linear.html">rs2.modeler.properties.pile.Linear module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.MaterialDependentPile.html">rs2.modeler.properties.pile.MaterialDependentPile module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.MohrCoulombPile.html">rs2.modeler.properties.pile.MohrCoulombPile module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.MultiLinear.html">rs2.modeler.properties.pile.MultiLinear module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Pile.html">rs2.modeler.properties.pile.Pile module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.AbsoluteStageFactorGettersInterface.html">rs2.modeler.properties.AbsoluteStageFactorGettersInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.AbsoluteStageFactorInterface.html">rs2.modeler.properties.AbsoluteStageFactorInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.CompositeProperty.html">rs2.modeler.properties.CompositeProperty module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.DiscreteFunction.html">rs2.modeler.properties.DiscreteFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.HydroDistributionFunction.html">rs2.modeler.properties.HydroDistributionFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.MaterialJoint.html">rs2.modeler.properties.MaterialJoint module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.MaterialJointOptions.html">rs2.modeler.properties.MaterialJointOptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html">rs2.modeler.properties.PropertyEnums module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.RelativeStageFactorInterface.html">rs2.modeler.properties.RelativeStageFactorInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.ShearNormalFunction.html">rs2.modeler.properties.ShearNormalFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.SnowdenAnisotropicFunction.html">rs2.modeler.properties.SnowdenAnisotropicFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.StructuralInterface.html">rs2.modeler.properties.StructuralInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.UserDefinedWaterMode.html">rs2.modeler.properties.UserDefinedWaterMode module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.Model.html">rs2.modeler.Model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.RS2Modeler.html">rs2.modeler.RS2Modeler module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="rs2.utilities.html">rs2.utilities package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rs2.utilities.ApplicationManager.html">rs2.utilities.ApplicationManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.utilities.ColorPicker.html">rs2.utilities.ColorPicker module</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rs2.BaseModel.html">rs2.BaseModel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rs2.Units.html">rs2.Units module</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="rs2.html" class="nav-link">rs2 package</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="rs2.modeler.html" class="nav-link">rs2.modeler package</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="rs2.modeler.properties.html" class="nav-link">rs2.modeler.properties package</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="rs2.modeler.properties.material.html" class="nav-link">rs2.modeler.properties.material package</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="rs2.modeler.properties.material.stiffness.html" class="nav-link">rs2.modeler.properties.material.stiffness package</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">rs2.modeler.properties.material.stiffness.Orthotropic module</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-rs2.modeler.properties.material.stiffness.Orthotropic">
+<span id="rs2-modeler-properties-material-stiffness-orthotropic-module"></span><h1>rs2.modeler.properties.material.stiffness.Orthotropic module<a class="headerlink" href="#module-rs2.modeler.properties.material.stiffness.Orthotropic" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.stiffness.Orthotropic.</span></span><span class="sig-name descname"><span class="pre">OrthotropicStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ProxyObject</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getAngleCounterclockwiseFromHorizontalToE1Factor">
+<span class="sig-name descname"><span class="pre">getAngleCounterclockwiseFromHorizontalToE1Factor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getAngleCounterclockwiseFromHorizontalToE1Factor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getPoissonsRatioV12Factor">
+<span class="sig-name descname"><span class="pre">getPoissonsRatioV12Factor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getPoissonsRatioV12Factor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getPoissonsRatioV2Factor">
+<span class="sig-name descname"><span class="pre">getPoissonsRatioV2Factor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getPoissonsRatioV2Factor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getPoissonsRatioV2zFactor">
+<span class="sig-name descname"><span class="pre">getPoissonsRatioV2zFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getPoissonsRatioV2zFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getShearModulusFactor">
+<span class="sig-name descname"><span class="pre">getShearModulusFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getShearModulusFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getYoungsModulusE1Factor">
+<span class="sig-name descname"><span class="pre">getYoungsModulusE1Factor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getYoungsModulusE1Factor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getYoungsModulusE2Factor">
+<span class="sig-name descname"><span class="pre">getYoungsModulusE2Factor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getYoungsModulusE2Factor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getYoungsModulusEZFactor">
+<span class="sig-name descname"><span class="pre">getYoungsModulusEZFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getYoungsModulusEZFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.stiffness.Orthotropic.</span></span><span class="sig-name descname"><span class="pre">OrthotropicDefinedStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor" title="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">OrthotropicStageFactor</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setAngleCounterclockwiseFromHorizontalToE1Factor">
+<span class="sig-name descname"><span class="pre">setAngleCounterclockwiseFromHorizontalToE1Factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setAngleCounterclockwiseFromHorizontalToE1Factor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setPoissonsRatioV12Factor">
+<span class="sig-name descname"><span class="pre">setPoissonsRatioV12Factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setPoissonsRatioV12Factor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setPoissonsRatioV2Factor">
+<span class="sig-name descname"><span class="pre">setPoissonsRatioV2Factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setPoissonsRatioV2Factor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setPoissonsRatioV2zFactor">
+<span class="sig-name descname"><span class="pre">setPoissonsRatioV2zFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setPoissonsRatioV2zFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setShearModulusFactor">
+<span class="sig-name descname"><span class="pre">setShearModulusFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setShearModulusFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setYoungsModulusE1Factor">
+<span class="sig-name descname"><span class="pre">setYoungsModulusE1Factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setYoungsModulusE1Factor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setYoungsModulusE2Factor">
+<span class="sig-name descname"><span class="pre">setYoungsModulusE2Factor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setYoungsModulusE2Factor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setYoungsModulusEZFactor">
+<span class="sig-name descname"><span class="pre">setYoungsModulusEZFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setYoungsModulusEZFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.stiffness.Orthotropic.</span></span><span class="sig-name descname"><span class="pre">Orthotropic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentProxyID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stageFactorInterfaceID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PropertyProxy</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stageFactorInterface</strong> (<a class="reference internal" href="rs2.modeler.properties.AbsoluteStageFactorGettersInterface.html#rs2.modeler.properties.AbsoluteStageFactorGettersInterface.AbsoluteStageFactorGettersInterface" title="rs2.modeler.properties.AbsoluteStageFactorGettersInterface.AbsoluteStageFactorGettersInterface"><em>AbsoluteStageFactorGettersInterface</em></a><em>[</em><a class="reference internal" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor" title="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor"><em>OrthotropicDefinedStageFactor</em></a><em>, </em><a class="reference internal" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor" title="rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor"><em>OrthotropicStageFactor</em></a><em>]</em>) – Reference object for modifying stage factor property.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples/material/mat_prop_stiffness.html#material-property-stiffness-example"><span class="std std-ref">Code Snippet: Manipulation of Stiffness Properties</span></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUseUnloadingCondition">
+<span class="sig-name descname"><span class="pre">getUseUnloadingCondition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUseUnloadingCondition" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUseUnloadingCondition">
+<span class="sig-name descname"><span class="pre">setUseUnloadingCondition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUseUnloadingCondition" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingCondition">
+<span class="sig-name descname"><span class="pre">getUnloadingCondition</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.UnloadingConditions" title="rs2.modeler.properties.PropertyEnums.UnloadingConditions"><span class="pre">UnloadingConditions</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingCondition" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingCondition">
+<span class="sig-name descname"><span class="pre">setUnloadingCondition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.UnloadingConditions" title="rs2.modeler.properties.PropertyEnums.UnloadingConditions"><span class="pre">UnloadingConditions</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingCondition" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getShearModulus">
+<span class="sig-name descname"><span class="pre">getShearModulus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getShearModulus" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setShearModulus">
+<span class="sig-name descname"><span class="pre">setShearModulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setShearModulus" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getAngleCounterclockwiseFromHorizontalToE1">
+<span class="sig-name descname"><span class="pre">getAngleCounterclockwiseFromHorizontalToE1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getAngleCounterclockwiseFromHorizontalToE1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setAngleCounterclockwiseFromHorizontalToE1">
+<span class="sig-name descname"><span class="pre">setAngleCounterclockwiseFromHorizontalToE1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setAngleCounterclockwiseFromHorizontalToE1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getYoungsModulusE1">
+<span class="sig-name descname"><span class="pre">getYoungsModulusE1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getYoungsModulusE1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setYoungsModulusE1">
+<span class="sig-name descname"><span class="pre">setYoungsModulusE1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setYoungsModulusE1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getYoungsModulusE2">
+<span class="sig-name descname"><span class="pre">getYoungsModulusE2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getYoungsModulusE2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setYoungsModulusE2">
+<span class="sig-name descname"><span class="pre">setYoungsModulusE2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setYoungsModulusE2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getYoungsModulusEZ">
+<span class="sig-name descname"><span class="pre">getYoungsModulusEZ</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getYoungsModulusEZ" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setYoungsModulusEZ">
+<span class="sig-name descname"><span class="pre">setYoungsModulusEZ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setYoungsModulusEZ" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getPoissonsRatioV12">
+<span class="sig-name descname"><span class="pre">getPoissonsRatioV12</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getPoissonsRatioV12" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setPoissonsRatioV12">
+<span class="sig-name descname"><span class="pre">setPoissonsRatioV12</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setPoissonsRatioV12" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getPoissonsRatioV2">
+<span class="sig-name descname"><span class="pre">getPoissonsRatioV2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getPoissonsRatioV2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setPoissonsRatioV2">
+<span class="sig-name descname"><span class="pre">setPoissonsRatioV2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setPoissonsRatioV2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getPoissonsRatioV2z">
+<span class="sig-name descname"><span class="pre">getPoissonsRatioV2z</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getPoissonsRatioV2z" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setPoissonsRatioV2z">
+<span class="sig-name descname"><span class="pre">setPoissonsRatioV2z</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setPoissonsRatioV2z" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingShearModulus">
+<span class="sig-name descname"><span class="pre">getUnloadingShearModulus</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingShearModulus" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingShearModulus">
+<span class="sig-name descname"><span class="pre">setUnloadingShearModulus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingShearModulus" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingAngleCounterclockwiseFromHorizontalToE1">
+<span class="sig-name descname"><span class="pre">getUnloadingAngleCounterclockwiseFromHorizontalToE1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingAngleCounterclockwiseFromHorizontalToE1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingAngleCounterclockwiseFromHorizontalToE1">
+<span class="sig-name descname"><span class="pre">setUnloadingAngleCounterclockwiseFromHorizontalToE1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingAngleCounterclockwiseFromHorizontalToE1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingYoungsModulusE1">
+<span class="sig-name descname"><span class="pre">getUnloadingYoungsModulusE1</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingYoungsModulusE1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingYoungsModulusE1">
+<span class="sig-name descname"><span class="pre">setUnloadingYoungsModulusE1</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingYoungsModulusE1" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingYoungsModulusE2">
+<span class="sig-name descname"><span class="pre">getUnloadingYoungsModulusE2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingYoungsModulusE2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingYoungsModulusE2">
+<span class="sig-name descname"><span class="pre">setUnloadingYoungsModulusE2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingYoungsModulusE2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingYoungsModulusEZ">
+<span class="sig-name descname"><span class="pre">getUnloadingYoungsModulusEZ</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingYoungsModulusEZ" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingYoungsModulusEZ">
+<span class="sig-name descname"><span class="pre">setUnloadingYoungsModulusEZ</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingYoungsModulusEZ" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingPoissonsRatioV12">
+<span class="sig-name descname"><span class="pre">getUnloadingPoissonsRatioV12</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingPoissonsRatioV12" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingPoissonsRatioV12">
+<span class="sig-name descname"><span class="pre">setUnloadingPoissonsRatioV12</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingPoissonsRatioV12" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingPoissonsRatioV2">
+<span class="sig-name descname"><span class="pre">getUnloadingPoissonsRatioV2</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingPoissonsRatioV2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingPoissonsRatioV2">
+<span class="sig-name descname"><span class="pre">setUnloadingPoissonsRatioV2</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingPoissonsRatioV2" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingPoissonsRatioV2z">
+<span class="sig-name descname"><span class="pre">getUnloadingPoissonsRatioV2z</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingPoissonsRatioV2z" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingPoissonsRatioV2z">
+<span class="sig-name descname"><span class="pre">setUnloadingPoissonsRatioV2z</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingPoissonsRatioV2z" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setProperties">
+<span class="sig-name descname"><span class="pre">setProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">UseUnloadingCondition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">UnloadingCondition</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.UnloadingConditions" title="rs2.modeler.properties.PropertyEnums.UnloadingConditions"><span class="pre">UnloadingConditions</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ShearModulus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AngleCounterclockwiseFromHorizontalToE1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YoungsModulusE1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YoungsModulusE2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">YoungsModulusEZ</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PoissonsRatioV12</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PoissonsRatioV2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">PoissonsRatioV2z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">UnloadingShearModulus</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">UnloadingAngleCounterclockwiseFromHorizontalToE1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">UnloadingYoungsModulusE1</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">UnloadingYoungsModulusE2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">UnloadingYoungsModulusEZ</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">UnloadingPoissonsRatioV12</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">UnloadingPoissonsRatioV2</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">UnloadingPoissonsRatioV2z</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setProperties" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getProperties">
+<span class="sig-name descname"><span class="pre">getProperties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getProperties" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rs2.modeler.properties.material.stiffness.Norsand.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">rs2.modeler.properties.material.stiffness.Norsand module</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rs2.modeler.properties.material.stiffness.Pm4Sand.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">rs2.modeler.properties.material.stiffness.Pm4Sand module</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor"><code class="docutils literal notranslate"><span class="pre">OrthotropicStageFactor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getAngleCounterclockwiseFromHorizontalToE1Factor"><code class="docutils literal notranslate"><span class="pre">OrthotropicStageFactor.getAngleCounterclockwiseFromHorizontalToE1Factor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getPoissonsRatioV12Factor"><code class="docutils literal notranslate"><span class="pre">OrthotropicStageFactor.getPoissonsRatioV12Factor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getPoissonsRatioV2Factor"><code class="docutils literal notranslate"><span class="pre">OrthotropicStageFactor.getPoissonsRatioV2Factor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getPoissonsRatioV2zFactor"><code class="docutils literal notranslate"><span class="pre">OrthotropicStageFactor.getPoissonsRatioV2zFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getShearModulusFactor"><code class="docutils literal notranslate"><span class="pre">OrthotropicStageFactor.getShearModulusFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getYoungsModulusE1Factor"><code class="docutils literal notranslate"><span class="pre">OrthotropicStageFactor.getYoungsModulusE1Factor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getYoungsModulusE2Factor"><code class="docutils literal notranslate"><span class="pre">OrthotropicStageFactor.getYoungsModulusE2Factor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicStageFactor.getYoungsModulusEZFactor"><code class="docutils literal notranslate"><span class="pre">OrthotropicStageFactor.getYoungsModulusEZFactor()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor"><code class="docutils literal notranslate"><span class="pre">OrthotropicDefinedStageFactor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setAngleCounterclockwiseFromHorizontalToE1Factor"><code class="docutils literal notranslate"><span class="pre">OrthotropicDefinedStageFactor.setAngleCounterclockwiseFromHorizontalToE1Factor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setPoissonsRatioV12Factor"><code class="docutils literal notranslate"><span class="pre">OrthotropicDefinedStageFactor.setPoissonsRatioV12Factor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setPoissonsRatioV2Factor"><code class="docutils literal notranslate"><span class="pre">OrthotropicDefinedStageFactor.setPoissonsRatioV2Factor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setPoissonsRatioV2zFactor"><code class="docutils literal notranslate"><span class="pre">OrthotropicDefinedStageFactor.setPoissonsRatioV2zFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setShearModulusFactor"><code class="docutils literal notranslate"><span class="pre">OrthotropicDefinedStageFactor.setShearModulusFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setYoungsModulusE1Factor"><code class="docutils literal notranslate"><span class="pre">OrthotropicDefinedStageFactor.setYoungsModulusE1Factor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setYoungsModulusE2Factor"><code class="docutils literal notranslate"><span class="pre">OrthotropicDefinedStageFactor.setYoungsModulusE2Factor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.OrthotropicDefinedStageFactor.setYoungsModulusEZFactor"><code class="docutils literal notranslate"><span class="pre">OrthotropicDefinedStageFactor.setYoungsModulusEZFactor()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic"><code class="docutils literal notranslate"><span class="pre">Orthotropic</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUseUnloadingCondition"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getUseUnloadingCondition()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUseUnloadingCondition"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setUseUnloadingCondition()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingCondition"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getUnloadingCondition()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingCondition"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setUnloadingCondition()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getShearModulus"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getShearModulus()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setShearModulus"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setShearModulus()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getAngleCounterclockwiseFromHorizontalToE1"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getAngleCounterclockwiseFromHorizontalToE1()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setAngleCounterclockwiseFromHorizontalToE1"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setAngleCounterclockwiseFromHorizontalToE1()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getYoungsModulusE1"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getYoungsModulusE1()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setYoungsModulusE1"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setYoungsModulusE1()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getYoungsModulusE2"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getYoungsModulusE2()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setYoungsModulusE2"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setYoungsModulusE2()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getYoungsModulusEZ"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getYoungsModulusEZ()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setYoungsModulusEZ"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setYoungsModulusEZ()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getPoissonsRatioV12"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getPoissonsRatioV12()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setPoissonsRatioV12"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setPoissonsRatioV12()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getPoissonsRatioV2"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getPoissonsRatioV2()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setPoissonsRatioV2"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setPoissonsRatioV2()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getPoissonsRatioV2z"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getPoissonsRatioV2z()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setPoissonsRatioV2z"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setPoissonsRatioV2z()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingShearModulus"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getUnloadingShearModulus()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingShearModulus"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setUnloadingShearModulus()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingAngleCounterclockwiseFromHorizontalToE1"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getUnloadingAngleCounterclockwiseFromHorizontalToE1()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingAngleCounterclockwiseFromHorizontalToE1"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setUnloadingAngleCounterclockwiseFromHorizontalToE1()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingYoungsModulusE1"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getUnloadingYoungsModulusE1()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingYoungsModulusE1"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setUnloadingYoungsModulusE1()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingYoungsModulusE2"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getUnloadingYoungsModulusE2()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingYoungsModulusE2"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setUnloadingYoungsModulusE2()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingYoungsModulusEZ"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getUnloadingYoungsModulusEZ()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingYoungsModulusEZ"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setUnloadingYoungsModulusEZ()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingPoissonsRatioV12"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getUnloadingPoissonsRatioV12()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingPoissonsRatioV12"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setUnloadingPoissonsRatioV12()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingPoissonsRatioV2"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getUnloadingPoissonsRatioV2()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingPoissonsRatioV2"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setUnloadingPoissonsRatioV2()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getUnloadingPoissonsRatioV2z"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getUnloadingPoissonsRatioV2z()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setUnloadingPoissonsRatioV2z"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setUnloadingPoissonsRatioV2z()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.setProperties"><code class="docutils literal notranslate"><span class="pre">Orthotropic.setProperties()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.stiffness.Orthotropic.Orthotropic.getProperties"><code class="docutils literal notranslate"><span class="pre">Orthotropic.getProperties()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/generatedAPIDocFiles/rs2.modeler.properties.material.stiffness.Orthotropic.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Rocscience Inc..
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

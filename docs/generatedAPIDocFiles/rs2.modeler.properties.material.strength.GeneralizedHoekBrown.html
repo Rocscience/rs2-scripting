@@ -1,0 +1,969 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>rs2.modeler.properties.material.strength.GeneralizedHoekBrown module &#8212; RS2 Scripting Reference Manual  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../_static/copybutton.css?v=76b2166b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../_static/copybutton.js?v=f281be69"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'generatedAPIDocFiles/rs2.modeler.properties.material.strength.GeneralizedHoekBrown';</script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="rs2.modeler.properties.material.strength.HardeningSoilStrength module" href="rs2.modeler.properties.material.strength.HardeningSoilStrength.html" />
+    <link rel="prev" title="rs2.modeler.properties.material.strength.GeneralizedAnisotropic module" href="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../_static/logo.png" class="logo__image only-light" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+    <img src="../_static/logo.png" class="logo__image only-dark pst-js-only" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="current nav bd-sidenav">
+<li class="toctree-l1 has-children"><a class="reference internal" href="rs2.interpreter.html">rs2.interpreter package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2 has-children"><a class="reference internal" href="rs2.interpreter.queryResults.html">rs2.interpreter.queryResults package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.HistoryQueryResults.html">rs2.interpreter.queryResults.HistoryQueryResults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.MaterialQueryResults.html">rs2.interpreter.queryResults.MaterialQueryResults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.MeshResults.html">rs2.interpreter.queryResults.MeshResults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.queryResults.TimeQueryResults.html">rs2.interpreter.queryResults.TimeQueryResults module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2 has-children"><a class="reference internal" href="rs2.interpreter.supportResults.html">rs2.interpreter.supportResults package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.BoltResult.html">rs2.interpreter.supportResults.BoltResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.CompositeResult.html">rs2.interpreter.supportResults.CompositeResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.JointResult.html">rs2.interpreter.supportResults.JointResult module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.interpreter.supportResults.LinerResult.html">rs2.interpreter.supportResults.LinerResult module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.InterpreterEnums.html">rs2.interpreter.InterpreterEnums module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.InterpreterGraphEnums.html">rs2.interpreter.InterpreterGraphEnums module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.InterpreterModel.html">rs2.interpreter.InterpreterModel module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.interpreter.RS2Interpreter.html">rs2.interpreter.RS2Interpreter module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="rs2.modeler.html">rs2.modeler package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 current active has-children"><a class="reference internal" href="rs2.modeler.properties.html">rs2.modeler.properties package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.bolt.html">rs2.modeler.properties.bolt package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Bolt.html">rs2.modeler.properties.bolt.Bolt module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.EndAnchored.html">rs2.modeler.properties.bolt.EndAnchored module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.FullyBonded.html">rs2.modeler.properties.bolt.FullyBonded module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.PlainStrandCable.html">rs2.modeler.properties.bolt.PlainStrandCable module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Swellex.html">rs2.modeler.properties.bolt.Swellex module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Tieback.html">rs2.modeler.properties.bolt.Tieback module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.joint.html">rs2.modeler.properties.joint package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandis.html">rs2.modeler.properties.joint.BartonBandis module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandisMaterial.html">rs2.modeler.properties.joint.BartonBandisMaterial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.DisplacementDependent.html">rs2.modeler.properties.joint.DisplacementDependent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.GeosyntheticHyperbolic.html">rs2.modeler.properties.joint.GeosyntheticHyperbolic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.GeosyntheticHyperbolicMaterial.html">rs2.modeler.properties.joint.GeosyntheticHyperbolicMaterial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.HyperbolicSoftening.html">rs2.modeler.properties.joint.HyperbolicSoftening module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.Joint.html">rs2.modeler.properties.joint.Joint module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.MaterialDependent.html">rs2.modeler.properties.joint.MaterialDependent module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.MohrCoulomb.html">rs2.modeler.properties.joint.MohrCoulomb module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.MohrCoulombMaterial.html">rs2.modeler.properties.joint.MohrCoulombMaterial module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.NoneSlip.html">rs2.modeler.properties.joint.NoneSlip module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.liner.html">rs2.modeler.properties.liner package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.CableTruss.html">rs2.modeler.properties.liner.CableTruss module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.Geosynthetic.html">rs2.modeler.properties.liner.Geosynthetic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.Liner.html">rs2.modeler.properties.liner.Liner module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.ReinforcedConcrete.html">rs2.modeler.properties.liner.ReinforcedConcrete module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.liner.StandardBeam.html">rs2.modeler.properties.liner.StandardBeam module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 current active has-children"><a class="reference internal" href="rs2.modeler.properties.material.html">rs2.modeler.properties.material package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.datum.html">rs2.modeler.properties.material.datum package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.html">rs2.modeler.properties.material.hydraulic package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.html">rs2.modeler.properties.material.stiffness package</a></li>
+<li class="toctree-l4 current active"><a class="reference internal" href="rs2.modeler.properties.material.strength.html">rs2.modeler.properties.material.strength package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.thermal.html">rs2.modeler.properties.material.thermal package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.InitialConditions.html">rs2.modeler.properties.material.InitialConditions module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.MaterialProperty.html">rs2.modeler.properties.material.MaterialProperty module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.StageFactors.html">rs2.modeler.properties.material.StageFactors module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.pile.html">rs2.modeler.properties.pile package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Beam.html">rs2.modeler.properties.pile.Beam module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Elastic.html">rs2.modeler.properties.pile.Elastic module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.ForceDisplacement.html">rs2.modeler.properties.pile.ForceDisplacement module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Linear.html">rs2.modeler.properties.pile.Linear module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.MaterialDependentPile.html">rs2.modeler.properties.pile.MaterialDependentPile module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.MohrCoulombPile.html">rs2.modeler.properties.pile.MohrCoulombPile module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.MultiLinear.html">rs2.modeler.properties.pile.MultiLinear module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.pile.Pile.html">rs2.modeler.properties.pile.Pile module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.AbsoluteStageFactorGettersInterface.html">rs2.modeler.properties.AbsoluteStageFactorGettersInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.AbsoluteStageFactorInterface.html">rs2.modeler.properties.AbsoluteStageFactorInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.CompositeProperty.html">rs2.modeler.properties.CompositeProperty module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.DiscreteFunction.html">rs2.modeler.properties.DiscreteFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.HydroDistributionFunction.html">rs2.modeler.properties.HydroDistributionFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.MaterialJoint.html">rs2.modeler.properties.MaterialJoint module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.MaterialJointOptions.html">rs2.modeler.properties.MaterialJointOptions module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html">rs2.modeler.properties.PropertyEnums module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.RelativeStageFactorInterface.html">rs2.modeler.properties.RelativeStageFactorInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.ShearNormalFunction.html">rs2.modeler.properties.ShearNormalFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.SnowdenAnisotropicFunction.html">rs2.modeler.properties.SnowdenAnisotropicFunction module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.StructuralInterface.html">rs2.modeler.properties.StructuralInterface module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.properties.UserDefinedWaterMode.html">rs2.modeler.properties.UserDefinedWaterMode module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.Model.html">rs2.modeler.Model module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.modeler.RS2Modeler.html">rs2.modeler.RS2Modeler module</a></li>
+</ul>
+</details></li>
+<li class="toctree-l1 has-children"><a class="reference internal" href="rs2.utilities.html">rs2.utilities package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l2"><a class="reference internal" href="rs2.utilities.ApplicationManager.html">rs2.utilities.ApplicationManager module</a></li>
+<li class="toctree-l2"><a class="reference internal" href="rs2.utilities.ColorPicker.html">rs2.utilities.ColorPicker module</a></li>
+</ul>
+</details></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="rs2.BaseModel.html">rs2.BaseModel module</a></li>
+<li class="toctree-l1"><a class="reference internal" href="rs2.Units.html">rs2.Units module</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="rs2.html" class="nav-link">rs2 package</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="rs2.modeler.html" class="nav-link">rs2.modeler package</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="rs2.modeler.properties.html" class="nav-link">rs2.modeler.properties package</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="rs2.modeler.properties.material.html" class="nav-link">rs2.modeler.properties.material package</a></li>
+    
+    
+    <li class="breadcrumb-item"><a href="rs2.modeler.properties.material.strength.html" class="nav-link">rs2.modeler.properties.material.strength package</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">rs2.modeler.properties.material.strength.GeneralizedHoekBrown module</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="module-rs2.modeler.properties.material.strength.GeneralizedHoekBrown">
+<span id="rs2-modeler-properties-material-strength-generalizedhoekbrown-module"></span><h1>rs2.modeler.properties.material.strength.GeneralizedHoekBrown module<a class="headerlink" href="#module-rs2.modeler.properties.material.strength.GeneralizedHoekBrown" title="Link to this heading">#</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.strength.GeneralizedHoekBrown.</span></span><span class="sig-name descname"><span class="pre">GeneralizedHoekBrownStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">ProxyObject</span></code></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getAParameterFactor">
+<span class="sig-name descname"><span class="pre">getAParameterFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getAParameterFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getResidualAParameterFactor">
+<span class="sig-name descname"><span class="pre">getResidualAParameterFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getResidualAParameterFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getCompressiveStrengthFactor">
+<span class="sig-name descname"><span class="pre">getCompressiveStrengthFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getCompressiveStrengthFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getDilationParameterFactor">
+<span class="sig-name descname"><span class="pre">getDilationParameterFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getDilationParameterFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getMbParameterFactor">
+<span class="sig-name descname"><span class="pre">getMbParameterFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getMbParameterFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getResidualMbParameterFactor">
+<span class="sig-name descname"><span class="pre">getResidualMbParameterFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getResidualMbParameterFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getHoekMartinMiFactor">
+<span class="sig-name descname"><span class="pre">getHoekMartinMiFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getHoekMartinMiFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getSParameterFactor">
+<span class="sig-name descname"><span class="pre">getSParameterFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getSParameterFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getResidualSParameterFactor">
+<span class="sig-name descname"><span class="pre">getResidualSParameterFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getResidualSParameterFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getTensileCutoffFactor">
+<span class="sig-name descname"><span class="pre">getTensileCutoffFactor</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getTensileCutoffFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.strength.GeneralizedHoekBrown.</span></span><span class="sig-name descname"><span class="pre">GeneralizedHoekBrownDefinedStageFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">propertyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <a class="reference internal" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor" title="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor"><code class="xref py py-class docutils literal notranslate"><span class="pre">GeneralizedHoekBrownStageFactor</span></code></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setAParameterFactor">
+<span class="sig-name descname"><span class="pre">setAParameterFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setAParameterFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setResidualAParameterFactor">
+<span class="sig-name descname"><span class="pre">setResidualAParameterFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setResidualAParameterFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setCompressiveStrengthFactor">
+<span class="sig-name descname"><span class="pre">setCompressiveStrengthFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setCompressiveStrengthFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setDilationParameterFactor">
+<span class="sig-name descname"><span class="pre">setDilationParameterFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setDilationParameterFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setMbParameterFactor">
+<span class="sig-name descname"><span class="pre">setMbParameterFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setMbParameterFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setResidualMbParameterFactor">
+<span class="sig-name descname"><span class="pre">setResidualMbParameterFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setResidualMbParameterFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setHoekMartinMiFactor">
+<span class="sig-name descname"><span class="pre">setHoekMartinMiFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setHoekMartinMiFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setSParameterFactor">
+<span class="sig-name descname"><span class="pre">setSParameterFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setSParameterFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setResidualSParameterFactor">
+<span class="sig-name descname"><span class="pre">setResidualSParameterFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setResidualSParameterFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setTensileCutoffFactor">
+<span class="sig-name descname"><span class="pre">setTensileCutoffFactor</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setTensileCutoffFactor" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.strength.GeneralizedHoekBrown.</span></span><span class="sig-name descname"><span class="pre">GeneralizedHoekBrown</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">client</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentProxyID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">stageFactorInterfaceID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PropertyProxy</span></code></p>
+<dl class="field-list simple">
+<dt class="field-odd">Variables<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>stageFactorInterface</strong> (<a class="reference internal" href="rs2.modeler.properties.AbsoluteStageFactorGettersInterface.html#rs2.modeler.properties.AbsoluteStageFactorGettersInterface.AbsoluteStageFactorGettersInterface" title="rs2.modeler.properties.AbsoluteStageFactorGettersInterface.AbsoluteStageFactorGettersInterface"><em>AbsoluteStageFactorGettersInterface</em></a><em>[</em><a class="reference internal" href="rs2.modeler.properties.material.strength.JointedGeneralizedHoekBrown.html#rs2.modeler.properties.material.strength.JointedGeneralizedHoekBrown.JointedGeneralizedHoekBrownDefinedStageFactor" title="rs2.modeler.properties.material.strength.JointedGeneralizedHoekBrown.JointedGeneralizedHoekBrownDefinedStageFactor"><em>JointedGeneralizedHoekBrownDefinedStageFactor</em></a><em>, </em><a class="reference internal" href="rs2.modeler.properties.material.strength.JointedGeneralizedHoekBrown.html#rs2.modeler.properties.material.strength.JointedGeneralizedHoekBrown.JointedGeneralizedHoekBrownStageFactor" title="rs2.modeler.properties.material.strength.JointedGeneralizedHoekBrown.JointedGeneralizedHoekBrownStageFactor"><em>JointedGeneralizedHoekBrownStageFactor</em></a><em>]</em>) – Reference object for modifying stage factor property.</p>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<p><a class="reference internal" href="../examples/material/mat_prop_strength.html#material-property-strength-example"><span class="std std-ref">Code Snippet: Manipulation of Strength Properties</span></a></p>
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getMaterialType">
+<span class="sig-name descname"><span class="pre">getMaterialType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.MaterialType" title="rs2.modeler.properties.PropertyEnums.MaterialType"><span class="pre">MaterialType</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getMaterialType" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setMaterialType">
+<span class="sig-name descname"><span class="pre">setMaterialType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.MaterialType" title="rs2.modeler.properties.PropertyEnums.MaterialType"><span class="pre">MaterialType</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setMaterialType" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getCompressiveStrength">
+<span class="sig-name descname"><span class="pre">getCompressiveStrength</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getCompressiveStrength" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setCompressiveStrength">
+<span class="sig-name descname"><span class="pre">setCompressiveStrength</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setCompressiveStrength" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getMbParameter">
+<span class="sig-name descname"><span class="pre">getMbParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getMbParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setMbParameter">
+<span class="sig-name descname"><span class="pre">setMbParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setMbParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getSParameter">
+<span class="sig-name descname"><span class="pre">getSParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getSParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setSParameter">
+<span class="sig-name descname"><span class="pre">setSParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setSParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getAParameter">
+<span class="sig-name descname"><span class="pre">getAParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getAParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setAParameter">
+<span class="sig-name descname"><span class="pre">setAParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setAParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getGSIParameter">
+<span class="sig-name descname"><span class="pre">getGSIParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getGSIParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setGSIParameter">
+<span class="sig-name descname"><span class="pre">setGSIParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setGSIParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getMiParameter">
+<span class="sig-name descname"><span class="pre">getMiParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getMiParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setMiParameter">
+<span class="sig-name descname"><span class="pre">setMiParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setMiParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getDParameter">
+<span class="sig-name descname"><span class="pre">getDParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getDParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setDParameter">
+<span class="sig-name descname"><span class="pre">setDParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setDParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualMbParameter">
+<span class="sig-name descname"><span class="pre">getResidualMbParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualMbParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualMbParameter">
+<span class="sig-name descname"><span class="pre">setResidualMbParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualMbParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualSParameter">
+<span class="sig-name descname"><span class="pre">getResidualSParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualSParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualSParameter">
+<span class="sig-name descname"><span class="pre">setResidualSParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualSParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualAParameter">
+<span class="sig-name descname"><span class="pre">getResidualAParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualAParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualAParameter">
+<span class="sig-name descname"><span class="pre">setResidualAParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualAParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualGSIParameter">
+<span class="sig-name descname"><span class="pre">getResidualGSIParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualGSIParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualGSIParameter">
+<span class="sig-name descname"><span class="pre">setResidualGSIParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualGSIParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualMiParameter">
+<span class="sig-name descname"><span class="pre">getResidualMiParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualMiParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualMiParameter">
+<span class="sig-name descname"><span class="pre">setResidualMiParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualMiParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualDParameter">
+<span class="sig-name descname"><span class="pre">getResidualDParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualDParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualDParameter">
+<span class="sig-name descname"><span class="pre">setResidualDParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualDParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getDilationParameter">
+<span class="sig-name descname"><span class="pre">getDilationParameter</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getDilationParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setDilationParameter">
+<span class="sig-name descname"><span class="pre">setDilationParameter</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setDilationParameter" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getApplySSRShearStrengthReduction">
+<span class="sig-name descname"><span class="pre">getApplySSRShearStrengthReduction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getApplySSRShearStrengthReduction" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setApplySSRShearStrengthReduction">
+<span class="sig-name descname"><span class="pre">setApplySSRShearStrengthReduction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setApplySSRShearStrengthReduction" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getTensileCutoffType">
+<span class="sig-name descname"><span class="pre">getTensileCutoffType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.TensileCutoffOptions" title="rs2.modeler.properties.PropertyEnums.TensileCutoffOptions"><span class="pre">TensileCutoffOptions</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getTensileCutoffType" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setTensileCutoffType">
+<span class="sig-name descname"><span class="pre">setTensileCutoffType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.TensileCutoffOptions" title="rs2.modeler.properties.PropertyEnums.TensileCutoffOptions"><span class="pre">TensileCutoffOptions</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setTensileCutoffType" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getTensileCutoff">
+<span class="sig-name descname"><span class="pre">getTensileCutoff</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getTensileCutoff" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setTensileCutoff">
+<span class="sig-name descname"><span class="pre">setTensileCutoff</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setTensileCutoff" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getHoekMartinMi">
+<span class="sig-name descname"><span class="pre">getHoekMartinMi</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">float</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getHoekMartinMi" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setHoekMartinMi">
+<span class="sig-name descname"><span class="pre">setHoekMartinMi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setHoekMartinMi" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setProperties">
+<span class="sig-name descname"><span class="pre">setProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">MaterialType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.MaterialType" title="rs2.modeler.properties.PropertyEnums.MaterialType"><span class="pre">MaterialType</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">CompressiveStrength</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MbParameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">SParameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">AParameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">GSIParameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">MiParameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DParameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ResidualMbParameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ResidualSParameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ResidualAParameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ResidualGSIParameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ResidualMiParameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ResidualDParameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">DilationParameter</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ApplySSRShearStrengthReduction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TensileCutoffType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.TensileCutoffOptions" title="rs2.modeler.properties.PropertyEnums.TensileCutoffOptions"><span class="pre">TensileCutoffOptions</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">TensileCutoff</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">HoekMartinMi</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">float</span></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setProperties" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getProperties">
+<span class="sig-name descname"><span class="pre">getProperties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getProperties" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">rs2.modeler.properties.material.strength.GeneralizedAnisotropic module</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="rs2.modeler.properties.material.strength.HardeningSoilStrength.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">rs2.modeler.properties.material.strength.HardeningSoilStrength module</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownStageFactor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getAParameterFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownStageFactor.getAParameterFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getResidualAParameterFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownStageFactor.getResidualAParameterFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getCompressiveStrengthFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownStageFactor.getCompressiveStrengthFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getDilationParameterFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownStageFactor.getDilationParameterFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getMbParameterFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownStageFactor.getMbParameterFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getResidualMbParameterFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownStageFactor.getResidualMbParameterFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getHoekMartinMiFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownStageFactor.getHoekMartinMiFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getSParameterFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownStageFactor.getSParameterFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getResidualSParameterFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownStageFactor.getResidualSParameterFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownStageFactor.getTensileCutoffFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownStageFactor.getTensileCutoffFactor()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownDefinedStageFactor</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setAParameterFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownDefinedStageFactor.setAParameterFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setResidualAParameterFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownDefinedStageFactor.setResidualAParameterFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setCompressiveStrengthFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownDefinedStageFactor.setCompressiveStrengthFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setDilationParameterFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownDefinedStageFactor.setDilationParameterFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setMbParameterFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownDefinedStageFactor.setMbParameterFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setResidualMbParameterFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownDefinedStageFactor.setResidualMbParameterFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setHoekMartinMiFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownDefinedStageFactor.setHoekMartinMiFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setSParameterFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownDefinedStageFactor.setSParameterFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setResidualSParameterFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownDefinedStageFactor.setResidualSParameterFactor()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrownDefinedStageFactor.setTensileCutoffFactor"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrownDefinedStageFactor.setTensileCutoffFactor()</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getMaterialType"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getMaterialType()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setMaterialType"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setMaterialType()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getCompressiveStrength"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getCompressiveStrength()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setCompressiveStrength"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setCompressiveStrength()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getMbParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getMbParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setMbParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setMbParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getSParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getSParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setSParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setSParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getAParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getAParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setAParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setAParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getGSIParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getGSIParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setGSIParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setGSIParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getMiParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getMiParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setMiParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setMiParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getDParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getDParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setDParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setDParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualMbParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getResidualMbParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualMbParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setResidualMbParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualSParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getResidualSParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualSParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setResidualSParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualAParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getResidualAParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualAParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setResidualAParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualGSIParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getResidualGSIParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualGSIParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setResidualGSIParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualMiParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getResidualMiParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualMiParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setResidualMiParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getResidualDParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getResidualDParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setResidualDParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setResidualDParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getDilationParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getDilationParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setDilationParameter"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setDilationParameter()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getApplySSRShearStrengthReduction"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getApplySSRShearStrengthReduction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setApplySSRShearStrengthReduction"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setApplySSRShearStrengthReduction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getTensileCutoffType"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getTensileCutoffType()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setTensileCutoffType"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setTensileCutoffType()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getTensileCutoff"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getTensileCutoff()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setTensileCutoff"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setTensileCutoff()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getHoekMartinMi"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getHoekMartinMi()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setHoekMartinMi"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setHoekMartinMi()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.setProperties"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.setProperties()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedHoekBrown.GeneralizedHoekBrown.getProperties"><code class="docutils literal notranslate"><span class="pre">GeneralizedHoekBrown.getProperties()</span></code></a></li>
+</ul>
+</li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/generatedAPIDocFiles/rs2.modeler.properties.material.strength.GeneralizedHoekBrown.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Rocscience Inc..
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

@@ -1,0 +1,1442 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Statistical Analysis of Slope with Spatial Variability &#8212; RS2 Scripting Reference Manual  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/webinar/20240709_slope_spatial_variability';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Webinar Recordings" href="../../webinars.html" />
+    <link rel="prev" title="Bolt Spacing Study" href="20240709_bolt_spacing_study.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../generatedAPIDocFiles/rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../generatedAPIDocFiles/rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../model/model.html">Model Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/modeler.html">Modeler Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/mesh.html">Mesh Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/unit.html">Unit Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/material_joint.html">Material Joint Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/stage_factor.html">Stage Factor Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/import_export_prop.html">Import Export Properties Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../material/mat.html">Material Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_init_cond.html">Material Initial Condition Stage Factor Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_joint_stage.html">Material Joint Stage Factor Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_prop_datum.html">Material Properties Datum Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_prop_stiffness.html">Material Stiffness Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_prop_strength.html">Material Strength Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_prop_thermal.html">Material Thermal Properties Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_prop.html">Hydraulic Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_static.html">Static Groundwater Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_gw.html">FEA Groundwater Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_distribution_functions.html">Hydraulic Distribution Functions Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../support/bolt.html">Bolt Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/joint.html">Joint Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/liner.html">Liner Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/pile.html">Pile Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/structural_interface.html">Structural Interface Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/composite_liner.html">Composite Liner Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/support_stage_factor.html">Support Stage Factor Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../result/history_query.html">History Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/time_query.html">Time Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/material_query.html">Material Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/bolt_result.html">Bolt Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/joint_result.html">Joint Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/liner_result.html">Liner Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/pile_result.html">Pile Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/structural_result.html">Structural Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/composite_result.html">Composite Result Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../support_functions/extract_log_files.html">Extract Log File Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support_functions/check_convergence.html">Check Convergence Script Examples</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="20240709_bolt_spacing_study.html">Bolt Spacing Study</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Statistical Analysis of Slope with Spatial Variability</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../examples.html" class="nav-link">Python Script Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Statistical Analysis of Slope with Spatial Variability</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="statistical-analysis-of-slope-with-spatial-variability">
+<h1>Statistical Analysis of Slope with Spatial Variability<a class="headerlink" href="#statistical-analysis-of-slope-with-spatial-variability" title="Link to this heading">#</a></h1>
+<p>Download <a class="reference external" href="https://github.com/Rocscience/rs2-scripting/tree/main/examples/2024-07-09_Scripting_Webinar_Examples/Statistical_Analysis_of_Slope_with_Spatial_Variability">Statistical Analysis of Slope with Spatial Variability</a> folder for this example.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<span id="slope-spatial-variability"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: slope_spatial_variability.py</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">from</span> <span class="nn">rs2.interpreter.InterpreterEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">rs2.interpreter.InterpreterGraphEnums</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="kn">from</span> <span class="nn">DiscreteFunctionHelpers</span> <span class="kn">import</span> <span class="n">DiscreteFunctionHelpers</span> <span class="k">as</span> <span class="n">DFHelpers</span>
+<span class="kn">from</span> <span class="nn">FileUtilities</span> <span class="kn">import</span> <span class="n">FileUtilities</span> <span class="k">as</span> <span class="n">FileUtil</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">This script demonstrates how to conduct a statistical analysis of a slope</span>
+<span class="sd">considering spatial variability of the soil strength. </span>
+
+<span class="sd">Go to the &quot;Manage the processes to run&quot; section to enable/disable the processes you want to try.</span>
+
+<span class="sd">Note that the models use a coarse mesh to reduce the computation time as to better </span>
+<span class="sd">showcase the functionality of this script. For a more accurate factor of safety, you will need</span>
+<span class="sd">to refine the mesh in the model before running the script. We have provided a fine mesh model in</span>
+<span class="sd">case you want to try this.</span>
+
+<span class="sd">First, the factor of safety for the deterministic case is computed.</span>
+
+<span class="sd">Depending on the selected option, 5 or 100 samples are created with varying strength properties. </span>
+<span class="sd">Slope stability analysis using shear strength reduction method are conducted for each model.</span>
+
+<span class="sd">The Critical SRF (Factor of Safety) data is extracted from computed models to generate a</span>
+<span class="sd">histogram of Critical SRF along with statistical results:</span>
+<span class="sd">mean, standard deviation, min/max, probability of failure and reliability index.</span>
+
+<span class="sd">Custom FileUtilities and DiscreteFunctionHelpers classes are provided to show how </span>
+<span class="sd">a user could extend the functionality of the RS2 Python API library for their specific needs:</span>
+<span class="sd">- FileUtilies class provides support for finding and managing files.</span>
+<span class="sd">- DiscreteFunctionHelpers imports the RS2 module DiscreteFunction to provide custom support for </span>
+<span class="sd">    creating discrete function materials in RS2 from read data. The data could come from Slide2, </span>
+<span class="sd">    MATLAB scripts, Python scripts, and so on</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># Current folder location</span>
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span> 
+
+<span class="c1"># Manage the processes to run ###############################################################################</span>
+<span class="c1"># Deterministic Case</span>
+<span class="n">compute_deterministic_case</span> <span class="o">=</span> <span class="kc">True</span>              <span class="c1"># True to compute factor of safety for base model, False otherwise</span>
+
+<span class="c1"># Generating samples</span>
+<span class="n">use_previously_computed_sample_results</span> <span class="o">=</span> <span class="kc">False</span>  <span class="c1"># True to skip generating samples and use pre-computed results, False otherwise</span>
+<span class="n">save_new_sample_models</span> <span class="o">=</span> <span class="kc">True</span>                   <span class="c1"># True to save each generated sample model, False otherwise </span>
+<span class="n">generate_five_samples_only</span> <span class="o">=</span> <span class="kc">True</span>               <span class="c1"># True will generate 5 samples to see how this script works, </span>
+                                                <span class="c1"># False will generate all 100 samples which will take much longer to finish</span>
+
+<span class="c1"># Analysis</span>
+<span class="n">analyze_results</span> <span class="o">=</span> <span class="kc">True</span>                          <span class="c1"># True to output result plots, False otherwise</span>
+
+
+<span class="c1"># Start analysis ###########################################################################################</span>
+
+<span class="c1"># Start RS2 Modeler</span>
+<span class="n">RS2Modeler</span><span class="o">.</span><span class="n">startApplication</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60054</span><span class="p">)</span>
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60054</span><span class="p">)</span>
+
+<span class="c1"># Open RS2 interpreter</span>
+<span class="n">RS2Interpreter</span><span class="o">.</span><span class="n">startApplication</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60055</span><span class="p">)</span>
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60055</span><span class="p">)</span>
+
+<span class="c1"># Base file</span>
+<span class="n">base_file_name</span> <span class="o">=</span> <span class="s1">&#39;slope example.fez&#39;</span> <span class="c1"># Try &#39;slope example fine mesh.fez&#39; for more accurate factor of safety, but it will take much longer to compute </span>
+<span class="n">base_file_path</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s1">\</span><span class="si">{</span><span class="n">base_file_name</span><span class="si">}</span><span class="s1">&#39;</span>
+
+<span class="c1"># Deterministic Case #####################################################################################</span>
+<span class="k">if</span> <span class="n">compute_deterministic_case</span><span class="p">:</span>
+    <span class="n">deterministic_dir</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s1">\deterministic&#39;</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">deterministic_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+    <span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="n">base_file_path</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">saveAs</span><span class="p">(</span><span class="sa">rf</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">deterministic_dir</span><span class="si">}</span><span class="s1">\slope example (deterministic).fez&#39;</span><span class="p">)</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+
+<span class="c1"># Generate samples with spatial variability of strength ##################################################</span>
+<span class="c1"># Set use_previously_computed_sample_results = True to use previously computed results to save time</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">use_previously_computed_sample_results</span><span class="p">:</span>
+
+    <span class="c1"># Output and data folders</span>
+    <span class="k">if</span> <span class="n">generate_five_samples_only</span><span class="p">:</span>
+        <span class="n">samples_dir</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s1">\samples 5&#39;</span>
+        <span class="n">data_dir</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s1">\data 5&#39;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">samples_dir</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s1">\samples&#39;</span>
+        <span class="n">data_dir</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s1">\data&#39;</span>
+
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">samples_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>       
+        
+    <span class="c1"># Discrete function file paths</span>
+    <span class="n">discrete_function_file_extensions</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;fn6&#39;</span><span class="p">,</span><span class="s1">&#39;cust&#39;</span><span class="p">}</span>
+    <span class="n">discrete_function_file_paths</span><span class="o">=</span><span class="p">[]</span>
+    <span class="k">for</span> <span class="n">discrete_function_file_extension</span> <span class="ow">in</span> <span class="n">discrete_function_file_extensions</span><span class="p">:</span>
+        <span class="n">discrete_function_file_paths</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">FileUtil</span><span class="o">.</span><span class="n">findFilesWithExtension</span><span class="p">(</span><span class="n">data_dir</span><span class="p">,</span> <span class="n">discrete_function_file_extension</span><span class="p">))</span>
+
+    <span class="c1"># Collect all discrete function file data to minimize number of times models are opened in update</span>
+    <span class="n">samplenum_to_discretefunctiondata</span> <span class="o">=</span> <span class="n">DFHelpers</span><span class="o">.</span><span class="n">getDiscreteFunctionDataPerSample</span><span class="p">(</span><span class="n">discrete_function_file_paths</span><span class="p">)</span>
+
+    <span class="c1"># Open base model</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="n">base_file_path</span><span class="p">)</span>
+
+    <span class="c1"># Save a copy that we will modify in the script, so you can easily retry this script</span>
+    <span class="n">base_sample_file_name</span> <span class="o">=</span> <span class="s1">&#39;slope example (sampling).fez&#39;</span>
+    <span class="n">base_sample_file_path</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s1">\</span><span class="si">{</span><span class="n">base_sample_file_name</span><span class="si">}</span><span class="s1">&#39;</span>
+    <span class="n">model</span><span class="o">.</span><span class="n">saveAs</span><span class="p">(</span><span class="n">base_sample_file_path</span><span class="p">)</span>
+
+    <span class="c1"># Key data to extract</span>
+    <span class="n">sample_nums</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="n">srf_data</span> <span class="o">=</span> <span class="p">[]</span>
+
+    <span class="c1"># Update model(s)</span>
+    <span class="k">for</span> <span class="n">sample_number</span><span class="p">,</span> <span class="n">all_discrete_function_data</span> <span class="ow">in</span> <span class="n">samplenum_to_discretefunctiondata</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+        
+        <span class="c1"># Update materials</span>
+        <span class="n">DFHelpers</span><span class="o">.</span><span class="n">updateModelMaterialsWithDiscreteFunctionData</span><span class="p">(</span><span class="n">model</span><span class="p">,</span><span class="n">all_discrete_function_data</span><span class="p">)</span>
+        
+        <span class="c1"># Save as a new file if required</span>
+        <span class="k">if</span> <span class="n">save_new_sample_models</span><span class="p">:</span>
+            <span class="n">new_sample_file_name</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">sample_number</span><span class="si">}</span><span class="s1">.fez&#39;</span>
+            <span class="n">new_sample_file_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">samples_dir</span><span class="p">,</span> <span class="n">new_sample_file_name</span><span class="p">)</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">saveAs</span><span class="p">(</span><span class="n">new_sample_file_path</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">model</span><span class="o">.</span><span class="n">save</span><span class="p">()</span>
+
+        <span class="c1"># Compute if required</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+
+        <span class="c1"># Extract results</span>
+        <span class="k">if</span> <span class="n">save_new_sample_models</span><span class="p">:</span>
+            <span class="n">model_results</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="n">new_sample_file_path</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">model_results</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="n">base_sample_file_path</span><span class="p">)</span>
+
+        <span class="n">sample_nums</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">sample_number</span><span class="p">)</span>
+        <span class="n">srf_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">model_results</span><span class="o">.</span><span class="n">getCriticalSRF</span><span class="p">())</span>
+        <span class="n">model_results</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="c1"># Set use_previously_computed_sample_results = True to use previously computed results to save time</span>
+<span class="k">else</span><span class="p">:</span>
+    <span class="c1"># Extracted data for 100 samples with a fine mesh</span>
+    <span class="n">sample_nums</span> <span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">7</span><span class="p">,</span> <span class="mi">8</span><span class="p">,</span> <span class="mi">9</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">11</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">13</span><span class="p">,</span> <span class="mi">14</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">16</span><span class="p">,</span> <span class="mi">17</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="mi">19</span><span class="p">,</span> <span class="mi">20</span><span class="p">,</span> <span class="mi">21</span><span class="p">,</span> <span class="mi">22</span><span class="p">,</span> <span class="mi">23</span><span class="p">,</span> <span class="mi">24</span><span class="p">,</span> <span class="mi">25</span><span class="p">,</span> <span class="mi">26</span><span class="p">,</span> <span class="mi">27</span><span class="p">,</span> <span class="mi">28</span><span class="p">,</span> <span class="mi">29</span><span class="p">,</span> <span class="mi">30</span><span class="p">,</span> <span class="mi">31</span><span class="p">,</span> <span class="mi">32</span><span class="p">,</span> <span class="mi">33</span><span class="p">,</span> <span class="mi">34</span><span class="p">,</span> <span class="mi">35</span><span class="p">,</span> <span class="mi">36</span><span class="p">,</span> <span class="mi">37</span><span class="p">,</span> <span class="mi">38</span><span class="p">,</span> <span class="mi">39</span><span class="p">,</span> <span class="mi">40</span><span class="p">,</span> <span class="mi">41</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">43</span><span class="p">,</span> <span class="mi">44</span><span class="p">,</span> <span class="mi">45</span><span class="p">,</span> <span class="mi">46</span><span class="p">,</span> <span class="mi">47</span><span class="p">,</span> <span class="mi">48</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">50</span><span class="p">,</span> <span class="mi">51</span><span class="p">,</span> <span class="mi">52</span><span class="p">,</span> <span class="mi">53</span><span class="p">,</span> <span class="mi">54</span><span class="p">,</span> <span class="mi">55</span><span class="p">,</span> <span class="mi">56</span><span class="p">,</span> <span class="mi">57</span><span class="p">,</span> <span class="mi">58</span><span class="p">,</span> <span class="mi">59</span><span class="p">,</span> <span class="mi">60</span><span class="p">,</span> <span class="mi">61</span><span class="p">,</span> <span class="mi">62</span><span class="p">,</span> <span class="mi">63</span><span class="p">,</span> <span class="mi">64</span><span class="p">,</span> <span class="mi">65</span><span class="p">,</span> <span class="mi">66</span><span class="p">,</span> <span class="mi">67</span><span class="p">,</span> <span class="mi">68</span><span class="p">,</span> <span class="mi">69</span><span class="p">,</span> <span class="mi">70</span><span class="p">,</span> <span class="mi">71</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">73</span><span class="p">,</span> <span class="mi">74</span><span class="p">,</span> <span class="mi">75</span><span class="p">,</span> <span class="mi">76</span><span class="p">,</span> <span class="mi">77</span><span class="p">,</span> <span class="mi">78</span><span class="p">,</span> <span class="mi">79</span><span class="p">,</span> <span class="mi">80</span><span class="p">,</span> <span class="mi">81</span><span class="p">,</span> <span class="mi">82</span><span class="p">,</span> <span class="mi">83</span><span class="p">,</span> <span class="mi">84</span><span class="p">,</span> <span class="mi">85</span><span class="p">,</span> <span class="mi">86</span><span class="p">,</span> <span class="mi">87</span><span class="p">,</span> <span class="mi">88</span><span class="p">,</span> <span class="mi">89</span><span class="p">,</span> <span class="mi">90</span><span class="p">,</span> <span class="mi">91</span><span class="p">,</span> <span class="mi">92</span><span class="p">,</span> <span class="mi">93</span><span class="p">,</span> <span class="mi">94</span><span class="p">,</span> <span class="mi">95</span><span class="p">,</span> <span class="mi">96</span><span class="p">,</span> <span class="mi">97</span><span class="p">,</span> <span class="mi">98</span><span class="p">,</span> <span class="mi">99</span><span class="p">,</span> <span class="mi">100</span><span class="p">]</span>
+    <span class="n">srf_data</span> <span class="o">=</span><span class="p">[</span><span class="mf">1.022</span><span class="p">,</span> <span class="mf">1.071</span><span class="p">,</span> <span class="mf">1.083</span><span class="p">,</span> <span class="mf">1.042</span><span class="p">,</span> <span class="mf">0.952</span><span class="p">,</span> <span class="mf">1.04</span><span class="p">,</span> <span class="mf">1.073</span><span class="p">,</span> <span class="mf">1.115</span><span class="p">,</span> <span class="mf">1.074</span><span class="p">,</span> <span class="mf">1.023</span><span class="p">,</span> <span class="mf">1.074</span><span class="p">,</span> <span class="mf">1.014</span><span class="p">,</span> <span class="mf">0.988</span><span class="p">,</span> <span class="mf">0.975</span><span class="p">,</span> <span class="mf">1.118</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.108</span><span class="p">,</span> <span class="mf">1.011</span><span class="p">,</span> <span class="mf">1.076</span><span class="p">,</span> <span class="mf">1.085</span><span class="p">,</span> <span class="mf">1.032</span><span class="p">,</span> <span class="mf">1.012</span><span class="p">,</span> <span class="mf">1.023</span><span class="p">,</span> <span class="mf">1.09</span><span class="p">,</span> <span class="mf">1.068</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.012</span><span class="p">,</span> <span class="mf">1.087</span><span class="p">,</span> <span class="mf">1.007</span><span class="p">,</span> <span class="mf">1.044</span><span class="p">,</span> <span class="mf">1.044</span><span class="p">,</span> <span class="mf">1.006</span><span class="p">,</span> <span class="mf">1.059</span><span class="p">,</span> <span class="mf">1.004</span><span class="p">,</span> <span class="mf">1.051</span><span class="p">,</span> <span class="mf">1.095</span><span class="p">,</span> <span class="mf">0.978</span><span class="p">,</span> <span class="mf">1.076</span><span class="p">,</span> <span class="mf">1.14</span><span class="p">,</span> <span class="mf">1.051</span><span class="p">,</span> <span class="mf">1.069</span><span class="p">,</span> <span class="mf">1.041</span><span class="p">,</span> <span class="mf">1.082</span><span class="p">,</span> <span class="mf">1.067</span><span class="p">,</span> <span class="mf">1.124</span><span class="p">,</span> <span class="mf">1.035</span><span class="p">,</span> <span class="mf">1.032</span><span class="p">,</span> <span class="mf">1.09</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mf">1.186</span><span class="p">,</span> <span class="mf">0.982</span><span class="p">,</span> <span class="mf">1.016</span><span class="p">,</span> <span class="mf">1.049</span><span class="p">,</span> <span class="mf">1.017</span><span class="p">,</span> <span class="mf">1.018</span><span class="p">,</span> <span class="mf">1.07</span><span class="p">,</span> <span class="mf">1.033</span><span class="p">,</span> <span class="mf">1.038</span><span class="p">,</span> <span class="mf">1.094</span><span class="p">,</span> <span class="mf">1.153</span><span class="p">,</span> <span class="mf">1.089</span><span class="p">,</span> <span class="mf">1.131</span><span class="p">,</span> <span class="mf">1.12</span><span class="p">,</span> <span class="mf">1.035</span><span class="p">,</span> <span class="mf">1.137</span><span class="p">,</span> <span class="mf">1.016</span><span class="p">,</span> <span class="mf">1.132</span><span class="p">,</span> <span class="mf">1.02</span><span class="p">,</span> <span class="mf">1.069</span><span class="p">,</span> <span class="mf">1.115</span><span class="p">,</span> <span class="mf">0.984</span><span class="p">,</span> <span class="mf">1.058</span><span class="p">,</span> <span class="mf">1.067</span><span class="p">,</span> <span class="mf">1.076</span><span class="p">,</span> <span class="mf">1.101</span><span class="p">,</span> <span class="mf">1.056</span><span class="p">,</span> <span class="mf">1.091</span><span class="p">,</span> <span class="mf">1.13</span><span class="p">,</span> <span class="mf">1.092</span><span class="p">,</span> <span class="mf">1.002</span><span class="p">,</span> <span class="mf">1.001</span><span class="p">,</span> <span class="mf">0.98</span><span class="p">,</span> <span class="mf">1.103</span><span class="p">,</span> <span class="mf">1.081</span><span class="p">,</span> <span class="mf">1.045</span><span class="p">,</span> <span class="mf">1.079</span><span class="p">,</span> <span class="mf">1.05</span><span class="p">,</span> <span class="mf">0.952</span><span class="p">,</span> <span class="mf">1.065</span><span class="p">,</span> <span class="mf">1.076</span><span class="p">,</span> <span class="mf">1.068</span><span class="p">,</span> <span class="mf">1.047</span><span class="p">,</span> <span class="mf">1.048</span><span class="p">,</span> <span class="mf">0.996</span><span class="p">,</span> <span class="mf">1.015</span><span class="p">,</span> <span class="mf">0.998</span><span class="p">,</span> <span class="mf">1.09</span><span class="p">,</span> <span class="mf">1.017</span><span class="p">,</span> <span class="mf">0.955</span><span class="p">,</span> <span class="mf">1.025</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">sample_nums</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="n">srf_data</span><span class="p">)</span>
+
+<span class="c1"># Analyze sample results</span>
+<span class="k">if</span> <span class="n">analyze_results</span><span class="p">:</span>
+    <span class="c1"># SRF where values below are considered failure</span>
+    <span class="n">srf_failure_threshold</span> <span class="o">=</span> <span class="mi">1</span>
+    
+    <span class="c1"># Get typical statistical values</span>
+    <span class="n">srf_mean</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">srf_data</span><span class="p">)</span>
+    <span class="n">srf_std</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">srf_data</span><span class="p">)</span>
+    <span class="n">srf_min</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">min</span><span class="p">(</span><span class="n">srf_data</span><span class="p">)</span>
+    <span class="n">srf_max</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">(</span><span class="n">srf_data</span><span class="p">)</span>
+
+    <span class="c1"># Get srf values below threshold of failure</span>
+    <span class="n">srf_failed</span> <span class="o">=</span> <span class="p">[</span><span class="n">srf</span> <span class="k">for</span> <span class="n">srf</span> <span class="ow">in</span> <span class="n">srf_data</span> <span class="k">if</span> <span class="n">srf</span> <span class="o">&lt;</span> <span class="n">srf_failure_threshold</span><span class="p">]</span>
+    <span class="c1"># Get probability of failure</span>
+    <span class="n">srf_prob_of_failure</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">srf_failed</span><span class="p">)</span><span class="o">/</span><span class="nb">len</span><span class="p">(</span><span class="n">srf_data</span><span class="p">)</span> <span class="o">*</span> <span class="mi">100</span>
+    <span class="c1"># Get reliability index</span>
+    <span class="c1"># assuming a normal distribution of SRF of values    </span>
+    <span class="n">srf_reliability_index_norm</span> <span class="o">=</span> <span class="p">(</span><span class="n">srf_mean</span><span class="o">-</span><span class="n">srf_failure_threshold</span><span class="p">)</span><span class="o">/</span><span class="n">srf_std</span> 
+    <span class="c1"># assuming a lognormal distribution of SRF values</span>
+    <span class="n">coeff_of_variation</span> <span class="o">=</span> <span class="n">srf_std</span><span class="o">/</span><span class="n">srf_mean</span>
+    <span class="n">srf_reliability_index_log</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">srf_mean</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">coeff_of_variation</span><span class="o">*</span><span class="n">coeff_of_variation</span><span class="p">))</span><span class="o">/</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">coeff_of_variation</span><span class="o">*</span><span class="n">coeff_of_variation</span><span class="p">))</span> 
+
+    <span class="c1"># Create histogram</span>
+
+    <span class="c1"># Create the histogram for all data</span>
+    <span class="n">srf_counts</span><span class="p">,</span> <span class="n">bins</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">histogram</span><span class="p">(</span><span class="n">srf_data</span><span class="p">,</span> <span class="n">bins</span><span class="o">=</span><span class="mi">30</span><span class="p">,</span> <span class="n">density</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">bins</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">srf_counts</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Other Data&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Create the histogram for the highlighted region</span>
+    <span class="n">highlighted_data</span> <span class="o">=</span> <span class="p">[</span><span class="n">srf</span> <span class="k">for</span> <span class="n">srf</span> <span class="ow">in</span> <span class="n">srf_data</span> <span class="k">if</span> <span class="n">srf</span> <span class="o">&lt;</span> <span class="n">srf_failure_threshold</span><span class="p">]</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">highlighted_data</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="n">highlighted_counts</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">highlighted_bins</span> <span class="o">=</span> <span class="p">[]</span>    
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">bins</span><span class="p">)</span><span class="o">-</span><span class="mi">1</span><span class="p">):</span>
+            <span class="k">if</span> <span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">srf_failure_threshold</span><span class="p">:</span>
+                <span class="n">highlighted_counts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">srf_counts</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+                <span class="n">highlighted_bins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">break</span>
+
+        <span class="n">highlighted_bins</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">bins</span><span class="p">[</span><span class="n">i</span><span class="p">])</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">hist</span><span class="p">(</span><span class="n">highlighted_bins</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">highlighted_bins</span><span class="p">,</span> <span class="n">weights</span><span class="o">=</span><span class="n">highlighted_counts</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;orange&#39;</span><span class="p">,</span> <span class="n">edgecolor</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.7</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s1">&#39;Highlighted&#39;</span><span class="p">)</span>
+
+    <span class="c1"># Add labels and legend</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s1">&#39;Factor of Safety (Critical SRF)&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s1">&#39;Relative Frequency&#39;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Highlighted Data = Factor of Safety &lt; </span><span class="si">{</span><span class="n">srf_failure_threshold</span><span class="si">}</span><span class="s2"> (</span><span class="si">{</span><span class="nb">len</span><span class="p">(</span><span class="n">highlighted_data</span><span class="p">)</span><span class="si">}</span><span class="s2"> points)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper right&#39;</span><span class="p">,</span> <span class="n">bbox_transform</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+
+    <span class="c1"># Adjust the layout to make room for more items</span>
+    <span class="c1">#plt.subplots_adjust(bottom=0.5)</span>
+
+    <span class="c1"># Add textboxes with information about the plot</span>
+    <span class="n">info_text</span> <span class="o">=</span> <span class="p">(</span>
+        <span class="sa">f</span><span class="s1">&#39;mean = </span><span class="si">{</span><span class="n">srf_mean</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="sa">f</span><span class="s1">&#39;s.d. = </span><span class="si">{</span><span class="n">srf_std</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="sa">f</span><span class="s1">&#39;min = </span><span class="si">{</span><span class="n">srf_min</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="sa">f</span><span class="s1">&#39;max = </span><span class="si">{</span><span class="n">srf_max</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="sa">f</span><span class="s1">&#39;PF = </span><span class="si">{</span><span class="n">srf_prob_of_failure</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="s1">%</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="sa">f</span><span class="s1">&#39;RI(norm) = </span><span class="si">{</span><span class="n">srf_reliability_index_norm</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+        <span class="sa">f</span><span class="s1">&#39;RI(log) = </span><span class="si">{</span><span class="n">srf_reliability_index_log</span><span class="si">:</span><span class="s1">.3f</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span>
+    <span class="p">)</span>
+
+    <span class="c1"># Place the textbox on the plot</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="mf">0.05</span><span class="p">,</span> <span class="mf">0.95</span><span class="p">,</span> <span class="n">info_text</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">12</span><span class="p">,</span> 
+            <span class="n">horizontalalignment</span><span class="o">=</span><span class="s1">&#39;left&#39;</span><span class="p">,</span> <span class="n">verticalalignment</span><span class="o">=</span><span class="s1">&#39;top&#39;</span><span class="p">,</span> <span class="n">transform</span><span class="o">=</span><span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">transAxes</span><span class="p">)</span>
+
+    <span class="c1"># Show the plot</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;done!&#39;</span><span class="p">)</span>
+            
+
+
+    
+
+
+
+
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id3">
+<span id="discretefunctionhelpers"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: DiscreteFunctionHelpers.py</span><a class="headerlink" href="#id3" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">re</span>
+<span class="kn">import</span> <span class="nn">csv</span>
+
+<span class="kn">from</span> <span class="nn">rs2.modeler</span> <span class="kn">import</span> <span class="n">Model</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.DiscreteFunction</span> <span class="kn">import</span> <span class="n">DiscreteFunction</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Example of how you might write helper classes to support creating</span>
+<span class="sd">discrete function in RS2 using company-specific data files.</span>
+
+<span class="sd">Please read each class carefully. Only the main functionalities required</span>
+<span class="sd">for the Statistical Analysis example are defined below. </span>
+
+<span class="sd">You may need to add functionality depending on your project requirements</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="k">class</span> <span class="nc">DiscreteFunctionDataPoint</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The DiscreteFunctionDataPoint object stores the table values to generate</span>
+<span class="sd">    a discrete strength function in RS2.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        x(float): x coordinate</span>
+<span class="sd">        y(float): y coordinate</span>
+<span class="sd">        </span>
+<span class="sd">        Mohr-Coulomb parameters:</span>
+<span class="sd">            coh(float): cohesion</span>
+<span class="sd">            phi(flaot): friction angle</span>
+<span class="sd">        </span>
+<span class="sd">        Stiffness parameters:</span>
+<span class="sd">            mod(float): elastic modulus</span>
+<span class="sd">            res_mod(float): residual elastic modulus</span>
+
+<span class="sd">    Attributes: </span>
+<span class="sd">        x(float): x coordinate</span>
+<span class="sd">        y(float): y coordinate</span>
+<span class="sd">        </span>
+<span class="sd">        Mohr-Coulomb parameters:</span>
+<span class="sd">            coh(float): cohesion</span>
+<span class="sd">            phi(flaot): friction angle</span>
+<span class="sd">        </span>
+<span class="sd">        Stiffness parameters:</span>
+<span class="sd">            mod(float): elastic modulus</span>
+<span class="sd">            res_mod(float): residual elastic modulus</span>
+<span class="sd">        </span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">x</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">y</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">coh</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;coh&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phi</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;phi&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mod&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">res_mod</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;res_mod&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+    
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DiscreteFunctionDataPoint(x=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s2">, y=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s2">, coh=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">coh</span><span class="si">}</span><span class="s2">, phi=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">phi</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;mod=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mod</span><span class="si">}</span><span class="s2">, res_mod=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">res_mod</span><span class="si">}</span><span class="s2">, &quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">DiscreteFunctionData</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The DiscreteFunctionData object stores all possible fields exported </span>
+<span class="sd">    from RS2 or Slide2 used to create or update a discrete strength function in RS2.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        name (str): The name of the discrete function.</span>
+<span class="sd">        id (int): The ID of the discrete function.</span>
+<span class="sd">        sample_num (int): The sample number.</span>
+<span class="sd">        res_strength_factor (float): The residual strength factor.</span>
+<span class="sd">        tensile_strength (float): The tensile strength.</span>
+<span class="sd">        residual_tensile_strength (float): The residual tensile strength.</span>
+<span class="sd">        modulus (float): The modulus.</span>
+<span class="sd">        modulus_res (float): The residual modulus.</span>
+<span class="sd">        correlation_flag (int): The correlation flag.</span>
+<span class="sd">        correlation_num (float): The correlation number.</span>
+<span class="sd">        randomize_selection (int): The randomize selection type</span>
+<span class="sd">        randomize_num (int): The approximate number of points for randomizing</span>
+<span class="sd">        c_dist (float): The cohesion distribution.</span>
+<span class="sd">        c_mean (float): The cohesion mean.</span>
+<span class="sd">        c_stdv (float): The cohesion standard deviation.</span>
+<span class="sd">        c_min (float): The cohesion minimum value.</span>
+<span class="sd">        c_max (float): The cohesion maximum value.</span>
+<span class="sd">        phi_dist (float): The friction angle distribution.</span>
+<span class="sd">        phi_mean (float): The friction angle mean.</span>
+<span class="sd">        phi_stdv (float): The friction angle standard deviation.</span>
+<span class="sd">        phi_min (float): The friction angle minimum value.</span>
+<span class="sd">        phi_max (float): The friction angle maximum value.</span>
+<span class="sd">        mod_dist (float): The modulus distribution.</span>
+<span class="sd">        mod_mean (float): The modulus mean.</span>
+<span class="sd">        mod_stdv (float): The modulus standard deviation.</span>
+<span class="sd">        mod_min (float): The modulus minimum value.</span>
+<span class="sd">        mod_max (float): The modulus maximum value.</span>
+<span class="sd">        mod_res_dist (float): The residual modulus distribution.</span>
+<span class="sd">        mod_res_mean (float): The residual modulus mean.</span>
+<span class="sd">        mod_res_stdv (float): The residual modulus standard deviation.</span>
+<span class="sd">        mod_res_min (float): The residual modulus minimum value.</span>
+<span class="sd">        mod_res_max (float): The residual modulus maximum value.</span>
+<span class="sd">        strength_type (str): The strength or function type, such as drained or undrained.</span>
+<span class="sd">        interpolation (str): The interpolation type.</span>
+<span class="sd">        symbol_type (str): The symbol type.</span>
+<span class="sd">        fill_interior (str): The fill interior type.</span>
+<span class="sd">        color_interior (int): The interior color represented as RGB values converted to a rgb_as_single_int integer value.</span>
+<span class="sd">        color_exterior (int): The exterior color represented as RGB values converted to a rgb_as_single_int integer value.</span>
+<span class="sd">        points (int): The number of points.</span>
+<span class="sd">        data_points (list[DiscreteFunctionDataPoint]): A list of data points for the discrete function.</span>
+
+<span class="sd">    Attributes: </span>
+<span class="sd">        name (str): The name of the discrete function.</span>
+<span class="sd">        id (int): The ID of the discrete function.</span>
+<span class="sd">        sample_num (int): The sample number.</span>
+<span class="sd">        res_strength_factor (float): The residual strength factor.</span>
+<span class="sd">        tensile_strength (float): The tensile strength.</span>
+<span class="sd">        residual_tensile_strength (float): The residual tensile strength.</span>
+<span class="sd">        modulus (float): The modulus.</span>
+<span class="sd">        modulus_res (float): The residual modulus.</span>
+<span class="sd">        correlation_flag (int): The correlation flag.</span>
+<span class="sd">        correlation_num (float): The correlation number.</span>
+<span class="sd">        randomize_selection (int): The randomize selection type</span>
+<span class="sd">        randomize_num (int): The approximate number of points for randomizing</span>
+<span class="sd">        c_dist (float): The cohesion distribution.</span>
+<span class="sd">        c_mean (float): The cohesion mean.</span>
+<span class="sd">        c_stdv (float): The cohesion standard deviation.</span>
+<span class="sd">        c_min (float): The cohesion minimum value.</span>
+<span class="sd">        c_max (float): The cohesion maximum value.</span>
+<span class="sd">        phi_dist (float): The friction angle distribution.</span>
+<span class="sd">        phi_mean (float): The friction angle mean.</span>
+<span class="sd">        phi_stdv (float): The friction angle standard deviation.</span>
+<span class="sd">        phi_min (float): The friction angle minimum value.</span>
+<span class="sd">        phi_max (float): The friction angle maximum value.</span>
+<span class="sd">        mod_dist (float): The modulus distribution.</span>
+<span class="sd">        mod_mean (float): The modulus mean.</span>
+<span class="sd">        mod_stdv (float): The modulus standard deviation.</span>
+<span class="sd">        mod_min (float): The modulus minimum value.</span>
+<span class="sd">        mod_max (float): The modulus maximum value.</span>
+<span class="sd">        mod_res_dist (float): The residual modulus distribution.</span>
+<span class="sd">        mod_res_mean (float): The residual modulus mean.</span>
+<span class="sd">        mod_res_stdv (float): The residual modulus standard deviation.</span>
+<span class="sd">        mod_res_min (float): The residual modulus minimum value.</span>
+<span class="sd">        mod_res_max (float): The residual modulus maximum value.</span>
+<span class="sd">        strength_type (str): The strength or function type, such as drained or undrained.</span>
+<span class="sd">        interpolation (str): The interpolation type.</span>
+<span class="sd">        symbol_type (str): The symbol type.</span>
+<span class="sd">        fill_interior (str): The fill interior type.</span>
+<span class="sd">        color_interior (int): The interior color represented as RGB values converted to a rgb_as_single_int integer value.</span>
+<span class="sd">        color_exterior (int): The exterior color represented as RGB values converted to a rgb_as_single_int integer value.</span>
+<span class="sd">        points (int): The number of points.</span>
+<span class="sd">        data_points (list[DiscreteFunctionDataPoint]): A list of data points for the discrete function.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;name&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sample_num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;sample_num&#39;</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">res_strength_factor</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;res_strength_factor&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tensile_strength</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;tensile_strength&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">residual_tensile_strength</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;residual_tensile_strength&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modulus</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;modulus&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">modulus_res</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;modulus_res&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">correlation_flag</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;correlation_flag&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">correlation_num</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;correlation_num&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">randomize_selection</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;randomize_selection&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">randomize_num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;randomize_num&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_dist</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;c_dist&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_mean</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;c_mean&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_stdv</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;c_stdv&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_min</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;c_min&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">c_max</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;c_max&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phi_dist</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;phi_dist&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phi_mean</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;phi_mean&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phi_stdv</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;phi_stdv&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phi_min</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;phi_min&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">phi_max</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;phi_max&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_dist</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mod_dist&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_mean</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mod_mean&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_stdv</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mod_stdv&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_min</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mod_min&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_max</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mod_max&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_res_dist</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mod_res_dist&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_res_mean</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mod_res_mean&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_res_stdv</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mod_res_stdv&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_res_min</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mod_res_min&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">mod_res_max</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;mod_res_max&#39;</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">strength_type</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;strength_type&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">interpolation</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;interpolation&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">symbol_type</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;symbol_type&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fill_interior</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;fill_interior&#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color_interior</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;color_interior&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">,</span> <span class="mi">255</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">color_exterior</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;color_exterior&#39;</span><span class="p">,</span> <span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">points</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;points&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">data_points</span> <span class="o">=</span> <span class="n">kwargs</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;data_points&#39;</span><span class="p">,</span> <span class="p">[])</span>
+
+    <span class="k">def</span> <span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">return</span> <span class="p">(</span><span class="sa">f</span><span class="s2">&quot;DiscreteFunctionData(name=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s2">, id=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">, res_strength_factor=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">res_strength_factor</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;tensile_strength=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">tensile_strength</span><span class="si">}</span><span class="s2">, residual_tensile_strength=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">residual_tensile_strength</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;modulus=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modulus</span><span class="si">}</span><span class="s2">, modulus_res=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">modulus_res</span><span class="si">}</span><span class="s2">, correlation_flag=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">correlation_flag</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;correlation_num=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">correlation_num</span><span class="si">}</span><span class="s2">, randomize_selection=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">randomize_selection</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;randomize_num=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">randomize_num</span><span class="si">}</span><span class="s2">, c_dist=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">c_dist</span><span class="si">}</span><span class="s2">, c_mean=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">c_mean</span><span class="si">}</span><span class="s2">, c_stdv=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">c_stdv</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;c_min=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">c_min</span><span class="si">}</span><span class="s2">, c_max=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">c_max</span><span class="si">}</span><span class="s2">, phi_dist=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">phi_dist</span><span class="si">}</span><span class="s2">, phi_mean=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">phi_mean</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;phi_stdv=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">phi_stdv</span><span class="si">}</span><span class="s2">, phi_min=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">phi_min</span><span class="si">}</span><span class="s2">, phi_max=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">phi_max</span><span class="si">}</span><span class="s2">, mod_dist=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mod_dist</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;mod_mean=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mod_mean</span><span class="si">}</span><span class="s2">, mod_stdv=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mod_stdv</span><span class="si">}</span><span class="s2">, mod_min=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mod_min</span><span class="si">}</span><span class="s2">, mod_max=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mod_max</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;mod_res_dist=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mod_res_dist</span><span class="si">}</span><span class="s2">, mod_res_mean=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mod_res_mean</span><span class="si">}</span><span class="s2">, mod_res_stdv=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mod_res_stdv</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;mod_res_min=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mod_res_min</span><span class="si">}</span><span class="s2">, mod_res_max=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">mod_res_max</span><span class="si">}</span><span class="s2">, strength_type=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">strength_type</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;interpolation=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">interpolation</span><span class="si">}</span><span class="s2">, symbol_type=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">symbol_type</span><span class="si">}</span><span class="s2">, fill_interior=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">fill_interior</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;color_interior=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">color_interior</span><span class="si">}</span><span class="s2">, color_exterior=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">color_exterior</span><span class="si">}</span><span class="s2">, points=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">points</span><span class="si">}</span><span class="s2">, &quot;</span>
+                <span class="sa">f</span><span class="s2">&quot;data_points=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">data_points</span><span class="si">}</span><span class="s2">)&quot;</span><span class="p">)</span>
+
+<span class="k">class</span> <span class="nc">DiscreteFunctionHelpers</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    The DiscreteFunctionHelpers object provides supporting functionality to </span>
+<span class="sd">    create or update discrete functions in RS2. These include functions </span>
+<span class="sd">    to read and write data related to discrete functions </span>
+
+<span class="sd">    Args: None</span>
+
+<span class="sd">    Attributes: None</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">readDiscreteFunctionFilefn6</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">extract_sample_num_from_name</span><span class="p">:</span><span class="nb">bool</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">-&gt;</span><span class="n">DiscreteFunctionData</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize DiscreteFunctionData object from fn6 file type</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            file_path(str): full file path to data file</span>
+<span class="sd">            extract_sample_num_from_name(bool): set True if file name is written as &quot;NAME Sample 1.fn6&quot; where &quot;Sample&quot; is a keyword indicating </span>
+<span class="sd">                the next string is the sample number, False otherwise</span>
+<span class="sd">        </span>
+<span class="sd">        Raises: None </span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            a DiscreteFunctionData object that is initialized using read data from the given &#39;file_path&#39; or</span>
+<span class="sd">            a DiscreteFunctionData object with default values if file is not found. </span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">data</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="s1">&#39;r&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">line</span> <span class="ow">in</span> <span class="n">file</span><span class="p">:</span>
+                <span class="n">line</span> <span class="o">=</span> <span class="n">line</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                <span class="k">if</span> <span class="n">line</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;color&#39;</span><span class="p">):</span>
+                    <span class="c1"># color interior/exterior information, assuming rgb format</span>
+                    <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\w[\w\s]*):\s+(.*)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+                        <span class="n">key</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span> 
+                        <span class="n">value</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                        <span class="c1"># store rgb as a tuple of three integers</span>
+                        <span class="n">r</span><span class="p">,</span> <span class="n">g</span><span class="p">,</span> <span class="n">b</span> <span class="o">=</span> <span class="nb">map</span><span class="p">(</span><span class="nb">int</span><span class="p">,</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;\d+&#39;</span><span class="p">,</span> <span class="n">value</span><span class="p">))</span>
+                        <span class="n">value</span> <span class="o">=</span> <span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">r</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">g</span><span class="p">),</span><span class="nb">int</span><span class="p">(</span><span class="n">b</span><span class="p">))</span>
+                        <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                <span class="k">else</span><span class="p">:</span>
+                    <span class="c1"># header information assuming key: value format, keys and values can be multiple words</span>
+                    <span class="c1"># this is a key: this is a value</span>
+                    <span class="c1"># key must be alphanumeric character from the basic Latin alphabet, including the underscore [A-Za-z0-9_]</span>
+                    <span class="c1"># value can be any character</span>
+                    <span class="n">match</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\w[\w\s]*):\s+(.*)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="n">match</span><span class="p">:</span>
+                        <span class="n">key</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">replace</span><span class="p">(</span><span class="s1">&#39; &#39;</span><span class="p">,</span> <span class="s1">&#39;_&#39;</span><span class="p">)</span> 
+                        <span class="n">value</span> <span class="o">=</span> <span class="n">match</span><span class="o">.</span><span class="n">group</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                        
+                        <span class="n">data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                    
+                        <span class="k">if</span> <span class="n">key</span> <span class="o">==</span> <span class="s1">&#39;points&#39;</span><span class="p">:</span> 
+                            <span class="c1"># data points below the header information, only works if keys and values are not multiple words</span>
+                            <span class="c1"># ex. x: 1 y: 2 c: 3 d: 4 e: 5</span>
+                            <span class="n">data_points</span> <span class="o">=</span> <span class="p">[]</span>
+                            <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="p">)):</span>
+                                <span class="k">try</span><span class="p">:</span>
+                                    <span class="n">line</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">file</span><span class="p">)</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                                    <span class="n">key_value_pairs</span> <span class="o">=</span> <span class="n">re</span><span class="o">.</span><span class="n">findall</span><span class="p">(</span><span class="sa">r</span><span class="s1">&#39;(\w[\w]*:\s+\S[\S]*)&#39;</span><span class="p">,</span> <span class="n">line</span><span class="p">)</span>
+                                    <span class="n">data_point_data</span> <span class="o">=</span> <span class="p">{}</span>
+                                    <span class="k">for</span> <span class="n">key_value_pair</span> <span class="ow">in</span> <span class="n">key_value_pairs</span><span class="p">:</span>
+                                        <span class="n">key</span><span class="p">,</span> <span class="n">value</span> <span class="o">=</span> <span class="n">key_value_pair</span><span class="o">.</span><span class="n">split</span><span class="p">(</span><span class="s1">&#39;:&#39;</span><span class="p">)</span>
+                                        <span class="n">key</span> <span class="o">=</span> <span class="n">key</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                                        <span class="n">value</span> <span class="o">=</span> <span class="n">value</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+                                                                                
+                                        <span class="n">data_point_data</span><span class="p">[</span><span class="n">key</span><span class="p">]</span> <span class="o">=</span> <span class="n">value</span>
+                                    
+                                    <span class="n">data_points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">DiscreteFunctionDataPoint</span><span class="p">(</span><span class="o">**</span><span class="n">data_point_data</span><span class="p">))</span>  
+                                <span class="k">except</span> <span class="ne">StopIteration</span><span class="p">:</span>
+                                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reached end of file before expected number of points read&quot;</span><span class="p">)</span>
+                                    <span class="k">break</span>
+
+                            <span class="n">data</span><span class="p">[</span><span class="s1">&#39;data_points&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">data_points</span>
+
+        <span class="c1"># Create new discrete function data object</span>
+        <span class="n">discrete_function_data</span> <span class="o">=</span> <span class="n">DiscreteFunctionData</span><span class="p">(</span><span class="o">**</span><span class="n">data</span><span class="p">)</span>
+        
+        <span class="c1"># If you have the sample number as part of the name, you can extract it as follows</span>
+        <span class="c1"># ex. &quot;Sandy Clay Sample 1.fn6&quot; where &quot;Sample&quot; is a keyword and &quot;1&quot; is the value</span>
+        <span class="k">if</span> <span class="n">extract_sample_num_from_name</span> <span class="ow">and</span> <span class="n">discrete_function_data</span><span class="o">.</span><span class="n">name</span><span class="p">:</span>
+            <span class="c1"># Extract material name and sample number</span>
+            <span class="n">material_name</span> <span class="o">=</span> <span class="n">discrete_function_data</span><span class="o">.</span><span class="n">name</span> <span class="c1"># &quot;Sandy Clay Sample 1&quot;</span>
+            <span class="n">sample_num</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span> <span class="c1"># default if no sample number found</span>
+            <span class="n">sample_num_str</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span>
+            <span class="c1"># Find the index of the last occurrence of &quot;Sample&quot;</span>
+            <span class="n">index_sample</span> <span class="o">=</span> <span class="n">material_name</span><span class="o">.</span><span class="n">rfind</span><span class="p">(</span><span class="s2">&quot;Sample&quot;</span><span class="p">)</span>
+            <span class="c1"># If &quot;Sample&quot; is found in the text</span>
+            <span class="k">if</span> <span class="n">index_sample</span> <span class="o">!=</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+                <span class="c1"># Split the text at the found index</span>
+                <span class="n">sample_num_str</span> <span class="o">=</span> <span class="n">material_name</span><span class="p">[</span><span class="n">index_sample</span><span class="p">:]</span> <span class="c1"># &quot;Sample 1&quot;</span>
+                <span class="n">sample_num_str</span> <span class="o">=</span> <span class="n">sample_num_str</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1"># &quot;1&quot;</span>
+                <span class="n">material_name</span> <span class="o">=</span> <span class="n">material_name</span><span class="p">[:</span><span class="n">index_sample</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="c1"># &quot;Sandy Clay&quot;</span>
+            
+            <span class="c1"># Validate sample number found</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">sample_num</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sample_num_str</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sample number not found from </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s1"> sample number of -1 used&#39;</span><span class="p">)</span>
+            
+            <span class="c1"># Separate name and sample number in separate fields</span>
+            <span class="n">discrete_function_data</span><span class="o">.</span><span class="n">name</span> <span class="o">=</span> <span class="n">material_name</span>
+            <span class="n">discrete_function_data</span><span class="o">.</span><span class="n">sample_num</span> <span class="o">=</span> <span class="n">sample_num</span>
+
+        <span class="k">return</span> <span class="n">discrete_function_data</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">writeDiscreteFunctionFilefn6</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">df_data</span><span class="p">:</span> <span class="n">DiscreteFunctionData</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Write &#39;df_data&#39; using the fn6 format to the file found in &#39;output_file_path&#39;. </span>
+<span class="sd">        Does nothing if output file not found.</span>
+<span class="sd">        </span>
+<span class="sd">        FOR CHECKING VALUES ONLY. File not expect to be imported directly into the RS2 discrete function feature</span>
+<span class="sd">        </span>
+<span class="sd">        Args:</span>
+<span class="sd">            output_file_path(str): full file path to output data</span>
+<span class="sd">            df_data(DiscreteFunctionData): discrete function data object </span>
+<span class="sd">        </span>
+<span class="sd">        Raises: None </span>
+<span class="sd">        </span>
+<span class="sd">        Returns: None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Slide Discrete Function</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;    name: </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span> 
+            <span class="k">if</span> <span class="p">(</span><span class="n">df_data</span><span class="o">.</span><span class="n">sample_num</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">):</span> 
+                <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39; Sample </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">sample_num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="s1">&#39;</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;    strength type: </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">strength_type</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;    interpolation: </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">interpolation</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;    symbol type: </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">symbol_type</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;    fill interior: </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">fill_interior</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;    color interior:   r: </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">color_interior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> g: </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">color_interior</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1"> b: </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">color_interior</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;    color exterior:   r: </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">color_exterior</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="si">}</span><span class="s1"> g: </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">color_exterior</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="si">}</span><span class="s1"> b: </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">color_exterior</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;    points: </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">points</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>  
+            <span class="k">for</span> <span class="n">data_point</span> <span class="ow">in</span> <span class="n">df_data</span><span class="o">.</span><span class="n">data_points</span><span class="p">:</span>
+                <span class="n">file</span><span class="o">.</span><span class="n">write</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;    x: </span><span class="si">{</span><span class="n">data_point</span><span class="o">.</span><span class="n">x</span><span class="si">}</span><span class="s1">  y: </span><span class="si">{</span><span class="n">data_point</span><span class="o">.</span><span class="n">y</span><span class="si">}</span><span class="s1">  coh: </span><span class="si">{</span><span class="n">data_point</span><span class="o">.</span><span class="n">coh</span><span class="si">}</span><span class="s1">  phi: </span><span class="si">{</span><span class="n">data_point</span><span class="o">.</span><span class="n">phi</span><span class="si">}</span><span class="se">\n</span><span class="s1">&#39;</span><span class="p">)</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">readDiscreteFunctionFileCustom</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">list</span><span class="p">[</span><span class="n">DiscreteFunctionData</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Initialize a list of DiscreteFunctionData objects from a custom data file format</span>
+<span class="sd">                </span>
+<span class="sd">        Args:</span>
+<span class="sd">            file_path(str): full file path to data file</span>
+
+<span class="sd">        Raises: None </span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            a list of DiscreteFunctionData objects that is initialized using read data from the given &#39;file_path&#39;.</span>
+<span class="sd">            an empty list if file is not found.</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">all_discrete_function_data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">file_path</span><span class="p">,</span> <span class="n">mode</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">csvfile</span><span class="p">:</span>
+            <span class="n">reader</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">reader</span><span class="p">(</span><span class="n">csvfile</span><span class="p">)</span>
+
+            <span class="c1"># Extract header</span>
+            <span class="n">header_row</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">)</span>
+            <span class="n">name</span> <span class="o">=</span> <span class="n">header_row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+            <span class="n">headers</span> <span class="o">=</span> <span class="p">[</span><span class="n">header</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span> <span class="k">for</span> <span class="n">header</span> <span class="ow">in</span> <span class="n">header_row</span><span class="p">[</span><span class="mi">2</span><span class="p">:]</span> <span class="k">if</span> <span class="n">header</span><span class="p">]</span>
+            
+            <span class="c1"># read data till end of file</span>
+            <span class="n">row</span> <span class="o">=</span> <span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">,</span><span class="kc">None</span><span class="p">)</span>
+            <span class="k">while</span> <span class="n">row</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+                <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+                    <span class="k">continue</span>  <span class="c1"># skip empty rows</span>
+                
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">sample_tag</span><span class="p">,</span> <span class="n">sample_number_str</span> <span class="o">=</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">split</span><span class="p">()</span>
+                    <span class="k">if</span> <span class="n">sample_tag</span> <span class="o">!=</span> <span class="s1">&#39;Sample&#39;</span><span class="p">:</span>
+                        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;Expected sample data information&#39;</span><span class="p">)</span>
+
+                    <span class="n">sample_number</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">sample_number_str</span><span class="p">)</span>
+
+                <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Unexpected line in </span><span class="si">{</span><span class="n">file_path</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                    <span class="k">return</span> <span class="n">all_discrete_function_data</span>
+
+                <span class="c1"># Initialize the data points list</span>
+                <span class="n">data_points</span> <span class="o">=</span> <span class="p">[]</span>   
+                <span class="k">while</span> <span class="p">(</span><span class="n">row</span><span class="o">:=</span><span class="nb">next</span><span class="p">(</span><span class="n">reader</span><span class="p">,</span><span class="kc">None</span><span class="p">))</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span> 
+                    <span class="k">if</span> <span class="ow">not</span> <span class="nb">any</span><span class="p">(</span><span class="n">row</span><span class="p">):</span>
+                        <span class="k">continue</span> <span class="c1"># skip empty rows</span>
+
+                    <span class="k">if</span> <span class="n">row</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;Sample&#39;</span><span class="p">:</span>
+                        <span class="k">break</span>
+                              
+                    <span class="c1"># Create a dictionary to map headers to row values</span>
+                    <span class="n">row_data</span> <span class="o">=</span> <span class="p">{</span><span class="n">headers</span><span class="p">[</span><span class="n">i</span><span class="p">]:</span> <span class="n">row</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">headers</span><span class="p">))}</span>
+                    
+                    <span class="c1"># Create a DataPoint instance</span>
+                    <span class="n">data_point</span> <span class="o">=</span> <span class="n">DiscreteFunctionDataPoint</span><span class="p">(</span>
+                        <span class="n">x</span><span class="o">=</span><span class="n">row_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                        <span class="n">y</span><span class="o">=</span><span class="n">row_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;y&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                        <span class="n">coh</span><span class="o">=</span><span class="n">row_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;cohesion&#39;</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span>
+                        <span class="n">phi</span><span class="o">=</span><span class="n">row_data</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s1">&#39;phi&#39;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+                    <span class="p">)</span>
+                    <span class="n">data_points</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_point</span><span class="p">)</span>
+
+                <span class="n">new_df</span> <span class="o">=</span> <span class="n">DiscreteFunctionData</span><span class="p">(</span><span class="n">name</span><span class="o">=</span><span class="n">name</span><span class="p">,</span> <span class="n">sample_num</span><span class="o">=</span><span class="n">sample_number</span><span class="p">,</span> <span class="n">data_points</span><span class="o">=</span><span class="n">data_points</span><span class="p">)</span> 
+                <span class="n">all_discrete_function_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">new_df</span><span class="p">)</span>
+
+        <span class="c1"># Create and return the DiscreteFunctionData instance</span>
+        <span class="k">return</span> <span class="n">all_discrete_function_data</span> 
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">writeDiscreteFunctionFileCustom</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">all_df_data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">DiscreteFunctionData</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Write &#39;all_df_data&#39; in a custom format to the file found in &#39;output_file_path&#39;. </span>
+<span class="sd">        Does nothing if output file not found.</span>
+<span class="sd">        Good for checking read values</span>
+<span class="sd">    </span>
+<span class="sd">        Args:</span>
+<span class="sd">            output_file_path(str): full file path to output data</span>
+<span class="sd">            all_df_data(list[str]): list of discrete function data objects</span>
+<span class="sd">            </span>
+<span class="sd">        Raises: None </span>
+<span class="sd">        </span>
+<span class="sd">        Returns: None</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="n">output_file_path</span><span class="p">,</span> <span class="s1">&#39;w&#39;</span><span class="p">,</span> <span class="n">newline</span><span class="o">=</span><span class="s1">&#39;&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">file</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">all_df_data</span><span class="p">:</span>
+                <span class="n">writer</span> <span class="o">=</span> <span class="n">csv</span><span class="o">.</span><span class="n">writer</span><span class="p">(</span><span class="n">file</span><span class="p">)</span>
+                <span class="c1"># write header</span>
+                <span class="n">df_data_first</span> <span class="o">=</span> <span class="n">all_df_data</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+                <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">df_data_first</span><span class="o">.</span><span class="n">name</span><span class="p">,</span><span class="s1">&#39;&#39;</span><span class="p">,</span><span class="s1">&#39;x&#39;</span><span class="p">,</span><span class="s1">&#39;y&#39;</span><span class="p">,</span><span class="s1">&#39;cohesion&#39;</span><span class="p">,</span><span class="s1">&#39;phi&#39;</span><span class="p">])</span>
+                <span class="k">for</span> <span class="n">df_data</span> <span class="ow">in</span> <span class="n">all_df_data</span><span class="p">:</span>
+                    <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="sa">f</span><span class="s1">&#39;Sample </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">sample_num</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">])</span>
+                    <span class="k">for</span> <span class="n">data_point</span> <span class="ow">in</span> <span class="n">df_data</span><span class="o">.</span><span class="n">data_points</span><span class="p">:</span>
+                        <span class="n">x</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data_point</span><span class="o">.</span><span class="n">x</span><span class="p">)</span> <span class="k">if</span> <span class="n">data_point</span><span class="o">.</span><span class="n">x</span><span class="o">.</span><span class="n">is_integer</span><span class="p">()</span> <span class="k">else</span> <span class="n">data_point</span><span class="o">.</span><span class="n">x</span>
+                        <span class="n">y</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data_point</span><span class="o">.</span><span class="n">y</span><span class="p">)</span> <span class="k">if</span> <span class="n">data_point</span><span class="o">.</span><span class="n">y</span><span class="o">.</span><span class="n">is_integer</span><span class="p">()</span> <span class="k">else</span> <span class="n">data_point</span><span class="o">.</span><span class="n">y</span>
+                        <span class="n">coh</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data_point</span><span class="o">.</span><span class="n">coh</span><span class="p">)</span> <span class="k">if</span> <span class="n">data_point</span><span class="o">.</span><span class="n">coh</span><span class="o">.</span><span class="n">is_integer</span><span class="p">()</span> <span class="k">else</span> <span class="n">data_point</span><span class="o">.</span><span class="n">coh</span>
+                        <span class="n">phi</span> <span class="o">=</span> <span class="nb">int</span><span class="p">(</span><span class="n">data_point</span><span class="o">.</span><span class="n">phi</span><span class="p">)</span> <span class="k">if</span> <span class="n">data_point</span><span class="o">.</span><span class="n">phi</span><span class="o">.</span><span class="n">is_integer</span><span class="p">()</span> <span class="k">else</span> <span class="n">data_point</span><span class="o">.</span><span class="n">phi</span>
+                        <span class="n">writer</span><span class="o">.</span><span class="n">writerow</span><span class="p">([</span><span class="n">x</span><span class="p">,</span><span class="n">y</span><span class="p">,</span><span class="n">coh</span><span class="p">,</span><span class="n">phi</span><span class="p">])</span> 
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">readDiscreteFunctionFile</span><span class="p">(</span><span class="n">file_path</span><span class="p">:</span><span class="nb">str</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">list</span><span class="p">[</span><span class="n">DiscreteFunctionData</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot; </span>
+<span class="sd">        Initialize a list of discrete function data objects using data read from a file based on its extension</span>
+<span class="sd">    </span>
+<span class="sd">        Args:</span>
+<span class="sd">            file_path(str): full file path to data file</span>
+<span class="sd">            all_df_data(list[str]): list of discrete function data objects</span>
+<span class="sd">            </span>
+<span class="sd">        Raises: None </span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            A list of DiscreteFunctionData objects that is initialized using read data from the given &#39;file_path&#39;.</span>
+<span class="sd">            An empty list if file is not found or file extension type is not supported</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="n">all_discrete_function_data</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="c1"># Read data</span>
+        <span class="n">root</span><span class="p">,</span> <span class="n">extension</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">file_path</span><span class="p">)</span>
+        <span class="k">if</span>  <span class="n">extension</span> <span class="o">==</span> <span class="s1">&#39;.fn6&#39;</span><span class="p">:</span>
+            <span class="c1"># RS2 or Slide2 exported discrete function type</span>
+            <span class="n">all_discrete_function_data</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">DiscreteFunctionHelpers</span><span class="o">.</span><span class="n">readDiscreteFunctionFilefn6</span><span class="p">(</span><span class="n">file_path</span><span class="p">))</span>
+        <span class="k">elif</span> <span class="n">extension</span> <span class="o">==</span><span class="s1">&#39;.cust&#39;</span><span class="p">:</span> 
+            <span class="c1"># Custom file type</span>
+            <span class="n">all_discrete_function_data</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">DiscreteFunctionHelpers</span><span class="o">.</span><span class="n">readDiscreteFunctionFileCustom</span><span class="p">(</span><span class="n">file_path</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span> 
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">discrete_function_file_path</span><span class="si">}</span><span class="s1"> has an unsuported extension&#39;</span><span class="p">)</span>
+            <span class="k">return</span> <span class="p">[]</span>
+
+        <span class="k">return</span> <span class="n">all_discrete_function_data</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">getDiscreteFunctionDataPerSample</span><span class="p">(</span><span class="n">discrete_function_file_paths</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="nb">str</span><span class="p">])</span><span class="o">-&gt;</span><span class="nb">dict</span><span class="p">[</span><span class="nb">int</span><span class="p">,</span><span class="nb">list</span><span class="p">[</span><span class="n">DiscreteFunctionData</span><span class="p">]]:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Read discrete function data from files and return a dictionary of data per sample id</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            discrete_function_file_paths (list[str]): A list of file paths containing discrete function data.</span>
+<span class="sd">            </span>
+<span class="sd">        Raises:</span>
+<span class="sd">            None</span>
+
+<span class="sd">        Returns:</span>
+<span class="sd">            A dictionary of sample id to a list of DiscreteFunctionData objects</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Collect all discrete function file data to minimize number of times models are opened in update</span>
+        <span class="n">samplenum_to_discretefunctiondata</span> <span class="o">=</span> <span class="p">{}</span>
+        <span class="k">for</span> <span class="n">discrete_function_file_path</span> <span class="ow">in</span> <span class="n">discrete_function_file_paths</span><span class="p">:</span>
+            <span class="c1"># Get list of discrete_function_data to update model</span>
+            <span class="n">all_discrete_function_data</span> <span class="o">=</span> <span class="n">DiscreteFunctionHelpers</span><span class="o">.</span><span class="n">readDiscreteFunctionFile</span><span class="p">(</span><span class="n">discrete_function_file_path</span><span class="p">)</span>
+            <span class="k">for</span> <span class="n">discrete_function_data</span> <span class="ow">in</span> <span class="n">all_discrete_function_data</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">discrete_function_data</span><span class="o">.</span><span class="n">sample_num</span> <span class="ow">in</span> <span class="n">samplenum_to_discretefunctiondata</span><span class="p">:</span>
+                    <span class="n">samplenum_to_discretefunctiondata</span><span class="p">[</span><span class="n">discrete_function_data</span><span class="o">.</span><span class="n">sample_num</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">discrete_function_data</span><span class="p">)</span>
+                <span class="k">else</span><span class="p">:</span> 
+                    <span class="n">samplenum_to_discretefunctiondata</span><span class="p">[</span><span class="n">discrete_function_data</span><span class="o">.</span><span class="n">sample_num</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">discrete_function_data</span><span class="p">]</span>
+        
+        <span class="k">return</span> <span class="n">samplenum_to_discretefunctiondata</span>        
+
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">updateDiscreteFunction</span><span class="p">(</span><span class="n">df_data</span><span class="p">:</span> <span class="n">DiscreteFunctionData</span><span class="p">,</span> <span class="n">df</span><span class="p">:</span> <span class="n">DiscreteFunction</span><span class="p">)</span><span class="o">-&gt;</span><span class="nb">bool</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update df, discrete function object outputted by RS2, using the data stored in df_data</span>
+
+<span class="sd">        Only MAIN functionality is implemented in this example. Please update if there are</span>
+<span class="sd">        discrete function parameters you want to update which aren&#39;t implemented.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            file_path(str): full file path to data file</span>
+<span class="sd">            all_df_data(list[str]): list of discrete function data objects</span>
+<span class="sd">            </span>
+<span class="sd">        Raises: None </span>
+<span class="sd">        </span>
+<span class="sd">        Returns:</span>
+<span class="sd">            True if discrete function was updated with no warnings or issues, False othwerise</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Only set parameters which are initialized in the input data</span>
+
+        <span class="c1"># Set general parameters, mostly leave as default if importing from Slide 2</span>
+        <span class="n">curr_params</span> <span class="o">=</span> <span class="n">df</span><span class="o">.</span><span class="n">getFunctionParameters</span><span class="p">()</span>
+
+        <span class="c1"># Set function type, other function parameters NOT IMPLEMENTED </span>
+        <span class="n">function_type</span> <span class="o">=</span> <span class="n">DiscreteDrainedMode</span><span class="o">.</span><span class="n">DRAINED</span> <span class="c1">#drained default</span>
+        <span class="k">if</span> <span class="n">df_data</span><span class="o">.</span><span class="n">strength_type</span> <span class="o">==</span> <span class="s1">&#39;drained&#39;</span><span class="p">:</span>
+            <span class="n">function_type</span> <span class="o">=</span> <span class="n">DiscreteDrainedMode</span><span class="o">.</span><span class="n">DRAINED</span>
+        <span class="k">elif</span> <span class="n">df_data</span><span class="o">.</span><span class="n">strength_type</span> <span class="o">==</span> <span class="s1">&#39;undrained&#39;</span><span class="p">:</span>
+            <span class="n">function_type</span> <span class="o">=</span> <span class="n">DiscreteDrainedMode</span><span class="o">.</span><span class="n">UNDRAINED</span>
+
+        <span class="n">df</span><span class="o">.</span><span class="n">setFunctionParameters</span><span class="p">(</span><span class="n">function_type</span><span class="p">,</span> <span class="n">curr_params</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span><span class="n">curr_params</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span><span class="n">curr_params</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span><span class="n">curr_params</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span><span class="n">curr_params</span><span class="p">[</span><span class="mi">5</span><span class="p">])</span>
+
+        <span class="c1"># Set interpolation method</span>
+        <span class="k">if</span> <span class="n">df_data</span><span class="o">.</span><span class="n">interpolation</span> <span class="o">==</span> <span class="s1">&#39;thin plate spline&#39;</span><span class="p">:</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">setInterpolationMethod</span><span class="p">(</span><span class="n">InterpolationMethod</span><span class="o">.</span><span class="n">THIN_PLATE_SPLINE</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">df_data</span><span class="o">.</span><span class="n">interpolation</span> <span class="o">==</span> <span class="s1">&#39;chugh&#39;</span><span class="p">:</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">setInterpolationMethod</span><span class="p">(</span><span class="n">InterpolationMethod</span><span class="o">.</span><span class="n">MODIFIED_CHUGH</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">df_data</span><span class="o">.</span><span class="n">interpolation</span> <span class="o">==</span> <span class="s1">&#39;local thin plate&#39;</span><span class="p">:</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">setInterpolationMethod</span><span class="p">(</span><span class="n">InterpolationMethod</span><span class="o">.</span><span class="n">LOCAL_THIN_PLATE_SPLINE</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">df_data</span><span class="o">.</span><span class="n">interpolation</span> <span class="o">==</span> <span class="s1">&#39;tin triangulation&#39;</span><span class="p">:</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">setInterpolationMethod</span><span class="p">(</span><span class="n">InterpolationMethod</span><span class="o">.</span><span class="n">TIN_TRIANGULATION</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">df_data</span><span class="o">.</span><span class="n">interpolation</span> <span class="o">==</span> <span class="s1">&#39;inverse distance&#39;</span><span class="p">:</span> 
+            <span class="n">df</span><span class="o">.</span><span class="n">setInterpolationMethod</span><span class="p">(</span><span class="n">InterpolationMethod</span><span class="o">.</span><span class="n">INVERSE_DISTANCE</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">df_data</span><span class="o">.</span><span class="n">interpolation</span> <span class="o">==</span> <span class="s1">&#39;linear by elevation&#39;</span><span class="p">:</span> 
+            <span class="n">df</span><span class="o">.</span><span class="n">setInterpolationMethod</span><span class="p">(</span><span class="n">InterpolationMethod</span><span class="o">.</span><span class="n">LINEAR_BY_ELEVATION</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">df_data</span><span class="o">.</span><span class="n">interpolation</span> <span class="o">==</span> <span class="s1">&#39;original chugh&#39;</span><span class="p">:</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">setInterpolationMethod</span><span class="p">(</span><span class="n">InterpolationMethod</span><span class="o">.</span><span class="n">CHUGH</span><span class="p">)</span>
+
+        <span class="c1"># Set symbol drawing, NOT IMPLEMENTED </span>
+
+        <span class="c1"># Set point locations, add more data types as needed</span>
+        <span class="n">point_locations</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">coh_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">phi_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">mod_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="n">res_mod_list</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">data_point</span> <span class="ow">in</span> <span class="n">df_data</span><span class="o">.</span><span class="n">data_points</span><span class="p">:</span>
+            <span class="n">point_locations</span><span class="o">.</span><span class="n">append</span><span class="p">((</span><span class="n">data_point</span><span class="o">.</span><span class="n">x</span><span class="p">,</span> <span class="n">data_point</span><span class="o">.</span><span class="n">y</span><span class="p">))</span>
+            <span class="n">coh_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_point</span><span class="o">.</span><span class="n">coh</span><span class="p">)</span>
+            <span class="n">phi_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_point</span><span class="o">.</span><span class="n">phi</span><span class="p">)</span>
+            <span class="n">mod_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_point</span><span class="o">.</span><span class="n">mod</span><span class="p">)</span>
+            <span class="n">res_mod_list</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">data_point</span><span class="o">.</span><span class="n">res_mod</span><span class="p">)</span>
+
+        <span class="k">if</span> <span class="n">point_locations</span><span class="p">:</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">setPointLocations</span><span class="p">(</span><span class="n">point_locations</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">coh_list</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">point_locations</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sample </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">sample_num</span><span class="si">}</span><span class="s1"> for </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> discrete function has invalid number of cohesion values compared to point locations&#39;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">setPointsC</span><span class="p">(</span><span class="n">coh_list</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">phi_list</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">point_locations</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sample </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">sample_num</span><span class="si">}</span><span class="s1"> for </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> discrete function has invalid number of phi values compared to point locations&#39;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">setPointsPhi</span><span class="p">(</span><span class="n">phi_list</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">mod_list</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">point_locations</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sample </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">sample_num</span><span class="si">}</span><span class="s1"> for </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> discrete function has invalid number of modulus values compared to point locations&#39;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">setPointsModulus</span><span class="p">(</span><span class="n">mod_list</span><span class="p">)</span>
+
+            <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">res_mod_list</span><span class="p">)</span> <span class="o">!=</span> <span class="nb">len</span><span class="p">(</span><span class="n">point_locations</span><span class="p">):</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;Sample </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">sample_num</span><span class="si">}</span><span class="s1"> for </span><span class="si">{</span><span class="n">df_data</span><span class="o">.</span><span class="n">name</span><span class="si">}</span><span class="s1"> discrete function has invalid number of residual modulus values compared to point locations&#39;</span><span class="p">)</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="n">df</span><span class="o">.</span><span class="n">setPointsModulusResidual</span><span class="p">(</span><span class="n">res_mod_list</span><span class="p">)</span>
+        
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="nd">@staticmethod</span>
+    <span class="k">def</span> <span class="nf">updateModelMaterialsWithDiscreteFunctionData</span><span class="p">(</span><span class="n">model</span><span class="p">:</span> <span class="n">Model</span><span class="p">,</span> <span class="n">all_discrete_function_data</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">DiscreteFunctionData</span><span class="p">]):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Update materials in model object with discrete function data of same name</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            model(Model): RS2 modeler Model object</span>
+<span class="sd">            all_discrete_function_data(list[DiscreteFunctionData]): list of discrete function data objects to use</span>
+<span class="sd">            </span>
+<span class="sd">        Raises: None  </span>
+<span class="sd">        </span>
+<span class="sd">        Returns: None</span>
+
+<span class="sd">        &quot;&quot;&quot;</span>
+
+        <span class="c1"># Update materials</span>
+        <span class="k">for</span> <span class="n">discrete_function_data</span> <span class="ow">in</span> <span class="n">all_discrete_function_data</span><span class="p">:</span>
+            <span class="c1"># Get header values</span>
+            <span class="n">material_name</span> <span class="o">=</span> <span class="n">discrete_function_data</span><span class="o">.</span><span class="n">name</span>               
+
+            <span class="c1"># Find discrete function</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">discrete_function</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getDiscreteFunctionByName</span><span class="p">(</span><span class="n">material_name</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">RuntimeError</span><span class="p">:</span>
+                <span class="c1"># Create new if not found</span>
+                <span class="n">model</span><span class="o">.</span><span class="n">createNewDiscreteFunction</span><span class="p">(</span><span class="n">material_name</span><span class="p">)</span>
+                <span class="n">discrete_function</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getDiscreteFunctionByName</span><span class="p">(</span><span class="n">material_name</span><span class="p">)</span>
+
+            <span class="c1"># Update with read data</span>
+            <span class="n">DiscreteFunctionHelpers</span><span class="o">.</span><span class="n">updateDiscreteFunction</span><span class="p">(</span><span class="n">discrete_function_data</span><span class="p">,</span> <span class="n">discrete_function</span><span class="p">)</span>
+
+            <span class="c1"># Change material to use new discrete function of same name</span>
+            <span class="k">try</span><span class="p">:</span> 
+                <span class="n">material</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getMaterialPropertyByName</span><span class="p">(</span><span class="n">material_name</span><span class="p">)</span>
+                <span class="n">material</span><span class="o">.</span><span class="n">Strength</span><span class="o">.</span><span class="n">setFailureCriterion</span><span class="p">(</span><span class="n">StrengthCriteriaTypes</span><span class="o">.</span><span class="n">DISCRETE_FUNCTION</span><span class="p">)</span>
+                <span class="n">material</span><span class="o">.</span><span class="n">Strength</span><span class="o">.</span><span class="n">DiscreteFunction</span><span class="o">.</span><span class="n">setSelectedDiscreteFunctionByName</span><span class="p">(</span><span class="n">material_name</span><span class="p">)</span>
+            <span class="k">except</span> <span class="ne">ValueError</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;material </span><span class="si">{</span><span class="n">material_name</span><span class="si">}</span><span class="s1"> not found in </span><span class="si">{</span><span class="n">discrete_function_file_path</span><span class="si">}</span><span class="s1">, file not used&#39;</span><span class="p">)</span>
+                <span class="k">continue</span>
+
+
+
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id4">
+<span id="fileutilities"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: FileUtilities.py</span><a class="headerlink" href="#id4" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="k">class</span> <span class="nc">FileUtilities</span><span class="p">:</span>
+    <span class="nd">@staticmethod</span> 
+    <span class="k">def</span> <span class="nf">findFilesWithExtension</span><span class="p">(</span><span class="n">directory</span><span class="p">:</span><span class="nb">str</span><span class="p">,</span> <span class="n">extension</span><span class="p">:</span><span class="nb">str</span><span class="p">):</span>
+<span class="w">        </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">        Recursively find all files with a given extension in the directory and its subdirectories. </span>
+<span class="sd">    </span>
+<span class="sd">        Args:</span>
+<span class="sd">            directory(str): full path to folder directory to carry out search</span>
+<span class="sd">            extension(str): file extension for search with or without the period at the beginning</span>
+
+<span class="sd">        Raises: None</span>
+
+<span class="sd">        Returns: </span>
+<span class="sd">            list of file paths found with extension</span>
+<span class="sd">        &quot;&quot;&quot;</span>
+        <span class="c1"># Add a period to the extension if it doesn&#39;t start with one</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">extension</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">):</span>
+            <span class="n">extension</span> <span class="o">=</span> <span class="s1">&#39;.&#39;</span> <span class="o">+</span> <span class="n">extension</span>
+
+        <span class="n">matching_files</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">directory</span><span class="p">):</span>
+            <span class="k">for</span> <span class="n">file</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
+                <span class="k">if</span> <span class="n">file</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="n">extension</span><span class="p">):</span>
+                    <span class="n">matching_files</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">file</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">matching_files</span>
+</pre></div>
+</div>
+</div>
+<div class="literal-block-wrapper docutils container" id="id5">
+<span id="read-write-discrete-function-files"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: read_write_discrete_function_files.py</span><a class="headerlink" href="#id5" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
+
+<span class="kn">from</span> <span class="nn">DiscreteFunctionHelpers</span> <span class="kn">import</span> <span class="n">DiscreteFunctionHelpers</span> <span class="k">as</span> <span class="n">DFHelpers</span>
+<span class="kn">from</span> <span class="nn">FileUtilities</span> <span class="kn">import</span> <span class="n">FileUtilities</span> <span class="k">as</span> <span class="n">FileUtil</span>
+
+<span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">This example script shows how to read discrete function data and then check</span>
+<span class="sd">the output by writing to a file using the DiscreteFunctionHelpers class</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># Current folder location</span>
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span> 
+
+<span class="c1"># Output folder</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s1">\read data&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span> 
+
+<span class="c1"># Get all discrete function files (.fn6) from folder</span>
+<span class="n">fn6_files</span> <span class="o">=</span> <span class="n">FileUtil</span><span class="o">.</span><span class="n">findFilesWithExtension</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_dir</span><span class="p">,</span><span class="s1">&#39;data&#39;</span><span class="p">),</span><span class="s1">&#39;fn6&#39;</span><span class="p">)</span>
+
+<span class="c1"># Read and write data</span>
+<span class="k">for</span> <span class="n">fn6_file</span> <span class="ow">in</span> <span class="n">fn6_files</span><span class="p">:</span>
+    <span class="n">all_df</span> <span class="o">=</span> <span class="n">DFHelpers</span><span class="o">.</span><span class="n">readDiscreteFunctionFile</span><span class="p">(</span><span class="n">fn6_file</span><span class="p">)</span>
+    <span class="n">base_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">fn6_file</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">df</span> <span class="ow">in</span> <span class="n">all_df</span><span class="p">:</span>
+        <span class="n">DFHelpers</span><span class="o">.</span><span class="n">writeDiscreteFunctionFilefn6</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;read </span><span class="si">{</span><span class="n">base_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span><span class="n">df</span><span class="p">)</span>
+
+<span class="c1"># Get all custom files (.cust) from folder</span>
+<span class="n">cust_files</span> <span class="o">=</span> <span class="n">FileUtil</span><span class="o">.</span><span class="n">findFilesWithExtension</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">current_dir</span><span class="p">,</span><span class="s1">&#39;data&#39;</span><span class="p">),</span><span class="s1">&#39;cust&#39;</span><span class="p">)</span>
+
+<span class="c1"># Read and write data</span>
+<span class="k">for</span> <span class="n">cust_file</span> <span class="ow">in</span> <span class="n">cust_files</span><span class="p">:</span>
+    <span class="n">all_df</span> <span class="o">=</span> <span class="n">DFHelpers</span><span class="o">.</span><span class="n">readDiscreteFunctionFile</span><span class="p">(</span><span class="n">cust_file</span><span class="p">)</span>
+    <span class="n">base_name</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">cust_file</span><span class="p">)</span>
+    <span class="n">DFHelpers</span><span class="o">.</span><span class="n">writeDiscreteFunctionFileCustom</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span><span class="sa">f</span><span class="s1">&#39;read </span><span class="si">{</span><span class="n">base_name</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">),</span><span class="n">all_df</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="20240709_bolt_spacing_study.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Bolt Spacing Study</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../../webinars.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Webinar Recordings</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/examples/webinar/20240709_slope_spatial_variability.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Rocscience Inc..
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

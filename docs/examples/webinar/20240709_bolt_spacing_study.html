@@ -1,0 +1,766 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Bolt Spacing Study &#8212; RS2 Scripting Reference Manual  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/webinar/20240709_bolt_spacing_study';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Statistical Analysis of Slope with Spatial Variability" href="20240709_slope_spatial_variability.html" />
+    <link rel="prev" title="Check Convergence Script Examples" href="../support_functions/check_convergence.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../generatedAPIDocFiles/rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../generatedAPIDocFiles/rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../model/model.html">Model Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/modeler.html">Modeler Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/mesh.html">Mesh Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/unit.html">Unit Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/material_joint.html">Material Joint Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/stage_factor.html">Stage Factor Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/import_export_prop.html">Import Export Properties Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../material/mat.html">Material Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_init_cond.html">Material Initial Condition Stage Factor Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_joint_stage.html">Material Joint Stage Factor Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_prop_datum.html">Material Properties Datum Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_prop_stiffness.html">Material Stiffness Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_prop_strength.html">Material Strength Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_prop_thermal.html">Material Thermal Properties Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_prop.html">Hydraulic Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_static.html">Static Groundwater Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_gw.html">FEA Groundwater Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_distribution_functions.html">Hydraulic Distribution Functions Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../support/bolt.html">Bolt Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/joint.html">Joint Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/liner.html">Liner Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/pile.html">Pile Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/structural_interface.html">Structural Interface Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/composite_liner.html">Composite Liner Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/support_stage_factor.html">Support Stage Factor Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../result/history_query.html">History Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/time_query.html">Time Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/material_query.html">Material Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/bolt_result.html">Bolt Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/joint_result.html">Joint Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/liner_result.html">Liner Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/pile_result.html">Pile Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/structural_result.html">Structural Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/composite_result.html">Composite Result Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../support_functions/extract_log_files.html">Extract Log File Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support_functions/check_convergence.html">Check Convergence Script Examples</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Bolt Spacing Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="20240709_slope_spatial_variability.html">Statistical Analysis of Slope with Spatial Variability</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../examples.html" class="nav-link">Python Script Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Bolt Spacing Study</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="bolt-spacing-study">
+<h1>Bolt Spacing Study<a class="headerlink" href="#bolt-spacing-study" title="Link to this heading">#</a></h1>
+<p>Download <a class="reference external" href="https://github.com/Rocscience/rs2-scripting/tree/main/examples/2024-07-09_Scripting_Webinar_Examples/Parametric_Study_of_Bolt_Spacing_for_Wall">Parametric Study of Bolt Spacing for Wall</a> folder for this example.</p>
+<div class="literal-block-wrapper docutils container" id="id2">
+<span id="id1"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Bolt Spacing Study</span><a class="headerlink" href="#id2" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">from</span> <span class="nn">rs2.interpreter.InterpreterEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">from</span> <span class="nn">rs2.interpreter.InterpreterGraphEnums</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+
+<span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">This script demonstrates how to generate multiple models with different bolt spacing for </span>
+<span class="sd">analyzing designs of an anchored sheet pile wall. In this script you have</span>
+<span class="sd">control if you want to create models (create_new_models=True), analyze results (analyze_results=True) or both. </span>
+
+<span class="sd">For model creation: </span>
+<span class="sd">- tieback bolt spacing is varied for three cases and saved to new model files</span>
+
+<span class="sd">For analysis:</span>
+<span class="sd">- horizontal displacement along a created query line is outputted to an excel xlsx file</span>
+<span class="sd">- horizontal displacement, axial force, shear force and bending moment diagrams over the depth of wall (liner) are generated</span>
+<span class="sd">    and this data is outputted to a csv file as well as to png image files</span>
+
+<span class="sd">NOTE: User is guided on how to install openpyxl library to the Rocsript Python environment to output to xlsx format</span>
+<span class="sd">&#39;&#39;&#39;</span>
+
+<span class="c1"># Current directory </span>
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="vm">__file__</span><span class="p">))</span>
+
+<span class="c1"># Create output folder</span>
+<span class="n">output_dir</span> <span class="o">=</span> <span class="sa">rf</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s1">\Bolt Spacing Study&#39;</span>
+<span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">exist_ok</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># Bolt spacing values to test</span>
+<span class="n">spacings</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">]</span> <span class="c1"># metres</span>
+
+<span class="c1"># Create new model file paths: [s=1.fez, s=2.fez, s=3.fez]</span>
+<span class="n">new_model_paths</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="k">for</span> <span class="n">spacing</span> <span class="ow">in</span> <span class="n">spacings</span><span class="p">:</span>
+    <span class="n">filename</span> <span class="o">=</span> <span class="sa">f</span><span class="s1">&#39;s=</span><span class="si">{</span><span class="n">spacing</span><span class="si">}</span><span class="s1">m.fez&#39;</span>
+    <span class="n">output_path</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">output_dir</span><span class="p">,</span> <span class="n">filename</span><span class="p">)</span>
+    <span class="n">new_model_paths</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">output_path</span><span class="p">)</span>
+
+<span class="c1"># Test Controls to conveniently modify a process without needing to run all processes</span>
+<span class="c1"># You can also consider creating different functions for each process, which is handy for calling a process multiple times</span>
+<span class="n">create_new_models</span> <span class="o">=</span> <span class="kc">True</span>
+<span class="n">analyze_results</span> <span class="o">=</span> <span class="kc">True</span>
+
+<span class="c1"># Modelling #################################################################################</span>
+<span class="k">if</span> <span class="n">create_new_models</span><span class="p">:</span>
+    <span class="c1"># Start RS2 Modeler</span>
+    <span class="n">RS2Modeler</span><span class="o">.</span><span class="n">startApplication</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60054</span><span class="p">)</span>
+    <span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60054</span><span class="p">)</span>
+
+    <span class="c1"># Open model</span>
+    <span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\Anchored Sheet Pile Wall Parametric Study (Initial).fez&quot;</span><span class="p">)</span>
+
+    <span class="c1"># Modify spacing and create new model, then extract data</span>
+    <span class="k">for</span> <span class="n">test_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">spacings</span><span class="p">)):</span>
+
+        <span class="c1"># Set new bolt spacing</span>
+        <span class="k">for</span> <span class="n">bolt</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllBoltProperties</span><span class="p">():</span>
+            <span class="n">bolt</span><span class="o">.</span><span class="n">Tieback</span><span class="o">.</span><span class="n">setOutofPlaneSpacing</span><span class="p">(</span><span class="n">spacings</span><span class="p">[</span><span class="n">test_num</span><span class="p">])</span>
+
+        <span class="c1"># Create new model </span>
+        <span class="n">model</span><span class="o">.</span><span class="n">saveAs</span><span class="p">(</span><span class="n">new_model_paths</span><span class="p">[</span><span class="n">test_num</span><span class="p">])</span>
+
+        <span class="c1"># Compute model</span>
+        <span class="n">model</span><span class="o">.</span><span class="n">compute</span><span class="p">()</span>
+
+    <span class="c1"># Open to view all new models</span>
+    <span class="k">for</span> <span class="n">new_model_path</span> <span class="ow">in</span> <span class="n">new_model_paths</span><span class="p">:</span>
+        <span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="n">new_model_path</span><span class="p">)</span>
+
+
+<span class="c1"># Result Interpretation ####################################################################### </span>
+<span class="k">if</span> <span class="n">analyze_results</span><span class="p">:</span>
+    <span class="c1"># Let&#39;s examine stage 5 results</span>
+
+    <span class="c1"># Open RS2 Interpreter</span>
+    <span class="n">RS2Interpreter</span><span class="o">.</span><span class="n">startApplication</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60055</span><span class="p">)</span>
+    <span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60055</span><span class="p">)</span>
+
+    <span class="c1"># Here is how you can store all opened model result files and use them multiple times</span>
+    <span class="n">all_model_results</span> <span class="o">=</span> <span class="p">[</span><span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="n">new_model_path</span><span class="p">)</span> <span class="k">for</span> <span class="n">new_model_path</span> <span class="ow">in</span> <span class="n">new_model_paths</span><span class="p">]</span>
+
+    <span class="c1"># Analysis stage</span>
+    <span class="n">stage_number</span> <span class="o">=</span> <span class="mi">5</span>
+    
+    <span class="c1"># Results Part I: </span>
+    <span class="c1"># Extract horizontal displacement data at stage 5 along the sheet pile wall (material queries) </span>
+    
+    <span class="c1"># Generate 11 evenly-spaced points from top to bottom of wall: (10,18) to (10,8)</span>
+    <span class="n">point_along_wall</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">10</span><span class="p">,</span> <span class="mi">18</span> <span class="o">-</span> <span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">11</span><span class="p">)]</span> 
+    <span class="n">depths</span> <span class="o">=</span> <span class="p">[(</span><span class="mi">18</span> <span class="o">-</span> <span class="n">y</span><span class="p">)</span> <span class="k">for</span> <span class="p">[</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">]</span> <span class="ow">in</span> <span class="n">point_along_wall</span><span class="p">]</span>
+    <span class="c1"># Create an empty distionary for the material queries data frame</span>
+    <span class="n">mat_que_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Depth&quot;</span><span class="p">:</span> <span class="n">depths</span><span class="p">}</span>
+
+    <span class="k">for</span> <span class="n">test_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">all_model_results</span><span class="p">)):</span>
+        <span class="c1"># Current model results file</span>
+        <span class="n">model_results</span> <span class="o">=</span> <span class="n">all_model_results</span><span class="p">[</span><span class="n">test_num</span><span class="p">]</span>
+
+        <span class="c1"># Setting results to solid horizontal displacement</span>
+        <span class="n">model_results</span><span class="o">.</span><span class="n">SetResultType</span><span class="p">(</span><span class="n">ExportResultType</span><span class="o">.</span><span class="n">SOLID_DISPLACEMENT_HORIZONTAL_DISPLACEMENT</span><span class="p">)</span>
+
+        <span class="c1"># Set model to stage 5</span>
+        <span class="n">model_results</span><span class="o">.</span><span class="n">SetActiveStage</span><span class="p">(</span><span class="n">stage_number</span><span class="p">)</span>
+        
+        <span class="c1"># Add a material query line along the wall</span>
+        <span class="n">query_along_wall_id</span> <span class="o">=</span> <span class="n">model_results</span><span class="o">.</span><span class="n">AddMaterialQuery</span><span class="p">(</span><span class="n">points</span><span class="o">=</span><span class="n">point_along_wall</span><span class="p">)</span>
+
+        <span class="c1"># Get material query results for active stage </span>
+
+        <span class="c1"># Method 1: only one query line, so use index 0 (first and only query)</span>
+        <span class="n">query_results</span> <span class="o">=</span> <span class="n">model_results</span><span class="o">.</span><span class="n">GetMaterialQueryResults</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+
+        <span class="c1"># Method 2: use the query unique id</span>
+        <span class="k">for</span> <span class="n">material_query_results</span> <span class="ow">in</span> <span class="n">model_results</span><span class="o">.</span><span class="n">GetMaterialQueryResults</span><span class="p">():</span>
+            <span class="k">if</span> <span class="n">material_query_results</span><span class="o">.</span><span class="n">GetUniqueIdentifier</span><span class="p">()</span> <span class="o">==</span> <span class="n">query_along_wall_id</span><span class="p">:</span>
+                <span class="n">query_results</span> <span class="o">=</span> <span class="n">material_query_results</span>
+                <span class="k">break</span>
+        
+        <span class="n">spacing</span> <span class="o">=</span> <span class="n">spacings</span><span class="p">[</span><span class="n">test_num</span><span class="p">]</span>
+        <span class="n">series_label</span> <span class="o">=</span> <span class="sa">f</span><span class="s2">&quot;s = </span><span class="si">{</span><span class="n">spacing</span><span class="si">}</span><span class="s2"> m&quot;</span>
+        <span class="n">mat_que_dict</span><span class="p">[</span><span class="n">series_label</span><span class="p">]</span> <span class="o">=</span> <span class="p">[]</span>
+        <span class="k">for</span> <span class="n">query_point</span> <span class="ow">in</span> <span class="n">query_results</span><span class="o">.</span><span class="n">GetAllValues</span><span class="p">():</span>
+            <span class="c1"># Add data to the dictionary</span>
+            <span class="n">mat_que_dict</span><span class="p">[</span><span class="n">series_label</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">query_point</span><span class="o">.</span><span class="n">GetValue</span><span class="p">())</span>                                          
+
+    <span class="c1"># Convert the dictionary to data frame</span>
+    <span class="n">mat_que_df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mat_que_dict</span><span class="p">)</span> 
+
+    <span class="c1"># Save the data frame to a csv</span>
+    <span class="n">mat_que_df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">\horiz disp to depth at stage 5.csv&quot;</span><span class="p">,</span> <span class="n">index</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+
+    <span class="c1"># Results Part II: </span>
+    <span class="c1"># Extract and plot axial force, shear force, and bending moment results at stage 5 for the liner</span>
+
+    <span class="n">liner_results_dfs</span> <span class="o">=</span> <span class="p">[]</span> <span class="c1"># list of data frames to store liner results</span>
+    <span class="k">for</span> <span class="n">model_results</span> <span class="ow">in</span> <span class="n">all_model_results</span><span class="p">:</span>
+        <span class="c1"># read liner axial force, shear force, and bending moment</span>
+        <span class="n">liner_results</span> <span class="o">=</span> <span class="n">model_results</span><span class="o">.</span><span class="n">GetLinerResults</span><span class="p">(</span><span class="n">stages</span> <span class="o">=</span><span class="p">[</span><span class="n">stage_number</span><span class="p">])</span> <span class="c1"># output liner results on stage 5</span>
+
+        <span class="n">all_stage_liner_results</span> <span class="o">=</span> <span class="n">liner_results</span><span class="p">[</span><span class="n">stage_number</span><span class="p">]</span> <span class="c1"># output a list of all liner results at stage 5</span>
+        
+        <span class="n">stage_liner_results</span> <span class="o">=</span> <span class="n">all_stage_liner_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="c1"># get the one and only liner in this model</span>
+
+        <span class="c1"># Create a distionary for the data frame and fill with first node data</span>
+        <span class="n">liner_first_node</span> <span class="o">=</span> <span class="n">stage_liner_results</span><span class="o">.</span><span class="n">liner_element_results</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">liner_dict</span> <span class="o">=</span> <span class="p">{</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">:[</span><span class="mi">18</span> <span class="o">-</span> <span class="n">liner_first_node</span><span class="o">.</span><span class="n">start_y</span><span class="p">],</span> <span class="c1"># calculate depth from top of wall</span>
+                        <span class="s2">&quot;Horizontal Displacement (m)&quot;</span><span class="p">:[</span><span class="n">liner_first_node</span><span class="o">.</span><span class="n">displacement_x1</span><span class="p">],</span>
+                        <span class="s2">&quot;Axial Force (kN)&quot;</span><span class="p">:[</span><span class="n">liner_first_node</span><span class="o">.</span><span class="n">axial_force1</span><span class="p">],</span>
+                        <span class="s2">&quot;Shear Force (kN)&quot;</span><span class="p">:[</span><span class="n">liner_first_node</span><span class="o">.</span><span class="n">shear_force1</span><span class="p">],</span>
+                        <span class="s2">&quot;Bending Moment (kNm)&quot;</span><span class="p">:[</span><span class="n">liner_first_node</span><span class="o">.</span><span class="n">moment1</span><span class="p">]</span>
+                    <span class="p">}</span>
+
+        <span class="k">for</span> <span class="n">liner_node</span> <span class="ow">in</span> <span class="n">stage_liner_results</span><span class="o">.</span><span class="n">liner_element_results</span><span class="p">:</span>
+            <span class="c1"># Add remaining data to the liner results dictionary</span>
+            <span class="n">liner_dict</span><span class="p">[</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="mi">18</span> <span class="o">-</span> <span class="n">liner_node</span><span class="o">.</span><span class="n">end_y</span><span class="p">)</span> <span class="c1"># calculate depth from top of wall</span>
+            <span class="n">liner_dict</span><span class="p">[</span><span class="s2">&quot;Horizontal Displacement (m)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">liner_node</span><span class="o">.</span><span class="n">displacement_x2</span><span class="p">)</span>
+            <span class="n">liner_dict</span><span class="p">[</span><span class="s2">&quot;Axial Force (kN)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">liner_node</span><span class="o">.</span><span class="n">axial_force2</span><span class="p">)</span>
+            <span class="n">liner_dict</span><span class="p">[</span><span class="s2">&quot;Shear Force (kN)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">liner_node</span><span class="o">.</span><span class="n">shear_force2</span><span class="p">)</span>
+            <span class="n">liner_dict</span><span class="p">[</span><span class="s2">&quot;Bending Moment (kNm)&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">liner_node</span><span class="o">.</span><span class="n">moment2</span><span class="p">)</span>
+            
+        <span class="c1"># Convert the dictionary to data frame</span>
+        <span class="n">liner_results_dfs</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">liner_dict</span><span class="p">))</span> 
+
+
+    <span class="c1"># Uncomment to try using Pandas to save each case as a tab in excel as a xls file, </span>
+    <span class="c1"># Remember to install openpyxl! </span>
+    <span class="c1">#   Open RS2 application: Scripting &gt; Manage Python Environment </span>
+    <span class="c1">#   Type &quot;pip install openpyxl&quot; and hit Enter</span>
+    <span class="c1"># To uninstall, repeat the above steps, but type &quot;pip uninstall openpyxl&quot;</span>
+<span class="w">    </span><span class="sd">&#39;&#39;&#39;</span>
+<span class="sd">    with pd.ExcelWriter(rf&quot;{output_dir}\liner results at stage 5.xlsx&quot;) as writer:</span>
+<span class="sd">        for test_num in range(len(liner_results_dfs)):</span>
+<span class="sd">            liner_results_dfs[test_num].to_excel(writer, sheet_name=f&quot;s = {spacings[test_num]} m&quot;, index=False)</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="c1"># Using Matplotlib library to plot data</span>
+
+    <span class="c1"># define a function to format plot</span>
+    <span class="k">def</span> <span class="nf">format_plot</span><span class="p">():</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;bottom&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># move x-axis to y=0</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">xaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s1">&#39;top&#39;</span><span class="p">)</span> <span class="c1"># set x-axis label position to the top</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">invert_yaxis</span><span class="p">()</span> <span class="c1"># invert y-axis</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="mi">0</span><span class="p">))</span> <span class="c1"># move y-axis to x=0</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;top&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># hide the top spine</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;right&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_visible</span><span class="p">(</span><span class="kc">False</span><span class="p">)</span> <span class="c1"># hide the right spine</span>
+
+    <span class="c1"># Plot Liner Horizontal Displacement</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Horizontal Displacement (m)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Liner Horizontal Displacement at Stage 5&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">test_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">liner_results_dfs</span><span class="p">)):</span>
+        <span class="n">liner_results_df</span> <span class="o">=</span> <span class="n">liner_results_dfs</span><span class="p">[</span><span class="n">test_num</span><span class="p">]</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">liner_results_df</span><span class="p">[</span><span class="s2">&quot;Horizontal Displacement (m)&quot;</span><span class="p">],</span> <span class="n">liner_results_df</span><span class="p">[</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;s = </span><span class="si">{</span><span class="n">spacings</span><span class="p">[</span><span class="n">test_num</span><span class="p">]</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+
+    <span class="c1"># format plot display</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">format_plot</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">)</span> <span class="c1"># set y-axis label position to the right</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">spines</span><span class="p">[</span><span class="s1">&#39;left&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">set_position</span><span class="p">((</span><span class="s1">&#39;data&#39;</span><span class="p">,</span><span class="o">-</span><span class="mf">0.03</span><span class="p">))</span> <span class="c1"># move y-axis to x=-0.03</span>
+    <span class="c1"># save plot</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">\liner horizontal displacement at stage 5.png&quot;</span><span class="p">)</span>
+
+
+    <span class="c1"># Plot Liner Axial Force</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Axial Force (kN)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Liner Axial Force at Stage 5&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">test_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">liner_results_dfs</span><span class="p">)):</span>
+        <span class="n">liner_results_df</span> <span class="o">=</span> <span class="n">liner_results_dfs</span><span class="p">[</span><span class="n">test_num</span><span class="p">]</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">liner_results_df</span><span class="p">[</span><span class="s2">&quot;Axial Force (kN)&quot;</span><span class="p">],</span> <span class="n">liner_results_df</span><span class="p">[</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;s = </span><span class="si">{</span><span class="n">spacings</span><span class="p">[</span><span class="n">test_num</span><span class="p">]</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+
+    <span class="c1"># format plot display</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">format_plot</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s1">&#39;left&#39;</span><span class="p">)</span> <span class="c1"># set y-axis label position to the left</span>
+    <span class="c1"># save plot</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">\liner axial force at stage 5.png&quot;</span><span class="p">)</span>
+
+
+    <span class="c1"># Plot Liner Shear Force Diagram</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Shear Force (kN)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Liner Shear Force at Stage 5&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">test_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">liner_results_dfs</span><span class="p">)):</span>
+        <span class="n">liner_results_df</span> <span class="o">=</span> <span class="n">liner_results_dfs</span><span class="p">[</span><span class="n">test_num</span><span class="p">]</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">liner_results_df</span><span class="p">[</span><span class="s2">&quot;Shear Force (kN)&quot;</span><span class="p">],</span> <span class="n">liner_results_df</span><span class="p">[</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;s = </span><span class="si">{</span><span class="n">spacings</span><span class="p">[</span><span class="n">test_num</span><span class="p">]</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+
+    <span class="c1"># format plot display</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">format_plot</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">)</span>
+    <span class="c1"># save plot</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">\liner shear force at stage 5.png&quot;</span><span class="p">)</span>
+
+
+    <span class="c1"># Plot Liner Bending Moment</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Bending Moment (kNm)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">)</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Liner Bending Moment at Stage 5&quot;</span><span class="p">)</span>
+    <span class="c1"># Extract data for Liner Bending Moment Diagram</span>
+    <span class="k">for</span> <span class="n">test_num</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">liner_results_dfs</span><span class="p">)):</span>
+        <span class="n">liner_results_df</span> <span class="o">=</span> <span class="n">liner_results_dfs</span><span class="p">[</span><span class="n">test_num</span><span class="p">]</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">liner_results_df</span><span class="p">[</span><span class="s2">&quot;Bending Moment (kNm)&quot;</span><span class="p">],</span> <span class="n">liner_results_df</span><span class="p">[</span><span class="s2">&quot;Depth (m)&quot;</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="sa">f</span><span class="s2">&quot;s = </span><span class="si">{</span><span class="n">spacings</span><span class="p">[</span><span class="n">test_num</span><span class="p">]</span><span class="si">}</span><span class="s2"> m&quot;</span><span class="p">)</span>
+
+    <span class="c1"># format plot display</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">()</span>
+    <span class="n">format_plot</span><span class="p">()</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">gca</span><span class="p">()</span><span class="o">.</span><span class="n">yaxis</span><span class="o">.</span><span class="n">set_label_position</span><span class="p">(</span><span class="s1">&#39;right&#39;</span><span class="p">)</span> 
+    <span class="c1"># save plot</span>
+    <span class="n">plt</span><span class="o">.</span><span class="n">savefig</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">output_dir</span><span class="si">}</span><span class="s2">\liner bending moment at stage 5.png&quot;</span><span class="p">)</span>
+
+    <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+    <span class="c1"># close the figure windows to finish the script</span>
+
+</pre></div>
+</div>
+</div>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="../support_functions/check_convergence.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Check Convergence Script Examples</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="20240709_slope_spatial_variability.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Statistical Analysis of Slope with Spatial Variability</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/examples/webinar/20240709_bolt_spacing_study.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Rocscience Inc..
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

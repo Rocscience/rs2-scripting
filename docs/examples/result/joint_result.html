@@ -1,0 +1,618 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Joint Result Script Examples &#8212; RS2 Scripting Reference Manual  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/result/joint_result';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Liner Result Script Examples" href="liner_result.html" />
+    <link rel="prev" title="Bolt Result Script Examples" href="bolt_result.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../generatedAPIDocFiles/rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../generatedAPIDocFiles/rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../model/model.html">Model Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/modeler.html">Modeler Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/mesh.html">Mesh Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/unit.html">Unit Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/material_joint.html">Material Joint Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/stage_factor.html">Stage Factor Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/import_export_prop.html">Import Export Properties Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../material/mat.html">Material Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_init_cond.html">Material Initial Condition Stage Factor Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_joint_stage.html">Material Joint Stage Factor Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_prop_datum.html">Material Properties Datum Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_prop_stiffness.html">Material Stiffness Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_prop_strength.html">Material Strength Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/mat_prop_thermal.html">Material Thermal Properties Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_prop.html">Hydraulic Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_static.html">Static Groundwater Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_gw.html">FEA Groundwater Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_distribution_functions.html">Hydraulic Distribution Functions Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../support/bolt.html">Bolt Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/joint.html">Joint Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/liner.html">Liner Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/pile.html">Pile Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/structural_interface.html">Structural Interface Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/composite_liner.html">Composite Liner Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/support_stage_factor.html">Support Stage Factor Script Examples</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="history_query.html">History Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time_query.html">Time Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material_query.html">Material Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bolt_result.html">Bolt Result Script Examples</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Joint Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="liner_result.html">Liner Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pile_result.html">Pile Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_result.html">Structural Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="composite_result.html">Composite Result Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../support_functions/extract_log_files.html">Extract Log File Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support_functions/check_convergence.html">Check Convergence Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../webinar/20240709_bolt_spacing_study.html">Bolt Spacing Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webinar/20240709_slope_spatial_variability.html">Statistical Analysis of Slope with Spatial Variability</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../examples.html" class="nav-link">Python Script Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Joint Result Script Examples</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="joint-result-script-examples">
+<h1>Joint Result Script Examples<a class="headerlink" href="#joint-result-script-examples" title="Link to this heading">#</a></h1>
+<p>Download the <a class="reference external" href="https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/SupportResults.fez">SupportResult.fez</a> for this example.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<span id="support-joint-results-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Get Support Joint Results</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">RS2Interpreter</span><span class="o">.</span><span class="n">startApplication</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60087</span><span class="p">)</span>
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60087</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\SupportResults.fez&quot;</span><span class="p">)</span>
+
+<span class="n">stages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">GetJointResults</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">stageNum</span><span class="p">,</span> <span class="n">allJointResults</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stage </span><span class="si">{</span><span class="n">stageNum</span><span class="si">}</span><span class="s2"> Joint Results</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">singleJointResult</span> <span class="ow">in</span> <span class="n">allJointResults</span><span class="p">:</span>
+        <span class="n">jointID</span> <span class="o">=</span> <span class="n">singleJointResult</span><span class="o">.</span><span class="n">entity_id</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Joint Unique ID = </span><span class="si">{</span><span class="n">jointID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">joint_element_results</span> <span class="o">=</span> <span class="n">singleJointResult</span><span class="o">.</span><span class="n">joint_element_results</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Joint Element Results:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">jointResult</span> <span class="ow">in</span> <span class="n">joint_element_results</span><span class="p">:</span>
+            <span class="n">start_x</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">start_x</span>
+            <span class="n">start_y</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">start_y</span>
+            <span class="n">end_x</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">end_x</span>
+            <span class="n">end_y</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">end_y</span>
+            <span class="n">distance</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">distance</span>
+            <span class="n">normal_stress</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">normal_stress</span>
+            <span class="n">shear_stress</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">shear_stress</span>
+            <span class="n">confining_stress</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">confining_stress</span>
+            <span class="n">normal_displacement</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">normal_displacement</span>
+            <span class="n">shear_displacement</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">shear_displacement</span>
+            <span class="n">yieldedStatus</span> <span class="o">=</span> <span class="n">jointResult</span><span class="o">.</span><span class="n">yielded</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Start X-Coord = </span><span class="si">{</span><span class="n">start_x</span><span class="si">}</span><span class="s2">, Start Y-Coord = </span><span class="si">{</span><span class="n">start_y</span><span class="si">}</span><span class="s2">, End X-Coord = </span><span class="si">{</span><span class="n">end_x</span><span class="si">}</span><span class="s2">, End Y-Coord = </span><span class="si">{</span><span class="n">end_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Distance = </span><span class="si">{</span><span class="n">distance</span><span class="si">}</span><span class="s2">, Normal Stress = </span><span class="si">{</span><span class="n">normal_stress</span><span class="si">}</span><span class="s2">, Shear Stress = </span><span class="si">{</span><span class="n">shear_stress</span><span class="si">}</span><span class="s2">, Confining Stress = </span><span class="si">{</span><span class="n">confining_stress</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Normal Displacement = </span><span class="si">{</span><span class="n">normal_displacement</span><span class="si">}</span><span class="s2">, Shear Displacement = </span><span class="si">{</span><span class="n">shear_displacement</span><span class="si">}</span><span class="s2">, Yielded = </span><span class="si">{</span><span class="n">yieldedStatus</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">interpreter</span><span class="o">.</span><span class="n">closeProgram</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<section id="output">
+<h2>Output<a class="headerlink" href="#output" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Stage</span> <span class="mi">1</span> <span class="n">Joint</span> <span class="n">Results</span>
+
+	<span class="n">Joint</span> <span class="n">Unique</span> <span class="n">ID</span> <span class="o">=</span> <span class="n">External</span> <span class="n">boundary0</span>
+	<span class="n">Joint</span> <span class="n">Element</span> <span class="n">Results</span><span class="p">:</span>
+
+	<span class="n">Start</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">11.949843172111</span><span class="p">,</span> <span class="n">Start</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">16.8602900357032</span><span class="p">,</span> <span class="n">End</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">7.66165679261041</span><span class="p">,</span> <span class="n">End</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">16.0080637205343</span>
+	<span class="n">Distance</span> <span class="o">=</span> <span class="mf">2.186025624140804</span><span class="p">,</span> <span class="n">Normal</span> <span class="n">Stress</span> <span class="o">=</span> <span class="mf">4.0118</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Stress</span> <span class="o">=</span> <span class="mf">0.06408</span><span class="p">,</span> <span class="n">Confining</span> <span class="n">Stress</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">Normal</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="mf">3.98454459388709e-05</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="mf">9.518369020371651e-07</span><span class="p">,</span> <span class="n">Yielded</span> <span class="o">=</span> <span class="kc">False</span>
+
+	<span class="n">Start</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">7.66165679261041</span><span class="p">,</span> <span class="n">Start</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">16.0080637205343</span><span class="p">,</span> <span class="n">End</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">3.37347041310981</span><span class="p">,</span> <span class="n">End</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">15.1558374053654</span>
+	<span class="n">Distance</span> <span class="o">=</span> <span class="mf">6.558076872422411</span><span class="p">,</span> <span class="n">Normal</span> <span class="n">Stress</span> <span class="o">=</span> <span class="mf">5.5995</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Stress</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.064085</span><span class="p">,</span> <span class="n">Confining</span> <span class="n">Stress</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">Normal</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="mf">3.567238008880944e-05</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="o">-</span><span class="mf">9.650382373340867e-07</span><span class="p">,</span> <span class="n">Yielded</span> <span class="o">=</span> <span class="kc">False</span>
+
+	<span class="n">Joint</span> <span class="n">Unique</span> <span class="n">ID</span> <span class="o">=</span> <span class="n">Joint</span> <span class="n">boundary0</span>
+	<span class="n">Joint</span> <span class="n">Element</span> <span class="n">Results</span><span class="p">:</span>
+
+	<span class="n">Start</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">2.917735202249</span><span class="p">,</span> <span class="n">Start</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">13.0941781181379</span><span class="p">,</span> <span class="n">End</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">6.48770615356857</span><span class="p">,</span> <span class="n">End</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">13.767303954077</span>
+	<span class="n">Distance</span> <span class="o">=</span> <span class="mf">1.8164382032066397</span><span class="p">,</span> <span class="n">Normal</span> <span class="n">Stress</span> <span class="o">=</span> <span class="mf">301.5</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Stress</span> <span class="o">=</span> <span class="mf">18.694</span><span class="p">,</span> <span class="n">Confining</span> <span class="n">Stress</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">Normal</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="mf">0.0003597035162463307</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="mf">0.00034176638278219496</span><span class="p">,</span> <span class="n">Yielded</span> <span class="o">=</span> <span class="kc">False</span>
+
+	<span class="n">Start</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">6.48770615356857</span><span class="p">,</span> <span class="n">Start</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">13.767303954077</span><span class="p">,</span> <span class="n">End</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">9.38694273650449</span><span class="p">,</span> <span class="n">End</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">14.3139613569202</span>
+	<span class="n">Distance</span> <span class="o">=</span> <span class="mf">5.108038014502138</span><span class="p">,</span> <span class="n">Normal</span> <span class="n">Stress</span> <span class="o">=</span> <span class="mf">286.85</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Stress</span> <span class="o">=</span> <span class="mf">70.918</span><span class="p">,</span> <span class="n">Confining</span> <span class="n">Stress</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">Normal</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="mf">0.00042772133456998217</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="mf">0.001089937591138087</span><span class="p">,</span> <span class="n">Yielded</span> <span class="o">=</span> <span class="kc">False</span>
+
+	<span class="n">Start</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">9.38694273650449</span><span class="p">,</span> <span class="n">Start</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">14.3139613569202</span><span class="p">,</span> <span class="n">End</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">12.2861793194404</span><span class="p">,</span> <span class="n">End</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">14.8606187597633</span>
+	<span class="n">Distance</span> <span class="o">=</span> <span class="mf">8.05836123067984</span><span class="p">,</span> <span class="n">Normal</span> <span class="n">Stress</span> <span class="o">=</span> <span class="mf">248.94</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Stress</span> <span class="o">=</span> <span class="mf">68.214</span><span class="p">,</span> <span class="n">Confining</span> <span class="n">Stress</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">Normal</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="mf">0.00029805069143089665</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="mf">0.000887685823484493</span><span class="p">,</span> <span class="n">Yielded</span> <span class="o">=</span> <span class="kc">False</span>
+
+	<span class="n">Joint</span> <span class="n">Unique</span> <span class="n">ID</span> <span class="o">=</span> <span class="n">Pile0</span>
+	<span class="n">Joint</span> <span class="n">Element</span> <span class="n">Results</span><span class="p">:</span>
+
+	<span class="n">Start</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">9.00086957359009</span><span class="p">,</span> <span class="n">Start</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">11.5846033227529</span><span class="p">,</span> <span class="n">End</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">9.00086957359009</span><span class="p">,</span> <span class="n">End</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">7.79916982912479</span>
+	<span class="n">Distance</span> <span class="o">=</span> <span class="mf">1.8927167468140547</span><span class="p">,</span> <span class="n">Normal</span> <span class="n">Stress</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.92443</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Stress</span> <span class="o">=</span> <span class="mf">0.28125</span><span class="p">,</span> <span class="n">Confining</span> <span class="n">Stress</span> <span class="o">=</span> <span class="mf">1021.4</span>
+	<span class="n">Normal</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="o">-</span><span class="mf">4.6221e-05</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="mf">0.00010601666666666666</span><span class="p">,</span> <span class="n">Yielded</span> <span class="o">=</span> <span class="kc">False</span>
+
+<span class="n">Stage</span> <span class="mi">2</span> <span class="n">Joint</span> <span class="n">Results</span>
+
+	<span class="n">Joint</span> <span class="n">Unique</span> <span class="n">ID</span> <span class="o">=</span> <span class="n">Joint</span> <span class="n">boundary0</span>
+	<span class="n">Joint</span> <span class="n">Element</span> <span class="n">Results</span><span class="p">:</span>
+
+	<span class="n">Start</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">2.917735202249</span><span class="p">,</span> <span class="n">Start</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">13.0941781181379</span><span class="p">,</span> <span class="n">End</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">6.48770615356857</span><span class="p">,</span> <span class="n">End</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">13.767303954077</span>
+	<span class="n">Distance</span> <span class="o">=</span> <span class="mf">1.8164382032066397</span><span class="p">,</span> <span class="n">Normal</span> <span class="n">Stress</span> <span class="o">=</span> <span class="mf">51.711</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Stress</span> <span class="o">=</span> <span class="mf">26.07</span><span class="p">,</span> <span class="n">Confining</span> <span class="n">Stress</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">Normal</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="mf">1.737090431927168e-05</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="mf">0.00039828176446499885</span><span class="p">,</span> <span class="n">Yielded</span> <span class="o">=</span> <span class="kc">False</span>
+
+	<span class="n">Start</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">6.48770615356857</span><span class="p">,</span> <span class="n">Start</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">13.767303954077</span><span class="p">,</span> <span class="n">End</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">9.38694273650449</span><span class="p">,</span> <span class="n">End</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">14.3139613569202</span>
+	<span class="n">Distance</span> <span class="o">=</span> <span class="mf">5.108038014502138</span><span class="p">,</span> <span class="n">Normal</span> <span class="n">Stress</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Stress</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Confining</span> <span class="n">Stress</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">Normal</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Yielded</span> <span class="o">=</span> <span class="kc">False</span>
+
+	<span class="n">Start</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">9.38694273650449</span><span class="p">,</span> <span class="n">Start</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">14.3139613569202</span><span class="p">,</span> <span class="n">End</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">12.2861793194404</span><span class="p">,</span> <span class="n">End</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">14.8606187597633</span>
+	<span class="n">Distance</span> <span class="o">=</span> <span class="mf">8.05836123067984</span><span class="p">,</span> <span class="n">Normal</span> <span class="n">Stress</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Stress</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Confining</span> <span class="n">Stress</span> <span class="o">=</span> <span class="kc">None</span>
+	<span class="n">Normal</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">Yielded</span> <span class="o">=</span> <span class="kc">False</span>
+
+	<span class="n">Joint</span> <span class="n">Unique</span> <span class="n">ID</span> <span class="o">=</span> <span class="n">Pile0</span>
+	<span class="n">Joint</span> <span class="n">Element</span> <span class="n">Results</span><span class="p">:</span>
+
+	<span class="n">Start</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">9.00086957359009</span><span class="p">,</span> <span class="n">Start</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">11.5846033227529</span><span class="p">,</span> <span class="n">End</span> <span class="n">X</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">9.00086957359009</span><span class="p">,</span> <span class="n">End</span> <span class="n">Y</span><span class="o">-</span><span class="n">Coord</span> <span class="o">=</span> <span class="mf">7.79916982912479</span>
+	<span class="n">Distance</span> <span class="o">=</span> <span class="mf">1.8927167468140547</span><span class="p">,</span> <span class="n">Normal</span> <span class="n">Stress</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.69699</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Stress</span> <span class="o">=</span> <span class="mf">0.12483</span><span class="p">,</span> <span class="n">Confining</span> <span class="n">Stress</span> <span class="o">=</span> <span class="mf">930.99</span>
+	<span class="n">Normal</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="o">-</span><span class="mf">3.484973333333334e-05</span><span class="p">,</span> <span class="n">Shear</span> <span class="n">Displacement</span> <span class="o">=</span> <span class="mf">6.241666666666667e-05</span><span class="p">,</span> <span class="n">Yielded</span> <span class="o">=</span> <span class="kc">False</span>
+
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="bolt_result.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Bolt Result Script Examples</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="liner_result.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Liner Result Script Examples</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/examples/result/joint_result.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Rocscience Inc..
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

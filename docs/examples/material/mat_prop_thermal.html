@@ -1,0 +1,635 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Material Thermal Properties Script Examples &#8212; RS2 Scripting Reference Manual  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/jquery.js?v=5d32c60e"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'examples/material/mat_prop_thermal';</script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Hydraulic Properties Script Examples" href="../hydraulic/hydro_prop.html" />
+    <link rel="prev" title="Material Strength Properties Script Examples" href="mat_prop_strength.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/logo.png" class="logo__image only-light" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+    <img src="../../_static/logo.png" class="logo__image only-dark pst-js-only" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../generatedAPIDocFiles/rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../generatedAPIDocFiles/rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../model/model.html">Model Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/modeler.html">Modeler Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/mesh.html">Mesh Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/unit.html">Unit Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/material_joint.html">Material Joint Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/stage_factor.html">Stage Factor Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/import_export_prop.html">Import Export Properties Script Examples</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="mat.html">Material Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mat_init_cond.html">Material Initial Condition Stage Factor Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mat_joint_stage.html">Material Joint Stage Factor Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mat_prop_datum.html">Material Properties Datum Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mat_prop_stiffness.html">Material Stiffness Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="mat_prop_strength.html">Material Strength Properties Script Examples</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Material Thermal Properties Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_prop.html">Hydraulic Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_static.html">Static Groundwater Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_gw.html">FEA Groundwater Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydro_distribution_functions.html">Hydraulic Distribution Functions Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../support/bolt.html">Bolt Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/joint.html">Joint Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/liner.html">Liner Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/pile.html">Pile Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/structural_interface.html">Structural Interface Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/composite_liner.html">Composite Liner Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/support_stage_factor.html">Support Stage Factor Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../result/history_query.html">History Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/time_query.html">Time Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/material_query.html">Material Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/bolt_result.html">Bolt Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/joint_result.html">Joint Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/liner_result.html">Liner Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/pile_result.html">Pile Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/structural_result.html">Structural Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../result/composite_result.html">Composite Result Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../support_functions/extract_log_files.html">Extract Log File Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support_functions/check_convergence.html">Check Convergence Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../webinar/20240709_bolt_spacing_study.html">Bolt Spacing Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webinar/20240709_slope_spatial_variability.html">Statistical Analysis of Slope with Spatial Variability</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../examples.html" class="nav-link">Python Script Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Material Thermal Properties Script Examples</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="material-thermal-properties-script-examples">
+<h1>Material Thermal Properties Script Examples<a class="headerlink" href="#material-thermal-properties-script-examples" title="Link to this heading">#</a></h1>
+<p>Download the <a class="reference external" href="https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/TransientGroundwaterAndThermal.fez">TransientGroundwaterAndThermal.fez</a> for this example.</p>
+<div class="literal-block-wrapper docutils container" id="id1">
+<span id="material-property-thermal-example"></span><div class="code-block-caption"><span class="caption-text">Code Snippet: Manipulation of Thermal Properties</span><a class="headerlink" href="#id1" title="Link to this code">#</a></div>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
+<span class="kn">from</span> <span class="nn">rs2.modeler.properties.PropertyEnums</span> <span class="kn">import</span> <span class="o">*</span>
+<span class="kn">import</span> <span class="nn">os</span><span class="o">,</span> <span class="nn">inspect</span>
+
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">inspect</span><span class="o">.</span><span class="n">getfile</span><span class="p">(</span><span class="k">lambda</span><span class="p">:</span> <span class="kc">None</span><span class="p">)))</span> 
+<span class="n">RS2Modeler</span><span class="o">.</span><span class="n">startApplication</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60071</span><span class="p">)</span>
+<span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60071</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\TransientGroundwaterAndThermal.fez&quot;</span><span class="p">)</span>
+
+<span class="n">material</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllMaterialProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">thermal</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Thermal</span>
+<span class="n">thermal</span><span class="o">.</span><span class="n">setWaterContent</span><span class="p">(</span><span class="n">ThermalWaterContentMethodType</span><span class="o">.</span><span class="n">DEFINE</span><span class="p">)</span>
+<span class="n">thermal</span><span class="o">.</span><span class="n">setWaterContentValue</span><span class="p">(</span><span class="mf">0.35</span><span class="p">)</span>
+
+<span class="n">conductivity</span> <span class="o">=</span> <span class="n">thermal</span><span class="o">.</span><span class="n">Conductivity</span>
+<span class="n">conductivity</span><span class="o">.</span><span class="n">setMethod</span><span class="p">(</span><span class="n">ThermalType</span><span class="o">.</span><span class="n">JOHANSEN_LU</span><span class="p">)</span>
+<span class="n">johansenLu</span> <span class="o">=</span> <span class="n">conductivity</span><span class="o">.</span><span class="n">JohansenLu</span>
+<span class="n">johansenLu</span><span class="o">.</span><span class="n">setSoilType</span><span class="p">(</span><span class="n">ThermalSoilType</span><span class="o">.</span><span class="n">CRUSHED_ROCK</span><span class="p">)</span>
+<span class="n">johansenLu</span><span class="o">.</span><span class="n">setQuartzContent</span><span class="p">(</span><span class="mf">0.88</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Soil Type = </span><span class="si">{</span><span class="n">johansenLu</span><span class="o">.</span><span class="n">getSoilType</span><span class="p">()</span><span class="si">}</span><span class="s2">, Quartz Content = </span><span class="si">{</span><span class="n">johansenLu</span><span class="o">.</span><span class="n">getQuartzContent</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">conductivity</span><span class="o">.</span><span class="n">setMethod</span><span class="p">(</span><span class="n">ThermalType</span><span class="o">.</span><span class="n">CUSTOM</span><span class="p">)</span>
+<span class="n">conductivity</span><span class="o">.</span><span class="n">Tabular</span><span class="o">.</span><span class="n">setDependence</span><span class="p">(</span><span class="n">ThermalVolumetricDepencenceType</span><span class="o">.</span><span class="n">TEMPERATURE</span><span class="p">)</span>
+<span class="n">conductivity</span><span class="o">.</span><span class="n">Tabular</span><span class="o">.</span><span class="n">setThermalConductivityTemperatureFunction</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                                                               <span class="n">conductivity</span><span class="o">=</span><span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Thermal Temp. Vs Conductivity Table Values = </span><span class="si">{</span><span class="n">conductivity</span><span class="o">.</span><span class="n">Tabular</span><span class="o">.</span><span class="n">getThermalConductivityTemperatureFunction</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">heatCapacity</span> <span class="o">=</span> <span class="n">thermal</span><span class="o">.</span><span class="n">HeatCapacity</span>
+<span class="n">heatCapacity</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">ThermalHeatCapacityType</span><span class="o">.</span><span class="n">JAME_NEWMAN</span><span class="p">)</span>
+<span class="n">jameNewman</span> <span class="o">=</span> <span class="n">thermal</span><span class="o">.</span><span class="n">HeatCapacity</span><span class="o">.</span><span class="n">JameNewman</span>
+<span class="n">jameNewman</span><span class="o">.</span><span class="n">setIncludeLatentHeat</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">jameNewman</span><span class="o">.</span><span class="n">setSoilSpecificHeatCapacity</span><span class="p">(</span><span class="mi">890</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Heat Capacity Type = </span><span class="si">{</span><span class="n">heatCapacity</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span><span class="si">}</span><span class="s2">, Include Latent = </span><span class="si">{</span><span class="n">jameNewman</span><span class="o">.</span><span class="n">getIncludeLatentHeat</span><span class="p">()</span><span class="si">}</span><span class="s2">, Specific Heat Capacity = </span><span class="si">{</span><span class="n">jameNewman</span><span class="o">.</span><span class="n">getSoilSpecificHeatCapacity</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">custom</span> <span class="o">=</span> <span class="n">heatCapacity</span><span class="o">.</span><span class="n">CustomHeatCapacity</span>
+<span class="n">custom</span><span class="o">.</span><span class="n">setDependence</span><span class="p">(</span><span class="n">ThermalVolumetricDepencenceType</span><span class="o">.</span><span class="n">WATER_CONTENT</span><span class="p">)</span>
+<span class="n">custom</span><span class="o">.</span><span class="n">setVolumetricHeatCapacityVsWaterContentTable</span><span class="p">(</span><span class="n">volumetricHeatCapacity</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">],</span>
+                                                    <span class="n">waterContent</span><span class="o">=</span><span class="p">[</span><span class="mi">7</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Volumetric Heat Capacity VS Water Content Table&quot;</span><span class="p">,</span> <span class="n">custom</span><span class="o">.</span><span class="n">getVolumetricHeatCapacityVsWaterContentTable</span><span class="p">())</span>
+
+<span class="n">soilUnfrozenWaterContent</span> <span class="o">=</span> <span class="n">thermal</span><span class="o">.</span><span class="n">SoilUnfrozenWaterContent</span>
+<span class="n">ticeAnderson</span> <span class="o">=</span> <span class="n">soilUnfrozenWaterContent</span><span class="o">.</span><span class="n">TiceAnderson</span>
+<span class="n">ticeAnderson</span><span class="o">.</span><span class="n">setFrozenTemperature</span><span class="p">(</span><span class="o">-</span><span class="mf">0.05</span><span class="p">)</span>
+<span class="n">ticeAnderson</span><span class="o">.</span><span class="n">setInputAlpha</span><span class="p">(</span><span class="mf">0.009</span><span class="p">)</span>
+<span class="n">ticeAnderson</span><span class="o">.</span><span class="n">setInputBeta</span><span class="p">(</span><span class="mf">0.0085</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Input Alpha = </span><span class="si">{</span><span class="n">ticeAnderson</span><span class="o">.</span><span class="n">getInputAlpha</span><span class="p">()</span><span class="si">}</span><span class="s2">, Input Beta = </span><span class="si">{</span><span class="n">ticeAnderson</span><span class="o">.</span><span class="n">getInputBeta</span><span class="p">()</span><span class="si">}</span><span class="s2">, Frozen Temp = </span><span class="si">{</span><span class="n">ticeAnderson</span><span class="o">.</span><span class="n">getFrozenTemperature</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">soilUnfrozenWaterContent</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">ThermalWaterContentType</span><span class="o">.</span><span class="n">CUSTOM</span><span class="p">)</span>
+<span class="n">soilUnfrozenWaterContent</span><span class="o">.</span><span class="n">CustomWaterContent</span><span class="o">.</span><span class="n">setTemperatureVsUnfrozenWaterContentValues</span><span class="p">(</span><span class="n">temperature</span><span class="o">=</span><span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">],</span>
+                                                                                       <span class="n">unfrozenWaterContent</span><span class="o">=</span><span class="p">[</span><span class="mi">4</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">6</span><span class="p">])</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2">Thermal Temperature vs Soil Unfrozen Water Content Table Values&quot;</span><span class="p">,</span>
+      <span class="n">soilUnfrozenWaterContent</span><span class="o">.</span><span class="n">CustomWaterContent</span><span class="o">.</span><span class="n">getTemperatureVsUnfrozenWaterContentValues</span><span class="p">())</span>
+
+<span class="n">soilUnfrozenWC</span> <span class="o">=</span> <span class="n">thermal</span><span class="o">.</span><span class="n">SoilUnfrozenWaterContent</span>
+<span class="c1"># Make sure to set Soil Unfrozen Water Content type to Hydraulic Properties</span>
+<span class="n">soilUnfrozenWC</span><span class="o">.</span><span class="n">setType</span><span class="p">(</span><span class="n">ThermalWaterContentType</span><span class="o">.</span><span class="n">SOIL_WATER_CONTENT_IN_HYDRAULIC_PROPERTIES</span><span class="p">)</span>
+<span class="n">hydraulic_soilUnfrozenWC</span> <span class="o">=</span> <span class="n">soilUnfrozenWaterContent</span><span class="o">.</span><span class="n">HydraulicModel</span>
+<span class="c1"># Make sure to set Hydraulic Model to your desired type</span>
+<span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">setSelectHydraulicModel</span><span class="p">(</span><span class="n">GroundWaterModes</span><span class="o">.</span><span class="n">GARDNER</span><span class="p">)</span>
+<span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">setFrozenTemperature</span><span class="p">(</span><span class="o">-</span><span class="mf">0.015</span><span class="p">)</span>
+<span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">setWCSat</span><span class="p">(</span><span class="mf">0.34</span><span class="p">)</span>
+<span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">setWCRes</span><span class="p">(</span><span class="mf">0.01</span><span class="p">)</span>
+
+<span class="n">gardenerWaterContent</span> <span class="o">=</span> <span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">GardnerWaterContent</span>
+<span class="n">gardenerWaterContent</span><span class="o">.</span><span class="n">setA</span><span class="p">(</span><span class="mi">8</span><span class="p">)</span>
+<span class="n">gardenerWaterContent</span><span class="o">.</span><span class="n">setN</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\n</span><span class="s2"> Thermal Soil Unfrozen Water Content Type = </span><span class="si">{</span><span class="n">soilUnfrozenWaterContent</span><span class="o">.</span><span class="n">getType</span><span class="p">()</span><span class="si">}</span><span class="s2">, Hydraulic Model Type = </span><span class="si">{</span><span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">getSelectHydraulicModel</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Frozen Temperature = </span><span class="si">{</span><span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">getFrozenTemperature</span><span class="p">()</span><span class="si">}</span><span class="s2">, WC Sat = </span><span class="si">{</span><span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">getWCSat</span><span class="p">()</span><span class="si">}</span><span class="s2">, WC Res = </span><span class="si">{</span><span class="n">hydraulic_soilUnfrozenWC</span><span class="o">.</span><span class="n">getWCRes</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Gardener Parameter A = </span><span class="si">{</span><span class="n">gardenerWaterContent</span><span class="o">.</span><span class="n">getA</span><span class="p">()</span><span class="si">}</span><span class="s2">, Gardener Parameter N = </span><span class="si">{</span><span class="n">gardenerWaterContent</span><span class="o">.</span><span class="n">getN</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">thermal</span><span class="o">.</span><span class="n">setThermalExpansion</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">thermal</span><span class="o">.</span><span class="n">setExpansionCoefficient</span><span class="p">(</span><span class="mf">0.0005</span><span class="p">)</span>
+
+<span class="n">thermal</span><span class="o">.</span><span class="n">setDispersivity</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">thermal</span><span class="o">.</span><span class="n">setLongitudinalDispersivity</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">thermal</span><span class="o">.</span><span class="n">setTransverseDispersivity</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Thermal Expansion Coeff. = </span><span class="si">{</span><span class="n">thermal</span><span class="o">.</span><span class="n">getExpansionCoefficient</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Longitudinal Dispersivity = </span><span class="si">{</span><span class="n">thermal</span><span class="o">.</span><span class="n">getLongitudinalDispersivity</span><span class="p">()</span><span class="si">}</span><span class="s2">, Transverse Dispersivity = </span><span class="si">{</span><span class="n">thermal</span><span class="o">.</span><span class="n">getTransverseDispersivity</span><span class="p">()</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="c1"># Manipulation of Thermal Stage Factor Properties for stage 1</span>
+<span class="n">material</span><span class="o">.</span><span class="n">StageFactors</span><span class="o">.</span><span class="n">setStageThermalStageFactors</span><span class="p">(</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="n">definedStageFactors</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">StageFactors</span><span class="o">.</span><span class="n">getDefinedStageFactors</span><span class="p">()</span>
+<span class="n">newStageFactor</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">StageFactors</span><span class="o">.</span><span class="n">createStageFactor</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+<span class="n">definedStageFactors</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="n">newStageFactor</span>
+<span class="n">material</span><span class="o">.</span><span class="n">StageFactors</span><span class="o">.</span><span class="n">setDefinedStageFactors</span><span class="p">(</span><span class="n">definedStageFactors</span><span class="p">)</span>
+
+<span class="n">thermalStageFactors</span> <span class="o">=</span> <span class="n">thermal</span><span class="o">.</span><span class="n">stageFactorInterface</span><span class="o">.</span><span class="n">getDefinedStageFactors</span><span class="p">()[</span><span class="mi">2</span><span class="p">]</span>
+
+<span class="n">thermalStageFactors</span><span class="o">.</span><span class="n">setThermalGridFactor</span><span class="p">(</span><span class="s2">&quot;Default Grid&quot;</span><span class="p">)</span>
+
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Thermal Stage Factor Grid To Use = </span><span class="si">{</span><span class="n">thermalStageFactors</span><span class="o">.</span><span class="n">getThermalGridFactor</span><span class="p">()</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">modeler</span><span class="o">.</span><span class="n">closeProgram</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<section id="output">
+<h2>Output<a class="headerlink" href="#output" title="Link to this heading">#</a></h2>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">Soil</span> <span class="n">Type</span> <span class="o">=</span> <span class="n">ThermalSoilType</span><span class="o">.</span><span class="n">CRUSHED_ROCK</span><span class="p">,</span> <span class="n">Quartz</span> <span class="n">Content</span> <span class="o">=</span> <span class="mf">0.88</span>
+
+<span class="n">Thermal</span> <span class="n">Temp</span><span class="o">.</span> <span class="n">Vs</span> <span class="n">Conductivity</span> <span class="n">Table</span> <span class="n">Values</span> <span class="o">=</span> <span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.5</span><span class="p">,</span> <span class="mf">3.3</span><span class="p">,</span> <span class="mf">4.8</span><span class="p">])</span>
+<span class="n">Heat</span> <span class="n">Capacity</span> <span class="n">Type</span> <span class="o">=</span> <span class="n">ThermalHeatCapacityType</span><span class="o">.</span><span class="n">JAME_NEWMAN</span><span class="p">,</span> <span class="n">Include</span> <span class="n">Latent</span> <span class="o">=</span> <span class="kc">True</span><span class="p">,</span> <span class="n">Specific</span> <span class="n">Heat</span> <span class="n">Capacity</span> <span class="o">=</span> <span class="mf">890.0</span>
+<span class="n">Volumetric</span> <span class="n">Heat</span> <span class="n">Capacity</span> <span class="n">VS</span> <span class="n">Water</span> <span class="n">Content</span> <span class="n">Table</span> <span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.4</span><span class="p">],</span> <span class="p">[</span><span class="mf">7.0</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">])</span>
+<span class="n">Input</span> <span class="n">Alpha</span> <span class="o">=</span> <span class="mf">0.009</span><span class="p">,</span> <span class="n">Input</span> <span class="n">Beta</span> <span class="o">=</span> <span class="mf">0.0085</span><span class="p">,</span> <span class="n">Frozen</span> <span class="n">Temp</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.05</span>
+
+<span class="n">Thermal</span> <span class="n">Temperature</span> <span class="n">vs</span> <span class="n">Soil</span> <span class="n">Unfrozen</span> <span class="n">Water</span> <span class="n">Content</span> <span class="n">Table</span> <span class="n">Values</span> <span class="p">([</span><span class="mf">1.0</span><span class="p">,</span> <span class="mf">2.0</span><span class="p">,</span> <span class="mf">3.0</span><span class="p">],</span> <span class="p">[</span><span class="mf">4.0</span><span class="p">,</span> <span class="mf">5.0</span><span class="p">,</span> <span class="mf">6.0</span><span class="p">])</span>
+
+ <span class="n">Thermal</span> <span class="n">Soil</span> <span class="n">Unfrozen</span> <span class="n">Water</span> <span class="n">Content</span> <span class="n">Type</span> <span class="o">=</span> <span class="n">ThermalWaterContentType</span><span class="o">.</span><span class="n">SOIL_WATER_CONTENT_IN_HYDRAULIC_PROPERTIES</span><span class="p">,</span> <span class="n">Hydraulic</span> <span class="n">Model</span> <span class="n">Type</span> <span class="o">=</span> <span class="n">GroundWaterModes</span><span class="o">.</span><span class="n">GARDNER</span>
+<span class="n">Frozen</span> <span class="n">Temperature</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.015</span><span class="p">,</span> <span class="n">WC</span> <span class="n">Sat</span> <span class="o">=</span> <span class="mf">0.34</span><span class="p">,</span> <span class="n">WC</span> <span class="n">Res</span> <span class="o">=</span> <span class="mf">0.01</span>
+<span class="n">Gardener</span> <span class="n">Parameter</span> <span class="n">A</span> <span class="o">=</span> <span class="mf">8.0</span><span class="p">,</span> <span class="n">Gardener</span> <span class="n">Parameter</span> <span class="n">N</span> <span class="o">=</span> <span class="mf">3.0</span>
+<span class="n">Thermal</span> <span class="n">Expansion</span> <span class="n">Coeff</span><span class="o">.</span> <span class="o">=</span> <span class="mf">0.0005</span>
+<span class="n">Longitudinal</span> <span class="n">Dispersivity</span> <span class="o">=</span> <span class="mf">2.0</span><span class="p">,</span> <span class="n">Transverse</span> <span class="n">Dispersivity</span> <span class="o">=</span> <span class="mf">3.0</span>
+
+<span class="n">Thermal</span> <span class="n">Stage</span> <span class="n">Factor</span> <span class="n">Grid</span> <span class="n">To</span> <span class="n">Use</span> <span class="o">=</span> <span class="n">Default</span> <span class="n">Grid</span>
+</pre></div>
+</div>
+</section>
+</section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="mat_prop_strength.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Material Strength Properties Script Examples</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="../hydraulic/hydro_prop.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Hydraulic Properties Script Examples</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+<div
+    id="pst-page-navigation-heading-2"
+    class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> On this page
+  </div>
+  <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#output">Output</a></li>
+</ul>
+  </nav></div>
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/examples/material/mat_prop_thermal.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2025, Rocscience Inc..
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>
