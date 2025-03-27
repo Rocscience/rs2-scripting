@@ -1,7 +1,14 @@
 ## Introduction 
-This repo is the documentation for the rs2 scripting library. 
+This repo contains the reference manual for the rs2 scripting library. The rs2 scripting library is used to interact with the RS2 application through python.   
 
-The rs2 scripting library is used to interact with the RS2 application through python.  
+Release notes for the library are kept here:
+https://www.rocscience.com/support/rs2/release-notes
+
+Corresponding RS2 version can be downloaded here:
+https://downloads.rocscience.com/RS2/rs211026f11s.zip
+
+The library itself is hosted on PyPi here:
+https://pypi.org/project/RS2Scripting/11.26.0/
 
 ### Goal
 Each function exposed corresponds to an equivalent operation you could have done through the UI.  
