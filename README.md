@@ -4,11 +4,11 @@ This repo contains the reference manual for the rs2 scripting library. The rs2 s
 Release notes for the library are kept here:
 https://www.rocscience.com/support/rs2/release-notes
 
-Corresponding RS2 version can be downloaded here:
-https://downloads.rocscience.com/RS2/rs211026f11s.zip
+RS2 can be downloaded here:
+https://www.rocscience.com/updates/GetProgram.php?RS2-11.0z
 
 The library itself is hosted on PyPi here:
-https://pypi.org/project/RS2Scripting/11.26.0/
+https://pypi.org/project/RS2Scripting/
 
 ### Goal
 Each function exposed corresponds to an equivalent operation you could have done through the UI.  
