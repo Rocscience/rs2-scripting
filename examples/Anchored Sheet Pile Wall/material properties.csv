@@ -1,0 +1,3 @@
+﻿Name,Unit Weight (kN/m3),Poisson's Ratio,Young's Modulus (kPa),Failure Criterion,Material Type,Peak Friction Angle (degrees),Peak Cohesion (kPa),Residual Friction Angle (degrees),Residual Cohesion (Kpa)
+Material 1,17,0.25,default,Mohr-Coulomb,Plastic,default,1,default,1
+Clay,20,0.25,15000,Mohr-Coulomb,Plastic,25,10,25,10

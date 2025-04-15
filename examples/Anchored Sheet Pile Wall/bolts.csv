@@ -1,0 +1,3 @@
+﻿Name,Type,Bond Shear Stiffness (kN/m/m),Bond Strength (kN/m),Borehole Diameter (mm),Pre-Tensioning Force (kN),Percentage Bond Length (%)
+Bolt 1,TIEBACK,10000,5000,50,20,40
+Bolt 2,TIEBACK,10000,5000,50,50,40
