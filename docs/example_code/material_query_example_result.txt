@@ -1,0 +1,18 @@
+Query Unique ID = {16FC1971-DBD9-4d12-873D-CBD1B6890EFC}, MaterialID = 1
+----------------
+X-Coord =-6.189, Y-Coordinate = 0.5, Distance = 0.0, Result Type Node Value = 55.65935856694917
+X-Coord =-2.4655593574243744, Y-Coordinate = -2.2477321255343847, Distance = 4.627530880769754, Result Type Node Value = 97.35910559036152
+X-Coord =-2.4655569435405527, Y-Coordinate = -2.2477339068723357, Distance = 4.627533880769755, Result Type Node Value = 100.30235902051997
+X-Coord =-0.751, Y-Coordinate = -3.513, Distance = 6.758403139795673, Result Type Node Value = 118.49031904837915
+Query Unique ID = {421E3CAA-B894-412a-9830-3B98A86EE825}, MaterialID = 3
+----------------
+X-Coord =4.5, Y-Coordinate = 4.5, Distance = 0.0, Result Type Node Value = None
+X-Coord =-2.5, Y-Coordinate = 4.5, Distance = 7.0, Result Type Node Value = None
+X-Coord =-2.5, Y-Coordinate = 2.5, Distance = 9.0, Result Type Node Value = 24.66258070715867
+X-Coord =-6.0, Y-Coordinate = 2.5, Distance = 12.5, Result Type Node Value = 23.43662855220668
+Query Unique ID = {0EBE1A5B-CFD4-420e-B690-725ED674D431}, MaterialID = 5
+----------------
+X-Coord =4.5, Y-Coordinate = 4.5, Distance = 0.0, Result Type Node Value = None
+X-Coord =-2.5, Y-Coordinate = 4.5, Distance = 7.0, Result Type Node Value = None
+X-Coord =-2.5, Y-Coordinate = 2.5, Distance = 9.0, Result Type Node Value = 24.66258070715867
+X-Coord =-6.0, Y-Coordinate = 2.5, Distance = 12.5, Result Type Node Value = 23.43662855220668

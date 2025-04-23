@@ -1,0 +1,494 @@
+
+Stage 2 Time Query Points Data
+UniqueID = {2AAF5659-2F62-40a0-8B32-3CF30CEDF977}, X-Coord = 9.0, Y-Coord = -2.0, Dynamic Stage Time = 5.0, Value = 0.0476445
+
+-----------------------
+
+End of Stage 2 Data
+
+
+Stage 3 Time Query Points Data
+UniqueID = {2AAF5659-2F62-40a0-8B32-3CF30CEDF977}, X-Coord = 9.0, Y-Coord = -2.0, Dynamic Stage Time = 10.0, Value = 0.700036
+
+-----------------------
+
+End of Stage 3 Data
+
+
+Stage 4 Time Query Points Data
+UniqueID = {2AAF5659-2F62-40a0-8B32-3CF30CEDF977}, X-Coord = 9.0, Y-Coord = -2.0, Dynamic Stage Time = 15.0, Value = 0.897178
+
+-----------------------
+
+End of Stage 4 Data
+
+
+ Time Query Line Results
+
+Stage 2 Time Query Line Data
+
+Unique Identifier for Line Query = {6E07BF79-9CE8-4ec5-A48C-67CEEF29A61F} with data as follows:
+
+X-Coord = 6.0, Y-Coord = -4.0, Dynamic Stage Time = 5.0, Value = 0.0
+
+X-Coord = 6.0, Y-Coord = -3.16666666666667, Dynamic Stage Time = 5.0, Value = 0.8333333333333299
+
+X-Coord = 6.0, Y-Coord = -2.33333333333333, Dynamic Stage Time = 5.0, Value = 1.66666666666667
+
+X-Coord = 6.0, Y-Coord = -1.5, Dynamic Stage Time = 5.0, Value = 2.5
+
+X-Coord = 6.0, Y-Coord = -0.666666666666667, Dynamic Stage Time = 5.0, Value = 3.333333333333333
+
+X-Coord = 6.0, Y-Coord = 0.166666666666667, Dynamic Stage Time = 5.0, Value = 4.166666666666667
+
+X-Coord = 6.0, Y-Coord = 1.0, Dynamic Stage Time = 5.0, Value = 5.0
+
+X-Coord = 6.0, Y-Coord = 1.83333333333333, Dynamic Stage Time = 5.0, Value = 5.83333333333333
+
+X-Coord = 6.0, Y-Coord = 2.66666666666667, Dynamic Stage Time = 5.0, Value = 6.6666666666666705
+
+X-Coord = 6.0, Y-Coord = 3.5, Dynamic Stage Time = 5.0, Value = 7.5
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {ED0AEA2B-F840-413a-8C7C-BB4D7CE34186} with data as follows:
+
+X-Coord = -4.0, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 0.0
+
+X-Coord = -2.44444444444444, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 1.5555555555555598
+
+X-Coord = -0.888888888888889, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 3.111111111111111
+
+X-Coord = 0.666666666666666, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 4.666666666666666
+
+X-Coord = 2.22222222222222, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 6.22222222222222
+
+X-Coord = 3.77777777777778, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 7.7777777777777795
+
+X-Coord = 5.33333333333333, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 9.33333333333333
+
+X-Coord = 6.88888888888889, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 10.88888888888889
+
+X-Coord = 8.44444444444444, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 12.44444444444444
+
+X-Coord = 10.0, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 14.0
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {D7EFCF58-18E0-4d85-B61B-6117BA58028B} with data as follows:
+
+X-Coord = -5.0, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 0.0
+
+X-Coord = -2.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 2.28571428571429
+
+X-Coord = -0.428571428571429, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 4.571428571428571
+
+X-Coord = 1.85714285714286, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 6.85714285714286
+
+X-Coord = 4.14285714285714, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 9.142857142857139
+
+X-Coord = 6.42857142857143, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 11.428571428571429
+
+X-Coord = 8.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 13.714285714285708
+
+X-Coord = 11.0, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 15.999999999999998
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {168F4F09-F148-4170-B8B3-14C41785F672} with data as follows:
+
+X-Coord = -5.0, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 0.0
+
+X-Coord = -2.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 2.28571428571429
+
+X-Coord = -0.428571428571429, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 4.571428571428571
+
+X-Coord = 1.85714285714286, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 6.85714285714286
+
+X-Coord = 4.14285714285714, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 9.142857142857139
+
+X-Coord = 6.42857142857143, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 11.428571428571429
+
+X-Coord = 8.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 13.714285714285708
+
+X-Coord = 11.0, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 15.999999999999998
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {61E712ED-426E-4dbe-BFE9-1F27C3636ECB} with data as follows:
+
+X-Coord = -5.0, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 0.0
+
+X-Coord = -2.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 2.28571428571429
+
+X-Coord = -0.428571428571429, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 4.571428571428571
+
+X-Coord = 1.85714285714286, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 6.85714285714286
+
+X-Coord = 4.14285714285714, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 9.142857142857139
+
+X-Coord = 6.42857142857143, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 11.428571428571429
+
+X-Coord = 8.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 13.714285714285708
+
+X-Coord = 11.0, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 15.999999999999998
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {8E73646B-15A8-47f3-B16A-4FB0C771F46F} with data as follows:
+
+X-Coord = -5.0, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 0.0
+
+X-Coord = -2.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 2.28571428571429
+
+X-Coord = -0.428571428571429, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 4.571428571428571
+
+X-Coord = 1.85714285714286, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 6.85714285714286
+
+X-Coord = 4.14285714285714, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 9.142857142857139
+
+X-Coord = 6.42857142857143, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 11.428571428571429
+
+X-Coord = 8.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 13.714285714285708
+
+X-Coord = 11.0, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 15.999999999999998
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {F23C54B2-BA74-4f11-BC85-622F4715A939} with data as follows:
+
+X-Coord = -5.0, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 0.0
+
+X-Coord = -2.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 2.28571428571429
+
+X-Coord = -0.428571428571429, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 4.571428571428571
+
+X-Coord = 1.85714285714286, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 6.85714285714286
+
+X-Coord = 4.14285714285714, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 9.142857142857139
+
+X-Coord = 6.42857142857143, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 11.428571428571429
+
+X-Coord = 8.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 13.714285714285708
+
+X-Coord = 11.0, Y-Coord = 2.0, Dynamic Stage Time = 5.0, Value = 15.999999999999998
+
+
+End of Line Data
+
+-----------------------
+
+End of Stage 2 Data
+
+
+Stage 3 Time Query Line Data
+
+Unique Identifier for Line Query = {6E07BF79-9CE8-4ec5-A48C-67CEEF29A61F} with data as follows:
+
+X-Coord = 6.0, Y-Coord = -4.0, Dynamic Stage Time = 10.0, Value = 0.0
+
+X-Coord = 6.0, Y-Coord = -3.16666666666667, Dynamic Stage Time = 10.0, Value = 0.8333333333333299
+
+X-Coord = 6.0, Y-Coord = -2.33333333333333, Dynamic Stage Time = 10.0, Value = 1.66666666666667
+
+X-Coord = 6.0, Y-Coord = -1.5, Dynamic Stage Time = 10.0, Value = 2.5
+
+X-Coord = 6.0, Y-Coord = -0.666666666666667, Dynamic Stage Time = 10.0, Value = 3.333333333333333
+
+X-Coord = 6.0, Y-Coord = 0.166666666666667, Dynamic Stage Time = 10.0, Value = 4.166666666666667
+
+X-Coord = 6.0, Y-Coord = 1.0, Dynamic Stage Time = 10.0, Value = 5.0
+
+
+
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {ED0AEA2B-F840-413a-8C7C-BB4D7CE34186} with data as follows:
+
+X-Coord = -4.0, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 0.0
+
+X-Coord = -2.44444444444444, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 1.5555555555555598
+
+X-Coord = -0.888888888888889, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 3.111111111111111
+
+X-Coord = 0.666666666666666, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 4.666666666666666
+
+X-Coord = 2.22222222222222, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 6.22222222222222
+
+X-Coord = 3.77777777777778, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 7.7777777777777795
+
+
+X-Coord = 6.88888888888889, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 10.88888888888889
+
+X-Coord = 8.44444444444444, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 12.44444444444444
+
+X-Coord = 10.0, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 14.0
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {D7EFCF58-18E0-4d85-B61B-6117BA58028B} with data as follows:
+
+X-Coord = -5.0, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 0.0
+
+X-Coord = -2.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 2.28571428571429
+
+X-Coord = -0.428571428571429, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 4.571428571428571
+
+X-Coord = 1.85714285714286, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 6.85714285714286
+
+X-Coord = 4.14285714285714, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 9.142857142857139
+
+
+X-Coord = 8.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 13.714285714285708
+
+X-Coord = 11.0, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 15.999999999999998
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {168F4F09-F148-4170-B8B3-14C41785F672} with data as follows:
+
+X-Coord = -5.0, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 0.0
+
+X-Coord = -2.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 2.28571428571429
+
+X-Coord = -0.428571428571429, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 4.571428571428571
+
+X-Coord = 1.85714285714286, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 6.85714285714286
+
+X-Coord = 4.14285714285714, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 9.142857142857139
+
+
+X-Coord = 8.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 13.714285714285708
+
+X-Coord = 11.0, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 15.999999999999998
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {61E712ED-426E-4dbe-BFE9-1F27C3636ECB} with data as follows:
+
+X-Coord = -5.0, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 0.0
+
+X-Coord = -2.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 2.28571428571429
+
+X-Coord = -0.428571428571429, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 4.571428571428571
+
+X-Coord = 1.85714285714286, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 6.85714285714286
+
+X-Coord = 4.14285714285714, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 9.142857142857139
+
+
+X-Coord = 8.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 13.714285714285708
+
+X-Coord = 11.0, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 15.999999999999998
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {8E73646B-15A8-47f3-B16A-4FB0C771F46F} with data as follows:
+
+X-Coord = -5.0, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 0.0
+
+X-Coord = -2.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 2.28571428571429
+
+X-Coord = -0.428571428571429, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 4.571428571428571
+
+X-Coord = 1.85714285714286, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 6.85714285714286
+
+X-Coord = 4.14285714285714, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 9.142857142857139
+
+
+X-Coord = 8.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 13.714285714285708
+
+X-Coord = 11.0, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 15.999999999999998
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {F23C54B2-BA74-4f11-BC85-622F4715A939} with data as follows:
+
+X-Coord = -5.0, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 0.0
+
+X-Coord = -2.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 2.28571428571429
+
+X-Coord = -0.428571428571429, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 4.571428571428571
+
+X-Coord = 1.85714285714286, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 6.85714285714286
+
+X-Coord = 4.14285714285714, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 9.142857142857139
+
+
+X-Coord = 8.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 13.714285714285708
+
+X-Coord = 11.0, Y-Coord = 2.0, Dynamic Stage Time = 10.0, Value = 15.999999999999998
+
+
+End of Line Data
+
+-----------------------
+
+End of Stage 3 Data
+
+
+Stage 4 Time Query Line Data
+
+Unique Identifier for Line Query = {6E07BF79-9CE8-4ec5-A48C-67CEEF29A61F} with data as follows:
+
+X-Coord = 6.0, Y-Coord = -4.0, Dynamic Stage Time = 15.0, Value = 0.0
+
+X-Coord = 6.0, Y-Coord = -3.16666666666667, Dynamic Stage Time = 15.0, Value = 0.8333333333333299
+
+X-Coord = 6.0, Y-Coord = -2.33333333333333, Dynamic Stage Time = 15.0, Value = 1.66666666666667
+
+X-Coord = 6.0, Y-Coord = -1.5, Dynamic Stage Time = 15.0, Value = 2.5
+
+X-Coord = 6.0, Y-Coord = -0.666666666666667, Dynamic Stage Time = 15.0, Value = 3.333333333333333
+
+X-Coord = 6.0, Y-Coord = 0.166666666666667, Dynamic Stage Time = 15.0, Value = 4.166666666666667
+
+X-Coord = 6.0, Y-Coord = 1.0, Dynamic Stage Time = 15.0, Value = 5.0
+
+
+
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {ED0AEA2B-F840-413a-8C7C-BB4D7CE34186} with data as follows:
+
+X-Coord = -4.0, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 0.0
+
+X-Coord = -2.44444444444444, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 1.5555555555555598
+
+X-Coord = -0.888888888888889, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 3.111111111111111
+
+X-Coord = 0.666666666666666, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 4.666666666666666
+
+X-Coord = 2.22222222222222, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 6.22222222222222
+
+X-Coord = 3.77777777777778, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 7.7777777777777795
+
+
+X-Coord = 6.88888888888889, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 10.88888888888889
+
+X-Coord = 8.44444444444444, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 12.44444444444444
+
+X-Coord = 10.0, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 14.0
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {D7EFCF58-18E0-4d85-B61B-6117BA58028B} with data as follows:
+
+X-Coord = -5.0, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 0.0
+
+X-Coord = -2.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 2.28571428571429
+
+X-Coord = -0.428571428571429, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 4.571428571428571
+
+X-Coord = 1.85714285714286, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 6.85714285714286
+
+X-Coord = 4.14285714285714, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 9.142857142857139
+
+
+X-Coord = 8.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 13.714285714285708
+
+X-Coord = 11.0, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 15.999999999999998
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {168F4F09-F148-4170-B8B3-14C41785F672} with data as follows:
+
+X-Coord = -5.0, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 0.0
+
+X-Coord = -2.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 2.28571428571429
+
+X-Coord = -0.428571428571429, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 4.571428571428571
+
+X-Coord = 1.85714285714286, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 6.85714285714286
+
+X-Coord = 4.14285714285714, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 9.142857142857139
+
+
+X-Coord = 8.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 13.714285714285708
+
+X-Coord = 11.0, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 15.999999999999998
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {61E712ED-426E-4dbe-BFE9-1F27C3636ECB} with data as follows:
+
+X-Coord = -5.0, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 0.0
+
+X-Coord = -2.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 2.28571428571429
+
+X-Coord = -0.428571428571429, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 4.571428571428571
+
+X-Coord = 1.85714285714286, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 6.85714285714286
+
+X-Coord = 4.14285714285714, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 9.142857142857139
+
+
+X-Coord = 8.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 13.714285714285708
+
+X-Coord = 11.0, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 15.999999999999998
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {8E73646B-15A8-47f3-B16A-4FB0C771F46F} with data as follows:
+
+X-Coord = -5.0, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 0.0
+
+X-Coord = -2.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 2.28571428571429
+
+X-Coord = -0.428571428571429, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 4.571428571428571
+
+X-Coord = 1.85714285714286, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 6.85714285714286
+
+X-Coord = 4.14285714285714, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 9.142857142857139
+
+
+X-Coord = 8.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 13.714285714285708
+
+X-Coord = 11.0, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 15.999999999999998
+
+
+End of Line Data
+
+Unique Identifier for Line Query = {F23C54B2-BA74-4f11-BC85-622F4715A939} with data as follows:
+
+X-Coord = -5.0, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 0.0
+
+X-Coord = -2.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 2.28571428571429
+
+X-Coord = -0.428571428571429, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 4.571428571428571
+
+X-Coord = 1.85714285714286, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 6.85714285714286
+
+X-Coord = 4.14285714285714, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 9.142857142857139
+
+
+X-Coord = 8.71428571428571, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 13.714285714285708
+
+X-Coord = 11.0, Y-Coord = 2.0, Dynamic Stage Time = 15.0, Value = 15.999999999999998
+
+
+End of Line Data
+
+-----------------------
+
+End of Stage 4 Data
+

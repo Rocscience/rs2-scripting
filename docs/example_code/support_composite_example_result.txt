@@ -1,0 +1,125 @@
+Stage 1 Composite Results
+
+	Composite Unique ID = External boundary0
+	Joint Result for Composite with ID External boundary0:
+
+		Joint Unique ID = External boundary0
+		Joint Element Results:
+
+		Start X-Coord = 11.949843172111, Start Y-Coord = 16.8602900357032, End X-Coord = 7.66165679261041, End Y-Coord = 16.0080637205343
+		Distance = 2.186025624140804, Normal Stress = 4.0118, Shear Stress = 0.06408, Confining Stress = None
+		Normal Displacement = 3.98454459388709e-05, Shear Displacement = 9.518369020371651e-07, Yielded = False
+
+		Start X-Coord = 7.66165679261041, Start Y-Coord = 16.0080637205343, End X-Coord = 3.37347041310981, End Y-Coord = 15.1558374053654
+		Distance = 6.558076872422411, Normal Stress = 5.5995, Shear Stress = -0.064085, Confining Stress = None
+		Normal Displacement = 3.567238008880944e-05, Shear Displacement = -9.650382373340867e-07, Yielded = False
+
+	Liner Result for Composite with ID External boundary0:
+
+		Liner Unique ID = External boundary0
+		Liner Element Results:
+
+		Composite Layer = 1, Node Start = 55, Node End = 56
+		Start X-Coord = 11.949843172111, Start Y-Coord = 16.8602900357032, End X-Coord = 7.66165679261041, End Y-Coord = 16.0080637205343
+	Distance = 2.186025624140804, Axial Force 1 = -21.786, Axial Force-Mid = -69.567
+	Axial Force 2 = -117.35, Moment 1 = -44.105, Moment-Mid = -125.36
+	Moment 2 = -206.62, Shear Force = -97.7, Shear Force-Mid = -37.172
+	Shear Force 2 = 23.356, Displacement Total 1 = 0.003946398950942492, Displacement Total - Mid = 0.004270172877062473
+	Displacement Total 2 = 0.00421677623309561, Displacement X 1 = -0.0024462, Displacement X-Mid = -0.0023542
+	Displacement X2 = -0.0023702, Displacement Y1 = -0.0030968, Displacement Y-Mid = -0.0035626
+	Displacement Y2 = -0.0034876, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+
+		Composite Layer = 1, Node Start = 56, Node End = 57
+		Start X-Coord = 7.66165679261041, Start Y-Coord = 16.0080637205343, End X-Coord = 3.37347041310981, End Y-Coord = 15.1558374053654
+	Distance = 6.558076872422411, Axial Force 1 = -129.95, Axial Force-Mid = -82.383
+	Axial Force 2 = -34.811, Moment 1 = -195.16, Moment-Mid = -113.91
+	Moment 2 = -32.647, Shear Force = -7.6313, Shear Force-Mid = 37.172
+	Shear Force 2 = 81.975, Displacement Total 1 = 0.00421677623309561, Displacement Total - Mid = 0.0037635805186019334
+	Displacement Total 2 = 0.0031993783021080826, Displacement X 1 = -0.0023702, Displacement X-Mid = -0.0025066
+	Displacement X2 = -0.0027354, Displacement Y1 = -0.0034876, Displacement Y-Mid = -0.0028074
+	Displacement Y2 = -0.0016594, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+
+		Composite Layer = 2, Node Start = 55, Node End = 56
+		Start X-Coord = 11.949843172111, Start Y-Coord = 16.8602900357032, End X-Coord = 7.66165679261041, End Y-Coord = 16.0080637205343
+	Distance = 2.186025624140804, Axial Force 1 = -21.786, Axial Force-Mid = -69.567
+	Axial Force 2 = -117.35, Moment 1 = -44.105, Moment-Mid = -125.36
+	Moment 2 = -206.62, Shear Force = -97.7, Shear Force-Mid = -37.172
+	Shear Force 2 = 23.356, Displacement Total 1 = 0.003946398950942492, Displacement Total - Mid = 0.004270172877062473
+	Displacement Total 2 = 0.00421677623309561, Displacement X 1 = -0.0024462, Displacement X-Mid = -0.0023542
+	Displacement X2 = -0.0023702, Displacement Y1 = -0.0030968, Displacement Y-Mid = -0.0035626
+	Displacement Y2 = -0.0034876, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+
+		Composite Layer = 2, Node Start = 56, Node End = 57
+		Start X-Coord = 7.66165679261041, Start Y-Coord = 16.0080637205343, End X-Coord = 3.37347041310981, End Y-Coord = 15.1558374053654
+	Distance = 6.558076872422411, Axial Force 1 = -129.95, Axial Force-Mid = -82.383
+	Axial Force 2 = -34.811, Moment 1 = -195.16, Moment-Mid = -113.91
+	Moment 2 = -32.647, Shear Force = -7.6313, Shear Force-Mid = 37.172
+	Shear Force 2 = 81.975, Displacement Total 1 = 0.00421677623309561, Displacement Total - Mid = 0.0037635805186019334
+	Displacement Total 2 = 0.0031993783021080826, Displacement X 1 = -0.0023702, Displacement X-Mid = -0.0025066
+	Displacement X2 = -0.0027354, Displacement Y1 = -0.0034876, Displacement Y-Mid = -0.0028074
+	Displacement Y2 = -0.0016594, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+
+		Composite Layer = 3, Node Start = 55, Node End = 56
+		Start X-Coord = 11.949843172111, Start Y-Coord = 16.8602900357032, End X-Coord = 7.66165679261041, End Y-Coord = 16.0080637205343
+	Distance = 2.186025624140804, Axial Force 1 = -0.01552, Axial Force-Mid = -0.089266
+	Axial Force 2 = -0.16301, Moment 1 = -9.5518, Moment-Mid = -82.658
+	Moment 2 = -155.76, Shear Force = -46.551, Shear Force-Mid = -33.442
+	Shear Force 2 = -20.334, Displacement Total 1 = 0.004102127103101511, Displacement Total - Mid = 0.004239848027936851
+	Displacement Total 2 = 0.004168850800880262, Displacement X 1 = -0.0024026, Displacement X-Mid = -0.0023639
+	Displacement X2 = -0.0023836, Displacement Y1 = -0.0033249, Displacement Y-Mid = -0.0035197
+	Displacement Y2 = -0.0034202, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+
+		Composite Layer = 3, Node Start = 56, Node End = 57
+		Start X-Coord = 7.66165679261041, Start Y-Coord = 16.0080637205343, End X-Coord = 3.37347041310981, End Y-Coord = 15.1558374053654
+	Distance = 6.558076872422411, Axial Force 1 = -0.16632, Axial Force-Mid = -0.092584
+	Axial Force 2 = -0.018849, Moment 1 = -151.97, Moment-Mid = -78.864
+	Moment 2 = -5.7581, Shear Force = 25.54, Shear Force-Mid = 33.442
+	Shear Force 2 = 41.345, Displacement Total 1 = 0.004168850800880262, Displacement Total - Mid = 0.0037437916942586434
+	Displacement Total 2 = 0.0032744505157354265, Displacement X 1 = -0.0023836, Displacement X-Mid = -0.0025116
+	Displacement X2 = -0.0026933, Displacement Y1 = -0.0034202, Displacement Y-Mid = -0.0027763
+	Displacement Y2 = -0.0018623, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+
+		Composite Layer = 4, Node Start = 55, Node End = 56
+		Start X-Coord = 11.949843172111, Start Y-Coord = 16.8602900357032, End X-Coord = 7.66165679261041, End Y-Coord = 16.0080637205343
+	Distance = 2.186025624140804, Axial Force 1 = -0.01552, Axial Force-Mid = -0.089266
+	Axial Force 2 = -0.16301, Moment 1 = -9.5518, Moment-Mid = -82.658
+	Moment 2 = -155.76, Shear Force = -46.551, Shear Force-Mid = -33.442
+	Shear Force 2 = -20.334, Displacement Total 1 = 0.004102127103101511, Displacement Total - Mid = 0.004239848027936851
+	Displacement Total 2 = 0.004168850800880262, Displacement X 1 = -0.0024026, Displacement X-Mid = -0.0023639
+	Displacement X2 = -0.0023836, Displacement Y1 = -0.0033249, Displacement Y-Mid = -0.0035197
+	Displacement Y2 = -0.0034202, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+
+		Composite Layer = 4, Node Start = 56, Node End = 57
+		Start X-Coord = 7.66165679261041, Start Y-Coord = 16.0080637205343, End X-Coord = 3.37347041310981, End Y-Coord = 15.1558374053654
+	Distance = 6.558076872422411, Axial Force 1 = -0.16632, Axial Force-Mid = -0.092584
+	Axial Force 2 = -0.018849, Moment 1 = -151.97, Moment-Mid = -78.864
+	Moment 2 = -5.7581, Shear Force = 25.54, Shear Force-Mid = 33.442
+	Shear Force 2 = 41.345, Displacement Total 1 = 0.004168850800880262, Displacement Total - Mid = 0.0037437916942586434
+	Displacement Total 2 = 0.0032744505157354265, Displacement X 1 = -0.0023836, Displacement X-Mid = -0.0025116
+	Displacement X2 = -0.0026933, Displacement Y1 = -0.0034202, Displacement Y-Mid = -0.0027763
+	Displacement Y2 = -0.0018623, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+

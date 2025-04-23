@@ -1,0 +1,64 @@
+Stage 1 Bolt Results
+	Bolt Unique ID = Bolt0, 
+	Start X-Coord = 6.22240061957463, 
+	Start Y-Coord = 11.6115981742334, End X-Coord = 3.46451125989402, End Y-Coord = 10.1389388074137
+	Bolt Yielding Results:
+		Yielded Start X-Coord = 6.22240061957, Yielded Start Y-Coord = 11.6115981742, Yielded End X-Coord = 3.46451125989, Yielded End Y-Coord = 10.1389388074
+		Yielded Status = BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED
+	Force Displacement Results:
+		Location X = 6.22240061957463, Location Y = 11.6115981742334, Distance = 0.0, Axial Force = 2818.9200074861933, Axial Stress = 918825.069306
+		Shear Force = None, Rock Displacement = None, Bolt Displacement = None
+
+		Location X = 3.4645112599026806, Location Y = 10.138938807418324, Distance = 3.126448357299371, Axial Force = 2818.9200074861933, Axial Stress = 918825.069306
+		Shear Force = None, Rock Displacement = None, Bolt Displacement = None
+
+	Bolt Unique ID = Bolt1, 
+	Start X-Coord = 6.75791311659999, 
+	Start Y-Coord = 11.3973931754233, End X-Coord = 4.41504594211404, End Y-Coord = 9.85779474647534
+	Bolt Yielding Results:
+		Yielded Start X-Coord = 6.7579131166, Yielded Start Y-Coord = 11.3973931754, Yielded End X-Coord = 5.94263139468, Yielded End Y-Coord = 10.8616366153
+		Yielded Status = BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED
+		Yielded Start X-Coord = 5.94263139468, Yielded Start Y-Coord = 10.8616366153, Yielded End X-Coord = 4.41504594211, Yielded End Y-Coord = 9.85779474648
+		Yielded Status = BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED
+	Force Displacement Results:
+		Location X = 6.75791311659999, Location Y = 11.3973931754233, Distance = 0.0, Axial Force = 302.00115595, Axial Stress = 120800.46238
+		Shear Force = -0.0, Rock Displacement = 0.00370887550739, Bolt Displacement = 0.00370887550739
+
+		Location X = 5.942631394688653, Location Y = 10.861636615310118, Distance = 0.9755610579492318, Axial Force = 198.721414577, Axial Stress = 79488.5658308
+		Shear Force = -211.734038646, Rock Displacement = 0.00424398215181, Bolt Displacement = 0.00373708850421
+
+		Location X = 4.415045942124044, Location Y = 9.857794746481915, Distance = 2.803460347434165, Axial Force = 0.0, Axial Stress = 0.0
+		Shear Force = -5.69743115188, Rock Displacement = 0.00424398215181, Bolt Displacement = 0.00373708850421
+
+Stage 2 Bolt Results
+	Bolt Unique ID = Bolt0, 
+	Start X-Coord = 6.22240061957463, 
+	Start Y-Coord = 11.6115981742334, End X-Coord = 3.46451125989402, End Y-Coord = 10.1389388074137
+	Bolt Yielding Results:
+		Yielded Start X-Coord = 6.22240061957, Yielded Start Y-Coord = 11.6115981742, Yielded End X-Coord = 3.46451125989, Yielded End Y-Coord = 10.1389388074
+		Yielded Status = BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED
+	Force Displacement Results:
+		Location X = 6.22240061957463, Location Y = 11.6115981742334, Distance = 0.0, Axial Force = 3260.336972798898, Axial Stress = 1062704.63051
+		Shear Force = None, Rock Displacement = None, Bolt Displacement = None
+
+		Location X = 3.4645112599026806, Location Y = 10.138938807418324, Distance = 3.126448357299371, Axial Force = 3260.336972798898, Axial Stress = 1062704.63051
+		Shear Force = None, Rock Displacement = None, Bolt Displacement = None
+
+	Bolt Unique ID = Bolt1, 
+	Start X-Coord = 6.75791311659999, 
+	Start Y-Coord = 11.3973931754233, End X-Coord = 4.41504594211404, End Y-Coord = 9.85779474647534
+	Bolt Yielding Results:
+		Yielded Start X-Coord = 6.7579131166, Yielded Start Y-Coord = 11.3973931754, Yielded End X-Coord = 5.94263139468, Yielded End Y-Coord = 10.8616366153
+		Yielded Status = BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED
+		Yielded Start X-Coord = 5.94263139468, Yielded Start Y-Coord = 10.8616366153, Yielded End X-Coord = 4.41504594211, Yielded End Y-Coord = 9.85779474648
+		Yielded Status = BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED
+	Force Displacement Results:
+		Location X = 6.75791311659999, Location Y = 11.3973931754233, Distance = 0.0, Axial Force = 420.86328447, Axial Stress = 168345.313788
+		Shear Force = -0.0, Rock Displacement = 0.00238461431863, Bolt Displacement = 0.00238461431863
+
+		Location X = 5.942631394688653, Location Y = 10.861636615310118, Distance = 0.9755610579492318, Axial Force = 301.856401502, Axial Stress = 120742.56060079999
+		Shear Force = -243.976288308, Rock Displacement = 0.00300801338724, Bolt Displacement = 0.00242393143471
+
+		Location X = 4.415045942124044, Location Y = 9.857794746481915, Distance = 2.803460347434165, Axial Force = 0.0, Axial Stress = 0.0
+		Shear Force = -86.3005526951, Rock Displacement = 0.00300801338724, Bolt Displacement = 0.00242393143471
+

@@ -1,0 +1,26 @@
+Fluid Bulk Modulus = 6.0, K2/K1 = 2.0, K1 Definition = AnisotropyDefinitions.ANGLE
+K1 Angle = 30.0, MV Model = MVModel.CONSTANT, Mv Value = 0.05
+Ks Value = 0.005, Water Content Sat = 0.15, Water Content Res = 0.5
+Degree of Saturation Sat = 0.3, Degree of Staturation Res = 1.0
+
+Soil Type = EnhancedSimpleSoilTypes.SILT
+
+Fredlund Param A = 8.0, Fredlung Param B = 5.0, Fredlund Param C = 6.0
+
+Alpha = 20.0, N = 3.13, Custom M Value = 0.55
+
+Pore Size Index = 2.0, Bubbling Pressure = 3.0
+
+Param A = 0.5, Param N = 5.0
+
+User Defined Permeability And Water Content Function Name = User Defined 1
+
+
+FEAGroundwater Stage Factor Values
+K1 Angle Factor = 0.7, K2/K1 Factor = 2.2, MV Factor = 5.0
+
+FEAGroundwater Constant Model Factor Values
+Curve Slope Factor = 1.7
+
+FEAGroundwater Fredlund Model Factor Values
+A Factor = 0.7, B Factor = 2.2, C Factor = 5.0, Ks Factor = 5.0

@@ -1,0 +1,15 @@
+Peak Tensile Strength = 1.0, Peak Friction Angle = 30.0, Peak Cohesion = 12.0
+Res Peak Tensile = 2.0, Res Peak Friction = 35.0, Res Cohesion = 35.0
+Normal Stress = [1.0, 2.0]
+Shear Stress = [3.0, 4.0]
+Residual Shear Stress = [2.2, 3.6]
+
+
+Strength Stage Factor Values:
+Reset Yield = True, Air Entry Value = 1.5, Unsaturated Shear Strength Angle = 3.9
+
+Strength Basic Barcelona Model Stage Factor Values
+Gamma Factor = 3.3, Lambda Factor = 2.0,N Parameter Factor = 5.0
+
+Hoek Brown Stage Factor Values
+Dilation Parameter = 2.2, Compressive Strength = 5.0, MB Parameter = 1.0

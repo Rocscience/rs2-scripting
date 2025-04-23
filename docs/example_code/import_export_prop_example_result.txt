@@ -1,0 +1,32 @@
+Model 2 Till Initial Conditions
+{'InitialElementLoading': <InitialElementLoadingType.FIELD_STRESS_AND_BODY_FORCE: 'INITIAL_MAT_LOADING__BOTH_FIELD_AND_BODY'>, 'AccountForMoistureContentInUnitWeight': False, 'DryUnitWeight': 0.016, 'MoistUnitWeight': 0.018, 'SaturatedUnitWeight': 0.02, 'UnitWeight': 16.0, 'PorosityValue': 0.5, 'InitialWaterCondition': <StaticWaterModes.PORE_WATER_PRESSURE: 'SWM_PWP'>, 'InitialPoreWaterPressure': 0.001, 'InitialRu': 1.0, 'InitialHuType': <HuTypes.CUSTOM: 'HT_CUSTOM'>, 'InitialHu': 1.0, 'InitialTemperatureCondition': <StaticWaterModes.PORE_WATER_PRESSURE: 'SWM_PWP'>, 'InitialTemperature': 0.0}
+
+Model 2 Till Stiffness
+{'UseUnloadingCondition': False, 'UnloadingCondition': <UnloadingConditions.MEAN_STRESS: 'UC_MEAN_STRESS'>, 'ElasticParameters': <ElasticParameters.CONSTANT_SHEAR_MODULUS: 'CONSTANT_SHEAR_MODULUS'>, 'ShearModulus': 8333.33, 'PoissonsRatio': 0.3, 'YoungsModulus': 20000.0, 'UseResidualYoungsModulus': False, 'ResidualYoungsModulus': 20000.0, 'UnloadingPoissonsRatio': 0.3, 'UnloadingYoungsModulus': 20.0, 'UseUnloadingResidualYoungsModulus': False, 'UnloadingResidualYoungsModulus': 20.0}
+
+Model 2 Till Strength
+{'MaterialType': <MaterialType.ELASTIC: 'ELASTIC'>, 'PeakTensileStrength': 0.0, 'PeakFrictionAngle': 35.0, 'PeakCohesion': 10.5, 'ResidualTensileStrength': 0.0, 'ResidualFrictionAngle': 35.0, 'ResidualCohesion': 10.5, 'DilationAngle': 0.0, 'ApplySSRShearStrengthReduction': True}
+
+Model 2 Till Hydraulic
+{'StaticWaterMode': <StaticWaterModes.DRY: 'SWM_DRY'>, 'StaticPoreWaterPressure': 1.0, 'RuValue': 0.0, 'HuType': <HuTypes.CUSTOM: 'HT_CUSTOM'>, 'HuValue': 1.0}
+
+Model 2 Till Thermal Conductivity
+{'UnfrozenConductivity': 0.5, 'FrozenConductivity': 5.0, 'FrozenTemperature': 0.0}
+
+Model 2 Till Thermal Heat Capactiy
+{'IncludeLatentHeat': False, 'UnfrozenVolumetricHeatCapacity': 0.5, 'FrozenVolumetricHeatCapacity': 5.0, 'FrozenTemperature': 0.0}
+
+Model 2 Bolt Properties
+{'TensileCapacity': 0.1, 'ResidualTensileCapacity': 0.0, 'TributaryArea': 232.5, 'BoltModulusE': 200000.0, 'OutofPlaneSpacing': 1.0, 'MaterialDependent': False, 'BondStrengthCoefficient': 1.0, 'BondShearStiffnessCoefficient': 1.0, 'BondShearStiffness': 100.0, 'BondStrength': 0.17, 'ResidualBondStrength': 0.17, 'BoltModel': <BoltModels.PLASTIC: 'P2_BOLT_PLASTIC'>, 'JointShear': True, 'PreTensioningForce': 0.0, 'ConstantPretensioningForceInInstallStage': True, 'FacePlates': True, 'AddPullOutForce': False, 'PullOutForce': 0.0}
+
+Model 2 Liner Properties
+{'ConcreteUnitWeight': 0.024, 'IncludeWeightInStressAnalysis': False, 'InitialTemperature': 0.0, 'Reinforcement': True, 'Spacing': 0.6, 'SectionDepth': 0.162, 'Area': 0.00474, 'MomentOfInertia': 2.22e-05, 'YoungsModulus': 200000.0, 'CompressiveStrength': 400.0, 'TensileStrength': 400.0, 'Weight': 37.1, 'Concrete': True, 'Thickness': 0.2, 'ConcreteYoungsModulus': 30000.0, 'PoissonRatio': 0.15, 'ConcreteCompressiveStrength': 40.0, 'ConcreteTensileStrength': 3.0, 'MaterialType': <MaterialType.ELASTIC: 'ELASTIC'>, 'SlidingGap': False, 'StrainAtLocking': 5.0, 'BeamElementFormulation': <LinerFormulation.TIMOSHENKO: 'P2_LINER_FORMULATION_TIMOSHENKO'>, 'AxialStrainExpansion': 0.0, 'ActivateThermal': False, 'StaticTemperatureMode': <StaticWaterModes.PORE_WATER_PRESSURE: 'SWM_PWP'>, 'StaticTemperature': 0.0, 'Conductivity': 1.0, 'SpecificHeatCapacity': 1.0, 'ThermalExpansion': False, 'ExpansionCoefficient': 1.0, 'StageConcreteProperties': True}
+
+Model 2 Joint Properties
+{'InterfaceCoefficient': 0.7, 'DefineStiffness': <DefineStiffness.DEFINE_PARAMETER: 'DEFINE_PARAMETER'>, 'NormalStiffness': 100000.0, 'ShearStiffness': 10000.0, 'StiffnessCoefficient': 1.0, 'ApplyPorePressure': True, 'ApplyAdditionalPressureInsideJoint': True, 'AdditionalPressureType': <AdditionalPressureType.PRESSURE: 'JOINT_ADDITIONAL_PRESSURE_BY_VALUE'>, 'AdditionalPressureInsideJoint': 0.0, 'ApplyPressureToLinerSideOnly': True, 'ApplyStageFactors': True}
+
+Model 2 Pile Interface Properties
+{'ShearStiffness': 10000.0, 'NormalStiffness': 100000.0, 'FrictionAngle': 30.0, 'ResidualFrictionAngle': 30.0, 'Cohesion': 0.0, 'ResidualCohesion': 0.0, 'UseShearResistanceCutoff': False, 'ShearResistanceCutoff': 0.01, 'Perimeter': 1.0, 'UseBaseResistance': True, 'BaseNormalStiffness': 100000.0, 'BaseForceResistance': 0.1}
+
+Model 2 Pile Force Displacement Properties
+{'Apply': <PileEndCondition.NONE: 'FP_NONE'>, 'ApplyOn': <PileForceApplicationPoint.TOP: 'FP_TOP'>, 'X': 0.0, 'Y': 0.0}

@@ -1,0 +1,9 @@
+Loading Custom Table = [(1.0, 2.0, 0.3), (4.0, 5.0, 0.4)]
+Unloading Condition = UnloadingConditions.DEVIATORIC_STRESS
+Unloading Custom Table = [(1.0, 2.0, 0.3), (4.0, 5.0, 0.4)]
+
+Isotropic Stage Factor Values
+Poisson Ratio Factor = 3.0, Res. Youngs Modulus Factor = 1.0, Shear Modulus Factor = 1.9
+
+NonLinear Hyperbolic Stage Factor Values
+Failure Ratio of RF = 1.0, Bulk Modulus ExpM = 2.0, Atmospheric Pressure = 3.3
