@@ -308,6 +308,12 @@
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Tieback.html">rs2.modeler.properties.bolt.Tieback module</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.field_stress.html">rs2.modeler.properties.field_stress package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.field_stress.Constant.html">rs2.modeler.properties.field_stress.Constant module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.field_stress.FieldStress.html">rs2.modeler.properties.field_stress.FieldStress module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.field_stress.Gravity.html">rs2.modeler.properties.field_stress.Gravity module</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.joint.html">rs2.modeler.properties.joint package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandis.html">rs2.modeler.properties.joint.BartonBandis module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandisMaterial.html">rs2.modeler.properties.joint.BartonBandisMaterial module</a></li>
@@ -459,25 +465,53 @@
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.material.strength.GeneralizedAnisotropic.</span></span><span class="sig-name descname"><span class="pre">GeneralizedAnisotropic</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">server</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">Client</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">ID</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">documentProxyID</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic" title="Link to this definition">#</a></dt>
 <dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">PropertyProxy</span></code></p>
 <dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setGeneralizedAnisotropicFunction">
-<span class="sig-name descname"><span class="pre">setGeneralizedAnisotropicFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">generalizedFunction</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setGeneralizedAnisotropicFunction" title="Link to this definition">#</a></dt>
-<dd><p>Takes a list of tuples (angle, materialPropertyName). First angle must be greater than -90. Last angle must be exactly 90.</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getGeneralizedAnisotropicFunction">
-<span class="sig-name descname"><span class="pre">getGeneralizedAnisotropicFunction</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">tuple</span><span class="p"><span class="pre">[</span></span><span class="pre">float</span><span class="p"><span class="pre">,</span></span><span class="w"> </span><span class="pre">str</span><span class="p"><span class="pre">]</span></span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getGeneralizedAnisotropicFunction" title="Link to this definition">#</a></dt>
-<dd><p>Returns a list of tuples (angle, materialPropertyName)</p>
-</dd></dl>
-
-<dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setBaseMaterialByName">
-<span class="sig-name descname"><span class="pre">setBaseMaterialByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">materialName</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setBaseMaterialByName" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getInputType">
+<span class="sig-name descname"><span class="pre">getInputType</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.GaNInputType" title="rs2.modeler.properties.PropertyEnums.GaNInputType"><span class="pre">GaNInputType</span></a></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getInputType" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 <dl class="py method">
-<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getBaseMaterialName">
-<span class="sig-name descname"><span class="pre">getBaseMaterialName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getBaseMaterialName" title="Link to this definition">#</a></dt>
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setInputType">
+<span class="sig-name descname"><span class="pre">setInputType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.GaNInputType" title="rs2.modeler.properties.PropertyEnums.GaNInputType"><span class="pre">GaNInputType</span></a></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setInputType" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setSelectedGaNAngleRangeFunctionByName">
+<span class="sig-name descname"><span class="pre">setSelectedGaNAngleRangeFunctionByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setSelectedGaNAngleRangeFunctionByName" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getSelectedGaNAngleRangeFunctionByName">
+<span class="sig-name descname"><span class="pre">getSelectedGaNAngleRangeFunctionByName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getSelectedGaNAngleRangeFunctionByName" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setSelectedGaN2DFunctionByName">
+<span class="sig-name descname"><span class="pre">setSelectedGaN2DFunctionByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setSelectedGaN2DFunctionByName" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getSelectedGaN2DFunctionByName">
+<span class="sig-name descname"><span class="pre">getSelectedGaN2DFunctionByName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getSelectedGaN2DFunctionByName" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setSelectedGaN3DFunctionByName">
+<span class="sig-name descname"><span class="pre">setSelectedGaN3DFunctionByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setSelectedGaN3DFunctionByName" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getSelectedGaN3DFunctionByName">
+<span class="sig-name descname"><span class="pre">getSelectedGaN3DFunctionByName</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">str</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getSelectedGaN3DFunctionByName" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setProperties">
+<span class="sig-name descname"><span class="pre">setProperties</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">InputType</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.GaNInputType" title="rs2.modeler.properties.PropertyEnums.GaNInputType"><span class="pre">GaNInputType</span></a></span><span class="w"> </span><span class="o"><span class="pre">=</span></span><span class="w"> </span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setProperties" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getProperties">
+<span class="sig-name descname"><span class="pre">getProperties</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getProperties" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -532,10 +566,16 @@
   <nav class="bd-toc-nav page-toc" aria-labelledby="pst-page-navigation-heading-2">
     <ul class="visible nav section-nav flex-column">
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic"><code class="docutils literal notranslate"><span class="pre">GeneralizedAnisotropic</span></code></a><ul class="nav section-nav flex-column">
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setGeneralizedAnisotropicFunction"><code class="docutils literal notranslate"><span class="pre">GeneralizedAnisotropic.setGeneralizedAnisotropicFunction()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getGeneralizedAnisotropicFunction"><code class="docutils literal notranslate"><span class="pre">GeneralizedAnisotropic.getGeneralizedAnisotropicFunction()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setBaseMaterialByName"><code class="docutils literal notranslate"><span class="pre">GeneralizedAnisotropic.setBaseMaterialByName()</span></code></a></li>
-<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getBaseMaterialName"><code class="docutils literal notranslate"><span class="pre">GeneralizedAnisotropic.getBaseMaterialName()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getInputType"><code class="docutils literal notranslate"><span class="pre">GeneralizedAnisotropic.getInputType()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setInputType"><code class="docutils literal notranslate"><span class="pre">GeneralizedAnisotropic.setInputType()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setSelectedGaNAngleRangeFunctionByName"><code class="docutils literal notranslate"><span class="pre">GeneralizedAnisotropic.setSelectedGaNAngleRangeFunctionByName()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getSelectedGaNAngleRangeFunctionByName"><code class="docutils literal notranslate"><span class="pre">GeneralizedAnisotropic.getSelectedGaNAngleRangeFunctionByName()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setSelectedGaN2DFunctionByName"><code class="docutils literal notranslate"><span class="pre">GeneralizedAnisotropic.setSelectedGaN2DFunctionByName()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getSelectedGaN2DFunctionByName"><code class="docutils literal notranslate"><span class="pre">GeneralizedAnisotropic.getSelectedGaN2DFunctionByName()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setSelectedGaN3DFunctionByName"><code class="docutils literal notranslate"><span class="pre">GeneralizedAnisotropic.setSelectedGaN3DFunctionByName()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getSelectedGaN3DFunctionByName"><code class="docutils literal notranslate"><span class="pre">GeneralizedAnisotropic.getSelectedGaN3DFunctionByName()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.setProperties"><code class="docutils literal notranslate"><span class="pre">GeneralizedAnisotropic.setProperties()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.strength.GeneralizedAnisotropic.GeneralizedAnisotropic.getProperties"><code class="docutils literal notranslate"><span class="pre">GeneralizedAnisotropic.getProperties()</span></code></a></li>
 </ul>
 </li>
 </ul>

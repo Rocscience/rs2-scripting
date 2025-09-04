@@ -308,6 +308,12 @@
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Tieback.html">rs2.modeler.properties.bolt.Tieback module</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.field_stress.html">rs2.modeler.properties.field_stress package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.field_stress.Constant.html">rs2.modeler.properties.field_stress.Constant module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.field_stress.FieldStress.html">rs2.modeler.properties.field_stress.FieldStress module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.field_stress.Gravity.html">rs2.modeler.properties.field_stress.Gravity module</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.joint.html">rs2.modeler.properties.joint package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandis.html">rs2.modeler.properties.joint.BartonBandis module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandisMaterial.html">rs2.modeler.properties.joint.BartonBandisMaterial module</a></li>
@@ -459,6 +465,8 @@
 <dt class="field-odd">Variables<span class="colon">:</span></dt>
 <dd class="field-odd"><ul class="simple">
 <li><p><strong>StageFactors</strong> (<a class="reference internal" href="rs2.modeler.properties.material.StageFactors.html#rs2.modeler.properties.material.StageFactors.StageFactors" title="rs2.modeler.properties.material.StageFactors.StageFactors"><em>StageFactors</em></a>) – Reference object for modifying property.</p></li>
+<li><p><strong>CustomConstant</strong> (<em>CustomConstant</em>) – Reference object for modifying property.</p></li>
+<li><p><strong>CustomGravity</strong> (<em>CustomGravity</em>) – Reference object for modifying property.</p></li>
 <li><p><strong>InitialConditions</strong> (<a class="reference internal" href="rs2.modeler.properties.material.InitialConditions.html#rs2.modeler.properties.material.InitialConditions.InitialConditions" title="rs2.modeler.properties.material.InitialConditions.InitialConditions"><em>InitialConditions</em></a>) – Reference object for modifying property.</p></li>
 <li><p><strong>Stiffness</strong> (<a class="reference internal" href="rs2.modeler.properties.material.stiffness.Stiffness.html#rs2.modeler.properties.material.stiffness.Stiffness.Stiffness" title="rs2.modeler.properties.material.stiffness.Stiffness.Stiffness"><em>Stiffness</em></a>) – Reference object for modifying property.</p></li>
 <li><p><strong>Strength</strong> (<a class="reference internal" href="rs2.modeler.properties.material.strength.Strength.html#rs2.modeler.properties.material.strength.Strength.Strength" title="rs2.modeler.properties.material.strength.Strength.Strength"><em>Strength</em></a>) – Reference object for modifying property.</p></li>
@@ -518,6 +526,16 @@
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setHatchColour">
 <span class="sig-name descname"><span class="pre">setHatchColour</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">int</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setHatchColour" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getUseCustomFieldStress">
+<span class="sig-name descname"><span class="pre">getUseCustomFieldStress</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">bool</span></span></span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getUseCustomFieldStress" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setUseCustomFieldStress">
+<span class="sig-name descname"><span class="pre">setUseCustomFieldStress</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">bool</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setUseCustomFieldStress" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -582,6 +600,8 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setHatchStyle"><code class="docutils literal notranslate"><span class="pre">MaterialProperty.setHatchStyle()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getHatchColour"><code class="docutils literal notranslate"><span class="pre">MaterialProperty.getHatchColour()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setHatchColour"><code class="docutils literal notranslate"><span class="pre">MaterialProperty.setHatchColour()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.getUseCustomFieldStress"><code class="docutils literal notranslate"><span class="pre">MaterialProperty.getUseCustomFieldStress()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.material.MaterialProperty.MaterialProperty.setUseCustomFieldStress"><code class="docutils literal notranslate"><span class="pre">MaterialProperty.setUseCustomFieldStress()</span></code></a></li>
 </ul>
 </li>
 </ul>

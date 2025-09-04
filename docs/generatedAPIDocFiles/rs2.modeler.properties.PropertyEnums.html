@@ -308,6 +308,12 @@
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Tieback.html">rs2.modeler.properties.bolt.Tieback module</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.field_stress.html">rs2.modeler.properties.field_stress package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.field_stress.Constant.html">rs2.modeler.properties.field_stress.Constant module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.field_stress.FieldStress.html">rs2.modeler.properties.field_stress.FieldStress module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.field_stress.Gravity.html">rs2.modeler.properties.field_stress.Gravity module</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.joint.html">rs2.modeler.properties.joint package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandis.html">rs2.modeler.properties.joint.BartonBandis module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandisMaterial.html">rs2.modeler.properties.joint.BartonBandisMaterial module</a></li>
@@ -2392,6 +2398,11 @@
 <span class="sig-name descname"><span class="pre">DRAINED</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SL_DISCRETE_DRAINED'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.DiscreteDrainedMode.DRAINED" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.DiscreteDrainedMode.SL_DISCRETE_HOEK">
+<span class="sig-name descname"><span class="pre">SL_DISCRETE_HOEK</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SL_DISCRETE_HOEK'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.DiscreteDrainedMode.SL_DISCRETE_HOEK" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
 </dd></dl>
 
 <dl class="py class">
@@ -2477,6 +2488,128 @@
 <dl class="py attribute">
 <dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.HydraulicDistributionTypes.COORDINATE_DISTRIBUTION">
 <span class="sig-name descname"><span class="pre">COORDINATE_DISTRIBUTION</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HD_COORDINATE'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.HydraulicDistributionTypes.COORDINATE_DISTRIBUTION" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.StressTypes">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.PropertyEnums.</span></span><span class="sig-name descname"><span class="pre">StressTypes</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.StressTypes" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.StressTypes.CONSTANT">
+<span class="sig-name descname"><span class="pre">CONSTANT</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'CONSTANT'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.StressTypes.CONSTANT" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.StressTypes.GRAVITY">
+<span class="sig-name descname"><span class="pre">GRAVITY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GRAVITY'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.StressTypes.GRAVITY" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.Anisotropy3DHandling">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.PropertyEnums.</span></span><span class="sig-name descname"><span class="pre">Anisotropy3DHandling</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.Anisotropy3DHandling" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.Anisotropy3DHandling.SL_GEN_ANISO_CONSIDER_3D_ANISOTROPY">
+<span class="sig-name descname"><span class="pre">SL_GEN_ANISO_CONSIDER_3D_ANISOTROPY</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SL_GEN_ANISO_CONSIDER_3D_ANISOTROPY'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.Anisotropy3DHandling.SL_GEN_ANISO_CONSIDER_3D_ANISOTROPY" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.Anisotropy3DHandling.SL_GEN_ANISO_CONSIDER_APPARENT_DIP">
+<span class="sig-name descname"><span class="pre">SL_GEN_ANISO_CONSIDER_APPARENT_DIP</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SL_GEN_ANISO_CONSIDER_APPARENT_DIP'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.Anisotropy3DHandling.SL_GEN_ANISO_CONSIDER_APPARENT_DIP" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.Anisotropy2dDefinition">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.PropertyEnums.</span></span><span class="sig-name descname"><span class="pre">Anisotropy2dDefinition</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.Anisotropy2dDefinition" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.Anisotropy2dDefinition.SL_GA2D_DEFN_ANGLE">
+<span class="sig-name descname"><span class="pre">SL_GA2D_DEFN_ANGLE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SL_GA2D_DEFN_ANGLE'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.Anisotropy2dDefinition.SL_GA2D_DEFN_ANGLE" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.Anisotropy2dDefinition.SL_GA2D_DEFN_SURFACE">
+<span class="sig-name descname"><span class="pre">SL_GA2D_DEFN_SURFACE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SL_GA2D_DEFN_SURFACE'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.Anisotropy2dDefinition.SL_GA2D_DEFN_SURFACE" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.GaNInputType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.PropertyEnums.</span></span><span class="sig-name descname"><span class="pre">GaNInputType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.GaNInputType" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.GaNInputType.SL_GA_INPUTTYPE_ANGLE_RANGE">
+<span class="sig-name descname"><span class="pre">SL_GA_INPUTTYPE_ANGLE_RANGE</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SL_GA_INPUTTYPE_ANGLE_RANGE'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.GaNInputType.SL_GA_INPUTTYPE_ANGLE_RANGE" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.GaNInputType.SL_GA_INPUTTYPE_2D_MAPPING">
+<span class="sig-name descname"><span class="pre">SL_GA_INPUTTYPE_2D_MAPPING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SL_GA_INPUTTYPE_2D_MAPPING'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.GaNInputType.SL_GA_INPUTTYPE_2D_MAPPING" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.GaNInputType.SL_GA_INPUTTYPE_3D_MAPPING">
+<span class="sig-name descname"><span class="pre">SL_GA_INPUTTYPE_3D_MAPPING</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'SL_GA_INPUTTYPE_3D_MAPPING'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.GaNInputType.SL_GA_INPUTTYPE_3D_MAPPING" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.GSIInputType">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.PropertyEnums.</span></span><span class="sig-name descname"><span class="pre">GSIInputType</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.GSIInputType" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.GSIInputType.MB_S_A">
+<span class="sig-name descname"><span class="pre">MB_S_A</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'MB_S_A'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.GSIInputType.MB_S_A" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.GSIInputType.GSI_MI_D">
+<span class="sig-name descname"><span class="pre">GSI_MI_D</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'GSI_MI_D'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.GSIInputType.GSI_MI_D" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.eGHBEstimationMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.PropertyEnums.</span></span><span class="sig-name descname"><span class="pre">eGHBEstimationMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.eGHBEstimationMethod" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.eGHBEstimationMethod.HB_HD_2005">
+<span class="sig-name descname"><span class="pre">HB_HD_2005</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HB_HD_2005'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.eGHBEstimationMethod.HB_HD_2005" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.eGHBEstimationMethod.HB_SIMPLIFIED_HD_2005">
+<span class="sig-name descname"><span class="pre">HB_SIMPLIFIED_HD_2005</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HB_SIMPLIFIED_HD_2005'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.eGHBEstimationMethod.HB_SIMPLIFIED_HD_2005" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.eGHBEstimationMethod.HB_HCC_2002">
+<span class="sig-name descname"><span class="pre">HB_HCC_2002</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HB_HCC_2002'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.eGHBEstimationMethod.HB_HCC_2002" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+</dd></dl>
+
+<dl class="py class">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.eModulusInputMethod">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">rs2.modeler.properties.PropertyEnums.</span></span><span class="sig-name descname"><span class="pre">eModulusInputMethod</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">value</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">names=&lt;not</span> <span class="pre">given&gt;</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">*values</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">module=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">qualname=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">type=None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">start=1</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">boundary=None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.eModulusInputMethod" title="Link to this definition">#</a></dt>
+<dd><p>Bases: <code class="xref py py-class docutils literal notranslate"><span class="pre">Enum</span></code></p>
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.eModulusInputMethod.HB_MODULUS_INPUT_EI">
+<span class="sig-name descname"><span class="pre">HB_MODULUS_INPUT_EI</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HB_MODULUS_INPUT_EI'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.eModulusInputMethod.HB_MODULUS_INPUT_EI" title="Link to this definition">#</a></dt>
+<dd></dd></dl>
+
+<dl class="py attribute">
+<dt class="sig sig-object py" id="rs2.modeler.properties.PropertyEnums.eModulusInputMethod.HB_MODULUS_INPUT_MR">
+<span class="sig-name descname"><span class="pre">HB_MODULUS_INPUT_MR</span></span><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">'HB_MODULUS_INPUT_MR'</span></em><a class="headerlink" href="#rs2.modeler.properties.PropertyEnums.eModulusInputMethod.HB_MODULUS_INPUT_MR" title="Link to this definition">#</a></dt>
 <dd></dd></dl>
 
 </dd></dl>
@@ -3045,6 +3178,7 @@
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.DiscreteDrainedMode"><code class="docutils literal notranslate"><span class="pre">DiscreteDrainedMode</span></code></a><ul class="nav section-nav flex-column">
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.DiscreteDrainedMode.UNDRAINED"><code class="docutils literal notranslate"><span class="pre">DiscreteDrainedMode.UNDRAINED</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.DiscreteDrainedMode.DRAINED"><code class="docutils literal notranslate"><span class="pre">DiscreteDrainedMode.DRAINED</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.DiscreteDrainedMode.SL_DISCRETE_HOEK"><code class="docutils literal notranslate"><span class="pre">DiscreteDrainedMode.SL_DISCRETE_HOEK</span></code></a></li>
 </ul>
 </li>
 <li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.HydraulicVariableTypes"><code class="docutils literal notranslate"><span class="pre">HydraulicVariableTypes</span></code></a><ul class="nav section-nav flex-column">
@@ -3066,6 +3200,43 @@
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.HydraulicDistributionTypes.HORIZONTAL_STRESS_DISTRIBUTION"><code class="docutils literal notranslate"><span class="pre">HydraulicDistributionTypes.HORIZONTAL_STRESS_DISTRIBUTION</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.HydraulicDistributionTypes.VOLUMETRIC_STRAIN_DISTRIBUTION"><code class="docutils literal notranslate"><span class="pre">HydraulicDistributionTypes.VOLUMETRIC_STRAIN_DISTRIBUTION</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.HydraulicDistributionTypes.COORDINATE_DISTRIBUTION"><code class="docutils literal notranslate"><span class="pre">HydraulicDistributionTypes.COORDINATE_DISTRIBUTION</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.StressTypes"><code class="docutils literal notranslate"><span class="pre">StressTypes</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.StressTypes.CONSTANT"><code class="docutils literal notranslate"><span class="pre">StressTypes.CONSTANT</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.StressTypes.GRAVITY"><code class="docutils literal notranslate"><span class="pre">StressTypes.GRAVITY</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.Anisotropy3DHandling"><code class="docutils literal notranslate"><span class="pre">Anisotropy3DHandling</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.Anisotropy3DHandling.SL_GEN_ANISO_CONSIDER_3D_ANISOTROPY"><code class="docutils literal notranslate"><span class="pre">Anisotropy3DHandling.SL_GEN_ANISO_CONSIDER_3D_ANISOTROPY</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.Anisotropy3DHandling.SL_GEN_ANISO_CONSIDER_APPARENT_DIP"><code class="docutils literal notranslate"><span class="pre">Anisotropy3DHandling.SL_GEN_ANISO_CONSIDER_APPARENT_DIP</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.Anisotropy2dDefinition"><code class="docutils literal notranslate"><span class="pre">Anisotropy2dDefinition</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.Anisotropy2dDefinition.SL_GA2D_DEFN_ANGLE"><code class="docutils literal notranslate"><span class="pre">Anisotropy2dDefinition.SL_GA2D_DEFN_ANGLE</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.Anisotropy2dDefinition.SL_GA2D_DEFN_SURFACE"><code class="docutils literal notranslate"><span class="pre">Anisotropy2dDefinition.SL_GA2D_DEFN_SURFACE</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.GaNInputType"><code class="docutils literal notranslate"><span class="pre">GaNInputType</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.GaNInputType.SL_GA_INPUTTYPE_ANGLE_RANGE"><code class="docutils literal notranslate"><span class="pre">GaNInputType.SL_GA_INPUTTYPE_ANGLE_RANGE</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.GaNInputType.SL_GA_INPUTTYPE_2D_MAPPING"><code class="docutils literal notranslate"><span class="pre">GaNInputType.SL_GA_INPUTTYPE_2D_MAPPING</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.GaNInputType.SL_GA_INPUTTYPE_3D_MAPPING"><code class="docutils literal notranslate"><span class="pre">GaNInputType.SL_GA_INPUTTYPE_3D_MAPPING</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.GSIInputType"><code class="docutils literal notranslate"><span class="pre">GSIInputType</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.GSIInputType.MB_S_A"><code class="docutils literal notranslate"><span class="pre">GSIInputType.MB_S_A</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.GSIInputType.GSI_MI_D"><code class="docutils literal notranslate"><span class="pre">GSIInputType.GSI_MI_D</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.eGHBEstimationMethod"><code class="docutils literal notranslate"><span class="pre">eGHBEstimationMethod</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.eGHBEstimationMethod.HB_HD_2005"><code class="docutils literal notranslate"><span class="pre">eGHBEstimationMethod.HB_HD_2005</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.eGHBEstimationMethod.HB_SIMPLIFIED_HD_2005"><code class="docutils literal notranslate"><span class="pre">eGHBEstimationMethod.HB_SIMPLIFIED_HD_2005</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.eGHBEstimationMethod.HB_HCC_2002"><code class="docutils literal notranslate"><span class="pre">eGHBEstimationMethod.HB_HCC_2002</span></code></a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.eModulusInputMethod"><code class="docutils literal notranslate"><span class="pre">eModulusInputMethod</span></code></a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.eModulusInputMethod.HB_MODULUS_INPUT_EI"><code class="docutils literal notranslate"><span class="pre">eModulusInputMethod.HB_MODULUS_INPUT_EI</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.properties.PropertyEnums.eModulusInputMethod.HB_MODULUS_INPUT_MR"><code class="docutils literal notranslate"><span class="pre">eModulusInputMethod.HB_MODULUS_INPUT_MR</span></code></a></li>
 </ul>
 </li>
 </ul>

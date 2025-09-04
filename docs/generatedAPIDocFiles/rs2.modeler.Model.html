@@ -308,6 +308,12 @@
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Tieback.html">rs2.modeler.properties.bolt.Tieback module</a></li>
 </ul>
 </details></li>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.field_stress.html">rs2.modeler.properties.field_stress package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.field_stress.Constant.html">rs2.modeler.properties.field_stress.Constant module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.field_stress.FieldStress.html">rs2.modeler.properties.field_stress.FieldStress module</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.field_stress.Gravity.html">rs2.modeler.properties.field_stress.Gravity module</a></li>
+</ul>
+</details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.joint.html">rs2.modeler.properties.joint package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandis.html">rs2.modeler.properties.joint.BartonBandis module</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.joint.BartonBandisMaterial.html">rs2.modeler.properties.joint.BartonBandisMaterial module</a></li>
@@ -504,6 +510,12 @@
 <dd><div class="line-block">
 <div class="line">Returns a Material Property object based on its name.</div>
 </div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.getFieldStressProperty">
+<span class="sig-name descname"><span class="pre">getFieldStressProperty</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.properties.field_stress.FieldStress.html#rs2.modeler.properties.field_stress.FieldStress.FieldStress" title="rs2.modeler.properties.field_stress.FieldStress.FieldStress"><span class="pre">FieldStress</span></a></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getFieldStressProperty" title="Link to this definition">#</a></dt>
+<dd><p>Returns a Field Stress Property object</p>
 </dd></dl>
 
 <dl class="py method">
@@ -781,6 +793,134 @@ If you have an interpreter model open, you should close, compute, and then re-op
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.getGan3Ds">
+<span class="sig-name descname"><span class="pre">getGan3Ds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Gan3DFunction</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGan3Ds" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Returns a list of all Gan3DFunction objects</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.createGan3DFunction">
+<span class="sig-name descname"><span class="pre">createGan3DFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.Model.Model.createGan3DFunction" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Creates a new Gan3DFunction with the given name</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.deleteGan3DFunction">
+<span class="sig-name descname"><span class="pre">deleteGan3DFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.Model.Model.deleteGan3DFunction" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Deletes a Gan3DFunction with the given name</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.renameGan3DFunction">
+<span class="sig-name descname"><span class="pre">renameGan3DFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oldName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.Model.Model.renameGan3DFunction" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Renames a Gan3DFunction with the given name</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.getGan3DFunctions">
+<span class="sig-name descname"><span class="pre">getGan3DFunctions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Gan3DFunction</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGan3DFunctions" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Returns a list of all Gan3DFunction Function objects</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.getGan3DFunctionByName">
+<span class="sig-name descname"><span class="pre">getGan3DFunctionByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Gan3DFunction</span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGan3DFunctionByName" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Returns a Gan3D Function object based on its name.</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.createGan2DFunction">
+<span class="sig-name descname"><span class="pre">createGan2DFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.Model.Model.createGan2DFunction" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Creates a new Gan2DFunction with the given name</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.deleteGan2DFunction">
+<span class="sig-name descname"><span class="pre">deleteGan2DFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.Model.Model.deleteGan2DFunction" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Deletes a Gan2DFunction with the given name</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.renameGan2DFunction">
+<span class="sig-name descname"><span class="pre">renameGan2DFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oldName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.Model.Model.renameGan2DFunction" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Renames a Gan2DFunction with the given name</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.getGan2DFunctions">
+<span class="sig-name descname"><span class="pre">getGan2DFunctions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Gan2DFunction</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGan2DFunctions" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Returns a list of all Gan2D Function objects</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.getGan2DFunctionByName">
+<span class="sig-name descname"><span class="pre">getGan2DFunctionByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Gan2DFunction</span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGan2DFunctionByName" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Returns a Gan2D Function object based on its name.</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.createGanAngleRangeFunction">
+<span class="sig-name descname"><span class="pre">createGanAngleRangeFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.Model.Model.createGanAngleRangeFunction" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Creates a new GanAngleRange Function with the given name</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.deleteGanAngleRangeFunction">
+<span class="sig-name descname"><span class="pre">deleteGanAngleRangeFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.Model.Model.deleteGanAngleRangeFunction" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Deletes a GanAngleRange Function with the given name</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.renameGanAngleRangeFunction">
+<span class="sig-name descname"><span class="pre">renameGanAngleRangeFunction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">oldName</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">newName</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#rs2.modeler.Model.Model.renameGanAngleRangeFunction" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Renames a GanAngleRange Function with the given name</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.getGanAngleRangeFunctions">
+<span class="sig-name descname"><span class="pre">getGanAngleRangeFunctions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">GanAngleRangeFunction</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGanAngleRangeFunctions" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Returns a list of all GanAngleRangeFunction objects</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="rs2.modeler.Model.Model.getGanAngleRangeFunctionByName">
+<span class="sig-name descname"><span class="pre">getGanAngleRangeFunctionByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">GanAngleRangeFunction</span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGanAngleRangeFunctionByName" title="Link to this definition">#</a></dt>
+<dd><div class="line-block">
+<div class="line">Returns a GanAngleRange Function object based on its name.</div>
+</div>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.Model.Model.getHydroDistributionFunctions">
 <span class="sig-name descname"><span class="pre">getHydroDistributionFunctions</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">variable</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.HydraulicVariableTypes" title="rs2.modeler.properties.PropertyEnums.HydraulicVariableTypes"><span class="pre">HydraulicVariableTypes</span></a></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><a class="reference internal" href="rs2.modeler.properties.PropertyEnums.html#rs2.modeler.properties.PropertyEnums.HydraulicDistributionTypes" title="rs2.modeler.properties.PropertyEnums.HydraulicDistributionTypes"><span class="pre">HydraulicDistributionTypes</span></a></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rs2.modeler.properties.HydroDistributionFunction.html#rs2.modeler.properties.HydroDistributionFunction.HydroDistributionFunction" title="rs2.modeler.properties.HydroDistributionFunction.HydroDistributionFunction"><span class="pre">HydroDistributionFunction</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getHydroDistributionFunctions" title="Link to this definition">#</a></dt>
 <dd><div class="line-block">
@@ -888,6 +1028,7 @@ If you have an interpreter model open, you should close, compute, and then re-op
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getStructuralInterfacePropertyByName"><code class="docutils literal notranslate"><span class="pre">Model.getStructuralInterfacePropertyByName()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getCompositeLinerPropertyByName"><code class="docutils literal notranslate"><span class="pre">Model.getCompositeLinerPropertyByName()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getMaterialPropertyByName"><code class="docutils literal notranslate"><span class="pre">Model.getMaterialPropertyByName()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getFieldStressProperty"><code class="docutils literal notranslate"><span class="pre">Model.getFieldStressProperty()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getAllBoltProperties"><code class="docutils literal notranslate"><span class="pre">Model.getAllBoltProperties()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getAllLinerProperties"><code class="docutils literal notranslate"><span class="pre">Model.getAllLinerProperties()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getAllJointProperties"><code class="docutils literal notranslate"><span class="pre">Model.getAllJointProperties()</span></code></a></li>
@@ -918,6 +1059,22 @@ If you have an interpreter model open, you should close, compute, and then re-op
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.createNewDiscreteFunction"><code class="docutils literal notranslate"><span class="pre">Model.createNewDiscreteFunction()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.deleteDiscreteFunction"><code class="docutils literal notranslate"><span class="pre">Model.deleteDiscreteFunction()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.renameDiscreteFunction"><code class="docutils literal notranslate"><span class="pre">Model.renameDiscreteFunction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getGan3Ds"><code class="docutils literal notranslate"><span class="pre">Model.getGan3Ds()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.createGan3DFunction"><code class="docutils literal notranslate"><span class="pre">Model.createGan3DFunction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.deleteGan3DFunction"><code class="docutils literal notranslate"><span class="pre">Model.deleteGan3DFunction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.renameGan3DFunction"><code class="docutils literal notranslate"><span class="pre">Model.renameGan3DFunction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getGan3DFunctions"><code class="docutils literal notranslate"><span class="pre">Model.getGan3DFunctions()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getGan3DFunctionByName"><code class="docutils literal notranslate"><span class="pre">Model.getGan3DFunctionByName()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.createGan2DFunction"><code class="docutils literal notranslate"><span class="pre">Model.createGan2DFunction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.deleteGan2DFunction"><code class="docutils literal notranslate"><span class="pre">Model.deleteGan2DFunction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.renameGan2DFunction"><code class="docutils literal notranslate"><span class="pre">Model.renameGan2DFunction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getGan2DFunctions"><code class="docutils literal notranslate"><span class="pre">Model.getGan2DFunctions()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getGan2DFunctionByName"><code class="docutils literal notranslate"><span class="pre">Model.getGan2DFunctionByName()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.createGanAngleRangeFunction"><code class="docutils literal notranslate"><span class="pre">Model.createGanAngleRangeFunction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.deleteGanAngleRangeFunction"><code class="docutils literal notranslate"><span class="pre">Model.deleteGanAngleRangeFunction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.renameGanAngleRangeFunction"><code class="docutils literal notranslate"><span class="pre">Model.renameGanAngleRangeFunction()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getGanAngleRangeFunctions"><code class="docutils literal notranslate"><span class="pre">Model.getGanAngleRangeFunctions()</span></code></a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getGanAngleRangeFunctionByName"><code class="docutils literal notranslate"><span class="pre">Model.getGanAngleRangeFunctionByName()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getHydroDistributionFunctions"><code class="docutils literal notranslate"><span class="pre">Model.getHydroDistributionFunctions()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.getHydroDistributionFunctionByName"><code class="docutils literal notranslate"><span class="pre">Model.getHydroDistributionFunctionByName()</span></code></a></li>
 <li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#rs2.modeler.Model.Model.createNewHydroDistributionFunction"><code class="docutils literal notranslate"><span class="pre">Model.createNewHydroDistributionFunction()</span></code></a></li>
