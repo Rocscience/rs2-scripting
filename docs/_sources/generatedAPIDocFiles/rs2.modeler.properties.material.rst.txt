@@ -6,6 +6,7 @@ rs2.modeler.properties.material package
    :maxdepth: 2
 
    rs2.modeler.properties.material.datum
+   rs2.modeler.properties.material.field_stress
    rs2.modeler.properties.material.hydraulic
    rs2.modeler.properties.material.stiffness
    rs2.modeler.properties.material.strength

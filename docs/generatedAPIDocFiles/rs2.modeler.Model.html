@@ -298,6 +298,14 @@
 </ul>
 </details></li>
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="rs2.modeler.html">rs2.modeler package</a><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul class="current">
+<li class="toctree-l2 has-children"><a class="reference internal" href="rs2.modeler.managed_properties.html">rs2.modeler.managed_properties package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.managed_properties.material.html">rs2.modeler.managed_properties.material package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.managed_properties.material.strength.html">rs2.modeler.managed_properties.material.strength package</a></li>
+</ul>
+</details></li>
+<li class="toctree-l3"><a class="reference internal" href="rs2.modeler.managed_properties.GanFunctions.html">rs2.modeler.managed_properties.GanFunctions module</a></li>
+</ul>
+</details></li>
 <li class="toctree-l2 has-children"><a class="reference internal" href="rs2.modeler.properties.html">rs2.modeler.properties package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.bolt.html">rs2.modeler.properties.bolt package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.bolt.Bolt.html">rs2.modeler.properties.bolt.Bolt module</a></li>
@@ -338,6 +346,7 @@
 </details></li>
 <li class="toctree-l3 has-children"><a class="reference internal" href="rs2.modeler.properties.material.html">rs2.modeler.properties.material package</a><details><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary><ul>
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.datum.html">rs2.modeler.properties.material.datum package</a></li>
+<li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.field_stress.html">rs2.modeler.properties.material.field_stress package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.hydraulic.html">rs2.modeler.properties.material.hydraulic package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.stiffness.html">rs2.modeler.properties.material.stiffness package</a></li>
 <li class="toctree-l4"><a class="reference internal" href="rs2.modeler.properties.material.strength.html">rs2.modeler.properties.material.strength package</a></li>
@@ -794,7 +803,7 @@ If you have an interpreter model open, you should close, compute, and then re-op
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.Model.Model.getGan3Ds">
-<span class="sig-name descname"><span class="pre">getGan3Ds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Gan3DFunction</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGan3Ds" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">getGan3Ds</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rs2.modeler.managed_properties.GanFunctions.html#rs2.modeler.managed_properties.GanFunctions.Gan3DFunction" title="rs2.modeler.managed_properties.GanFunctions.Gan3DFunction"><span class="pre">Gan3DFunction</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGan3Ds" title="Link to this definition">#</a></dt>
 <dd><div class="line-block">
 <div class="line">Returns a list of all Gan3DFunction objects</div>
 </div>
@@ -826,7 +835,7 @@ If you have an interpreter model open, you should close, compute, and then re-op
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.Model.Model.getGan3DFunctions">
-<span class="sig-name descname"><span class="pre">getGan3DFunctions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Gan3DFunction</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGan3DFunctions" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">getGan3DFunctions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rs2.modeler.managed_properties.GanFunctions.html#rs2.modeler.managed_properties.GanFunctions.Gan3DFunction" title="rs2.modeler.managed_properties.GanFunctions.Gan3DFunction"><span class="pre">Gan3DFunction</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGan3DFunctions" title="Link to this definition">#</a></dt>
 <dd><div class="line-block">
 <div class="line">Returns a list of all Gan3DFunction Function objects</div>
 </div>
@@ -834,7 +843,7 @@ If you have an interpreter model open, you should close, compute, and then re-op
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.Model.Model.getGan3DFunctionByName">
-<span class="sig-name descname"><span class="pre">getGan3DFunctionByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Gan3DFunction</span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGan3DFunctionByName" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">getGan3DFunctionByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.managed_properties.GanFunctions.html#rs2.modeler.managed_properties.GanFunctions.Gan3DFunction" title="rs2.modeler.managed_properties.GanFunctions.Gan3DFunction"><span class="pre">Gan3DFunction</span></a></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGan3DFunctionByName" title="Link to this definition">#</a></dt>
 <dd><div class="line-block">
 <div class="line">Returns a Gan3D Function object based on its name.</div>
 </div>
@@ -866,7 +875,7 @@ If you have an interpreter model open, you should close, compute, and then re-op
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.Model.Model.getGan2DFunctions">
-<span class="sig-name descname"><span class="pre">getGan2DFunctions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">Gan2DFunction</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGan2DFunctions" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">getGan2DFunctions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rs2.modeler.managed_properties.GanFunctions.html#rs2.modeler.managed_properties.GanFunctions.Gan2DFunction" title="rs2.modeler.managed_properties.GanFunctions.Gan2DFunction"><span class="pre">Gan2DFunction</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGan2DFunctions" title="Link to this definition">#</a></dt>
 <dd><div class="line-block">
 <div class="line">Returns a list of all Gan2D Function objects</div>
 </div>
@@ -874,7 +883,7 @@ If you have an interpreter model open, you should close, compute, and then re-op
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.Model.Model.getGan2DFunctionByName">
-<span class="sig-name descname"><span class="pre">getGan2DFunctionByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">Gan2DFunction</span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGan2DFunctionByName" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">getGan2DFunctionByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.managed_properties.GanFunctions.html#rs2.modeler.managed_properties.GanFunctions.Gan2DFunction" title="rs2.modeler.managed_properties.GanFunctions.Gan2DFunction"><span class="pre">Gan2DFunction</span></a></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGan2DFunctionByName" title="Link to this definition">#</a></dt>
 <dd><div class="line-block">
 <div class="line">Returns a Gan2D Function object based on its name.</div>
 </div>
@@ -906,7 +915,7 @@ If you have an interpreter model open, you should close, compute, and then re-op
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.Model.Model.getGanAngleRangeFunctions">
-<span class="sig-name descname"><span class="pre">getGanAngleRangeFunctions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><span class="pre">GanAngleRangeFunction</span><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGanAngleRangeFunctions" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">getGanAngleRangeFunctions</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">list</span><span class="p"><span class="pre">[</span></span><a class="reference internal" href="rs2.modeler.managed_properties.GanFunctions.html#rs2.modeler.managed_properties.GanFunctions.GanAngleRangeFunction" title="rs2.modeler.managed_properties.GanFunctions.GanAngleRangeFunction"><span class="pre">GanAngleRangeFunction</span></a><span class="p"><span class="pre">]</span></span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGanAngleRangeFunctions" title="Link to this definition">#</a></dt>
 <dd><div class="line-block">
 <div class="line">Returns a list of all GanAngleRangeFunction objects</div>
 </div>
@@ -914,7 +923,7 @@ If you have an interpreter model open, you should close, compute, and then re-op
 
 <dl class="py method">
 <dt class="sig sig-object py" id="rs2.modeler.Model.Model.getGanAngleRangeFunctionByName">
-<span class="sig-name descname"><span class="pre">getGanAngleRangeFunctionByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><span class="pre">GanAngleRangeFunction</span></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGanAngleRangeFunctionByName" title="Link to this definition">#</a></dt>
+<span class="sig-name descname"><span class="pre">getGanAngleRangeFunctionByName</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">name</span></span><span class="p"><span class="pre">:</span></span><span class="w"> </span><span class="n"><span class="pre">str</span></span></em><span class="sig-paren">)</span> <span class="sig-return"><span class="sig-return-icon">&#x2192;</span> <span class="sig-return-typehint"><a class="reference internal" href="rs2.modeler.managed_properties.GanFunctions.html#rs2.modeler.managed_properties.GanFunctions.GanAngleRangeFunction" title="rs2.modeler.managed_properties.GanFunctions.GanAngleRangeFunction"><span class="pre">GanAngleRangeFunction</span></a></span></span><a class="headerlink" href="#rs2.modeler.Model.Model.getGanAngleRangeFunctionByName" title="Link to this definition">#</a></dt>
 <dd><div class="line-block">
 <div class="line">Returns a GanAngleRange Function object based on its name.</div>
 </div>

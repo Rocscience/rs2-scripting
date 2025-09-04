@@ -5,6 +5,7 @@ rs2.modeler package
 .. toctree::
    :maxdepth: 2
 
+   rs2.modeler.managed_properties
    rs2.modeler.properties
 
 
