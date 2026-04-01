@@ -8,13 +8,12 @@ Model
 .. toctree::
    :maxdepth: 1
 
-   examples/model/model
-   examples/model/modeler
-   examples/model/mesh
-   examples/model/unit
-   examples/model/material_joint
-   examples/model/stage_factor
-   examples/model/import_export_prop
+   example_code/model/model_script_examples
+   example_code/model/modeler_script_examples
+   example_code/model/mesh_script_examples
+   example_code/model/unit_script_examples
+   example_code/model/stage_factor_script_examples
+   example_code/model/import_export_properties_script_examples
 
 
 
@@ -23,13 +22,14 @@ Material
 .. toctree::
    :maxdepth: 1
 
-   examples/material/mat
-   examples/material/mat_init_cond
-   examples/material/mat_joint_stage
-   examples/material/mat_prop_datum
-   examples/material/mat_prop_stiffness
-   examples/material/mat_prop_strength
-   examples/material/mat_prop_thermal
+   example_code/material/material_properties_script_examples
+   example_code/material/material_initial_condition_stage_factor_script_examples
+   example_code/material/material_stiffness_properties_script_examples
+   example_code/material/material_strength_properties_script_examples
+   example_code/material/material_datum_properties_script_examples
+   example_code/material/material_thermal_properties_script_examples
+   example_code/material/material_joint_script_examples
+   example_code/material/material_joint_stage_factor_script_examples
    
 
 
@@ -38,10 +38,10 @@ Hydraulic
 .. toctree::
    :maxdepth: 1
 
-   examples/hydraulic/hydro_prop
-   examples/hydraulic/hydro_static
-   examples/hydraulic/hydro_gw
-   examples/hydraulic/hydro_distribution_functions
+   example_code/hydraulic/hydraulic_properties_script_examples
+   example_code/hydraulic/static_groundwater_script_examples
+   example_code/hydraulic/fea_groundwater_script_examples
+   example_code/hydraulic/hydraulic_distribution_functions_script_examples
 
 
 
@@ -50,13 +50,13 @@ Support
 .. toctree::
    :maxdepth: 1
 
-   examples/support/bolt
-   examples/support/joint
-   examples/support/liner
-   examples/support/pile
-   examples/support/structural_interface
-   examples/support/composite_liner
-   examples/support/support_stage_factor
+   example_code/support/bolt_script_examples
+   example_code/support/joint_script_examples
+   example_code/support/liner_script_examples
+   example_code/support/pile_script_examples
+   example_code/support/structural_interface_script_examples
+   example_code/support/composite_liner_script_examples
+   example_code/support/support_stage_factor_script_examples
 
 
 
@@ -65,15 +65,15 @@ Result
 .. toctree::
    :maxdepth: 1
 
-   examples/result/history_query
-   examples/result/time_query
-   examples/result/material_query
-   examples/result/bolt_result
-   examples/result/joint_result
-   examples/result/liner_result
-   examples/result/pile_result
-   examples/result/structural_result
-   examples/result/composite_result
+   example_code/results/history_query_script_example
+   example_code/results/time_query_script_example
+   example_code/results/material_query_script_examples
+   example_code/results/bolt_result_script_examples
+   example_code/results/joint_result_script_examples
+   example_code/results/liner_result_script_examples
+   example_code/results/pile_result_script_examples
+   example_code/results/structural_interface_result_script_examples
+   example_code/results/composite_liner_result_script_examples
 
 
 
@@ -82,8 +82,8 @@ Support Functions
 .. toctree::
    :maxdepth: 1
 
-   examples/support_functions/extract_log_files
-   examples/support_functions/check_convergence
+   example_code/support_functions/extract_log_file_script_examples
+   example_code/support_functions/check_convergence_script_examples
 
 
 
@@ -92,8 +92,8 @@ Webinar
 .. toctree::
    :maxdepth: 1
 
-   examples/webinar/20240709_bolt_spacing_study
-   examples/webinar/20240709_slope_spatial_variability
+   example_code/webinar/20240709_bolt_spacing_study
+   example_code/webinar/20240709_slope_spatial_variability
 
 
 

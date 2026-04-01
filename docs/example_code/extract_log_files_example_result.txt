@@ -1,3 +1,0 @@
-Extracted File Path(s):
-C:\RS2_Script_Examples\ExampleModel.lot
-C:\RS2_Script_Examples\ExampleModel.log

@@ -27,8 +27,8 @@ author = 'Rocscience Inc.'
 extensions = ['sphinx.ext.autodoc',
               'sphinx_copybutton', 
               'sphinx.ext.napoleon',
-              'sphinx_rtd_theme',
               'sphinxcontrib.youtube',
+              "myst_nb",
               ]
 
 autodoc_default_options = {
@@ -40,7 +40,8 @@ napoleon_google_docstring = True
 napoleon_use_param = True
 napoleon_use_ivar = True
 
-exclude_patterns = ['generatedAPIDocFiles/modules.rst']
+exclude_patterns = ['_build',
+                    'generatedAPIDocFiles/modules.rst']
 
 # -- Options for LaTeX output -------------------------------------------------
 latex_elements = {
@@ -50,7 +51,11 @@ latex_elements = {
     'figure_align' : 'htbp'
 }
 
-html_logo = '_static/logo.png'
+html_logo = '_static/rocscience-logo-primary.png'
+
+html_favicon = "_static/rocscience_favicon.png"
 
 # html_theme = "sphinx_rtd_theme"
 html_theme = 'pydata_sphinx_theme'
+
+nb_execution_mode = "off" # notebooks are already run 

@@ -34,6 +34,10 @@ strength_ResidualFrictionAngle,35.0
 strength_ResidualCohesion,10.5
 strength_DilationAngle,0.0
 strength_ApplySSRShearStrengthReduction,True
+strength_PeakFrictionAngleBlockModel,False
+strength_PeakCohesionBlockModel,False
+strength_UsePeakValueForResAngleBlockModel,False
+strength_UsePeakValueForResCohesionBlockModel,False
 hydraulic_StaticWaterMode,StaticWaterModes.DRY
 hydraulic_StaticPoreWaterPressure,1.0
 hydraulic_RuValue,0.0
