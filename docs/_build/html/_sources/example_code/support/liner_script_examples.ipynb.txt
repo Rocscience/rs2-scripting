@@ -1,0 +1,138 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "aececd27",
+   "metadata": {
+    "papermill": {
+     "duration": 0.001742,
+     "end_time": "2026-03-19T15:27:08.853834",
+     "exception": false,
+     "start_time": "2026-03-19T15:27:08.852092",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "(Liner Stage Factor Example)=\n",
+    "# Liner Script Examples"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8f03602b",
+   "metadata": {
+    "papermill": {
+     "duration": 0.001213,
+     "end_time": "2026-03-19T15:27:08.856884",
+     "exception": false,
+     "start_time": "2026-03-19T15:27:08.855671",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Download the [ExampleModel.fez](https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/ExampleModel.fez) for this example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "efd68734",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-03-19T15:27:08.860826Z",
+     "iopub.status.busy": "2026-03-19T15:27:08.860508Z",
+     "iopub.status.idle": "2026-03-19T15:27:17.976491Z",
+     "shell.execute_reply": "2026-03-19T15:27:17.974865Z"
+    },
+    "papermill": {
+     "duration": 9.120514,
+     "end_time": "2026-03-19T15:27:17.978563",
+     "exception": false,
+     "start_time": "2026-03-19T15:27:08.858049",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "from rs2.modeler.RS2Modeler import RS2Modeler\n",
+    "from rs2.modeler.properties.PropertyEnums import *\n",
+    "import os\n",
+    "\n",
+    "current_dir = os.path.dirname(os.path.abspath(\"\")) \n",
+    "\n",
+    "RS2Modeler.startApplication(port=60063)\n",
+    "modeler = RS2Modeler(port=60063)\n",
+    "model = modeler.openFile(rf\"{current_dir}\\example_models\\ExampleModel.fez\")\n",
+    "\n",
+    "liner = model.getLinerPropertyByName(\"Liner 1\")\n",
+    "\n",
+    "liner.setLinerType(LinerTypes.REINFORCED_CONCRETE)\n",
+    "liner.ReinforcedConcrete.setStageConcreteProperties(True)\n",
+    "definedStageFactors = liner.ReinforcedConcrete.stageFactorInterface.getDefinedStageFactors()\n",
+    "newStageFactor = liner.ReinforcedConcrete.stageFactorInterface.createStageFactor(2)\n",
+    "definedStageFactors[2] = newStageFactor\n",
+    "liner.ReinforcedConcrete.stageFactorInterface.setDefinedStageFactors(StageFactorDefinitionMethod.RELATIVE_STAGE_FACTOR, definedStageFactors)\n",
+    "\n",
+    "# Get factors for stage 2\n",
+    "reinforcedConcreteFactors = liner.ReinforcedConcrete.stageFactorInterface.getDefinedStageFactors()\n",
+    "stageFactor = reinforcedConcreteFactors[2]\n",
+    "\n",
+    "stageFactor.setThicknessFactor(3)\n",
+    "stageFactor.setConcreteYoungsModulusFactor(2.2)\n",
+    "stageFactor.setConcreteCompressiveStrengthFactor(4)\n",
+    "stageFactor.setConcreteTensileStrengthFactor(1.5)\n",
+    "stageFactor.setAxialStrainExpansionFactor(0.8)\n",
+    "stageFactor.setAreaFactor(1.1)\n",
+    "\n",
+    "liner.setLinerType(LinerTypes.STANDARD_BEAM)\n",
+    "liner.StandardBeam.setStageLinerProperties(True)\n",
+    "standardBeamFactors = liner.StandardBeam.stageFactorInterface.getDefinedStageFactors()\n",
+    "linerStageFactors = standardBeamFactors[2]\n",
+    "\n",
+    "linerStageFactors.setThicknessFactor(3)\n",
+    "linerStageFactors.setYoungsModulusFactor(2)\n",
+    "linerStageFactors.setPoissonsRatioFactor(1.45)\n",
+    "linerStageFactors.setAxialStrainExpansionFactor(0.8)\n",
+    "\n",
+    "model.close()\n",
+    "modeler.closeProgram()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.0"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 10.778239,
+   "end_time": "2026-03-19T15:27:18.326675",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\support\\liner_script_examples.ipynb",
+   "output_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\support\\liner_script_examples.ipynb",
+   "parameters": {},
+   "start_time": "2026-03-19T15:27:07.548436",
+   "version": "2.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

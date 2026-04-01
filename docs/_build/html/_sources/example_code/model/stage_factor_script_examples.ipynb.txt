@@ -1,0 +1,157 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "aececd27",
+   "metadata": {
+    "papermill": {
+     "duration": 0.00443,
+     "end_time": "2026-03-19T15:22:50.741497",
+     "exception": false,
+     "start_time": "2026-03-19T15:22:50.737067",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "(Stage Factors Example)=\n",
+    "# Stage Factors Script Examples"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8f03602b",
+   "metadata": {
+    "papermill": {
+     "duration": 0.001006,
+     "end_time": "2026-03-19T15:22:50.743903",
+     "exception": false,
+     "start_time": "2026-03-19T15:22:50.742897",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Download the [ExampleModel.fez](https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/ExampleModel.fez) for this example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "efd68734",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-03-19T15:22:50.747438Z",
+     "iopub.status.busy": "2026-03-19T15:22:50.747163Z",
+     "iopub.status.idle": "2026-03-19T15:23:02.135337Z",
+     "shell.execute_reply": "2026-03-19T15:23:02.133825Z"
+    },
+    "papermill": {
+     "duration": 11.392197,
+     "end_time": "2026-03-19T15:23:02.137111",
+     "exception": false,
+     "start_time": "2026-03-19T15:22:50.744914",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "from rs2.modeler.RS2Modeler import RS2Modeler\n",
+    "from rs2.modeler.properties.PropertyEnums import *\n",
+    "import os\n",
+    "\n",
+    "current_dir = os.path.dirname(os.path.abspath(\"\")) \n",
+    "\n",
+    "RS2Modeler.startApplication(port=60083)\n",
+    "modeler = RS2Modeler(port=60083)\n",
+    "model = modeler.openFile(rf\"{current_dir}\\example_models\\ExampleModel.fez\")\n",
+    "\n",
+    "joint = model.getAllJointProperties()[0]\n",
+    "liner = model.getAllLinerProperties()[0]\n",
+    "material = model.getAllMaterialProperties()[0]\n",
+    "\n",
+    "# Manipulation of AbsoluteStageFactorInterface type object\n",
+    "joint.setSlipCriterion(JointTypes.MOHR_COULOMB)\n",
+    "definedStageFactors = joint.MohrCoulomb.stageFactorInterface.getDefinedStageFactors()\n",
+    "newStageFactor = joint.MohrCoulomb.stageFactorInterface.createStageFactor(2)\n",
+    "definedStageFactors[2] = newStageFactor\n",
+    "joint.MohrCoulomb.stageFactorInterface.setDefinedStageFactors(definedStageFactors)\n",
+    "\n",
+    "mohrCoulombFactors = joint.MohrCoulomb.stageFactorInterface.getDefinedStageFactors()\n",
+    "stage2mohrCoulombFactors = mohrCoulombFactors[2]\n",
+    "\n",
+    "stage2mohrCoulombFactors.setNormalStiffnessFactor(3)\n",
+    "stage2mohrCoulombFactors.setShearStiffnessFactor(3) \n",
+    "stage2mohrCoulombFactors.setTensileStrengthFactor(3) \n",
+    "\n",
+    "# Manipulation of RelativeStageFactorInterface type object\n",
+    "liner.setLinerType(LinerTypes.REINFORCED_CONCRETE)\n",
+    "liner.ReinforcedConcrete.setStageConcreteProperties(True)\n",
+    "definedStageFactors = liner.ReinforcedConcrete.stageFactorInterface.getDefinedStageFactors()\n",
+    "newStageFactor = liner.ReinforcedConcrete.stageFactorInterface.createStageFactor(2)\n",
+    "definedStageFactors[2] = newStageFactor\n",
+    "liner.ReinforcedConcrete.stageFactorInterface.setDefinedStageFactors(StageFactorDefinitionMethod.RELATIVE_STAGE_FACTOR, definedStageFactors)\n",
+    "\n",
+    "reinforcedConcreteFactors = liner.ReinforcedConcrete.stageFactorInterface.getDefinedStageFactors()\n",
+    "stageFactor = reinforcedConcreteFactors[2]\n",
+    "\n",
+    "stageFactor.setThicknessFactor(3)\n",
+    "stageFactor.setConcreteYoungsModulusFactor(2.2)\n",
+    "stageFactor.setConcreteCompressiveStrengthFactor(4)\n",
+    "\n",
+    "# Manipulation of AbsoluteStageFactorGettersInterface type object\n",
+    "material.Stiffness.setElasticType(MaterialElasticityTypes.ISOTROPIC)\n",
+    "material.StageFactors.setStageStrengthStiffnessStageFactors(True)\n",
+    "\n",
+    "definedStageFactors = material.StageFactors.getDefinedStageFactors()\n",
+    "newStageFactor = material.StageFactors.createStageFactor(2)\n",
+    "definedStageFactors[2] = newStageFactor\n",
+    "material.StageFactors.setDefinedStageFactors(definedStageFactors)\n",
+    "\n",
+    "strengthFactor = material.Strength.stageFactorInterface.getDefinedStageFactors()[2]\n",
+    "\n",
+    "strengthFactor.setResetYield(True)\n",
+    "strengthFactor.setAirEntryValueFactor(1.5)\n",
+    "strengthFactor.setUnsaturatedShearStrengthAngleFactor(3.9)\n",
+    "\n",
+    "model.close()\n",
+    "\n",
+    "modeler.closeProgram()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.0"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 16.195526,
+   "end_time": "2026-03-19T15:23:05.598226",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\model\\stage_factor_script_examples.ipynb",
+   "output_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\model\\stage_factor_script_examples.ipynb",
+   "parameters": {},
+   "start_time": "2026-03-19T15:22:49.402700",
+   "version": "2.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

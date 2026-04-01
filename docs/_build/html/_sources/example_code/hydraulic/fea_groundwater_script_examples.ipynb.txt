@@ -1,0 +1,266 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "aececd27",
+   "metadata": {
+    "papermill": {
+     "duration": 0.002054,
+     "end_time": "2026-03-19T15:06:51.725659",
+     "exception": false,
+     "start_time": "2026-03-19T15:06:51.723605",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "(Hydraulic Property FEAGroundwater Example)=\n",
+    "# FEA Groundwater Script Examples"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8f03602b",
+   "metadata": {
+    "papermill": {
+     "duration": 0.000897,
+     "end_time": "2026-03-19T15:06:51.730433",
+     "exception": false,
+     "start_time": "2026-03-19T15:06:51.729536",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Download the [FEAGroundwater.fez](https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/FEAGroundwater.fez) for this example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "efd68734",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-03-19T15:06:51.733597Z",
+     "iopub.status.busy": "2026-03-19T15:06:51.733366Z",
+     "iopub.status.idle": "2026-03-19T15:07:09.999239Z",
+     "shell.execute_reply": "2026-03-19T15:07:09.997705Z"
+    },
+    "papermill": {
+     "duration": 18.269507,
+     "end_time": "2026-03-19T15:07:10.000886",
+     "exception": false,
+     "start_time": "2026-03-19T15:06:51.731379",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fluid Bulk Modulus = 6.0, K2/K1 = 2.0, K1 Definition = AnisotropyDefinitions.ANGLE\n",
+      "K1 Angle = 30.0, MV Model = MVModel.CONSTANT, Mv Value = 0.05\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Ks Value = 0.005, Water Content Sat = 0.15, Water Content Res = 0.5\n",
+      "Degree of Saturation Sat = 0.3, Degree of Staturation Res = 1.0\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Soil Type = EnhancedSimpleSoilTypes.SILT\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Fredlund Param A = 8.0, Fredlung Param B = 5.0, Fredlund Param C = 6.0\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Alpha = 20.0, N = 3.13, Custom M Value = 0.55\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Pore Size Index = 2.0, Bubbling Pressure = 3.0\n",
+      "\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Param A = 0.5, Param N = 5.0\n",
+      "\n",
+      "User Defined Permeability And Water Content Function Name = User Defined 1\n",
+      "\n",
+      "\n",
+      "FEAGroundwater Stage Factor Values\n",
+      "K1 Angle Factor = 0.7, K2/K1 Factor = 2.2, MV Factor = 5.0\n",
+      "\n",
+      "FEAGroundwater Constant Model Factor Values\n",
+      "Curve Slope Factor = 1.7\n",
+      "\n",
+      "FEAGroundwater Fredlund Model Factor Values\n",
+      "A Factor = 0.7, B Factor = 2.2, C Factor = 5.0, Ks Factor = 5.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "from rs2.modeler.RS2Modeler import RS2Modeler\n",
+    "from rs2.modeler.properties.PropertyEnums import *\n",
+    "import os\n",
+    "\n",
+    "current_dir = os.path.dirname(os.path.abspath(\"\")) \n",
+    "RS2Modeler.startApplication(port=60066)\n",
+    "modeler = RS2Modeler(port=60066)\n",
+    "model = modeler.openFile(rf\"{current_dir}\\example_models\\FEAGroundwater.fez\")\n",
+    "\n",
+    "material = model.getAllMaterialProperties()[0]\n",
+    "hydraulic = material.Hydraulic\n",
+    "\n",
+    "hydraulic.setMaterialBehaviour(MaterialBehaviours.UNDRAINED)\n",
+    "hydraulic.setFluidBulkModulus(6)\n",
+    "hydraulic.setBiotsCoefficientCalculationMethod(eBiotCoefficients.BIOT_COEFFICIENT_AUTO)\n",
+    "\n",
+    "FEAGroundwater = hydraulic.FEAGroundwater\n",
+    "FEAGroundwater.setK2K1(2)\n",
+    "FEAGroundwater.setK1Definition(AnisotropyDefinitions.ANGLE)\n",
+    "FEAGroundwater.setK1Angle(30)\n",
+    "FEAGroundwater.setMvModel(MVModel.CONSTANT)\n",
+    "FEAGroundwater.setMv(0.05)\n",
+    "FEAGroundwater.Simple.setKs(0.005)\n",
+    "FEAGroundwater.Simple.setWCInputType(WCInputType.BY_WATER_CONTENT)\n",
+    "FEAGroundwater.Simple.setWCSat(0.5)\n",
+    "FEAGroundwater.Simple.setWCRes(0.3)\n",
+    "FEAGroundwater.Simple.setWCInputType(WCInputType.BY_DEGREE_OF_SATURATION)\n",
+    "FEAGroundwater.Simple.setDoSSat(0.3)\n",
+    "FEAGroundwater.Simple.setDoSRes(1)\n",
+    "print(f\"Fluid Bulk Modulus = {hydraulic.getFluidBulkModulus()}, K2/K1 = {FEAGroundwater.getK2K1()}, K1 Definition = {FEAGroundwater.getK1Definition()}\")\n",
+    "print(f\"K1 Angle = {FEAGroundwater.getK1Angle()}, MV Model = {FEAGroundwater.getMvModel()}, Mv Value = {FEAGroundwater.getMv()}\")\n",
+    "print(f\"Ks Value = {FEAGroundwater.Simple.getKs()}, Water Content Sat = {FEAGroundwater.Simple.getWCSat()}, Water Content Res = {FEAGroundwater.Simple.getWCRes()}\")\n",
+    "print(f\"Degree of Saturation Sat = {FEAGroundwater.Simple.getDoSSat()}, Degree of Staturation Res = {FEAGroundwater.Simple.getDoSRes()}\\n\")\n",
+    "\n",
+    "simple = FEAGroundwater.Simple\n",
+    "simple.setSoilType(EnhancedSimpleSoilTypes.SILT)\n",
+    "print(f\"Soil Type = {simple.getSoilType()}\\n\")\n",
+    "\n",
+    "fredlund = FEAGroundwater.Fredlund\n",
+    "fredlund.setA(8)\n",
+    "fredlund.setB(5)\n",
+    "fredlund.setC(6)\n",
+    "print(f\"Fredlund Param A = {fredlund.getA()}, Fredlung Param B = {fredlund.getB()}, Fredlund Param C = {fredlund.getC()}\\n\")\n",
+    "\n",
+    "genuchten = FEAGroundwater.Genuchten\n",
+    "genuchten.setAlpha(20)\n",
+    "genuchten.setN(3.13)\n",
+    "genuchten.setCustomM(True)\n",
+    "genuchten.setM(0.55)\n",
+    "print(f\"Alpha = {genuchten.getAlpha()}, N = {genuchten.getN()}, Custom M Value = {genuchten.getM()}\\n\")\n",
+    "\n",
+    "brooks = FEAGroundwater.Brooks\n",
+    "brooks.setPoreSizeIndex(2)\n",
+    "brooks.setBubblingPressure(3)\n",
+    "print(f\"Pore Size Index = {brooks.getPoreSizeIndex()}, Bubbling Pressure = {brooks.getBubblingPressure()}\\n\")\n",
+    "\n",
+    "gardener = FEAGroundwater.Gardner\n",
+    "gardener.setA(0.5)\n",
+    "gardener.setN(5)\n",
+    "print(f\"Param A = {gardener.getA()}, Param N = {gardener.getN()}\\n\")\n",
+    "\n",
+    "userDefined = FEAGroundwater.UserDefined\n",
+    "userDefined.setUserDefinedPermeabilityAndWaterContentFunction(\"User Defined 1\")\n",
+    "print(f\"User Defined Permeability And Water Content Function Name = {userDefined.getUserDefinedPermeabilityAndWaterContentFunction()}\\n\")\n",
+    "\n",
+    "# Manipulation of FEAGroundwater Stage Factor Properties for stage 2\n",
+    "# Make sure to stage Hydraulic Stage Factor option before manipulating any factor properties\n",
+    "material.StageFactors.setStageHydraulicStageFactor(True)\n",
+    "definedStageFactors = material.StageFactors.getDefinedStageFactors()\n",
+    "newStageFactor = material.StageFactors.createStageFactor(2)\n",
+    "definedStageFactors[2] = newStageFactor\n",
+    "material.StageFactors.setDefinedStageFactors(definedStageFactors)\n",
+    "feaGroundwaterStageFactor = material.Hydraulic.FEAGroundwater.stageFactorInterface.getDefinedStageFactors()[2]\n",
+    "\n",
+    "feaGroundwaterStageFactor.setK1AngleFactor(0.7)\n",
+    "feaGroundwaterStageFactor.setK2K1Factor(2.2)\n",
+    "feaGroundwaterStageFactor.setMvFactor(5)\n",
+    "\n",
+    "print(\"\\nFEAGroundwater Stage Factor Values\") \n",
+    "print(f\"K1 Angle Factor = {feaGroundwaterStageFactor.getK1AngleFactor()}, K2/K1 Factor = {feaGroundwaterStageFactor.getK2K1Factor()}, MV Factor = {feaGroundwaterStageFactor.getMvFactor()}\")\n",
+    "\n",
+    "# Manipulation of FEAGroundwater Constant Model Stage Factor Properties for stage 2\n",
+    "constantModelStageFactor = material.Hydraulic.FEAGroundwater.Constant.stageFactorInterface.getDefinedStageFactors()[2]\n",
+    "\n",
+    "constantModelStageFactor.setWCCurveSlopeFactor(1.7)\n",
+    "\n",
+    "print(\"\\nFEAGroundwater Constant Model Factor Values\") \n",
+    "print(f\"Curve Slope Factor = {constantModelStageFactor.getWCCurveSlopeFactor()}\")\n",
+    "\n",
+    "fredlundModelStageFactor = material.Hydraulic.FEAGroundwater.Fredlund.stageFactorInterface.getDefinedStageFactors()[2]\n",
+    "\n",
+    "fredlundModelStageFactor.setAFactor(0.7)\n",
+    "fredlundModelStageFactor.setBFactor(2.2)\n",
+    "fredlundModelStageFactor.setCFactor(5)\n",
+    "fredlundModelStageFactor.setKsFactor(5)\n",
+    "\n",
+    "print(\"\\nFEAGroundwater Fredlund Model Factor Values\") \n",
+    "print(f\"A Factor = {fredlundModelStageFactor.getAFactor()}, B Factor = {fredlundModelStageFactor.getBFactor()}, C Factor = {fredlundModelStageFactor.getCFactor()}, Ks Factor = {fredlundModelStageFactor.getKsFactor()}\")\n",
+    "\n",
+    "model.close()\n",
+    "modeler.closeProgram()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.0"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 24.00118,
+   "end_time": "2026-03-19T15:07:13.625982",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\hydraulic\\fea_groundwater_script_examples.ipynb",
+   "output_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\hydraulic\\fea_groundwater_script_examples.ipynb",
+   "parameters": {},
+   "start_time": "2026-03-19T15:06:49.624802",
+   "version": "2.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

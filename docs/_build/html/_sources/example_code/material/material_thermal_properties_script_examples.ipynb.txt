@@ -1,0 +1,259 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "aececd27",
+   "metadata": {
+    "papermill": {
+     "duration": 0.003007,
+     "end_time": "2026-03-19T15:10:37.360652",
+     "exception": false,
+     "start_time": "2026-03-19T15:10:37.357645",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "(material property thermal example)=\n",
+    "# Material Thermal Properties Script Examples"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8f03602b",
+   "metadata": {
+    "papermill": {
+     "duration": 0.002864,
+     "end_time": "2026-03-19T15:10:37.366958",
+     "exception": false,
+     "start_time": "2026-03-19T15:10:37.364094",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Download the [TransientGroundwaterAndThermal.fez](https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/TransientGroundwaterAndThermal.fez) for this example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "efd68734",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-03-19T15:10:37.376025Z",
+     "iopub.status.busy": "2026-03-19T15:10:37.375184Z",
+     "iopub.status.idle": "2026-03-19T15:10:57.705543Z",
+     "shell.execute_reply": "2026-03-19T15:10:57.704307Z"
+    },
+    "papermill": {
+     "duration": 20.337033,
+     "end_time": "2026-03-19T15:10:57.707236",
+     "exception": false,
+     "start_time": "2026-03-19T15:10:37.370203",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Soil Type = ThermalSoilType.CRUSHED_ROCK, Quartz Content = 0.88\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Thermal Temp. Vs Conductivity Table Values = ([1.0, 2.0, 3.0], [1.5, 3.3, 4.8])\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Heat Capacity Type = ThermalHeatCapacityType.JAME_NEWMAN, Include Latent = True, Specific Heat Capacity = 890.0\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Volumetric Heat Capacity VS Water Content Table ([1.0, 2.4], [7.0, 8.5])\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Input Alpha = 0.009, Input Beta = 0.0085, Frozen Temp = -0.05\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Thermal Temperature vs Soil Unfrozen Water Content Table Values ([1.0, 2.0, 3.0], [4.0, 5.0, 6.0])\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      " Thermal Soil Unfrozen Water Content Type = ThermalWaterContentType.SOIL_WATER_CONTENT_IN_HYDRAULIC_PROPERTIES, Hydraulic Model Type = GroundWaterModes.GARDNER\n",
+      "Frozen Temperature = -0.015, WC Sat = 0.34, WC Res = 0.01\n",
+      "Gardener Parameter A = 8.0, Gardener Parameter N = 3.0\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Thermal Expansion Coeff. = 0.0005\n",
+      "Longitudinal Dispersivity = 2.0, Transverse Dispersivity = 3.0\n",
+      "\n",
+      "Thermal Stage Factor Grid To Use = Default Grid\n"
+     ]
+    }
+   ],
+   "source": [
+    "from rs2.modeler.RS2Modeler import RS2Modeler\n",
+    "from rs2.modeler.properties.PropertyEnums import *\n",
+    "import os\n",
+    "\n",
+    "current_dir = os.path.dirname(os.path.abspath(\"\")) \n",
+    "RS2Modeler.startApplication(port=60071)\n",
+    "modeler = RS2Modeler(port=60071)\n",
+    "model = modeler.openFile(rf\"{current_dir}\\example_models\\TransientGroundwaterAndThermal.fez\")\n",
+    "\n",
+    "material = model.getAllMaterialProperties()[0]\n",
+    "thermal = material.Thermal\n",
+    "thermal.setWaterContent(ThermalWaterContentMethodType.DEFINE)\n",
+    "thermal.setWaterContentValue(0.35)\n",
+    "\n",
+    "conductivity = thermal.Conductivity\n",
+    "conductivity.setMethod(ThermalType.JOHANSEN_LU)\n",
+    "johansenLu = conductivity.JohansenLu\n",
+    "johansenLu.setSoilType(ThermalSoilType.CRUSHED_ROCK)\n",
+    "johansenLu.setQuartzContent(0.88)\n",
+    "print(f\"Soil Type = {johansenLu.getSoilType()}, Quartz Content = {johansenLu.getQuartzContent()}\")\n",
+    "\n",
+    "conductivity.setMethod(ThermalType.CUSTOM)\n",
+    "conductivity.Tabular.setDependence(ThermalVolumetricDepencenceType.TEMPERATURE)\n",
+    "conductivity.Tabular.setThermalConductivityTemperatureFunction(temperature=[1, 2, 3],\n",
+    "                                                               conductivity=[1.5, 3.3, 4.8])\n",
+    "print(f\"\\nThermal Temp. Vs Conductivity Table Values = {conductivity.Tabular.getThermalConductivityTemperatureFunction()}\")\n",
+    "\n",
+    "heatCapacity = thermal.HeatCapacity\n",
+    "heatCapacity.setType(ThermalHeatCapacityType.JAME_NEWMAN)\n",
+    "jameNewman = thermal.HeatCapacity.JameNewman\n",
+    "jameNewman.setIncludeLatentHeat(True)\n",
+    "jameNewman.setSoilSpecificHeatCapacity(890)\n",
+    "print(f\"Heat Capacity Type = {heatCapacity.getType()}, Include Latent = {jameNewman.getIncludeLatentHeat()}, Specific Heat Capacity = {jameNewman.getSoilSpecificHeatCapacity()}\")\n",
+    "\n",
+    "custom = heatCapacity.CustomHeatCapacity\n",
+    "custom.setDependence(ThermalVolumetricDepencenceType.WATER_CONTENT)\n",
+    "custom.setVolumetricHeatCapacityVsWaterContentTable(volumetricHeatCapacity=[1, 2.4],\n",
+    "                                                    waterContent=[7, 8.5])\n",
+    "print(\"Volumetric Heat Capacity VS Water Content Table\", custom.getVolumetricHeatCapacityVsWaterContentTable())\n",
+    "\n",
+    "soilUnfrozenWaterContent = thermal.SoilUnfrozenWaterContent\n",
+    "ticeAnderson = soilUnfrozenWaterContent.TiceAnderson\n",
+    "ticeAnderson.setFrozenTemperature(-0.05)\n",
+    "ticeAnderson.setInputAlpha(0.009)\n",
+    "ticeAnderson.setInputBeta(0.0085)\n",
+    "print(f\"Input Alpha = {ticeAnderson.getInputAlpha()}, Input Beta = {ticeAnderson.getInputBeta()}, Frozen Temp = {ticeAnderson.getFrozenTemperature()}\")\n",
+    "\n",
+    "soilUnfrozenWaterContent.setType(ThermalWaterContentType.CUSTOM)\n",
+    "soilUnfrozenWaterContent.CustomWaterContent.setTemperatureVsUnfrozenWaterContentValues(temperature=[1, 2, 3],\n",
+    "                                                                                       unfrozenWaterContent=[4, 5, 6])\n",
+    "print(\"\\nThermal Temperature vs Soil Unfrozen Water Content Table Values\",\n",
+    "      soilUnfrozenWaterContent.CustomWaterContent.getTemperatureVsUnfrozenWaterContentValues())\n",
+    "\n",
+    "soilUnfrozenWC = thermal.SoilUnfrozenWaterContent\n",
+    "# Make sure to set Soil Unfrozen Water Content type to Hydraulic Properties\n",
+    "soilUnfrozenWC.setType(ThermalWaterContentType.SOIL_WATER_CONTENT_IN_HYDRAULIC_PROPERTIES)\n",
+    "hydraulic_soilUnfrozenWC = soilUnfrozenWaterContent.HydraulicModel\n",
+    "# Make sure to set Hydraulic Model to your desired type\n",
+    "hydraulic_soilUnfrozenWC.setSelectHydraulicModel(GroundWaterModes.GARDNER)\n",
+    "hydraulic_soilUnfrozenWC.setFrozenTemperature(-0.015)\n",
+    "hydraulic_soilUnfrozenWC.setWCSat(0.34)\n",
+    "hydraulic_soilUnfrozenWC.setWCRes(0.01)\n",
+    "\n",
+    "gardenerWaterContent = hydraulic_soilUnfrozenWC.GardnerWaterContent\n",
+    "gardenerWaterContent.setA(8)\n",
+    "gardenerWaterContent.setN(3)\n",
+    "\n",
+    "print(f\"\\n Thermal Soil Unfrozen Water Content Type = {soilUnfrozenWaterContent.getType()}, Hydraulic Model Type = {hydraulic_soilUnfrozenWC.getSelectHydraulicModel()}\")\n",
+    "print(f\"Frozen Temperature = {hydraulic_soilUnfrozenWC.getFrozenTemperature()}, WC Sat = {hydraulic_soilUnfrozenWC.getWCSat()}, WC Res = {hydraulic_soilUnfrozenWC.getWCRes()}\")\n",
+    "print(f\"Gardener Parameter A = {gardenerWaterContent.getA()}, Gardener Parameter N = {gardenerWaterContent.getN()}\")\n",
+    "\n",
+    "thermal.setThermalExpansion(True)\n",
+    "thermal.setExpansionCoefficient(0.0005)\n",
+    "\n",
+    "thermal.setDispersivity(True)\n",
+    "thermal.setLongitudinalDispersivity(2)\n",
+    "thermal.setTransverseDispersivity(3)\n",
+    "\n",
+    "print(f\"Thermal Expansion Coeff. = {thermal.getExpansionCoefficient()}\")\n",
+    "print(f\"Longitudinal Dispersivity = {thermal.getLongitudinalDispersivity()}, Transverse Dispersivity = {thermal.getTransverseDispersivity()}\\n\")\n",
+    "\n",
+    "# Manipulation of Thermal Stage Factor Properties for stage 2\n",
+    "material.StageFactors.setStageThermalStageFactors(True)\n",
+    "\n",
+    "definedStageFactors = material.StageFactors.getDefinedStageFactors()\n",
+    "newStageFactor = material.StageFactors.createStageFactor(2)\n",
+    "definedStageFactors[2] = newStageFactor\n",
+    "material.StageFactors.setDefinedStageFactors(definedStageFactors)\n",
+    "\n",
+    "thermalStageFactors = thermal.stageFactorInterface.getDefinedStageFactors()[2]\n",
+    "\n",
+    "thermalStageFactors.setThermalGridFactor(\"Default Grid\")\n",
+    "\n",
+    "print(f\"Thermal Stage Factor Grid To Use = {thermalStageFactors.getThermalGridFactor()}\")\n",
+    "\n",
+    "model.close()\n",
+    "\n",
+    "modeler.closeProgram()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.0"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 25.272096,
+   "end_time": "2026-03-19T15:11:01.336454",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\material\\material_thermal_properties_script_examples.ipynb",
+   "output_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\material\\material_thermal_properties_script_examples.ipynb",
+   "parameters": {},
+   "start_time": "2026-03-19T15:10:36.064358",
+   "version": "2.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

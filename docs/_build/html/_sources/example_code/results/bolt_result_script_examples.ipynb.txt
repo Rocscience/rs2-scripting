@@ -1,0 +1,215 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "aececd27",
+   "metadata": {
+    "papermill": {
+     "duration": 0.001076,
+     "end_time": "2026-03-19T15:23:27.144900",
+     "exception": false,
+     "start_time": "2026-03-19T15:23:27.143824",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "(Support Bolt Results Example)=\n",
+    "# Bolt Result Script Examples"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8f03602b",
+   "metadata": {
+    "papermill": {
+     "duration": 0.000859,
+     "end_time": "2026-03-19T15:23:27.146955",
+     "exception": false,
+     "start_time": "2026-03-19T15:23:27.146096",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Download the [SupportResults.fez](https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/SupportResults.fez) for this example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "efd68734",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-03-19T15:23:27.150163Z",
+     "iopub.status.busy": "2026-03-19T15:23:27.149922Z",
+     "iopub.status.idle": "2026-03-19T15:23:33.336819Z",
+     "shell.execute_reply": "2026-03-19T15:23:33.334579Z"
+    },
+    "papermill": {
+     "duration": 6.190217,
+     "end_time": "2026-03-19T15:23:33.338179",
+     "exception": false,
+     "start_time": "2026-03-19T15:23:27.147962",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Stage 1 Bolt Results\n",
+      "\tBolt Unique ID = Bolt0, \n",
+      "\tStart X-Coord = 6.22240061957463, \n",
+      "\tStart Y-Coord = 11.6115981742334, End X-Coord = 3.46451125989402, End Y-Coord = 10.1389388074137\n",
+      "\tBolt Yielding Results:\n",
+      "\t\tYielded Start X-Coord = 6.22240061957, Yielded Start Y-Coord = 11.6115981742, Yielded End X-Coord = 3.46451125989, Yielded End Y-Coord = 10.1389388074\n",
+      "\t\tYielded Status = BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED\n",
+      "\tForce Displacement Results:\n",
+      "\t\tLocation X = 6.22240061957463, Location Y = 11.6115981742334, Distance = 0.0, Axial Force = 2818.9200074861933, Axial Stress = 918825.069306\n",
+      "\t\tShear Force = None, Rock Displacement = None, Bolt Displacement = None\n",
+      "\n",
+      "\t\tLocation X = 3.4645112599026806, Location Y = 10.138938807418324, Distance = 3.126448357299371, Axial Force = 2818.9200074861933, Axial Stress = 918825.069306\n",
+      "\t\tShear Force = None, Rock Displacement = None, Bolt Displacement = None\n",
+      "\n",
+      "\tBolt Unique ID = Bolt1, \n",
+      "\tStart X-Coord = 6.75791311659999, \n",
+      "\tStart Y-Coord = 11.3973931754233, End X-Coord = 4.41504594211404, End Y-Coord = 9.85779474647534\n",
+      "\tBolt Yielding Results:\n",
+      "\t\tYielded Start X-Coord = 6.7579131166, Yielded Start Y-Coord = 11.3973931754, Yielded End X-Coord = 5.94263139468, Yielded End Y-Coord = 10.8616366153\n",
+      "\t\tYielded Status = BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED\n",
+      "\t\tYielded Start X-Coord = 5.94263139468, Yielded Start Y-Coord = 10.8616366153, Yielded End X-Coord = 4.41504594211, Yielded End Y-Coord = 9.85779474648\n",
+      "\t\tYielded Status = BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED\n",
+      "\tForce Displacement Results:\n",
+      "\t\tLocation X = 6.75791311659999, Location Y = 11.3973931754233, Distance = 0.0, Axial Force = 302.00115595, Axial Stress = 120800.46238\n",
+      "\t\tShear Force = -0.0, Rock Displacement = 0.00370887550739, Bolt Displacement = 0.00370887550739\n",
+      "\n",
+      "\t\tLocation X = 5.942631394688653, Location Y = 10.861636615310118, Distance = 0.9755610579492318, Axial Force = 198.721414577, Axial Stress = 79488.5658308\n",
+      "\t\tShear Force = -211.734038646, Rock Displacement = 0.00424398215181, Bolt Displacement = 0.00373708850421\n",
+      "\n",
+      "\t\tLocation X = 4.415045942124044, Location Y = 9.857794746481915, Distance = 2.803460347434165, Axial Force = 0.0, Axial Stress = 0.0\n",
+      "\t\tShear Force = -5.69743115188, Rock Displacement = 0.00424398215181, Bolt Displacement = 0.00373708850421\n",
+      "\n",
+      "Stage 2 Bolt Results\n",
+      "\tBolt Unique ID = Bolt0, \n",
+      "\tStart X-Coord = 6.22240061957463, \n",
+      "\tStart Y-Coord = 11.6115981742334, End X-Coord = 3.46451125989402, End Y-Coord = 10.1389388074137\n",
+      "\tBolt Yielding Results:\n",
+      "\t\tYielded Start X-Coord = 6.22240061957, Yielded Start Y-Coord = 11.6115981742, Yielded End X-Coord = 3.46451125989, Yielded End Y-Coord = 10.1389388074\n",
+      "\t\tYielded Status = BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED\n",
+      "\tForce Displacement Results:\n",
+      "\t\tLocation X = 6.22240061957463, Location Y = 11.6115981742334, Distance = 0.0, Axial Force = 3260.336972798898, Axial Stress = 1062704.63051\n",
+      "\t\tShear Force = None, Rock Displacement = None, Bolt Displacement = None\n",
+      "\n",
+      "\t\tLocation X = 3.4645112599026806, Location Y = 10.138938807418324, Distance = 3.126448357299371, Axial Force = 3260.336972798898, Axial Stress = 1062704.63051\n",
+      "\t\tShear Force = None, Rock Displacement = None, Bolt Displacement = None\n",
+      "\n",
+      "\tBolt Unique ID = Bolt1, \n",
+      "\tStart X-Coord = 6.75791311659999, \n",
+      "\tStart Y-Coord = 11.3973931754233, End X-Coord = 4.41504594211404, End Y-Coord = 9.85779474647534\n",
+      "\tBolt Yielding Results:\n",
+      "\t\tYielded Start X-Coord = 6.7579131166, Yielded Start Y-Coord = 11.3973931754, Yielded End X-Coord = 5.94263139468, Yielded End Y-Coord = 10.8616366153\n",
+      "\t\tYielded Status = BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED\n",
+      "\t\tYielded Start X-Coord = 5.94263139468, Yielded Start Y-Coord = 10.8616366153, Yielded End X-Coord = 4.41504594211, Yielded End Y-Coord = 9.85779474648\n",
+      "\t\tYielded Status = BoltElementYieldStatus.BOLT_ELEMENT_NOT_YIELDED\n",
+      "\tForce Displacement Results:\n",
+      "\t\tLocation X = 6.75791311659999, Location Y = 11.3973931754233, Distance = 0.0, Axial Force = 420.86328447, Axial Stress = 168345.313788\n",
+      "\t\tShear Force = -0.0, Rock Displacement = 0.00238461431863, Bolt Displacement = 0.00238461431863\n",
+      "\n",
+      "\t\tLocation X = 5.942631394688653, Location Y = 10.861636615310118, Distance = 0.9755610579492318, Axial Force = 301.856401502, Axial Stress = 120742.56060079999\n",
+      "\t\tShear Force = -243.976288308, Rock Displacement = 0.00300801338724, Bolt Displacement = 0.00242393143471\n",
+      "\n",
+      "\t\tLocation X = 4.415045942124044, Location Y = 9.857794746481915, Distance = 2.803460347434165, Axial Force = 0.0, Axial Stress = 0.0\n",
+      "\t\tShear Force = -86.3005526951, Rock Displacement = 0.00300801338724, Bolt Displacement = 0.00242393143471\n",
+      "\n"
+     ]
+    }
+   ],
+   "source": [
+    "from rs2.interpreter.RS2Interpreter import RS2Interpreter\n",
+    "import os\n",
+    "\n",
+    "RS2Interpreter.startApplication(port=60085)\n",
+    "current_dir = os.path.dirname(os.path.abspath(\"\")) \n",
+    "interpreter = RS2Interpreter(port=60085)\n",
+    "model = interpreter.openFile(rf\"{current_dir}\\example_models\\SupportResults.fez\")\n",
+    "\n",
+    "stages = [1, 2]\n",
+    "\n",
+    "results = model.GetBoltResults(stages)\n",
+    "\n",
+    "for stageNum, allBoltResults in results.items():\n",
+    "    print(f\"Stage {stageNum} Bolt Results\")\n",
+    "    for singleBoltResult in allBoltResults:\n",
+    "        boltID = singleBoltResult.entity_id\n",
+    "        start_x = singleBoltResult.start_x\n",
+    "        start_y = singleBoltResult.start_y\n",
+    "        end_x = singleBoltResult.end_x\n",
+    "        end_y = singleBoltResult.end_y\n",
+    "        print(f\"\\tBolt Unique ID = {boltID}, \\n\\tStart X-Coord = {start_x}, \\n\\tStart Y-Coord = {start_y}, End X-Coord = {end_x}, End Y-Coord = {end_y}\")\n",
+    "        yieldingResults = singleBoltResult.yielding_results\n",
+    "        print(\"\\tBolt Yielding Results:\")\n",
+    "        for boltYieldData in yieldingResults:\n",
+    "            start_x = boltYieldData.start_x\n",
+    "            start_y = boltYieldData.start_y\n",
+    "            end_x = boltYieldData.end_x\n",
+    "            end_y = boltYieldData.end_y\n",
+    "            yieldingStatus = boltYieldData.yielding_flag\n",
+    "            print(f\"\\t\\tYielded Start X-Coord = {start_x}, Yielded Start Y-Coord = {start_y}, Yielded End X-Coord = {end_x}, Yielded End Y-Coord = {end_y}\")\n",
+    "            print(f\"\\t\\tYielded Status = {yieldingStatus}\")\n",
+    "        print(\"\\tForce Displacement Results:\")\n",
+    "        forceDisplacementResults = singleBoltResult.force_displacement_results\n",
+    "        for dispResult in forceDisplacementResults:\n",
+    "            loc_x = dispResult.location_x\n",
+    "            loc_y = dispResult.location_y\n",
+    "            dist = dispResult.distance\n",
+    "            axial_force = dispResult.axial_force\n",
+    "            axial_stress = dispResult.axial_stress\n",
+    "            shear_force = dispResult.shear_force\n",
+    "            rock_disp = dispResult.rock_displacement\n",
+    "            bolt_disp = dispResult.bolt_displacement\n",
+    "            print(f\"\\t\\tLocation X = {loc_x}, Location Y = {loc_y}, Distance = {dist}, Axial Force = {axial_force}, Axial Stress = {axial_stress}\")\n",
+    "            print(f\"\\t\\tShear Force = {shear_force}, Rock Displacement = {rock_disp}, Bolt Displacement = {bolt_disp}\\n\")\n",
+    "\n",
+    "model.close()\n",
+    "\n",
+    "interpreter.closeProgram()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.0"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 7.82846,
+   "end_time": "2026-03-19T15:23:33.687801",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\results\\bolt_result_script_examples.ipynb",
+   "output_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\results\\bolt_result_script_examples.ipynb",
+   "parameters": {},
+   "start_time": "2026-03-19T15:23:25.859341",
+   "version": "2.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
