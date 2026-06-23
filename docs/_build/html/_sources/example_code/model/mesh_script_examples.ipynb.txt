@@ -1,0 +1,134 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "aececd27",
+   "metadata": {
+    "papermill": {
+     "duration": 0.001548,
+     "end_time": "2026-03-19T15:20:56.292708",
+     "exception": false,
+     "start_time": "2026-03-19T15:20:56.291160",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "(Get Mesh Results Example)=\n",
+    "# Mesh Script Examples"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8f03602b",
+   "metadata": {
+    "papermill": {
+     "duration": 0.001522,
+     "end_time": "2026-03-19T15:20:56.296137",
+     "exception": false,
+     "start_time": "2026-03-19T15:20:56.294615",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Download the [ExampleModel.fez](https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/ExampleModel.fez) for this example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "efd68734",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-03-19T15:20:56.301655Z",
+     "iopub.status.busy": "2026-03-19T15:20:56.301278Z",
+     "iopub.status.idle": "2026-03-19T15:21:55.426959Z",
+     "shell.execute_reply": "2026-03-19T15:21:55.425538Z"
+    },
+    "papermill": {
+     "duration": 59.130901,
+     "end_time": "2026-03-19T15:21:55.429021",
+     "exception": false,
+     "start_time": "2026-03-19T15:20:56.298120",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Vertex 0 : (x-coord, y-coord, result type value) = ((-0.994521895368273, -0.104528463267653, 65.95433333333332))\n"
+     ]
+    }
+   ],
+   "source": [
+    "from rs2.interpreter.RS2Interpreter import RS2Interpreter\n",
+    "from rs2.modeler.RS2Modeler import RS2Modeler\n",
+    "from rs2.interpreter.InterpreterEnums import *\n",
+    "import os\n",
+    "\n",
+    "current_dir = os.path.dirname(os.path.abspath(\"\")) \n",
+    "RS2Modeler.startApplication(port=60056)\n",
+    "modeler = RS2Modeler(port=60056)\n",
+    "RS2Interpreter.startApplication(port=60057)\n",
+    "interpreter = RS2Interpreter(port=60057)\n",
+    "\n",
+    "model = modeler.openFile(rf\"{current_dir}\\example_models\\ExampleModel.fez\")\n",
+    "model.compute()\n",
+    "\n",
+    "interpretModel = interpreter.openFile(rf\"{current_dir}\\example_models\\ExampleModel.fez\")\n",
+    "\n",
+    "interpretModel.SetResultType(ExportResultType.SOLID_EFFECTIVE_STRESS_EFFECTIVE_SIGMA_Z)\n",
+    "exportResult = interpretModel.GetMeshResults()\n",
+    "\n",
+    "# Extracting results for specific vertex index\n",
+    "x_coord = exportResult.getXCoordinate(0)\n",
+    "y_coord = exportResult.getYCoordinate(0)\n",
+    "value = exportResult.getValue(0)\n",
+    "\n",
+    "print(f\"Vertex 0 : (x-coord, y-coord, result type value) = ({x_coord, y_coord, value})\")\n",
+    "\n",
+    "model.close()\n",
+    "interpretModel.close()\n",
+    "modeler.closeProgram()\n",
+    "interpreter.closeProgram()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.0"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 63.762383,
+   "end_time": "2026-03-19T15:21:58.758063",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\model\\mesh_script_examples.ipynb",
+   "output_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\model\\mesh_script_examples.ipynb",
+   "parameters": {},
+   "start_time": "2026-03-19T15:20:54.995680",
+   "version": "2.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

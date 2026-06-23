@@ -1,0 +1,122 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "aececd27",
+   "metadata": {
+    "papermill": {
+     "duration": 0.002098,
+     "end_time": "2026-03-19T15:09:06.941825",
+     "exception": false,
+     "start_time": "2026-03-19T15:09:06.939727",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "(Material Joint Example)=\n",
+    "# Material Joint Script Examples"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8f03602b",
+   "metadata": {
+    "papermill": {
+     "duration": 0.001958,
+     "end_time": "2026-03-19T15:09:06.946145",
+     "exception": false,
+     "start_time": "2026-03-19T15:09:06.944187",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Download the [ExampleModel.fez](https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/ExampleModel.fez) for this example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "efd68734",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-03-19T15:09:06.950857Z",
+     "iopub.status.busy": "2026-03-19T15:09:06.950589Z",
+     "iopub.status.idle": "2026-03-19T15:09:18.217515Z",
+     "shell.execute_reply": "2026-03-19T15:09:18.216073Z"
+    },
+    "papermill": {
+     "duration": 11.270915,
+     "end_time": "2026-03-19T15:09:18.218892",
+     "exception": false,
+     "start_time": "2026-03-19T15:09:06.947977",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "from rs2.modeler.RS2Modeler import RS2Modeler\n",
+    "from rs2.modeler.properties.PropertyEnums import *\n",
+    "import os\n",
+    "\n",
+    "current_dir = os.path.dirname(os.path.abspath(\"\")) \n",
+    "RS2Modeler.startApplication(port=60068)\n",
+    "modeler = RS2Modeler(port=60068)\n",
+    "model = modeler.openFile(rf\"{current_dir}\\example_models\\ExampleModel.fez\")\n",
+    "\n",
+    "material = model.getAllMaterialProperties()[0]\n",
+    "\n",
+    "material.Strength.setFailureCriterion(StrengthCriteriaTypes.JOINTED_MOHR_COULOMB)\n",
+    "\n",
+    "jointOptions = material.Strength.JointedMohrCoulomb.getJointOptions()\n",
+    "\n",
+    "jointOptions.setNumberOfJoints(2)\n",
+    "jointOptions.setTracePlaneProperties(1, 20.1, 2.2, 3.4)\n",
+    "\n",
+    "joint = jointOptions.getJoint(1)\n",
+    "joint.setSlipCriterion(JointTypes.BARTON_BANDIS)\n",
+    "joint.BartonBandisMaterial.setDilationAngle(30)\n",
+    "joint.BartonBandisMaterial.setJCS(2.2)\n",
+    "\n",
+    "model.close()\n",
+    "\n",
+    "modeler.closeProgram()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "myenv",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.0"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 15.185218,
+   "end_time": "2026-03-19T15:09:20.864996",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\material\\material_joint_script_examples.ipynb",
+   "output_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\material\\material_joint_script_examples.ipynb",
+   "parameters": {},
+   "start_time": "2026-03-19T15:09:05.679778",
+   "version": "2.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

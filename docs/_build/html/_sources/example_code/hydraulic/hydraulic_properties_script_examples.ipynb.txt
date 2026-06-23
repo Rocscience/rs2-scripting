@@ -1,0 +1,180 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "aececd27",
+   "metadata": {
+    "papermill": {
+     "duration": 0.004131,
+     "end_time": "2026-03-19T15:08:01.836553",
+     "exception": false,
+     "start_time": "2026-03-19T15:08:01.832422",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "(hydraulic property example)=\n",
+    "# Hydraulic Properties Script Examples"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8f03602b",
+   "metadata": {
+    "papermill": {
+     "duration": 0.001184,
+     "end_time": "2026-03-19T15:08:01.839159",
+     "exception": false,
+     "start_time": "2026-03-19T15:08:01.837975",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Download the [StaticGroundwater.fez](https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/StaticGroundwater.fez)\n",
+    "and [FEAGroundwater.fez](https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/FEAGroundwater.fez) for this example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "efd68734",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-03-19T15:08:01.842694Z",
+     "iopub.status.busy": "2026-03-19T15:08:01.842419Z",
+     "iopub.status.idle": "2026-03-19T15:08:21.347186Z",
+     "shell.execute_reply": "2026-03-19T15:08:21.345164Z"
+    },
+    "papermill": {
+     "duration": 19.509024,
+     "end_time": "2026-03-19T15:08:21.349240",
+     "exception": false,
+     "start_time": "2026-03-19T15:08:01.840216",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Piezo To Use = None\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "Static Groundwater Properties\n",
+      "\n",
+      "Static Water Mode = StaticWaterModes.RU, RU Value = 4.0\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "\n",
+      "FEA Groundwater Properties\n",
+      "\n",
+      "K2/K1 = 2.0, K1 Definition = AnisotropyDefinitions.ANGLE, K1 Angle = 30.0\n",
+      "\n",
+      "Hydraulic Material Behaviour Stage Factor Value = MaterialBehaviours.UNDRAINED\n"
+     ]
+    }
+   ],
+   "source": [
+    "from rs2.modeler.RS2Modeler import RS2Modeler\n",
+    "from rs2.modeler.properties.PropertyEnums import *\n",
+    "import os\n",
+    "\n",
+    "current_dir = os.path.dirname(os.path.abspath(\"\")) \n",
+    "RS2Modeler.startApplication(port=60065)\n",
+    "modeler = RS2Modeler(port=60065)\n",
+    "staticGroundwaterModel = modeler.openFile(rf\"{current_dir}\\example_models\\StaticGroundwater.fez\")\n",
+    "FEAGroundwaterModel = modeler.openFile(rf\"{current_dir}\\example_models\\FEAGroundwater.fez\")\n",
+    "\n",
+    "material = staticGroundwaterModel.getAllMaterialProperties()[0]\n",
+    "hydraulic = material.Hydraulic\n",
+    "\n",
+    "hydraulic.setMaterialBehaviour(MaterialBehaviours.UNDRAINED)\n",
+    "hydraulic.setFluidBulkModulus(6)\n",
+    "hydraulic.setBiotsCoefficientCalculationMethod(eBiotCoefficients.BIOT_COEFFICIENT_AUTO)\n",
+    "\n",
+    "staticgroundwater = hydraulic.StaticGroundwater\n",
+    "staticgroundwater.setStaticWaterMode(StaticWaterModes.PIEZO)\n",
+    "staticgroundwater.setPiezoToUse(\"None\")\n",
+    "print(f\"Piezo To Use = {staticgroundwater.getPiezoToUse()}\")\n",
+    "staticgroundwater.setStaticWaterMode(StaticWaterModes.RU)\n",
+    "staticgroundwater.setRuValue(4)\n",
+    "\n",
+    "print(\"\\nStatic Groundwater Properties\\n\")\n",
+    "print(f\"Static Water Mode = {staticgroundwater.getStaticWaterMode()}, RU Value = {staticgroundwater.getRuValue()}\")\n",
+    "\n",
+    "material = FEAGroundwaterModel.getAllMaterialProperties()[0]\n",
+    "FEAGroundwater = hydraulic.FEAGroundwater\n",
+    "FEAGroundwater.setK2K1(2)\n",
+    "FEAGroundwater.setK1Definition(AnisotropyDefinitions.ANGLE)\n",
+    "FEAGroundwater.setK1Angle(30)\n",
+    "\n",
+    "print(\"\\nFEA Groundwater Properties\\n\")\n",
+    "print(f\"K2/K1 = {FEAGroundwater.getK2K1()}, K1 Definition = {FEAGroundwater.getK1Definition()}, K1 Angle = {FEAGroundwater.getK1Angle()}\\n\")\n",
+    "\n",
+    "# Manipulation of Hydraulic Stage Factor Properties for FEAGroundwater model for stage 2\n",
+    "# Make sure to stage Hydraulic Stage Factor option before manipulating any factor properties\n",
+    "material.StageFactors.setStageHydraulicStageFactor(True)\n",
+    "definedStageFactors = material.StageFactors.getDefinedStageFactors()\n",
+    "newStageFactor = material.StageFactors.createStageFactor(2)\n",
+    "definedStageFactors[2] = newStageFactor\n",
+    "material.StageFactors.setDefinedStageFactors(definedStageFactors)\n",
+    "hydraulicStageFactor = material.Hydraulic.stageFactorInterface.getDefinedStageFactors()[2]\n",
+    "\n",
+    "hydraulicStageFactor.setMaterialBehaviourFactor(MaterialBehaviours.UNDRAINED)\n",
+    "\n",
+    "print(f\"Hydraulic Material Behaviour Stage Factor Value = {hydraulicStageFactor.getMaterialBehaviourFactor()}\")\n",
+    "\n",
+    "staticGroundwaterModel.close()\n",
+    "FEAGroundwaterModel.close()\n",
+    "\n",
+    "modeler.closeProgram()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.0"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 21.624805,
+   "end_time": "2026-03-19T15:08:21.604097",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\hydraulic\\hydraulic_properties_script_examples.ipynb",
+   "output_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\hydraulic\\hydraulic_properties_script_examples.ipynb",
+   "parameters": {},
+   "start_time": "2026-03-19T15:07:59.979292",
+   "version": "2.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

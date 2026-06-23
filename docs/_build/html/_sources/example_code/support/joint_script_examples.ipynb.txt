@@ -1,0 +1,166 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "aececd27",
+   "metadata": {
+    "papermill": {
+     "duration": 0.001385,
+     "end_time": "2026-03-19T15:26:47.319808",
+     "exception": false,
+     "start_time": "2026-03-19T15:26:47.318423",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "(Joint Example)=\n",
+    "# Joint Script Examples"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8f03602b",
+   "metadata": {
+    "papermill": {
+     "duration": 0.001544,
+     "end_time": "2026-03-19T15:26:47.322759",
+     "exception": false,
+     "start_time": "2026-03-19T15:26:47.321215",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Download the [ExampleModel.fez](https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/ExampleModel.fez) for this example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "efd68734",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-03-19T15:26:47.328200Z",
+     "iopub.status.busy": "2026-03-19T15:26:47.327794Z",
+     "iopub.status.idle": "2026-03-19T15:27:07.197083Z",
+     "shell.execute_reply": "2026-03-19T15:27:07.195669Z"
+    },
+    "papermill": {
+     "duration": 19.874474,
+     "end_time": "2026-03-19T15:27:07.199135",
+     "exception": false,
+     "start_time": "2026-03-19T15:26:47.324661",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "50.0\n",
+      "150000.0\n",
+      "True\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'PeakCohesion': 155.0, 'PeakFriction': 26.8, 'ResCohesion': 76.0, 'ResFriction': 18.4, 'TensileStrength': 0.0, 'ResTensileStrength': 0.0, 'DeltaR': 0.1, 'InitialSlope': 20000.0, 'WorkSoftening': True, 'NormalStiffness': 100000.0, 'ShearStiffness': 15000.0, 'ApplyPorePressure': True, 'ApplyAdditionalPressureInsideJoint': False, 'AdditionalPressureType': <AdditionalPressureType.PRESSURE: 'JOINT_ADDITIONAL_PRESSURE_BY_VALUE'>, 'AdditionalPressureInsideJoint': 0.0, 'ApplyPressureToLinerSideOnly': False, 'ApplyStageFactors': True}\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "{'NormalStiffness': 100000.0, 'ShearStiffness': 10000.0, 'ApplyPorePressure': True, 'ApplyAdditionalPressureInsideJoint': False, 'AdditionalPressureType': <AdditionalPressureType.PRESSURE: 'JOINT_ADDITIONAL_PRESSURE_BY_VALUE'>, 'AdditionalPressureInsideJoint': 5.0, 'ApplyPressureToLinerSideOnly': False, 'ApplyStageFactors': False}\n",
+      "[[2.0, 8.0, 9.0, 12.0], [5.0, 6.0, 7.0, 8.0]]\n"
+     ]
+    }
+   ],
+   "source": [
+    "from rs2.modeler.RS2Modeler import RS2Modeler\n",
+    "from rs2.modeler.properties.PropertyEnums import *\n",
+    "import os\n",
+    "\n",
+    "current_dir = os.path.dirname(os.path.abspath(\"\")) \n",
+    "RS2Modeler.startApplication(port=60060)\n",
+    "modeler = RS2Modeler(port=60060)\n",
+    "\n",
+    "model = modeler.openFile(rf\"{current_dir}\\example_models\\ExampleModel.fez\")\n",
+    "\n",
+    "jointList = model.getAllJointProperties()\n",
+    "joint1 = jointList[0]\n",
+    "joint2 = jointList[1]\n",
+    "joint3 = jointList[2]\n",
+    "\n",
+    "joint1.setJointName(\"Example Joint 1\")\n",
+    "joint1.setSlipCriterion(JointTypes.MOHR_COULOMB)\n",
+    "joint1.MohrCoulomb.setTensileStrength(50)\n",
+    "joint1.MohrCoulomb.setNormalStiffness(150000)\n",
+    "joint1.MohrCoulomb.setApplyAdditionalPressureInsideJoint(True)\n",
+    "\n",
+    "print(joint1.MohrCoulomb.getTensileStrength())\n",
+    "print(joint1.MohrCoulomb.getNormalStiffness())\n",
+    "print(joint1.MohrCoulomb.getApplyAdditionalPressureInsideJoint())\n",
+    "\n",
+    "joint2.setJointName(\"Example Joint 2\")\n",
+    "joint2.setSlipCriterion(JointTypes.HYPERBOLIC_SOFTENING)\n",
+    "joint2.HyperbolicSoftening.setProperties(PeakCohesion=155, ShearStiffness=15000, ApplyPressureToLinerSideOnly=False)\n",
+    "\n",
+    "print(joint2.HyperbolicSoftening.getProperties())\n",
+    "\n",
+    "joint3.setJointName(\"Example Joint 3\")\n",
+    "joint3.setSlipCriterion(JointTypes.DISPLACEMENT_DEPENDENT)\n",
+    "joint3.DisplacementDependent.setProperties(AdditionalPressureType=AdditionalPressureType.PRESSURE, AdditionalPressureInsideJoint=5)\n",
+    "# Not all functions are accessible through the setProperties method. \n",
+    "# Consult setProperties method definition in documentation to determine properties available.\n",
+    "joint3.DisplacementDependent.setDisplacementDependentTable([[2,8,9,12],[5,6,7,8]])\n",
+    "\n",
+    "print(joint3.DisplacementDependent.getProperties())\n",
+    "# Not all functions are accessible through the getProperties method. \n",
+    "# Consult getProperties method definition in documentation to determine properties available.\n",
+    "print(joint3.DisplacementDependent.getDisplacementDependentTable())\n",
+    "\n",
+    "model.close()\n",
+    "modeler.closeProgram()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.0"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 21.55317,
+   "end_time": "2026-03-19T15:27:07.544460",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\support\\joint_script_examples.ipynb",
+   "output_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\support\\joint_script_examples.ipynb",
+   "parameters": {},
+   "start_time": "2026-03-19T15:26:45.991290",
+   "version": "2.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -1,0 +1,725 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="../../" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Liner Result Script Examples &#8212; RS2 Scripting Reference Manual  documentation</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  <!--
+    this give us a css class that will be invisible only if js is disabled
+  -->
+  <noscript>
+    <style>
+      .pst-js-only { display: none !important; }
+
+    </style>
+  </noscript>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="../../_static/styles/theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+<link href="../../_static/styles/pydata-sphinx-theme.css?digest=8878045cc6db502f8baf" rel="stylesheet" />
+
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
+    <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+  
+  <!-- So that users can add custom icons -->
+  <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf" />
+<link rel="preload" as="script" href="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf" />
+
+    <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+    <script src="../../_static/doctools.js?v=9a2dae69"></script>
+    <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="../../_static/copybutton.js?v=f281be69"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'example_code/results/liner_result_script_examples';</script>
+    <link rel="icon" href="../../_static/rocscience_favicon.png"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="Pile Result Script Examples" href="pile_result_script_examples.html" />
+    <link rel="prev" title="Joint Result Script Examples" href="joint_result_script_examples.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  <meta name="docsearch:version" content="" />
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <dialog id="pst-search-dialog">
+    
+<form class="bd-search d-flex align-items-center"
+      action="../../search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         placeholder="Search the docs ..."
+         aria-label="Search the docs ..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form>
+  </dialog>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+<div class="bd-header__inner bd-page-width">
+  <button class="pst-navbar-icon sidebar-toggle primary-toggle" aria-label="Site navigation">
+    <span class="fa-solid fa-bars"></span>
+  </button>
+  
+  
+  <div class="col-lg-3 navbar-header-items__start">
+    
+      <div class="navbar-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="../../index.html">
+  
+  
+  
+  
+  
+    
+    
+      
+    
+    
+    <img src="../../_static/rocscience-logo-primary.png" class="logo__image only-light" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+    <img src="../../_static/rocscience-logo-primary.png" class="logo__image only-dark pst-js-only" alt="RS2 Scripting Reference Manual  documentation - Home"/>
+  
+  
+</a></div>
+    
+  </div>
+  
+  <div class="col-lg-9 navbar-header-items">
+    
+    <div class="me-auto navbar-header-items__center">
+      
+        <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../generatedAPIDocFiles/rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+      
+    </div>
+    
+    
+    <div class="navbar-header-items__end">
+      
+        <div class="navbar-item navbar-persistent--container">
+          
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+        </div>
+      
+      
+        <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+      
+    </div>
+    
+  </div>
+  
+  
+    <div class="navbar-persistent--mobile">
+
+<button class="btn search-button-field search-button__button pst-js-only" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+ <i class="fa-solid fa-magnifying-glass"></i>
+ <span class="search-button__default-text">Search</span>
+ <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+</button>
+    </div>
+  
+
+  
+    <button class="pst-navbar-icon sidebar-toggle secondary-toggle" aria-label="On this page">
+      <span class="fa-solid fa-outdent"></span>
+    </button>
+  
+</div>
+
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <dialog id="pst-primary-sidebar-modal"></dialog>
+      <div id="pst-primary-sidebar" class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+      <div class="sidebar-header-items__center">
+        
+          
+          
+            <div class="navbar-item">
+<nav>
+  <ul class="bd-navbar-elements navbar-nav">
+    
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../generatedAPIDocFiles/rs2.html">
+    rs2 package
+  </a>
+</li>
+
+
+<li class="nav-item current active">
+  <a class="nav-link nav-internal" href="../../examples.html">
+    Python Script Examples
+  </a>
+</li>
+
+
+<li class="nav-item ">
+  <a class="nav-link nav-internal" href="../../webinars.html">
+    Webinar Recordings
+  </a>
+</li>
+
+  </ul>
+</nav></div>
+          
+        
+      </div>
+    
+    
+    
+      <div class="sidebar-header-items__end">
+        
+          <div class="navbar-item">
+
+<button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button pst-js-only" aria-label="Color mode" data-bs-title="Color mode"  data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <i class="theme-switch fa-solid fa-sun                fa-lg" data-mode="light" title="Light"></i>
+  <i class="theme-switch fa-solid fa-moon               fa-lg" data-mode="dark"  title="Dark"></i>
+  <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"  title="System Settings"></i>
+</button></div>
+        
+      </div>
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+<nav class="bd-docs-nav bd-links"
+     aria-label="Section Navigation">
+  <p class="bd-links__title" role="heading" aria-level="1">Section Navigation</p>
+  <div class="bd-toc-item navbar-nav"><ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../model/model_script_examples.html">Model Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/modeler_script_examples.html">Modeler Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/mesh_script_examples.html">Mesh Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/unit_script_examples.html">Unit Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/stage_factor_script_examples.html">Stage Factors Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/import_export_properties_script_examples.html">Import Export Properties Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../material/material_properties_script_examples.html">Material Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/material_initial_condition_stage_factor_script_examples.html">Material Initial Condition Stage Factor Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/material_stiffness_properties_script_examples.html">Material Stiffness Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/material_strength_properties_script_examples.html">Material Strength Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/material_datum_properties_script_examples.html">Material Properties Datum Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/material_thermal_properties_script_examples.html">Material Thermal Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/material_joint_script_examples.html">Material Joint Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../material/material_joint_stage_factor_script_examples.html">Material Joint Stage Factor Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydraulic_properties_script_examples.html">Hydraulic Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/static_groundwater_script_examples.html">Static Groundwater Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/fea_groundwater_script_examples.html">FEA Groundwater Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../hydraulic/hydraulic_distribution_functions_script_examples.html">Hydraulic Distribution Functions Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../support/bolt_script_examples.html">Bolt Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/joint_script_examples.html">Joint Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/liner_script_examples.html">Liner Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/pile_script_examples.html">Pile Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/structural_interface_script_examples.html">Structural Interface Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/composite_liner_script_examples.html">Composite Liner Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support/support_stage_factor_script_examples.html">Support Stage Factor Script Examples</a></li>
+</ul>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="history_query_script_example.html">History Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="time_query_script_example.html">Time Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="material_query_script_examples.html">Material Query Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="bolt_result_script_examples.html">Bolt Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="joint_result_script_examples.html">Joint Result Script Examples</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Liner Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="pile_result_script_examples.html">Pile Result Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="structural_interface_result_script_examples.html">Structural Interface Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="composite_liner_result_script_examples.html">Composite Result Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../support_functions/extract_log_file_script_examples.html">Extract Log File Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../support_functions/check_convergence_script_examples.html">Check Convergence Script Examples</a></li>
+</ul>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="../webinar/20240709_bolt_spacing_study.html">Bolt Spacing Study</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../webinar/20240709_slope_spatial_variability.html">Statistical Analysis of Slope with Spatial Variability</a></li>
+</ul>
+</div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+      <div class="sidebar-primary-item">
+<div id="ethical-ad-placement"
+      class="flat"
+      data-ea-publisher="readthedocs"
+      data-ea-type="readthedocs-sidebar"
+      data-ea-manual="true">
+</div></div>
+  </div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item">
+
+<nav aria-label="Breadcrumb" class="d-print-none">
+  <ul class="bd-breadcrumbs">
+    
+    <li class="breadcrumb-item breadcrumb-home">
+      <a href="../../index.html" class="nav-link" aria-label="Home">
+        <i class="fa-solid fa-home"></i>
+      </a>
+    </li>
+    
+    <li class="breadcrumb-item"><a href="../../examples.html" class="nav-link">Python Script Examples</a></li>
+    
+    <li class="breadcrumb-item active" aria-current="page"><span class="ellipsis">Liner Result Script Examples</span></li>
+  </ul>
+</nav>
+</div>
+      
+    </div>
+  
+  
+</div>
+</div>
+              
+              
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section id="liner-result-script-examples">
+<span id="support-liner-results-example"></span><h1>Liner Result Script Examples<a class="headerlink" href="#liner-result-script-examples" title="Link to this heading">#</a></h1>
+<p>Download the <a class="reference external" href="https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/SupportResults.fez">SupportResults.fez</a> for this example.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.interpreter.RS2Interpreter</span> <span class="kn">import</span> <span class="n">RS2Interpreter</span>
+<span class="kn">import</span> <span class="nn">os</span>
+
+<span class="n">RS2Interpreter</span><span class="o">.</span><span class="n">startApplication</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60088</span><span class="p">)</span>
+<span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">))</span> 
+<span class="n">interpreter</span> <span class="o">=</span> <span class="n">RS2Interpreter</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60088</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">interpreter</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\SupportResults.fez&quot;</span><span class="p">)</span>
+
+<span class="n">stages</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span>
+
+<span class="n">results</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">GetLinerResults</span><span class="p">(</span><span class="n">stages</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">stageNum</span><span class="p">,</span> <span class="n">allLinerResults</span> <span class="ow">in</span> <span class="n">results</span><span class="o">.</span><span class="n">items</span><span class="p">():</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Stage </span><span class="si">{</span><span class="n">stageNum</span><span class="si">}</span><span class="s2"> Liner Results</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">singleLinerResult</span> <span class="ow">in</span> <span class="n">allLinerResults</span><span class="p">:</span>
+        <span class="n">linerID</span> <span class="o">=</span> <span class="n">singleLinerResult</span><span class="o">.</span><span class="n">entity_id</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Liner Unique ID = </span><span class="si">{</span><span class="n">linerID</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">liner_element_results</span> <span class="o">=</span> <span class="n">singleLinerResult</span><span class="o">.</span><span class="n">liner_element_results</span>
+        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Liner Element Results:</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">linerResult</span> <span class="ow">in</span> <span class="n">liner_element_results</span><span class="p">:</span>
+            <span class="n">composite_layer</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">composite_layer</span>
+            <span class="n">node_start</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">node_start</span>
+            <span class="n">node_end</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">node_end</span>
+            <span class="n">start_x</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">start_x</span>
+            <span class="n">start_y</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">start_y</span>
+            <span class="n">end_x</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">end_x</span>
+            <span class="n">end_y</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">end_y</span>
+            <span class="n">distance</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">distance</span>
+            <span class="n">axial_force1</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axial_force1</span>
+            <span class="n">axial_force_mid</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axial_force_mid</span>
+            <span class="n">axial_force2</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axial_force2</span>
+            <span class="n">moment1</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">moment1</span>
+            <span class="n">moment_mid</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">moment_mid</span>
+            <span class="n">moment2</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">moment2</span>
+            <span class="n">shear_force1</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">shear_force1</span>
+            <span class="n">shear_force_mid</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">shear_force_mid</span>
+            <span class="n">shear_force2</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">shear_force2</span>
+            <span class="n">displacement_total1</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_total1</span>
+            <span class="n">displacement_total_mid</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_total_mid</span>
+            <span class="n">displacement_total2</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_total2</span>
+            <span class="n">displacement_x1</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_x1</span>
+            <span class="n">displacement_x_mid</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_x_mid</span>
+            <span class="n">displacement_x2</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_x2</span>
+            <span class="n">displacement_y1</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_y1</span>
+            <span class="n">displacement_y_mid</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_y_mid</span>
+            <span class="n">displacement_y2</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">displacement_y2</span>
+            <span class="n">axi_sym_force1</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axi_sym_force1</span>
+            <span class="n">axi_sym_force_mid</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axi_sym_force_mid</span>
+            <span class="n">axi_sym_force2</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axi_sym_force2</span>
+            <span class="n">axi_sym_moment1</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axi_sym_moment1</span>
+            <span class="n">axi_sym_moment_mid</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axi_sym_moment_mid</span>
+            <span class="n">axi_sym_moment2</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">axi_sym_moment2</span>
+            <span class="n">beam_yield</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">beam_yield</span>
+            <span class="n">temperature1</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">temperature1</span>
+            <span class="n">temperature_mid</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">temperature_mid</span>
+            <span class="n">temperature2</span> <span class="o">=</span> <span class="n">linerResult</span><span class="o">.</span><span class="n">temperature2</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Composite Layer = </span><span class="si">{</span><span class="n">composite_layer</span><span class="si">}</span><span class="s2">, Node Start = </span><span class="si">{</span><span class="n">node_start</span><span class="si">}</span><span class="s2">, Node End = </span><span class="si">{</span><span class="n">node_end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Start X-Coord = </span><span class="si">{</span><span class="n">start_x</span><span class="si">}</span><span class="s2">, Start Y-Coord = </span><span class="si">{</span><span class="n">start_y</span><span class="si">}</span><span class="s2">, End X-Coord = </span><span class="si">{</span><span class="n">end_x</span><span class="si">}</span><span class="s2">, End Y-Coord = </span><span class="si">{</span><span class="n">end_y</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Distance = </span><span class="si">{</span><span class="n">distance</span><span class="si">}</span><span class="s2">, Axial Force 1 = </span><span class="si">{</span><span class="n">axial_force1</span><span class="si">}</span><span class="s2">, Axial Force-Mid = </span><span class="si">{</span><span class="n">axial_force_mid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Axial Force 2 = </span><span class="si">{</span><span class="n">axial_force2</span><span class="si">}</span><span class="s2">, Moment 1 = </span><span class="si">{</span><span class="n">moment1</span><span class="si">}</span><span class="s2">, Moment-Mid = </span><span class="si">{</span><span class="n">moment_mid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Moment 2 = </span><span class="si">{</span><span class="n">moment2</span><span class="si">}</span><span class="s2">, Shear Force = </span><span class="si">{</span><span class="n">shear_force1</span><span class="si">}</span><span class="s2">, Shear Force-Mid = </span><span class="si">{</span><span class="n">shear_force_mid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Shear Force 2 = </span><span class="si">{</span><span class="n">shear_force2</span><span class="si">}</span><span class="s2">, Displacement Total 1 = </span><span class="si">{</span><span class="n">displacement_total1</span><span class="si">}</span><span class="s2">, Displacement Total - Mid = </span><span class="si">{</span><span class="n">displacement_total_mid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Displacement Total 2 = </span><span class="si">{</span><span class="n">displacement_total2</span><span class="si">}</span><span class="s2">, Displacement X 1 = </span><span class="si">{</span><span class="n">displacement_x1</span><span class="si">}</span><span class="s2">, Displacement X-Mid = </span><span class="si">{</span><span class="n">displacement_x_mid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Displacement X2 = </span><span class="si">{</span><span class="n">displacement_x2</span><span class="si">}</span><span class="s2">, Displacement Y1 = </span><span class="si">{</span><span class="n">displacement_y1</span><span class="si">}</span><span class="s2">, Displacement Y-Mid = </span><span class="si">{</span><span class="n">displacement_y_mid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Displacement Y2 = </span><span class="si">{</span><span class="n">displacement_y2</span><span class="si">}</span><span class="s2">, Axial Symmetry Force 1 = </span><span class="si">{</span><span class="n">axi_sym_force1</span><span class="si">}</span><span class="s2">, Axial Symmetry Force-Mid = </span><span class="si">{</span><span class="n">axi_sym_force_mid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Axial Symmetry Force2 = </span><span class="si">{</span><span class="n">axi_sym_force2</span><span class="si">}</span><span class="s2">, Axial Symmetry Moment 1 = </span><span class="si">{</span><span class="n">axi_sym_moment1</span><span class="si">}</span><span class="s2">, Axial Symmetry Moment-Mid = </span><span class="si">{</span><span class="n">axi_sym_moment_mid</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Axial Symmetry Moment2 = </span><span class="si">{</span><span class="n">axi_sym_moment2</span><span class="si">}</span><span class="s2">, Beam Yield = </span><span class="si">{</span><span class="n">beam_yield</span><span class="si">}</span><span class="s2">, Temperature 1 = </span><span class="si">{</span><span class="n">temperature1</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;</span><span class="se">\t</span><span class="s2">Temperature-Mid = </span><span class="si">{</span><span class="n">temperature_mid</span><span class="si">}</span><span class="s2">, Temperature 2 = </span><span class="si">{</span><span class="n">temperature2</span><span class="si">}</span><span class="se">\n</span><span class="s2">&quot;</span><span class="p">)</span>
+
+<span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">interpreter</span><span class="o">.</span><span class="n">closeProgram</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Stage 1 Liner Results
+
+	Liner Unique ID = External boundary0
+	Liner Element Results:
+
+	Composite Layer = 1, Node Start = 55, Node End = 56
+	Start X-Coord = 11.949843172111, Start Y-Coord = 16.8602900357032, End X-Coord = 7.66165679261041, End Y-Coord = 16.0080637205343
+	Distance = 2.186025624140804, Axial Force 1 = -21.786, Axial Force-Mid = -69.567
+	Axial Force 2 = -123.64999999999999, Moment 1 = -44.105, Moment-Mid = -125.36
+	Moment 2 = -200.89, Shear Force = -97.7, Shear Force-Mid = -37.172
+	Shear Force 2 = 23.356, Displacement Total 1 = 0.003946398950942492, Displacement Total - Mid = 0.004270172877062473
+	Displacement Total 2 = 0.00421677623309561, Displacement X 1 = -0.0024462, Displacement X-Mid = -0.0023542
+	Displacement X2 = -0.0023702, Displacement Y1 = -0.0030968, Displacement Y-Mid = -0.0035626
+	Displacement Y2 = -0.0034876, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+
+	Composite Layer = 1, Node Start = 56, Node End = 57
+	Start X-Coord = 7.66165679261041, Start Y-Coord = 16.0080637205343, End X-Coord = 3.37347041310981, End Y-Coord = 15.1558374053654
+	Distance = 6.558076872422411, Axial Force 1 = -123.64999999999999, Axial Force-Mid = -82.383
+	Axial Force 2 = -34.811, Moment 1 = -200.89, Moment-Mid = -113.91
+	Moment 2 = -32.647, Shear Force = -7.6313, Shear Force-Mid = 37.172
+	Shear Force 2 = 81.975, Displacement Total 1 = 0.00421677623309561, Displacement Total - Mid = 0.0037635805186019334
+	Displacement Total 2 = 0.0031993783021080826, Displacement X 1 = -0.0023702, Displacement X-Mid = -0.0025066
+	Displacement X2 = -0.0027354, Displacement Y1 = -0.0034876, Displacement Y-Mid = -0.0028074
+	Displacement Y2 = -0.0016594, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+
+	Composite Layer = 2, Node Start = 55, Node End = 56
+	Start X-Coord = 11.949843172111, Start Y-Coord = 16.8602900357032, End X-Coord = 7.66165679261041, End Y-Coord = 16.0080637205343
+	Distance = 2.186025624140804, Axial Force 1 = -21.786, Axial Force-Mid = -69.567
+	Axial Force 2 = -123.64999999999999, Moment 1 = -44.105, Moment-Mid = -125.36
+	Moment 2 = -200.89, Shear Force = -97.7, Shear Force-Mid = -37.172
+	Shear Force 2 = 23.356, Displacement Total 1 = 0.003946398950942492, Displacement Total - Mid = 0.004270172877062473
+	Displacement Total 2 = 0.00421677623309561, Displacement X 1 = -0.0024462, Displacement X-Mid = -0.0023542
+	Displacement X2 = -0.0023702, Displacement Y1 = -0.0030968, Displacement Y-Mid = -0.0035626
+	Displacement Y2 = -0.0034876, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+
+	Composite Layer = 2, Node Start = 56, Node End = 57
+	Start X-Coord = 7.66165679261041, Start Y-Coord = 16.0080637205343, End X-Coord = 3.37347041310981, End Y-Coord = 15.1558374053654
+	Distance = 6.558076872422411, Axial Force 1 = -123.64999999999999, Axial Force-Mid = -82.383
+	Axial Force 2 = -34.811, Moment 1 = -200.89, Moment-Mid = -113.91
+	Moment 2 = -32.647, Shear Force = -7.6313, Shear Force-Mid = 37.172
+	Shear Force 2 = 81.975, Displacement Total 1 = 0.00421677623309561, Displacement Total - Mid = 0.0037635805186019334
+	Displacement Total 2 = 0.0031993783021080826, Displacement X 1 = -0.0023702, Displacement X-Mid = -0.0025066
+	Displacement X2 = -0.0027354, Displacement Y1 = -0.0034876, Displacement Y-Mid = -0.0028074
+	Displacement Y2 = -0.0016594, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+
+	Composite Layer = 3, Node Start = 55, Node End = 56
+	Start X-Coord = 11.949843172111, Start Y-Coord = 16.8602900357032, End X-Coord = 7.66165679261041, End Y-Coord = 16.0080637205343
+	Distance = 2.186025624140804, Axial Force 1 = -0.01552, Axial Force-Mid = -0.089266
+	Axial Force 2 = -0.164665, Moment 1 = -9.5518, Moment-Mid = -82.658
+	Moment 2 = -153.865, Shear Force = -46.551, Shear Force-Mid = -33.442
+	Shear Force 2 = -20.334, Displacement Total 1 = 0.004102127103101511, Displacement Total - Mid = 0.004239848027936851
+	Displacement Total 2 = 0.004168850800880262, Displacement X 1 = -0.0024026, Displacement X-Mid = -0.0023639
+	Displacement X2 = -0.0023836, Displacement Y1 = -0.0033249, Displacement Y-Mid = -0.0035197
+	Displacement Y2 = -0.0034202, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+
+	Composite Layer = 3, Node Start = 56, Node End = 57
+	Start X-Coord = 7.66165679261041, Start Y-Coord = 16.0080637205343, End X-Coord = 3.37347041310981, End Y-Coord = 15.1558374053654
+	Distance = 6.558076872422411, Axial Force 1 = -0.164665, Axial Force-Mid = -0.092584
+	Axial Force 2 = -0.018849, Moment 1 = -153.865, Moment-Mid = -78.864
+	Moment 2 = -5.7581, Shear Force = 25.54, Shear Force-Mid = 33.442
+	Shear Force 2 = 41.345, Displacement Total 1 = 0.004168850800880262, Displacement Total - Mid = 0.0037437916942586434
+	Displacement Total 2 = 0.0032744505157354265, Displacement X 1 = -0.0023836, Displacement X-Mid = -0.0025116
+	Displacement X2 = -0.0026933, Displacement Y1 = -0.0034202, Displacement Y-Mid = -0.0027763
+	Displacement Y2 = -0.0018623, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+
+	Composite Layer = 4, Node Start = 55, Node End = 56
+	Start X-Coord = 11.949843172111, Start Y-Coord = 16.8602900357032, End X-Coord = 7.66165679261041, End Y-Coord = 16.0080637205343
+	Distance = 2.186025624140804, Axial Force 1 = -0.01552, Axial Force-Mid = -0.089266
+	Axial Force 2 = -0.164665, Moment 1 = -9.5518, Moment-Mid = -82.658
+	Moment 2 = -153.865, Shear Force = -46.551, Shear Force-Mid = -33.442
+	Shear Force 2 = -20.334, Displacement Total 1 = 0.004102127103101511, Displacement Total - Mid = 0.004239848027936851
+	Displacement Total 2 = 0.004168850800880262, Displacement X 1 = -0.0024026, Displacement X-Mid = -0.0023639
+	Displacement X2 = -0.0023836, Displacement Y1 = -0.0033249, Displacement Y-Mid = -0.0035197
+	Displacement Y2 = -0.0034202, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+
+	Composite Layer = 4, Node Start = 56, Node End = 57
+	Start X-Coord = 7.66165679261041, Start Y-Coord = 16.0080637205343, End X-Coord = 3.37347041310981, End Y-Coord = 15.1558374053654
+	Distance = 6.558076872422411, Axial Force 1 = -0.164665, Axial Force-Mid = -0.092584
+	Axial Force 2 = -0.018849, Moment 1 = -153.865, Moment-Mid = -78.864
+	Moment 2 = -5.7581, Shear Force = 25.54, Shear Force-Mid = 33.442
+	Shear Force 2 = 41.345, Displacement Total 1 = 0.004168850800880262, Displacement Total - Mid = 0.0037437916942586434
+	Displacement Total 2 = 0.0032744505157354265, Displacement X 1 = -0.0023836, Displacement X-Mid = -0.0025116
+	Displacement X2 = -0.0026933, Displacement Y1 = -0.0034202, Displacement Y-Mid = -0.0027763
+	Displacement Y2 = -0.0018623, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = -18.0
+	Temperature-Mid = -18.0, Temperature 2 = -18.0
+
+	Liner Unique ID = Pile0
+	Liner Element Results:
+
+	Composite Layer = 2147483647, Node Start = 18, Node End = 6
+	Start X-Coord = 9.00086957359009, Start Y-Coord = 11.5846033227529, End X-Coord = 9.00086957359009, End Y-Coord = 7.79916982912479
+	Distance = 1.8927167468140547, Axial Force 1 = 4.7223, Axial Force-Mid = 4.1487
+	Axial Force 2 = 3.5751, Moment 1 = 2.2078, Moment-Mid = 2.2078
+	Moment 2 = 2.2078, Shear Force = -3.4994, Shear Force-Mid = -6.8834e-15
+	Shear Force 2 = 3.4994, Displacement Total 1 = 0.0005066427731646825, Displacement Total - Mid = 0.0004672696088983318
+	Displacement Total 2 = 0.00043808455422326867, Displacement X 1 = 0.00027064, Displacement X-Mid = 0.00018693
+	Displacement X2 = 9.2443e-05, Displacement Y1 = -0.0004283, Displacement Y-Mid = -0.00042825
+	Displacement Y2 = -0.00042822, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = 0.0
+	Temperature-Mid = 0.0, Temperature 2 = 0.0
+
+Stage 2 Liner Results
+
+	Liner Unique ID = Pile0
+	Liner Element Results:
+
+	Composite Layer = 2147483647, Node Start = 18, Node End = 6
+	Start X-Coord = 9.00086957359009, Start Y-Coord = 11.5846033227529, End X-Coord = 9.00086957359009, End Y-Coord = 7.79916982912479
+	Distance = 1.8927167468140547, Axial Force 1 = -2.4216, Axial Force-Mid = -2.8941
+	Axial Force 2 = -3.3667, Moment 1 = 1.6646, Moment-Mid = 1.6646
+	Moment 2 = 1.6646, Shear Force = -2.6384, Shear Force-Mid = -4.996e-15
+	Shear Force 2 = 2.6384, Displacement Total 1 = 0.0005836992266932003, Displacement Total - Mid = 0.0005845855236866545
+	Displacement Total 2 = 0.000587707600938596, Displacement X 1 = -9.6168e-06, Displacement X-Mid = 3.4102e-05
+	Displacement X2 = 6.9699e-05, Displacement Y1 = 0.00058362, Displacement Y-Mid = 0.00058359
+	Displacement Y2 = 0.00058356, Axial Symmetry Force 1 = None, Axial Symmetry Force-Mid = None
+	Axial Symmetry Force2 = None, Axial Symmetry Moment 1 = None, Axial Symmetry Moment-Mid = None
+	Axial Symmetry Moment2 = None, Beam Yield = False, Temperature 1 = 0.0
+	Temperature-Mid = 0.0, Temperature 2 = 0.0
+</pre></div>
+</div>
+</div>
+</div>
+<div class="alert alert-block alert-info">
+<b>Tip:</b> Since the element type for the model is 3-noded triangular, liner results are outputted at two nodes per liner element: start node and end node. If the model uses quadratic element type, liner result are outputted at three nodes per element. See the <a href="https://www.rocscience.com/help/rs2/documentation/rs2-interpret/liner-results/liner-results-overview"> Liner Results Overview </a> topic for more information.
+</div></section>
+
+
+                </article>
+              
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="joint_result_script_examples.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Joint Result Script Examples</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="pile_result_script_examples.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Pile Result Script Examples</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <dialog id="pst-secondary-sidebar-modal"></dialog>
+                <div id="pst-secondary-sidebar" class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/example_code/results/liner_result_script_examples.ipynb.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+          </footer>
+        
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script defer src="../../_static/scripts/bootstrap.js?digest=8878045cc6db502f8baf"></script>
+<script defer src="../../_static/scripts/pydata-sphinx-theme.js?digest=8878045cc6db502f8baf"></script>
+
+  <footer class="bd-footer">
+<div class="bd-footer__inner bd-page-width">
+  
+    <div class="footer-items__start">
+      
+        <div class="footer-item">
+
+  <p class="copyright">
+    
+      © Copyright 2026, Rocscience Inc..
+      <br/>
+    
+  </p>
+</div>
+      
+        <div class="footer-item">
+
+  <p class="sphinx-version">
+    Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 8.0.2.
+    <br/>
+  </p>
+</div>
+      
+    </div>
+  
+  
+  
+    <div class="footer-items__end">
+      
+        <div class="footer-item">
+<p class="theme-version">
+  <!-- # L10n: Setting the PST URL as an argument as this does not need to be localized -->
+  Built with the <a href="https://pydata-sphinx-theme.readthedocs.io/en/stable/index.html">PyData Sphinx Theme</a> 0.16.1.
+</p></div>
+      
+    </div>
+  
+</div>
+
+  </footer>
+  </body>
+</html>

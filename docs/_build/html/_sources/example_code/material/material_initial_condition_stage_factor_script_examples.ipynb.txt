@@ -1,0 +1,136 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "aececd27",
+   "metadata": {
+    "papermill": {
+     "duration": 0.004729,
+     "end_time": "2026-03-19T15:08:54.865356",
+     "exception": false,
+     "start_time": "2026-03-19T15:08:54.860627",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "(Initial Condition Stage Factor Example)=\n",
+    "# Material Initial Condition Stage Factor Script Examples"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "8f03602b",
+   "metadata": {
+    "papermill": {
+     "duration": 0.001308,
+     "end_time": "2026-03-19T15:08:54.868728",
+     "exception": false,
+     "start_time": "2026-03-19T15:08:54.867420",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Download the [ExampleModel.fez](https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/ExampleModel.fez) for this example."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "efd68734",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-03-19T15:08:54.873037Z",
+     "iopub.status.busy": "2026-03-19T15:08:54.872774Z",
+     "iopub.status.idle": "2026-03-19T15:09:05.440884Z",
+     "shell.execute_reply": "2026-03-19T15:09:05.439412Z"
+    },
+    "papermill": {
+     "duration": 10.572094,
+     "end_time": "2026-03-19T15:09:05.442169",
+     "exception": false,
+     "start_time": "2026-03-19T15:08:54.870075",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Unit Weight Factor = 3.0, Porosity Value Factor = 5.0\n"
+     ]
+    }
+   ],
+   "source": [
+    "from rs2.modeler.RS2Modeler import RS2Modeler\n",
+    "from rs2.modeler.properties.PropertyEnums import *\n",
+    "import os\n",
+    "\n",
+    "current_dir = os.path.dirname(os.path.abspath(\"\")) \n",
+    "\n",
+    "RS2Modeler.startApplication(port=60075)\n",
+    "modeler = RS2Modeler(port=60075)\n",
+    "model = modeler.openFile(rf\"{current_dir}\\example_models\\ExampleModel.fez\")\n",
+    "\n",
+    "material = model.getAllMaterialProperties()[0]\n",
+    "\n",
+    "# Make sure your material stiffness type isn't Custom before changing factor values\n",
+    "material.Stiffness.setElasticType(MaterialElasticityTypes.ISOTROPIC)\n",
+    "# Make sure to stage Strength and Stiffness Stage Factor option before manipulating any factor properties\n",
+    "material.StageFactors.setStageStrengthStiffnessStageFactors(True)\n",
+    "\n",
+    "definedStageFactors = material.StageFactors.getDefinedStageFactors()\n",
+    "newStageFactor = material.StageFactors.createStageFactor(2)\n",
+    "definedStageFactors[2] = newStageFactor\n",
+    "material.StageFactors.setDefinedStageFactors(definedStageFactors)\n",
+    "\n",
+    "initialConditionStage2Factor = material.InitialConditions.stageFactorInterface.getDefinedStageFactors()[2]\n",
+    "\n",
+    "initialConditionStage2Factor.setUnitWeightFactor(3)\n",
+    "initialConditionStage2Factor.setPorosityValueFactor(5)\n",
+    "\n",
+    "print(f\"Unit Weight Factor = {initialConditionStage2Factor.getUnitWeightFactor()}, Porosity Value Factor = {initialConditionStage2Factor.getPorosityValueFactor()}\")\n",
+    "\n",
+    "model.close()\n",
+    "\n",
+    "modeler.closeProgram()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.0"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 12.107851,
+   "end_time": "2026-03-19T15:09:05.676173",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\material\\material_initial_condition_stage_factor_script_examples.ipynb",
+   "output_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\material\\material_initial_condition_stage_factor_script_examples.ipynb",
+   "parameters": {},
+   "start_time": "2026-03-19T15:08:53.568322",
+   "version": "2.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
