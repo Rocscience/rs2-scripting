@@ -5,10 +5,10 @@
    "id": "aececd27",
    "metadata": {
     "papermill": {
-     "duration": 0.002168,
-     "end_time": "2026-03-19T15:22:00.068274",
+     "duration": 0.000804,
+     "end_time": "2026-07-17T16:01:29.698867",
      "exception": false,
-     "start_time": "2026-03-19T15:22:00.066106",
+     "start_time": "2026-07-17T16:01:29.698063",
      "status": "completed"
     },
     "tags": []
@@ -23,10 +23,10 @@
    "id": "8f03602b",
    "metadata": {
     "papermill": {
-     "duration": 0.001296,
-     "end_time": "2026-03-19T15:22:00.071370",
+     "duration": 0.000584,
+     "end_time": "2026-07-17T16:01:29.700291",
      "exception": false,
-     "start_time": "2026-03-19T15:22:00.070074",
+     "start_time": "2026-07-17T16:01:29.699707",
      "status": "completed"
     },
     "tags": []
@@ -41,16 +41,16 @@
    "id": "efd68734",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2026-03-19T15:22:00.076092Z",
-     "iopub.status.busy": "2026-03-19T15:22:00.075773Z",
-     "iopub.status.idle": "2026-03-19T15:22:10.128570Z",
-     "shell.execute_reply": "2026-03-19T15:22:10.126002Z"
+     "iopub.execute_input": "2026-07-17T16:01:29.702483Z",
+     "iopub.status.busy": "2026-07-17T16:01:29.702322Z",
+     "iopub.status.idle": "2026-07-17T16:01:33.499972Z",
+     "shell.execute_reply": "2026-07-17T16:01:33.499177Z"
     },
     "papermill": {
-     "duration": 10.058325,
-     "end_time": "2026-03-19T15:22:10.131113",
+     "duration": 3.799755,
+     "end_time": "2026-07-17T16:01:33.500574",
      "exception": false,
-     "start_time": "2026-03-19T15:22:00.072788",
+     "start_time": "2026-07-17T16:01:29.700819",
      "status": "completed"
     },
     "tags": []
@@ -87,18 +87,18 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.13.0"
+   "version": "3.13.2"
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 11.716656,
-   "end_time": "2026-03-19T15:22:10.479780",
+   "duration": 4.785469,
+   "end_time": "2026-07-17T16:01:33.736424",
    "environment_variables": {},
    "exception": null,
-   "input_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\model\\modeler_script_examples.ipynb",
-   "output_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\model\\modeler_script_examples.ipynb",
+   "input_path": "D:\\WORK_CPP\\RS2_Python_ClientLibrary\\docs\\example_code\\model\\modeler_script_examples.ipynb",
+   "output_path": "D:\\WORK_CPP\\RS2_Python_ClientLibrary\\docs\\example_code\\model\\modeler_script_examples.ipynb",
    "parameters": {},
-   "start_time": "2026-03-19T15:21:58.763124",
+   "start_time": "2026-07-17T16:01:28.950955",
    "version": "2.6.0"
   }
  },

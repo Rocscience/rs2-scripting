@@ -1,0 +1,188 @@
+{
+ "cells": [
+  {
+   "cell_type": "markdown",
+   "id": "38962141",
+   "metadata": {
+    "papermill": {
+     "duration": 0.000816,
+     "end_time": "2026-07-17T16:02:49.638810",
+     "exception": false,
+     "start_time": "2026-07-17T16:02:49.637994",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "(Restraints Example)=\n",
+    "# Restraints Script Examples"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "d9e094d0",
+   "metadata": {
+    "papermill": {
+     "duration": 0.000745,
+     "end_time": "2026-07-17T16:02:49.640306",
+     "exception": false,
+     "start_time": "2026-07-17T16:02:49.639561",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "Download the [ExampleAutoRestraint.fez](https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/ExampleAutoRestraint.fez) for this example."
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "id": "a5567db8",
+   "metadata": {
+    "papermill": {
+     "duration": 0.000535,
+     "end_time": "2026-07-17T16:02:49.641486",
+     "exception": false,
+     "start_time": "2026-07-17T16:02:49.640951",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "source": [
+    "The `Restraints` class is accessed via `model.getRestraintsProperty()` and provides the following functions:\n",
+    "\n",
+    "- **`setResetAllDisplacementsByIndices(resetDisplacementsAfterStages, stageIndices)`** — Enable or disable reset all displacements and define stage indices (1-based).\n",
+    "- **`getResetAllDisplacementsByIndices()`** — Returns a tuple of `(bool, list[int])` indicating whether reset is enabled and which stage indices are selected.\n",
+    "- **`setResetAllDisplacementsByNames(resetDisplacementsAfterStages, stageNames)`** — Same as above but using stage names instead of indices.\n",
+    "- **`getResetAllDisplacementsByNames()`** — Returns a tuple of `(bool, list[str])`.\n",
+    "- **`setAutoRestraints(autoRestraintType)`** — Applies one of the automatic boundary restraint modes: `UNDERGROUND`, `SURFACE_PINS`, or `SURFACE_ROLLERS`."
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "fa43bcc1",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-07-17T16:02:49.643697Z",
+     "iopub.status.busy": "2026-07-17T16:02:49.643500Z",
+     "iopub.status.idle": "2026-07-17T16:02:53.889941Z",
+     "shell.execute_reply": "2026-07-17T16:02:53.889226Z"
+    },
+    "papermill": {
+     "duration": 4.248373,
+     "end_time": "2026-07-17T16:02:53.890525",
+     "exception": false,
+     "start_time": "2026-07-17T16:02:49.642152",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Reset by indices — Enabled: True, Stages: [1, 2]\n",
+      "Reset by names   — Enabled: True, Names: ['Stage 1', 'Stage 2']\n",
+      "Verify by index  — Enabled: True, Stages: [1, 2]\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "After disable    — Enabled: False, Stages: []\n",
+      "\n",
+      "Applied auto restraint: UNDERGROUND\n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Applied auto restraint: SURFACE_PINS\n",
+      "Applied auto restraint: SURFACE_ROLLERS\n"
+     ]
+    }
+   ],
+   "source": [
+    "from rs2.modeler.RS2Modeler import RS2Modeler\n",
+    "from rs2.modeler.properties.PropertyEnums import AutoRestraintsType\n",
+    "import os\n",
+    "\n",
+    "current_dir = os.path.dirname(os.path.abspath(\"\"))\n",
+    "RS2Modeler.startApplication(port=60096)\n",
+    "modeler = RS2Modeler(port=60096)\n",
+    "model = modeler.openFile(rf\"{current_dir}\\example_models\\ExampleAutoRestraint.fez\")\n",
+    "\n",
+    "restraints = model.getRestraintsProperty()\n",
+    "\n",
+    "# Reset All Displacements by stage indices (1-based)\n",
+    "restraints.setResetAllDisplacementsByIndices(True, [1, 2])\n",
+    "is_enabled, indices = restraints.getResetAllDisplacementsByIndices()\n",
+    "print(f\"Reset by indices — Enabled: {is_enabled}, Stages: {indices}\")\n",
+    "\n",
+    "# Reset All Displacements by stage names\n",
+    "restraints.setResetAllDisplacementsByNames(True, [\"Stage 1\", \"Stage 2\"])\n",
+    "is_enabled, names = restraints.getResetAllDisplacementsByNames()\n",
+    "print(f\"Reset by names   — Enabled: {is_enabled}, Names: {names}\")\n",
+    "\n",
+    "# Verify the same configuration via the index getter\n",
+    "is_enabled, indices = restraints.getResetAllDisplacementsByIndices()\n",
+    "print(f\"Verify by index  — Enabled: {is_enabled}, Stages: {indices}\")\n",
+    "\n",
+    "# Disable reset displacements by passing False\n",
+    "restraints.setResetAllDisplacementsByIndices(False, [])\n",
+    "is_enabled, indices = restraints.getResetAllDisplacementsByIndices()\n",
+    "print(f\"After disable    — Enabled: {is_enabled}, Stages: {indices}\")\n",
+    "\n",
+    "# Apply automatic boundary restraints\n",
+    "restraints.setAutoRestraints(AutoRestraintsType.UNDERGROUND)\n",
+    "print(\"\\nApplied auto restraint: UNDERGROUND\")\n",
+    "\n",
+    "restraints.setAutoRestraints(AutoRestraintsType.SURFACE_PINS)\n",
+    "print(\"Applied auto restraint: SURFACE_PINS\")\n",
+    "\n",
+    "restraints.setAutoRestraints(AutoRestraintsType.SURFACE_ROLLERS)\n",
+    "print(\"Applied auto restraint: SURFACE_ROLLERS\")\n",
+    "\n",
+    "model.close()\n",
+    "modeler.closeProgram()"
+   ]
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3 (ipykernel)",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.13.2"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 5.13668,
+   "end_time": "2026-07-17T16:02:54.014239",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "D:\\WORK_CPP\\RS2_Python_ClientLibrary\\docs\\example_code\\model\\restraints_script_examples.ipynb",
+   "output_path": "D:\\WORK_CPP\\RS2_Python_ClientLibrary\\docs\\example_code\\model\\restraints_script_examples.ipynb",
+   "parameters": {},
+   "start_time": "2026-07-17T16:02:48.877559",
+   "version": "2.6.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}

@@ -5,10 +5,10 @@
    "id": "aececd27",
    "metadata": {
     "papermill": {
-     "duration": 0.00443,
-     "end_time": "2026-03-19T15:22:50.741497",
+     "duration": 0.000775,
+     "end_time": "2026-07-17T16:02:54.774211",
      "exception": false,
-     "start_time": "2026-03-19T15:22:50.737067",
+     "start_time": "2026-07-17T16:02:54.773436",
      "status": "completed"
     },
     "tags": []
@@ -23,10 +23,10 @@
    "id": "8f03602b",
    "metadata": {
     "papermill": {
-     "duration": 0.001006,
-     "end_time": "2026-03-19T15:22:50.743903",
+     "duration": 0.000554,
+     "end_time": "2026-07-17T16:02:54.775473",
      "exception": false,
-     "start_time": "2026-03-19T15:22:50.742897",
+     "start_time": "2026-07-17T16:02:54.774919",
      "status": "completed"
     },
     "tags": []
@@ -41,16 +41,16 @@
    "id": "efd68734",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2026-03-19T15:22:50.747438Z",
-     "iopub.status.busy": "2026-03-19T15:22:50.747163Z",
-     "iopub.status.idle": "2026-03-19T15:23:02.135337Z",
-     "shell.execute_reply": "2026-03-19T15:23:02.133825Z"
+     "iopub.execute_input": "2026-07-17T16:02:54.777413Z",
+     "iopub.status.busy": "2026-07-17T16:02:54.777215Z",
+     "iopub.status.idle": "2026-07-17T16:02:59.176528Z",
+     "shell.execute_reply": "2026-07-17T16:02:59.176040Z"
     },
     "papermill": {
-     "duration": 11.392197,
-     "end_time": "2026-03-19T15:23:02.137111",
+     "duration": 4.401015,
+     "end_time": "2026-07-17T16:02:59.176996",
      "exception": false,
-     "start_time": "2026-03-19T15:22:50.744914",
+     "start_time": "2026-07-17T16:02:54.775981",
      "status": "completed"
     },
     "tags": []
@@ -137,18 +137,18 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.13.0"
+   "version": "3.13.2"
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 16.195526,
-   "end_time": "2026-03-19T15:23:05.598226",
+   "duration": 5.285747,
+   "end_time": "2026-07-17T16:02:59.301914",
    "environment_variables": {},
    "exception": null,
-   "input_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\model\\stage_factor_script_examples.ipynb",
-   "output_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\model\\stage_factor_script_examples.ipynb",
+   "input_path": "D:\\WORK_CPP\\RS2_Python_ClientLibrary\\docs\\example_code\\model\\stage_factor_script_examples.ipynb",
+   "output_path": "D:\\WORK_CPP\\RS2_Python_ClientLibrary\\docs\\example_code\\model\\stage_factor_script_examples.ipynb",
    "parameters": {},
-   "start_time": "2026-03-19T15:22:49.402700",
+   "start_time": "2026-07-17T16:02:54.016167",
    "version": "2.6.0"
   }
  },

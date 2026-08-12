@@ -32,7 +32,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -282,6 +282,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../model/unit_script_examples.html">Unit Script Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model/stage_factor_script_examples.html">Stage Factors Script Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model/import_export_properties_script_examples.html">Import Export Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/restraints_script_examples.html">Restraints Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/export_image_script_examples.html">Export Image Script Examples</a></li>
 </ul>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../material/material_properties_script_examples.html">Material Properties Script Examples</a></li>
@@ -388,7 +390,7 @@
                   
   <section id="pile-script-examples">
 <span id="pile-example"></span><h1>Pile Script Examples<a class="headerlink" href="#pile-script-examples" title="Link to this heading">#</a></h1>
-<p>Download the <a class="reference external" href="https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/ExampleModel.fez">ExampleModel.fez</a> for this example.</p>
+<p>Download the <a class="reference external" href="https://github.com/Rocscience/rs2-scripting/blob/main/docs/example_code/example_models/ExampleModelPile.fez">ExampleModelPile.fez</a> for this example.</p>
 <div class="cell docutils container">
 <div class="cell_input docutils container">
 <div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">rs2.modeler.RS2Modeler</span> <span class="kn">import</span> <span class="n">RS2Modeler</span>
@@ -398,7 +400,7 @@
 <span class="n">current_dir</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">dirname</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">))</span> 
 <span class="n">RS2Modeler</span><span class="o">.</span><span class="n">startApplication</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60081</span><span class="p">)</span>
 <span class="n">modeler</span> <span class="o">=</span> <span class="n">RS2Modeler</span><span class="p">(</span><span class="n">port</span><span class="o">=</span><span class="mi">60081</span><span class="p">)</span>
-<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModel.fez&quot;</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">modeler</span><span class="o">.</span><span class="n">openFile</span><span class="p">(</span><span class="sa">rf</span><span class="s2">&quot;</span><span class="si">{</span><span class="n">current_dir</span><span class="si">}</span><span class="s2">\example_models\ExampleModelPile.fez&quot;</span><span class="p">)</span>
 
 <span class="n">pile</span> <span class="o">=</span> <span class="n">model</span><span class="o">.</span><span class="n">getAllPileProperties</span><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
 
@@ -425,12 +427,6 @@
 <span class="n">model</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
 
 <span class="n">modeler</span><span class="o">.</span><span class="n">closeProgram</span><span class="p">()</span>
-</pre></div>
-</div>
-</div>
-<div class="cell_output docutils container">
-<div class="output stderr highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>C:\Users\GraceHu\AppData\Local\Programs\Python\Python313\Lib\site-packages\rs2\_common\documentProxy.py:5: UserWarning: Resetting the mesh. The operation you requested requires the piles to be rebuilt and the mesh to be reset.
-  self._callFunction(&quot;rebuildAndPostProcessPiles&quot;, [])
 </pre></div>
 </div>
 </div>

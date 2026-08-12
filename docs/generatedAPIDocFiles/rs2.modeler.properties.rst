@@ -11,6 +11,7 @@ rs2.modeler.properties package
    rs2.modeler.properties.liner
    rs2.modeler.properties.material
    rs2.modeler.properties.pile
+   rs2.modeler.properties.restraints
 
 
 .. toctree::

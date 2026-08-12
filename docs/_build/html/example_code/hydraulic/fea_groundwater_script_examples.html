@@ -282,6 +282,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../model/unit_script_examples.html">Unit Script Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model/stage_factor_script_examples.html">Stage Factors Script Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model/import_export_properties_script_examples.html">Import Export Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/restraints_script_examples.html">Restraints Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/export_image_script_examples.html">Export Image Script Examples</a></li>
 </ul>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../material/material_properties_script_examples.html">Material Properties Script Examples</a></li>
@@ -405,7 +407,7 @@
 
 <span class="n">hydraulic</span><span class="o">.</span><span class="n">setMaterialBehaviour</span><span class="p">(</span><span class="n">MaterialBehaviours</span><span class="o">.</span><span class="n">UNDRAINED</span><span class="p">)</span>
 <span class="n">hydraulic</span><span class="o">.</span><span class="n">setFluidBulkModulus</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
-<span class="n">hydraulic</span><span class="o">.</span><span class="n">setBiotsCoefficientCalculationMethod</span><span class="p">(</span><span class="n">eBiotCoefficients</span><span class="o">.</span><span class="n">BIOT_COEFFICIENT_AUTO</span><span class="p">)</span>
+<span class="n">hydraulic</span><span class="o">.</span><span class="n">setBiotsCoefficientCalculationMethod</span><span class="p">(</span><span class="n">BiotCoefficients</span><span class="o">.</span><span class="n">BIOT_COEFFICIENT_AUTO</span><span class="p">)</span>
 
 <span class="n">FEAGroundwater</span> <span class="o">=</span> <span class="n">hydraulic</span><span class="o">.</span><span class="n">FEAGroundwater</span>
 <span class="n">FEAGroundwater</span><span class="o">.</span><span class="n">setK2K1</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
@@ -498,9 +500,7 @@
 <div class="cell_output docutils container">
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Fluid Bulk Modulus = 6.0, K2/K1 = 2.0, K1 Definition = AnisotropyDefinitions.ANGLE
 K1 Angle = 30.0, MV Model = MVModel.CONSTANT, Mv Value = 0.05
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Ks Value = 0.005, Water Content Sat = 0.15, Water Content Res = 0.5
+Ks Value = 0.005, Water Content Sat = 0.15, Water Content Res = 0.5
 Degree of Saturation Sat = 0.3, Degree of Staturation Res = 1.0
 </pre></div>
 </div>

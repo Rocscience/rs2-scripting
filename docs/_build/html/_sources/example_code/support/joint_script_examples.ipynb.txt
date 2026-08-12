@@ -5,10 +5,10 @@
    "id": "aececd27",
    "metadata": {
     "papermill": {
-     "duration": 0.001385,
-     "end_time": "2026-03-19T15:26:47.319808",
+     "duration": 0.000801,
+     "end_time": "2026-07-17T15:13:56.350376",
      "exception": false,
-     "start_time": "2026-03-19T15:26:47.318423",
+     "start_time": "2026-07-17T15:13:56.349575",
      "status": "completed"
     },
     "tags": []
@@ -23,10 +23,10 @@
    "id": "8f03602b",
    "metadata": {
     "papermill": {
-     "duration": 0.001544,
-     "end_time": "2026-03-19T15:26:47.322759",
+     "duration": 0.00055,
+     "end_time": "2026-07-17T15:13:56.351654",
      "exception": false,
-     "start_time": "2026-03-19T15:26:47.321215",
+     "start_time": "2026-07-17T15:13:56.351104",
      "status": "completed"
     },
     "tags": []
@@ -41,16 +41,16 @@
    "id": "efd68734",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2026-03-19T15:26:47.328200Z",
-     "iopub.status.busy": "2026-03-19T15:26:47.327794Z",
-     "iopub.status.idle": "2026-03-19T15:27:07.197083Z",
-     "shell.execute_reply": "2026-03-19T15:27:07.195669Z"
+     "iopub.execute_input": "2026-07-17T15:13:56.353524Z",
+     "iopub.status.busy": "2026-07-17T15:13:56.353374Z",
+     "iopub.status.idle": "2026-07-17T15:14:02.775227Z",
+     "shell.execute_reply": "2026-07-17T15:14:02.774695Z"
     },
     "papermill": {
-     "duration": 19.874474,
-     "end_time": "2026-03-19T15:27:07.199135",
+     "duration": 6.423527,
+     "end_time": "2026-07-17T15:14:02.775657",
      "exception": false,
-     "start_time": "2026-03-19T15:26:47.324661",
+     "start_time": "2026-07-17T15:13:56.352130",
      "status": "completed"
     },
     "tags": []
@@ -146,18 +146,18 @@
    "name": "python",
    "nbconvert_exporter": "python",
    "pygments_lexer": "ipython3",
-   "version": "3.13.0"
+   "version": "3.13.2"
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 21.55317,
-   "end_time": "2026-03-19T15:27:07.544460",
+   "duration": 7.310564,
+   "end_time": "2026-07-17T15:14:02.898489",
    "environment_variables": {},
    "exception": null,
-   "input_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\support\\joint_script_examples.ipynb",
-   "output_path": "C:\\Users\\GraceHu\\source\\repos\\RS2_Python_Client_Library\\docs\\example_code\\support\\joint_script_examples.ipynb",
+   "input_path": "D:\\WORK_CPP\\RS2_Python_ClientLibrary\\docs\\example_code\\support\\joint_script_examples.ipynb",
+   "output_path": "D:\\WORK_CPP\\RS2_Python_ClientLibrary\\docs\\example_code\\support\\joint_script_examples.ipynb",
    "parameters": {},
-   "start_time": "2026-03-19T15:26:45.991290",
+   "start_time": "2026-07-17T15:13:55.587925",
    "version": "2.6.0"
   }
  },

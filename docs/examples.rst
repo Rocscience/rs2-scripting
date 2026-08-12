@@ -14,6 +14,8 @@ Model
    example_code/model/unit_script_examples
    example_code/model/stage_factor_script_examples
    example_code/model/import_export_properties_script_examples
+   example_code/model/restraints_script_examples
+   example_code/model/export_image_script_examples
 
 
 

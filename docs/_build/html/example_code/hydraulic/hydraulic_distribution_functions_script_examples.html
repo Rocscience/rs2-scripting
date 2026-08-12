@@ -32,7 +32,7 @@
 
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=a746c00c" />
     <link rel="stylesheet" type="text/css" href="../../_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
   
   <!-- So that users can add custom icons -->
   <script src="../../_static/scripts/fontawesome.js?digest=8878045cc6db502f8baf"></script>
@@ -282,6 +282,8 @@
 <li class="toctree-l1"><a class="reference internal" href="../model/unit_script_examples.html">Unit Script Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model/stage_factor_script_examples.html">Stage Factors Script Examples</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../model/import_export_properties_script_examples.html">Import Export Properties Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/restraints_script_examples.html">Restraints Script Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../model/export_image_script_examples.html">Export Image Script Examples</a></li>
 </ul>
 <ul class="nav bd-sidenav">
 <li class="toctree-l1"><a class="reference internal" href="../material/material_properties_script_examples.html">Material Properties Script Examples</a></li>
@@ -433,9 +435,10 @@
 
 <span class="n">stage_1</span> <span class="o">=</span> <span class="mi">1</span>
 <span class="n">definedStageFactors</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">StageFactors</span><span class="o">.</span><span class="n">getDefinedStageFactors</span><span class="p">()</span>
-<span class="n">newStageFactor_1</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">StageFactors</span><span class="o">.</span><span class="n">createStageFactor</span><span class="p">(</span><span class="n">stage_1</span><span class="p">)</span>
-<span class="n">definedStageFactors</span><span class="p">[</span><span class="n">stage_1</span><span class="p">]</span> <span class="o">=</span> <span class="n">newStageFactor_1</span>
-<span class="n">material</span><span class="o">.</span><span class="n">StageFactors</span><span class="o">.</span><span class="n">setDefinedStageFactors</span><span class="p">(</span><span class="n">definedStageFactors</span><span class="p">)</span>
+
+<span class="k">if</span> <span class="n">stage_1</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">definedStageFactors</span><span class="p">:</span>
+    <span class="n">definedStageFactors</span><span class="p">[</span><span class="n">stage_1</span><span class="p">]</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">StageFactors</span><span class="o">.</span><span class="n">createStageFactor</span><span class="p">(</span><span class="n">stage_1</span><span class="p">)</span>
+    <span class="n">material</span><span class="o">.</span><span class="n">StageFactors</span><span class="o">.</span><span class="n">setDefinedStageFactors</span><span class="p">(</span><span class="n">definedStageFactors</span><span class="p">)</span>
 
 <span class="n">hydroDistributionGroundwaterStageFactor_1</span> <span class="o">=</span> <span class="n">material</span><span class="o">.</span><span class="n">Hydraulic</span><span class="o">.</span><span class="n">HydroDistribution</span><span class="o">.</span><span class="n">stageFactorInterface</span><span class="o">.</span><span class="n">getDefinedStageFactors</span><span class="p">()[</span><span class="n">stage_1</span><span class="p">]</span>
 <span class="n">hydroDistributionGroundwaterStageFactor_1</span><span class="o">.</span><span class="n">setHydroDistributionStagedFunction</span><span class="p">(</span><span class="n">variable_type</span><span class="p">,</span> <span class="n">distribution_type</span><span class="p">,</span> <span class="n">function_name_2</span><span class="p">)</span>
@@ -521,7 +524,7 @@ The stage hydraulic distribution function of HydraulicVariableTypes.KS_FUNCTION 
 Seepage Result Type = ExportResultType.SEEPAGE_HORIZONTAL_PERMEABILITY
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.2
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.2
@@ -530,17 +533,16 @@ X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1e-07
 Seepage Result Type = ExportResultType.SEEPAGE_VERTICAL_PERMEABILITY
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.2
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.2
 X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1e-07
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_PERM
+
+Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_PERM
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.2
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.2
@@ -549,77 +551,7 @@ X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1e-07
 Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_WC
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
-------------------------------------------------------------------------------
-X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.4
-X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.4
-X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 0.39999999999999997
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_WC_RES
-==============================================================================
-
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
-------------------------------------------------------------------------------
-X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.0
-X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.0
-X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 0.0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_CONDY
-==============================================================================
-
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
-------------------------------------------------------------------------------
-X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 1.0
-X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 1.0
-X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1.0
-
-Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_ANGLE
-==============================================================================
-
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
-------------------------------------------------------------------------------
-X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.0
-X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.0
-X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 0.0
-
-
-Stage 2 Results
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seepage Result Type = ExportResultType.SEEPAGE_HORIZONTAL_PERMEABILITY
-==============================================================================
-
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
-------------------------------------------------------------------------------
-X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.6
-X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.6
-X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1e-07
-
-Seepage Result Type = ExportResultType.SEEPAGE_VERTICAL_PERMEABILITY
-==============================================================================
-
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
-------------------------------------------------------------------------------
-X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.6
-X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.6
-X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1e-07
-
-Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_PERM
-==============================================================================
-
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
-------------------------------------------------------------------------------
-X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.6
-X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.6
-X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1e-07
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_WC
-==============================================================================
-
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.4
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.4
@@ -628,7 +560,7 @@ X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 0.399
 Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_WC_RES
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.0
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.0
@@ -637,7 +569,7 @@ X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 0.0
 Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_CONDY
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 1.0
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 1.0
@@ -646,29 +578,30 @@ X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1.0
 Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_ANGLE
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.0
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.0
 X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 0.0
 
 
-Stage 3 Results
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seepage Result Type = ExportResultType.SEEPAGE_HORIZONTAL_PERMEABILITY
+Stage 2 Results
+
+
+Seepage Result Type = ExportResultType.SEEPAGE_HORIZONTAL_PERMEABILITY
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.6
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.6
 X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1e-07
-
-Seepage Result Type = ExportResultType.SEEPAGE_VERTICAL_PERMEABILITY
+</pre></div>
+</div>
+<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seepage Result Type = ExportResultType.SEEPAGE_VERTICAL_PERMEABILITY
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.6
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.6
@@ -677,7 +610,7 @@ X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1e-07
 Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_PERM
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.6
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.6
@@ -686,7 +619,7 @@ X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1e-07
 Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_WC
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.4
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.4
@@ -695,17 +628,16 @@ X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 0.399
 Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_WC_RES
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.0
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.0
 X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 0.0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_CONDY
+
+Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_CONDY
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 1.0
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 1.0
@@ -714,7 +646,74 @@ X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1.0
 Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_ANGLE
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
+------------------------------------------------------------------------------
+X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.0
+X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.0
+X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 0.0
+
+
+Stage 3 Results
+
+
+Seepage Result Type = ExportResultType.SEEPAGE_HORIZONTAL_PERMEABILITY
+==============================================================================
+
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
+------------------------------------------------------------------------------
+X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.6
+X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.6
+X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1e-07
+
+Seepage Result Type = ExportResultType.SEEPAGE_VERTICAL_PERMEABILITY
+==============================================================================
+
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
+------------------------------------------------------------------------------
+X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.6
+X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.6
+X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1e-07
+
+Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_PERM
+==============================================================================
+
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
+------------------------------------------------------------------------------
+X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.6
+X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.6
+X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1e-07
+
+Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_WC
+==============================================================================
+
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
+------------------------------------------------------------------------------
+X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.4
+X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.4
+X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 0.39999999999999997
+
+Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_WC_RES
+==============================================================================
+
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
+------------------------------------------------------------------------------
+X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.0
+X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.0
+X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 0.0
+
+Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_CONDY
+==============================================================================
+
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
+------------------------------------------------------------------------------
+X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 1.0
+X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 1.0
+X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1.0
+
+Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_ANGLE
+==============================================================================
+
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.0
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.0
@@ -727,7 +726,7 @@ Stage 4 Results
 <div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seepage Result Type = ExportResultType.SEEPAGE_HORIZONTAL_PERMEABILITY
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.6
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.6
@@ -736,7 +735,7 @@ X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1e-07
 Seepage Result Type = ExportResultType.SEEPAGE_VERTICAL_PERMEABILITY
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.6
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.6
@@ -745,7 +744,7 @@ X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1e-07
 Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_PERM
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.6
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.6
@@ -754,17 +753,16 @@ X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1e-07
 Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_WC
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.4
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.4
 X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 0.39999999999999997
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_WC_RES
+
+Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_WC_RES
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.0
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.0
@@ -773,17 +771,16 @@ X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 0.0
 Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_CONDY
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 1.0
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 1.0
 X-Coord =3.0, Y-Coordinate = 2.0, Distance = 8.5, Result Type Node Value = 1.0
-</pre></div>
-</div>
-<div class="output stream highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_ANGLE
+
+Seepage Result Type = ExportResultType.SEEPAGE_SPATIAL_ANGLE
 ==============================================================================
 
-Query Unique ID = {4169D56D-6607-4a2c-8C48-B910EAECE202}, MaterialID = 1
+Query Unique ID = {CE5EF3BD-29D2-4fdb-9748-97E783096DF3}, MaterialID = 3
 ------------------------------------------------------------------------------
 X-Coord =-2.0, Y-Coordinate = -1.5, Distance = 0.0, Result Type Node Value = 0.0
 X-Coord =3.0, Y-Coordinate = -1.5, Distance = 5.0, Result Type Node Value = 0.0
